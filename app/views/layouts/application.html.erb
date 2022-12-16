@@ -3,6 +3,7 @@
   <head>
     <title>VhApi</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -12,5 +13,9 @@
 
   <body>
     <%= yield %>
+     <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCd7rrq1f7qe3Ph6nN3FtArXTaSMIkFUQY&callback=initMap&v=weekly"
+      defer
+    ></script>
   </body>
 </html>
