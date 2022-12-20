@@ -13,7 +13,31 @@
 
 <%= link_to "New place", new_place_path %>
 
- <h3>My Google Maps Demo</h3>
-    <!--The div element for the map -->
-    <div id="map" data-controller="map"
-      ></div>
+<h3>My Google Maps Demo</h3>
+<!--The div element for the map -->
+<div id="map" data-controller="map"></div>
+
+<script>
+// Initialize and add the map
+function initMap() {
+  // The location of Kadikoy
+  const kadikoy = { lat:  40.990335, lng: 29.029163 };
+  // The map, centered at Kadikoy
+  const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 14,
+    center: kadikoy,
+  });
+  // The marker, positioned at Kadikoy
+  const marker = new google.maps.Marker({
+    position: kadikoy,
+    map: map,
+  });
+}
+
+window.initMap = initMap;
+</script>
+
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCd7rrq1f7qe3Ph6nN3FtArXTaSMIkFUQY&callback=initMap&v=weekly"
+  defer
+></script>
