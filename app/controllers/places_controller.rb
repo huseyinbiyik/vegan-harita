@@ -1,5 +1,5 @@
 class PlacesController < ApplicationController
-  before_action :set_place, only: %i[ show edit update destroy ]
+  before_action :set_place, only: %i[show edit update destroy]
 
   # GET /places or /places.json
   def index
@@ -7,8 +7,7 @@ class PlacesController < ApplicationController
   end
 
   # GET /places/1 or /places/1.json
-  def show
-  end
+  def show; end
 
   # GET /places/new
   def new
@@ -16,8 +15,7 @@ class PlacesController < ApplicationController
   end
 
   # GET /places/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /places or /places.json
   def create
@@ -25,7 +23,7 @@ class PlacesController < ApplicationController
 
     respond_to do |format|
       if @place.save
-        format.html { redirect_to place_url(@place), notice: "Place was successfully created." }
+        format.html { redirect_to place_url(@place), notice: 'Place was successfully created.' }
         format.json { render :show, status: :created, location: @place }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +36,7 @@ class PlacesController < ApplicationController
   def update
     respond_to do |format|
       if @place.update(place_params)
-        format.html { redirect_to place_url(@place), notice: "Place was successfully updated." }
+        format.html { redirect_to place_url(@place), notice: 'Place was successfully updated.' }
         format.json { render :show, status: :ok, location: @place }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,19 +50,20 @@ class PlacesController < ApplicationController
     @place.destroy
 
     respond_to do |format|
-      format.html { redirect_to places_url, notice: "Place was successfully destroyed." }
+      format.html { redirect_to places_url, notice: 'Place was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_place
-      @place = Place.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def place_params
-      params.require(:place).permit(:name)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_place
+    @place = Place.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def place_params
+    params.require(:place).permit(:name, :address, :latitude, :longitude)
+  end
 end

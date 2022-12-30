@@ -89,6 +89,12 @@ export default class extends Controller {
     };
 
     const locations = JSON.parse(this.mapTarget.dataset.mapPlaces);
+    // Change locations keys to lat and lng
+    locations.forEach((location) => {
+      location.lat = location.latitude;
+      location.lng = location.longitude;
+    });
+    
 
     // Append the 'script' element to 'head'
     document.head.appendChild(script);
