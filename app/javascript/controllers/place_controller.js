@@ -11,6 +11,12 @@ export default class extends Controller {
 
     // Attach your callback function to the `window` object
     window.initAutocomplete = function () {
+      const kadikoy = { lat: 40.990335, lng: 29.029163 };
+      // The map, centered at Kadikoy
+      const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 14,
+        center: kadikoy,
+      });
       // JS API is loaded and available
       let autocomplete;
       autocomplete = new google.maps.places.Autocomplete(
@@ -31,16 +37,26 @@ export default class extends Controller {
             place.geometry.location.lat();
           document.getElementById("place_longitude").value =
             place.geometry.location.lng();
+
+          let map = new google.maps.Map(document.getElementById("map"), {
+            center: {
+              lat: place.geometry.location.lat(),
+              lng: place.geometry.location.lng(),
+            },
+            zoom: 22,
+          });
+          var marker = new google.maps.Marker({
+            position: {
+              lat: place.geometry.location.lat(),
+              lng: place.geometry.location.lng(),
+            },
+          });
+          marker.setMap(map);
         } else {
           document.getElementById("place_address").placeholder =
             "Enter a place";
         }
       }
-
-      map = new google.maps.Map(document.getElementById("map"), {
-        center: { lat: -34.397, lng: 150.644 },
-        zoom: 8,
-      });
     };
 
     // Append the 'script' element to 'head'
