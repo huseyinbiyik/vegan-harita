@@ -1,4 +1,4 @@
-<%= form_with(model: place) do |form| %>
+<%= form_with(model: place, data: {controller: "place"}) do |form| %>
   <% if place.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(place.errors.count, "error") %> prohibited this place from being saved:</h2>
@@ -19,6 +19,16 @@
   <div>
     <%= form.label :address, style: "display: block" %>
     <%= form.text_field :address %>
+  </div>
+
+  <div>
+    <%= form.label :latitude, style: "display: block" %>
+    <%= form.number_field :latitude, step: "any" %>
+  </div>
+
+  <div>
+    <%= form.label :longitude, style: "display: block" %>
+    <%= form.number_field :longitude, step: "any" %>
   </div>
 
   <div>
