@@ -5,21 +5,16 @@ import { MarkerClusterer } from "@googlemaps/markerclusterer";
 export default class extends Controller {
   static targets = ["map"];
   connect() {
-    // Create the script tag, set the appropriate attributes
     var script = document.createElement("script");
     script.src =
       "https://maps.googleapis.com/maps/api/js?key=AIzaSyCd7rrq1f7qe3Ph6nN3FtArXTaSMIkFUQY&callback=initMap";
     script.async = true;
 
-    // Attach your callback function to the `window` object
     window.initMap = function () {
-      // JS API is loaded and available
-      // The location of Kadikoy
-      const kadikoy = { lat: 40.990335, lng: 29.029163 };
       // The map, centered at Kadikoy
       const map = new google.maps.Map(document.getElementById("map"), {
         zoom: 14,
-        center: kadikoy,
+        center: { lat: 40.990335, lng: 29.029163 },
       });
 
       const infoWindow = new google.maps.InfoWindow({
@@ -27,12 +22,7 @@ export default class extends Controller {
         disableAutoPan: true,
       });
 
-      const locationButton = document.createElement("button");
-      locationButton.textContent = "Pan to Current Location";
-      locationButton.classList.add("custom-map-control-button");
-      map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
-
-      locationButton.addEventListener("click", () => {
+      const centerToMyCurrentLocation = () => {
         // Try HTML5 geolocation.
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(
@@ -55,7 +45,7 @@ export default class extends Controller {
           // Browser doesn't support Geolocation
           handleLocationError(false, infoWindow, map.getCenter());
         }
-      });
+      };
 
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
@@ -67,7 +57,13 @@ export default class extends Controller {
         infoWindow.open(map);
       }
 
-      // Add some markers to the map.
+      const locationButton = document.createElement("button");
+      locationButton.textContent = "Pan to Current Location";
+      locationButton.classList.add("custom-map-control-button");
+      map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
+      locationButton.addEventListener("click", centerToMyCurrentLocation);
+      centerToMyCurrentLocation();
+
       const markers = locations.map((position) => {
         let label = position.name;
         const marker = new google.maps.Marker({
@@ -75,8 +71,6 @@ export default class extends Controller {
           label,
         });
 
-        // markers can only be keyboard focusable when they have click listeners
-        // open info window when marker is clicked
         marker.addListener("click", () => {
           infoWindow.setContent(label);
           infoWindow.open(map, marker);
@@ -84,7 +78,6 @@ export default class extends Controller {
         return marker;
       });
 
-      // Add a marker clusterer to manage the markers.
       new MarkerClusterer({ markers, map });
     };
 
@@ -94,7 +87,6 @@ export default class extends Controller {
       location.lat = location.latitude;
       location.lng = location.longitude;
     });
-    
 
     // Append the 'script' element to 'head'
     document.head.appendChild(script);

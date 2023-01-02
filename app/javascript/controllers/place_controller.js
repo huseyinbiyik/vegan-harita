@@ -11,11 +11,11 @@ export default class extends Controller {
 
     // Attach your callback function to the `window` object
     window.initAutocomplete = function () {
-      const kadikoy = { lat: 40.990335, lng: 29.029163 };
-      // The map, centered at Kadikoy
+      const turkey = { lat: 38.9597594, lng: 34.9249653 };
+      // The map, centered at Turkey
       const map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 14,
-        center: kadikoy,
+        zoom: 6,
+        center: turkey,
       });
       // JS API is loaded and available
       let autocomplete;
