@@ -6,6 +6,20 @@ class PlacesController < ApplicationController
     @places = Place.all
   end
 
+  def search
+    @places = if params[:name_search].present?
+                @places = Place.filter_by_name(params[:name_search]) 
+              else
+                []
+              end
+    respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.update('search-results', partial: 'places/search_results',
+                                                                   locals: { places: @places })
+      end
+    end
+  end
+
   # GET /places/1 or /places/1.json
   def show; end
 
@@ -67,4 +81,3 @@ class PlacesController < ApplicationController
     params.require(:place).permit(:name, :address, :latitude, :longitude)
   end
 end
-
