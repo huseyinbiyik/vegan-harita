@@ -64,10 +64,13 @@ export default class extends Controller {
       locationButton.addEventListener("click", centerToMyCurrentLocation);
       centerToMyCurrentLocation();
 
+      const markerIcon = "/assets/marker.png";
+
       const markers = locations.map((position) => {
         let label = position.name;
         const marker = new google.maps.Marker({
           position,
+          icon: markerIcon,
           label,
         });
 
