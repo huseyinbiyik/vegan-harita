@@ -64,13 +64,20 @@ export default class extends Controller {
       locationButton.addEventListener("click", centerToMyCurrentLocation);
       centerToMyCurrentLocation();
 
-      const markerIcon = "/assets/marker.png";
+      const fullyVeganMarkerIcon = "/assets/fully_vegan.png";
+      const veganFriendlyMarkerIcon = "/assets/vegan_options.png";
+
       console.log(locations);
+
       const markers = locations.map((position) => {
         let label = position.name;
         const marker = new google.maps.Marker({
           position,
-          icon: markerIcon,
+          icon: {
+            url: position.fully_vegan
+              ? fullyVeganMarkerIcon
+              : veganFriendlyMarkerIcon,
+          },
           label,
         });
 
