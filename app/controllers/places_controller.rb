@@ -8,7 +8,7 @@ class PlacesController < ApplicationController
 
   def search
     @places = if params[:name_search].present?
-                @places = Place.filter_by_name(params[:name_search]) 
+                @places = Place.filter_by_name(params[:name_search])
               else
                 []
               end
@@ -78,6 +78,6 @@ class PlacesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def place_params
-    params.require(:place).permit(:name, :address, :latitude, :longitude)
+    params.require(:place).permit(:name, :address, :latitude, :longitude, :fully_vegan)
   end
 end

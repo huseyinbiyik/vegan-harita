@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_30_095007) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_16_195252) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,6 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_30_095007) do
     t.float "longitude"
     t.float "latitude"
     t.text "address"
+    t.boolean "fully_vegan"
   end
 
 end

@@ -65,7 +65,7 @@ export default class extends Controller {
       centerToMyCurrentLocation();
 
       const markerIcon = "/assets/marker.png";
-
+      console.log(locations);
       const markers = locations.map((position) => {
         let label = position.name;
         const marker = new google.maps.Marker({
