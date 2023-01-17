@@ -78,7 +78,6 @@ export default class extends Controller {
               ? fullyVeganMarkerIcon
               : veganFriendlyMarkerIcon,
           },
-          label,
         });
 
         marker.addListener("click", () => {
