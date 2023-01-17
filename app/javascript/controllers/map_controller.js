@@ -68,7 +68,7 @@ export default class extends Controller {
       const veganFriendlyMarkerIcon = "/assets/vegan_options.png";
 
       console.log(locations);
-
+      // Create markers for each location
       const markers = locations.map((position) => {
         let label = position.name;
         const marker = new google.maps.Marker({
@@ -77,11 +77,22 @@ export default class extends Controller {
             url: position.fully_vegan
               ? fullyVeganMarkerIcon
               : veganFriendlyMarkerIcon,
+            scaledSize: new google.maps.Size(30, 40),
           },
         });
 
+        // Info window on click
         marker.addListener("click", () => {
-          infoWindow.setContent(label);
+          infoWindow.setContent(
+            // Link to the place page
+            label
+              ? `<a href=${
+                  window.location.origin + "/places/" + position.id
+                } class="info-window"><img src="#" alt=${label}_featured_image><h3>${label}</h3><p>${
+                  position.address
+                }</p></a>`
+              : ""
+          );
           infoWindow.open(map, marker);
         });
         return marker;
