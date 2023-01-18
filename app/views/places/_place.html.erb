@@ -1,9 +1,11 @@
 <div id="<%= dom_id place %>">
-  <p>
-    <%= image_tag place.featured_image %>
-  </p>
+<%# Add images %>
+    <% place.images.each do |image| %>
+      <%= image_tag image.variant(resize_to_limit: [200, 200]) %>
+    <% end %>
   <p>
     <strong>Name:</strong>
     <%= place.name %>
   </p>
 </div>
+

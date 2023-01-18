@@ -3,7 +3,7 @@ class PlacesController < ApplicationController
 
   # GET /places or /places.json
   def index
-    @places = Place.all
+    @places = Place.all.with_attached_images
   end
 
   def search
@@ -34,6 +34,7 @@ class PlacesController < ApplicationController
   # POST /places or /places.json
   def create
     @place = Place.new(place_params)
+    @place.images.attach(params[:place][:images])
 
     respond_to do |format|
       if @place.save
@@ -78,6 +79,6 @@ class PlacesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def place_params
-    params.require(:place).permit(:name, :address, :latitude, :longitude, :fully_vegan, :featured_image )
+    params.require(:place).permit(:name, :address, :latitude, :longitude, :fully_vegan, :image)
   end
 end

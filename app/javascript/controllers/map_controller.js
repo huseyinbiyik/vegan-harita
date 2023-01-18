@@ -88,7 +88,7 @@ export default class extends Controller {
             label
               ? `<a href=${
                   window.location.origin + "/places/" + position.id
-                } class="info-window"><img src="#" alt=${label}_featured_image><h3>${label}</h3><p>${
+                } class="info-window"><img src="#" alt=${label}_images[0]><h3>${label}</h3><p>${
                   position.address
                 }</p></a>`
               : ""
