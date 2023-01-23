@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :menus
   resources :places do
+    resources :menus
     collection do
       post :search
     end

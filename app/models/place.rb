@@ -2,6 +2,9 @@ class Place < ApplicationRecord
   # geocoded_by :address
   # after_validation :geocode
 
+  # Has many menu items
+  has_many :menus, dependent: :destroy
+
   # Add images to the gallery
   has_many_attached :images
 
