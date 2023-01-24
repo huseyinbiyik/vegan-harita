@@ -3,8 +3,7 @@ class MenusController < ApplicationController
 
   # GET /menus or /menus.json
   def index
-
-    @menus = Menu.all
+    @menus = Menu.all.with_attached_menu_images
   end
 
   # GET /menus/1 or /menus/1.json
@@ -22,6 +21,7 @@ class MenusController < ApplicationController
   def create
     @place = Place.find(params[:place_id])
     @menu = @place.menus.create(menu_params)
+    @menu.menu_images.attach(params[:menu][:menu_images])
 
     respond_to do |format|
       if @menu.save
@@ -66,6 +66,6 @@ class MenusController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def menu_params
-    params.require(:menu).permit(:name, :description, :product_category, :place_id, :price)
+    params.require(:menu).permit(:name, :description, :product_category, :place_id, :price, :menu_images)
   end
 end

@@ -1,4 +1,12 @@
 <div id="<%= dom_id menu %>">
+
+  <% if menu.menu_images.attached? %>
+    <% menu.menu_images.each do |image| %>
+      <%= image_tag image, class: "menu-image" %>
+    <% end %>
+  <% end %>
+
+
   <p>
     <strong>Name:</strong>
     <%= menu.name %>
