@@ -1,2 +1,12 @@
-<%= render 'places/search_form' %>
+<%= render "places/search_form" %>
+<%# # Add link to sign up and login %>
+<% if user_signed_in? %>
+  <%# Add username here "logged in as" email %>
+  <p>Logged in as
+    <%= current_user.email %></p>
 
+  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+<% else %>
+  <%= link_to "Sign up", new_user_registration_path %>
+  <%= link_to "Log in", new_user_session_path %>
+<% end %>
