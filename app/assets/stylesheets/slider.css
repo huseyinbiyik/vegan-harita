@@ -1,3 +1,8 @@
 .slider__image--hidden {
   display: none;
 }
+
+.slider__image {
+  width: 200px;
+  height: auto;
+}

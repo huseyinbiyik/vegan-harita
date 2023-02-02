@@ -9,11 +9,7 @@
   <div data-controller="slider">
     <div class="slider__container">
       <% place.images.each do |image| %>
-        <%= image_tag image.variant(resize_to_limit: [200, 200]),
-        class: "slider__image",
-        data: {
-          target: "slider.image"
-        } %>
+        <%= image_tag image, class: "slider__image", data: { target: "slider.image" } %>
       <% end %>
     </div>
     <button data-action="click->slider#previous">Previous</button>
