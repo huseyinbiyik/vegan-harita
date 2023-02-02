@@ -64,8 +64,9 @@ export default class extends Controller {
       locationButton.addEventListener("click", centerToMyCurrentLocation);
       centerToMyCurrentLocation();
 
-      const fullyVeganMarkerIcon = "/assets/fully_vegan.png";
-      const veganFriendlyMarkerIcon = "/assets/vegan_options.png";
+      // Marker icons located on public folder
+      const fullyVeganMarkerIcon = "fully-vegan-marker-icon.png";
+      const veganFriendlyMarkerIcon = "has-vegan-options-marker-icon.png";
 
       console.log(locations);
       // Create markers for each location
