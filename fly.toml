@@ -1,14 +1,9 @@
-# fly.toml file generated for vh on 2023-01-28T18:17:50+03:00
+# fly.toml file generated for vh on 2023-02-02T15:45:30+03:00
 
 app = "vh"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
-
-[build]
-  [build.args]
-    BUILD_COMMAND = "bin/rails fly:build"
-    SERVER_COMMAND = "bin/rails fly:server"
 
 [deploy]
   release_command = "bin/rails fly:release"

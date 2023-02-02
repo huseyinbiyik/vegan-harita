@@ -92,6 +92,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    dockerfile-rails (1.0.4)
+      rails
     erb-formatter (0.4.1)
       syntax_tree (~> 5.0)
     erubi (1.12.0)
@@ -232,6 +234,7 @@ DEPENDENCIES
   capybara
   debug
   devise
+  dockerfile-rails (>= 1.0.0)
   erb-formatter
   geocoder
   image_processing (~> 1.2)
