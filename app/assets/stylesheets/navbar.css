@@ -1,3 +1,46 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 h1 {
   color: red;
+}
+
+#navbar {
+  background-color: pink;
+  display: flex;
+}
+
+nav {
+  background-color: aquamarine;
+  display: flex;
+}
+
+#nav-menu {
+  background-color: yellow;
+}
+
+#search-form {
+  background-color: green;
+  display: flex;
+  /* temp border */
+  border: 0.5px solid white;
+}
+
+#search-field {
+  background: none;
+  border: none;
+}
+
+#burger span {
+  background-color: black;
+  width: 20px;
+  height: 2px;
+  display: block;
+  margin: 6px 0;
 }

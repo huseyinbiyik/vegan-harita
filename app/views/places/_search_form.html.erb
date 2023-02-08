@@ -1,6 +1,7 @@
 
-<%= form_with  url: search_places_path, method: :post, data: {controller: "debounce ", debounce_target: "form"} do |form|  %>
-  <%= form.search_field :name_search, data: {action: "input->debounce#search "}, placeholder: "Search for a place" %>
+<%= form_with id:"search-form", url: search_places_path, method: :post, data: {controller: "debounce ", debounce_target: "form"} do |form|  %>
+  <%= form.search_field :name_search, id: "search-field",  data: {action: "input->debounce#search "} %>
+  <%= image_tag "search-icon.svg", data: {action: "click->debounce#search "}, class: "search-icon" %>  
 <% end %>
 
 
