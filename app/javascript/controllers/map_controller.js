@@ -60,8 +60,12 @@ export default class extends Controller {
       }
 
       const locationButton = document.createElement("button");
-      locationButton.textContent = "Pan to Current Location";
+      // locationButton.textContent = "Pan to Current Location";
+      // add find-me image to locationButton from app/assets
+      locationButton.innerHTML = `<img src="${window.location.origin}/assets/find-me.svg" alt="find-me">`;
       locationButton.classList.add("custom-map-control-button");
+      // add id to locationButton
+      locationButton.id = "location-button";
       map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
       locationButton.addEventListener("click", centerToMyCurrentLocation);
       centerToMyCurrentLocation();

@@ -22,3 +22,10 @@
 .custom-map-control-button:hover {
   background: rgb(235, 235, 235);
 }
+
+#location-button {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+}
