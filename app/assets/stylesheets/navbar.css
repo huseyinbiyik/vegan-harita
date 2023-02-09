@@ -8,30 +8,43 @@
 }
 
 @font-face {
-  font-family: 'Clash Display Variable';
-  src: url('ClashDisplay-Variable.ttf');
+  font-family: "Clash Display Variable";
+  src: url("ClashDisplay-Variable.ttf");
 }
 
 h1 {
-  color: red;
+  font-size: 20px;
 }
 
-#navbar {
-  background-color: pink;
+header {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 59px;
+  padding: 18px 20px;
+  border: 1px solid;
+}
+
+header div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+header div:nth-child(1) {
+  margin-right: 20px;
 }
 
 nav {
-  background-color: aquamarine;
   display: flex;
 }
 
 #nav-menu {
-  background-color: yellow;
+  display: none;
 }
 
 #search-form {
-  background-color: green;
   display: flex;
   /* temp border */
   border: 0.5px solid white;
@@ -40,6 +53,15 @@ nav {
 #search-field {
   background: none;
   border: none;
+}
+
+.search-icon {
+  height: 29.33333396911621px;
+  width: 24px;
+}
+
+#search-results {
+  display: none;
 }
 
 #burger span {
