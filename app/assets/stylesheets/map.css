@@ -1,7 +1,9 @@
-/* Set the size of the div element that contains the map */
 #map {
-  height: 400px; /* The height is 400 pixels */
-  width: 100%; /* The width is the width of the web page */
+  height: calc(100vh - 59px);
+  width: 100vw;
+  border-width: 0 2px 2px 2px;
+  border-color: #243E2E;
+  border-style: solid;
 }
 
 .custom-map-control-button {

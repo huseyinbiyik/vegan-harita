@@ -3,6 +3,5 @@
 
 <%# <%= link_to "New place", new_place_path %> 
 
-<h3>My Google Maps Demo</h3>
 <!--The div element for the map -->
 <div id="map" data-map-target="map" data-map-places="<%= @places.to_json(include: :images)  %>" data-controller="map"></div>
