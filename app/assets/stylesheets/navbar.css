@@ -14,7 +14,7 @@
 
 h1 {
   font-size: 20px;
-  font-family: 'Clash Display Variable';
+  font-family: "Clash Display Variable";
   height: 25px;
   /* width: 125px; */
   /* width: 100%; */
@@ -69,10 +69,20 @@ nav {
   display: none;
 }
 
+#burger {
+  height: 23px;
+  width: 38px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background: none;
+  border: none;
+}
+
 #burger span {
-  background-color: black;
-  width: 20px;
+  background: #243E2E;
+  width: 38px;
   height: 2px;
   display: block;
-  margin: 6px 0;
 }
