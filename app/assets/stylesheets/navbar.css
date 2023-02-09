@@ -18,7 +18,8 @@ header {
   align-items: center;
   height: 59px;
   padding: 18px 20px;
-  border: 1px solid;
+  background-color: #e5dccf;
+  border: 2px solid #243e2e;
 }
 
 header div {
@@ -30,24 +31,22 @@ header div {
 
 header div:nth-child(1) {
   margin-right: 20px;
-  border: 1px solid red;
 }
 
 h1 {
   font-size: 20px;
   font-family: "Clash Display Variable", sans-serif;
   height: 25px;
+  font-weight: 500;
+  line-height: 25px;
 }
 
 #search-form {
   display: flex;
-  background-color: aquamarine;
 }
 
 #search-field {
   background: none;
-
-  /* border: none; */
   display: none;
 }
 
