@@ -1,3 +1,86 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: "Clash Display Variable";
+  src: url("ClashDisplay-Variable.ttf");
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 59px;
+  padding: 18px 20px;
+  background-color: #e5dccf;
+  border: 2px solid #243e2e;
+}
+
+header div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+header div:nth-child(1) {
+  margin-right: 20px;
+}
+
 h1 {
-  color: red;
+  font-size: 20px;
+  font-family: "Clash Display Variable", sans-serif;
+  height: 25px;
+  font-weight: 500;
+  line-height: 25px;
+}
+
+#search-form {
+  display: flex;
+}
+
+#search-field {
+  background: none;
+  display: none;
+}
+
+.search-icon {
+  height: 29.33333396911621px;
+  width: 24px;
+}
+
+#search-results {
+  display: none;
+}
+
+nav {
+  display: flex;
+}
+
+#nav-menu {
+  display: none;
+}
+
+#burger {
+  height: 23px;
+  width: 38px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background: none;
+  border: none;
+}
+
+#burger span {
+  background: #243e2e;
+  width: 38px;
+  height: 2px;
+  display: block;
 }
