@@ -16,7 +16,7 @@ export default class extends Controller {
         zoom: 14,
         center: { lat: 40.990335, lng: 29.029163 },
         disableDefaultUI: true,
-        zoomControl: true
+        zoomControl: false,
       });
 
       const infoWindow = new google.maps.InfoWindow({
@@ -66,7 +66,9 @@ export default class extends Controller {
       locationButton.classList.add("custom-map-control-button");
       // add id to locationButton
       locationButton.id = "location-button";
-      map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
+      map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(
+        locationButton
+      );
       locationButton.addEventListener("click", centerToMyCurrentLocation);
       centerToMyCurrentLocation();
 
