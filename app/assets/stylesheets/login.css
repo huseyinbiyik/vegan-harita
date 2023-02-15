@@ -16,6 +16,14 @@ body {
   background-color: #a7d4bc;
 }
 
+.arrow {
+  /* height: 0px; */
+  width: 26px;
+  margin: 20px 0 0 21px;
+  position: absolute;
+}
+
+
 h2 {
   font-size: 32px;
   font-weight: 500;
