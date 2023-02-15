@@ -28,7 +28,6 @@ h2 {
 }
 
 #new_user {
-  border: 1px dotted black;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -64,7 +63,6 @@ h2 {
 }
 
 .remember {
-  border: 1px dotted red;
   width: 100%;
   display: flex;
   float: left;
@@ -85,9 +83,8 @@ h2 {
   align-items: center;
   background-color: #a94c2e;
   border: 2px solid #262626;
+  margin-bottom: 17px;
 }
-
-/* apply 8px margin right to icon on button above */
 
 .session-icon {
   margin-right: 8px;
@@ -102,14 +99,12 @@ h2 {
 }
 
 .session-links-container {
-  border: 1px solid yellow;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .session-links {
-  border: 1px dotted white;
   font-size: 20px;
   font-weight: 400;
   line-height: 25px;
