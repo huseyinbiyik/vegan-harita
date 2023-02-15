@@ -31,7 +31,13 @@ h2 {
   border: 1px dotted black;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
   width: 225px;
+}
+
+.field {
+  margin-bottom: 10px;
 }
 
 .field label {
@@ -43,7 +49,8 @@ h2 {
 }
 
 .field input {
-  width: 100%;
+  /* width: 100%; */
+  width: 225px;
   height: 30px;
   background-color: #e5dccf;
   border: 1px solid #262626;
@@ -57,7 +64,10 @@ h2 {
 }
 
 .remember {
+  border: 1px dotted red;
+  width: 100%;
   display: flex;
+  float: left;
 }
 
 #user_remember_me {
@@ -65,4 +75,29 @@ h2 {
   width: 20px;
   appearance: none;
   margin-right: 4px;
+}
+
+#new_user .actions button {
+  height: 60px;
+  width: 184px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #a94c2e;
+  border: 2px solid #262626;
+}
+
+/* apply 8px margin right to icon on button above */
+
+.session-icon {
+  margin-right: 8px;
+}
+
+.session-text {
+  font-family: Clash Display Variable;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 25px;
+  color: #E5DCCF;
+  ;
 }
