@@ -17,12 +17,10 @@ body {
 }
 
 .arrow {
-  /* height: 0px; */
   width: 26px;
   margin: 20px 0 0 21px;
   position: absolute;
 }
-
 
 h2 {
   font-size: 32px;
@@ -44,7 +42,8 @@ h2 {
 }
 
 .field {
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
+  margin-bottom: 15px;
 }
 
 .field label {
@@ -61,10 +60,18 @@ h2 {
   height: 30px;
   background-color: #e5dccf;
   border: 1px solid #262626;
+  padding: 6px;
+}
+
+.field input[type="email"],
+input[type="password"] {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 25px;
 }
 
 ::placeholder {
-  padding-left: 6px;
+  /* padding-left: 6px; */
   font-size: 20px;
   font-weight: 400;
   line-height: 25px;
@@ -79,7 +86,8 @@ h2 {
 #user_remember_me {
   height: 20px;
   width: 20px;
-  appearance: none;
+  /* appearance: none; */
+  background: #e5dccf;
   margin-right: 4px;
 }
 
@@ -91,6 +99,7 @@ h2 {
   align-items: center;
   background-color: #a94c2e;
   border: 2px solid #262626;
+  margin-top: 5px;
   margin-bottom: 17px;
 }
 
