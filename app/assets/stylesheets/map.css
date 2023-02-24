@@ -6,10 +6,20 @@
   border-style: solid;
 }
 
+/* Customizing find me button */
 .custom-map-control-button {
-  margin: 10px;
+  margin-right: 10px;
   height: 48px;
   cursor: pointer;
   border: none;
   background-color: transparent;
 }
+
+#custom-zoom-controller-container {
+  margin-right: 10px;
+}
+
+#location-button {
+  margin-bottom: 30px;
+}
+/* Customizing find me button */
