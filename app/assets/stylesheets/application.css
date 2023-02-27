@@ -13,3 +13,21 @@
  *= require_tree .
  *= require_self
  */
+
+@font-face {
+  font-family: "Clash Display Variable";
+  src: url("ClashDisplay-Variable.ttf");
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Clash Display Variable", sans-serif;
+}
+
+body {
+  background-color: #a7d4bc;
+}
