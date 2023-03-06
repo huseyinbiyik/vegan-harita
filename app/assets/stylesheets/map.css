@@ -1,9 +1,6 @@
 #map {
-  height: calc(100vh - 59px);
-  width: 100vw;
-  border-width: 0 2px 2px 2px;
-  border-color: #243e2e;
-  border-style: solid;
+  height: calc(100vh - 63px);
+  width: calc(100vw - 4px);
 }
 
 /* Customizing find me button */
