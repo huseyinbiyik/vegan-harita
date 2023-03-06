@@ -1,10 +1,6 @@
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-  connect() {
-    console.log("Search controller connected");
-  }
-
   toggle() {
     const searchWrapper = document.querySelector("#search-wrapper");
     const searchField = document.querySelector("#search-field");
