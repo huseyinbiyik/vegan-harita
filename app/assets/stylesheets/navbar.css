@@ -19,12 +19,14 @@ header div:nth-child(1) {
   margin-right: 20px;
 }
 
-h1 {
+#logo {
   font-size: 20px;
   font-family: "Clash Display Variable", sans-serif;
   height: 25px;
   font-weight: 500;
   line-height: 25px;
+  text-decoration: none;
+  color: #243e2e;
 }
 
 #search-wrapper {

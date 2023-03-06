@@ -1,10 +1,10 @@
 <header id="navbar">
-  <div data-controller="navigation">
-    <h1 id="logo">Vegan Harita</h1>
+  <div data-controller="search">
+    <a href="#" id="logo">Vegan Harita</a>
     <%= render "places/search_form" %>
     <%= image_tag "search-icon.svg",
     data: {
-      action: "click->navigation#toggle "
+      action: "click->search#toggle "
     },
     id: "search-icon" %>
 
