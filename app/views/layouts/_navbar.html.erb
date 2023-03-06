@@ -1,7 +1,13 @@
 <header id="navbar">
-  <div>
+  <div data-controller="navigation">
     <h1 id="logo">Vegan Harita</h1>
     <%= render "places/search_form" %>
+    <%= image_tag "search-icon.svg",
+    data: {
+      action: "click->navigation#toggle "
+    },
+    id: "search-icon" %>
+
   </div>
   <nav>
     <ul id="nav-menu">
