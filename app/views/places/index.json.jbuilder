@@ -1,1 +1,1 @@
-json.array! @places, partial: "places/place", as: :place
+json.array! @places, partial: 'places/place', as: :place
