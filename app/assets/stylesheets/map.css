@@ -1,21 +1,23 @@
-/* Set the size of the div element that contains the map */
 #map {
-  height: 400px; /* The height is 400 pixels */
-  width: 100%; /* The width is the width of the web page */
+  height: calc(100vh - 63px);
+  width: calc(100vw - 4px);
 }
 
+/* Customizing find me button */
 .custom-map-control-button {
-  background-color: #fff;
-  border: 0;
-  border-radius: 2px;
-  box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
-  margin: 10px;
-  padding: 0 0.5em;
-  font: 400 18px Roboto, Arial, sans-serif;
-  overflow: hidden;
-  height: 40px;
+  margin-right: 10px;
+  height: 48px;
   cursor: pointer;
+  border: none;
+  background-color: transparent;
 }
-.custom-map-control-button:hover {
-  background: rgb(235, 235, 235);
+
+#custom-zoom-controller-container {
+  margin-right: 10px;
 }
+
+#location-button {
+  margin-bottom: 30px;
+}
+
+/* Customizing find me button */
