@@ -1,12 +1,40 @@
-<%= render "places/search_form" %>
-<%# # Add link to sign up and login %>
-<% if user_signed_in? %>
-  <%# Add username here "logged in as" email %>
-  <p>Logged in as
-    <%= current_user.email %></p>
+<header id="navbar">
+  <div data-controller="search">
+    <a href="/" id="logo">Vegan Harita</a>
+    <%= render "places/search_form" %>
+    <%= image_tag "search-icon.svg",
+    data: {
+      action: "click->search#toggle "
+    },
+    id: "search-icon" %>
+  </div>
 
-  <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-<% else %>
-  <%= link_to "Sign up", new_user_registration_path %>
-  <%= link_to "Log in", new_user_session_path %>
-<% end %>
+  <nav data-controller="navigation" data-navigation-state-value="false">
+    <ul id="nav-menu" class="hidden" data-navigation-target="menu">
+      <li>
+        <button id="close-button" data-action="click->navigation#toggle">
+          <span></span>
+          <span></span>
+        </button>
+      </li>
+      <li>
+        <%= link_to "New place", new_place_path %>
+      </li>
+      <li>
+        <% if user_signed_in? %>
+          <p>Logged in as
+            <%= current_user.email %></p>
+          <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to "Log in", new_user_session_path %>
+        <% end %>
+      </li>
+    </ul>
+    <button id="burger" class="mobile" data-action="click->navigation#toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </nav>
+</header>

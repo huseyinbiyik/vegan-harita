@@ -1,3 +1,150 @@
-h1 {
-  color: red;
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 59px;
+  padding: 18px 20px;
+  background-color: #e5dccf;
+  border-bottom: 2px solid #243e2e;
+}
+
+header div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+header div:nth-child(1) {
+  margin-right: 20px;
+}
+
+#logo {
+  font-size: 20px;
+  font-family: "Clash Display Variable", sans-serif;
+  height: 25px;
+  font-weight: 500;
+  line-height: 25px;
+  text-decoration: none;
+  color: #243e2e;
+}
+
+#burger {
+  height: 23px;
+  width: 38px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background: none;
+  border: none;
+}
+
+#burger span {
+  background: #243e2e;
+  width: 38px;
+  height: 2px;
+  display: block;
+}
+
+#search-wrapper {
+  display: none;
+  border-bottom: 1px solid black;
+  background-color: transparent;
+  background-color: #e5dccf;
+}
+
+#search-form {
+  display: flex;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+#search-field {
+  background-color: transparent;
+  width: 100%;
+  border: none;
+}
+
+#search-field:focus {
+  outline: none;
+}
+
+#search-results {
+  padding-left: 20px;
+  border-top: 1px solid #243e2e;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.search-results-link {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid gray;
+  text-decoration: none;
+  color: black;
+}
+
+#search-icon {
+  height: 29.33333396911621px;
+  width: 24px;
+}
+
+.extend {
+  z-index: 999;
+  display: block !important;
+  position: absolute;
+  top: 61px;
+  left: 2px;
+  right: 2px;
+  width: calc(100% - 4px);
+}
+
+nav {
+  display: flex;
+}
+
+#nav-menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #e5dccf;
+  z-index: 999;
+}
+
+#close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 59px;
+  width: 59px;
+  background-color: #e5dccf;
+  border: none;
+  z-index: 999;
+}
+
+#close-button span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 2px;
+  width: 20px;
+  background-color: #243e2e;
+}
+
+#close-button span:nth-child(1) {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+#close-button span:nth-child(2) {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.hidden {
+  display: none;
 }

@@ -15,10 +15,60 @@ export default class extends Controller {
       const map = new google.maps.Map(document.getElementById("map"), {
         zoom: 14,
         center: { lat: 40.990335, lng: 29.029163 },
+        disableDefaultUI: true,
+        zoomControl: false,
+        keyboardShortcuts: false,
       });
+
+      // Custom zoom controls
+      function CustomZoomInControl(controlDiv, map) {
+        // Set CSS for the control border
+        var controlUI = document.createElement("div");
+
+        controlUI.style.marginBottom = "10px";
+        controlDiv.appendChild(controlUI);
+
+        // Set CSS for the control interior
+        var controlText = document.createElement("img");
+        controlText.src = "assets/zoom-in.svg";
+        controlUI.appendChild(controlText);
+
+        // Setup the click event listeners
+        google.maps.event.addDomListener(controlUI, "click", function () {
+          map.setZoom(map.getZoom() + 1);
+        });
+
+        // Set CSS for the control border
+        var controlUILeft = document.createElement("div");
+        controlDiv.appendChild(controlUILeft);
+
+        // Set CSS for the control interior
+        var controlTextLeft = document.createElement("img");
+        controlTextLeft.src = "assets/zoom-out.svg";
+        controlUILeft.appendChild(controlTextLeft);
+
+        // Setup the click event listeners
+        google.maps.event.addDomListener(controlUILeft, "click", function () {
+          map.setZoom(map.getZoom() - 1);
+        });
+      }
+
+      var customZoomInControlDiv = document.createElement("div");
+      customZoomInControlDiv.id = "custom-zoom-controller-container";
+
+      var customZoomInControl = new CustomZoomInControl(
+        customZoomInControlDiv,
+        map
+      );
+
+      customZoomInControlDiv.index = 1;
+      map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(
+        customZoomInControlDiv
+      );
 
       const infoWindow = new google.maps.InfoWindow({
         content: "",
+        className: "custom-info-window",
         disableAutoPan: true,
       });
 
@@ -33,8 +83,13 @@ export default class extends Controller {
               };
 
               infoWindow.setPosition(pos);
-              infoWindow.setContent("Location found.");
+              infoWindow.setContent(`
+                <div class="info-window">
+                  <h3>Şu anda buradasınız</h3>
+                </div>
+              `);
               infoWindow.open(map);
+
               map.setCenter(pos);
             },
             () => {
@@ -58,15 +113,18 @@ export default class extends Controller {
       }
 
       const locationButton = document.createElement("button");
-      locationButton.textContent = "Pan to Current Location";
+      locationButton.innerHTML = `<img src="${window.location.origin}/assets/find-me.svg" alt="find-me">`;
       locationButton.classList.add("custom-map-control-button");
-      map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
+      locationButton.id = "location-button";
+      map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(
+        locationButton
+      );
       locationButton.addEventListener("click", centerToMyCurrentLocation);
       centerToMyCurrentLocation();
 
       // Marker icons located on public folder
-      const fullyVeganMarkerIcon = "fully-vegan-marker-icon.png";
-      const veganFriendlyMarkerIcon = "has-vegan-options-marker-icon.png";
+      const VeganMarkerIcon = "assets/vegan-place.svg";
+      const veganFriendlyMarkerIcon = "assets/vegan-friendly-place.svg";
 
       console.log(locations);
       // Create markers for each location
@@ -76,9 +134,9 @@ export default class extends Controller {
           position,
           icon: {
             url: position.fully_vegan
-              ? fullyVeganMarkerIcon
+              ? VeganMarkerIcon
               : veganFriendlyMarkerIcon,
-            scaledSize: new google.maps.Size(30, 40),
+            scaledSize: new google.maps.Size(50, 60),
           },
         });
 
