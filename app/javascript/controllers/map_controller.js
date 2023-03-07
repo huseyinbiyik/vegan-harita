@@ -68,6 +68,7 @@ export default class extends Controller {
 
       const infoWindow = new google.maps.InfoWindow({
         content: "",
+        className: "custom-info-window",
         disableAutoPan: true,
       });
 
@@ -82,8 +83,13 @@ export default class extends Controller {
               };
 
               infoWindow.setPosition(pos);
-              infoWindow.setContent("Location found.");
+              infoWindow.setContent(`
+                <div class="info-window">
+                  <h3>Şu anda buradasınız</h3>
+                </div>
+              `);
               infoWindow.open(map);
+
               map.setCenter(pos);
             },
             () => {
@@ -117,8 +123,8 @@ export default class extends Controller {
       centerToMyCurrentLocation();
 
       // Marker icons located on public folder
-      const fullyVeganMarkerIcon = "fully-vegan-marker-icon.png";
-      const veganFriendlyMarkerIcon = "has-vegan-options-marker-icon.png";
+      const VeganMarkerIcon = "assets/vegan-place.svg";
+      const veganFriendlyMarkerIcon = "assets/vegan-friendly-place.svg";
 
       console.log(locations);
       // Create markers for each location
@@ -128,9 +134,9 @@ export default class extends Controller {
           position,
           icon: {
             url: position.fully_vegan
-              ? fullyVeganMarkerIcon
+              ? VeganMarkerIcon
               : veganFriendlyMarkerIcon,
-            scaledSize: new google.maps.Size(30, 40),
+            scaledSize: new google.maps.Size(50, 60),
           },
         });
 
