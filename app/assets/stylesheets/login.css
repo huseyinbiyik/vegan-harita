@@ -10,7 +10,6 @@ h2 {
   line-height: 39px;
   text-align: center;
   color: #262626;
-  text-align: center;
   margin-top: 60px;
   margin-bottom: 20px;
 }
@@ -86,7 +85,7 @@ input[type="password"] {
 }
 
 .session-text {
-  font-family: Clash Display Variable;
+  font-family: Clash Display Variable, sans-serif;
   font-size: 20px;
   font-weight: 400;
   line-height: 25px;
@@ -103,5 +102,5 @@ input[type="password"] {
   font-size: 20px;
   font-weight: 400;
   line-height: 25px;
-  color: #000000;
+  color: #000;
 }
