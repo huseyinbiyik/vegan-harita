@@ -1,5 +1,6 @@
 <% places.each do |place| %>
-  <%= link_to highlight(place.name, params[:name_search]), place %>
+  <%= link_to highlight(place.name, params[:name_search]),
+  place,
+  class: "search-results-link" %>
   <br>
 <% end %>
-

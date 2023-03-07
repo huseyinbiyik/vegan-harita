@@ -14,20 +14,22 @@
  *= require_self
  */
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 @font-face {
   font-family: "Clash Display Variable";
   src: url("ClashDisplay-Variable.ttf");
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: "Clash Display Variable", sans-serif;
-}
-
 body {
-  background-color: #a7d4bc;
+  border-width: 2px;
+  border-color: #243e2e;
+  border-style: solid;
 }
