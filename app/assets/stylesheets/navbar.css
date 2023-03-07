@@ -29,6 +29,24 @@ header div:nth-child(1) {
   color: #243e2e;
 }
 
+#burger {
+  height: 23px;
+  width: 38px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background: none;
+  border: none;
+}
+
+#burger span {
+  background: #243e2e;
+  width: 38px;
+  height: 2px;
+  display: block;
+}
+
 #search-wrapper {
   display: none;
   border-bottom: 1px solid black;
@@ -129,22 +147,4 @@ nav {
 
 .hidden {
   display: none;
-}
-
-#burger {
-  height: 23px;
-  width: 38px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  background: none;
-  border: none;
-}
-
-#burger span {
-  background: #243e2e;
-  width: 38px;
-  height: 2px;
-  display: block;
 }
