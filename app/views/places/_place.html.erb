@@ -1,5 +1,7 @@
 <div id="<%= dom_id place %>">
 
+  <p><%= place.name %></p>
+
   <% if place.images.attached? %>
     <% place.images.each do |image| %>
       <%= image_tag image, class: "place-image" %>
@@ -16,8 +18,5 @@
     <button data-action="click->slider#next">Next</button>
   </div>
 
-  <p>
-    <strong>Name:</strong>
-    <%= place.name %>
-  </p>
+  
 </div>
