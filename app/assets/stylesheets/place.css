@@ -25,5 +25,13 @@
   margin: 13px 10px 12px 10px;
 }
 
-
-
+.slide-buttons {
+  position: relative;
+  top: -30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.slide-button {
+  margin: 0 10px;
+}
