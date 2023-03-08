@@ -6,6 +6,15 @@
   <p class="name"><%= place.name %></p>
   </div>
 
+  <div class="social-links">
+    <%# instagram icon %>
+    <%= image_tag "instagram.svg" %>
+    <%= image_tag "facebook.svg" %>
+    <%= image_tag "twitter.svg" %>
+    <%= image_tag "web.svg" %>
+    <%= image_tag "e-mail.svg" %>
+  </div>
+
   <% if place.images.attached? %>
     <% place.images.each do |image| %>
       <%= image_tag image, class: "place-image" %>
