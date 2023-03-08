@@ -1,7 +1,6 @@
 .place-header {
   height: 59px;
-  background: #243E2E;
-
+  background: #243e2e;
 }
 
 .name {
@@ -11,5 +10,17 @@
   font-size: 20px;
   font-weight: 700;
   line-height: 25px;
-  color: #DEB35B;
-  }
+  color: #deb35b;
+}
+
+.social-links {
+  background: #deb35b;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social {
+  margin: 13px 10px 12px 10px;
+}
