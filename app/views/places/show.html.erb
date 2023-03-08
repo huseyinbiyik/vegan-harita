@@ -8,16 +8,26 @@
 
 </div>
 
-<h2>Foods</h2>
+<div id="menu">
+  <div id="menu-header">
+      <h1>MENÜ</h1>
+      <%# <%= link_to "Ürün Ekle", new_place_menu_path(@place) %>
+      <%# a link to add menu item with add icon and "Ürün Ekle" text %>
+      <%= link_to new_place_menu_path(@place) do %>
+        <%= image_tag "add-icon.svg" %>
+        <span>Ürün Ekle</span>
+      <% end %>
+    </div>
 
-<%= render @place.menus.where(product_category: "food") %>
+  <h2>Foods</h2>
 
-<h2> Drinks </h2>
+  <%= render @place.menus.where(product_category: "food") %>
 
-<%= render @place.menus.where(product_category: "drink") %>
+  <h2> Drinks </h2>
 
-<h2> Desserts </h2>
+  <%= render @place.menus.where(product_category: "drink") %>
 
-<%= render @place.menus.where(product_category: "dessert") %>
+  <h2> Desserts </h2>
 
-<%= link_to "Add a new menu items", new_place_menu_path(@place) %>
+  <%= render @place.menus.where(product_category: "dessert") %>
+</div>
