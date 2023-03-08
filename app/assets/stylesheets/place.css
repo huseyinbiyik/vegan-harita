@@ -36,3 +36,10 @@
   margin: 0 10px;
 }
 
+.place-details {
+  padding: 9px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #DEB35B;
+}
