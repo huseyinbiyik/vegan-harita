@@ -8,13 +8,6 @@
 
 </div>
 
-<div>
-  <%= link_to "Edit this place", edit_place_path(@place) %> |
-  <%= link_to "Back to places", places_path %>
-
-  <%= button_to "Destroy this place", @place, method: :delete %>
-</div>
-
 <h2>Foods</h2>
 
 <%= render @place.menus.where(product_category: "food") %>
