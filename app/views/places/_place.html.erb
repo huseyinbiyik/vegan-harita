@@ -15,12 +15,6 @@
     <%= image_tag "e-mail.svg", class: "social" %>
   </div>
 
-  <% if place.images.attached? %>
-    <% place.images.each do |image| %>
-      <%= image_tag image, class: "place-image" %>
-    <% end %>
-  <% end %>
-
   <div data-controller="slider">
     <div class="slider__container">
       <% place.images.each do |image| %>
