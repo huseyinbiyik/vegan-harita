@@ -1,6 +1,10 @@
 <div id="<%= dom_id place %>">
-
+  <div class="place-header">
+    <%= link_to :back, class: "arrow" do %>
+    <%= image_tag "back-icon.svg" %>
+    <% end %>
   <p><%= place.name %></p>
+  </div>
 
   <% if place.images.attached? %>
     <% place.images.each do |image| %>
