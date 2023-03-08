@@ -1,5 +1,13 @@
 <%= render @place %>
 
+<div class="place-details">
+  <%= image_tag "vegan-place.svg", class: "detail-icon" %>
+  <%= image_tag "open.svg", class: "detail-icon" %>
+  <%= image_tag "direction.svg", class: "detail-icon" %>
+  <%= image_tag "phone.svg", class: "detail-icon" %>
+
+</div>
+
 <div>
   <%= link_to "Edit this place", edit_place_path(@place) %> |
   <%= link_to "Back to places", places_path %>
