@@ -46,6 +46,7 @@
 
 #menu {
   background-color: #243e2e;
+  padding: 27px 20px;
 }
 
 #menu-header {
@@ -71,7 +72,7 @@
   margin-left: 5px;
 }
 
-#menu h2 {
+.category {
   font-weight: 600;
   font-size: 20px;
   color: #a7d4bc;

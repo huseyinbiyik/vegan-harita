@@ -19,15 +19,15 @@
       <% end %>
     </div>
 
-  <h2>Foods</h2>
+  <h2 class="category">Foods</h2>
 
   <%= render @place.menus.where(product_category: "food") %>
 
-  <h2> Drinks </h2>
+  <h2 class="category"> Drinks </h2>
 
   <%= render @place.menus.where(product_category: "drink") %>
 
-  <h2> Desserts </h2>
+  <h2 class="category"> Desserts </h2>
 
   <%= render @place.menus.where(product_category: "dessert") %>
 </div>
