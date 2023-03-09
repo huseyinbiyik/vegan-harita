@@ -52,6 +52,7 @@
 #menu-header {
   text-align: center;
   color: #a7d4bc;
+  margin-bottom: 19px;
 }
 
 #menu-header h1 {
@@ -76,6 +77,7 @@
   font-weight: 600;
   font-size: 20px;
   color: #a7d4bc;
+  margin: 0 0 19px 0;
 }
 
 .menu-item {
@@ -117,8 +119,7 @@
   font-weight: 400;
   line-height: 25px;
   margin-left: 18px;
-  color: #DEB35B;
+  color: #deb35b;
   width: 100%;
   text-align: left;
-
 }
