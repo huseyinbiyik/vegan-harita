@@ -44,6 +44,10 @@
   background: #deb35b;
 }
 
+#menu {
+  background-color: #243e2e;
+}
+
 #menu-header {
   text-align: center;
   color: #a7d4bc;
@@ -65,4 +69,10 @@
   border: 1px solid #a7d4bc;
   padding: 4px 9px 3px 9px;
   margin-left: 5px;
+}
+
+#menu h2 {
+  font-weight: 600;
+  font-size: 20px;
+  color: #a7d4bc;
 }
