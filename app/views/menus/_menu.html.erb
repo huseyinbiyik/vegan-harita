@@ -1,25 +1,23 @@
-<div id="<%= dom_id menu %>">
+<div class="menu-item" id="<%= dom_id menu %>">
+  <div>
+    <p class="name">
+      <%= menu.name %>
+    </p>
 
-  <% if menu.menu_images.attached? %>
-    <% menu.menu_images.each do |image| %>
-      <%= image_tag image, class: "menu-image" %>
+    <p class="price">
+      <%= menu.price %>
+    </p>
+  </div>
+
+  <div>
+    <% if menu.menu_images.attached? %>
+      <% menu.menu_images.each do |image| %>
+        <%= image_tag image, class: "menu-image" %>
+      <% end %>
     <% end %>
-  <% end %>
 
-
-  <p>
-    <strong>Name:</strong>
-    <%= menu.name %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= menu.description %>
-  </p>
-
-  <p>
-    <strong>Price:</strong>
-    <%= menu.price %>
-  </p>
-
+    <p class="description">
+      <%= menu.description %>
+    </p>
+  </div>
 </div>

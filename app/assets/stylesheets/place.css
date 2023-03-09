@@ -3,7 +3,7 @@
   background: #243e2e;
 }
 
-.name {
+.place-name {
   height: 25px;
   padding: 15px 0 19px 0;
   text-align: center;
@@ -75,4 +75,49 @@
   font-weight: 600;
   font-size: 20px;
   color: #a7d4bc;
+}
+
+.menu-item {
+  margin-bottom: 30px;
+}
+
+.menu-item div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu-item div:nth-child(2) {
+  margin-top: 20px;
+}
+
+.name {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 25px;
+  text-align: left;
+  color: #a94c2e;
+}
+
+.price {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 25px;
+  color: #deb35b;
+}
+
+.menu-image {
+  width: 25vw;
+  height: auto;
+}
+
+.description {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 25px;
+  margin-left: 18px;
+  color: #DEB35B;
+  width: 100%;
+  text-align: left;
+
 }
