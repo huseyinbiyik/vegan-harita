@@ -33,3 +33,10 @@
 
 # Ignore node_modules
 /node_modules
+/config/credentials/test.key
+
+/config/credentials/development.key
+
+/config/credentials/environment.key
+
+/config/credentials/production.key
