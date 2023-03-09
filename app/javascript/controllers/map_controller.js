@@ -4,10 +4,11 @@ import { MarkerClusterer } from "@googlemaps/markerclusterer";
 // Connects to data-controller="map"
 export default class extends Controller {
   static targets = ["map"];
+  static values = { api: String };
   connect() {
+    console.log(this.apiValue);
     var script = document.createElement("script");
-    script.src =
-      "https://maps.googleapis.com/maps/api/js?key=AIzaSyCd7rrq1f7qe3Ph6nN3FtArXTaSMIkFUQY&callback=initMap";
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${this.apiValue}&callback=initMap`;
     script.async = true;
 
     window.initMap = function () {
