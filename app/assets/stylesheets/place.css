@@ -41,7 +41,28 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #DEB35B;
+  background: #deb35b;
 }
 
+#menu-header {
+  text-align: center;
+  color: #a7d4bc;
+}
 
+#menu-header h1 {
+  display: inline-block;
+  position: relative;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 25px;
+}
+
+#menu-header a {
+  position: absolute;
+  text-decoration: none;
+  height: 24px;
+  color: #a7d4bc;
+  border: 1px solid #a7d4bc;
+  padding: 4px 9px 3px 9px;
+  margin-left: 5px;
+}
