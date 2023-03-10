@@ -1,9 +1,9 @@
 <div id="<%= dom_id place %>">
   <div class="place-header">
     <%= link_to :back, class: "arrow" do %>
-    <%= image_tag "back-icon.svg" %>
+      <%= image_tag "back-icon.svg" %>
     <% end %>
-  <p class="place-name"><%= place.name %></p>
+    <p class="place-name"><%= place.name %></p>
   </div>
 
   <div class="social-links">
@@ -14,17 +14,24 @@
     <%= image_tag "e-mail.svg", class: "social" %>
   </div>
 
-  <div data-controller="slider">
-    <div class="slider__container">
+  <div data-controller="slider" class="slider">
+    <div class="slider-container">
       <% place.images.each do |image| %>
-        <%= image_tag image, class: "slider__image", data: { target: "slider.image" } %>
+        <%= image_tag image, class: "slider-image", data: { target: "slider.image" } %>
       <% end %>
     </div>
     <div class="slide-buttons">
-      <%= image_tag "previous.svg", class: "slide-button", data: { action: "click->slider#previous" } %>
-      <%= image_tag "next.svg", class: "slide-button", data: { action: "click->slider#next" } %>
+      <%= image_tag "previous.svg",
+      class: "slide-button",
+      data: {
+        action: "click->slider#previous"
+      } %>
+      <%= image_tag "next.svg",
+      class: "slide-button",
+      data: {
+        action: "click->slider#next"
+      } %>
     </div>
   </div>
 
-  
 </div>

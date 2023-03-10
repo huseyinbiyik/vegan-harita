@@ -1,8 +1,29 @@
-.slider__image--hidden {
+.slider {
+  position: relative;
+}
+
+.slider-container {
+  display: flex;
+  height: auto;
+}
+
+.slider-image--hidden {
   display: none;
 }
 
-.slider__image {
-  width: 100vw;
+.slider-image {
+  width: 100%;
   height: auto;
+}
+
+.slide-buttons {
+  position: absolute;
+  bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide-button {
+  margin: 0 10px;
 }

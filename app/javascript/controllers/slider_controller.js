@@ -22,8 +22,8 @@ export default class extends Controller {
 
   showCurrentImage() {
     this.imageTargets.forEach((el, i) => {
-      el.classList.toggle("slider__image--hidden", this.index !== i);
-      el.classList.toggle("slider__image--current", this.index === i);
+      el.classList.toggle("slider-image--hidden", this.index !== i);
+      el.classList.toggle("slider-image--current", this.index === i);
     });
   }
 
