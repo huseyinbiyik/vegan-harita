@@ -21,16 +21,20 @@
       <% end %>
     </div>
     <div class="slide-buttons">
-      <%= image_tag "previous.svg",
-      class: "slide-button",
-      data: {
-        action: "click->slider#previous"
-      } %>
-      <%= image_tag "next.svg",
-      class: "slide-button",
-      data: {
-        action: "click->slider#next"
-      } %>
+      <span>
+        <%= image_tag "previous.svg",
+        class: "slide-button",
+        data: {
+          action: "click->slider#previous"
+        } %>
+      </span>
+      <span>
+        <%= image_tag "next.svg",
+        class: "slide-button",
+        data: {
+          action: "click->slider#next"
+        } %>
+      </span>
     </div>
   </div>
 
