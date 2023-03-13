@@ -36,6 +36,17 @@ body {
 }
 
 .user-forms {
-  margin-top: 60px;
-  height: calc(100vh - 123px);
+  background-color: #A7D4BC;
+  padding-top: 27px;
+  height: calc(100vh - 61px);
+}
+
+.user-forms h2 {
+  margin-top: 33px;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 39px;
+  text-align: center;
+  color: #262626;
+  margin-bottom: 20px;
 }
