@@ -27,12 +27,15 @@ header div:nth-child(1) {
   line-height: 25px;
   text-decoration: none;
   color: #243e2e;
+  position: relative;
 }
 
 #beta {
   border: 1px solid #a94c2e;
   padding: 4px 9px 3px 9px;
   color: #a94c2e;
+  position: absolute;
+  left: 150px;
 }
 
 #burger {
