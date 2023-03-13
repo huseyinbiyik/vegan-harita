@@ -1,7 +1,8 @@
 <%= form_with(model: place, data: {controller: "place"}) do |form| %>
   <% if place.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(place.errors.count, "error") %> prohibited this place from being saved:</h2>
+      <h2><%= pluralize(place.errors.count, "error") %>
+        şu sorundan dolayı gönderilemedi:</h2>
 
       <ul>
         <% place.errors.each do |error| %>
@@ -12,36 +13,60 @@
   <% end %>
 
   <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+    <%= form.label "Yer Adı", style: "display: block" %>
+    <%= form.text_field :name, placeholder: "X Vegan Cafe" %>
   </div>
 
   <div>
-    <%= form.label :address, style: "display: block" %>
-    <%= form.text_field :address %>
+    <%= form.label "Adres", style: "display: block" %>
+    <%= form.text_field :address, placeholder: "X Vegan Cafe, Kadıköy..." %>
   </div>
 
-  <div>
-    <%= form.label :latitude, style: "display: block" %>
-    <%= form.number_field :latitude, step: "any" %>
-  </div>
+  <%= form.hidden_field :latitude %>
+  <%= form.hidden_field :longitude %>
 
   <div>
-    <%= form.label :longitude, style: "display: block" %>
-    <%= form.number_field :longitude, step: "any" %>
-  </div>
-
-  <div>
-    <%= form.label :images, style: "display: block" %>
+    <%= form.label "Yerin Fotoğrafları", style: "display: block" %>
     <%= form.file_field :images, multiple: true %>
   </div>
 
   <div>
-    <%= form.label :fully_vegan, style: "display: block" %>
-    <%= form.check_box :fully_vegan %>
+    <%= form.label "Bu işletme vegan mı yoksa vegan seçenekler mi sunuyor? ", style: "display: block" %>
+    <%= form.select :vegan, options_for_select([["Vegan", true], ["Vegan Seçenekli", false]]) %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.label "Instagram Adresi", style: "display: block" %>
+    <%= form.text_field :instagram_url, placeholder: "https://www.instagram.com/yeradi/" %>
+  </div>
+
+  <div>
+    <%= form.label "Facebook Adresi", style: "display: block" %>
+    <%= form.text_field :facebook_url, placeholder: "https://www.facebook.com/yeradi/" %>
+  </div>
+
+  <div>
+    <%= form.label "Twitter Adresi", style: "display: block" %>
+    <%= form.text_field :twitter_url, placeholder: "https://www.twitter.com/yeradi/" %>
+  </div>
+
+  <div>
+    <%= form.label "Website Adresi", style: "display: block" %>
+    <%= form.text_field :website_url, placeholder: "siteadresi.com" %>
+  </div>
+
+  <div>
+    <%= form.label "Email Adresi", style: "display: block" %>
+    <%= form.text_field :email, placeholder: "mail@mail.com"
+     %>
+  </div>
+
+  <div>
+    <%= form.label "Telefon", style: "display: block"%>
+    <%= form.text_field :phone, pattern: "[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}",  placeholder: "5XXXXXXXXX" %>
+  </div>
+
+  <div>
+    <%= form.submit "Gönder" %>
   </div>
 <% end %>
