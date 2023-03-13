@@ -26,11 +26,32 @@
 }
 
 .place-details {
+  height: 55px;
   padding: 9px 32px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background: #deb35b;
+}
+
+#vegan-icon {
+  width: 40px;
+  height: 38px;
+}
+
+#open-icon {
+  height: 36.79066467285156px;
+  width: 65.29069519042969px;
+}
+
+#direction-icon {
+  height: 38px;
+  width: 33.869564056396484px;
+}
+
+#phone-icon {
+  height: 38px;
+  width: 38px;
 }
 
 #menu {
@@ -131,8 +152,8 @@
 .tags span {
   width: 100%;
   border-radius: 5px;
-  border: 1px solid #DEB35B;
-  color: #DEB35B;
+  border: 1px solid #deb35b;
+  color: #deb35b;
   padding: 7.5px 9px;
   margin-right: 20px;
 }
