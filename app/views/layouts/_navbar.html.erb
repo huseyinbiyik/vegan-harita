@@ -26,8 +26,14 @@
         <% if user_signed_in? %>
           <%= link_to "Çıkış Yap", destroy_user_session_path, method: :delete %>
         <% else %>
-          <%= link_to "Giriş Yap", new_user_session_path %>
+          <%# <%= link_to "Giriş Yap", new_user_session_path %>
+          <%# a Sign In link with "add-icon.svg" %>
+          <%= link_to new_user_session_path, id: "sign-in-link" do %>
+            <%= image_tag "sign-in-icon.svg" %>
+            <span>Giriş Yap</span>
+          <% end %>
         <% end %>
+
       </li>
     </ul>
     <button id="burger" class="mobile" data-action="click->navigation#toggle">
