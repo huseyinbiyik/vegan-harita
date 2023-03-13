@@ -2,11 +2,11 @@ import { Controller } from "@hotwired/stimulus";
 
 // Connects to data-controller="place"
 export default class extends Controller {
+  static values = { api: String };
   connect() {
     // Create the script tag, set the appropriate attributes
     var script = document.createElement("script");
-    script.src =
-      "https://maps.googleapis.com/maps/api/js?key=AIzaSyCd7rrq1f7qe3Ph6nN3FtArXTaSMIkFUQY&libraries=places&callback=initAutocomplete";
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${this.apiValue}&libraries=places&callback=initAutocomplete`;
     script.async = true;
 
     // Attach your callback function to the `window` object

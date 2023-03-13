@@ -8,4 +8,5 @@
   <%= link_to "Back to places", places_path %>
 </div>
 
-<div id="map"></div>
+<div id="map" data-controller="place" data-place-api-value= "<%= Rails.application.credentials.google_maps[:api_key] %>"
+></div>

@@ -1,24 +1,38 @@
-<p style="color: green"><%= notice %></p>
-
 <%= render @place %>
 
-<div>
-  <%= link_to "Edit this place", edit_place_path(@place) %> |
-  <%= link_to "Back to places", places_path %>
-
-  <%= button_to "Destroy this place", @place, method: :delete %>
+<div class="place-details">
+  <%= image_tag "vegan-place.svg", class: "detail-icon", id: "vegan-icon" %>
+  <%= image_tag "open.svg", class: "detail-icon", id: "open-icon" %>
+  <%= image_tag "direction.svg", class: "detail-icon", id: "direction-icon" %>
+  <%= image_tag "phone.svg", class: "detail-icon", id: "phone-icon" %>
 </div>
 
-<h2>Foods</h2>
+<div class="tags">
+  <span>Dünya Mutfağı</span>
+  <span>Asya Mutfağı</span>
+  <span>Fransız Mutfağı</span>
+  <span>İtalyan Mutfağı</span>
+</div>
 
-<%= render @place.menus.where(product_category: "food") %>
 
-<h2> Drinks </h2>
+<div id="menu">
+  <div id="menu-header">
+      <h1>MENÜ</h1>
+      <%= link_to new_place_menu_path(@place) do %>
+        <%= image_tag "add-icon.svg" %>
+        <span>Ürün Ekle</span>
+      <% end %>
+    </div>
 
-<%= render @place.menus.where(product_category: "drink") %>
+  <h2 class="category">Foods</h2>
 
-<h2> Desserts </h2>
+  <%= render @place.menus.where(product_category: "food") %>
 
-<%= render @place.menus.where(product_category: "dessert") %>
+  <h2 class="category"> Drinks </h2>
 
-<%= link_to "Add a new menu items", new_place_menu_path(@place) %>
+  <%= render @place.menus.where(product_category: "drink") %>
+
+  <h2 class="category"> Desserts </h2>
+
+  <%= render @place.menus.where(product_category: "dessert") %>
+</div>

@@ -1,0 +1,163 @@
+.place-header {
+  height: 59px;
+  background: #243e2e;
+}
+
+.place-name {
+  height: 25px;
+  padding: 15px 0 19px 0;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 25px;
+  color: #deb35b;
+}
+
+.social-links {
+  background: #deb35b;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social {
+  margin: 13px 10px 12px 10px;
+}
+
+.place-details {
+  height: 55px;
+  padding: 9px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #deb35b;
+}
+
+#vegan-icon {
+  width: 40px;
+  height: 38px;
+}
+
+#open-icon {
+  height: 36.79066467285156px;
+  width: 65.29069519042969px;
+}
+
+#direction-icon {
+  height: 38px;
+  width: 33.869564056396484px;
+}
+
+#phone-icon {
+  height: 38px;
+  width: 38px;
+}
+
+#menu {
+  background-color: #243e2e;
+  padding: 27px 20px;
+}
+
+#menu-header {
+  text-align: center;
+  color: #a7d4bc;
+  margin-bottom: 19px;
+}
+
+#menu-header h1 {
+  display: inline-block;
+  position: relative;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 25px;
+}
+
+#menu-header a {
+  position: absolute;
+  text-decoration: none;
+  height: 24px;
+  color: #a7d4bc;
+  border: 1px solid #a7d4bc;
+  padding: 4px 9px 3px 9px;
+  margin-left: 5px;
+}
+
+.category {
+  font-weight: 600;
+  font-size: 20px;
+  color: #a7d4bc;
+  margin: 0 0 19px 0;
+}
+
+.menu-item {
+  margin-bottom: 30px;
+}
+
+.menu-item div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu-item div:nth-child(2) {
+  margin-top: 20px;
+}
+
+.name {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 25px;
+  text-align: left;
+  color: #a94c2e;
+}
+
+.price {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 25px;
+  color: #deb35b;
+}
+
+.menu-image {
+  width: 25vw;
+  height: auto;
+}
+
+.description {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 25px;
+  margin-left: 18px;
+  color: #deb35b;
+  width: 100%;
+  text-align: left;
+}
+
+.tags {
+  height: 55px;
+  background-color: #153143;
+  display: flex;
+  padding: 11.5px 18px;
+  overflow: auto;
+  white-space: nowrap;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.tags::-webkit-scrollbar {
+  display: none;
+}
+
+.tags span {
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #deb35b;
+  color: #deb35b;
+  padding: 7.5px 9px;
+  margin-right: 20px;
+}
+
+.tags span:last-child {
+  margin-right: 0;
+}

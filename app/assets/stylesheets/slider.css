@@ -1,8 +1,38 @@
-.slider__image--hidden {
+.slider {
+  position: relative;
+}
+
+.slider-container {
+  display: flex;
+  height: auto;
+}
+
+.slider-image--hidden {
   display: none;
 }
 
-.slider__image {
-  width: 200px;
+.slider-image {
+  width: 100%;
   height: auto;
+}
+
+.slide-buttons {
+  position: absolute;
+  bottom: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.slide-button {
+  padding: 3px;
+}
+
+.slide-buttons span {
+  background-color: white;
+  opacity: 0.5;
+  backdrop-filter: blur(1px);
+  display: flex;
+  border-radius: 10px;
 }

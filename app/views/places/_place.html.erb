@@ -1,23 +1,40 @@
 <div id="<%= dom_id place %>">
-
-  <% if place.images.attached? %>
-    <% place.images.each do |image| %>
-      <%= image_tag image, class: "place-image" %>
+  <div class="place-header">
+    <%= link_to :back, class: "arrow" do %>
+      <%= image_tag "back-icon.svg" %>
     <% end %>
-  <% end %>
-
-  <div data-controller="slider">
-    <div class="slider__container">
-      <% place.images.each do |image| %>
-        <%= image_tag image, class: "slider__image", data: { target: "slider.image" } %>
-      <% end %>
-    </div>
-    <button data-action="click->slider#previous">Previous</button>
-    <button data-action="click->slider#next">Next</button>
+    <p class="place-name"><%= place.name %></p>
   </div>
 
-  <p>
-    <strong>Name:</strong>
-    <%= place.name %>
-  </p>
+  <div class="social-links">
+    <%= image_tag "instagram.svg", class: "social" %>
+    <%= image_tag "facebook.svg", class: "social" %>
+    <%= image_tag "twitter.svg", class: "social" %>
+    <%= image_tag "web.svg", class: "social" %>
+    <%= image_tag "e-mail.svg", class: "social" %>
+  </div>
+
+  <div data-controller="slider" class="slider">
+    <div class="slider-container">
+      <% place.images.each do |image| %>
+        <%= image_tag image, class: "slider-image", data: { target: "slider.image" } %>
+      <% end %>
+    </div>
+    <div class="slide-buttons">
+      <span>
+        <%= image_tag "previous.svg",
+        class: "slide-button",
+        data: {
+          action: "click->slider#previous"
+        } %>
+      </span>
+      <span>
+        <%= image_tag "next.svg",
+        class: "slide-button",
+        data: {
+          action: "click->slider#next"
+        } %>
+      </span>
+    </div>
+  </div>
 </div>

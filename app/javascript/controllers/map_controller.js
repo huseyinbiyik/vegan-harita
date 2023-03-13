@@ -6,7 +6,6 @@ export default class extends Controller {
   static targets = ["map"];
   static values = { api: String };
   connect() {
-    console.log(this.apiValue);
     var script = document.createElement("script");
     script.src = `https://maps.googleapis.com/maps/api/js?key=${this.apiValue}&callback=initMap`;
     script.async = true;
@@ -127,7 +126,6 @@ export default class extends Controller {
       const VeganMarkerIcon = "vegan-place.svg";
       const veganFriendlyMarkerIcon = "vegan-friendly-place.svg";
 
-      console.log(locations);
       // Create markers for each location
       const markers = locations.map((position) => {
         let label = position.name;
