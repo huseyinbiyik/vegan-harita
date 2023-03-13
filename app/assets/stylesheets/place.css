@@ -112,3 +112,31 @@
   width: 100%;
   text-align: left;
 }
+
+.tags {
+  height: 55px;
+  background-color: #153143;
+  display: flex;
+  padding: 11.5px 18px;
+  overflow: auto;
+  white-space: nowrap;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.tags::-webkit-scrollbar {
+  display: none;
+}
+
+.tags span {
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #DEB35B;
+  color: #DEB35B;
+  padding: 7.5px 9px;
+  margin-right: 20px;
+}
+
+.tags span:last-child {
+  margin-right: 0;
+}
