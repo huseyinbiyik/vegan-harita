@@ -34,3 +34,8 @@ body {
   border-color: #243e2e;
   border-style: solid;
 }
+
+.user-forms {
+  margin-top: 60px;
+  height: calc(100vh - 123px);
+}

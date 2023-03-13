@@ -1,40 +1,39 @@
-
-
-
 <%= link_to :back, class: "arrow" do %>
   <%= image_tag "back-icon.svg" %>
 <% end %>
 
-<h2>Giriş Yap</h2>
+<section class="user-forms">
+  <h2>Giriş Yap</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email, 'E-posta' %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "kullanici@mail.com"%>
-  </div>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="field">
+      <%= f.label :email, 'E-posta' %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "kullanici@mail.com"%>
+    </div>
 
-  <div class="field">
-    <%= f.label :password, 'Parola' %><br />
-    <%= f.password_field :password, autocomplete: "current-password", placeholder: "******" %>
-  </div>
+    <div class="field">
+      <%= f.label :password, 'Parola' %><br />
+      <%= f.password_field :password, autocomplete: "current-password", placeholder: "******" %>
+    </div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field remember">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me, 'Beni Hatırla' %>
+    <% if devise_mapping.rememberable? %>
+      <div class="field remember">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me, 'Beni Hatırla' %>
+      </div>
+    <% end %>
+
+    <div class="actions">
+      <%= f.button :submit do %>
+        <span class="session-icon">
+          <%= image_tag "sign-in-icon.svg" %>
+        </span>
+        <span class="session-text">Giriş Yap</span>
+      <% end %>
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.button :submit do %>
-      <span class="session-icon">
-        <%= image_tag "sign-in-icon.svg" %>
-      </span>
-      <span class="session-text">Giriş Yap</span>
-    <% end %>
+  <div class="session-links-container">
+    <%= render "devise/shared/links" %>
   </div>
-<% end %>
-
-<div class="session-links-container">
-  <%= render "devise/shared/links" %>
-</div>
+</section>
