@@ -47,7 +47,7 @@ Feel free to check the [issues page](../../issues/).
 
 ## Authors
 
-Design: [Huseyin Biyik](https://github.com/huseyinbiyik)
+Design: [on Figma](https://www.figma.com/file/d01QJ3HoyYDWHJJx88fo5G/Untitled?t=Xa2EgvuZgH4k5AUG-1) [Huseyin Biyik](https://github.com/huseyinbiyik)
 
 Development: [Huseyin Biyik](https://github.com/huseyinbiyik) and [Bengi Genc](https://github.com/bengigo)
 
