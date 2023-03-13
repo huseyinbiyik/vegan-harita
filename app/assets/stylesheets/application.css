@@ -34,3 +34,19 @@ body {
   border-color: #243e2e;
   border-style: solid;
 }
+
+.user-forms {
+  background-color: #a7d4bc;
+  padding-top: 27px;
+  height: calc(100vh - 61px);
+}
+
+.user-forms h2 {
+  margin-top: 33px;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 39px;
+  text-align: center;
+  color: #262626;
+  margin-bottom: 20px;
+}
