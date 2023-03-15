@@ -1,11 +1,10 @@
-  <div class="page-heading-container">
-    <%= link_to :back, class: "arrow" do %>
-      <%= image_tag "back-icon.svg" %>
-    <% end %>
-    <h1 class="page-title" id="add-new-place-form-title">Yer Ekle</h1>
-  </div>
+<div class="page-heading-container">
+  <%= link_to :back, class: "arrow" do %>
+    <%= image_tag "back-icon.svg" %>
+  <% end %>
+  <h1 class="page-title" id="add-new-place-form-title">Yer Ekle</h1>
+</div>
 
-<%= render "form", place: @place %>
-
-<div id="map" data-controller="place" data-place-api-value= "<%= Rails.application.credentials.google_maps[:api_key] %>"
-></div>
+<div id="add-new-place">
+  <%= render "form", place: @place %>
+</div>
