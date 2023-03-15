@@ -1,22 +1,24 @@
-<%= link_to :back, class: "arrow" do %>
-  <%= image_tag "back-icon.svg" %>
-<% end %> 
+<section class="user-forms">
+  <%= link_to :back, class: "arrow" do %>
+    <%= image_tag "back-icon.svg" %>
+  <% end %> 
 
-<h2>Parolamı Unuttum</h2>
+  <h2>Parolamı Unuttum</h2>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email, 'E-posta' %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "kullanici@mail.com" %>
+    <div class="field">
+      <%= f.label :email, 'E-posta' %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "kullanici@mail.com" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Parolamı Yenile", id:"reset-button" %>
+    </div>
+  <% end %>
+
+  <div class="session-links-container", id="reset-page-links" >
+    <%= render "devise/shared/links" %>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Parolamı Yenile", id:"reset-button" %>
-  </div>
-<% end %>
-
-<div class="session-links-container", id="reset-page-links" >
-  <%= render "devise/shared/links" %>
-</div>
+</section>
