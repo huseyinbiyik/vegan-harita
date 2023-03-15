@@ -27,7 +27,7 @@
 
   <div>
     <%= form.label "Yerin Fotoğrafları", style: "display: block" %>
-    <%= form.file_field :images, multiple: true %>
+    <%= form.file_field :images, multiple: true, accept: "image/*" %>
   </div>
 
   <div>
