@@ -9,9 +9,10 @@ export default class extends Controller {
 
     if (this.stateValue) {
       this.openMenu();
+      this.showCloseButton();
     } else {
       this.closeMenu();
-      this.showCloseButton();
+      this.hideCloseButton();
     }
   }
 
@@ -26,5 +27,10 @@ export default class extends Controller {
   showCloseButton() {
     const closeButton = document.querySelector("#close-button");
     closeButton.classList.remove("hidden");
+  }
+
+  hideCloseButton() {
+    const closeButton = document.querySelector("#close-button");
+    closeButton.classList.add("hidden");
   }
 }

@@ -11,36 +11,33 @@
     id: "search-icon" %>
   </div>
 
-  <nav data-controller="navigation" data-navigation-state-value="false">
-    <ul id="nav-menu" class="hidden" data-navigation-target="menu">
-      <li>
-        <button id="close-button" data-action="click->navigation#toggle">
-          <span></span>
-          <span></span>
-        </button>
-      </li>
-      <li>
-        <%= link_to "Yer Ekle", new_place_path %>
-      </li>
-      <li>
-        <% if user_signed_in? %>
-          <%= link_to "Çıkış Yap", destroy_user_session_path, method: :delete %>
-        <% else %>
-          <%# <%= link_to "Giriş Yap", new_user_session_path %>
-          <%# a Sign In link with "add-icon.svg" %>
-          <%= link_to new_user_session_path, id: "sign-in-link" do %>
-            <%= image_tag "sign-in-icon.svg" %>
-            <span>Giriş Yap</span>
-          <% end %>
+<nav data-controller="navigation" data-navigation-state-value="false">
+  <ul id="nav-menu" class="hidden" data-navigation-target="menu">
+    <li>
+      <%= link_to "Yer Ekle", new_place_path %>
+    </li>
+    <li>
+      <% if user_signed_in? %>
+        <%= link_to "Çıkış Yap", destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%# <%= link_to "Giriş Yap", new_user_session_path %>
+        <%# a Sign In link with "add-icon.svg" %>
+        <%= link_to new_user_session_path, id: "sign-in-link" do %>
+          <%= image_tag "sign-in-icon.svg" %>
+          <span>Giriş Yap</span>
         <% end %>
+      <% end %>
+    </li>
+  </ul>
+  <button id="close-button" class="hidden" data-action="click->navigation#toggle">
+    <span></span>
+    <span></span>
+  </button>
+  <button id="burger" class="mobile" data-action="click->navigation#toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
 
-      </li>
-    </ul>
-    <button id="burger" class="mobile" data-action="click->navigation#toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
-  </nav>
 </header>
