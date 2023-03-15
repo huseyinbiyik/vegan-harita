@@ -50,6 +50,19 @@ header div:nth-child(1) {
   z-index: 999;
 }
 
+#burger.active span:nth-child(1) {
+  transform: translateY(15px) rotate(45deg);
+}
+
+#burger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+#burger.active span:nth-child(3) {
+  transform: translateY(-5px) rotate(-45deg);
+
+}
+
 #burger span {
   background: #243e2e;
   width: 38px;
@@ -128,6 +141,15 @@ nav {
   z-index: 999;
   padding-top: 90px;
   padding-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  list-style-type: none;
+}
+
+#nav-menu.hidden {
+  display: none;
 }
 
 #sign-in-link {

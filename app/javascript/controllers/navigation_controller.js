@@ -12,11 +12,13 @@ export default class extends Controller {
       this.activateCloseButton();
     } else {
       this.closeMenu();
+      this.deactivateCloseButton();
     }
   }
 
   openMenu() {
     this.menuTarget.classList.remove("hidden");
+    
   }
 
   closeMenu() {
@@ -24,6 +26,11 @@ export default class extends Controller {
   }
 
   activateCloseButton() {
+    const closeButton = document.querySelector("#burger");
+    closeButton.classList.add("active");
+  }
+
+  deactivateCloseButton() {
     const closeButton = document.querySelector("#burger");
     closeButton.classList.remove("active");
   }
