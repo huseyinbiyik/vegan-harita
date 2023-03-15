@@ -47,6 +47,7 @@ header div:nth-child(1) {
   justify-content: space-between;
   background: none;
   border: none;
+  z-index: 999;
 }
 
 #burger span {
@@ -54,6 +55,23 @@ header div:nth-child(1) {
   width: 38px;
   height: 2px;
   display: block;
+}
+
+#burger.active {
+  position: fixed;
+  right: 20px;
+}
+
+#burger.active span:nth-child(1) {
+  transform: translateY(15px) rotate(45deg);
+}
+
+#burger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+#burger.active span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
 }
 
 #search-wrapper {
@@ -117,41 +135,52 @@ nav {
 }
 
 #nav-menu {
-  position: absolute;
+  position: fixed;
+  overflow: hidden;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  border: 2px solid #243e2e;
   background-color: #e5dccf;
   z-index: 999;
+  padding-top: 90px;
+  padding-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  list-style-type: none;
 }
 
-#close-button {
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 59px;
-  width: 59px;
-  background-color: #e5dccf;
-  border: none;
-  z-index: 999;
+#nav-menu a {
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 25px;
+  display: flex;
+  align-items: center;
 }
 
-#close-button span {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  height: 2px;
-  width: 20px;
-  background-color: #243e2e;
+#add-place-link {
+  color: #243e2e;
 }
 
-#close-button span:nth-child(1) {
-  transform: translate(-50%, -50%) rotate(45deg);
+#nav-menu .session-links {
+  height: 60px;
+  width: 184px;
+  color: #e5dccf;
+  background-color: #a94c2e;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 25px;
+  border: 2px solid #262626;
+  justify-content: space-between;
+  padding: 17.5px 30px;
 }
 
-#close-button span:nth-child(2) {
-  transform: translate(-50%, -50%) rotate(-45deg);
+#nav-menu.hidden {
+  display: none;
 }
 
 .hidden {
