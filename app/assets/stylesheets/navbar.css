@@ -166,17 +166,17 @@ nav {
   color: #243e2e;
 }
 
-#sign-in-link {
+#nav-menu .session-links {
   height: 60px;
   width: 184px;
   color: #e5dccf;
-  border: 2px solid #262626;
   background-color: #a94c2e;
   font-size: 20px;
   font-weight: 400;
   line-height: 25px;
-  padding: 17.5px 30px;
+  border: 2px solid #262626;
   justify-content: space-between;
+  padding: 17.5px 30px;
 }
 
 #nav-menu.hidden {
