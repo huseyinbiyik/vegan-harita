@@ -50,6 +50,13 @@ header div:nth-child(1) {
   z-index: 999;
 }
 
+#burger span {
+  background: #243e2e;
+  width: 38px;
+  height: 2px;
+  display: block;
+}
+
 #burger.active {
   position: fixed;
   right: 20px;
@@ -65,13 +72,6 @@ header div:nth-child(1) {
 
 #burger.active span:nth-child(3) {
   transform: translateY(-6px) rotate(-45deg);
-}
-
-#burger span {
-  background: #243e2e;
-  width: 38px;
-  height: 2px;
-  display: block;
 }
 
 #search-wrapper {
@@ -151,12 +151,7 @@ nav {
   align-items: center;
   justify-content: space-between;
   list-style-type: none;
-
 }
-
-
-
- 
 
 #nav-menu a {
   text-decoration: none;
@@ -176,47 +171,16 @@ nav {
   width: 184px;
   color: #e5dccf;
   border: 2px solid #262626;
-  color: #e5dccf;
   background-color: #a94c2e;
-  text-decoration: none;
   font-size: 20px;
   font-weight: 400;
   line-height: 25px;
-
   padding: 17.5px 30px;
   justify-content: space-between;
 }
 
 #nav-menu.hidden {
   display: none;
-}
-
-#close-button {
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 59px;
-  width: 59px;
-  background-color: #e5dccf;
-  border: none;
-  z-index: 999;
-}
-
-#close-button span {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  height: 2px;
-  width: 20px;
-  background-color: #243e2e;
-}
-
-#close-button span:nth-child(1) {
-  transform: translate(-50%, -50%) rotate(45deg);
-}
-
-#close-button span:nth-child(2) {
-  transform: translate(-50%, -50%) rotate(-45deg);
 }
 
 .hidden {
