@@ -47,6 +47,7 @@ header div:nth-child(1) {
   justify-content: space-between;
   background: none;
   border: none;
+  z-index: 999;
 }
 
 #burger span {
@@ -143,7 +144,6 @@ nav {
   font-size: 20px;
   font-weight: 400;
   line-height: 25px;
-  
 
   padding: 17.5px 30px;
   justify-content: space-between;

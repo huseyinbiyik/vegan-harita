@@ -9,10 +9,9 @@ export default class extends Controller {
 
     if (this.stateValue) {
       this.openMenu();
-      this.showCloseButton();
+      this.activateCloseButton();
     } else {
       this.closeMenu();
-      this.hideCloseButton();
     }
   }
 
@@ -24,13 +23,8 @@ export default class extends Controller {
     this.menuTarget.classList.add("hidden");
   }
 
-  showCloseButton() {
-    const closeButton = document.querySelector("#close-button");
-    closeButton.classList.remove("hidden");
-  }
-
-  hideCloseButton() {
-    const closeButton = document.querySelector("#close-button");
-    closeButton.classList.add("hidden");
+  activateCloseButton() {
+    const closeButton = document.querySelector("#burger");
+    closeButton.classList.remove("active");
   }
 }
