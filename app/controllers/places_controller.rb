@@ -56,7 +56,9 @@ class PlacesController < ApplicationController
       if @place.update(place_params)
         format.html do
           redirect_to place_url(@place),
-                      notice: 'Güncelleme isteğiniz değerlendirmeye başarıyla gönderildi. Desteğiniz için teşekkür ederiz 💚'
+                      notice: 'Güncelleme isteğiniz değerlendirmeye
+                       başarıyla gönderildi.
+                       Desteğiniz için teşekkür ederiz 💚'
         end
         format.json { render :show, status: :ok, location: @place }
       else
