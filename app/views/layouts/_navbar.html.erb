@@ -11,32 +11,35 @@
     id: "search-icon" %>
   </div>
 
-  <nav data-controller="navigation" data-navigation-state-value="false">
-    <ul id="nav-menu" class="hidden" data-navigation-target="menu">
-      <li>
-        <button id="close-button" data-action="click->navigation#toggle">
-          <span></span>
-          <span></span>
-        </button>
-      </li>
-      <li>
-        <%= link_to "New place", new_place_path %>
-      </li>
-      <li>
-        <% if user_signed_in? %>
-          <p>Logged in as
-            <%= current_user.email %></p>
-          <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-        <% else %>
-          <%= link_to "Log in", new_user_session_path %>
+<nav data-controller="navigation" data-navigation-state-value="false">
+  <ul id="nav-menu" class="hidden" data-navigation-target="menu">
+    <li>
+      <%= link_to new_place_path, id:"add-place-link" do %>
+        <%= image_tag "add-place.svg"%>
+        <span>Yer Ekle</span>
+      <% end %>
+    </li>
+    <li>
+      <% if user_signed_in? %>
+        <%# <%= link_to "Çıkış Yap", destroy_user_session_path, method: :delete %>
+        <%= link_to destroy_user_session_path, method: :delete, id: "logout-link", class: "session-links" do %>
+          <%= image_tag "logout-icon.svg" %>
+          <span>Çıkış Yap</span>
         <% end %>
-      </li>
-    </ul>
-    <button id="burger" class="mobile" data-action="click->navigation#toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+      <% else %>
+        <%= link_to new_user_session_path, id: "sign-in-link", class: "session-links" do %>
+          <%= image_tag "sign-in-icon.svg" %>
+          <span>Giriş Yap</span>
+        <% end %>
+      <% end %>
+    </li>
+  </ul>
 
-  </nav>
+  <button id="burger" class="mobile" data-action="click->navigation#toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
 </header>
