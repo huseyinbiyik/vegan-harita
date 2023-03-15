@@ -50,6 +50,11 @@ header div:nth-child(1) {
   z-index: 999;
 }
 
+#burger.active {
+  position: fixed;
+  right: 20px;
+}
+
 #burger.active span:nth-child(1) {
   transform: translateY(15px) rotate(45deg);
 }
@@ -60,7 +65,6 @@ header div:nth-child(1) {
 
 #burger.active span:nth-child(3) {
   transform: translateY(-5px) rotate(-45deg);
-
 }
 
 #burger span {
@@ -131,7 +135,8 @@ nav {
 }
 
 #nav-menu {
-  position: absolute;
+  position: fixed;
+  overflow: hidden;
   top: 0;
   left: 0;
   width: 100%;
@@ -146,29 +151,44 @@ nav {
   align-items: center;
   justify-content: space-between;
   list-style-type: none;
+
 }
 
-#nav-menu.hidden {
-  display: none;
+
+
+ 
+
+#nav-menu a {
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 25px;
+  display: flex;
+  align-items: center;
+}
+
+#add-place-link {
+  color: #243e2e;
 }
 
 #sign-in-link {
   height: 60px;
   width: 184px;
-
+  color: #e5dccf;
   border: 2px solid #262626;
-  display: flex;
-  align-items: center;
   color: #e5dccf;
   background-color: #a94c2e;
   text-decoration: none;
-  font-family: Clash Display Variable;
   font-size: 20px;
   font-weight: 400;
   line-height: 25px;
 
   padding: 17.5px 30px;
   justify-content: space-between;
+}
+
+#nav-menu.hidden {
+  display: none;
 }
 
 #close-button {
