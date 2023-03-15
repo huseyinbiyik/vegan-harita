@@ -1,8 +1,8 @@
 <%= form_with(model: place, data: {controller: "place"}) do |form| %>
   <% if place.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(place.errors.count, "error") %>
-        şu sorundan dolayı gönderilemedi:</h2>
+      <h2><%= pluralize(place.errors.count, "hata") %>
+        şu sorundan dolayı arıza çıktı:</h2>
 
       <ul>
         <% place.errors.each do |error| %>
@@ -13,25 +13,25 @@
   <% end %>
 
   <div>
-    <%= form.label "Yer Adı", style: "display: block" %>
-    <%= form.text_field :name, placeholder: "X Vegan Cafe" %>
+    <%= form.label "Mekanın Adı", style: "display: block" %>
+    <%= form.text_field :name, placeholder: "X Vegan Cafe", required: true %>
   </div>
 
   <div>
     <%= form.label "Adres", style: "display: block" %>
-    <%= form.text_field :address, placeholder: "X Vegan Cafe, Kadıköy..." %>
+    <%= form.text_field :address, placeholder: "X Vegan Cafe, Kadıköy...", required: true %>
   </div>
 
   <%= form.hidden_field :latitude %>
   <%= form.hidden_field :longitude %>
 
   <div>
-    <%= form.label "Yerin Fotoğrafları", style: "display: block" %>
+    <%= form.label "Mekanın Fotoğrafları", style: "display: block" %>
     <%= form.file_field :images, multiple: true, accept: "image/*" %>
   </div>
 
   <div>
-    <%= form.label "Bu işletme vegan mı yoksa vegan seçenekler mi sunuyor? ", style: "display: block" %>
+    <%= form.label "Bu işletme vegan mı yoksa sadece bazı vegan seçenekler mi sunuyor? ", style: "display: block" %>
     <%= form.select :vegan, options_for_select([["Vegan", true], ["Vegan Seçenekli", false]]) %>
   </div>
 
