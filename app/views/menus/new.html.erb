@@ -1,9 +1,9 @@
+<div>
+  <%= link_to :back, class: "arrow" do %>
+    <%= image_tag "back-icon.svg" %>
+  <% end %>
+</div>
+
 <h1>New menu</h1>
 
 <%= render "form", menu: @menu %>
-
-<br>
-
-<div>
-  <%= link_to "Back", place_path(params[:place_id]  ) %>
-</div>

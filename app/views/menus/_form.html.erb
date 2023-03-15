@@ -12,11 +12,6 @@
   <% end %>
 
   <div>
-    <%= form.label :menu_images, style: "display: block" %>
-    <%= form.file_field :menu_images, multiple: true %>
-  </div>
-
-  <div>
     <%= form.label :name, style: "display: block" %>
     <%= form.text_field :name %>
   </div>
@@ -24,6 +19,11 @@
   <div>
     <%= form.label :description, style: "display: block" %>
     <%= form.text_area :description %>
+  </div>
+
+  <div>
+    <%= form.label :menu_images, style: "display: block" %>
+    <%= form.file_field :menu_images, multiple: true %>
   </div>
 
   <div>
