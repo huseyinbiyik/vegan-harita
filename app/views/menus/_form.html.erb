@@ -12,31 +12,31 @@
   <% end %>
 
   <div>
-    <%= form.label :name, style: "display: block" %>
+    <%= form.label "İsim", style: "display: block" %>
     <%= form.text_field :name %>
   </div>
 
   <div>
-    <%= form.label :description, style: "display: block" %>
+    <%= form.label "Tanımı", style: "display: block" %>
     <%= form.text_area :description %>
   </div>
 
   <div>
-    <%= form.label :menu_images, style: "display: block" %>
+    <%= form.label "Görsel Seçin", style: "display: block" %>
     <%= form.file_field :menu_images, multiple: true %>
   </div>
 
   <div>
-    <%= form.label :product_category, style: "display: block" %>
+    <%= form.label "Ürün Kategorisi", style: "display: block" %>
     <%= form.select :product_category, Menu.product_categories.keys %>
   </div>
 
   <div>
-    <%= form.label :price, style: "display: block" %>
+    <%= form.label "Fiyat (₺)", style: "display: block" %>
     <%= form.number_field :price %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit "Ekle" %>
   </div>
 <% end %>
