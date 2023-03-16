@@ -58,7 +58,6 @@
 #add-new-place-form #place_images {
   height: 30px;
   width: 100%;
-  border: 1px solid #262626;
   box-sizing: border-box;
 }
 
@@ -76,6 +75,8 @@
   -webkit-user-select: none;
   cursor: pointer;
   font-size: 16px;
+  border: 1px solid #262626;
+
 }
 
 /* Style image upload  */
