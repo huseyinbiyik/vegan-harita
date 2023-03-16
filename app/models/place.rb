@@ -19,8 +19,16 @@ class Place < ApplicationRecord
   # Has many menu items
   has_many :menus, dependent: :destroy
 
-  # Add images to the gallery
+  # Add place images and default image
   has_many_attached :images
+  after_commit :add_default_image, on: [:create]
+
+  def add_default_image
+    return if images.attached?
+
+    images.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'default-place-image.jpg')),
+                  filename: 'default-image.png', content_type: 'image/png')
+  end
 
   # For the search area
   scope :filter_by_name, ->(name) { where('name ILIKE ?', "%#{name}%") }
