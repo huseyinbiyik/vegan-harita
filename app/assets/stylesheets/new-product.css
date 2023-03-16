@@ -59,7 +59,6 @@ select {
 #menu_menu_images {
   height: 30px;
   width: 100%;
-  box-sizing: border-box;
 }
 
 #menu_menu_images::-webkit-file-upload-button {
