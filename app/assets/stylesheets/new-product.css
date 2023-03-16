@@ -1,6 +1,22 @@
-/* product form div */
+#product-form-container {
+  height: calc(100vh - 63px);
+  background-color: #243E2E;
+}
+
+#product-form-container form {
+  padding: 0 20px 20px 20px;
+}
+
 #product-form-container form div {
   margin-bottom: 15px;
+}
+
+#product-form-container h1 {
+  font-family: Clash Display Variable;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 25px;
+  text-align: center;
 }
 
 #product-form-container label {
@@ -17,12 +33,11 @@
 textarea,
 select {
   background-color: #deb35b;
-  /* padding: 3px 5px 2px 5px; */
+  padding: 3px 5px 2px 5px;
   height: 30px;
   border: 1px solid #000000;
   color: #a94c2e;
   font-size: 20px;
-
 }
 
 #product-form-container textarea {
@@ -32,12 +47,13 @@ select {
 #product-form-container input:nth-child(3) {
   background: none;
   border: none;
+  padding: 0;
 }
 
 #menu_menu_images {
   color: #deb35b;
   height: 30px;
-  width: 100%;
+  box-sizing: border-box;
 }
 
 #menu_menu_images::-webkit-file-upload-button {
@@ -50,6 +66,11 @@ select {
   background-color: #deb35b;
   color: #a94c2e;
   /* padding: 5px 8px; */
+  padding: 3px 5px 2px 5px;
+
+  height: 30px;
+  width: 138px;
+
   outline: none;
   white-space: nowrap;
   -webkit-user-select: none;
@@ -65,7 +86,7 @@ select {
 
 #add-product-button input {
   color: #deb35b;
-  background: none;
+  background: #E5DCCF;
 }
 
 #product-form-container ::placeholder {
@@ -73,5 +94,5 @@ select {
   font-size: 20px;
   font-weight: 400;
   line-height: 25px;
-  /* padding: 3px 5px 2px 5px; */
+  padding: 3px 5px 2px 5px;
 }
