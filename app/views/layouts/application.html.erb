@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>VhApi</title>
+    <title>Vegan Harita</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <%= csrf_meta_tags %>
@@ -14,6 +14,7 @@
 
   <body>
     <%= render "layouts/navbar" %>
+    <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>

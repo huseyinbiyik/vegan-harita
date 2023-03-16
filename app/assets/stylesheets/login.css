@@ -1,6 +1,11 @@
-.arrow {
-  width: 26px;
-  margin-left: 21px;
+h2 {
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 39px;
+  text-align: center;
+  color: #262626;
+  margin-top: 60px;
+  margin-bottom: 20px;
 }
 
 #new_user {
