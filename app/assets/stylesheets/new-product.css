@@ -1,16 +1,77 @@
+/* product form div */
+#product-form-container form div {
+  margin-bottom: 15px;
+}
+
 #product-form-container label {
-  color: #DEB35B;
-  
+  color: #deb35b;
+}
+
+#menu_name,
+#menu_description {
+  width: 100%;
+  height: 30px;
+}
+
+#product-form-container input,
+textarea,
+select {
+  background-color: #deb35b;
+  /* padding: 3px 5px 2px 5px; */
+  height: 30px;
+  border: 1px solid #000000;
+  color: #a94c2e;
+  font-size: 20px;
+
+}
+
+#product-form-container textarea {
+  height: 90px;
+}
+
+#product-form-container input:nth-child(3) {
+  background: none;
+  border: none;
 }
 
 #menu_menu_images {
-  color: #DEB35B;
+  color: #deb35b;
+  height: 30px;
+  width: 100%;
+}
+
+#menu_menu_images::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+#menu_menu_images::before {
+  content: "Fotoğraf Seç";
+  display: inline-block;
+  background-color: #deb35b;
+  color: #a94c2e;
+  /* padding: 5px 8px; */
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  font-size: 20px;
+  border: 1px solid #262626;
+}
+
+#menu_price {
+  height: 30px;
+  width: 55px;
 }
 
 #add-product-button input {
-  color: #DEB35B;
+  color: #deb35b;
+  background: none;
 }
 
 #product-form-container ::placeholder {
-  color: #DEB35B;
+  color: #a94c2e;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 25px;
+  /* padding: 3px 5px 2px 5px; */
 }
