@@ -1,0 +1,16 @@
+#product-form-container label {
+  color: #DEB35B;
+  
+}
+
+#menu_menu_images {
+  color: #DEB35B;
+}
+
+#add-product-button input {
+  color: #DEB35B;
+}
+
+#product-form-container ::placeholder {
+  color: #DEB35B;
+}
