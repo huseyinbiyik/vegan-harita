@@ -132,9 +132,7 @@ export default class extends Controller {
         const marker = new google.maps.Marker({
           position,
           icon: {
-            url: position.fully_vegan
-              ? VeganMarkerIcon
-              : veganFriendlyMarkerIcon,
+            url: position.vegan ? VeganMarkerIcon : veganFriendlyMarkerIcon,
             scaledSize: new google.maps.Size(50, 60),
           },
         });

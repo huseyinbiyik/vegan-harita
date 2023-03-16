@@ -1,11 +1,11 @@
 class Place < ApplicationRecord
   validates :instagram_url, format: { with: %r{\Ahttps?://(www\.)?instagram\.com/[\w-]+/?\z}i }, allow_blank: true
 
-  validates :facebook_url, format: { with: %r{\Ahttps?://(www\.)?facebook\.com/[\w-]+\z}i }, allow_blank: true
+  validates :facebook_url, format: { with: %r{\Ahttps?://(www\.)?facebook\.com/}i }, allow_blank: true
 
-  validates :twitter_url, format: { with: %r{\Ahttps?://(www\.)?twitter\.com/[\w-]+\z}i }, allow_blank: true
+  validates :twitter_url, format: { with: %r{\Ahttps?://(www\.)?twitter\.com/[\w-]+/?\z}i }, allow_blank: true
 
-  validates :web_url, format: { with: %r{\Ahttps?://(www\.)?[\w-]+\z}i }, allow_blank: true
+  validates :web_url, format: { with: %r{\A(https?://)?(.+\.)?[^./]+\.[^./]+\z}i }, allow_blank: true
 
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, allow_blank: true
 
@@ -26,7 +26,7 @@ class Place < ApplicationRecord
   def add_default_image
     return if images.attached?
 
-    images.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'default-place-image.jpg')),
+    images.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'default-place-image.jpeg')),
                   filename: 'default-image.png', content_type: 'image/png')
   end
 
