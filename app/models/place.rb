@@ -26,7 +26,7 @@ class Place < ApplicationRecord
   def add_default_image
     return if images.attached?
 
-    images.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'default-place-image.jpg')),
+    images.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'default-place-image.jpeg')),
                   filename: 'default-image.png', content_type: 'image/png')
   end
 
