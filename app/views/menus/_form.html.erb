@@ -13,12 +13,12 @@
 
   <div>
     <%= form.label "İsim", style: "display: block" %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, placeholder: "Hazelnut Brownie Brioche" %>
   </div>
 
   <div>
     <%= form.label "Tanımı", style: "display: block" %>
-    <%= form.text_area :description %>
+    <%= form.text_area :description, placeholder: "Brownie ve fındık pralinli brioche.  Brownie Brioche ..." %>
   </div>
 
   <div>
@@ -33,7 +33,7 @@
 
   <div>
     <%= form.label "Fiyat (₺)", style: "display: block" %>
-    <%= form.number_field :price %>
+    <%= form.number_field :price, placeholder: "33" %>
   </div>
 
   <div>

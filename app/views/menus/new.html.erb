@@ -1,9 +1,10 @@
-<div>
+<div id="product-form-container">
   <%= link_to :back, class: "arrow" do %>
     <%= image_tag "back-icon.svg" %>
   <% end %>
+
+  <h1>Ürün Ekle</h1>
+
+  <%= render "form", menu: @menu %>
 </div>
 
-<h1>Ürün Ekle</h1>
-
-<%= render "form", menu: @menu %>
