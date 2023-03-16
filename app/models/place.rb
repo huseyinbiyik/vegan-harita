@@ -5,7 +5,7 @@ class Place < ApplicationRecord
 
   validates :twitter_url, format: { with: %r{\Ahttps?://(www\.)?twitter\.com/[\w-]+/?\z}i }, allow_blank: true
 
-  validates :web_url, format: { with: %r{\A(https?://)?(www\.)?[\w-]+\.[\w-]+\z}i }, allow_blank: true
+  validates :web_url, format: { with: %r{\A(https?://)?(.+\.)?[^./]+\.[^./]+\z}i }, allow_blank: true
 
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, allow_blank: true
 
