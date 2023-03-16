@@ -1,11 +1,11 @@
 class Place < ApplicationRecord
   validates :instagram_url, format: { with: %r{\Ahttps?://(www\.)?instagram\.com/[\w-]+/?\z}i }, allow_blank: true
 
-  validates :facebook_url, format: { with: %r{\Ahttps?://(www\.)?facebook\.com/[\w-]+\z}i }, allow_blank: true
+  validates :facebook_url, format: { with: %r{\Ahttps?://(www\.)?facebook\.com/}i }, allow_blank: true
 
-  validates :twitter_url, format: { with: %r{\Ahttps?://(www\.)?twitter\.com/[\w-]+\z}i }, allow_blank: true
+  validates :twitter_url, format: { with: %r{\Ahttps?://(www\.)?twitter\.com/[\w-]+/?\z}i }, allow_blank: true
 
-  validates :web_url, format: { with: %r{\Ahttps?://(www\.)?[\w-]+\z}i }, allow_blank: true
+  validates :web_url, format: { with: %r{\A(https?://)?(www\.)?[\w-]+\.[\w-]+\z}i }, allow_blank: true
 
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, allow_blank: true
 

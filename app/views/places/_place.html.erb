@@ -4,6 +4,13 @@
       <%= image_tag "back-icon.svg" %>
     <% end %>
     <p class="page-title"><%= place.name %></p>
+
+    <%# Edit page %>
+      <%= link_to edit_place_path(place), class: "edit-button" do %>
+        <p> Düzenle </p>
+      <% end %>
+
+
   </div>
 
   <div class="social-links">
