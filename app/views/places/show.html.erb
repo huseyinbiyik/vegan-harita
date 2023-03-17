@@ -26,13 +26,13 @@
 
   <h2 class="category">Foods</h2>
 
-  <%= render @place.menus.where(product_category: "food") %>
+  <%= render @place.menus.where(product_category: "yemek") %>
 
   <h2 class="category"> Drinks </h2>
 
-  <%= render @place.menus.where(product_category: "drink") %>
+  <%= render @place.menus.where(product_category: "içecek") %>
 
   <h2 class="category"> Desserts </h2>
 
-  <%= render @place.menus.where(product_category: "dessert") %>
+  <%= render @place.menus.where(product_category: "tatlı") %>
 </div>
