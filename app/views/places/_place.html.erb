@@ -63,10 +63,27 @@
   </div>
 
   <div class="place-details">
+  <% if place.vegan? %>
     <%= image_tag "vegan-place.svg", class: "detail-icon", id: "vegan-icon" %>
+  <% else %>
+    <%= image_tag "vegan-friendly-place.svg", class: "detail-icon", id: "vegan-icon" %>
+  <% end %>
+
     <%= image_tag "open.svg", class: "detail-icon", id: "open-icon" %>
+
+<%= link_to "https://www.google.com/maps/dir/?api=1&destination=#{place.latitude},#{place.longitude}", target: "_blank" do %>
     <%= image_tag "direction.svg", class: "detail-icon", id: "direction-icon" %>
+  <% end %>
+
+<% if place.phone.present? %>
+  <%= link_to "tel:#{place.phone}" do %>
     <%= image_tag "phone.svg", class: "detail-icon", id: "phone-icon" %>
+  <% end %>
+<% else %>
+  <%= link_to "tel:#{place.phone}" do %>
+    <%= image_tag "phone.svg", class: "detail-icon disabled", id: "phone-icon" %>
+  <% end %>
+<% end %>
   </div>
 
   <div class="tags">
