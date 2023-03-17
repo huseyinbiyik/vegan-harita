@@ -50,3 +50,13 @@ body {
   color: #262626;
   margin-bottom: 20px;
 }
+
+@media only screen and (min-width: 1024px) {
+  .user-forms h2 {
+    margin-top: 100px;
+  }
+
+  .field input {
+    width: 300px;
+  }
+}
