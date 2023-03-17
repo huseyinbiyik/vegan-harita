@@ -46,8 +46,10 @@ select {
 }
 
 #add-product-button input {
-  color: #deb35b;
+  color: #a94c2e;
   background: #e5dccf;
+  height: 40px;
+  width: 120px;
 }
 
 #product-form-container input:nth-child(3) {
