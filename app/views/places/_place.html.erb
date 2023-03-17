@@ -7,11 +7,35 @@
   </div>
 
   <div class="social-links">
-    <%= image_tag "instagram.svg", class: "social" %>
-    <%= image_tag "facebook.svg", class: "social" %>
-    <%= image_tag "twitter.svg", class: "social" %>
-    <%= image_tag "web.svg", class: "social" %>
-    <%= image_tag "e-mail.svg", class: "social" %>
+    <% social_links = {
+      "instagram" => place.instagram_url,
+      "facebook" => place.facebook_url,
+      "twitter" => place.twitter_url,
+      "web" => place.web_url,
+      "email" => place.email
+    } %>
+
+    <% social_links.each do |key, value| %>
+      <% if value.present? %>
+        <% if key == "web" %>
+          <%= link_to "https://#{value}", target: "_blank" do %>
+            <%= image_tag "#{key}.svg", class: "social" %>
+          <% end %>
+        <% elsif key == "email" %>
+          <%= link_to "#{value}", href: "mailto:#{value}" do %>
+            <%= image_tag "#{key}.svg", class: "social" %>
+          <% end %>
+        <% else %>
+          <%= link_to "#{value}", target: "_blank" do %>
+            <%= image_tag "#{key}.svg", class: "social" %>
+          <% end %>
+        <% end %>
+      <% else %>
+        <%= link_to "#{value}" do %>
+          <%= image_tag "#{key}.svg", class: "social disabled" %>
+        <% end %>
+      <% end %>
+    <% end %>
   </div>
 
   <div data-controller="slider" class="slider">
@@ -37,4 +61,18 @@
       </span>
     </div>
   </div>
+
+  <div class="place-details">
+    <%= image_tag "vegan-place.svg", class: "detail-icon", id: "vegan-icon" %>
+    <%= image_tag "open.svg", class: "detail-icon", id: "open-icon" %>
+    <%= image_tag "direction.svg", class: "detail-icon", id: "direction-icon" %>
+    <%= image_tag "phone.svg", class: "detail-icon", id: "phone-icon" %>
+  </div>
+
+  <div class="tags">
+  <span>Dünya Mutfağı</span>
+  <span>Asya Mutfağı</span>
+  <span>Fransız Mutfağı</span>
+  <span>İtalyan Mutfağı</span>
+</div>
 </div>
