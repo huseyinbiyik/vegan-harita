@@ -10,6 +10,15 @@
   margin: 13px 10px 12px 10px;
 }
 
+.social.disabled {
+  opacity: 0.5;
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
 .place-details {
   height: 55px;
   padding: 9px 32px;
