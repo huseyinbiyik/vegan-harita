@@ -98,3 +98,9 @@ input[type="password"] {
   line-height: 25px;
   color: #000;
 }
+
+@media only screen and (min-width: 1024px) {
+  .remember {
+    width: 300px;
+  }
+}
