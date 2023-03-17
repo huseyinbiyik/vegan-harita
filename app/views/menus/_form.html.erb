@@ -12,31 +12,31 @@
   <% end %>
 
   <div>
-    <%= form.label :menu_images, style: "display: block" %>
-    <%= form.file_field :menu_images, multiple: true %>
+    <%= form.label "İsim", style: "display: block" %>
+    <%= form.text_field :name, placeholder: "Hazelnut Brownie Brioche", class: "product-input" %>
   </div>
 
   <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+    <%= form.label "Tanımı", style: "display: block" %>
+    <%= form.text_area :description, placeholder: "Brownie ve fındık pralinli brioche.  Brownie Brioche ...", class: "product-input" %>
   </div>
 
   <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
+    <%= form.label "Görsel Seçin", style: "display: block" %>
+    <%= form.file_field :menu_images, multiple: true, class: "product-input" %>
   </div>
 
   <div>
-    <%= form.label :product_category, style: "display: block" %>
-    <%= form.select :product_category, Menu.product_categories.keys %>
+    <%= form.label "Ürün Kategorisi", style: "display: block" %>
+    <%= form.select :product_category, Menu.product_categories.keys, class: "product-input" %>
   </div>
 
   <div>
-    <%= form.label :price, style: "display: block" %>
-    <%= form.number_field :price %>
+    <%= form.label "Fiyat (₺)", style: "display: block" %>
+    <%= form.number_field :price, placeholder: "33", class: "product-input" %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div id="add-product-button">
+    <%= form.submit "Gönder" %>
   </div>
 <% end %>

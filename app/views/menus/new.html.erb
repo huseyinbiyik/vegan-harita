@@ -1,9 +1,12 @@
-<h1>New menu</h1>
-
-<%= render "form", menu: @menu %>
-
-<br>
-
-<div>
-  <%= link_to "Back", place_path(params[:place_id]  ) %>
+<div id="product-form-container">
+  <%= link_to :back, class: "arrow" do %>
+    <%= image_tag "back-icon.svg" %>
+  <% end %>
+  <h1 class="page-title">Ürün Ekle</h1>
+  <div>
+  <%= render "form", menu: @menu %>
 </div>
+</div>
+
+
+
