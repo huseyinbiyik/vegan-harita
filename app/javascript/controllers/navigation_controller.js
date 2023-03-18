@@ -17,12 +17,11 @@ export default class extends Controller {
   }
 
   openMenu() {
-    this.menuTarget.classList.remove("hidden");
-    
+    this.menuTarget.classList.add("active");
   }
 
   closeMenu() {
-    this.menuTarget.classList.add("hidden");
+    this.menuTarget.classList.remove("active");
   }
 
   activateCloseButton() {

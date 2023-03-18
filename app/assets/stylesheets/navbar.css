@@ -137,6 +137,10 @@ nav {
 }
 
 #nav-menu {
+  display: none;
+}
+
+#nav-menu.active {
   position: fixed;
   overflow: hidden;
   top: 0;
@@ -187,4 +191,10 @@ nav {
 
 .hidden {
   display: none;
+}
+
+@media (min-width: 1024px) {
+  #burger {
+    display: none;
+  }
 }
