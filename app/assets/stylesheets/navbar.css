@@ -6,17 +6,13 @@ header {
   padding: 18px 20px;
   background-color: #e5dccf;
   border-bottom: 2px solid #243e2e;
-}
-
-header div {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  column-gap: 5px;
   width: 100%;
 }
 
-header div:nth-child(1) {
-  margin-right: 20px;
+#logo-container {
+  display: flex;
+  align-items: center;
 }
 
 #logo {
@@ -27,15 +23,14 @@ header div:nth-child(1) {
   line-height: 25px;
   text-decoration: none;
   color: #243e2e;
-  position: relative;
+  min-width: 125px;
 }
 
 #beta {
   border: 1px solid #a94c2e;
   padding: 4px 9px 3px 9px;
   color: #a94c2e;
-  position: absolute;
-  left: 150px;
+  margin-left: 5px;
 }
 
 #burger {
@@ -72,6 +67,13 @@ header div:nth-child(1) {
 
 #burger.active span:nth-child(3) {
   transform: translateY(-6px) rotate(-45deg);
+}
+
+#search-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
 }
 
 #search-wrapper {

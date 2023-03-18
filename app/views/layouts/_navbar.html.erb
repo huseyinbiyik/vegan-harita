@@ -1,8 +1,10 @@
 <header id="navbar">
-  <div data-controller="search">
+  <div id="logo-container">
     <a href="/" id="logo">Vegan Harita</a>
     <span id="beta">BETA</span>
+  </div>
 
+  <div id="search-container" data-controller="search">
     <%= render "places/search_form" %>
     <%= image_tag "search-icon.svg",
     data: {
