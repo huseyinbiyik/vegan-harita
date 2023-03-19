@@ -1,0 +1,64 @@
+#last-added-places-container {
+  background-color: #e5dccf;
+  height: 60px;
+  display: flex;
+  align-items: center;
+
+  /* overflow: hidden; */
+
+}
+
+#last-added-places-container h3 {
+  width: 328px;
+  font-size: 32px;
+  font-weight: 400;
+}
+
+#last-places-list {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  white-space: nowrap;
+  column-gap: 10px;
+  width: calc(100% - 328px);
+  
+
+
+  -moz-transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
+  
+  -moz-animation: my-animation 15s linear infinite;
+  -webkit-animation: my-animation 15s linear infinite;
+  animation: my-animation 15s linear infinite;
+}
+
+
+/* for Firefox */
+@-moz-keyframes my-animation {
+  from { -moz-transform: translateX(100%); }
+  to { -moz-transform: translateX(-100%); }
+}
+
+/* for Chrome */
+@-webkit-keyframes my-animation {
+  from { -webkit-transform: translateX(100%); }
+  to { -webkit-transform: translateX(-100%); }
+}
+
+@keyframes my-animation {
+  from {
+    -moz-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+  to {
+    -moz-transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+}
+
+.place-card {
+display: block;
+}

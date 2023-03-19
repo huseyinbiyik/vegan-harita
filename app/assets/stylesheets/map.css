@@ -22,6 +22,6 @@
 
 @media (min-width: 1024px) {
   #map {
-  height: calc(100vh - 74px);
+  height: calc(100vh - 174px);
 }
 }
