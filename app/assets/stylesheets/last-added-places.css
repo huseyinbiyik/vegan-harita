@@ -3,15 +3,21 @@
   height: 60px;
   display: flex;
   align-items: center;
+  border-top: 2px solid #243E2E;
 
-  /* overflow: hidden; */
 
 }
 
 #last-added-places-container h3 {
-  width: 328px;
+  width: 340px;
   font-size: 32px;
   font-weight: 400;
+  background-color: #A94C2E;
+  padding: 11px 22px;
+  /* border: 2px solid #243E2E */
+  height: 58px;
+
+     border-right: 2px solid #243E2E;
 }
 
 #last-places-list {
@@ -20,7 +26,7 @@
   flex-direction: row;
   white-space: nowrap;
   column-gap: 10px;
-  width: calc(100% - 328px);
+  width: calc(100% - 340px);
   
 
 
@@ -61,4 +67,6 @@
 
 .place-card {
 display: block;
+text-decoration: none;
+color: black;
 }
