@@ -204,7 +204,7 @@ nav {
 
   header {
     padding: 0 0 0 50px;
-    height: 90px;
+    height: 70px;
   }
 
   #search-container {
@@ -272,5 +272,22 @@ nav {
   #nav-menu {
     display: flex;
     list-style-type: none;
+  }
+
+  #nav-menu .session-links {
+    height: 68px;
+    border-top: none;
+    border-right: none;
+    border-bottom: none;
+  }
+
+  #add-place-link {
+    height: 68px;
+    width: 175px;
+
+    /* width: 184px; */
+    justify-content: space-between;
+    padding: 17.5px 30px;
+
   }
 }
