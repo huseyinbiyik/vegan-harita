@@ -5,7 +5,7 @@ Vegan Harita is a map of vegan places in Turkey. Users can search for the places
 
 ## Live Demo (Beta)
 
-[https://vh.fly.dev](https://vh.fly.dev)
+[https://veganharita.com/](https://veganharita.com/)
 
 ## Features
 
@@ -26,6 +26,8 @@ Vegan Harita is a map of vegan places in Turkey. Users can search for the places
 - Google Maps API
 - Stylelint (CSS Linter)
 - Rubocop (Ruby Linter)
+- fly.io (deployment)
+- Docker
 
 
 ## Installation

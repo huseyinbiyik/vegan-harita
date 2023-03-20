@@ -1,9 +1,12 @@
 <header id="navbar">
-  <div data-controller="search">
+  <div id="logo-container">
     <a href="/" id="logo">Vegan Harita</a>
     <span id="beta">BETA</span>
+  </div>
 
+  <div id="search-container" data-controller="search">
     <%= render "places/search_form" %>
+
     <%= image_tag "search-icon.svg",
     data: {
       action: "click->search#toggle "
@@ -12,7 +15,7 @@
   </div>
 
 <nav data-controller="navigation" data-navigation-state-value="false">
-  <ul id="nav-menu" class="hidden" data-navigation-target="menu">
+  <ul id="nav-menu" data-navigation-target="menu">
     <li>
       <%= link_to new_place_path, id:"add-place-link" do %>
         <%= image_tag "add-place.svg"%>

@@ -1,5 +1,4 @@
 <p style="color: green"><%= notice %></p>
-<!--The div element for the map -->
 <div
   id="map"
   data-map-target="map"
@@ -7,3 +6,16 @@
   data-map-places="<%= @places.to_json(include: :images)  %>"
   data-controller="map"
 ></div>
+
+<div id="last-added-places-container">
+<h3>Son Eklenen Yerler</h3>
+
+<div id="last-places-list">
+  <% Place.last_ten.each do |place| %>
+        <%= link_to "+#{place.name}", place_path(place), class: "place-card" %>
+    <% end %>
+</div>
+</div> 
+
+
+

@@ -1,0 +1,87 @@
+#last-added-places-container {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  #last-added-places-container {
+    background-color: #e5dccf;
+    height: 60px;
+    display: block;
+    align-items: center;
+    border-top: 2px solid #243e2e;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #last-added-places-container h3 {
+    width: 340px;
+    font-size: 32px;
+    font-weight: 400;
+    background-color: #a94c2e;
+    padding: 11px 22px;
+    height: 58px;
+    border-right: 2px solid #243e2e;
+    z-index: 999;
+    color: #e5dccf;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  #last-places-list {
+    display: flex;
+    align-items: center;
+    padding: 18px 12px 17px 12px;
+    flex-direction: row;
+    white-space: nowrap;
+    column-gap: 10px;
+    -moz-transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    -moz-animation: my-animation 15s linear infinite;
+    -webkit-animation: my-animation 15s linear infinite;
+    animation: my-animation 30s linear infinite;
+  }
+
+  /* for Firefox */
+  @-moz-keyframes my-animation {
+    from {
+      -moz-transform: translateX(100%);
+    }
+
+    to {
+      -moz-transform: translateX(-100%);
+    }
+  }
+
+  /* for Chrome */
+  @-webkit-keyframes my-animation {
+    from {
+      -webkit-transform: translateX(100%);
+    }
+
+    to {
+      -webkit-transform: translateX(-100%);
+    }
+  }
+
+  @keyframes my-animation {
+    from {
+      -moz-transform: translateX(100%);
+      -webkit-transform: translateX(100%);
+      transform: translateX(100%);
+    }
+
+    to {
+      -moz-transform: translateX(-100%);
+      -webkit-transform: translateX(-100%);
+      transform: translateX(-100%);
+    }
+  }
+
+  .place-card {
+    display: block;
+    text-decoration: none;
+    color: #243e2e;
+  }
+}
