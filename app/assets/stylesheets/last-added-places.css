@@ -1,9 +1,10 @@
 #last-added-places-container {
   background-color: #e5dccf;
   height: 60px;
-  display: flex;
+  /* display: flex; */
   align-items: center;
   border-top: 2px solid #243e2e;
+  position: relative;
 }
 
 #last-added-places-container h3 {
@@ -17,15 +18,20 @@
   z-index: 999;
   color: #E5DCCF;
 
+  position: absolute;
+  top: 0;
+  left: 0;
+
 }
 
 #last-places-list {
   display: flex;
   align-items: center;
+  padding: 18px 12px 17px 12px;
   flex-direction: row;
   white-space: nowrap;
   column-gap: 10px;
-  width: calc(100% - 340px);
+  /* width: calc(100% - 340px); */
   -moz-transform: translateX(100%);
   -webkit-transform: translateX(100%);
   transform: translateX(100%);
