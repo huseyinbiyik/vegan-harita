@@ -100,15 +100,15 @@
         <% end %>
       </div>
 
-    <h2 class="category">Foods</h2>
+    <h2 class="category">Yemekler</h2>
 
     <%= render @place.menus.where(product_category: "yemek") %>
 
-    <h2 class="category"> Drinks </h2>
+    <h2 class="category">İçecekler</h2>
 
     <%= render @place.menus.where(product_category: "içecek") %>
 
-    <h2 class="category"> Desserts </h2>
+    <h2 class="category">Tatlılar</h2>
 
     <%= render @place.menus.where(product_category: "tatlı") %>
   </div>
