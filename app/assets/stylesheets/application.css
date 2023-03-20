@@ -60,3 +60,9 @@ body {
     width: 300px;
   }
 }
+
+@media (min-width: 1024px) {
+  .arrow {
+    margin: 20px 0 0 50px;
+  }
+}

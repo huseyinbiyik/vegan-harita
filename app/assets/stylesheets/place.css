@@ -28,6 +28,10 @@
   background: #deb35b;
 }
 
+.detail {
+  display: none;
+}
+
 #vegan-icon {
   width: 40px;
   height: 38px;
@@ -67,7 +71,7 @@
   line-height: 25px;
 }
 
-#menu-header a {
+#add-new-product {
   position: absolute;
   text-decoration: none;
   height: 24px;
@@ -154,4 +158,68 @@
 
 .tags span:last-child {
   margin-right: 0;
+}
+
+@media (min-width: 1024px) {
+  .place {
+    height: calc(100vh - 70px);
+    display: grid;
+    grid-template-rows: 59px 55px auto;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .place-heading-container {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 1;
+  }
+
+  #add-new-product {
+    font-size: initial;
+  }
+
+  .place-details {
+    height: 59px;
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 1;
+  }
+
+  .detail-group {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+  }
+
+  .detail-link {
+    text-decoration: none;
+  }
+
+  .detail {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25px;
+    color: #243e2e;
+  }
+
+  .social-links {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 2;
+    grid-row-end: 2;
+  }
+
+  .tags {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 2;
+  }
+
+  .slider {
+    background-color: #243e2e;
+  }
 }
