@@ -12,7 +12,7 @@
     position: relative;
     overflow: hidden;
   }
-  
+
   #last-added-places-container h3 {
     width: 340px;
     font-size: 32px;
@@ -27,7 +27,7 @@
     top: 0;
     left: 0;
   }
-  
+
   #last-places-list {
     display: flex;
     align-items: center;
@@ -42,43 +42,43 @@
     -webkit-animation: my-animation 15s linear infinite;
     animation: my-animation 30s linear infinite;
   }
-  
+
   /* for Firefox */
   @-moz-keyframes my-animation {
     from {
       -moz-transform: translateX(100%);
     }
-  
+
     to {
       -moz-transform: translateX(-100%);
     }
   }
-  
+
   /* for Chrome */
   @-webkit-keyframes my-animation {
     from {
       -webkit-transform: translateX(100%);
     }
-  
+
     to {
       -webkit-transform: translateX(-100%);
     }
   }
-  
+
   @keyframes my-animation {
     from {
       -moz-transform: translateX(100%);
       -webkit-transform: translateX(100%);
       transform: translateX(100%);
     }
-  
+
     to {
       -moz-transform: translateX(-100%);
       -webkit-transform: translateX(-100%);
       transform: translateX(-100%);
     }
   }
-  
+
   .place-card {
     display: block;
     text-decoration: none;
