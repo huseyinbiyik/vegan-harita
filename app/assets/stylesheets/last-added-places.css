@@ -3,21 +3,18 @@
   height: 60px;
   display: flex;
   align-items: center;
-  border-top: 2px solid #243E2E;
-
-
+  border-top: 2px solid #243e2e;
 }
 
 #last-added-places-container h3 {
   width: 340px;
   font-size: 32px;
   font-weight: 400;
-  background-color: #A94C2E;
+  background-color: #a94c2e;
   padding: 11px 22px;
-  /* border: 2px solid #243E2E */
   height: 58px;
-
-     border-right: 2px solid #243E2E;
+  border-right: 2px solid #243e2e;
+  z-index: 999;
 }
 
 #last-places-list {
@@ -27,29 +24,32 @@
   white-space: nowrap;
   column-gap: 10px;
   width: calc(100% - 340px);
-  
-
-
   -moz-transform: translateX(100%);
   -webkit-transform: translateX(100%);
   transform: translateX(100%);
-  
   -moz-animation: my-animation 15s linear infinite;
   -webkit-animation: my-animation 15s linear infinite;
   animation: my-animation 15s linear infinite;
 }
 
-
 /* for Firefox */
 @-moz-keyframes my-animation {
-  from { -moz-transform: translateX(100%); }
-  to { -moz-transform: translateX(-100%); }
+  from {
+    -moz-transform: translateX(100%);
+  }
+  to {
+    -moz-transform: translateX(-100%);
+  }
 }
 
 /* for Chrome */
 @-webkit-keyframes my-animation {
-  from { -webkit-transform: translateX(100%); }
-  to { -webkit-transform: translateX(-100%); }
+  from {
+    -webkit-transform: translateX(100%);
+  }
+  to {
+    -webkit-transform: translateX(-100%);
+  }
 }
 
 @keyframes my-animation {
@@ -66,7 +66,7 @@
 }
 
 .place-card {
-display: block;
-text-decoration: none;
-color: black;
+  display: block;
+  text-decoration: none;
+  color: black;
 }
