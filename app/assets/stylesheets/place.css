@@ -155,3 +155,46 @@
 .tags span:last-child {
   margin-right: 0;
 }
+
+@media (min-width: 1024px) {
+  .place {
+    height: calc(100vh - 70px);
+    display: grid;
+    grid-template-rows: 59px 55px auto;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .place-heading-container {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 1;
+  }
+
+  .place-details {
+    height: 59px;
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 1;
+  }
+
+  .social-links {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 2;
+    grid-row-end: 2;
+  }
+
+  .tags {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 2;
+
+  }
+
+  .slider {
+    background-color: #243E2E;
+  }
+}
