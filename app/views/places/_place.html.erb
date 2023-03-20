@@ -64,18 +64,32 @@
 
   <div class="place-details">
   <% if place.vegan? %>
-    <%= image_tag "vegan-place.svg", class: "detail-icon", id: "vegan-icon" %>
+    <div class="detail-group">
+      <%= image_tag "vegan-place.svg", class: "detail-icon", id: "vegan-icon" %>
+      <span class="detail">Vegan</span>
+    </div>
   <% else %>
-    <%= image_tag "vegan-friendly-place.svg", class: "detail-icon", id: "vegan-icon" %>
+    <div class="detail-group">
+      <%= image_tag "vegan-friendly-place.svg", class: "detail-icon", id: "vegan-icon" %>
+      <span class="detail">Vegan friendly</span>
+    </div>
   <% end %>
-    <%= image_tag "open.svg", class: "detail-icon", id: "open-icon" %>
-  <%= link_to "https://www.google.com/maps/dir/?api=1&destination=#{place.latitude},#{place.longitude}", target: "_blank" do %>
-    <%= image_tag "direction.svg", class: "detail-icon", id: "direction-icon" %>
+    <div class="detail-group">
+      <%= image_tag "open.svg", class: "detail-icon", id: "open-icon" %>
+      <span class="detail">Açık</span>
+    </div>
+  <%= link_to "https://www.google.com/maps/dir/?api=1&destination=#{place.latitude},#{place.longitude}", target: "_blank", class: "detail-link" do %>
+    <div class="detail-group">
+      <%= image_tag "direction.svg", class: "detail-icon", id: "direction-icon" %>
+      <span class="detail">Yol Tarifi</span>
+    </div>
   <% end %>
-
   <% if place.phone.present? %>
-    <%= link_to "tel:#{place.phone}" do %>
-      <%= image_tag "phone.svg", class: "detail-icon", id: "phone-icon" %>
+    <%= link_to "tel:#{place.phone}", class: "detail-link" do %>
+      <div class="detail-group">
+        <%= image_tag "phone.svg", class: "detail-icon", id: "phone-icon" %>
+        <span class="detail">Ara</span>
+      </div>
     <% end %>
   <% else %>
     <%= link_to "tel:#{place.phone}" do %>
