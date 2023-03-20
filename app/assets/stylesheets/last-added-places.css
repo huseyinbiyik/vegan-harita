@@ -1,6 +1,7 @@
 #last-added-places-container {
   background-color: #e5dccf;
   height: 60px;
+
   /* display: flex; */
   align-items: center;
   border-top: 2px solid #243e2e;
@@ -16,12 +17,10 @@
   height: 58px;
   border-right: 2px solid #243e2e;
   z-index: 999;
-  color: #E5DCCF;
-
+  color: #e5dccf;
   position: absolute;
   top: 0;
   left: 0;
-
 }
 
 #last-places-list {
@@ -31,7 +30,6 @@
   flex-direction: row;
   white-space: nowrap;
   column-gap: 10px;
-  /* width: calc(100% - 340px); */
   -moz-transform: translateX(100%);
   -webkit-transform: translateX(100%);
   transform: translateX(100%);
@@ -79,5 +77,5 @@
 .place-card {
   display: block;
   text-decoration: none;
-  color: #243E2E;
+  color: #243e2e;
 }
