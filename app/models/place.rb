@@ -38,7 +38,6 @@ class Place < ApplicationRecord
     order(created_at: :desc).limit(10)
   end
 
-
   private
 
   # Validation for adding images to place on add new form
