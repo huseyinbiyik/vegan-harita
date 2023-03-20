@@ -10,6 +10,7 @@
     align-items: center;
     border-top: 2px solid #243e2e;
     position: relative;
+    overflow: hidden;
   }
   
   #last-added-places-container h3 {

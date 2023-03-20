@@ -9,6 +9,7 @@
 
 <div id="last-added-places-container">
 <h3>Son Eklenen Yerler</h3>
+
 <div id="last-places-list">
   <% Place.last_ten.each do |place| %>
         <%= link_to "+#{place.name}", place_path(place), class: "place-card" %>
