@@ -104,5 +104,6 @@ select {
 
   #product-form-container form {
     margin: auto;
+    min-width: 450px;
   }
 }
