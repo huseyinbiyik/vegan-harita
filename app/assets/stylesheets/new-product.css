@@ -94,3 +94,15 @@ select {
   line-height: 25px;
   padding: 3px 5px 2px 5px;
 }
+
+@media (min-width: 1024px) {  
+  #product-form-container {
+    padding-top: 27px;
+    height: calc(100vh - 70px);
+    
+  }
+
+  #product-form-container form {
+    margin: auto;
+  }
+}
