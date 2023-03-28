@@ -3,5 +3,5 @@ class Menu < ApplicationRecord
 
   has_many_attached :menu_images
 
-  enum product_category: { yemek: 0, tatlı: 1, içecek: 2 }
+  enum product_category: { Yemek: 0, Tatlı: 1, İçecek: 2 }
 end
