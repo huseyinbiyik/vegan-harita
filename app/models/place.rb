@@ -27,7 +27,7 @@ class Place < ApplicationRecord
     return if images.attached?
 
     images.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'default-place-image.jpeg')),
-                  filename: 'default-image.png', content_type: 'image/png')
+                  filename: 'default-place-image.jpeg', content_type: 'image/jpeg')
   end
 
   # For the search area
