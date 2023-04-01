@@ -1,10 +1,11 @@
-<p style="color: green"><%= notice %></p>
-
 <%= render @menu %>
 
 <div>
-  <%= link_to "Edit this menu", edit_place_menu_path(params[:place_id] , @menu) %> |
-  <%= link_to "Back to Palace Page", place_path(params[:place_id] ) %>
+  <%= link_to "Edit this menu", edit_place_menu_path(params[:place_id], @menu) %>
+  |
+  <%= link_to "Back to Palace Page", place_path(params[:place_id]) %>
 
-  <%= button_to "Destroy this menu", place_menu_path(params[:place_id] , @menu), method: :delete %>
+  <%= button_to "Destroy this menu",
+  place_menu_path(params[:place_id], @menu),
+  method: :delete %>
 </div>
