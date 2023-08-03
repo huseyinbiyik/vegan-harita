@@ -54,6 +54,7 @@ gem 'geocoder'
 
 gem 'devise'
 
+gem 'aws-sdk-s3', '~> 1.132'
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
@@ -64,6 +65,7 @@ group :development do
   gem 'erb-formatter'
   gem 'letter_opener'
   gem 'web-console'
+  gem 'dockerfile-rails', '>= 1.0.0'
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
@@ -78,6 +80,3 @@ group :test do
   gem 'webdrivers'
 end
 
-gem 'dockerfile-rails', '>= 1.0.0', group: :development
-
-gem "aws-sdk-s3", "~> 1.132"
