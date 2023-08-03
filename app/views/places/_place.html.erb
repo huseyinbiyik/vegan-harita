@@ -40,79 +40,83 @@
 
   <div data-controller="slider" class="slider">
     <div class="slider-container">
-      <% place.images.each do |image| %>
-        <%= image_tag image, class: "slider-image", data: { target: "slider.image" } %>
+      <% if place.images.attached? %>
+        <% place.images.each do |image| %>
+          <%= image_tag image, class: "slider-image", data: { target: "slider.image" } %>
+        <% end %>
+      <% else %>
+        <%= image_tag "default-place-image.jpg", class: "slider-image", data: { target: "slider.image" } %>
       <% end %>
     </div>
     <div class="slide-buttons">
       <span>
         <%= image_tag "previous.svg",
-        class: "slide-button",
-        data: {
-          action: "click->slider#previous"
-        } %>
+                      class: "slide-button",
+                      data: {
+                        action: "click->slider#previous"
+                      } %>
       </span>
       <span>
         <%= image_tag "next.svg",
-        class: "slide-button",
-        data: {
-          action: "click->slider#next"
-        } %>
+                      class: "slide-button",
+                      data: {
+                        action: "click->slider#next"
+                      } %>
       </span>
     </div>
   </div>
 
   <div class="place-details">
-  <% if place.vegan? %>
-    <div class="detail-group">
-      <%= image_tag "vegan-place.svg", class: "detail-icon", id: "vegan-icon" %>
-      <span class="detail">Vegan</span>
-    </div>
-  <% else %>
-    <div class="detail-group">
-      <%= image_tag "vegan-friendly-place.svg", class: "detail-icon", id: "vegan-icon" %>
-      <span class="detail">Vegan friendly</span>
-    </div>
-  <% end %>
+    <% if place.vegan? %>
+      <div class="detail-group">
+        <%= image_tag "vegan-place.svg", class: "detail-icon", id: "vegan-icon" %>
+        <span class="detail">Vegan</span>
+      </div>
+    <% else %>
+      <div class="detail-group">
+        <%= image_tag "vegan-friendly-place.svg", class: "detail-icon", id: "vegan-icon" %>
+        <span class="detail">Vegan friendly</span>
+      </div>
+    <% end %>
     <div class="detail-group">
       <%= image_tag "open.svg", class: "detail-icon", id: "open-icon" %>
       <span class="detail">Açık</span>
     </div>
-  <%= link_to "https://www.google.com/maps/dir/?api=1&destination=#{place.latitude},#{place.longitude}", target: "_blank", class: "detail-link" do %>
-    <div class="detail-group">
-      <%= image_tag "direction.svg", class: "detail-icon", id: "direction-icon" %>
-      <span class="detail">Yol Tarifi</span>
-    </div>
-  <% end %>
-  <% if place.phone.present? %>
-    <%= link_to "tel:#{place.phone}", class: "detail-link" do %>
+    <%= link_to "https://www.google.com/maps/dir/?api=1&destination=#{place.latitude},#{place.longitude}", target: "_blank", class: "detail-link" do %>
       <div class="detail-group">
-        <%= image_tag "phone.svg", class: "detail-icon", id: "phone-icon" %>
-        <span class="detail">Ara</span>
+        <%= image_tag "direction.svg", class: "detail-icon", id: "direction-icon" %>
+        <span class="detail">Yol Tarifi</span>
       </div>
     <% end %>
-  <% else %>
-    <%= link_to "tel:#{place.phone}" do %>
-      <%= image_tag "phone.svg", class: "detail-icon disabled", id: "phone-icon" %>
+    <% if place.phone.present? %>
+      <%= link_to "tel:#{place.phone}", class: "detail-link" do %>
+        <div class="detail-group">
+          <%= image_tag "phone.svg", class: "detail-icon", id: "phone-icon" %>
+          <span class="detail">Ara</span>
+        </div>
+      <% end %>
+    <% else %>
+      <%= link_to "tel:#{place.phone}" do %>
+        <%= image_tag "phone.svg", class: "detail-icon disabled", id: "phone-icon" %>
+      <% end %>
     <% end %>
-  <% end %>
   </div>
 
   <div class="tags">
-  <span>Dünya Mutfağı</span>
-  <span>Asya Mutfağı</span>
-  <span>Fransız Mutfağı</span>
-  <span>İtalyan Mutfağı</span>
+    <span>Dünya Mutfağı</span>
+    <span>Asya Mutfağı</span>
+    <span>Fransız Mutfağı</span>
+    <span>İtalyan Mutfağı</span>
   </div>
 
   <div id="menu">
     <div id="menu-header">
-        <h1>MENÜ</h1>
-        <%= link_to new_place_menu_path(@place), id: "add-new-product" do %>
-          <%= image_tag "add-icon.svg" %>
-          <span>Ürün Ekle</span>
-        <% end %>
-      </div>
+      <h1>MENÜ</h1>
+      <%= link_to new_place_menu_path(@place), id: "add-new-product" do %>
+        <%= image_tag "add-icon.svg" %>
+        <span>Ürün Ekle</span>
+      <% end %>
+    </div>
 
     <h2 class="category">Yemekler</h2>
 
