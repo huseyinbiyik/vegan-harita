@@ -2,7 +2,6 @@
   id="map"
   data-map-target="map"
   data-map-api-value= "<%= Rails.application.credentials.google_maps[:api_key] %>"
-  data-map-places="<%= @places.to_json(include: :images)  %>"
   data-controller="map"
 ></div>
 

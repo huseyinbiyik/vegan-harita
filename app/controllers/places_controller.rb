@@ -3,7 +3,11 @@ class PlacesController < ApplicationController
 
   # GET /places or /places.json
   def index
-    @places = Place.all.with_attached_images
+    @places = Place.all
+    respond_to do |format|
+      format.html
+      format.json { render json: @places.to_json(methods: :featured_image) }
+    end
   end
 
   def search

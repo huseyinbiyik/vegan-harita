@@ -144,9 +144,11 @@ export default class extends Controller {
             label
               ? `<a href=${
                   window.location.origin + "/places/" + position.id
-                } class="info-window"><img src="#" alt=${label}_images[0]><h3>${label}</h3><p>${
-                  position.address
-                }</p></a>`
+                } class="info-window">
+                <img src=${position.featured_image}
+                  alt=${label}>
+                <h3>${label}</h3>
+                <p>${position.address}</p></a>`
               : ""
           );
           infoWindow.open(map, marker);
@@ -157,12 +159,18 @@ export default class extends Controller {
       new MarkerClusterer({ markers, map });
     };
 
-    const locations = JSON.parse(this.mapTarget.dataset.mapPlaces);
-    // Change locations keys to lat and lng
-    locations.forEach((location) => {
-      location.lat = location.latitude;
-      location.lng = location.longitude;
-    });
+    let locations;
+    fetch("/places.json")
+      .then((response) => response.json())
+      .then((data) => {
+        locations = data;
+        console.log(locations);
+        // Change locations keys to lat and lng to match google maps
+        locations.forEach((location) => {
+          location.lat = location.latitude;
+          location.lng = location.longitude;
+        });
+      });
 
     // Append the 'script' element to 'head'
     document.head.appendChild(script);

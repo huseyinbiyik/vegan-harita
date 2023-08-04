@@ -22,6 +22,10 @@ class Place < ApplicationRecord
   # Add place images and default image
   has_many_attached :images
 
+  def featured_image
+    Rails.application.routes.url_helpers.rails_blob_path(images.first, only_path: true) if images.attached?
+  end
+
   # For the search area
   scope :filter_by_name, ->(name) { where('name ILIKE ?', "%#{name}%") }
 
