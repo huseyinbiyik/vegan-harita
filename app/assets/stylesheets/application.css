@@ -49,6 +49,12 @@ body {
   margin-bottom: 20px;
 }
 
+.arrow {
+  width: 26px;
+  margin: 20px 0 0 21px;
+  position: absolute;
+}
+
 @media (min-width: 1024px) {
   .user-forms h2 {
     margin-top: 100px;
