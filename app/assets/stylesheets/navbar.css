@@ -17,7 +17,6 @@ header {
 
 #logo {
   font-size: 20px;
-  font-family: "Clash Display Variable", sans-serif;
   height: 25px;
   font-weight: 500;
   line-height: 25px;
@@ -49,7 +48,6 @@ header {
   background: #243e2e;
   width: 38px;
   height: 2px;
-  display: block;
 }
 
 #burger.active {
@@ -79,16 +77,12 @@ header {
 #search-wrapper {
   display: none;
   border-bottom: 1px solid black;
-  background-color: transparent;
   background-color: #e5dccf;
 }
 
 #search-form {
   display: flex;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding: 15px 20px 15px 20px;
 }
 
 #search-field {
@@ -283,8 +277,6 @@ nav {
   #add-place-link {
     height: 68px;
     width: 175px;
-
-    /* width: 184px; */
     justify-content: space-between;
     padding: 17.5px 30px;
   }

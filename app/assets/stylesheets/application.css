@@ -30,9 +30,7 @@
 }
 
 body {
-  border-width: 2px;
-  border-color: #243e2e;
-  border-style: solid;
+  border: 2px solid #243e2e;
 }
 
 .user-forms {
@@ -51,7 +49,7 @@ body {
   margin-bottom: 20px;
 }
 
-@media only screen and (min-width: 1024px) {
+@media (min-width: 1024px) {
   .user-forms h2 {
     margin-top: 100px;
   }
@@ -59,9 +57,7 @@ body {
   .field input {
     width: 300px;
   }
-}
 
-@media (min-width: 1024px) {
   .arrow {
     margin: 20px 0 0 50px;
   }

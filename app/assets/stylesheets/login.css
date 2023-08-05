@@ -79,7 +79,6 @@ input[type="password"] {
 }
 
 .session-text {
-  font-family: Clash Display Variable, sans-serif;
   font-size: 20px;
   font-weight: 400;
   line-height: 25px;
@@ -99,7 +98,7 @@ input[type="password"] {
   color: #000;
 }
 
-@media only screen and (min-width: 1024px) {
+@media (min-width: 1024px) {
   .remember {
     width: 300px;
   }

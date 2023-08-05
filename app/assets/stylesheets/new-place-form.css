@@ -50,7 +50,6 @@
   width: 100%;
   height: 20vh;
   border: 1px solid #262626;
-  box-sizing: border-box;
   margin-bottom: 15px;
 }
 
@@ -58,7 +57,6 @@
 #add-new-place-form #place_images {
   height: 30px;
   width: 100%;
-  box-sizing: border-box;
 }
 
 #add-new-place-form #place_images::-webkit-file-upload-button {
@@ -79,7 +77,6 @@
 }
 
 /* Style image upload  */
-
 #add-new-place-form select {
   color: #243e2e;
   background-color: #e5dccf;

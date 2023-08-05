@@ -32,7 +32,6 @@
     display: flex;
     align-items: center;
     padding: 18px 12px 17px 12px;
-    flex-direction: row;
     white-space: nowrap;
     column-gap: 10px;
     -moz-transform: translateX(100%);
@@ -80,7 +79,6 @@
   }
 
   .place-card {
-    display: block;
     text-decoration: none;
     color: #243e2e;
   }
