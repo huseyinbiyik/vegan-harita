@@ -39,7 +39,7 @@ export default class extends Controller {
 
       // Set CSS for the control interior
       var controlText = document.createElement("img");
-      controlText.src = "zoom-in.svg";
+      controlText.src = "../zoom-in.svg";
       controlUI.appendChild(controlText);
 
       // Setup the click event listeners
@@ -53,7 +53,7 @@ export default class extends Controller {
 
       // Set CSS for the control interior
       var controlTextLeft = document.createElement("img");
-      controlTextLeft.src = "zoom-out.svg";
+      controlTextLeft.src = "../zoom-out.svg";
       controlUILeft.appendChild(controlTextLeft);
 
       // Setup the click event listeners
@@ -122,7 +122,7 @@ export default class extends Controller {
     }
 
     const locationButton = document.createElement("button");
-    locationButton.innerHTML = `<img src="find-me.svg" alt="find-me">`;
+    locationButton.innerHTML = `<img src="../find-me.svg" alt="find-me">`;
     locationButton.classList.add("custom-map-control-button");
     locationButton.id = "location-button";
     map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(locationButton);
@@ -130,8 +130,8 @@ export default class extends Controller {
     centerToMyCurrentLocation();
 
     // Marker icons located on public folder
-    const VeganMarkerIcon = "vegan-place.svg";
-    const veganFriendlyMarkerIcon = "vegan-friendly-place.svg";
+    const VeganMarkerIcon = "../vegan-place.svg";
+    const veganFriendlyMarkerIcon = "../vegan-friendly-place.svg";
 
     // Create markers for each location
     const markers = locations.map((position) => {
@@ -168,6 +168,7 @@ export default class extends Controller {
             : ""
         );
         infoWindow.open(map, marker);
+        map.setCenter(marker.getPosition());
       });
       return marker;
     });
