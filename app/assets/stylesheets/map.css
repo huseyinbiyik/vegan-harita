@@ -3,6 +3,18 @@
   width: calc(100vw - 4px);
 }
 
+/* Customizing place infoWindow */
+.info-window-image {
+  width: 100px;
+  height: 100px;
+}
+
+.info-window {
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+}
+
 /* Customizing find me button */
 .custom-map-control-button {
   margin-right: 10px;
