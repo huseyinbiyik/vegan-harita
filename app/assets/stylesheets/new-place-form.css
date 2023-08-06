@@ -44,6 +44,8 @@
   color: #243e2e;
   opacity: 0.7;
   font-size: 16px;
+    /* (doesn't have different desktop value) recreate above line with "small font size class" */
+
 }
 
 #add-new-place-form #map {
@@ -73,6 +75,7 @@
   -webkit-user-select: none;
   cursor: pointer;
   font-size: 16px;
+  #add-new-place-form #place_images::before
   border: 1px solid #262626;
 }
 
@@ -93,7 +96,6 @@
   width: 120px;
   height: 40px;
   padding: 0 5px 0 5px;
-  font-size: 16px;
   cursor: pointer;
   border: 1px solid #262626;
 }

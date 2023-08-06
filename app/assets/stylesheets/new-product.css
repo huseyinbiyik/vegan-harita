@@ -14,7 +14,6 @@
 }
 
 #product-form-container h1 {
-  font-size: 20px;
   font-weight: 700;
   line-height: 25px;
   text-align: center;
@@ -38,7 +37,7 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-input[type=number] {
+input[type="number"] {
   -moz-appearance: textfield;
 }
 

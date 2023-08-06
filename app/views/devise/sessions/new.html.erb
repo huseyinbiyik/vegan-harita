@@ -3,12 +3,12 @@
 <%= link_to :back, class: "arrow" do %>
   <%= image_tag "back-icon.svg" %>
 <% end %>
-  <h2>Giriş Yap</h2>
+  <h2 class="large-font">Giriş Yap</h2>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field">
       <%= f.label :email, 'E-posta' %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "kullanici@mail.com"%>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "medium-font", placeholder: "kullanici@mail.com"%>
     </div>
 
     <div class="field">
@@ -28,7 +28,7 @@
         <span class="session-icon">
           <%= image_tag "sign-in-icon.svg" %>
         </span>
-        <span class="session-text">Giriş Yap</span>
+        <span class="session-text medium-font">Giriş Yap</span>
       <% end %>
     </div>
   <% end %>

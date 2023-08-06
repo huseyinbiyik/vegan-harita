@@ -3,7 +3,7 @@
     <%= link_to :back, class: "arrow" do %>
       <%= image_tag "back-icon.svg" %>
     <% end %>
-    <p class="page-title"><%= place.name %></p>
+    <p class="page-title medium-font"><%= place.name %></p>
   </div>
 
   <div class="social-links">
@@ -107,22 +107,22 @@
 
   <div id="menu">
     <div id="menu-header">
-        <h1>MENÜ</h1>
+        <h1 class="medium-font">MENÜ</h1>
         <%= link_to new_place_menu_path(@place), id: "add-new-product" do %>
           <%= image_tag "add-icon.svg" %>
           <span>Ürün Ekle</span>
         <% end %>
       </div>
 
-    <h2 class="category">Yemekler</h2>
+    <h2 class="category medium-font">Yemekler</h2>
 
     <%= render @place.menus.where(product_category: "Yemek") %>
 
-    <h2 class="category">İçecekler</h2>
+    <h2 class="category medium-font">İçecekler</h2>
 
     <%= render @place.menus.where(product_category: "İçecek") %>
 
-    <h2 class="category">Tatlılar</h2>
+    <h2 class="category medium-font">Tatlılar</h2>
 
     <%= render @place.menus.where(product_category: "Tatlı") %>
   </div>

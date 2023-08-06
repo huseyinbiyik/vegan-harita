@@ -1,5 +1,4 @@
 h2 {
-  font-size: 32px;
   font-weight: 500;
   line-height: 39px;
   text-align: center;
@@ -38,7 +37,6 @@ h2 {
 
 .field input[type="email"],
 input[type="password"] {
-  font-size: 20px;
   font-weight: 400;
   line-height: 25px;
 }
@@ -79,7 +77,6 @@ input[type="password"] {
 }
 
 .session-text {
-  font-size: 20px;
   font-weight: 400;
   line-height: 25px;
   color: #e5dccf;
@@ -92,7 +89,6 @@ input[type="password"] {
 }
 
 .session-links {
-  font-size: 20px;
   font-weight: 400;
   line-height: 25px;
   color: #000;

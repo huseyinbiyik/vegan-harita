@@ -25,12 +25,12 @@
     <li>
       <% if user_signed_in? %>
         <%# <%= link_to "Çıkış Yap", destroy_user_session_path, method: :delete %>
-        <%= link_to destroy_user_session_path, method: :delete, id: "logout-link", class: "session-links" do %>
+        <%= link_to destroy_user_session_path, method: :delete, id: "logout-link", class: "session-links medium-font" do %>
           <%= image_tag "logout-icon.svg" %>
           <span>Çıkış Yap</span>
         <% end %>
       <% else %>
-        <%= link_to new_user_session_path, id: "sign-in-link", class: "session-links" do %>
+        <%= link_to new_user_session_path, id: "sign-in-link", class: "session-links medium-font" do %>
           <%= image_tag "sign-in-icon.svg" %>
           <span>Giriş Yap</span>
         <% end %>

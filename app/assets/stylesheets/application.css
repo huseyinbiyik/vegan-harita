@@ -55,6 +55,18 @@ body {
   position: absolute;
 }
 
+.large-font {
+  font-size: 32px;
+}
+
+.medium-font {
+  font-size: 20px;
+}
+
+.small-font {
+  font-size: 16px;
+}
+
 @media (min-width: 1024px) {
   .user-forms h2 {
     margin-top: 100px;
