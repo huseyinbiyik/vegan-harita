@@ -13,17 +13,11 @@ class Place < ApplicationRecord
 
   validate :images_count_within_limit
 
-  # geocoded_by :address
-  # after_validation :geocode
-
-  # Has many menu items
   has_many :menus, dependent: :destroy
-
-  # Add place images and default image
-  has_many_attached :images
+  has_many_attached :images, dependent: :destroy
 
   def featured_image
-    Rails.application.routes.url_helpers.rails_blob_path(images.first, only_path: true) if images.attached?
+    images.attached? ? images.first : '../default-place-image.jpeg'
   end
 
   # For the search area
