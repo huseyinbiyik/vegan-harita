@@ -1,5 +1,5 @@
 <header id="navbar">
-  <div id="logo-container">
+  <div id="logo-container" class="medium-font">
     <a href="/" id="logo" class="medium-weight">Vegan Harita</a>
     <span id="beta">BETA</span>
   </div>
@@ -17,14 +17,13 @@
 <nav data-controller="navigation" data-navigation-state-value="false">
   <ul id="nav-menu" data-navigation-target="menu">
     <li>
-      <%= link_to new_place_path, id:"add-place-link" do %>
+      <%= link_to new_place_path, id:"add-place-link", class:"medium-font" do %>
         <%= image_tag "add-place.svg"%>
         <span>Yer Ekle</span>
       <% end %>
     </li>
     <li>
       <% if user_signed_in? %>
-        <%# <%= link_to "Çıkış Yap", destroy_user_session_path, method: :delete %>
         <%= link_to destroy_user_session_path, method: :delete, id: "logout-link", class: "session-links medium-font" do %>
           <%= image_tag "logout-icon.svg" %>
           <span>Çıkış Yap</span>
