@@ -1,47 +1,9 @@
-h2 {
-  line-height: 39px;
-  text-align: center;
-  color: #262626;
-  margin-top: 60px;
-  margin-bottom: 20px;
-}
-
 #new_user {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
   width: 225px;
-}
-
-.field {
-  margin-bottom: 15px;
-}
-
-.field label {
-  height: 20px;
-  line-height: 20px;
-  text-align: left;
-  color: #262626;
-}
-
-.field input {
-  width: 225px;
-  height: 30px;
-  background-color: #e5dccf;
-  border: 1px solid #262626;
-  padding: 6px;
-}
-
-.field input[type="email"],
-input[type="password"] {
-  line-height: 25px;
-}
-
-::placeholder {
-  font-size: 20px;
-  line-height: 25px;
-  color: #262626;
 }
 
 .remember {
@@ -75,17 +37,6 @@ input[type="password"] {
 .session-text {
   line-height: 25px;
   color: #e5dccf;
-}
-
-.session-links-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.session-links {
-  line-height: 25px;
-  color: #000;
 }
 
 @media (min-width: 1024px) {
