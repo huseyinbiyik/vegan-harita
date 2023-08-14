@@ -4,11 +4,10 @@
 
 @media (min-width: 1024px) {
   #last-added-places-container {
-    background-color: #e5dccf;
     height: 60px;
     display: block;
     align-items: center;
-    border-top: 2px solid #243e2e;
+    border-top: 2px solid var(--dark-green);
     position: relative;
     overflow: hidden;
   }
@@ -16,12 +15,10 @@
   #last-added-places-container h3 {
     width: 340px;
     font-weight: 400;
-    background-color: #a94c2e;
     padding: 11px 22px;
     height: 58px;
-    border-right: 2px solid #243e2e;
+    border-right: 2px solid var(--dark-green);
     z-index: 999;
-    color: #e5dccf;
     position: absolute;
     top: 0;
     left: 0;
@@ -79,6 +76,5 @@
 
   .place-card {
     text-decoration: none;
-    color: #243e2e;
   }
 }

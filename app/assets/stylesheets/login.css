@@ -24,10 +24,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #a94c2e;
   border: 2px solid #262626;
   margin-top: 5px;
   margin-bottom: 17px;
+  background-color: var(--brown);
 }
 
 .session-icon {
@@ -36,7 +36,6 @@
 
 .session-text {
   line-height: 25px;
-  color: #e5dccf;
 }
 
 @media (min-width: 1024px) {

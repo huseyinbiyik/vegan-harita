@@ -4,11 +4,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #243e2e;
   border: 2px solid #262626;
   margin-top: 5px;
   margin-bottom: 17px;
-  color: #e5dccf;
   line-height: 25px;
   text-align: left;
 }

@@ -1,7 +1,7 @@
-<header id="navbar">
+<header id="navbar" class="bg-beige">
   <div id="logo-container" class="medium-font">
-    <a href="/" id="logo" class="medium-weight">Vegan Harita</a>
-    <span id="beta">BETA</span>
+    <a href="/" id="logo" class="medium-weight dark-green">Vegan Harita</a>
+    <span id="beta" class="brown">BETA</span>
   </div>
 
   <div id="search-container" data-controller="search">
@@ -17,30 +17,30 @@
 <nav data-controller="navigation" data-navigation-state-value="false">
   <ul id="nav-menu" data-navigation-target="menu">
     <li>
-      <%= link_to new_place_path, id:"add-place-link", class:"medium-font" do %>
+      <%= link_to new_place_path, id:"add-place-link", class:"medium-font dark-green" do %>
         <%= image_tag "add-place.svg"%>
         <span>Yer Ekle</span>
       <% end %>
     </li>
     <li>
       <% if user_signed_in? %>
-        <%= link_to destroy_user_session_path, method: :delete, id: "logout-link", class: "session-links medium-font" do %>
+        <%= link_to destroy_user_session_path, method: :delete, id: "logout-link", class: "session-links medium-font bg-brown beige" do %>
           <%= image_tag "logout-icon.svg" %>
           <span>Çıkış Yap</span>
         <% end %>
       <% else %>
-        <%= link_to new_user_session_path, id: "sign-in-link", class: "session-links medium-font" do %>
+        <%= link_to new_user_session_path, id: "sign-in-link", class: "session-links medium-font bg-brown" do %>
           <%= image_tag "sign-in-icon.svg" %>
-          <span>Giriş Yap</span>
+          <span class="beige">Giriş Yap</span>
         <% end %>
       <% end %>
     </li>
   </ul>
 
   <button id="burger" class="mobile" data-action="click->navigation#toggle">
-    <span></span>
-    <span></span>
-    <span></span>
+    <span class="bg-dark-green"></span>
+    <span class="bg-dark-green"></span>
+    <span class="bg-dark-green"></span>
   </button>
 </nav>
 

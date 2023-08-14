@@ -4,8 +4,7 @@ header {
   align-items: center;
   height: 59px;
   padding: 18px 20px;
-  background-color: #e5dccf;
-  border-bottom: 2px solid #243e2e;
+  border-bottom: 2px solid var(--dark-green);
   column-gap: 5px;
   width: 100%;
 }
@@ -19,14 +18,12 @@ header {
   height: 25px;
   line-height: 25px;
   text-decoration: none;
-  color: #243e2e;
   min-width: 125px;
 }
 
 #beta {
-  border: 1px solid #a94c2e;
+  border: 1px solid var(--brown);
   padding: 4px 9px 3px 9px;
-  color: #a94c2e;
   margin-left: 5px;
 }
 
@@ -43,7 +40,6 @@ header {
 }
 
 #burger span {
-  background: #243e2e;
   width: 38px;
   height: 2px;
 }
@@ -75,7 +71,6 @@ header {
 #search-wrapper {
   display: none;
   border-bottom: 1px solid black;
-  background-color: #e5dccf;
 }
 
 #search-form {
@@ -94,7 +89,7 @@ header {
 }
 
 #search-results {
-  border-top: 1px solid #243e2e;
+  border-top: 1px solid var(--dark-green);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -102,14 +97,13 @@ header {
 
 .search-results-link-container {
   height: auto;
-  border: 0.5px solid #243e2e;
+  border: 0.5px solid var(--dark-green);
   width: 100%;
 }
 
 .search-results-link {
   padding: 15px 20px 15px 20px;
   text-decoration: none;
-  color: #243e2e;
   display: block;
 }
 
@@ -143,7 +137,7 @@ nav {
   left: 0;
   width: 100%;
   height: 100%;
-  border: 2px solid #243e2e;
+  border: 2px solid var(--dark-green);
   background-color: #e5dccf;
   z-index: 999;
   padding-top: 90px;
@@ -162,15 +156,9 @@ nav {
   align-items: center;
 }
 
-#add-place-link {
-  color: #243e2e;
-}
-
 #nav-menu .session-links {
   height: 60px;
   width: 184px;
-  color: #e5dccf;
-  background-color: #a94c2e;
   line-height: 25px;
   border: 2px solid #262626;
   justify-content: space-between;
@@ -217,23 +205,22 @@ nav {
 
   #search-field {
     height: 50px;
-    color: #243e2e;
   }
 
   #search-field::placeholder {
-    color: #243e2e;
+    color: var(--dark-green);
     opacity: 0.8;
   }
 
   .search-results-link-container {
-    border-top: 1px solid #243e2e;
-    border-left: 1px solid #243e2e;
-    border-right: 1px solid #243e2e;
+    border-top: 1px solid var(--dark-green);
+    border-left: 1px solid var(--dark-green);
+    border-right: 1px solid var(--dark-green);
     border-bottom: none;
   }
 
   .search-results-link-container:last-of-type {
-    border-bottom: 1px solid #243e2e;
+    border-bottom: 1px solid var(--dark-green);
   }
 
   #search-results {
@@ -242,7 +229,6 @@ nav {
     top: 45px;
     left: 0;
     padding: 0;
-    background-color: #e5dccf;
     border: none;
   }
 
