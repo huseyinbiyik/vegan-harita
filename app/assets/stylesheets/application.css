@@ -42,7 +42,6 @@ body {
 .user-forms h2 {
   margin-top: 33px;
   font-size: 32px;
-  font-weight: 500;
   line-height: 39px;
   text-align: center;
   color: #262626;
@@ -65,6 +64,18 @@ body {
 
 .small-font {
   font-size: 16px;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.semi-bold {
+  font-weight: 600;
+}
+
+.medium-weight {
+  font-weight: 500;
 }
 
 @media (min-width: 1024px) {

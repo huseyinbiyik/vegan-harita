@@ -1,5 +1,4 @@
 h2 {
-  font-weight: 500;
   line-height: 39px;
   text-align: center;
   color: #262626;
@@ -21,7 +20,6 @@ h2 {
 
 .field label {
   height: 20px;
-  font-weight: 400;
   line-height: 20px;
   text-align: left;
   color: #262626;
@@ -37,13 +35,11 @@ h2 {
 
 .field input[type="email"],
 input[type="password"] {
-  font-weight: 400;
   line-height: 25px;
 }
 
 ::placeholder {
   font-size: 20px;
-  font-weight: 400;
   line-height: 25px;
   color: #262626;
 }
@@ -77,7 +73,6 @@ input[type="password"] {
 }
 
 .session-text {
-  font-weight: 400;
   line-height: 25px;
   color: #e5dccf;
 }
@@ -89,7 +84,6 @@ input[type="password"] {
 }
 
 .session-links {
-  font-weight: 400;
   line-height: 25px;
   color: #000;
 }

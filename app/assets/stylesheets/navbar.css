@@ -19,7 +19,6 @@ header {
   font-size: 20px;
   /* (doesn't have different desktop value) recreate above line with "medium font size class" */
   height: 25px;
-  font-weight: 500;
   line-height: 25px;
   text-decoration: none;
   color: #243e2e;
@@ -162,8 +161,6 @@ nav {
   text-decoration: none;
   font-size: 20px;
   /* (doesn't have different desktop value) recreate above line with "medium font size class" */
-
-  font-weight: 400;
   line-height: 25px;
   display: flex;
   align-items: center;
@@ -180,7 +177,6 @@ nav {
   background-color: #a94c2e;
   font-size: 20px;
   /* (doesn't have different desktop value) recreate above line with "medium font size class" */
-  font-weight: 400;
   line-height: 25px;
   border: 2px solid #262626;
   justify-content: space-between;

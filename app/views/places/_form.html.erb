@@ -1,7 +1,7 @@
 <%= form_with(model: place, data: {controller: "place"}, html: {id: "add-new-place-form"}) do |form| %>
   <% if place.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(place.errors.count, "hata") %>
+      <h2 class="medium-weight"><%= pluralize(place.errors.count, "hata") %>
         şu sorundan dolayı arıza çıktı:</h2>
 
       <ul>

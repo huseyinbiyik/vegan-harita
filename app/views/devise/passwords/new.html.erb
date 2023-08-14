@@ -3,7 +3,7 @@
     <%= image_tag "back-icon.svg" %>
   <% end %> 
 
-  <h2>Parolamı Unuttum</h2>
+  <h2 class="medium-weight">Parolamı Unuttum</h2>
 
   <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
