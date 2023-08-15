@@ -13,14 +13,12 @@ class Place < ApplicationRecord
 
   validate :images_count_within_limit
 
-  # geocoded_by :address
-  # after_validation :geocode
-
-  # Has many menu items
   has_many :menus, dependent: :destroy
+  has_many_attached :images, dependent: :destroy
 
-  # Add place images and default image
-  has_many_attached :images
+  def featured_image
+    images.attached? ? images.first : '../default-place-image.jpeg'
+  end
 
   # For the search area
   scope :filter_by_name, ->(name) { where('name ILIKE ?', "%#{name}%") }

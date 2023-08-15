@@ -35,6 +35,11 @@ body {
   border-style: solid;
 }
 
+a {
+  text-decoration: none;
+  color: #243e2e;
+}
+
 .user-forms {
   background-color: #a7d4bc;
   padding-top: 27px;
