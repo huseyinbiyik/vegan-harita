@@ -1,7 +1,7 @@
 <%= form_with(model: [@place, @menu], url: place_menus_path) do |form| %>
   <% if menu.errors.any? %>
     <div style="color: red">
-      <h2 class="medium-weight"><%= pluralize(menu.errors.count, "error") %> prohibited this menu from being saved:</h2>
+      <h2 class="medium-weight black"><%= pluralize(menu.errors.count, "error") %> prohibited this menu from being saved:</h2>
 
       <ul>
         <% menu.errors.each do |error| %>

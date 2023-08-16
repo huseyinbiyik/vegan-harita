@@ -98,7 +98,7 @@
   <% end %>
   </div>
 
-  <div class="tags">
+  <div class="tags bg-dark-blue">
   <span class="yellow">Dünya Mutfağı</span>
   <span class="yellow">Asya Mutfağı</span>
   <span class="yellow">Fransız Mutfağı</span>
@@ -106,23 +106,23 @@
   </div>
 
   <div id="menu" class="bg-dark-green">
-    <div id="menu-header">
+    <div id="menu-header" class="green">
         <h1 class="medium-font semi-bold">MENÜ</h1>
-        <%= link_to new_place_menu_path(@place), id: "add-new-product" do %>
+        <%= link_to new_place_menu_path(@place), id: "add-new-product", class: "green" do %>
           <%= image_tag "add-icon.svg" %>
           <span>Ürün Ekle</span>
         <% end %>
       </div>
 
-    <h2 class="category medium-font semi-bold">Yemekler</h2>
+    <h2 class="category medium-font semi-bold green">Yemekler</h2>
 
     <%= render @place.menus.where(product_category: "Yemek") %>
 
-    <h2 class="category medium-font semi-bold">İçecekler</h2>
+    <h2 class="category medium-font semi-bold green">İçecekler</h2>
 
     <%= render @place.menus.where(product_category: "İçecek") %>
 
-    <h2 class="category medium-font semi-bold">Tatlılar</h2>
+    <h2 class="category medium-font semi-bold green">Tatlılar</h2>
 
     <%= render @place.menus.where(product_category: "Tatlı") %>
   </div>

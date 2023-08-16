@@ -25,7 +25,7 @@
 #add-new-place-form input[type="text"] {
   width: 100%;
   height: 30px;
-  border: 1px solid #262626;
+  border: 1px solid var(--black);
   padding: 0 5px 0 5px;
 }
 
@@ -39,7 +39,7 @@
 #add-new-place-form #map {
   width: 100%;
   height: 20vh;
-  border: 1px solid #262626;
+  border: 1px solid var(--black);
   margin-bottom: 15px;
 }
 
@@ -56,22 +56,21 @@
 #add-new-place-form #place_images::before {
   content: "Fotoğraf Seç";
   display: inline-block;
-  background: #e5dccf;
+  background: var(--beige);
   padding: 5px 8px;
   outline: none;
   white-space: nowrap;
   -webkit-user-select: none;
   cursor: pointer;
   font-size: 16px;
-  #add-new-place-form #place_images::before
-  border: 1px solid #262626;
+  border: 1px solid var(--black);
 }
 
 /* Style image upload  */
 #add-new-place-form select {
   width: 100%;
   height: 30px;
-  border: 1px solid #262626;
+  border: 1px solid var(--black);
   padding: 0 5px 0 5px;
 }
 
@@ -80,5 +79,5 @@
   height: 40px;
   padding: 0 5px 0 5px;
   cursor: pointer;
-  border: 1px solid #262626;
+  border: 1px solid var(--black);
 }

@@ -75,16 +75,38 @@ body {
   background: var(--dark-green);
 }
 
+.dark-blue {
+  color: var(--dark-blue);
+}
+
+.bg-dark-blue {
+  background: var(--dark-blue);
+}
+
+.green {
+  color: var(--green);
+}
+
+.bg-green {
+  background: var(--green);
+}
+
+.black {
+  color: var(--black);
+}
+
+.bg-black {
+  background: var(--black);
+}
+
 h2 {
   line-height: 39px;
   text-align: center;
-  color: #262626;
   margin-top: 60px;
   margin-bottom: 20px;
 }
 
 .user-forms {
-  background-color: #a7d4bc;
   padding-top: 27px;
   height: calc(100vh - 61px);
 }
@@ -94,7 +116,6 @@ h2 {
   font-size: 32px;
   line-height: 39px;
   text-align: center;
-  color: #262626;
   margin-bottom: 20px;
 }
 
@@ -106,14 +127,12 @@ h2 {
   height: 20px;
   line-height: 20px;
   text-align: left;
-  color: #262626;
 }
 
 .field input {
   width: 225px;
   height: 30px;
-  background-color: #e5dccf;
-  border: 1px solid #262626;
+  border: 1px solid var(--black);
   padding: 6px;
 }
 
@@ -125,7 +144,7 @@ input[type="password"] {
 ::placeholder {
   font-size: 20px;
   line-height: 25px;
-  color: #262626;
+  color: var(--black);
 }
 
 .session-links-container {
