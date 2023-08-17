@@ -1,4 +1,4 @@
-<%= form_with(model: place, data: {controller: "place"}, html: {id: "add-new-place-form"}) do |form| %>
+<%= form_with(model: place, data: {controller: "place", action: "google-maps-callback@window->place#initializeMap"}, html: {id: "add-new-place-form"}) do |form| %>
   <% if place.errors.any? %>
     <div style="color: red">
       <h2 class="medium-weight black"><%= pluralize(place.errors.count, "hata") %>
@@ -13,13 +13,15 @@
   <% end %>
 
   <div class= "add-new-place-form-group">
-    <%= form.label "Adres", style: "display: block", class:"beige" %>
-    <%= form.text_field :address, placeholder: "X Vegan Cafe, Kadıköy...", class:"bg-beige, dark-green", required: true %>
+    <%= form.label "Adres", style: "display: block" %>
+    <%= form.text_field :address,  data: {place_target: "field", action: "keydown->place#preventSubmit"}, placeholder: "X Vegan Cafe, Kadıköy...", required: true %>
   </div>
 
-  <div id="map" data-controller="place" data-place-api-value= "<%= Rails.application.credentials.google_maps[:api_key] %>"
-></div>
+  <div id="map"  data-place-target="map"></div>
 
+
+  <%= form.hidden_field :latitude, data: {place_target: "latitude"} %>
+  <%= form.hidden_field :longitude, data: {place_target: "longitude"}  %>
 
   <div class= "add-new-place-form-group">
     <%= form.label "Mekanın Adı", style: "display: block", class:"beige" %>
@@ -27,8 +29,6 @@
   </div>
 
 
-  <%= form.hidden_field :latitude %>
-  <%= form.hidden_field :longitude %>
 
   <div class= "add-new-place-form-group">
     <%= form.label "Mekanın Fotoğrafları", style: "display: block", class:"beige" %>
@@ -75,3 +75,4 @@
     <%= form.submit "Gönder", class: "small-font bg-yellow dark-green" %>
   </div>
 <% end %>
+

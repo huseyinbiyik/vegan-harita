@@ -13,21 +13,11 @@ class Place < ApplicationRecord
 
   validate :images_count_within_limit
 
-  # geocoded_by :address
-  # after_validation :geocode
-
-  # Has many menu items
   has_many :menus, dependent: :destroy
+  has_many_attached :images, dependent: :destroy
 
-  # Add place images and default image
-  has_many_attached :images
-  after_commit :add_default_image, on: [:create]
-
-  def add_default_image
-    return if images.attached?
-
-    images.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'default-place-image.jpeg')),
-                  filename: 'default-place-image.jpeg', content_type: 'image/jpeg')
+  def featured_image
+    images.attached? ? images.first : '../default-place-image.jpeg'
   end
 
   # For the search area

@@ -40,24 +40,28 @@
 
   <div data-controller="slider" class="slider bg-dark-green">
     <div class="slider-container">
-      <% place.images.each do |image| %>
-        <%= image_tag image, class: "slider-image", data: { target: "slider.image" } %>
+      <% if place.images.attached? %>
+        <% place.images.each do |image| %>
+          <%= image_tag image, class: "slider-image", data: { target: "slider.image" } %>
+        <% end %>
+      <% else %>
+        <%= image_tag "default-place-image.jpg", class: "slider-image", data: { target: "slider.image" } %>
       <% end %>
     </div>
     <div class="slide-buttons">
       <span>
         <%= image_tag "previous.svg",
-        class: "slide-button",
-        data: {
-          action: "click->slider#previous"
-        } %>
+                      class: "slide-button",
+                      data: {
+                        action: "click->slider#previous"
+                      } %>
       </span>
       <span>
         <%= image_tag "next.svg",
-        class: "slide-button",
-        data: {
-          action: "click->slider#next"
-        } %>
+                      class: "slide-button",
+                      data: {
+                        action: "click->slider#next"
+                      } %>
       </span>
     </div>
   </div>
@@ -78,24 +82,24 @@
       <%= image_tag "open.svg", class: "detail-icon", id: "open-icon" %>
       <span class="detail dark-green">Açık</span>
     </div>
-  <%= link_to "https://www.google.com/maps/dir/?api=1&destination=#{place.latitude},#{place.longitude}", target: "_blank", class: "detail-link" do %>
-    <div class="detail-group">
-      <%= image_tag "direction.svg", class: "detail-icon", id: "direction-icon" %>
-      <span class="detail dark-green">Yol Tarifi</span>
-    </div>
-  <% end %>
-  <% if place.phone.present? %>
-    <%= link_to "tel:#{place.phone}", class: "detail-link" do %>
+    <%= link_to "https://www.google.com/maps/dir/?api=1&destination=#{place.latitude},#{place.longitude}", target: "_blank", class: "detail-link" do %>
       <div class="detail-group">
-        <%= image_tag "phone.svg", class: "detail-icon", id: "phone-icon" %>
-        <span class="detail dark-green">Ara</span>
+        <%= image_tag "direction.svg", class: "detail-icon", id: "direction-icon" %>
+        <span class="detail">Yol Tarifi</span>
       </div>
     <% end %>
-  <% else %>
-    <%= link_to "tel:#{place.phone}" do %>
-      <%= image_tag "phone.svg", class: "detail-icon disabled", id: "phone-icon" %>
+    <% if place.phone.present? %>
+      <%= link_to "tel:#{place.phone}", class: "detail-link" do %>
+        <div class="detail-group">
+          <%= image_tag "phone.svg", class: "detail-icon", id: "phone-icon" %>
+          <span class="detail">Ara</span>
+        </div>
+      <% end %>
+    <% else %>
+      <%= link_to "tel:#{place.phone}" do %>
+        <%= image_tag "phone.svg", class: "detail-icon disabled", id: "phone-icon" %>
+      <% end %>
     <% end %>
-  <% end %>
   </div>
 
   <div class="tags bg-dark-blue">

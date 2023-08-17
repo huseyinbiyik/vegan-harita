@@ -1,65 +1,97 @@
 import { Controller } from "@hotwired/stimulus";
 
-// Connects to data-controller="place"
 export default class extends Controller {
-  static values = { api: String };
+  static targets = ["map", "latitude", "longitude", "field"];
+
   connect() {
-    // Create the script tag, set the appropriate attributes
-    var script = document.createElement("script");
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${this.apiValue}&libraries=places&callback=initAutocomplete`;
-    script.async = true;
+    if (typeof google != "undefined") {
+      this.initializeMap();
+    }
+  }
 
-    // Attach your callback function to the `window` object
-    window.initAutocomplete = function () {
-      const turkey = { lat: 38.9597594, lng: 34.9249653 };
-      // The map, centered at Turkey
-      const map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 6,
-        center: turkey,
+  initializeMap() {
+    this.map();
+    this.marker();
+    this.autocomplete();
+  }
+
+  map() {
+    if (this._map == undefined) {
+      this._map = new google.maps.Map(this.mapTarget, {
+        center: new google.maps.LatLng(
+          this.latitudeTarget.value || 38.9597594,
+          this.longitudeTarget.value || 34.9249653
+        ),
+        zoom: 4,
       });
-      // JS API is loaded and available
-      let autocomplete;
-      autocomplete = new google.maps.places.Autocomplete(
-        document.getElementById("place_address"),
-        {
-          types: ["establishment"],
-          componentRestrictions: { country: ["tr"] },
-          fields: ["place_id", "geometry", "name", "formatted_address"],
-        }
+    }
+    return this._map;
+  }
+
+  marker() {
+    if (this._marker == undefined) {
+      this._marker = new google.maps.Marker({
+        map: this.map(),
+        anchorPoint: new google.maps.Point(0, 0),
+      });
+      let mapLocation = {
+        lat: parseFloat(this.latitudeTarget.value),
+        lng: parseFloat(this.longitudeTarget.value),
+      };
+      this._marker.setPosition(mapLocation);
+      this._marker.setVisible(true);
+    }
+    return this._marker;
+  }
+
+  autocomplete() {
+    if (this._autocomplete == undefined) {
+      this._autocomplete = new google.maps.places.Autocomplete(
+        this.fieldTarget
       );
+      this._autocomplete.bindTo("bounds", this.map());
+      this._autocomplete.setFields([
+        "address_components",
+        "geometry",
+        "icon",
+        "name",
+      ]);
+      this._autocomplete.setComponentRestrictions({ country: ["tr"] });
+      this._autocomplete.addListener(
+        "place_changed",
+        this.locationChanged.bind(this)
+      );
+    }
+    return this._autocomplete;
+  }
 
-      autocomplete.addListener("place_changed", onPlaceChanged);
+  locationChanged() {
+    let place = this.autocomplete().getPlace();
 
-      function onPlaceChanged() {
-        var place = autocomplete.getPlace();
-        if (place.geometry) {
-          document.getElementById("place_latitude").value =
-            place.geometry.location.lat();
-          document.getElementById("place_longitude").value =
-            place.geometry.location.lng();
+    if (!place.geometry) {
+      window.alert("No details available for input: '" + place.name + "'");
+      return;
+    }
 
-          let map = new google.maps.Map(document.getElementById("map"), {
-            center: {
-              lat: place.geometry.location.lat(),
-              lng: place.geometry.location.lng(),
-            },
-            zoom: 22,
-          });
-          var marker = new google.maps.Marker({
-            position: {
-              lat: place.geometry.location.lat(),
-              lng: place.geometry.location.lng(),
-            },
-          });
-          marker.setMap(map);
-        } else {
-          document.getElementById("place_address").placeholder =
-            "Enter a place";
-        }
-      }
-    };
+    this.map().fitBounds(place.geometry.viewport);
+    this.map().setCenter(place.geometry.location);
+    this.marker().setPosition(place.geometry.location);
+    this.marker().setVisible(true);
 
-    // Append the 'script' element to 'head'
-    document.head.appendChild(script);
+    this.latitudeTarget.value = place.geometry.location.lat();
+    this.longitudeTarget.value = place.geometry.location.lng();
+  }
+
+  preventSubmit(e) {
+    if (e.key == "Enter") {
+      e.preventDefault();
+    }
+  }
+
+  disconnect() {
+    if (this._autocomplete != undefined) {
+      google.maps.event.clearInstanceListeners(this.fieldTarget);
+    }
+    this.map().unbindAll();
   }
 }

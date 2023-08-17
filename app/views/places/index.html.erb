@@ -1,9 +1,8 @@
 <div
   id="map"
   data-map-target="map"
-  data-map-api-value= "<%= Rails.application.credentials.google_maps[:api_key] %>"
-  data-map-places="<%= @places.to_json(include: :images)  %>"
   data-controller="map"
+  data-action="google-maps-callback@window->map#initializeMap"
 ></div>
 
 <div id="last-added-places-container" class="bg-beige">
@@ -13,8 +12,5 @@
   <% Place.last_ten.each do |place| %>
         <%= link_to "+#{place.name}", place_path(place), class: "place-card dark-green" %>
     <% end %>
+  </div>
 </div>
-</div>
-
-
-
