@@ -1,5 +1,4 @@
 .social-links {
-  background: #deb35b;
   height: 55px;
   display: flex;
   align-items: center;
@@ -25,7 +24,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #deb35b;
 }
 
 .detail {
@@ -53,21 +51,17 @@
 }
 
 #menu {
-  background-color: #243e2e;
   padding: 27px 20px;
 }
 
 #menu-header {
   text-align: center;
-  color: #a7d4bc;
   margin-bottom: 19px;
 }
 
 #menu-header h1 {
   display: inline-block;
   position: relative;
-  font-size: 20px;
-  font-weight: 600;
   line-height: 25px;
 }
 
@@ -75,16 +69,12 @@
   position: absolute;
   text-decoration: none;
   height: 24px;
-  color: #a7d4bc;
-  border: 1px solid #a7d4bc;
+  border: 1px solid var(--green);
   padding: 4px 9px 3px 9px;
   margin-left: 5px;
 }
 
 .category {
-  font-weight: 600;
-  font-size: 20px;
-  color: #a7d4bc;
   margin: 0 0 19px 0;
 }
 
@@ -103,18 +93,12 @@
 }
 
 .name {
-  font-size: 20px;
-  font-weight: 600;
   line-height: 25px;
   text-align: left;
-  color: #a94c2e;
 }
 
 .price {
-  font-size: 20px;
-  font-weight: 500;
   line-height: 25px;
-  color: #deb35b;
 }
 
 .menu-image {
@@ -123,18 +107,14 @@
 }
 
 .description {
-  font-size: 20px;
-  font-weight: 400;
   line-height: 25px;
   margin-left: 18px;
-  color: #deb35b;
   width: 100%;
   text-align: left;
 }
 
 .tags {
   height: 55px;
-  background-color: #153143;
   display: flex;
   padding: 11.5px 18px;
   overflow: auto;
@@ -150,8 +130,7 @@
 .tags span {
   width: 100%;
   border-radius: 5px;
-  border: 1px solid #deb35b;
-  color: #deb35b;
+  border: 1px solid var(--yellow);
   padding: 7.5px 9px;
   margin-right: 20px;
 }
@@ -200,9 +179,7 @@
   .detail {
     display: inline-block;
     font-size: 16px;
-    font-weight: 400;
     line-height: 25px;
-    color: #243e2e;
   }
 
   .social-links {
@@ -217,9 +194,5 @@
     grid-column-end: 2;
     grid-row-start: 2;
     grid-row-end: 2;
-  }
-
-  .slider {
-    background-color: #243e2e;
   }
 }

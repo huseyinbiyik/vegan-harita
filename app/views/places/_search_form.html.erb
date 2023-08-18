@@ -1,8 +1,9 @@
-<div id="search-wrapper">
+<div id="search-wrapper" class="bg-beige">
   <%= form_with id:"search-form", url: search_places_path, method: :post, data: {controller: "debounce ", debounce_target: "form"} do |form| %>
 
     <%= form.search_field :name_search,
                       id: "search-field",
+                      class: "medium-font dark-green",
                       placeholder: "Yer ara...",
                       autofocus: "true",
                       data: {
@@ -10,5 +11,5 @@
                       } %>
   <% end %>
 
-  <div id="search-results"></div>
+  <div id="search-results" class="bg-beige"></div>
 </div>

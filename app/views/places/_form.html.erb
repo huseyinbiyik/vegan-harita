@@ -1,7 +1,7 @@
 <%= form_with(model: place, data: {controller: "place", action: "google-maps-callback@window->place#initializeMap"}, html: {id: "add-new-place-form"}) do |form| %>
   <% if place.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(place.errors.count, "hata") %>
+      <h2 class="medium-weight black"><%= pluralize(place.errors.count, "hata") %>
         şu sorundan dolayı arıza çıktı:</h2>
 
       <ul>
@@ -24,55 +24,55 @@
   <%= form.hidden_field :longitude, data: {place_target: "longitude"}  %>
 
   <div class= "add-new-place-form-group">
-    <%= form.label "Mekanın Adı", style: "display: block" %>
-    <%= form.text_field :name, placeholder: "X Vegan Cafe", required: true %>
+    <%= form.label "Mekanın Adı", style: "display: block", class:"beige" %>
+    <%= form.text_field :name, placeholder: "X Vegan Cafe", class:"bg-beige, dark-green", required: true %>
   </div>
 
 
 
   <div class= "add-new-place-form-group">
-    <%= form.label "Mekanın Fotoğrafları", style: "display: block" %>
+    <%= form.label "Mekanın Fotoğrafları", style: "display: block", class:"beige" %>
     <%= form.file_field :images, multiple: true, accept: "image/*" %>
   </div>
 
   <div class= "add-new-place-form-group">
-    <%= form.label "Bu işletme vegan mı yoksa sadece bazı vegan seçenekler mi sunuyor? ", style: "display: block" %>
-    <%= form.select :vegan, options_for_select([["Vegan", true], ["Vegan Seçenekli", false]]) %>
+    <%= form.label "Bu işletme vegan mı yoksa sadece bazı vegan seçenekler mi sunuyor? ", style: "display: block", class:"beige" %>
+    <%= form.select :vegan, options_for_select([["Vegan", true], ["Vegan Seçenekli", false]]), {}, class: "small-font bg-beige dark-green" %>
   </div>
 
   <div class= "add-new-place-form-group">
-    <%= form.label "Instagram Adresi", style: "display: block" %>
-    <%= form.text_field :instagram_url, placeholder: "https://www.instagram.com/yeradi/" %>
+    <%= form.label "Instagram Adresi", style: "display: block", class:"beige" %>
+    <%= form.text_field :instagram_url, placeholder: "https://www.instagram.com/yeradi/", class:"bg-beige dark-green" %>
   </div>
 
   <div class= "add-new-place-form-group">
-    <%= form.label "Facebook Adresi", style: "display: block" %>
-    <%= form.text_field :facebook_url, placeholder: "https://www.facebook.com/yeradi/" %>
+    <%= form.label "Facebook Adresi", style: "display: block", class:"beige" %>
+    <%= form.text_field :facebook_url, placeholder: "https://www.facebook.com/yeradi/", class:"bg-beige dark-green" %>
   </div>
 
   <div class= "add-new-place-form-group">
-    <%= form.label "Twitter Adresi", style: "display: block" %>
-    <%= form.text_field :twitter_url, placeholder: "https://www.twitter.com/yeradi/" %>
+    <%= form.label "Twitter Adresi", style: "display: block", class:"beige" %>
+    <%= form.text_field :twitter_url, placeholder: "https://www.twitter.com/yeradi/", class:"bg-beige dark-green" %>
   </div>
 
   <div class= "add-new-place-form-group">
-    <%= form.label "Web site Adresi", style: "display: block" %>
-    <%= form.text_field :web_url, placeholder: "siteadresi.com" %>
+    <%= form.label "Web site Adresi", style: "display: block", class:"beige" %>
+    <%= form.text_field :web_url, placeholder: "siteadresi.com", class:"bg-beige dark-green" %>
   </div>
 
   <div class= "add-new-place-form-group">
-    <%= form.label "Email Adresi", style: "display: block" %>
-    <%= form.text_field :email, placeholder: "mail@mail.com"
+    <%= form.label "Email Adresi", style: "display: block", class:"beige" %>
+    <%= form.text_field :email, placeholder: "mail@mail.com", class:"bg-beige dark-green"
      %>
   </div>
 
   <div class= "add-new-place-form-group">
-    <%= form.label "Telefon", style: "display: block"%>
-    <%= form.text_field :phone, pattern: "[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}",  placeholder: "5XXXXXXXXX" %>
+    <%= form.label "Telefon", style: "display: block", class:"beige" %>
+    <%= form.text_field :phone, pattern: "[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}",  placeholder: "5XXXXXXXXX", class:"bg-beige dark-green" %>
   </div>
 
   <div class= "add-new-place-form-group">
-    <%= form.submit "Gönder" %>
+    <%= form.submit "Gönder", class: "small-font bg-yellow dark-green" %>
   </div>
 <% end %>
 

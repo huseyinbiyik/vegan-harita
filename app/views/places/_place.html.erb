@@ -1,12 +1,12 @@
 <div id="<%= dom_id place %>" class="place">
-  <div class="page-heading-container">
+  <div class="page-heading-container bg-dark-green">
     <%= link_to :back, class: "arrow" do %>
       <%= image_tag "back-icon.svg" %>
     <% end %>
-    <p class="page-title"><%= place.name %></p>
+    <p class="page-title medium-font bold yellow"><%= place.name %></p>
   </div>
 
-  <div class="social-links">
+  <div class="social-links bg-yellow">
     <% social_links = {
       "instagram" => place.instagram_url,
       "facebook" => place.facebook_url,
@@ -38,7 +38,7 @@
     <% end %>
   </div>
 
-  <div data-controller="slider" class="slider">
+  <div data-controller="slider" class="slider bg-dark-green">
     <div class="slider-container">
       <% if place.images.attached? %>
         <% place.images.each do |image| %>
@@ -66,21 +66,21 @@
     </div>
   </div>
 
-  <div class="place-details">
-    <% if place.vegan? %>
-      <div class="detail-group">
-        <%= image_tag "vegan-place.svg", class: "detail-icon", id: "vegan-icon" %>
-        <span class="detail">Vegan</span>
-      </div>
-    <% else %>
-      <div class="detail-group">
-        <%= image_tag "vegan-friendly-place.svg", class: "detail-icon", id: "vegan-icon" %>
-        <span class="detail">Vegan friendly</span>
-      </div>
-    <% end %>
+  <div class="place-details bg-yellow">
+  <% if place.vegan? %>
+    <div class="detail-group">
+      <%= image_tag "vegan-place.svg", class: "detail-icon", id: "vegan-icon" %>
+      <span class="detail dark-green">Vegan</span>
+    </div>
+  <% else %>
+    <div class="detail-group">
+      <%= image_tag "vegan-friendly-place.svg", class: "detail-icon", id: "vegan-icon" %>
+      <span class="detail dark-green">Vegan friendly</span>
+    </div>
+  <% end %>
     <div class="detail-group">
       <%= image_tag "open.svg", class: "detail-icon", id: "open-icon" %>
-      <span class="detail">Açık</span>
+      <span class="detail dark-green">Açık</span>
     </div>
     <%= link_to "https://www.google.com/maps/dir/?api=1&destination=#{place.latitude},#{place.longitude}", target: "_blank", class: "detail-link" do %>
       <div class="detail-group">
@@ -102,31 +102,31 @@
     <% end %>
   </div>
 
-  <div class="tags">
-    <span>Dünya Mutfağı</span>
-    <span>Asya Mutfağı</span>
-    <span>Fransız Mutfağı</span>
-    <span>İtalyan Mutfağı</span>
+  <div class="tags bg-dark-blue">
+  <span class="yellow">Dünya Mutfağı</span>
+  <span class="yellow">Asya Mutfağı</span>
+  <span class="yellow">Fransız Mutfağı</span>
+  <span class="yellow">İtalyan Mutfağı</span>
   </div>
 
-  <div id="menu">
-    <div id="menu-header">
-      <h1>MENÜ</h1>
-      <%= link_to new_place_menu_path(@place), id: "add-new-product" do %>
-        <%= image_tag "add-icon.svg" %>
-        <span>Ürün Ekle</span>
-      <% end %>
-    </div>
+  <div id="menu" class="bg-dark-green">
+    <div id="menu-header" class="green">
+        <h1 class="medium-font semi-bold">MENÜ</h1>
+        <%= link_to new_place_menu_path(@place), id: "add-new-product", class: "green" do %>
+          <%= image_tag "add-icon.svg" %>
+          <span>Ürün Ekle</span>
+        <% end %>
+      </div>
 
-    <h2 class="category">Yemekler</h2>
+    <h2 class="category medium-font semi-bold green">Yemekler</h2>
 
     <%= render @place.menus.where(product_category: "Yemek") %>
 
-    <h2 class="category">İçecekler</h2>
+    <h2 class="category medium-font semi-bold green">İçecekler</h2>
 
     <%= render @place.menus.where(product_category: "İçecek") %>
 
-    <h2 class="category">Tatlılar</h2>
+    <h2 class="category medium-font semi-bold green">Tatlılar</h2>
 
     <%= render @place.menus.where(product_category: "Tatlı") %>
   </div>

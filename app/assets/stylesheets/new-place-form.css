@@ -1,10 +1,5 @@
-#add-new-place-form-title {
-  color: #e5dccf;
-}
-
 #add-new-place {
   width: 100%;
-  background-color: #243e2e;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,21 +22,15 @@
   margin-bottom: 15px;
 }
 
-#add-new-place-form label {
-  color: #e5dccf;
-}
-
 #add-new-place-form input[type="text"] {
-  color: #243e2e;
-  background-color: #e5dccf;
   width: 100%;
   height: 30px;
-  border: 1px solid #262626;
+  border: 1px solid var(--black);
   padding: 0 5px 0 5px;
 }
 
 #add-new-place-form input[type="text"]::placeholder {
-  color: #243e2e;
+  color: var(--dark-green);
   opacity: 0.7;
   font-size: 16px;
 }
@@ -49,8 +38,7 @@
 #add-new-place-form #map {
   width: 100%;
   height: 20vh;
-  border: 1px solid #262626;
-  box-sizing: border-box;
+  border: 1px solid var(--black);
   margin-bottom: 15px;
 }
 
@@ -58,7 +46,6 @@
 #add-new-place-form #place_images {
   height: 30px;
   width: 100%;
-  box-sizing: border-box;
 }
 
 #add-new-place-form #place_images::-webkit-file-upload-button {
@@ -68,35 +55,28 @@
 #add-new-place-form #place_images::before {
   content: "Fotoğraf Seç";
   display: inline-block;
-  background: #e5dccf;
+  background: var(--beige);
   padding: 5px 8px;
   outline: none;
   white-space: nowrap;
   -webkit-user-select: none;
   cursor: pointer;
   font-size: 16px;
-  border: 1px solid #262626;
+  border: 1px solid var(--black);
 }
 
 /* Style image upload  */
-
 #add-new-place-form select {
-  color: #243e2e;
-  background-color: #e5dccf;
   width: 100%;
   height: 30px;
-  border: 1px solid #262626;
+  border: 1px solid var(--black);
   padding: 0 5px 0 5px;
-  font-size: 16px;
 }
 
 #add-new-place-form input[type="submit"] {
-  background-color: #deb35b;
-  color: #243e2e;
   width: 120px;
   height: 40px;
   padding: 0 5px 0 5px;
-  font-size: 16px;
   cursor: pointer;
-  border: 1px solid #262626;
+  border: 1px solid var(--black);
 }

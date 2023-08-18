@@ -1,20 +1,20 @@
-<section class="user-forms">
+<section class="user-forms bg-green">
   <%= link_to :back, class: "arrow" do %>
     <%= image_tag "back-icon.svg" %>
   <% end %> 
 
-  <h2>Parolamı Unuttum</h2>
+  <h2 class="medium-weight black">Parolamı Unuttum</h2>
 
   <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="field">
-      <%= f.label :email, 'E-posta' %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "kullanici@mail.com" %>
+      <%= f.label :email, 'E-posta', class: "black" %><br />
+      <%= f.email_field :email, autofocus: true, class: "bg-beige", autocomplete: "email", placeholder: "kullanici@mail.com" %>
     </div>
 
     <div class="actions">
-      <%= f.submit "Parolamı Yenile", id:"reset-button" %>
+      <%= f.submit "Parolamı Yenile", id:"reset-button", class:"medium-font bg-yellow black" %>
     </div>
   <% end %>
 
