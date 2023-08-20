@@ -1,10 +1,10 @@
-<div class="page-heading-container">
+<div class="page-heading-container bg-dark-green">
   <%= link_to :back, class: "arrow" do %>
     <%= image_tag "back-icon.svg" %>
   <% end %>
-  <h1 class="page-title" id="add-new-place-form-title">Yer Ekle</h1>
+  <h1 class="page-title medium-font bold beige" id="add-new-place-form-title">Yer Ekle</h1>
 </div>
 
-<div id="add-new-place">
+<div id="add-new-place" class="bg-dark-green">
   <%= render "form", place: @place %>
 </div>
