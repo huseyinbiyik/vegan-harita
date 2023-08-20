@@ -42,29 +42,20 @@
     <div class="slider-container">
       <% if place.images.attached? %>
         <% place.images.each do |image| %>
-          <%= image_tag image, class: "slider-image", data: { target: "slider.image" } %>
+          <%= image_tag image, class: "slider-image", data: { slider_target: "image" } %>
         <% end %>
+        <div class="slide-buttons">
+          <span data-action="click->slider#previous"></span>
+          <span data-action="click->slider#next"></span>
+        </div>
+        <div class="slider-number" data-slider-target="number">
+        </div>
       <% else %>
-        <%= image_tag "default-place-image.jpg", class: "slider-image", data: { target: "slider.image" } %>
+        <%= image_tag "default-place-image.jpg", class: "slider-image", data: { slider_target: "image" } %>
       <% end %>
+      </div>
     </div>
-    <div class="slide-buttons">
-      <span>
-        <%= image_tag "previous.svg",
-                      class: "slide-button",
-                      data: {
-                        action: "click->slider#previous"
-                      } %>
-      </span>
-      <span>
-        <%= image_tag "next.svg",
-                      class: "slide-button",
-                      data: {
-                        action: "click->slider#next"
-                      } %>
-      </span>
-    </div>
-  </div>
+
 
   <div class="place-details bg-yellow">
   <% if place.vegan? %>
@@ -75,7 +66,7 @@
   <% else %>
     <div class="detail-group">
       <%= image_tag "vegan-friendly-place.svg", class: "detail-icon", id: "vegan-icon" %>
-      <span class="detail dark-green">Vegan friendly</span>
+      <span class="detail dark-green">Vegan Seçenekli</span>
     </div>
   <% end %>
     <div class="detail-group">
