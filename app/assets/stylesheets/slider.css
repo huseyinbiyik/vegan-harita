@@ -32,3 +32,12 @@
   height: 100%;
   cursor: pointer;
 }
+
+.slider-number {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 2;
+  color: white;
+  mix-blend-mode: difference;
+}
