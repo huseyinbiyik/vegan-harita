@@ -216,6 +216,7 @@ GEM
       zeitwerk (~> 2.5)
     rainbow (3.1.1)
     rake (13.0.6)
+    recaptcha (5.15.0)
     regexp_parser (2.8.1)
     reline (0.3.7)
       io-console (~> 0.5)
@@ -304,6 +305,7 @@ DEPENDENCIES
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.4)
+  recaptcha (~> 5.15)
   rubocop (>= 1.0, < 2.0)
   selenium-webdriver
   sprockets-rails
