@@ -200,7 +200,5 @@ export default class extends Controller {
     const zoom = this.map.getZoom();
     const mapLocation = { latitude, longitude, zoom };
     localStorage.setItem("mapLocation", JSON.stringify(mapLocation || {}));
-
-    this.mapTarget.remove();
   }
 }

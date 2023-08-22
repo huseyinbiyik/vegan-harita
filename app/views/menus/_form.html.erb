@@ -1,7 +1,7 @@
 <%= form_with(model: [@place, @menu], url: place_menus_path) do |form| %>
   <% if menu.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(menu.errors.count, "error") %> prohibited this menu from being saved:</h2>
+      <h2 class="medium-weight black"><%= pluralize(menu.errors.count, "error") %> prohibited this menu from being saved:</h2>
 
       <ul>
         <% menu.errors.each do |error| %>
@@ -12,31 +12,31 @@
   <% end %>
 
   <div>
-    <%= form.label "İsim", style: "display: block" %>
-    <%= form.text_field :name, placeholder: "Hazelnut Brownie Brioche", class: "product-input" %>
+    <%= form.label "İsim", style: "display: block", class:"yellow" %>
+    <%= form.text_field :name, placeholder: "Hazelnut Brownie Brioche", class: "product-input medium-font brown bg-yellow" %>
   </div>
 
   <div>
-    <%= form.label "Tanımı", style: "display: block" %>
-    <%= form.text_area :description, placeholder: "Brownie ve fındık pralinli brioche.  Brownie Brioche ...", class: "product-input" %>
+    <%= form.label "Tanımı", style: "display: block", class:"yellow" %>
+    <%= form.text_area :description, placeholder: "Brownie ve fındık pralinli brioche.  Brownie Brioche ...", class: "product-input medium-font brown" %>
   </div>
 
   <div>
-    <%= form.label "Görsel Seçin", style: "display: block" %>
-    <%= form.file_field :menu_images, multiple: true, class: "product-input" %>
+    <%= form.label "Görsel Seçin", style: "display: block", class:"yellow" %>
+    <%= form.file_field :menu_images, multiple: true, class: "product-input medium-font brown" %>
   </div>
 
   <div>
-    <%= form.label "Ürün Kategorisi", style: "display: block" %>
-    <%= form.select :product_category, Menu.product_categories.keys, class: "product-input" %>
+    <%= form.label "Ürün Kategorisi", style: "display: block", class:"yellow" %>
+    <%= form.select :product_category, Menu.product_categories.keys, class: "product-input medium-font brown" %>
   </div>
 
   <div>
-    <%= form.label "Fiyat (₺)", style: "display: block" %>
-    <%= form.number_field :price, placeholder: "33", class: "product-input" %>
+    <%= form.label "Fiyat (₺)", style: "display: block", class:"yellow" %>
+    <%= form.number_field :price, placeholder: "33", class: "product-input medium-font brown" %>
   </div>
 
   <div id="add-product-button">
-    <%= form.submit "Gönder" %>
+    <%= form.submit "Gönder", class: "medium-font brown" %>
   </div>
 <% end %>

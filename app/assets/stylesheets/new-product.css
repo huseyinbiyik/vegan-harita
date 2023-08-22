@@ -1,7 +1,6 @@
 #product-form-container {
   height: calc(100vh - 63px);
   width: 100%;
-  background-color: #243e2e;
 }
 
 #product-form-container form {
@@ -14,14 +13,8 @@
 }
 
 #product-form-container h1 {
-  font-size: 20px;
-  font-weight: 700;
   line-height: 25px;
   text-align: center;
-}
-
-#product-form-container label {
-  color: #deb35b;
 }
 
 #menu_name,
@@ -38,19 +31,18 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-input[type=number] {
+input[type="number"] {
   -moz-appearance: textfield;
 }
 
 #product-form-container input,
 textarea,
 select {
-  background-color: #deb35b;
+  background-color: var(--yellow);
   padding: 3px 5px 2px 5px;
   height: 30px;
   border: 1px solid #000;
-  color: #a94c2e;
-  font-size: 20px;
+  color: var(--brown);
 }
 
 #product-form-container textarea {
@@ -58,8 +50,7 @@ select {
 }
 
 #add-product-button input {
-  color: #a94c2e;
-  background: #e5dccf;
+  background: var(--beige);
   height: 40px;
   width: 120px;
 }
@@ -82,8 +73,8 @@ select {
 #menu_menu_images::before {
   content: "Fotoğraf Seç";
   display: inline-block;
-  background-color: #deb35b;
-  color: #a94c2e;
+  background-color: var(--yellow);
+  color: var(--brown);
   padding: 3px 5px 2px 5px;
   height: 30px;
   outline: none;
@@ -91,7 +82,7 @@ select {
   -webkit-user-select: none;
   cursor: pointer;
   font-size: 20px;
-  border: 1px solid #262626;
+  border: 1px solid var(--black);
 }
 
 #menu_price {
@@ -100,7 +91,7 @@ select {
 }
 
 #product-form-container ::placeholder {
-  color: #a94c2e;
+  color: var(--brown);
   font-size: 20px;
   font-weight: 400;
   line-height: 25px;
