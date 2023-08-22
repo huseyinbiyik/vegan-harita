@@ -93,16 +93,17 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  # Mailer Configuration
+  # Aws ses
   config.action_mailer.default_url_options = { host: 'veganharita.com' }
-  config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_deliveries = true
   config.action_mailer.smtp_settings = {
-    address: Rails.application.credentials.dig(:private_email, :address),
+    address: Rails.application.credentials.dig(:aws, :ses_address),
     port: 587,
-    user_name: Rails.application.credentials.dig(:private_email, :user_name),
-    password: Rails.application.credentials.dig(:private_email, :password),
-    authentication: 'login',
+    user_name: Rails.application.credentials.dig(:aws, :ses_user_name),
+    password: Rails.application.credentials.dig(:aws, :ses_password),
+    authentication: :login,
     enable_starttls_auto: true
   }
 end
