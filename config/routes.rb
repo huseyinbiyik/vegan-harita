@@ -8,8 +8,12 @@ Rails.application.routes.draw do
       post :search
     end
   end
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Defines the root path route ("/")
+  scope 'admin-panel' do
+    get "user-approvals", to: "admins#user_approvals", as: :user_approvals
+    post "approve-user/:id", to: "admins#approve_user", as: :approve_user
+  end
+
+
   root 'places#index'
 end
