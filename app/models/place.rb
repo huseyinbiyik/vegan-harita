@@ -16,6 +16,8 @@ class Place < ApplicationRecord
   has_many :menus, dependent: :destroy
   has_many_attached :images, dependent: :destroy
 
+  scope :approved, -> { where(approved: true) }
+
   def featured_image
     images.attached? ? images.first : '../default-place-image.jpeg'
   end

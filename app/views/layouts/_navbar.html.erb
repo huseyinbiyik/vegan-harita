@@ -16,13 +16,19 @@
 
 <nav data-controller="navigation" data-navigation-state-value="false">
   <ul id="nav-menu" data-navigation-target="menu">
+    <li class="nav-link">
+      <% if user_signed_in? && current_user.role == "admin" %>
+        <%= link_to user_approvals_path, id:"admin-link", class:"medium-font dark-green" do %>
+          <span>Admin Paneli</span>
+          <% end %>
+        <% end %>
+    <li>
     <li>
       <%= link_to new_place_path, id:"add-place-link", class:"medium-font dark-green" do %>
         <%= image_tag "add-place.svg"%>
         <span>Yer Ekle</span>
       <% end %>
     </li>
-    <li>
       <% if user_signed_in? %>
         <%= link_to destroy_user_session_path, method: :delete, id: "logout-link", class: "session-links medium-font bg-brown beige" do %>
           <%= image_tag "logout-icon.svg" %>

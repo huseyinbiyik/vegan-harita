@@ -3,7 +3,7 @@ class PlacesController < ApplicationController
 
   # GET /places or /places.json
   def index
-    @places = Place.all
+    @places = Place.approved
     respond_to do |format|
       format.html
       format.json { render json: @places.to_json(methods: :featured_image) }
@@ -12,7 +12,7 @@ class PlacesController < ApplicationController
 
   def search
     @places = if params[:name_search].present?
-                @places = Place.filter_by_name(params[:name_search])
+                @places = Place.approved.filter_by_name(params[:name_search])
               else
                 []
               end
@@ -39,6 +39,7 @@ class PlacesController < ApplicationController
   def create
     @place = Place.new(place_params)
     @place.images.attach(params[:place][:images])
+    @place.contributors << current_user.id
 
     respond_to do |format|
       if @place.save
@@ -94,6 +95,6 @@ class PlacesController < ApplicationController
   # Only allow a list of trusted parameters through.
   def place_params
     params.require(:place).permit(:name, :address, :latitude, :longitude, :vegan, :image, :instagram_url,
-                                  :facebook_url, :twitter_url, :web_url, :email, :phone)
+                                  :facebook_url, :twitter_url, :web_url, :email, :phone, :approved, contributors: [])
   end
 end

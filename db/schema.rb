@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_23_191509) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_24_042612) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -67,6 +67,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_23_191509) do
     t.string "web_url"
     t.string "email"
     t.string "phone"
+    t.boolean "approved", default: false
+    t.integer "contributors", default: [], array: true
   end
 
   create_table "users", force: :cascade do |t|
