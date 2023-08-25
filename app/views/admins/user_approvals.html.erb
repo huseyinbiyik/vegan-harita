@@ -1,0 +1,10 @@
+<h1>Kullanıcı Onayları</h1>
+
+<% @users.each do |user| %>
+  <div class="user">
+    <p><%= user.email %></p>
+    <%= button_to "Onayla", approve_user_path(user) %>
+    <table><%= render partial: "place", locals: { places: @places, user: user } %></table>
+  </div>
+<% end %>
+
