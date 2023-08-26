@@ -40,6 +40,11 @@
     <%= form.select :vegan, options_for_select([["Vegan", true], ["Vegan Seçenekli", false]]), {}, class: "small-font bg-beige dark-green" %>
   </div>
 
+<div class="add-new-place-form-group" data-controller="tag">
+  <%= form.label "Etiketler", style: "display: block", class:"beige" %>
+  <%= form.collection_select :tag_ids, Tag.all, :id, :name, {}, {multiple: true, size: Tag.all.size, id: "tag-select", class: "small-font bg-beige dark-green"} %>
+</div>
+
   <div class= "add-new-place-form-group">
     <%= form.label "Instagram Adresi", style: "display: block", class:"beige" %>
     <%= form.text_field :instagram_url, placeholder: "https://www.instagram.com/yeradi/", class:"bg-beige dark-green" %>

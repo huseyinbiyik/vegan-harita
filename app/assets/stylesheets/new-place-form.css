@@ -65,6 +65,11 @@
   border: 1px solid var(--black);
 }
 
+#add-new-place-form #tag-select {
+  width: 100%;
+  height: 60px;
+}
+
 /* Style image upload  */
 #add-new-place-form select {
   width: 100%;

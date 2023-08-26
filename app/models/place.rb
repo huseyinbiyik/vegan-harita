@@ -15,6 +15,7 @@ class Place < ApplicationRecord
 
   has_many :menus, dependent: :destroy
   has_many_attached :images, dependent: :destroy
+  has_and_belongs_to_many :tags
 
   scope :approved, -> { where(approved: true) }
 
