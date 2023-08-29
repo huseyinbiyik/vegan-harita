@@ -40,10 +40,18 @@
     <%= form.select :vegan, options_for_select([["Vegan", true], ["Vegan Seçenekli", false]]), {}, class: "small-font bg-beige dark-green" %>
   </div>
 
-<div class="add-new-place-form-group" data-controller="tag">
-  <%= form.label "Etiketler", style: "display: block", class:"beige" %>
-  <%= form.collection_select :tag_ids, Tag.all, :id, :name, {}, {multiple: true, size: Tag.all.size, id: "tag-select", class: "small-font bg-beige dark-green"} %>
+<div class="add-new-place-form-group tags-form-container " >
+  <%= form.label "Etiketler", style: "display: block"%>
+  <div class="tags-form">
+  <% Tag.all.each do |tag| %>
+    <label class="checkbox-inline">
+      <%= form.check_box :tag_ids, { multiple: true, id: "tag-select", class: "small-font bg-beige dark-green" }, tag.id, nil %>
+      <%= tag.name %>
+    </label>
+  <% end %>
+    </div>
 </div>
+
 
   <div class= "add-new-place-form-group">
     <%= form.label "Instagram Adresi", style: "display: block", class:"beige" %>
