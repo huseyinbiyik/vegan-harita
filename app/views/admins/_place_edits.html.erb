@@ -1,0 +1,46 @@
+<% if user.place_edits.any? %>
+  <thead>
+    <tr>
+      <th>Öneri Tarihi</th>
+      <th>Mekanın Adı</th>
+      <th>Adres</th>
+      <th>Vegan mı?</th>
+      <th>Instagram</th>
+      <th>Facebook</th>
+      <th>Twitter</th>
+      <th>Web Sitesi</th>
+      <th>E-posta</th>
+      <th>Telefon</th>
+    </tr>
+  </thead>
+  <tbody id="place_edits">
+    <% user.place_edits.each do |place_edit| %>
+      <tr>
+      <td><%= place_edit.updated_at %></td>
+        <td><%= place_edit.place.name %></td>
+        <td><%= place_edit.place.address %></td>
+        <td><%= place_edit.place.vegan %></td>
+        <td><%= place_edit.place.instagram_url %></td>
+        <td><%= place_edit.place.facebook_url %></td>
+        <td><%= place_edit.place.twitter_url %></td>
+        <td><%= place_edit.place.web_url %></td>
+        <td><%= place_edit.place.email %></td>
+        <td><%= place_edit.place.phone %></td>
+      </tr>
+      <tr>
+        <td><%= place_edit.updated_at %></td>
+        <td><%= place_edit.name %></td>
+        <td><%= place_edit.address %></td>
+        <td><%= place_edit.vegan %></td>
+        <td><%= place_edit.instagram_url %></td>
+        <td><%= place_edit.facebook_url %></td>
+        <td><%= place_edit.twitter_url %></td>
+        <td><%= place_edit.web_url %></td>
+        <td><%= place_edit.email %></td>
+        <td><%= place_edit.phone %></td>
+      </tr>
+    <% end %>
+  </tbody>
+<% else %>
+  <p>No place edits found for this user.</p>
+<% end %>

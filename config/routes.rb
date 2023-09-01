@@ -3,6 +3,9 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
   resources :places do
+    post "place-edits", to: "place_edits#create", as: :place_edits
+    post "place-edits/:id/approve", to: "place_edits#approve", as: :approve_place_edit
+    delete "place-edits/:id", to: "place_edits#destroy", as: :destroy_place_edit
     resources :menus
     collection do
       post :search

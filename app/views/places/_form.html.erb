@@ -1,4 +1,4 @@
-<%= form_with(model: place, data: {controller: "place", action: "google-maps-callback@window->place#initializeMap"}, html: {id: "add-new-place-form"}) do |form| %>
+<%= form_with(model: place, data: {controller: "place", action: "google-maps-callback@window->place#initializeMap"}, html: {id: "add-new-place-form"}, url: place.new_record? ? places_path : place_place_edits_path(place), method: :post) do |form| %>
   <% if place.errors.any? %>
     <div style="color: red">
       <h2 class="medium-weight black"><%= pluralize(place.errors.count, "hata") %>
