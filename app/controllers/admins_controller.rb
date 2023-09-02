@@ -46,13 +46,14 @@ class AdminsController < ApplicationController
   end
 
   def approve_place_edit
-    @place_edits = PlaceEdit.all.includes(:place).order('created_at DESC')
+    @place_edits = PlaceEdit.where(user: User.where(approved: true)).includes(:place).order('created_at DESC')
     @pending_places = Place.where(approved: false)
     @users = User.all
     @pending_places.each do |place|
-      place.creator = @users.find(place.contributors.first).email
+      place.creator = @users.find(place.contributors.first)
       place.save
     end
+    @pending_places = @pending_places.select { |place| place.creator.approved == true }
   end
 
   private

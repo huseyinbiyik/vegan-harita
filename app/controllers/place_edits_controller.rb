@@ -5,6 +5,7 @@ class PlaceEditsController < ApplicationController
 
   def create
     @place_edit = PlaceEdit.create(place_edit_params)
+    @place_edit.images.attach(params[:place][:images])
     @place_edit.place = @place
     @place_edit.user = current_user
 
@@ -27,6 +28,10 @@ class PlaceEditsController < ApplicationController
 
   def approve
     @place.update(@place_edit.attributes.except('place_id', 'user_id', 'id').merge(contributors: [@place_edit.user.id]))
+    @place_edit.images.each do |image|
+      @place.images.attach(image.blob)
+    end
+
     @place_edit.destroy
     respond_to do |format|
       format.html do

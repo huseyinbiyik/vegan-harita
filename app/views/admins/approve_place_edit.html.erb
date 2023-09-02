@@ -12,6 +12,7 @@
 <th>Web Sitesi</th>
 <th>E-posta</th>
 <th>Telefon</th>
+<th>Düzenleyen Kişi</th>
 <th>Onayla</th>
 </tr>
 </thead>
@@ -41,6 +42,7 @@
 <td><%= place_edit.web_url %></td>
 <td><%= place_edit.email %></td>
 <td><%= place_edit.phone %></td>
+<td><%= place_edit.user.email %></td>
 <td><%= link_to "Onayla", place_approve_place_edit_path(place_id: place_edit.place.id, id: place_edit.id), method: "post", remote: true, data: { turbo_method: "post" } %>
 <%= link_to "Reddet", place_destroy_place_edit_path(place_id: place_edit.place.id, id: place_edit.id), method: "delete", remote: true, data: { turbo_method: "delete" } %>
 </td>
@@ -82,7 +84,7 @@
 <td><%= link_to "Onayla", approve_place_path(id: pending_place.id), method: "post", remote: true, data: { turbo_method: "post" } %>
 <%= link_to "Reddet", reject_place_path(id: pending_place.id), method: "delete", remote: true, data: { turbo_method: "delete" } %>
 </td>
-<td><%= pending_place.creator %></td>
+<td><%= pending_place.creator.email %></td>
 </tr>
 <% end %>
 </table>
