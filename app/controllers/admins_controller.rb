@@ -19,8 +19,40 @@ class AdminsController < ApplicationController
     redirect_to user_approvals_path
   end
 
+  def approve_place
+    @place = Place.find(params[:id])
+    @place.approved = true
+    respond_to do |format|
+      if @place.save
+        format.html do
+          redirect_to place_approvals_path,
+                      notice: 'Mekan onaylandı.'
+        end
+      else
+        format.html { render :new, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def reject_place
+    @place = Place.find(params[:id])
+    @place.destroy
+    respond_to do |format|
+      format.html do
+        redirect_to place_approvals_path,
+                    notice: 'Mekan reddedildi.'
+      end
+    end
+  end
+
   def approve_place_edit
     @place_edits = PlaceEdit.all.includes(:place).order('created_at DESC')
+    @pending_places = Place.where(approved: false)
+    @users = User.all
+    @pending_places.each do |place|
+      place.creator = @users.find(place.contributors.first).email
+      place.save
+    end
   end
 
   private
