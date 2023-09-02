@@ -1,4 +1,5 @@
 class PlacesController < ApplicationController
+  before_action :authenticate_user!, except: %i[index show search]
   before_action :set_place, only: %i[show edit update destroy]
 
   # GET /places or /places.json
@@ -47,15 +48,12 @@ class PlacesController < ApplicationController
           redirect_to place_url(@place),
                       notice: 'Yeni mekan başarıyla değerlendirmeye gönderildi. Desteğiniz için teşekkür ederiz 💚'
         end
-        format.json { render :show, status: :created, location: @place }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @place.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /places/1 or /places/1.json
   def update
     respond_to do |format|
       if @place.update(place_params)
@@ -65,15 +63,12 @@ class PlacesController < ApplicationController
                        başarıyla gönderildi.
                        Desteğiniz için teşekkür ederiz 💚'
         end
-        format.json { render :show, status: :ok, location: @place }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @place.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /places/1 or /places/1.json
   def destroy
     @place.destroy
 
@@ -87,12 +82,13 @@ class PlacesController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_place
-    @place = Place.find(params[:id])
+    @place = Place.approved.find_by(id: params[:id])
+    return unless @place.nil?
+
+    redirect_to places_path, alert: 'Mekan bulunamadı.'
   end
 
-  # Only allow a list of trusted parameters through.
   def place_params
     params.require(:place).permit(:name, :address, :latitude, :longitude, :vegan, :image, :instagram_url,
                                   :facebook_url, :twitter_url, :web_url, :email, :phone, :approved, tag_ids: [], contributors: [])

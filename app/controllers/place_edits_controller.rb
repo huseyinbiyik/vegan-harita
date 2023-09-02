@@ -26,24 +26,12 @@ class PlaceEditsController < ApplicationController
   end
 
   def approve
-    @place.name = @place_edit.name
-    @place.longitude = @place_edit.longitude
-    @place.latitude = @place_edit.latitude
-    @place.address = @place_edit.address
-    @place.vegan = @place_edit.vegan
-    @place.instagram_url = @place_edit.instagram_url
-    @place.facebook_url = @place_edit.facebook_url
-    @place.twitter_url = @place_edit.twitter_url
-    @place.web_url = @place_edit.web_url
-    @place.email = @place_edit.email
-    @place.phone = @place_edit.phone
-    @place.contributors << @place_edit.user.id
-    @place.save
+    @place.update(@place_edit.attributes.except('place_id', 'user_id', 'id').merge(contributors: [@place_edit.user.id]))
     @place_edit.destroy
     respond_to do |format|
       format.html do
         redirect_to place_url(@place),
-                    notice: 'Mekanı onayladın.'
+                    notice: 'Mekan değişikliklerini onayladın.'
       end
     end
   end
@@ -73,4 +61,3 @@ class PlaceEditsController < ApplicationController
                                   :facebook_url, :twitter_url, :web_url, :email, :phone, :user_id, :place_id)
   end
 end
-

@@ -19,6 +19,12 @@ class AdminsController < ApplicationController
     redirect_to user_approvals_path
   end
 
+  def approve_place_edit
+    @place_edits = PlaceEdit.all.includes(:place).order('created_at DESC')
+  end
+
+  private
+
   def authenticate_admin
     redirect_to root_path unless user_signed_in? && current_user.role == 'admin'
   end
