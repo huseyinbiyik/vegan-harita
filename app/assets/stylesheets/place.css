@@ -128,7 +128,6 @@
 }
 
 .tags span {
-  width: 100%;
   border-radius: 5px;
   border: 1px solid var(--yellow);
   padding: 7.5px 9px;
