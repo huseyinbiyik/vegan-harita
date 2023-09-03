@@ -11,6 +11,10 @@ class PlaceEditsController < ApplicationController
 
     respond_to do |format|
       if @place_edit.save
+        if current_user.role == 'admin'
+          approve
+          return
+        end
         format.html do
           redirect_to place_url(@place),
                       notice: 'Mekan düzenleme isteği başarıyla değerlendirmeye gönderildi. Desteğiniz için teşekkür ederiz 💚'
