@@ -7,5 +7,4 @@ class User < ApplicationRecord
   has_many :place_edits, dependent: :destroy
 
   enum role: { user: 0, admin: 1 }
-
 end

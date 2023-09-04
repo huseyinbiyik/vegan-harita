@@ -17,7 +17,8 @@ class PlaceEditsController < ApplicationController
         end
         format.html do
           redirect_to place_url(@place),
-                      notice: 'Mekan düzenleme isteği başarıyla değerlendirmeye gönderildi. Desteğiniz için teşekkür ederiz 💚'
+                      notice:
+                      'Mekan düzenleme isteği başarıyla değerlendirmeye gönderildi. Desteğiniz için teşekkür ederiz 💚'
         end
       else
         format.html { render :new, status: :unprocessable_entity }
