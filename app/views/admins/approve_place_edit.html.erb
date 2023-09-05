@@ -1,0 +1,90 @@
+<h2> Onay Bekleyen Mekan Düzenlemeleri </h2>
+<table>
+<thead>
+<tr>
+<th>Öneri Tarihi</th>
+<th>Mekanın Adı</th>
+<th>Adres</th>
+<th>Vegan mı?</th>
+<th>Instagram</th>
+<th>Facebook</th>
+<th>Twitter</th>
+<th>Web Sitesi</th>
+<th>E-posta</th>
+<th>Telefon</th>
+<th>Düzenleyen Kişi</th>
+<th>Onayla</th>
+</tr>
+</thead>
+<tbody id="place_edits">
+<% @place_edits.each do |place_edit| %>
+<tr>
+<td></td>
+<td><%= place_edit.place.name %></td>
+<td><%= place_edit.place.address %></td>
+<td><%= place_edit.place.vegan %></td>
+<td><%= place_edit.place.instagram_url %></td>
+<td><%= place_edit.place.facebook_url %></td>
+<td><%= place_edit.place.twitter_url %></td>
+<td><%= place_edit.place.web_url %></td>
+<td><%= place_edit.place.email %></td>
+<td><%= place_edit.place.phone %></td>
+<td></td>
+</tr>
+<tr>
+<td><%= place_edit.created_at %></td>
+<td><%= place_edit.name %></td>
+<td><%= place_edit.address %></td>
+<td><%= place_edit.vegan %></td>
+<td><%= place_edit.instagram_url %></td>
+<td><%= place_edit.facebook_url %></td>
+<td><%= place_edit.twitter_url %></td>
+<td><%= place_edit.web_url %></td>
+<td><%= place_edit.email %></td>
+<td><%= place_edit.phone %></td>
+<td><%= place_edit.user.email %></td>
+<td><%= link_to "Onayla", place_approve_place_edit_path(place_id: place_edit.place.id, id: place_edit.id), method: "post", remote: true, data: { turbo_method: "post" } %>
+<%= link_to "Reddet", place_destroy_place_edit_path(place_id: place_edit.place.id, id: place_edit.id), method: "delete", remote: true, data: { turbo_method: "delete" } %>
+</td>
+</tr>
+<% end %>
+</table>
+
+<h2> Onay Bekleyen Mekan Ekleme Önerileri </h2>
+<table>
+<thead>
+<tr>
+<th>Öneri Tarihi</th>
+<th>Mekanın Adı</th>
+<th>Adres</th>
+<th>Vegan mı?</th>
+<th>Instagram</th>
+<th>Facebook</th>
+<th>Twitter</th>
+<th>Web Sitesi</th>
+<th>E-posta</th>
+<th>Telefon</th>
+<th>Onayla</th>
+<th>Ekleyen Kişi</th>
+</tr>
+</thead>
+<tbody id="place_adds">
+<% @pending_places.each do |pending_place| %>
+<tr>
+<td><%= pending_place.created_at %></td>
+<td><%= pending_place.name %></td>
+<td><%= pending_place.address %></td>
+<td><%= pending_place.vegan %></td>
+<td><%= pending_place.instagram_url %></td>
+<td><%= pending_place.facebook_url %></td>
+<td><%= pending_place.twitter_url %></td>
+<td><%= pending_place.web_url %></td>
+<td><%= pending_place.email %></td>
+<td><%= pending_place.phone %></td>
+<td><%= link_to "Onayla", approve_place_path(id: pending_place.id), method: "post", remote: true, data: { turbo_method: "post" } %>
+<%= link_to "Reddet", reject_place_path(id: pending_place.id), method: "delete", remote: true, data: { turbo_method: "delete" } %>
+</td>
+<td><%= pending_place.creator.email %></td>
+</tr>
+<% end %>
+</table>

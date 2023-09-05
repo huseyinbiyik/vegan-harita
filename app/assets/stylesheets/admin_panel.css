@@ -1,0 +1,12 @@
+#place_edits tr:nth-child(odd) {
+  background-color: var(--beige);
+}
+
+#place_edits tr:nth-child(even) {
+  background-color: var(--green);
+}
+
+/* navigation links */
+.nav-admin-link {
+  padding: 17.5px 30px;
+}

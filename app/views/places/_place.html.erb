@@ -94,10 +94,14 @@
   </div>
 
   <div class="tags bg-dark-blue">
-  <span class="yellow">Dünya Mutfağı</span>
-  <span class="yellow">Asya Mutfağı</span>
-  <span class="yellow">Fransız Mutfağı</span>
-  <span class="yellow">İtalyan Mutfağı</span>
+    <% if place.tags.present? %>
+      <% place.tags.each do |tag| %>
+        <span class="yellow"><%= tag.name %></span>
+      <% end %>
+    <% else %>
+      <span class="yellow">Etiket Yok</span>
+    <% end %>
+
   </div>
 
   <div id="menu" class="bg-dark-green">
@@ -121,5 +125,7 @@
 
     <%= render @place.menus.where(product_category: "Tatlı") %>
   </div>
+
+  <%= link_to "Edit", edit_place_path(place) %>
 
 </div>

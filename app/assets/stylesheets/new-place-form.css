@@ -65,6 +65,24 @@
   border: 1px solid var(--black);
 }
 
+/*  Tags, place edit form */
+
+.tags-form-container {
+  height: 160px;
+}
+
+.tags-form-container label {
+  display: inline-block;
+  margin-bottom: 5px;
+  background: var(--beige);
+  padding: 5px 8px;
+}
+
+.tags-form {
+  overflow: scroll;
+  height: 100px;
+}
+
 /* Style image upload  */
 #add-new-place-form select {
   width: 100%;

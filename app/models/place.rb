@@ -1,4 +1,6 @@
 class Place < ApplicationRecord
+  attr_accessor :creator
+
   validates :instagram_url, format: { with: %r{\Ahttps?://(www\.)?instagram\.com/[\w-]+/?\z}i }, allow_blank: true
 
   validates :facebook_url, format: { with: %r{\Ahttps?://(www\.)?facebook\.com/}i }, allow_blank: true
@@ -13,8 +15,10 @@ class Place < ApplicationRecord
 
   validate :images_count_within_limit
 
+  has_many :place_edits, dependent: :destroy
   has_many :menus, dependent: :destroy
   has_many_attached :images, dependent: :destroy
+  has_and_belongs_to_many :tags
 
   scope :approved, -> { where(approved: true) }
 
