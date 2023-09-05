@@ -67,7 +67,9 @@ class PlaceEditsController < ApplicationController
   end
 
   def place_edit_params
-    params.require(:place).permit(:name, :address, :latitude, :longitude, :vegan, :image, :instagram_url,
-                                  :facebook_url, :twitter_url, :web_url, :email, :phone, :user_id, :place_id)
+    params.require(:place).permit(
+      :name, :address, :latitude, :longitude, :vegan, :image, :instagram_url,
+      :facebook_url, :twitter_url, :web_url, :email, :phone, :user_id, :place_id, tag_ids: []
+    )
   end
 end
