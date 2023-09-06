@@ -29,6 +29,19 @@
   </div>
 
 
+  <% if place.images.attached? %>
+  <div class= "add-new-place-form-group">
+    <%=  form.label "Silinecek Fotoğrafları Seç", style: "display: block", class:"beige" %>
+    <% place.images.each do |image| %>
+      <div class="image-checkbox">
+        <%= form.check_box :deleted_images, { multiple: true, id: "image-select", class: "small-font bg-beige dark-green" }, image.id, nil %>
+        <%= image_tag image.variant(resize_to_limit: [100,100]), class: "image-checkbox-image" %>
+      </div>
+    <% end %>
+  </div>
+  <% end %>
+
+
 
   <div class= "add-new-place-form-group">
     <%= form.label "Mekanın Fotoğrafları", style: "display: block", class:"beige" %>
