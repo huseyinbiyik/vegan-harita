@@ -9,7 +9,7 @@
 <h3 class="large-font bg-brown beige">Son Eklenen Yerler</h3>
 
 <div id="last-places-list">
-  <% Place.last_ten.each do |place| %>
+  <% @last_ten_places.each do |place| %>
         <%= link_to "+#{place.name}", place_path(place), class: "place-card dark-green" %>
     <% end %>
   </div>

@@ -3,7 +3,9 @@ class PlacesController < ApplicationController
   before_action :set_place, only: %i[show edit destroy]
 
   def index
-    @places = Place.approved
+    @places = Place.approved.order('created_at DESC')
+    @last_ten_places = @places.limit(10)
+    
     respond_to do |format|
       format.html
       format.json { render json: @places.to_json(methods: :featured_image) }
