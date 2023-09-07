@@ -32,9 +32,13 @@ class PlaceEditsController < ApplicationController
   end
 
   def approve
-    @place.update(@place_edit.attributes.except('place_id', 'user_id', 'id').merge(contributors: [@place_edit.user.id]))
+    @place.update(@place_edit.attributes.except('place_id', 'user_id', 'id',
+                                                'deleted_images').merge(contributors: [@place_edit.user.id]))
     @place_edit.images.each do |image|
       @place.images.attach(image.blob)
+    end
+    @place_edit.deleted_images.each do |image_id|
+      @place.images.find(image_id).purge
     end
 
     @place_edit.destroy
@@ -69,7 +73,7 @@ class PlaceEditsController < ApplicationController
   def place_edit_params
     params.require(:place).permit(
       :name, :address, :latitude, :longitude, :vegan, :image, :instagram_url,
-      :facebook_url, :twitter_url, :web_url, :email, :phone, :user_id, :place_id, tag_ids: []
+      :facebook_url, :twitter_url, :web_url, :email, :phone, :user_id, :place_id, tag_ids: [], deleted_images: []
     )
   end
 end
