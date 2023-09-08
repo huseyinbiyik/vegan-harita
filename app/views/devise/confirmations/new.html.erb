@@ -1,15 +1,15 @@
-<h2 class="medium-weight black">Resend confirmation instructions</h2>
+<h2 class="medium-weight black">Onay talimatlarını yeniden gönder</h2>
 
 <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :email, class: "black" %><br />
+    <%= f.label :email, 'E-posta', class: "black" %><br />
     <%= f.email_field :email, autofocus: true, class:"bg-beige", autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Resend confirmation instructions" %>
+    <%= f.submit "Onay talimatlarını yeniden gönder" %>
   </div>
 <% end %>
 
