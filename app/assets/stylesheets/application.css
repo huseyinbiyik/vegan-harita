@@ -163,12 +163,6 @@ input[type="password"] {
   color: #000;
 }
 
-.arrow {
-  width: 26px;
-  margin: 20px 0 0 21px;
-  position: absolute;
-}
-
 .large-font {
   font-size: 32px;
 }
@@ -200,9 +194,5 @@ input[type="password"] {
 
   .field input {
     width: 300px;
-  }
-
-  .arrow {
-    margin: 20px 0 0 50px;
   }
 }
