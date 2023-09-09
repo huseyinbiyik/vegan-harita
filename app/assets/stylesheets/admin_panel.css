@@ -8,10 +8,14 @@
   flex-direction: column;
   width: 80vw;
   margin: auto;
+  padding-bottom: 24px;
 }
 
-.pending-ul {
+.pending ul {
   list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
 }
 
 .pending-edit {
@@ -29,11 +33,14 @@
 .edit-divider {
   width: 80vw;
   border: 1px solid var(--green);
+  margin: 15px 0;
 }
 
 .place-divider {
   width: 80vw;
   border: 1px solid var(--pinkish);
+  margin: 15px 0;
+
 }
 
 .edit-divider:last-child, .place-divider:last-child {
