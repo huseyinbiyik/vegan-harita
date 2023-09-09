@@ -11,11 +11,19 @@
   padding-bottom: 24px;
 }
 
-.pending ul {
+.pending-item {
   list-style-type: none;
   display: flex;
   flex-direction: column;
-  gap: 7px;
+}
+
+.pending-item li {
+  height: 30px;
+  line-height: 30px;
+}
+
+.pending-item li:nth-child(even) {
+  background-color: var(--beige);
 }
 
 .pending-edit {
@@ -28,6 +36,11 @@
 
 .pending-place {
   display: flex;
+}
+
+.pending-place ul {
+  width: 80vw;
+
 }
 
 .edit-divider {

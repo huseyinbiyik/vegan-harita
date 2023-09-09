@@ -2,7 +2,7 @@
 <section class="pending">
   <% @place_edits.each do |place_edit| %>
     <article class="pending-edit">
-      <ul>
+      <ul class="pending-item">
         <li></li>
         <li>Adı: <%= place_edit.place.name %></li>
         <li>Adres: <%= place_edit.place.address %></li>
@@ -16,7 +16,7 @@
         <li></li>
         <li></li>
       </ul>
-      <ul>
+      <ul class="pending-item">
         <li>Öneri Tarihi: <%= place_edit.created_at %></li>
         <li>Adı: <%= place_edit.name %></li>
         <li>Adres: <%= place_edit.address %></li>
@@ -43,9 +43,9 @@
 <section class="pending">
   <% @pending_places.each do |pending_place| %>
     <article class="pending-place">
-      <ul>
+      <ul class="pending-item">
         <li>Öneri Tarihi: <%= pending_place.created_at %></li>
-        <th>Mekanın Adı: <%= pending_place.name %></th>
+        <li>Mekanın Adı: <%= pending_place.name %></li>
         <li>Adres: <%= pending_place.address %></li>
         <li>Vegan mı? <%= pending_place.vegan %></li>
         <li>Instagram: <%= pending_place.instagram_url %></li>
