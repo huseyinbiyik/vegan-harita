@@ -1,13 +1,28 @@
-#place_edits tr:nth-child(odd) {
-  background-color: var(--beige);
-}
-
-#place_edits tr:nth-child(even) {
-  background-color: var(--green);
-}
-
 /* navigation links */
 .nav-admin-link {
   padding: 17.5px 30px;
+}
+
+.pending {
+  display: flex;
+  flex-direction: column;
+  width: 80vw;
+  margin: auto;
+}
+
+.pending-ul {
+  list-style-type: none;
+}
+
+.pending-edit {
+  display: flex;
+}
+
+.pending-edit ul {
+  width: 40vw;
+}
+
+.pending-place {
+  display: flex;
 }
 

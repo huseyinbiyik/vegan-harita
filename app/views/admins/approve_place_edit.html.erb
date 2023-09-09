@@ -1,5 +1,5 @@
+<h2>Mekan Düzenleme Onayları</h2>
 <section class="pending">
-  <h2>Mekan Düzenleme Onayları</h2>
   <% @place_edits.each do |place_edit| %>
     <article class="pending-edit">
       <ul>
@@ -38,10 +38,10 @@
   <% end %>
 </section>
 
+ <h2>Yeni Mekan Onayları</h2>
 <section class="pending">
-  <h2>Yeni Mekan Onayları</h2>
   <% @pending_places.each do |pending_place| %>
-    <article>
+    <article class="pending-place">
       <ul>
         <li>Öneri Tarihi: <%= pending_place.created_at %></li>
         <th>Mekanın Adı: <%= pending_place.name %></th>
