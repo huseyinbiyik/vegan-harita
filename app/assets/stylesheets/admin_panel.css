@@ -15,7 +15,7 @@
 }
 
 .pending-edit {
-  display: flex;
+  display: flex; 
 }
 
 .pending-edit ul {
@@ -26,3 +26,16 @@
   display: flex;
 }
 
+.edit-divider {
+  width: 80vw;
+  border: 1px solid var(--green);
+}
+
+.place-divider {
+  width: 80vw;
+  border: 1px solid var(--pinkish);
+}
+
+.edit-divider:last-child, .place-divider:last-child {
+  display: none;
+}
