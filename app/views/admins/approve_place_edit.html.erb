@@ -54,11 +54,11 @@
         <li>Web Sitesi: <%= pending_place.web_url %></li>
         <li>E-posta: <%= pending_place.email %></li>
         <li>Telefon: <%= pending_place.phone %></li>
+        <li>Ekleyen: <%= pending_place.creator.email %></li>
         <li>
           <%= link_to "Onayla", approve_place_path(id: pending_place.id), method: "post", remote: true, data: { turbo_method: "post" } %>
           <%= link_to "Reddet", reject_place_path(id: pending_place.id), method: "delete", remote: true, data: { turbo_method: "delete" } %>
         </li>
-        <li>Ekleyen: <%= pending_place.creator.email %></li>
       </ul>
     </article>
     <div class="place-divider"></div>
