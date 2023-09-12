@@ -22,6 +22,7 @@
   --dark-blue: #153143;
   --green: #a7d4bc;
   --black: #262626;
+  --pinkish: #ffa98c;
 }
 
 *,
@@ -194,6 +195,10 @@ input[type="password"] {
 }
 
 @media (min-width: 1024px) {
+  body {
+    min-height: 100vh;
+  }
+
   .user-forms h2 {
     margin-top: 100px;
   }

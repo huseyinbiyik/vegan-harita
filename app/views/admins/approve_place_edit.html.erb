@@ -1,90 +1,66 @@
-<h2> Onay Bekleyen Mekan Düzenlemeleri </h2>
-<table>
-<thead>
-<tr>
-<th>Öneri Tarihi</th>
-<th>Mekanın Adı</th>
-<th>Adres</th>
-<th>Vegan mı?</th>
-<th>Instagram</th>
-<th>Facebook</th>
-<th>Twitter</th>
-<th>Web Sitesi</th>
-<th>E-posta</th>
-<th>Telefon</th>
-<th>Düzenleyen Kişi</th>
-<th>Onayla</th>
-</tr>
-</thead>
-<tbody id="place_edits">
-<% @place_edits.each do |place_edit| %>
-<tr>
-<td></td>
-<td><%= place_edit.place.name %></td>
-<td><%= place_edit.place.address %></td>
-<td><%= place_edit.place.vegan %></td>
-<td><%= place_edit.place.instagram_url %></td>
-<td><%= place_edit.place.facebook_url %></td>
-<td><%= place_edit.place.twitter_url %></td>
-<td><%= place_edit.place.web_url %></td>
-<td><%= place_edit.place.email %></td>
-<td><%= place_edit.place.phone %></td>
-<td></td>
-</tr>
-<tr>
-<td><%= place_edit.created_at %></td>
-<td><%= place_edit.name %></td>
-<td><%= place_edit.address %></td>
-<td><%= place_edit.vegan %></td>
-<td><%= place_edit.instagram_url %></td>
-<td><%= place_edit.facebook_url %></td>
-<td><%= place_edit.twitter_url %></td>
-<td><%= place_edit.web_url %></td>
-<td><%= place_edit.email %></td>
-<td><%= place_edit.phone %></td>
-<td><%= place_edit.user.email %></td>
-<td><%= link_to "Onayla", place_approve_place_edit_path(place_id: place_edit.place.id, id: place_edit.id), method: "post", remote: true, data: { turbo_method: "post" } %>
-<%= link_to "Reddet", place_destroy_place_edit_path(place_id: place_edit.place.id, id: place_edit.id), method: "delete", remote: true, data: { turbo_method: "delete" } %>
-</td>
-</tr>
-<% end %>
-</table>
+<h2>Mekan Düzenleme Onayları</h2>
+<section class="pending">
+  <% @place_edits.each do |place_edit| %>
+    <article class="pending-edit">
+      <ul class="pending-item">
+        <li></li>
+        <li>Adı: <%= place_edit.place.name %></li>
+        <li>Adres: <%= place_edit.place.address %></li>
+        <li>Vegan mı? <%= place_edit.place.vegan %></li>
+        <li>Instagram: <%= place_edit.place.instagram_url %></li>
+        <li>Facebook: <%= place_edit.place.facebook_url %></li>
+        <li>Twitter: <%= place_edit.place.twitter_url %></li>
+        <li>Web Sitesi: <%= place_edit.place.web_url %></li>
+        <li>E-posta: <%= place_edit.place.email %></li>
+        <li>Telefon: <%= place_edit.place.phone %></li>
+        <li></li>
+        <li></li>
+      </ul>
+      <ul class="pending-item">
+        <li>Öneri Tarihi: <%= place_edit.created_at %></li>
+        <li>Adı: <%= place_edit.name %></li>
+        <li>Adres: <%= place_edit.address %></li>
+        <li>Vegan mı? <%= place_edit.vegan %></li>
+        <li>Instagram: <%= place_edit.instagram_url %></li>
+        <li>Facebook: <%= place_edit.facebook_url %></li>
+        <li>Twitter: <%= place_edit.twitter_url %></li>
+        <li>Web Sitesi: <%= place_edit.web_url %></li>
+        <li>E-posta: <%= place_edit.email %></li>
+        <li>Telefon: <%= place_edit.phone %></li>
+        <li>Düzenleyen: <%= place_edit.user.email %></li>
+        <li>
+            <%= link_to "Onayla", place_approve_place_edit_path(place_id: place_edit.place.id, id: place_edit.id), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
+            <%= link_to "Reddet", place_destroy_place_edit_path(place_id: place_edit.place.id, id: place_edit.id), class: "reject-btn", method: "delete", remote: true, data: { turbo_method: "delete" } %>
+        </li>
+      </ul>
+      </div>
+    </article>
+    <div class="edit-divider"></div>
+  <% end %>
+</section>
 
-<h2> Onay Bekleyen Mekan Ekleme Önerileri </h2>
-<table>
-<thead>
-<tr>
-<th>Öneri Tarihi</th>
-<th>Mekanın Adı</th>
-<th>Adres</th>
-<th>Vegan mı?</th>
-<th>Instagram</th>
-<th>Facebook</th>
-<th>Twitter</th>
-<th>Web Sitesi</th>
-<th>E-posta</th>
-<th>Telefon</th>
-<th>Onayla</th>
-<th>Ekleyen Kişi</th>
-</tr>
-</thead>
-<tbody id="place_adds">
-<% @pending_places.each do |pending_place| %>
-<tr>
-<td><%= pending_place.created_at %></td>
-<td><%= pending_place.name %></td>
-<td><%= pending_place.address %></td>
-<td><%= pending_place.vegan %></td>
-<td><%= pending_place.instagram_url %></td>
-<td><%= pending_place.facebook_url %></td>
-<td><%= pending_place.twitter_url %></td>
-<td><%= pending_place.web_url %></td>
-<td><%= pending_place.email %></td>
-<td><%= pending_place.phone %></td>
-<td><%= link_to "Onayla", approve_place_path(id: pending_place.id), method: "post", remote: true, data: { turbo_method: "post" } %>
-<%= link_to "Reddet", reject_place_path(id: pending_place.id), method: "delete", remote: true, data: { turbo_method: "delete" } %>
-</td>
-<td><%= pending_place.creator.email %></td>
-</tr>
-<% end %>
-</table>
+<h2>Yeni Mekan Onayları</h2>
+<section class="pending">
+  <% @pending_places.each do |pending_place| %>
+    <article class="pending-place">
+      <ul class="pending-item">
+        <li>Öneri Tarihi: <%= pending_place.created_at %></li>
+        <li>Mekanın Adı: <%= pending_place.name %></li>
+        <li>Adres: <%= pending_place.address %></li>
+        <li>Vegan mı? <%= pending_place.vegan %></li>
+        <li>Instagram: <%= pending_place.instagram_url %></li>
+        <li>Facebook: <%= pending_place.facebook_url %></li>
+        <li>Twitter: <%= pending_place.twitter_url %></li>
+        <li>Web Sitesi: <%= pending_place.web_url %></li>
+        <li>E-posta: <%= pending_place.email %></li>
+        <li>Telefon: <%= pending_place.phone %></li>
+        <li>Ekleyen: <%= pending_place.creator.email %></li>
+        <li>
+          <%= link_to "Onayla", approve_place_path(id: pending_place.id), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
+          <%= link_to "Reddet", reject_place_path(id: pending_place.id), class: "reject-btn", method: "delete", remote: true, data: { turbo_method: "delete" } %>
+        </li>
+      </ul>
+    </article>
+    <div class="place-divider"></div>
+  <% end %>
+</section>
