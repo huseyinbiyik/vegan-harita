@@ -1,9 +1,5 @@
 <section class="user-forms bg-green">
 
-<%= link_to :back, class: "arrow" do %>
-  <%= image_tag "back-icon.svg" %>
-<% end %>
-
 <h2 class="medium-weight black">Kayıt Ol</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { data: { turbo: false}}) do |f| %>
