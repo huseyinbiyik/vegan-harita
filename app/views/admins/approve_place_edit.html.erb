@@ -29,8 +29,8 @@
         <li>Telefon: <%= place_edit.phone %></li>
         <li>Düzenleyen: <%= place_edit.user.email %></li>
         <li>
-            <%= link_to "Onayla", place_approve_place_edit_path(place_id: place_edit.place.id, id: place_edit.id), method: "post", remote: true, data: { turbo_method: "post" } %>
-            <%= link_to "Reddet", place_destroy_place_edit_path(place_id: place_edit.place.id, id: place_edit.id), method: "delete", remote: true, data: { turbo_method: "delete" } %>
+            <%= link_to "Onayla", place_approve_place_edit_path(place_id: place_edit.place.id, id: place_edit.id), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
+            <%= link_to "Reddet", place_destroy_place_edit_path(place_id: place_edit.place.id, id: place_edit.id), class: "reject-btn", method: "delete", remote: true, data: { turbo_method: "delete" } %>
         </li>
       </ul>
       </div>
@@ -56,8 +56,8 @@
         <li>Telefon: <%= pending_place.phone %></li>
         <li>Ekleyen: <%= pending_place.creator.email %></li>
         <li>
-          <%= link_to "Onayla", approve_place_path(id: pending_place.id), method: "post", remote: true, data: { turbo_method: "post" } %>
-          <%= link_to "Reddet", reject_place_path(id: pending_place.id), method: "delete", remote: true, data: { turbo_method: "delete" } %>
+          <%= link_to "Onayla", approve_place_path(id: pending_place.id), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
+          <%= link_to "Reddet", reject_place_path(id: pending_place.id), class: "reject-btn", method: "delete", remote: true, data: { turbo_method: "delete" } %>
         </li>
       </ul>
     </article>

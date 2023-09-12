@@ -58,3 +58,19 @@
 .place-divider:last-child {
   display: none;
 }
+
+.approve-btn {
+  border: 1px solid var(--black);
+  height: 20px;
+  padding: 0 7px;
+  background-color: var(--dark-green);
+  color: var(--beige);
+}
+
+.reject-btn {
+  border: 1px solid var(--black);
+  height: 20px;
+  padding: 0 7px;
+  background-color: var(--brown);
+  color: var(--beige);
+}
