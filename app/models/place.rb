@@ -15,6 +15,7 @@ class Place < ApplicationRecord
 
   validate :images_count_within_limit
 
+  has_many :change_logs, as: :changeable, dependent: :destroy
   has_many :place_edits, dependent: :destroy
   has_many :menus, dependent: :destroy
   has_many_attached :images, dependent: :destroy

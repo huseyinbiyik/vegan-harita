@@ -1,5 +1,6 @@
 class Menu < ApplicationRecord
   belongs_to :place
+  has_many :change_logs, as: :changeable, dependent: :destroy
 
   has_many_attached :menu_images
 
