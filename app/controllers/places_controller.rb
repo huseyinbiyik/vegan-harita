@@ -1,6 +1,6 @@
 class PlacesController < ApplicationController
   before_action :authenticate_user!, except: %i[index show search]
-  before_action :set_place, only: %i[show edit destroy]
+  before_action :set_place, only: %i[show destroy]
 
   def index
     @places = Place.approved
@@ -32,12 +32,6 @@ class PlacesController < ApplicationController
 
   def new
     @place = Place.new
-  end
-
-  def edit
-    return unless @place.approved == false
-
-    redirect_to places_path, notice: 'Mekan henüz onaylanmadı. Güncelleme yapabilmek için önce onaylanmasını bekleyin.'
   end
 
   def create

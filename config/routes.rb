@@ -3,14 +3,14 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
   resources :places do
-    post "place-edits", to: "place_edits#create", as: :place_edits
-    post "place-edits/:id/approve", to: "place_edits#approve", as: :approve_place_edit
-    delete "place-edits/:id", to: "place_edits#destroy", as: :destroy_place_edit
     resources :menus
     collection do
       post :search
     end
   end
+
+  get 'change-logs/new/:id', to: 'change_logs#new', as: :new_change_log
+  post 'change-logs/:id', to: 'change_logs#create', as: :change_logs
 
   scope 'admin-panel' do
     get "user-approvals", to: "admins#user_approvals", as: :user_approvals
