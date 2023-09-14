@@ -22,6 +22,7 @@
   --dark-blue: #153143;
   --green: #a7d4bc;
   --black: #262626;
+  --pinkish: #ffa98c;
 }
 
 *,
@@ -163,12 +164,6 @@ input[type="password"] {
   color: #000;
 }
 
-.arrow {
-  width: 26px;
-  margin: 20px 0 0 21px;
-  position: absolute;
-}
-
 .large-font {
   font-size: 32px;
 }
@@ -194,15 +189,15 @@ input[type="password"] {
 }
 
 @media (min-width: 1024px) {
+  body {
+    min-height: 100vh;
+  }
+
   .user-forms h2 {
     margin-top: 100px;
   }
 
   .field input {
     width: 300px;
-  }
-
-  .arrow {
-    margin: 20px 0 0 50px;
   }
 }
