@@ -2,11 +2,8 @@
 
 <% @users.each do |user| %>
   <div class="user">
-    <p><%= user.email %></p>
+    <p><%= user.email %> - <%= user.points %></p>
     <%= button_to "Onayla", approve_user_path(user) %>
-    <table><%= render partial: "place", locals: { pending_places: @pending_places, user: user } %></table>
-    <p>Öneriler</p>
-    <table><%= render partial: "place_edits", locals: { places: @places, user: user } %></table>
   </div>
 <% end %>
 

@@ -1,4 +1,4 @@
-<% if user.place_edits.any? %>
+<% if user.change_logs.any? %>
   <thead>
     <tr>
       <th>Öneri Tarihi</th>
@@ -14,19 +14,18 @@
     </tr>
   </thead>
   <tbody id="place_edits">
-    <% user.place_edits.each do |place_edit| %>
+    <% user.change_logs.each do |place_edit| %>
       <tr>
-      <td><%= place_edit.updated_at %></td>
-        <td><%= place_edit.place.name %></td>
-        <td><%= place_edit.place.address %></td>
-        <td><%= place_edit.place.vegan %></td>
-        <td><%= place_edit.place.instagram_url %></td>
-        <td><%= place_edit.place.facebook_url %></td>
-        <td><%= place_edit.place.twitter_url %></td>
-        <td><%= place_edit.place.web_url %></td>
-        <td><%= place_edit.place.email %></td>
-        <td><%= place_edit.place.phone %></td>
-      </tr>
+        <td><%= place_edit.created_at %></td>
+        <td><%= place_edit.changeable.name %></td>
+        <td><%= place_edit.changeable.address %></td>
+        <td><%= place_edit.vegan %></td>
+        <td><%= place_edit.instagram_url %></td>
+        <td><%= place_edit.facebook_url %></td>
+        <td><%= place_edit.twitter_url %></td>
+        <td><%= place_edit.web_url %></td>
+        <td><%= place_edit.email %></td>
+        <td><%= place_edit.phone %></td>
       <tr>
         <td><%= place_edit.updated_at %></td>
         <td><%= place_edit.name %></td>

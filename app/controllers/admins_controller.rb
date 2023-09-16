@@ -2,9 +2,7 @@ class AdminsController < ApplicationController
   before_action :authenticate_admin
 
   def user_approvals
-    @users = User.where(approved: false).order('created_at DESC').includes(:place_edits)
-    @places = Place.all
-    @pending_places = @places.where(approved: false)
+    @users = User.where(approved: false).order('points DESC')
   end
 
   def approve_user
