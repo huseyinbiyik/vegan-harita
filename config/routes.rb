@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   scope 'admin-panel' do
     get "user-approvals", to: "admins#user_approvals", as: :user_approvals
     post "approve-user/:id", to: "admins#approve_user", as: :approve_user
-    get "place-approvals", to: "admins#approve_place_edit", as: :place_approvals
+    get "place-approvals", to: "admins#list_place_edit", as: :place_approvals
     post "approve-place/:id", to: "admins#approve_place", as: :approve_place
     delete "reject-place/:id", to: "admins#reject_place", as: :reject_place
   end

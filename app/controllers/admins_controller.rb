@@ -43,8 +43,8 @@ class AdminsController < ApplicationController
     end
   end
 
-  def approve_place_edit
-    @place_edits = PlaceEdit.where(user: User.where(approved: true)).includes(:place).order('created_at DESC')
+  def list_place_edit
+    @place_edits = ChangeLog.all.order('created_at DESC')
     @pending_places = Place.where(approved: false)
     @users = User.all
     @pending_places.each do |place|
