@@ -38,8 +38,12 @@ class AdminsController < ApplicationController
         place.images.find(image).purge
       end
     end
+    place.contributors << place_edit.user.id unless place.contributors.include?(place_edit.user.id)
     place.save
+    place_edit.user.points += 1
+    place_edit.user.save
     place_edit.destroy
+    redirect_to place_approvals_path, notice: 'Düzenleme onaylandı.'
   end
 
   def reject_place_edit
@@ -52,6 +56,12 @@ class AdminsController < ApplicationController
     @place.approved = true
     respond_to do |format|
       if @place.save
+        @place.contributors.each do |contributor|
+          user = User.find(contributor)
+          user.points += 1
+          user.save
+        end
+
         format.html do
           redirect_to place_approvals_path,
                       notice: 'Mekan onaylandı.'

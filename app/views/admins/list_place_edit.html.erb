@@ -84,7 +84,7 @@
         <% if place_edit.phone %>
         <li>Telefon: <%= place_edit.changeable.phone %> <%= place_edit.phone %></li>
         <% end %>
-        <% if place_edit.tag_ids.any? %>
+        <% if place_edit.tag_ids %>
         <li>Etiketler:
           <%= place_edit.changeable.tag_ids.map { |tag_id| Tag.find(tag_id).name }.join(", ") %>
           -->
