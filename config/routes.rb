@@ -18,6 +18,8 @@ Rails.application.routes.draw do
     get "place-approvals", to: "admins#list_place_edit", as: :place_approvals
     post "approve-place/:id", to: "admins#approve_place", as: :approve_place
     delete "reject-place/:id", to: "admins#reject_place", as: :reject_place
+    post 'approve-place-edit/:id', to: "admins#approve_place_edit", as: :approve_place_edit
+    delete 'reject-place-edit/:id', to: "admins#reject_place_edit", as: :reject_place_edit
   end
 
 

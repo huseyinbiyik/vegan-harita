@@ -8,13 +8,43 @@ class AdminsController < ApplicationController
   def approve_user
     user = User.find(params[:id])
     user.approved = true
-    places = Place.where(approved: false, contributors: [user.id])
-    places.each do |place|
-      place.approved = true
+    if user.save
+      redirect_to user_approvals_path, notice: 'Kullanıcı onaylandı.'
+    else
+      redirect_to user_approvals_path, alert: 'Kullanıcı onaylanamadı.'
+    end
+  end
+
+  def list_place_edit
+    @place_edits = ChangeLog.all.order('created_at DESC')
+    @pending_places = Place.where(approved: false)
+    @users = User.all
+    @pending_places.each do |place|
+      place.creator = @users.find(place.contributors.first)
       place.save
     end
-    user.save
-    redirect_to user_approvals_path
+  end
+
+  def approve_place_edit
+    place_edit = ChangeLog.find(params[:id])
+    place = Place.find(place_edit.changeable_id)
+    %w[name longitude latitude address vegan instagram_url facebook_url twitter_url web_url email phone].each do |attr|
+      place.send("#{attr}=", place_edit.send(attr)) if place_edit.send(attr).present?
+    end
+    place.tag_ids = place_edit.tag_ids if place_edit.tag_ids.present?
+    place.images.attach(place_edit.images.map(&:blob)) if place_edit.images.attached?
+    if place_edit.deleted_images.present?
+      place_edit.deleted_images.each do |image|
+        place.images.find(image).purge
+      end
+    end
+    place.save
+    place_edit.destroy
+  end
+
+  def reject_place_edit
+    place_edit = ChangeLog.find(params[:id])
+    place_edit.destroy
   end
 
   def approve_place
@@ -27,7 +57,7 @@ class AdminsController < ApplicationController
                       notice: 'Mekan onaylandı.'
         end
       else
-        format.html { render :new, status: :unprocessable_entity }
+        redirect_to place_approvals_path, alert: 'Mekan onaylanamadı.'
       end
     end
   end
@@ -41,17 +71,6 @@ class AdminsController < ApplicationController
                     notice: 'Mekan reddedildi.'
       end
     end
-  end
-
-  def list_place_edit
-    @place_edits = ChangeLog.all.order('created_at DESC')
-    @pending_places = Place.where(approved: false)
-    @users = User.all
-    @pending_places.each do |place|
-      place.creator = @users.find(place.contributors.first)
-      place.save
-    end
-    @pending_places = @pending_places.select { |place| place.creator.approved == true }
   end
 
   private

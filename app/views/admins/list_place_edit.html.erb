@@ -1,3 +1,29 @@
+<h2>Yeni Mekan Onayları</h2>
+<section class="pending">
+  <% @pending_places.each do |pending_place| %>
+    <article class="pending-place">
+      <ul class="pending-item">
+        <li>Öneri Tarihi: <%= pending_place.created_at %></li>
+        <li>Mekanın Adı: <%= pending_place.name %></li>
+        <li>Adres: <%= pending_place.address %></li>
+        <li>Vegan mı? <%= pending_place.vegan %></li>
+        <li>Instagram: <%= pending_place.instagram_url %></li>
+        <li>Facebook: <%= pending_place.facebook_url %></li>
+        <li>Twitter: <%= pending_place.twitter_url %></li>
+        <li>Web Sitesi: <%= pending_place.web_url %></li>
+        <li>E-posta: <%= pending_place.email %></li>
+        <li>Telefon: <%= pending_place.phone %></li>
+        <li>Ekleyen: <%= pending_place.creator.email %></li>
+        <li>
+          <%= link_to "Onayla", approve_place_path(id: pending_place.id), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
+          <%= link_to "Reddet", reject_place_path(id: pending_place.id), class: "reject-btn", method: "delete", remote: true, data: { turbo_method: "delete" } %>
+        </li>
+      </ul>
+    </article>
+    <div class="place-divider"></div>
+  <% end %>
+</section>
+
 <h2>Mekan Düzenleme Onayları</h2>
 <section class="pending">
   <% @place_edits.each do |place_edit| %>
@@ -22,20 +48,17 @@
               </div>
               <div class="slider-number" data-slider-target="number">
               </div>
-            <% else %>
-              <%= image_tag "default-place-image.jpg", class: "slider-image", data: { slider_target: "image" } %>
             </div>
           </div>
       <% end %>
 
-      <% if place_edit.deleted_images.any? %>
+      <% unless place_edit.deleted_images.nil? %>
         <p>Silinen Fotoğraflar:</p>
         <% place_edit.deleted_images.each do |image_id| %>
-          <% image = ActiveStorage::Blob.find(image_id) %>
+          <% image = ActiveStorage::Attachment.where(id: image_id).first %>
           <%= image_tag url_for(image) %>
         <% end %>
       <% end %>
-
 
         <% if place_edit.address %>
         <li>Adres: <%= place_edit.changeable.address %> <%= place_edit.address %></li>
@@ -61,37 +84,22 @@
         <% if place_edit.phone %>
         <li>Telefon: <%= place_edit.changeable.phone %> <%= place_edit.phone %></li>
         <% end %>
+        <% if place_edit.tag_ids.any? %>
+        <li>Etiketler:
+          <%= place_edit.changeable.tag_ids.map { |tag_id| Tag.find(tag_id).name }.join(", ") %>
+          -->
+        <%= place_edit.tag_ids.map { |tag_id| Tag.find(tag_id).name }.join(", ") %>
+         </li>
+        <% end %>
+
 
         <li>Düzenleyen: <%= place_edit.user.email %></li>
       </ul>
+      <div class="edit-buttons">
+        <%= link_to "Onayla", approve_place_edit_path(id: place_edit.id), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
+        <%= link_to "Reddet", reject_place_edit_path(id: place_edit.id), class: "reject-btn", method: "delete", remote: true, data: { turbo_method: "delete" } %>
       </div>
     </article>
     <div class="edit-divider"></div>
-  <% end %>
-</section>
-
-<h2>Yeni Mekan Onayları</h2>
-<section class="pending">
-  <% @pending_places.each do |pending_place| %>
-    <article class="pending-place">
-      <ul class="pending-item">
-        <li>Öneri Tarihi: <%= pending_place.created_at %></li>
-        <li>Mekanın Adı: <%= pending_place.name %></li>
-        <li>Adres: <%= pending_place.address %></li>
-        <li>Vegan mı? <%= pending_place.vegan %></li>
-        <li>Instagram: <%= pending_place.instagram_url %></li>
-        <li>Facebook: <%= pending_place.facebook_url %></li>
-        <li>Twitter: <%= pending_place.twitter_url %></li>
-        <li>Web Sitesi: <%= pending_place.web_url %></li>
-        <li>E-posta: <%= pending_place.email %></li>
-        <li>Telefon: <%= pending_place.phone %></li>
-        <li>Ekleyen: <%= pending_place.creator.email %></li>
-        <li>
-          <%= link_to "Onayla", approve_place_path(id: pending_place.id), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
-          <%= link_to "Reddet", reject_place_path(id: pending_place.id), class: "reject-btn", method: "delete", remote: true, data: { turbo_method: "delete" } %>
-        </li>
-      </ul>
-    </article>
-    <div class="place-divider"></div>
   <% end %>
 </section>
