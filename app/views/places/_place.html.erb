@@ -136,11 +136,12 @@
   <div id="menu" class="bg-dark-green">
     <div id="menu-header" class="green">
         <h1 class="medium-font semi-bold">MENÜ</h1>
-        <%= link_to new_place_menu_path(@place), id: "add-new-product", class: "green" do %>
+        <%= link_to new_place_menu_path(@place), data: { turbo_frame: "new_menu"}, id: "add-new-product", class: "green" do %>
           <%= image_tag "add-icon.svg" %>
           <span>Ürün Ekle</span>
         <% end %>
       </div>
+      <%= turbo_frame_tag "new_menu" %>
 
     <h2 class="category medium-font semi-bold green">Yemekler</h2>
 
