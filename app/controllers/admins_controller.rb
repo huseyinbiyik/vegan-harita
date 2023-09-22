@@ -1,8 +1,15 @@
 class AdminsController < ApplicationController
   before_action :authenticate_admin
 
-  def user_approvals
-    @users = User.where(approved: false).order('points DESC')
+  def approvals
+    @users = User.all
+    @pending_users = User.where(approved: false).order('created_at DESC')
+    @place_edits = ChangeLog.all.order('created_at DESC')
+    @pending_places = Place.where(approved: false)
+    @pending_places.each do |place|
+      place.creator = @users.find(place.contributors.first)
+      place.save
+    end
   end
 
   def approve_user
@@ -12,16 +19,6 @@ class AdminsController < ApplicationController
       redirect_to user_approvals_path, notice: 'Kullanıcı onaylandı.'
     else
       redirect_to user_approvals_path, alert: 'Kullanıcı onaylanamadı.'
-    end
-  end
-
-  def list_place_edit
-    @place_edits = ChangeLog.all.order('created_at DESC')
-    @pending_places = Place.where(approved: false)
-    @users = User.all
-    @pending_places.each do |place|
-      place.creator = @users.find(place.contributors.first)
-      place.save
     end
   end
 

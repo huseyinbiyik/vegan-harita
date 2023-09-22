@@ -1,3 +1,12 @@
+<h1>Kullanıcı Onayları</h1>
+
+<% @pending_users.each do |user| %>
+  <div class="user">
+    <p><%= user.email %> - <%= user.points %></p>
+    <%= button_to "Onayla", approve_user_path(user) %>
+  </div>
+<% end %>
+
 <h2>Yeni Mekan Onayları</h2>
 <section class="pending">
   <% @pending_places.each do |pending_place| %>
@@ -103,3 +112,5 @@
     <div class="edit-divider"></div>
   <% end %>
 </section>
+
+
