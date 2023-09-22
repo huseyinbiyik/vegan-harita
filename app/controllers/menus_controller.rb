@@ -16,15 +16,14 @@ class MenusController < ApplicationController
   def create
     @place = Place.find(params[:place_id])
     @menu = @place.menus.create(menu_params)
+    @menu.contributors << current_user.id
     @menu.menu_images.attach(params[:menu][:menu_images])
 
     respond_to do |format|
       if @menu.save
-        format.html { redirect_to place_menu_url(@place, @menu), notice: 'Menu was successfully created.' }
-
+        format.html { redirect_to place_menu_url(@place, @menu), notice: 'Eklediğiniz ürün değerlendirmeye gönderildi.' }
       else
         format.html { render :new, status: :unprocessable_entity }
-
       end
     end
   end
@@ -55,6 +54,7 @@ class MenusController < ApplicationController
   end
 
   def menu_params
-    params.require(:menu).permit(:name, :description, :product_category, :place_id, :price, :menu_images)
+    params.require(:menu).permit(:name, :description, :product_category, :place_id, :price, :menu_images,
+                                 contributors: [])
   end
 end

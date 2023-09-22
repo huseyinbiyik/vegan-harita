@@ -10,15 +10,20 @@ class AdminsController < ApplicationController
       place.creator = @users.find(place.contributors.first)
       place.save
     end
+    @pending_menus = Menu.where(approved: false)
+    @pending_menus.each do |menu|
+      menu.creator = @users.find(menu.contributors.first)
+      menu.save
+    end
   end
 
   def approve_user
     user = User.find(params[:id])
     user.approved = true
     if user.save
-      redirect_to user_approvals_path, notice: 'Kullanıcı onaylandı.'
+      redirect_to approvals_path, notice: 'Kullanıcı onaylandı.'
     else
-      redirect_to user_approvals_path, alert: 'Kullanıcı onaylanamadı.'
+      redirect_to approvals_path, alert: 'Kullanıcı onaylanamadı.'
     end
   end
 
@@ -40,7 +45,7 @@ class AdminsController < ApplicationController
     place_edit.user.points += 1
     place_edit.user.save
     place_edit.destroy
-    redirect_to place_approvals_path, notice: 'Düzenleme onaylandı.'
+    redirect_to approvals_path, notice: 'Düzenleme onaylandı.'
   end
 
   def reject_place_edit
@@ -53,18 +58,15 @@ class AdminsController < ApplicationController
     @place.approved = true
     respond_to do |format|
       if @place.save
-        @place.contributors.each do |contributor|
-          user = User.find(contributor)
-          user.points += 1
-          user.save
-        end
-
+        @place.creator = User.find(@place.contributors.first)
+        @place.creator.points += 10
+        @place.creator.save
         format.html do
-          redirect_to place_approvals_path,
+          redirect_to approvals_path,
                       notice: 'Mekan onaylandı.'
         end
       else
-        redirect_to place_approvals_path, alert: 'Mekan onaylanamadı.'
+        redirect_to approvals_path, alert: 'Mekan onaylanamadı.'
       end
     end
   end
@@ -74,8 +76,39 @@ class AdminsController < ApplicationController
     @place.destroy
     respond_to do |format|
       format.html do
-        redirect_to place_approvals_path,
+        redirect_to approvals_path,
                     notice: 'Mekan reddedildi.'
+      end
+    end
+  end
+
+  def approve_menu
+    @menu = Menu.find(params[:id])
+    @menu.approved = true
+
+    respond_to do |format|
+      if @menu.save
+        @menu.creator = User.find(@menu.contributors.first)
+        @menu.creator.points += 1
+        @menu.creator.save
+
+        format.html do
+          redirect_to approvals_path,
+                      notice: 'Menü onaylandı.'
+        end
+      else
+        redirect_to approvals_path, alert: 'Menü onaylanamadı.'
+      end
+    end
+  end
+
+  def reject_menu
+    @menu = Menu.find(params[:id])
+    @menu.destroy
+    respond_to do |format|
+      format.html do
+        redirect_to approvals_path,
+                    notice: 'Menü reddedildi.'
       end
     end
   end

@@ -142,20 +142,20 @@
         <% end %>
       </div>
       <%= turbo_frame_tag "new_menu" %>
-
+<% if @place.menus.present? %>
     <h2 class="category medium-font semi-bold green">Yemekler</h2>
 
-    <%= render @place.menus.where(product_category: "Yemek") %>
+    <%= render @place.menus.where(product_category: "Yemek", approved: true) %>
 
     <h2 class="category medium-font semi-bold green">İçecekler</h2>
 
-    <%= render @place.menus.where(product_category: "İçecek") %>
+    <%= render @place.menus.where(product_category: "İçecek", approved: true) %>
 
     <h2 class="category medium-font semi-bold green">Tatlılar</h2>
 
-    <%= render @place.menus.where(product_category: "Tatlı") %>
+    <%= render @place.menus.where(product_category: "Tatlı", approved: true) %>
+    <%else%>
+    <p> Bu mekanın menüsü henüz eklenmemiş gibi görünüyor. :(</p>
+    <%end%>
   </div>
-
-  <%= link_to "Edit", edit_place_path(place) %>
-
 </div>

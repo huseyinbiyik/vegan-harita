@@ -19,6 +19,8 @@ Rails.application.routes.draw do
     delete "reject-place/:id", to: "admins#reject_place", as: :reject_place
     post 'approve-place-edit/:id', to: "admins#approve_place_edit", as: :approve_place_edit
     delete 'reject-place-edit/:id', to: "admins#reject_place_edit", as: :reject_place_edit
+    post 'approve-menu/:id', to: "admins#approve_menu", as: :approve_menu
+    delete 'reject-menu/:id', to: "admins#reject_menu", as: :reject_menu
   end
 
 

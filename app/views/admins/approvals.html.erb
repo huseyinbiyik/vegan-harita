@@ -1,9 +1,9 @@
-<h1>Kullanıcı Onayları</h1>
+<h2>Kullanıcı Onayları</h2>
 
 <% @pending_users.each do |user| %>
   <div class="user">
     <p><%= user.email %> - <%= user.points %></p>
-    <%= button_to "Onayla", approve_user_path(user) %>
+    <%= link_to "Onayla", approve_user_path(user), method: "post", remote: true, data: { turbo_method: "post" } %>
   </div>
 <% end %>
 
@@ -113,4 +113,20 @@
   <% end %>
 </section>
 
+<h2>Menü Ekleme Onayları </h2>
 
+<% @pending_menus.each do |menu| %>
+  <div class="menu">
+    <p><%= menu.place.name %></p>
+    <p><%= menu.description %></p>
+    <p><% menu.menu_images.each do |image| %>
+      <%= image_tag image %>
+    <%end%>
+    <p><%= menu.product_category %></p>
+    <p><%= menu.price %></p>
+    <p><%= menu.creator.email %></p>
+
+    <%= link_to "Onayla", approve_menu_path(menu), method: "post", remote: true, data: { turbo_method: "post" } %>
+    <%= link_to "Reddet", reject_menu_path(menu), method: "delete", remote: true, data: { turbo_method: "delete" } %>
+  </div>
+<%end%>
