@@ -1,6 +1,6 @@
 <%= turbo_frame_tag "place-name" do %>
 
-  <%= form_with(model: @change_log, url: change_logs_path(@place), method: :post) do |form| %>
+  <%= form_with(model: @change_log, url: create_place_edit_path(@place), method: :post) do |form| %>
 
     <div class= "add-new-place-form-group">
       <%= form.label "Mekanın Adı", style: "display: block", class:"beige" %>
@@ -17,7 +17,7 @@
 
 <%= turbo_frame_tag "place-vegan" do %>
 
-  <%= form_with(model: @change_log, url: change_logs_path(@place), method: :post) do |form| %>
+  <%= form_with(model: @change_log, url: create_place_edit_path(@place), method: :post) do |form| %>
 
   <div class= "add-new-place-form-group">
     <%= form.select :vegan, options_for_select([["Vegan", true], ["Vegan Seçenekli", false]]), {}, class: "small-font bg-beige dark-green" %>
@@ -31,7 +31,7 @@
 <% end %>
 
 <%= turbo_frame_tag "place-location" do %>
-  <%= form_with(model: @change_log, data: {controller: "place", action: "google-maps-callback@window->place#initializeMap"}, url: change_logs_path(@place), method: :post, class: "map-modal") do |form| %>
+  <%= form_with(model: @change_log, data: {controller: "place", action: "google-maps-callback@window->place#initializeMap"}, url: create_place_edit_path(@place), method: :post, class: "map-modal") do |form| %>
   <div class= "add-new-place-form-group">
     <%= form.label "Adres", style: "display: block" %>
     <%= form.text_field :address,  data: {place_target: "field", action: "keydown->place#preventSubmit"}, placeholder: "X Vegan Cafe, Kadıköy...", required: true %>
@@ -50,7 +50,7 @@
 <% end %>
 
 <%= turbo_frame_tag "place-phone" do %>
-  <%= form_with(model: @change_log, url: change_logs_path(@place), method: :post) do |form| %>
+  <%= form_with(model: @change_log, url: create_place_edit_path(@place), method: :post) do |form| %>
     <div class= "add-new-place-form-group">
         <%= form.label "Telefon", style: "display: block", class:"beige" %>
         <%= form.text_field :phone, pattern: "[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}",  placeholder: "5XXXXXXXXX", class:"bg-beige dark-green" %>
@@ -62,7 +62,7 @@
 <% end %>
 
 <%= turbo_frame_tag "place-web" do %>
-  <%= form_with(model: @change_log, url: change_logs_path(@place), method: :post) do |form| %>
+  <%= form_with(model: @change_log, url: create_place_edit_path(@place), method: :post) do |form| %>
     <div class= "add-new-place-form-group">
     <%= form.label "Web site Adresi", style: "display: block", class:"beige" %>
     <%= form.text_field :web_url, placeholder: "siteadresi.com", class:"bg-beige dark-green" %>
@@ -74,7 +74,7 @@
 <% end %>
 
 <%= turbo_frame_tag "place-email" do %>
-  <%= form_with(model: @change_log, url: change_logs_path(@place), method: :post) do |form| %>
+  <%= form_with(model: @change_log, url: create_place_edit_path(@place), method: :post) do |form| %>
   <div class= "add-new-place-form-group">
     <%= form.label "Email Adresi", style: "display: block", class:"beige" %>
     <%= form.text_field :email, placeholder: "mail@mail.com", class:"bg-beige dark-green"
@@ -87,7 +87,7 @@
 <% end %>
 
 <%= turbo_frame_tag "place-instagram" do %>
-  <%= form_with(model: @change_log, url: change_logs_path(@place), method: :post) do |form| %>
+  <%= form_with(model: @change_log, url: create_place_edit_path(@place), method: :post) do |form| %>
   <div class= "add-new-place-form-group">
     <%= form.label "Instagram Adresi", style: "display: block", class:"beige" %>
     <%= form.text_field :instagram_url, placeholder: "https://www.instagram.com/yeradi/", class:"bg-beige dark-green" %>
@@ -99,7 +99,7 @@
 <% end %>
 
 <%= turbo_frame_tag "place-facebook" do %>
-  <%= form_with(model: @change_log, url: change_logs_path(@place), method: :post) do |form| %>
+  <%= form_with(model: @change_log, url: create_place_edit_path(@place), method: :post) do |form| %>
   <div class= "add-new-place-form-group">
     <%= form.label "Facebook Adresi", style: "display: block", class:"beige" %>
     <%= form.text_field :facebook_url, placeholder: "https://www.facebook.com/yeradi/", class:"bg-beige dark-green" %>
@@ -111,7 +111,7 @@
 <% end %>
 
 <%= turbo_frame_tag "place-twitter" do %>
-  <%= form_with(model: @change_log, url: change_logs_path(@place), method: :post) do |form| %>
+  <%= form_with(model: @change_log, url: create_place_edit_path(@place), method: :post) do |form| %>
   <div class= "add-new-place-form-group">
     <%= form.label "Twitter Adresi", style: "display: block", class:"beige" %>
     <%= form.text_field :twitter_url, placeholder: "https://www.twitter.com/yeradi/", class:"bg-beige dark-green" %>
@@ -123,7 +123,7 @@
 <% end %>
 
 <%= turbo_frame_tag "place-tags" do %>
-  <%= form_with(model: @change_log, url: change_logs_path(@place), method: :post) do |form| %>
+  <%= form_with(model: @change_log, url: create_place_edit_path(@place), method: :post) do |form| %>
 <div class="add-new-place-form-group tags-form-container " >
   <%= form.label "Etiketler", style: "display: block"%>
   <div class="tags-form">
@@ -142,7 +142,7 @@
 <% end %>
 
 <%= turbo_frame_tag "place-images" do %>
-  <%= form_with(model: @change_log, url: change_logs_path(@place), method: :post) do |form| %>
+  <%= form_with(model: @change_log, url: create_place_edit_path(@place), method: :post) do |form| %>
   <% if @place.images.attached? %>
   <div class= "add-new-place-form-group">
     <%=  form.label "Silinecek Fotoğrafları Seç", style: "display: block", class:"beige" %>

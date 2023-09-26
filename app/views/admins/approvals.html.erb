@@ -35,7 +35,7 @@
 
 <h2>Mekan Düzenleme Onayları</h2>
 <section class="pending">
-  <% @place_edits.each do |place_edit| %>
+  <% @pending_place_edits.each do |place_edit| %>
     <article class="pending-edit">
       <ul class="pending-item">
         <li>Öneri Tarihi: <%= place_edit.created_at %></li>
@@ -130,3 +130,29 @@
     <%= link_to "Reddet", reject_menu_path(menu), method: "delete", remote: true, data: { turbo_method: "delete" } %>
   </div>
 <%end%>
+
+<h2>Menü Düzenleme Onayları </h2>
+
+<% @pending_menu_edits.each do |menu_edit| %>
+  <div class="menu">
+    <p><%= menu_edit.changeable.name %></p>
+    <p><%= menu_edit.name %></p>
+    <p><%= menu_edit.changeable.description %></p>
+    <p><%= menu_edit.description %></p>
+    <p><% menu_edit.changeable.menu_images.each do |image| %>
+      <%= image_tag image %>
+    <%end%>
+    <p><% menu_edit.images.each do |image| %>
+      <%= image_tag image %>
+    <%end%>
+    <p><%= menu_edit.changeable.product_category %></p>
+    <p><%= menu_edit.product_category %></p>
+    <p><%= menu_edit.changeable.price %></p>
+    <p><%= menu_edit.price %></p>
+    <p><%= menu_edit.user.email %></p>
+
+    <%= link_to "Onayla", approve_menu_edit_path(menu_edit), method: "post", remote: true, data: { turbo_method: "post" } %>
+    <%= link_to "Reddet", reject_menu_edit_path(menu_edit), method: "delete", remote: true, data: { turbo_method: "delete" } %>
+  </div>
+<%end%>
+

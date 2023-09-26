@@ -9,8 +9,10 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'change-logs/new/:id', to: 'change_logs#new', as: :new_change_log
-  post 'change-logs/:id', to: 'change_logs#create', as: :change_logs
+  get 'change-logs/place/:id', to: 'change_logs#new_place_edit', as: :new_place_edit
+  post 'change-logs/:id', to: 'change_logs#create_place_edit', as: :create_place_edit
+  get 'change-logs/menu/:place_id/:menu_id', to: 'change_logs#new_menu_edit', as: :new_menu_edit
+  post 'change-logs/menu/place_id/:menu_id', to: 'change_logs#create_menu_edit', as: :create_menu_edit
 
   scope 'admin-panel' do
     get "approvals", to: "admins#approvals", as: :approvals
@@ -21,6 +23,8 @@ Rails.application.routes.draw do
     delete 'reject-place-edit/:id', to: "admins#reject_place_edit", as: :reject_place_edit
     post 'approve-menu/:id', to: "admins#approve_menu", as: :approve_menu
     delete 'reject-menu/:id', to: "admins#reject_menu", as: :reject_menu
+    post 'approve-menu-edit/:id', to: "admins#approve_menu_edit", as: :approve_menu_edit
+    delete 'reject-menu-edit/:id', to: "admins#reject_menu_edit", as: :reject_menu_edit
   end
 
 

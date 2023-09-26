@@ -4,12 +4,17 @@ class AdminsController < ApplicationController
   def approvals
     @users = User.all
     @pending_users = User.where(approved: false).order('created_at DESC')
-    @place_edits = ChangeLog.all.order('created_at DESC')
+
+    @change_logs = ChangeLog.all.order('created_at DESC')
+    @pending_place_edits = @change_logs.where(changeable_type: 'Place')
+    @pending_menu_edits = @change_logs.where(changeable_type: 'Menu')
+
     @pending_places = Place.where(approved: false)
     @pending_places.each do |place|
       place.creator = @users.find(place.contributors.first)
       place.save
     end
+
     @pending_menus = Menu.where(approved: false)
     @pending_menus.each do |menu|
       menu.creator = @users.find(menu.contributors.first)
@@ -111,6 +116,32 @@ class AdminsController < ApplicationController
                     notice: 'Menü reddedildi.'
       end
     end
+  end
+
+  def approve_menu_edit
+    menu_edit = ChangeLog.find(params[:id])
+    menu = Menu.find(menu_edit.changeable_id)
+
+    %w[name description product_category price].each do |attr|
+      menu.send("#{attr}=", menu_edit.send(attr))
+    end
+    menu.menu_images.attach(menu_edit.images.map(&:blob)) if menu_edit.images.attached?
+    if menu_edit.deleted_images.present?
+      menu_edit.deleted_images.each do |image|
+        menu.menu_images.find(image).purge
+      end
+    end
+    menu.contributors << menu_edit.user.id unless menu.contributors.include?(menu_edit.user.id)
+    menu.save
+    menu_edit.user.points += 1
+    menu_edit.user.save
+    menu_edit.destroy
+    redirect_to approvals_path, notice: 'Düzenleme onaylandı.'
+  end
+
+  def reject_menu_edit
+    menu_edit = ChangeLog.find(params[:id])
+    menu_edit.destroy
   end
 
   private

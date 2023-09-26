@@ -1,7 +1,7 @@
 <div id="<%= dom_id place %>" class="place">
   <div class="page-heading-container bg-dark-green">
     <%= turbo_frame_tag "place-name" do %>
-    <p class="page-title medium-font bold yellow"><%= place.name %><%= link_to "Düzenle", new_change_log_path(place), class: "beige"  %></p>
+    <p class="page-title medium-font bold yellow"><%= place.name %><%= link_to "Düzenle", new_place_edit_path(place), class: "beige"  %></p>
         <% end %>
   </div>
 
@@ -21,21 +21,21 @@
             <%= link_to "https://#{value}", target: "_blank" do %>
               <%= image_tag "#{key}.svg", class: "social" %>
             <% end %>
-            <%= link_to "Düzenle", new_change_log_path(place), class: "beige"  %>
+            <%= link_to "Düzenle", new_place_edit_path(place), class: "beige"  %>
           <% end %>
         <% elsif key == "email" %>
           <%= turbo_frame_tag "place-web" do %>
             <%= link_to "#{value}", href: "mailto:#{value}" do %>
               <%= image_tag "#{key}.svg", class: "social" %>
             <% end %>
-            <%= link_to "Düzenle", new_change_log_path(place), class: "beige"  %>
+            <%= link_to "Düzenle", new_place_edit_path(place), class: "beige"  %>
           <% end %>
         <% else %>
           <%= turbo_frame_tag "place-#{key}" do %>
           <%= link_to "#{value}", target: "_blank" do %>
             <%= image_tag "#{key}.svg", class: "social" %>
           <% end %>
-          <%= link_to "Düzenle", new_change_log_path(place), class: "beige"  %>
+          <%= link_to "Düzenle", new_place_edit_path(place), class: "beige"  %>
           <% end %>
         <% end %>
       <% else %>
@@ -43,7 +43,7 @@
           <%= link_to "#{value}" do %>
             <%= image_tag "#{key}.svg", class: "social disabled" %>
           <% end %>
-          <%= link_to "Düzenle", new_change_log_path(place), class: "beige"  %>
+          <%= link_to "Düzenle", new_place_edit_path(place), class: "beige"  %>
         <% end %>
       <% end %>
     <% end %>
@@ -67,7 +67,7 @@
       <% end %>
       </div>
     </div>
-   <%= link_to "Düzenle", new_change_log_path(place), class: "beige"  %>
+   <%= link_to "Düzenle", new_place_edit_path(place), class: "beige"  %>
   <% end %>
 
 
@@ -84,7 +84,7 @@
       <span class="detail dark-green">Vegan Seçenekli</span>
     </div>
   <% end %>
-        <%= link_to "Düzenle", new_change_log_path(place), class: "beige"  %>
+        <%= link_to "Düzenle", new_place_edit_path(place), class: "beige"  %>
   <% end %>
 
     <div class="detail-group">
@@ -98,7 +98,7 @@
             <%= image_tag "direction.svg", class: "detail-icon", id: "direction-icon" %>
           <span class="detail">Yol Tarifi</span>
           <% end %>
-        <%= link_to "Düzenle", new_change_log_path(place), class: "beige"  %>
+        <%= link_to "Düzenle", new_place_edit_path(place), class: "beige"  %>
         <% end %>
       </div>
 
@@ -116,7 +116,7 @@
         <%= image_tag "phone.svg", class: "detail-icon disabled", id: "phone-icon" %>
       <% end %>
     <% end %>
-    <%= link_to "Düzenle", new_change_log_path(place), class: "beige"  %>
+    <%= link_to "Düzenle", new_place_edit_path(place), class: "beige"  %>
     <% end %>
   </div>
 
@@ -129,7 +129,7 @@
       <% else %>
         <span class="yellow">Etiket Yok</span>
       <% end %>
-    <%= link_to "Düzenle", new_change_log_path(place), class: "beige"  %>
+    <%= link_to "Düzenle", new_place_edit_path(place), class: "beige"  %>
     <% end %>
   </div>
 
