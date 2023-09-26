@@ -24,7 +24,7 @@
             <%= link_to "Düzenle", new_place_edit_path(place), class: "beige"  %>
           <% end %>
         <% elsif key == "email" %>
-          <%= turbo_frame_tag "place-web" do %>
+          <%= turbo_frame_tag "place-email" do %>
             <%= link_to "#{value}", href: "mailto:#{value}" do %>
               <%= image_tag "#{key}.svg", class: "social" %>
             <% end %>

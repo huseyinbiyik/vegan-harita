@@ -20,7 +20,7 @@
   <%= form_with(model: @change_log, url: create_place_edit_path(@place), method: :post) do |form| %>
 
   <div class= "add-new-place-form-group">
-    <%= form.select :vegan, options_for_select([["Vegan", true], ["Vegan Seçenekli", false]]), {}, class: "small-font bg-beige dark-green" %>
+    <%= form.select :vegan, options_for_select([["Vegan", true], ["Vegan Seçenekli", false]], selected: @place.vegan), {}, class: "small-font bg-beige dark-green" %>
   </div>
 
     <div class= "add-new-place-form-group">
@@ -53,7 +53,7 @@
   <%= form_with(model: @change_log, url: create_place_edit_path(@place), method: :post) do |form| %>
     <div class= "add-new-place-form-group">
         <%= form.label "Telefon", style: "display: block", class:"beige" %>
-        <%= form.text_field :phone, pattern: "[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}",  placeholder: "5XXXXXXXXX", class:"bg-beige dark-green" %>
+        <%= form.text_field :phone, value: @place.phone, pattern: "[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}",  placeholder: "5XXXXXXXXX", class:"bg-beige dark-green" %>
       </div>
       <div class= "add-new-place-form-group">
         <%= form.submit "Gönder", class: "small-font bg-yellow dark-green" %>
@@ -65,7 +65,7 @@
   <%= form_with(model: @change_log, url: create_place_edit_path(@place), method: :post) do |form| %>
     <div class= "add-new-place-form-group">
     <%= form.label "Web site Adresi", style: "display: block", class:"beige" %>
-    <%= form.text_field :web_url, placeholder: "siteadresi.com", class:"bg-beige dark-green" %>
+    <%= form.text_field :web_url, value: @place.web_url, placeholder: "siteadresi.com", class:"bg-beige dark-green" %>
   </div>
   <div class= "add-new-place-form-group">
     <%= form.submit "Gönder", class: "small-font bg-yellow dark-green" %>
@@ -77,7 +77,7 @@
   <%= form_with(model: @change_log, url: create_place_edit_path(@place), method: :post) do |form| %>
   <div class= "add-new-place-form-group">
     <%= form.label "Email Adresi", style: "display: block", class:"beige" %>
-    <%= form.text_field :email, placeholder: "mail@mail.com", class:"bg-beige dark-green"
+    <%= form.text_field :email, value: @place.email, placeholder: "mail@mail.com", class:"bg-beige dark-green"
      %>
   </div>
     <div class= "add-new-place-form-group">
@@ -90,7 +90,7 @@
   <%= form_with(model: @change_log, url: create_place_edit_path(@place), method: :post) do |form| %>
   <div class= "add-new-place-form-group">
     <%= form.label "Instagram Adresi", style: "display: block", class:"beige" %>
-    <%= form.text_field :instagram_url, placeholder: "https://www.instagram.com/yeradi/", class:"bg-beige dark-green" %>
+    <%= form.text_field :instagram_url, value: @place.instagram_url, placeholder: "https://www.instagram.com/yeradi/", class:"bg-beige dark-green" %>
   </div>
     <div class= "add-new-place-form-group">
     <%= form.submit "Gönder", class: "small-font bg-yellow dark-green" %>
@@ -101,7 +101,7 @@
 <%= turbo_frame_tag "place-facebook" do %>
   <%= form_with(model: @change_log, url: create_place_edit_path(@place), method: :post) do |form| %>
   <div class= "add-new-place-form-group">
-    <%= form.label "Facebook Adresi", style: "display: block", class:"beige" %>
+    <%= form.label "Facebook Adresi", value: @place.facebook_url, style: "display: block", class:"beige" %>
     <%= form.text_field :facebook_url, placeholder: "https://www.facebook.com/yeradi/", class:"bg-beige dark-green" %>
   </div>
     <div class= "add-new-place-form-group">
@@ -113,7 +113,7 @@
 <%= turbo_frame_tag "place-twitter" do %>
   <%= form_with(model: @change_log, url: create_place_edit_path(@place), method: :post) do |form| %>
   <div class= "add-new-place-form-group">
-    <%= form.label "Twitter Adresi", style: "display: block", class:"beige" %>
+    <%= form.label "Twitter Adresi", value: @place.twitter_url, style: "display: block", class:"beige" %>
     <%= form.text_field :twitter_url, placeholder: "https://www.twitter.com/yeradi/", class:"bg-beige dark-green" %>
   </div>
     <div class= "add-new-place-form-group">
@@ -129,7 +129,7 @@
   <div class="tags-form">
   <% Tag.all.each do |tag| %>
     <label class="checkbox-inline">
-      <%= form.check_box :tag_ids, { multiple: true, id: "tag-select", class: "small-font bg-beige dark-green" }, tag.id, nil %>
+      <%= form.check_box :tag_ids, { multiple: true, id: "tag-select", class: "small-font bg-beige dark-green", checked: @place.tag_ids.include?(tag.id) }, tag.id, nil %>
       <%= tag.name %>
     </label>
   <% end %>
