@@ -12,22 +12,8 @@
   </div>
 
   <div>
-    <% if @menu.menu_images.attached? %>
-      <%= form.label "Fotoğraf Sil", style: "display: block", class:"yellow" %>
-      <% @menu.menu_images.each do |image| %>
-        <div class="image-checkbox">
-          <%= form.check_box :deleted_images, { multiple: true, id: "image-select", class: "small-font bg-beige dark-green" }, image.id, nil %>
-          <%= image_tag image.variant(resize_to_limit: [100,100]), class: "image-checkbox-image" %>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
-
-
-
-  <div>
-    <%= form.label "Fotoğraf Ekle", style: "display: block", class:"yellow" %>
-    <%= form.file_field :images, multiple: true, class: "product-input medium-font brown" %>
+    <%= form.label "Fotoğrafı Değiştir", style: "display: block", class:"yellow" %>
+    <%= form.file_field :image, class: "product-input medium-font brown" %>
   </div>
 
   <div>

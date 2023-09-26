@@ -53,6 +53,6 @@ class ChangeLogsController < ApplicationController
 
   def change_log_params
     params.require(:change_log).permit(:name, :vegan, :place_id, :user_id, :latitude, :longitude, :address, :phone,
-                                       :web_url, :email, :facebook_url, :instagram_url, :twitter_url, :product_category, :description, :price, tag_ids: [], images: [], deleted_images: [], contributors: [])
+                                       :web_url, :email, :facebook_url, :instagram_url, :twitter_url, :product_category, :description, :price, :image, tag_ids: [], images: [], deleted_images: [], contributors: [])
   end
 end

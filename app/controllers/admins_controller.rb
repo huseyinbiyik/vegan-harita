@@ -125,12 +125,9 @@ class AdminsController < ApplicationController
     %w[name description product_category price].each do |attr|
       menu.send("#{attr}=", menu_edit.send(attr))
     end
-    menu.menu_images.attach(menu_edit.images.map(&:blob)) if menu_edit.images.attached?
-    if menu_edit.deleted_images.present?
-      menu_edit.deleted_images.each do |image|
-        menu.menu_images.find(image).purge
-      end
-    end
+    menu.image.purge if menu.image.attached?
+    menu.image.attach(menu_edit.image.blob) if menu_edit.image.attached?
+
     menu.contributors << menu_edit.user.id unless menu.contributors.include?(menu_edit.user.id)
     menu.save
     menu_edit.user.points += 1

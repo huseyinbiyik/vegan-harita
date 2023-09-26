@@ -15,7 +15,18 @@
         <li>Öneri Tarihi: <%= pending_place.created_at %></li>
         <li>Mekanın Adı: <%= pending_place.name %></li>
         <li>Adres: <%= pending_place.address %></li>
+        <li style="height: 100%;">
+          <% if pending_place.images.attached? %>
+            <p>Eklenen Fotoğraflar:</p>
+            <%= render partial: "shared/slider", locals: { images: pending_place.images } %>
+          <% end %>
+        </li>
         <li>Vegan mı? <%= pending_place.vegan %></li>
+        <li>Etiketler:
+          <% pending_place.tag_ids.each do |tag_id| %>
+            <%= Tag.find(tag_id).name %>
+          <% end %>
+        </li>
         <li>Instagram: <%= pending_place.instagram_url %></li>
         <li>Facebook: <%= pending_place.facebook_url %></li>
         <li>Twitter: <%= pending_place.twitter_url %></li>
@@ -39,26 +50,14 @@
     <article class="pending-edit">
       <ul class="pending-item">
         <li>Öneri Tarihi: <%= place_edit.created_at %></li>
-        <li>Mekanın Adı: <%= place_edit.changeable.name %></li>
+        <li>Mekanın Adı: <%= link_to "#{place_edit.changeable.name}", place_path(place_edit.changeable.id) %></li>
         <% if place_edit.name %>
         <li>Adı:  <%= place_edit.changeable.name %> --> <%= place_edit.name %></li>
         <% end %>
 
       <% if place_edit.images.attached? %>
-        <p>Eklenen Fotoğraflar:</p>
-        <div data-controller="slider" class="slider bg-dark-green">
-          <div class="slider-container">
-              <% place_edit.images.each do |image| %>
-                <%= image_tag image, class: "slider-image", data: { slider_target: "image" } %>
-              <% end %>
-              <div class="slide-buttons">
-                <span data-action="click->slider#previous"></span>
-                <span data-action="click->slider#next"></span>
-              </div>
-              <div class="slider-number" data-slider-target="number">
-              </div>
-            </div>
-          </div>
+              <p>Eklenen Fotoğraflar:</p>
+        <%= render partial: "shared/slider", locals: { images: place_edit.images, id: place_edit.id } %>
       <% end %>
 
       <% unless place_edit.deleted_images.nil? %>
@@ -119,9 +118,10 @@
   <div class="menu">
     <p><%= menu.place.name %></p>
     <p><%= menu.description %></p>
-    <p><% menu.menu_images.each do |image| %>
-      <%= image_tag image %>
-    <%end%>
+     <% if menu.image.attached? %>
+              <p>Ürün Fotoğrafı:</p>
+              <%= image_tag menu.image %>
+      <% end %>
     <p><%= menu.product_category %></p>
     <p><%= menu.price %></p>
     <p><%= menu.creator.email %></p>
@@ -139,12 +139,7 @@
     <p><%= menu_edit.name %></p>
     <p><%= menu_edit.changeable.description %></p>
     <p><%= menu_edit.description %></p>
-    <p><% menu_edit.changeable.menu_images.each do |image| %>
-      <%= image_tag image %>
-    <%end%>
-    <p><% menu_edit.images.each do |image| %>
-      <%= image_tag image %>
-    <%end%>
+      <%= image_tag menu_edit.image if menu_edit.image.attached? %>
     <p><%= menu_edit.changeable.product_category %></p>
     <p><%= menu_edit.product_category %></p>
     <p><%= menu_edit.changeable.price %></p>

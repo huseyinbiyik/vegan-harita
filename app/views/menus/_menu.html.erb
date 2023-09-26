@@ -13,10 +13,8 @@
   </div>
 
   <div>
-    <% if menu.menu_images.attached? %>
-      <% menu.menu_images.each do |image| %>
-        <%= image_tag image, class: "menu-image" %>
-      <% end %>
+    <% if menu.image.attached? %>
+      <%= image_tag menu.image, class: "menu-image" %>
     <% end %>
 
     <p class="description medium-font yellow">
