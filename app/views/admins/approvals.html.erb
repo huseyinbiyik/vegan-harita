@@ -116,7 +116,7 @@
 
 <% @pending_menus.each do |menu| %>
   <div class="menu">
-    <p><%= menu.place.name %></p>
+    <p><%= link_to "#{menu.place.name}", place_path(menu.place.id) %></p>
     <p><%= menu.description %></p>
      <% if menu.image.attached? %>
               <p>Ürün Fotoğrafı:</p>
@@ -135,6 +135,7 @@
 
 <% @pending_menu_edits.each do |menu_edit| %>
   <div class="menu">
+    <p><%= link_to "#{menu_edit.changeable.place.name}", place_path(menu_edit.changeable.place.id) %></p>
     <p><%= menu_edit.changeable.name %></p>
     <p><%= menu_edit.name %></p>
     <p><%= menu_edit.changeable.description %></p>
