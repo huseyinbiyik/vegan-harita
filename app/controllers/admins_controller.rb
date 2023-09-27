@@ -25,10 +25,40 @@ class AdminsController < ApplicationController
   def approve_user
     user = User.find(params[:id])
     user.approved = true
-    if user.save
-      redirect_to approvals_path, notice: 'Kullanıcı onaylandı.'
-    else
-      redirect_to approvals_path, alert: 'Kullanıcı onaylanamadı.'
+
+    respond_to do |format|
+      if user.save
+        format.turbo_stream do
+          render turbo_stream: turbo_stream.remove("user_#{user.id}")
+        end
+      else
+        redirect_to approvals_path, alert: 'Kullanıcı onaylanamadı.'
+      end
+    end
+  end
+
+  def approve_place
+    @place = Place.find(params[:id])
+    @place.approved = true
+    @place.save
+    @place.creator = User.find(@place.contributors.first)
+    @place.creator.points += 10
+    @place.creator.save
+
+    respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.remove("place_#{params[:id]}")
+      end
+    end
+  end
+
+  def reject_place
+    @place = Place.find(params[:id])
+    @place.destroy
+    respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.remove("place_#{params[:id]}")
+      end
     end
   end
 
@@ -50,39 +80,20 @@ class AdminsController < ApplicationController
     place_edit.user.points += 1
     place_edit.user.save
     place_edit.destroy
-    redirect_to approvals_path, notice: 'Düzenleme onaylandı.'
+    respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.remove("place_edit_#{place_edit.id}")
+      end
+    end
   end
 
   def reject_place_edit
     place_edit = ChangeLog.find(params[:id])
     place_edit.destroy
-  end
 
-  def approve_place
-    @place = Place.find(params[:id])
-    @place.approved = true
     respond_to do |format|
-      if @place.save
-        @place.creator = User.find(@place.contributors.first)
-        @place.creator.points += 10
-        @place.creator.save
-        format.html do
-          redirect_to approvals_path,
-                      notice: 'Mekan onaylandı.'
-        end
-      else
-        redirect_to approvals_path, alert: 'Mekan onaylanamadı.'
-      end
-    end
-  end
-
-  def reject_place
-    @place = Place.find(params[:id])
-    @place.destroy
-    respond_to do |format|
-      format.html do
-        redirect_to approvals_path,
-                    notice: 'Mekan reddedildi.'
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.remove("place_edit_#{place_edit.id}")
       end
     end
   end
@@ -90,19 +101,14 @@ class AdminsController < ApplicationController
   def approve_menu
     @menu = Menu.find(params[:id])
     @menu.approved = true
+    @menu.save
+    @menu.creator = User.find(@menu.contributors.first)
+    @menu.creator.points += 1
+    @menu.creator.save
 
     respond_to do |format|
-      if @menu.save
-        @menu.creator = User.find(@menu.contributors.first)
-        @menu.creator.points += 1
-        @menu.creator.save
-
-        format.html do
-          redirect_to approvals_path,
-                      notice: 'Menü onaylandı.'
-        end
-      else
-        redirect_to approvals_path, alert: 'Menü onaylanamadı.'
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.remove("menu_#{params[:id]}")
       end
     end
   end
@@ -111,9 +117,8 @@ class AdminsController < ApplicationController
     @menu = Menu.find(params[:id])
     @menu.destroy
     respond_to do |format|
-      format.html do
-        redirect_to approvals_path,
-                    notice: 'Menü reddedildi.'
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.remove("menu_#{params[:id]}")
       end
     end
   end
@@ -125,7 +130,7 @@ class AdminsController < ApplicationController
     %w[name description product_category price].each do |attr|
       menu.send("#{attr}=", menu_edit.send(attr))
     end
-    menu.image.purge if menu.image.attached?
+    menu.image.purge if menu_edit.image.attached?
     menu.image.attach(menu_edit.image.blob) if menu_edit.image.attached?
 
     menu.contributors << menu_edit.user.id unless menu.contributors.include?(menu_edit.user.id)
@@ -133,12 +138,22 @@ class AdminsController < ApplicationController
     menu_edit.user.points += 1
     menu_edit.user.save
     menu_edit.destroy
-    redirect_to approvals_path, notice: 'Düzenleme onaylandı.'
+
+    respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.remove("menu_edit_#{menu_edit.id}")
+      end
+    end
   end
 
   def reject_menu_edit
     menu_edit = ChangeLog.find(params[:id])
     menu_edit.destroy
+    respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.remove("menu_edit_#{menu_edit.id}")
+      end
+    end
   end
 
   private

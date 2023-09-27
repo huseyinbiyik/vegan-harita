@@ -40,7 +40,7 @@ class ChangeLogsController < ApplicationController
     respond_to do |format|
       if @change_log.save
         format.html do
-          redirect_to place_menu_url(@place, @menu),
+          redirect_to place_url(@place),
                       notice: 'Ürün değişiklik isteği başarıyla değerlendirmeye gönderildi. Desteğiniz için teşekkür ederiz 💚'
         end
       else

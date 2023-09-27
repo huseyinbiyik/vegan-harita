@@ -1,7 +1,7 @@
 <h2>Kullanıcı Onayları</h2>
 
 <% @pending_users.each do |user| %>
-  <div class="user">
+  <div class="user" id="user_<%= user.id %>">
     <p><%= user.email %> - <%= user.points %></p>
     <%= link_to "Onayla", approve_user_path(user), method: "post", remote: true, data: { turbo_method: "post" } %>
   </div>
@@ -10,7 +10,7 @@
 <h2>Yeni Mekan Onayları</h2>
 <section class="pending">
   <% @pending_places.each do |pending_place| %>
-    <article class="pending-place">
+    <article class="pending-place" id="place_<%= pending_place.id %>">
       <ul class="pending-item">
         <li>Öneri Tarihi: <%= pending_place.created_at %></li>
         <li>Mekanın Adı: <%= pending_place.name %></li>
@@ -47,7 +47,7 @@
 <h2>Mekan Düzenleme Onayları</h2>
 <section class="pending">
   <% @pending_place_edits.each do |place_edit| %>
-    <article class="pending-edit">
+    <article class="pending-edit", id="place_edit_<%= place_edit.id %>">
       <ul class="pending-item">
         <li>Öneri Tarihi: <%= place_edit.created_at %></li>
         <li>Mekanın Adı: <%= link_to "#{place_edit.changeable.name}", place_path(place_edit.changeable.id) %></li>
@@ -115,7 +115,7 @@
 <h2>Menü Ekleme Onayları </h2>
 
 <% @pending_menus.each do |menu| %>
-  <div class="menu">
+  <div class="menu" id="menu_<%= menu.id %>">
     <p><%= link_to "#{menu.place.name}", place_path(menu.place.id) %></p>
     <p><%= menu.description %></p>
      <% if menu.image.attached? %>
@@ -134,7 +134,7 @@
 <h2>Menü Düzenleme Onayları </h2>
 
 <% @pending_menu_edits.each do |menu_edit| %>
-  <div class="menu">
+  <div class="menu" id="menu_edit_<%= menu_edit.id %>">
     <p><%= link_to "#{menu_edit.changeable.place.name}", place_path(menu_edit.changeable.place.id) %></p>
     <p><%= menu_edit.changeable.name %></p>
     <p><%= menu_edit.name %></p>

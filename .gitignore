@@ -40,3 +40,6 @@
 /config/credentials/environment.key
 
 /config/credentials/production.key
+
+# Ignore vscode
+.vscode/*
