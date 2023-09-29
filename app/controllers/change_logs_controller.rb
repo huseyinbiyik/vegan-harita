@@ -16,7 +16,8 @@ class ChangeLogsController < ApplicationController
       if @change_log.save
         format.html do
           redirect_to place_url(@place),
-                      notice: 'Mekan değişiklik isteği başarıyla değerlendirmeye gönderildi. Desteğiniz için teşekkür ederiz 💚'
+                      notice: 'Mekan değişiklik isteği başarıyla değerlendirmeye gönderildi.
+                       Desteğiniz için teşekkür ederiz 💚'
         end
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -41,7 +42,8 @@ class ChangeLogsController < ApplicationController
       if @change_log.save
         format.html do
           redirect_to place_url(@place),
-                      notice: 'Ürün değişiklik isteği başarıyla değerlendirmeye gönderildi. Desteğiniz için teşekkür ederiz 💚'
+                      notice: 'Ürün değişiklik isteği başarıyla değerlendirmeye gönderildi.
+                      Desteğiniz için teşekkür ederiz 💚'
         end
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -52,7 +54,11 @@ class ChangeLogsController < ApplicationController
   private
 
   def change_log_params
-    params.require(:change_log).permit(:name, :vegan, :place_id, :user_id, :latitude, :longitude, :address, :phone,
-                                       :web_url, :email, :facebook_url, :instagram_url, :twitter_url, :product_category, :description, :price, :image, tag_ids: [], images: [], deleted_images: [], contributors: [])
+    params.require(:change_log).permit(
+      :name, :vegan, :place_id, :user_id, :latitude, :longitude, :address, :phone,
+      :web_url, :email, :facebook_url, :instagram_url, :twitter_url, :product_category,
+      :description, :price, :image, tag_ids: [], images: [], deleted_images: [],
+                                    contributors: []
+    )
   end
 end
