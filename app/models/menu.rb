@@ -7,4 +7,9 @@ class Menu < ApplicationRecord
   has_one_attached :image, dependent: :destroy
 
   enum product_category: { Yemek: 0, Tatlı: 1, İçecek: 2 }
+
+  def approve
+    self.approved = true
+    save
+  end
 end
