@@ -7,20 +7,25 @@ class ChangeLogsController < ApplicationController
   end
 
   def create_place_edit
-    @place = Place.find(params[:id])
-    @change_log = ChangeLog.new(change_log_params)
-    @change_log.changeable = @place
-    @change_log.user = current_user
+    place = Place.find(params[:id])
+    change_log = ChangeLog.new(change_log_params)
+    change_log.changeable = place
+    change_log.user = current_user
 
-    respond_to do |format|
-      if @change_log.save
+    if change_log.user.role == 'admin'
+      change_log.approve_place_edit
+      redirect_to place_url(place), notice: 'Mekan değişiklik isteği başarıyla onaylandı.'
+    elsif change_log.save
+      respond_to do |format|
         format.html do
-          redirect_to place_url(@place),
+          redirect_to place_url(place),
                       notice: 'Mekan değişiklik isteği başarıyla değerlendirmeye gönderildi.
                        Desteğiniz için teşekkür ederiz 💚'
         end
-      else
-        format.html { render :new, status: :unprocessable_entity }
+      end
+    else
+      respond_to do |format|
+        format.html { render :new_place_edit, status: :unprocessable_entity }
       end
     end
   end
@@ -32,22 +37,25 @@ class ChangeLogsController < ApplicationController
   end
 
   def create_menu_edit
-    @menu = Menu.find(params[:menu_id])
-    @place = Place.find(params[:place_id])
-    @change_log = ChangeLog.new(change_log_params)
-    @change_log.changeable = @menu
-    @change_log.user = current_user
+    menu = Menu.find(params[:menu_id])
+    place = Place.find(params[:place_id])
+    change_log = ChangeLog.new(change_log_params)
+    change_log.changeable = menu
+    change_log.user = current_user
 
-    respond_to do |format|
-      if @change_log.save
+    if change_log.user.role == 'admin'
+      change_log.approve_menu_edit
+      redirect_to place_url(place), notice: 'Ürün değişiklik isteği başarıyla onaylandı.'
+    elsif change_log.save
+      respond_to do |format|
         format.html do
-          redirect_to place_url(@place),
+          redirect_to place_url(place),
                       notice: 'Ürün değişiklik isteği başarıyla değerlendirmeye gönderildi.
-                      Desteğiniz için teşekkür ederiz 💚'
+                      Desteğiniz için teşekküre deriz 💚'
         end
-      else
-        format.html { render :new, status: :unprocessable_entity }
       end
+    else
+      format.html { render :new_menu_edit, status: :unprocessable_entity }
     end
   end
 

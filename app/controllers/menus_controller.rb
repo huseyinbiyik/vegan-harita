@@ -10,15 +10,16 @@ class MenusController < ApplicationController
   end
 
   def create
-    @place = Place.find(params[:place_id])
-    @menu = @place.menus.create(menu_params)
-    @menu.contributors << current_user.id
-    @menu.image.attach(params[:menu][:image])
+    place = Place.find(params[:place_id])
+    menu = place.menus.create(menu_params)
+    menu.contributors << current_user.id
+    menu.image.attach(params[:menu][:image])
+    menu.approved = true if current_user && current_user.role == 'admin'
 
     respond_to do |format|
-      if @menu.save
+      if menu.save
         format.html do
-          redirect_to place_url(@place), notice: 'Eklediğiniz ürün değerlendirmeye gönderildi.'
+          redirect_to place_url(place), notice: 'Eklediğiniz ürün değerlendirmeye gönderildi.'
         end
       else
         format.html { render :new, status: :unprocessable_entity }
