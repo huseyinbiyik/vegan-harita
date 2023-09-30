@@ -1,6 +1,8 @@
 <div id="<%= dom_id place %>" class="place">
   <div class="page-heading-container bg-dark-green">
-    <p class="page-title medium-font bold yellow"><%= place.name %></p>
+    <%= turbo_frame_tag "place-name" do %>
+    <p class="page-title medium-font bold yellow"><%= place.name %><%= link_to "Düzenle", new_place_edit_path(place), class: "beige"  %></p>
+        <% end %>
   </div>
 
   <div class="social-links bg-yellow">
@@ -15,26 +17,39 @@
     <% social_links.each do |key, value| %>
       <% if value.present? %>
         <% if key == "web" %>
-          <%= link_to "https://#{value}", target: "_blank" do %>
-            <%= image_tag "#{key}.svg", class: "social" %>
+          <%= turbo_frame_tag "place-web" do %>
+            <%= link_to "https://#{value}", target: "_blank" do %>
+              <%= image_tag "#{key}.svg", class: "social" %>
+            <% end %>
+            <%= link_to "Düzenle", new_place_edit_path(place), class: "beige"  %>
           <% end %>
         <% elsif key == "email" %>
-          <%= link_to "#{value}", href: "mailto:#{value}" do %>
-            <%= image_tag "#{key}.svg", class: "social" %>
+          <%= turbo_frame_tag "place-email" do %>
+            <%= link_to "#{value}", href: "mailto:#{value}" do %>
+              <%= image_tag "#{key}.svg", class: "social" %>
+            <% end %>
+            <%= link_to "Düzenle", new_place_edit_path(place), class: "beige"  %>
           <% end %>
         <% else %>
+          <%= turbo_frame_tag "place-#{key}" do %>
           <%= link_to "#{value}", target: "_blank" do %>
             <%= image_tag "#{key}.svg", class: "social" %>
           <% end %>
+          <%= link_to "Düzenle", new_place_edit_path(place), class: "beige"  %>
+          <% end %>
         <% end %>
       <% else %>
-        <%= link_to "#{value}" do %>
-          <%= image_tag "#{key}.svg", class: "social disabled" %>
+        <%= turbo_frame_tag "place-#{key}" do %>
+          <%= link_to "#{value}" do %>
+            <%= image_tag "#{key}.svg", class: "social disabled" %>
+          <% end %>
+          <%= link_to "Düzenle", new_place_edit_path(place), class: "beige"  %>
         <% end %>
       <% end %>
     <% end %>
   </div>
 
+  <%= turbo_frame_tag "place-images" do %>
   <div data-controller="slider" class="slider bg-dark-green">
     <div class="slider-container">
       <% if place.images.attached? %>
@@ -52,9 +67,12 @@
       <% end %>
       </div>
     </div>
+   <%= link_to "Düzenle", new_place_edit_path(place), class: "beige"  %>
+  <% end %>
 
 
   <div class="place-details bg-yellow">
+      <%= turbo_frame_tag "place-vegan" do %>
   <% if place.vegan? %>
     <div class="detail-group">
       <%= image_tag "vegan-place.svg", class: "detail-icon", id: "vegan-icon" %>
@@ -66,16 +84,26 @@
       <span class="detail dark-green">Vegan Seçenekli</span>
     </div>
   <% end %>
+        <%= link_to "Düzenle", new_place_edit_path(place), class: "beige"  %>
+  <% end %>
+
     <div class="detail-group">
       <%= image_tag "open.svg", class: "detail-icon", id: "open-icon" %>
       <span class="detail dark-green">Açık</span>
     </div>
-    <%= link_to "https://www.google.com/maps/dir/?api=1&destination=#{place.latitude},#{place.longitude}", target: "_blank", class: "detail-link" do %>
+
       <div class="detail-group">
-        <%= image_tag "direction.svg", class: "detail-icon", id: "direction-icon" %>
-        <span class="detail">Yol Tarifi</span>
+        <%= turbo_frame_tag "place-location" do %>
+          <%= link_to "https://www.google.com/maps/dir/?api=1&destination=#{place.latitude},#{place.longitude}", target: "_blank", class: "detail-link" do %>
+            <%= image_tag "direction.svg", class: "detail-icon", id: "direction-icon" %>
+          <span class="detail">Yol Tarifi</span>
+          <% end %>
+        <%= link_to "Düzenle", new_place_edit_path(place), class: "beige"  %>
+        <% end %>
       </div>
-    <% end %>
+
+
+    <%= turbo_frame_tag "place-phone" do %>
     <% if place.phone.present? %>
       <%= link_to "tel:#{place.phone}", class: "detail-link" do %>
         <div class="detail-group">
@@ -84,45 +112,50 @@
         </div>
       <% end %>
     <% else %>
-      <%= link_to "tel:#{place.phone}" do %>
+      <%= link_to "#" do %>
         <%= image_tag "phone.svg", class: "detail-icon disabled", id: "phone-icon" %>
       <% end %>
+    <% end %>
+    <%= link_to "Düzenle", new_place_edit_path(place), class: "beige"  %>
     <% end %>
   </div>
 
   <div class="tags bg-dark-blue">
-    <% if place.tags.present? %>
-      <% place.tags.each do |tag| %>
-        <span class="yellow"><%= tag.name %></span>
+    <%= turbo_frame_tag "place-tags" do %>
+      <% if place.tags.present? %>
+        <% place.tags.each do |tag| %>
+          <span class="yellow"><%= tag.name %></span>
+        <% end %>
+      <% else %>
+        <span class="yellow">Etiket Yok</span>
       <% end %>
-    <% else %>
-      <span class="yellow">Etiket Yok</span>
+    <%= link_to "Düzenle", new_place_edit_path(place), class: "beige"  %>
     <% end %>
-
   </div>
 
   <div id="menu" class="bg-dark-green">
     <div id="menu-header" class="green">
         <h1 class="medium-font semi-bold">MENÜ</h1>
-        <%= link_to new_place_menu_path(@place), id: "add-new-product", class: "green" do %>
+        <%= link_to new_place_menu_path(@place), data: { turbo_frame: "new_menu"}, id: "add-new-product", class: "green" do %>
           <%= image_tag "add-icon.svg" %>
           <span>Ürün Ekle</span>
         <% end %>
       </div>
-
+      <%= turbo_frame_tag "new_menu" %>
+<% if @place.menus.present? %>
     <h2 class="category medium-font semi-bold green">Yemekler</h2>
 
-    <%= render @place.menus.where(product_category: "Yemek") %>
+    <%= render @place.menus.where(product_category: "Yemek", approved: true) %>
 
     <h2 class="category medium-font semi-bold green">İçecekler</h2>
 
-    <%= render @place.menus.where(product_category: "İçecek") %>
+    <%= render @place.menus.where(product_category: "İçecek", approved: true) %>
 
     <h2 class="category medium-font semi-bold green">Tatlılar</h2>
 
-    <%= render @place.menus.where(product_category: "Tatlı") %>
+    <%= render @place.menus.where(product_category: "Tatlı", approved: true) %>
+    <%else%>
+    <p> Bu mekanın menüsü henüz eklenmemiş gibi görünüyor. :(</p>
+    <%end%>
   </div>
-
-  <%= link_to "Edit", edit_place_path(place) %>
-
 </div>

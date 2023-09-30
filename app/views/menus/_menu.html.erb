@@ -1,7 +1,10 @@
 <div class="menu-item" id="<%= dom_id menu %>">
+    <%= turbo_frame_tag "menu_edit_#{menu.id}" do  %>
+
   <div>
     <p class="name medium-font semi-bold brown">
       <%= menu.name %>
+      <%= link_to "Düzenle", new_menu_edit_path(@place, menu), data: { turbo_frame: "menu_edit_#{menu.id}" }, class: "beige"%>
     </p>
 
     <p class="price medium-font medium-weight yellow">
@@ -10,14 +13,13 @@
   </div>
 
   <div>
-    <% if menu.menu_images.attached? %>
-      <% menu.menu_images.each do |image| %>
-        <%= image_tag image, class: "menu-image" %>
-      <% end %>
+    <% if menu.image.attached? %>
+      <%= image_tag menu.image, class: "menu-image" %>
     <% end %>
 
     <p class="description medium-font yellow">
       <%= menu.description %>
     </p>
   </div>
+  <% end %>
 </div>

@@ -1,0 +1,33 @@
+<%= turbo_frame_tag "menu_edit_#{@menu.id}" do %>
+<%= form_with(model: [@change_log], url: create_menu_edit_path(place_id: @place), method: :post) do |form| %>
+
+  <div>
+    <%= form.label "İsim", style: "display: block", class:"yellow" %>
+    <%= form.text_field :name, value: @menu.name, placeholder: "Hazelnut Brownie Brioche", class: "product-input medium-font brown bg-yellow" %>
+  </div>
+
+  <div>
+    <%= form.label "Tanımı", style: "display: block", class:"yellow" %>
+    <%= form.text_area :description, value: @menu.description, placeholder: "Brownie ve fındık pralinli brioche.  Brownie Brioche ...", class: "product-input medium-font brown" %>
+  </div>
+
+  <div>
+    <%= form.label "Fotoğrafı Değiştir", style: "display: block", class:"yellow" %>
+    <%= form.file_field :image, class: "product-input medium-font brown" %>
+  </div>
+
+  <div>
+    <%= form.label "Ürün Kategorisi", style: "display: block", class:"yellow" %>
+    <%= form.select :product_category, Menu.product_categories.keys, class: "product-input medium-font brown" %>
+  </div>
+
+  <div>
+    <%= form.label "Fiyat (₺)", style: "display: block", class:"yellow" %>
+    <%= form.number_field :price, placeholder: "33", class: "product-input medium-font brown" %>
+  </div>
+
+  <div id="add-product-button">
+    <%= form.submit "Gönder", class: "medium-font brown" %>
+  </div>
+<% end %>
+<% end %>

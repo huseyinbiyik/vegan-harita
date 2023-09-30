@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_06_095141) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_26_125137) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,6 +42,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_06_095141) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "change_logs", force: :cascade do |t|
+    t.jsonb "data", default: {}, null: false
+    t.string "changeable_type", null: false
+    t.bigint "changeable_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["changeable_type", "changeable_id"], name: "index_change_logs_on_changeable"
+    t.index ["user_id"], name: "index_change_logs_on_user_id"
+  end
+
   create_table "menus", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -50,29 +61,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_06_095141) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.decimal "price"
+    t.integer "contributors", default: [], array: true
+    t.boolean "approved", default: false
     t.index ["place_id"], name: "index_menus_on_place_id"
-  end
-
-  create_table "place_edits", force: :cascade do |t|
-    t.bigint "place_id", null: false
-    t.bigint "user_id", null: false
-    t.string "name"
-    t.float "longitude"
-    t.float "latitude"
-    t.text "address"
-    t.boolean "vegan"
-    t.string "instagram_url"
-    t.string "facebook_url"
-    t.string "twitter_url"
-    t.string "web_url"
-    t.string "email"
-    t.string "phone"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "tag_ids", default: [], array: true
-    t.integer "deleted_images", default: [], array: true
-    t.index ["place_id"], name: "index_place_edits_on_place_id"
-    t.index ["user_id"], name: "index_place_edits_on_user_id"
   end
 
   create_table "places", force: :cascade do |t|
@@ -119,6 +110,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_06_095141) do
     t.datetime "confirmation_sent_at"
     t.boolean "approved", default: false
     t.integer "role", default: 0
+    t.integer "points", default: 0
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -126,7 +118,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_06_095141) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "change_logs", "users"
   add_foreign_key "menus", "places"
-  add_foreign_key "place_edits", "places"
-  add_foreign_key "place_edits", "users"
 end

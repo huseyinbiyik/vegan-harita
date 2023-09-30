@@ -1,6 +1,6 @@
 class PlacesController < ApplicationController
   before_action :authenticate_user!, except: %i[index show search]
-  before_action :set_place, only: %i[show edit destroy]
+  before_action :set_place, only: %i[show]
 
   def index
     @places = Place.approved
@@ -34,12 +34,6 @@ class PlacesController < ApplicationController
     @place = Place.new
   end
 
-  def edit
-    return unless @place.approved == false
-
-    redirect_to places_path, notice: 'Mekan henüz onaylanmadı. Güncelleme yapabilmek için önce onaylanmasını bekleyin.'
-  end
-
   def create
     @place = Place.new(place_params)
     @place.images.attach(params[:place][:images])
@@ -55,17 +49,6 @@ class PlacesController < ApplicationController
       else
         format.html { render :new, status: :unprocessable_entity }
       end
-    end
-  end
-
-  def destroy
-    @place.destroy
-
-    respond_to do |format|
-      format.html do
-        redirect_to places_url, notice: 'Mekan silme talebiniz başarıyla gönderildi. Desteğiniz için teşekkür ederiz 💚'
-      end
-      format.json { head :no_content }
     end
   end
 

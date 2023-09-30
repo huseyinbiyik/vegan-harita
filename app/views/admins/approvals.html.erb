@@ -1,0 +1,154 @@
+<h2>Kullanıcı Onayları</h2>
+
+<% @pending_users.each do |user| %>
+  <div class="user" id="user_<%= user.id %>">
+    <p><%= user.email %> - <%= user.points %></p>
+    <%= link_to "Onayla", approve_user_path(user), method: "post", remote: true, data: { turbo_method: "post" } %>
+  </div>
+<% end %>
+
+<h2>Yeni Mekan Onayları</h2>
+<section class="pending">
+  <% @pending_places.each do |pending_place| %>
+    <article class="pending-place" id="place_<%= pending_place.id %>">
+      <ul class="pending-item">
+        <li>Öneri Tarihi: <%= pending_place.created_at %></li>
+        <li>Mekanın Adı: <%= pending_place.name %></li>
+        <li>Adres: <%= pending_place.address %></li>
+        <li style="height: 100%;">
+          <% if pending_place.images.attached? %>
+            <p>Eklenen Fotoğraflar:</p>
+            <%= render partial: "shared/slider", locals: { images: pending_place.images } %>
+          <% end %>
+        </li>
+        <li>Vegan mı? <%= pending_place.vegan %></li>
+        <li>Etiketler:
+          <% pending_place.tag_ids.each do |tag_id| %>
+            <%= Tag.find(tag_id).name %>
+          <% end %>
+        </li>
+        <li>Instagram: <%= pending_place.instagram_url %></li>
+        <li>Facebook: <%= pending_place.facebook_url %></li>
+        <li>Twitter: <%= pending_place.twitter_url %></li>
+        <li>Web Sitesi: <%= pending_place.web_url %></li>
+        <li>E-posta: <%= pending_place.email %></li>
+        <li>Telefon: <%= pending_place.phone %></li>
+        <li>Ekleyen: <%= pending_place.creator.email %></li>
+        <li>
+          <%= link_to "Onayla", approve_place_path(id: pending_place.id), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
+          <%= link_to "Reddet", reject_place_path(id: pending_place.id), class: "reject-btn", method: "delete", remote: true, data: { turbo_method: "delete" } %>
+        </li>
+      </ul>
+    </article>
+    <div class="place-divider"></div>
+  <% end %>
+</section>
+
+<h2>Mekan Düzenleme Onayları</h2>
+<section class="pending">
+  <% @pending_place_edits.each do |place_edit| %>
+    <article class="pending-edit", id="place_edit_<%= place_edit.id %>">
+      <ul class="pending-item">
+        <li>Öneri Tarihi: <%= place_edit.created_at %></li>
+        <li>Mekanın Adı: <%= link_to "#{place_edit.changeable.name}", place_path(place_edit.changeable.id) %></li>
+        <% if place_edit.name %>
+        <li>Adı:  <%= place_edit.changeable.name %> --> <%= place_edit.name %></li>
+        <% end %>
+
+      <% if place_edit.images.attached? %>
+              <p>Eklenen Fotoğraflar:</p>
+        <%= render partial: "shared/slider", locals: { images: place_edit.images, id: place_edit.id } %>
+      <% end %>
+
+      <% unless place_edit.deleted_images.nil? %>
+        <p>Silinen Fotoğraflar:</p>
+        <% place_edit.deleted_images.each do |image_id| %>
+          <% image = ActiveStorage::Attachment.where(id: image_id).first %>
+          <%= image_tag url_for(image) %>
+        <% end %>
+      <% end %>
+
+        <% if place_edit.address %>
+        <li>Adres: <%= place_edit.changeable.address %> <%= place_edit.address %></li>
+        <% end %>
+        <% if place_edit.vegan %>
+        <li>Vegan mı? <%= place_edit.changeable.vegan %> <%= place_edit.vegan %></li>
+        <% end %>
+        <% if place_edit.instagram_url %>
+        <li>Instagram: <%= place_edit.changeable.instagram_url %> <%= place_edit.instagram_url %></li>
+        <% end %>
+        <% if place_edit.facebook_url %>
+        <li>Facebook: <%= place_edit.changeable.facebook_url %> <%= place_edit.facebook_url %></li>
+        <% end %>
+        <% if place_edit.twitter_url %>
+        <li>Twitter: <%= place_edit.changeable.twitter_url %> <%= place_edit.twitter_url %></li>
+        <% end %>
+        <% if place_edit.web_url %>
+        <li>Web Sitesi: <%= place_edit.changeable.web_url %> <%= place_edit.web_url %></li>
+        <% end %>
+        <% if place_edit.email %>
+        <li>E-posta: <%= place_edit.changeable.email %> <%= place_edit.email %></li>
+        <% end %>
+        <% if place_edit.phone %>
+        <li>Telefon: <%= place_edit.changeable.phone %> <%= place_edit.phone %></li>
+        <% end %>
+        <% if place_edit.tag_ids %>
+        <li>Etiketler:
+          <%= place_edit.changeable.tag_ids.map { |tag_id| Tag.find(tag_id).name }.join(", ") %>
+          -->
+        <%= place_edit.tag_ids.map { |tag_id| Tag.find(tag_id).name }.join(", ") %>
+         </li>
+        <% end %>
+
+
+        <li>Düzenleyen: <%= place_edit.user.email %></li>
+      </ul>
+      <div class="edit-buttons">
+        <%= link_to "Onayla", approve_place_edit_path(id: place_edit.id), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
+        <%= link_to "Reddet", reject_place_edit_path(id: place_edit.id), class: "reject-btn", method: "delete", remote: true, data: { turbo_method: "delete" } %>
+      </div>
+    </article>
+    <div class="edit-divider"></div>
+  <% end %>
+</section>
+
+<h2>Menü Ekleme Onayları </h2>
+
+<% @pending_menus.each do |menu| %>
+  <div class="menu" id="menu_<%= menu.id %>">
+    <p><%= link_to "#{menu.place.name}", place_path(menu.place.id) %></p>
+    <p><%= menu.description %></p>
+     <% if menu.image.attached? %>
+              <p>Ürün Fotoğrafı:</p>
+              <%= image_tag menu.image %>
+      <% end %>
+    <p><%= menu.product_category %></p>
+    <p><%= menu.price %></p>
+    <p><%= menu.creator.email %></p>
+
+    <%= link_to "Onayla", approve_menu_path(menu), method: "post", remote: true, data: { turbo_method: "post" } %>
+    <%= link_to "Reddet", reject_menu_path(menu), method: "delete", remote: true, data: { turbo_method: "delete" } %>
+  </div>
+<%end%>
+
+<h2>Menü Düzenleme Onayları </h2>
+
+<% @pending_menu_edits.each do |menu_edit| %>
+  <div class="menu" id="menu_edit_<%= menu_edit.id %>">
+    <p><%= link_to "#{menu_edit.changeable.place.name}", place_path(menu_edit.changeable.place.id) %></p>
+    <p><%= menu_edit.changeable.name %></p>
+    <p><%= menu_edit.name %></p>
+    <p><%= menu_edit.changeable.description %></p>
+    <p><%= menu_edit.description %></p>
+      <%= image_tag menu_edit.image if menu_edit.image.attached? %>
+    <p><%= menu_edit.changeable.product_category %></p>
+    <p><%= menu_edit.product_category %></p>
+    <p><%= menu_edit.changeable.price %></p>
+    <p><%= menu_edit.price %></p>
+    <p><%= menu_edit.user.email %></p>
+
+    <%= link_to "Onayla", approve_menu_edit_path(menu_edit), method: "post", remote: true, data: { turbo_method: "post" } %>
+    <%= link_to "Reddet", reject_menu_edit_path(menu_edit), method: "delete", remote: true, data: { turbo_method: "delete" } %>
+  </div>
+<%end%>
+
