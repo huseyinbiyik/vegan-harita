@@ -1,8 +1,5 @@
 <header id="navbar" class="bg-beige">
-  <div id="logo-container" class="medium-font">
-    <a href="/" id="logo" class="medium-weight dark-green">Vegan Harita</a>
-    <span id="beta" class="brown">BETA</span>
-  </div>
+  <%= link_to image_tag("logo.svg", alt: "Logo", id: "logo"), root_path %>
 
   <div id="search-container" data-controller="search">
     <%= render "places/search_form" %>

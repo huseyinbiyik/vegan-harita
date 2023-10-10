@@ -9,16 +9,9 @@ header {
   width: 100%;
 }
 
-#logo-container {
-  display: flex;
-  align-items: center;
-}
-
 #logo {
-  height: 25px;
-  line-height: 25px;
-  text-decoration: none;
-  min-width: 125px;
+  width: 132px;
+  height: 38px;
 }
 
 #beta {
