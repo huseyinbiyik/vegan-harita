@@ -4,7 +4,6 @@ header {
   align-items: center;
   height: 60px;
   padding: 11px 20px;
-  border-bottom: 2px solid var(--dark-green);
   column-gap: 7px;
   width: 100%;
 }
