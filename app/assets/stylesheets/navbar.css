@@ -34,7 +34,7 @@ header {
 #burger span {
   width: 38px;
   height: 1px;
-  background-color: var(--black);
+  background-color: var(--green);
 }
 
 #burger.active {
