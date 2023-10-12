@@ -41,10 +41,6 @@
   src: url("GeneralSans.ttf");
 }
 
-body {
-  border: 2px solid var(--dark-green);
-}
-
 .brown {
   color: var(--brown);
 }
