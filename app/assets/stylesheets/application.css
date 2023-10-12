@@ -15,14 +15,8 @@
  */
 
 :root {
-  --brown: #a94c2e;
-  --yellow: #deb35b;
-  --beige: #e5dccf;
-  --dark-green: #243e2e;
-  --dark-blue: #153143;
-  --green: #a7d4bc;
-  --black: #262626;
-  --pinkish: #ffa98c;
+  --green: #01DA5A;
+  --black: #000000;
 }
 
 *,
