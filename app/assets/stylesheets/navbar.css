@@ -111,7 +111,7 @@ header {
   z-index: 999;
   display: block !important;
   position: absolute;
-  top: 61px;
+  top: 59px;
   left: 2px;
   right: 2px;
   width: calc(100% - 4px);
