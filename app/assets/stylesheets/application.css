@@ -151,10 +151,10 @@ input[type="password"] {
   align-items: center;
 }
 
-.session-links {
+/* .session-links {
   line-height: 25px;
-  /* color: #000; */
-}
+  color: #000;
+} */
 
 .large-font {
   font-size: 32px;

@@ -144,16 +144,19 @@ nav {
   list-style-type: none;
 }
 
-#nav-menu a {
-  text-decoration: none;
-  line-height: 25px;
-  display: flex;
-  align-items: center;
-}
-
 #add-place-link {
   gap: 5px;
   font-size: 18px;
+}
+
+#sign-in-link {
+  height: 42px;
+  border-radius: 20px;
+  background: var(--green);
+  color: var(--white);
+  font-weight: 500;
+  line-height: 100%;
+  padding: 13px 21px 13px 21px;
 }
 
 /* #nav-menu .session-links {
