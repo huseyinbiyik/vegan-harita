@@ -15,7 +15,7 @@
   <ul id="nav-menu" data-navigation-target="menu">
     <li class="nav-link">
       <% if user_signed_in? && current_user.role == "admin" %>
-        <%= link_to approvals_path, class:"nav-admin-link medium-font dark-green" do %>
+        <%= link_to approvals_path, class:"nav-admin-link" do %>
           <span>Onay Paneli</span>
           <% end %>
         <% end %>
