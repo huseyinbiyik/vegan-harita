@@ -214,6 +214,8 @@ nav {
     border: none;
     position: relative;
     padding-left: 10px;
+    border-radius: 0;
+    box-shadow: none;
   }
 
   #search-form {
@@ -226,28 +228,33 @@ nav {
   }
 
   #search-field::placeholder {
-    color: var(--dark-green);
     opacity: 0.8;
+    color: #989e9a;
+    font-size: 18px;
+    font-weight: 400;
   }
 
   .search-results-link-container {
-    border-top: 1px solid var(--dark-green);
-    border-left: 1px solid var(--dark-green);
-    border-right: 1px solid var(--dark-green);
+    border-top: 1px solid #989e9a;
+    border-left: 1px solid #989e9a;
+    border-right: 1px solid #989e9a;
     border-bottom: none;
   }
 
   .search-results-link-container:last-of-type {
-    border-bottom: 1px solid var(--dark-green);
+    border-bottom: 1px solid #989e9a;
   }
 
   #search-results {
+    border-top: 0.5px solid #989e9a;
     z-index: 999;
     position: absolute;
     top: 45px;
     left: 0;
     padding: 0;
     border: none;
+    width: 100%;
+    background-color: var(--white);
   }
 
   .search-results-link {
