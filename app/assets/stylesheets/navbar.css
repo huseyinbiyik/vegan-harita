@@ -156,14 +156,14 @@ nav {
   font-size: 18px;
 }
 
-#nav-menu .session-links {
+/* #nav-menu .session-links {
   height: 60px;
   width: 184px;
   line-height: 25px;
   border: 2px solid var(--black);
   justify-content: space-between;
   padding: 17.5px 30px;
-}
+} */
 
 #nav-menu.hidden {
   display: none;
