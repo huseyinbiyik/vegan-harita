@@ -34,8 +34,15 @@ header {
 #burger span {
   width: 38px;
   height: 1px;
+  background-color: #868686;
+}
+
+#burger span:nth-child(2) {
   background-color: var(--green);
 }
+
+
+
 
 #burger.active {
   position: fixed;

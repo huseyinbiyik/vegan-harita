@@ -100,8 +100,8 @@ h2 {
 }
 
 a {
+  color: var(--black);
   text-decoration: none;
-  color: #243e2e;
 }
 
 .user-forms {
