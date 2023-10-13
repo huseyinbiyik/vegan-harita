@@ -15,9 +15,9 @@
  */
 
 :root {
-  --green: #01DA5A;
-  --black: #000000;
-  --white: #ffffff;
+  --green: #01da5a;
+  --black: #000;
+  --white: #fff;
 }
 
 *,
@@ -28,7 +28,6 @@
   margin: 0;
   padding: 0;
   font-family: General Sans, sans-serif;
-
 }
 
 @font-face {

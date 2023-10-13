@@ -68,9 +68,9 @@ header {
 #search-wrapper {
   display: none;
   background-color: var(--white);
-  border-radius: 0px 0px 5px 5px;
+  border-radius: 0 0 5px 5px;
   border-bottom: 1px solid #989e9a;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 }
 
 #search-form {
