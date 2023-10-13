@@ -41,9 +41,6 @@ header {
   background-color: var(--green);
 }
 
-
-
-
 #burger.active {
   position: fixed;
   right: 20px;
@@ -164,6 +161,17 @@ nav {
   font-weight: 500;
   line-height: 100%;
   padding: 13px 21px 13px 21px;
+}
+
+#logout-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 145px;
+  height: 42px;
+  border-radius: 20px;
+  border: 1px solid #989e9a;
+  padding: 8px 21px 7.33px 21px;
 }
 
 /* #nav-menu .session-links {

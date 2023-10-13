@@ -27,7 +27,7 @@
       <% end %>
     </li>
       <% if user_signed_in? %>
-        <%= link_to destroy_user_session_path, method: :delete, id: "logout-link", class: "session-links medium-font bg-brown beige" do %>
+        <%= link_to destroy_user_session_path, method: :delete, id: "logout-link", class: "session-links" do %>
           <%= image_tag "logout-icon.svg" %>
           <span>Çıkış Yap</span>
         <% end %>
