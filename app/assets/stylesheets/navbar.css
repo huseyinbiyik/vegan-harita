@@ -154,7 +154,6 @@ nav {
   flex-direction: column;
   align-items: center;
   gap: 16px;
-
 }
 
 #add-place-link {
@@ -181,7 +180,6 @@ nav {
   border: 1px solid #989e9a;
   padding: 8px 21px 7.33px 21px;
 }
-
 
 #nav-menu.hidden {
   display: none;
