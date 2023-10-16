@@ -163,6 +163,19 @@ nav {
   padding: 13px 21px 13px 21px;
 }
 
+#account-icon {
+  display: none;
+}
+
+.dropdown {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  font-size: 18px;
+}
+
 #logout-link {
   display: flex;
   align-items: center;
