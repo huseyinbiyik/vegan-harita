@@ -146,18 +146,11 @@ nav {
   align-items: center;
   justify-content: space-between;
   list-style-type: none;
-  font-size: 18px;
-}
-
-#nav-menu.active div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
 }
 
 #add-place-link {
   gap: 5px;
+  font-size: 18px;
 }
 
 #sign-in-link {
@@ -180,6 +173,15 @@ nav {
   border: 1px solid #989e9a;
   padding: 8px 21px 7.33px 21px;
 }
+
+/* #nav-menu .session-links {
+  height: 60px;
+  width: 184px;
+  line-height: 25px;
+  border: 2px solid var(--black);
+  justify-content: space-between;
+  padding: 17.5px 30px;
+} */
 
 #nav-menu.hidden {
   display: none;
