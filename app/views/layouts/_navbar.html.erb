@@ -27,15 +27,17 @@
       <% end %>
     </li>
       <% if user_signed_in? %>
-          <li>
-            <%= link_to edit_user_registration_path, id:"edit-user-link" do %>Hesabım<% end %>
-          </li>
-          <li>
-            <%= link_to destroy_user_session_path, method: :delete, id: "logout-link", class: "session-links" do %>
-              <%= image_tag "logout-icon.svg" %>
-              <span>Çıkış Yap</span>
-            <% end %>
-          </li>
+        <div>
+            <li>
+              <%= link_to edit_user_registration_path, id:"edit-user-link" do %>Hesabım<% end %>
+            </li>
+            <li>
+              <%= link_to destroy_user_session_path, method: :delete, id: "logout-link", class: "session-links" do %>
+                <%= image_tag "logout-icon.svg" %>
+                <span>Çıkış Yap</span>
+              <% end %>
+            </li>
+        </div>
       <% else %>
         <%= link_to new_user_session_path, id: "sign-in-link", class: "session-links" do %>
           Giriş Yap
