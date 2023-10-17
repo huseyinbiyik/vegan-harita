@@ -61,7 +61,6 @@ header {
   align-items: center;
   justify-content: flex-end;
   width: calc(100% - 170px);
-
 }
 
 #search-wrapper {
@@ -195,7 +194,6 @@ nav {
 }
 
 @media (min-width: 1024px) {
-
   header {
     padding: 16px 48px;
     height: 70px;
@@ -204,7 +202,7 @@ nav {
   #search-container {
     justify-content: center;
     flex-direction: row-reverse;
-    margin-left: 211px;    
+    margin-left: 211px;
   }
 
   #search-wrapper {
