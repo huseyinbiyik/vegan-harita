@@ -34,6 +34,6 @@
 
 @media (min-width: 1024px) {
   #map {
-    height: calc(100vh - 134px);
+    height: calc(100vh - 120px);
   }
 }
