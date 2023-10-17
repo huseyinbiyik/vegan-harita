@@ -20,7 +20,7 @@
           <% end %>
         <% end %>
     </li>
-    <li>
+    <li class="nav-link">
       <%= link_to new_place_path, id:"add-place-link" do %>
         <%= image_tag "add-place.svg"%>
         <span>Mekan Ekle</span>
@@ -33,8 +33,8 @@
           <%= link_to edit_user_registration_path do %>
             <li>Hesabım</li>
           <% end %>
-          <%= link_to destroy_user_session_path, method: :delete, id: "logout-link", class: "session-links" do %>
-            <%= image_tag "logout-icon.svg" %>
+          <%= link_to destroy_user_session_path, method: :delete, id: "logout-link" do %>
+            <%= image_tag "logout-icon.svg", id:"logout-icon" %>
             <span>Çıkış Yap</span>
         <% end %>
         </ul>
