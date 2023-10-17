@@ -1,11 +1,9 @@
 header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   height: 60px;
   padding: 11px 20px;
-  column-gap: 7px;
-  width: 100%;
+  gap: 16px;
 }
 
 #logo {
@@ -62,8 +60,8 @@ header {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  width: calc(100% - 170px);
 
-  /* width: 100%; */
 }
 
 #search-wrapper {
@@ -188,15 +186,6 @@ nav {
   padding: 8px 21px 7.33px 21px;
 }
 
-/* #nav-menu .session-links {
-  height: 60px;
-  width: 184px;
-  line-height: 25px;
-  border: 2px solid var(--black);
-  justify-content: space-between;
-  padding: 17.5px 30px;
-} */
-
 #nav-menu.hidden {
   display: none;
 }
@@ -206,18 +195,16 @@ nav {
 }
 
 @media (min-width: 1024px) {
-  /* a {
-    font-size: 20px;
-  } */
 
   header {
-    padding: 0 0 0 50px;
+    padding: 16px 48px;
     height: 70px;
   }
 
   #search-container {
     justify-content: center;
     flex-direction: row-reverse;
+    margin-left: 211px;    
   }
 
   #search-wrapper {
@@ -284,6 +271,8 @@ nav {
     display: flex;
     gap: 32px;
     list-style-type: none;
+    width: 667px;
+    justify-content: flex-end;
   }
 
   .nav-link {
