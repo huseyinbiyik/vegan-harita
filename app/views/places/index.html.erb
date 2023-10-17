@@ -10,7 +10,7 @@
 
 <div id="last-places-list">
   <% Place.last_ten.each do |place| %>
-        <%= link_to "#{place.name}", place_path(place), class: "place-card dark-green" %>
+        <%= link_to "#{place.name}", place_path(place), class: "place-card" %>
     <% end %>
   </div>
 </div>

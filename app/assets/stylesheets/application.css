@@ -35,62 +35,6 @@
   src: url("GeneralSans.ttf");
 }
 
-.brown {
-  color: var(--brown);
-}
-
-.bg-brown {
-  background: var(--brown);
-}
-
-.yellow {
-  color: var(--yellow);
-}
-
-.bg-yellow {
-  background: var(--yellow);
-}
-
-.beige {
-  color: var(--beige);
-}
-
-.bg-beige {
-  background: var(--beige);
-}
-
-.dark-green {
-  color: var(--dark-green);
-}
-
-.bg-dark-green {
-  background: var(--dark-green);
-}
-
-.dark-blue {
-  color: var(--dark-blue);
-}
-
-.bg-dark-blue {
-  background: var(--dark-blue);
-}
-
-.green {
-  color: var(--green);
-}
-
-.bg-green {
-  background: var(--green);
-}
-
-.black {
-  color: var(--black);
-}
-
-.bg-black {
-  background: var(--black);
-}
-
 h2 {
   line-height: 39px;
   text-align: center;
