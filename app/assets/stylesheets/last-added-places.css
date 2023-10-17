@@ -6,42 +6,28 @@
   #last-added-places-container {
     /* height: 60px; */
     display: block;
-    /* align-items: center; */
-    /* border-top: 2px solid var(--dark-green); */
     position: relative;
     overflow: hidden;
-
     height: 50px;
-
     border-top: 0.5px solid #989e9a;
-    /* background: var(--white); */
   }
 
   #last-added-places-container h3 {
-    /* width: 340px; */
     font-weight: 400;
-    /* padding: 11px 22px; */
-    /* height: 58px; */
-    /* border-right: 2px solid var(--dark-green); */
     z-index: 999;
     position: absolute;
     top: 0;
     left: 0;
-
     font-size: 24px;
-
     border-right: 0.5px solid #989e9a;
-
     padding: 8px 32px 8px 48px;
     height: 50px;
-
     background-color: white;
   }
 
   #last-places-list {
     display: flex;
     align-items: center;
-    /* padding: 18px 12px 17px 12px; */
     white-space: nowrap;
     column-gap: 10px;
     -moz-transform: translateX(100%);
@@ -91,10 +77,7 @@
   }
 
   .place-card {
-    /* text-decoration: none; */
-
     text-decoration: underline;
-
     font-size: 18px;
     font-weight: 400;
   }
