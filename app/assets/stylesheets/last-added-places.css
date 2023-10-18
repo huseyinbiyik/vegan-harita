@@ -4,7 +4,6 @@
 
 @media (min-width: 1024px) {
   #last-added-places-container {
-    /* height: 60px; */
     display: block;
     position: relative;
     overflow: hidden;

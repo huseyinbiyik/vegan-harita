@@ -275,13 +275,6 @@ nav {
     white-space: nowrap;
   }
 
-  #nav-menu .session-links {
-    height: 4.25rem;
-    border-top: none;
-    border-right: none;
-    border-bottom: none;
-  }
-
   #add-place-link {
     gap: 0.125rem;
   }
