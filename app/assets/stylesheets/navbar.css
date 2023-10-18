@@ -105,10 +105,6 @@ header {
   display: block;
 }
 
-#search-icon {
-  padding: 9px 7px;
-}
-
 .extend {
   z-index: 999;
   display: block !important;
