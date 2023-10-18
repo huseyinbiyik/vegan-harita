@@ -143,8 +143,11 @@ nav {
 }
 
 #add-place-link {
+  display: flex;
+  align-items: center;
   gap: 5px;
   font-size: 18px;
+
 }
 
 #sign-in-link {
