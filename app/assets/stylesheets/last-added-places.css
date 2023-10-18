@@ -8,7 +8,7 @@
     position: relative;
     overflow: hidden;
     height: 3.125rem;
-    border-top: 0.031rem solid #989e9a;
+    border-top: 0.031rem solid var(--gray);
   }
 
   #last-added-places-container h3 {
@@ -18,7 +18,7 @@
     top: 0;
     left: 0;
     font-size: 1.5rem;
-    border-right: 0.031rem solid #989e9a;
+    border-right: 0.031rem solid var(--gray);
     padding: 0.5rem 2rem 0.5rem 3rem;
     height: 3.125rem;
     background-color: white;
