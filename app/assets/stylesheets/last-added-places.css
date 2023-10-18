@@ -8,8 +8,8 @@
     display: block;
     position: relative;
     overflow: hidden;
-    height: 50px;
-    border-top: 0.5px solid #989e9a;
+    height: 3.125rem;
+    border-top: 0.031rem solid #989e9a;
   }
 
   #last-added-places-container h3 {
@@ -18,10 +18,10 @@
     position: absolute;
     top: 0;
     left: 0;
-    font-size: 24px;
-    border-right: 0.5px solid #989e9a;
-    padding: 8px 32px 8px 48px;
-    height: 50px;
+    font-size: 1.5rem;
+    border-right: 0.031rem solid #989e9a;
+    padding: 0.5rem 2rem 0.5rem 3rem;
+    height: 3.125rem;
     background-color: white;
   }
 
@@ -29,15 +29,15 @@
     display: flex;
     align-items: center;
     white-space: nowrap;
-    column-gap: 10px;
+    column-gap: 0.625rem;
     -moz-transform: translateX(100%);
     -webkit-transform: translateX(100%);
     transform: translateX(100%);
     -moz-animation: my-animation 15s linear infinite;
     -webkit-animation: my-animation 15s linear infinite;
     animation: my-animation 30s linear infinite;
-    height: 50px;
-    margin-right: 32px;
+    height: 3.125rem;
+    margin-right: 2rem;
   }
 
   /* for Firefox */
@@ -78,7 +78,7 @@
 
   .place-card {
     text-decoration: underline;
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 400;
   }
 }
