@@ -11,12 +11,6 @@ header {
   height: 38px;
 }
 
-#beta {
-  border: 1px solid var(--brown);
-  padding: 4px 9px 3px 9px;
-  margin-left: 5px;
-}
-
 #burger {
   display: flex;
   gap: 10.5px;
