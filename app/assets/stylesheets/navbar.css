@@ -76,6 +76,10 @@ header {
   border: none;
 }
 
+#search-field::placeholder {
+  font-size: 1.125rem;
+}
+
 #search-field:focus {
   outline: none;
 }
@@ -103,7 +107,7 @@ header {
   z-index: 999;
   display: block !important;
   position: absolute;
-  top: 3.688rem;
+  top: 3.75rem;
   left: 0.125rem;
   right: 0.125rem;
   width: calc(100% - 0.25rem);
