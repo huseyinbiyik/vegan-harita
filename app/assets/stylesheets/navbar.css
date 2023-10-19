@@ -262,6 +262,8 @@ nav {
     border: none;
     width: 100%;
     background-color: var(--white);
+    overflow: scroll;
+    max-height: 230px;
   }
 
   .search-results-link {
