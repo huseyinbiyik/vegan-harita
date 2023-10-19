@@ -83,6 +83,7 @@ header {
 
 #search-field::placeholder {
   font-size: 1.125rem;
+  color: var(--gray);
 }
 
 #search-field:focus {
