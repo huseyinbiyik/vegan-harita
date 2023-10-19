@@ -192,6 +192,7 @@ nav {
 
 @media (min-width: 1024px) {
   header {
+    justify-content: space-between;
     padding: 1rem 3rem;
     height: 4.375rem;
   }
@@ -199,7 +200,8 @@ nav {
   #search-container {
     justify-content: center;
     flex-direction: row-reverse;
-    margin-left: 13.188rem;
+    /* margin-left: 13.188rem; */
+    width: auto;
   }
 
   #search-wrapper {
@@ -209,9 +211,14 @@ nav {
     max-width: 25rem;
     border: none;
     position: relative;
-    padding-left: 0.625rem;
+    padding-left: 0.188rem;
     border-radius: 0;
     box-shadow: none;
+  }
+
+  #search-icon {
+    width: 1.188rem;
+    height: 1.188rem;
   }
 
   #search-form {
@@ -266,7 +273,7 @@ nav {
     display: flex;
     gap: 2rem;
     list-style-type: none;
-    width: 41.688rem;
+    /* width: 41.688rem; */
     justify-content: flex-end;
   }
 
