@@ -113,9 +113,8 @@ header {
   display: block !important;
   position: absolute;
   top: 3.75rem;
-  left: 0.125rem;
-  right: 0.125rem;
-  width: calc(100% - 0.25rem);
+  left: 0;
+  width: 100%;
 }
 
 nav {
