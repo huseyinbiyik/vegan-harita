@@ -52,6 +52,7 @@ export default class extends Controller {
         map.setZoom(map.getZoom() + 1);
       });
       var controlUILeft = document.createElement("div");
+      controlUILeft.style.marginBottom = "45px";
       controlDiv.appendChild(controlUILeft);
       var controlTextLeft = document.createElement("img");
       controlTextLeft.src = "../zoom-out.svg";
