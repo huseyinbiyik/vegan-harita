@@ -36,10 +36,11 @@ header {
 #burger.active {
   position: fixed;
   right: 1.25rem;
+  top: 1.125rem;
 }
 
 #burger.active span:nth-child(1) {
-  transform: translateY(1.125rem) rotate(45deg);
+  transform: translateY(0.313rem) rotate(45deg);
 }
 
 #burger.active span:nth-child(2) {
@@ -47,7 +48,7 @@ header {
 }
 
 #burger.active span:nth-child(3) {
-  transform: translateY(-0.313rem) rotate(-45deg);
+  transform: translateY(-1.125rem) rotate(-45deg);
 }
 
 #search-container {
