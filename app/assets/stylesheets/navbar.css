@@ -205,15 +205,13 @@ nav {
   #search-container {
     justify-content: center;
     flex-direction: row-reverse;
-    /* margin-left: 13.188rem; */
     width: auto;
   }
 
   #search-wrapper {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    max-width: 25rem;
+    width: 400px;
     border: none;
     position: relative;
     padding-left: 0.188rem;
