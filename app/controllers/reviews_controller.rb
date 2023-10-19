@@ -9,12 +9,14 @@ class ReviewsController < ApplicationController
   def edit; end
 
   def create
-    @review = Review.new(review_params)
+    @place = Place.find(params[:place_id])
+    @review = @place.reviews.build(review_params)
+    @review.user = current_user
     @review.save
   end
 
   def update
-      @review.update(review_params)
+    @review.update(review_params)
   end
 
   def destroy
@@ -28,6 +30,6 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:review).permit(:rating, :content, :feedback, :approved, :place_id, :user_id, images: [])
+    params.require(:review).permit(:rating, :content, :feedback, :approved, images: [])
   end
 end
