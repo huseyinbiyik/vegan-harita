@@ -3,6 +3,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
   resources :places do
+    resources :reviews
     resources :menus
     collection do
       post :search
