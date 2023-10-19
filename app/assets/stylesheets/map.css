@@ -2,24 +2,24 @@
   /* stylelint-disable unit-no-unknown */
   height: calc(100dvh - 60px);
   /* stylelint-enable unit-no-unknown */
-  width:0.625remw;
+  width: 100vw;
 }
 
 /* Customizing place infoWindow */
 .info-window-image {
-  width:6.25rem;
-  height:6.25rem;
+  width: 6.25rem;
+  height: 6.25rem;
 }
 
 .info-window {
   display: flex;
   flex-direction: row;
-  column-gap:0.625rem;
+  column-gap: 0.625rem;
 }
 
 /* Customizing find me button */
 .custom-map-control-button {
-  margin-right:0.625rem;
+  margin-right: 0.625rem;
   height: 3rem;
   cursor: pointer;
   border: none;
@@ -27,14 +27,14 @@
 }
 
 #custom-zoom-controller-container {
-  margin-right:0.625rem;
+  margin-right: 0.625rem;
 }
 
 #location-button {
   margin-bottom: 1.875rem;
 }
 
-@media (min-width:0.625rempx) {
+@media (min-width: 1024px) {
   #map {
     height: calc(100vh - 7.5rem);
   }
