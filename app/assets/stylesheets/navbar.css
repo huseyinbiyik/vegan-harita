@@ -231,6 +231,7 @@ nav {
 
   #search-field {
     height: 3.125rem;
+    font-size: 1.125rem;
   }
 
   #search-field::placeholder {
