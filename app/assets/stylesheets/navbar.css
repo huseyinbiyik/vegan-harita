@@ -211,7 +211,7 @@ nav {
   #search-wrapper {
     display: flex;
     flex-direction: column;
-    width: 400px;
+    width: 25rem;
     border: none;
     position: relative;
     padding-left: 0.188rem;
