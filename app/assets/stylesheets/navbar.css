@@ -276,6 +276,7 @@ nav {
     display: flex;
     gap: 2rem;
     list-style-type: none;
+
     /* width: 41.688rem; */
     justify-content: flex-end;
   }
