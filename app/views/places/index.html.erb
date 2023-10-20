@@ -5,12 +5,12 @@
   data-action="google-maps-callback@window->map#initializeMap"
 ></div>
 
-<div id="last-added-places-container" class="bg-beige">
-<h3 class="large-font bg-brown beige">Son Eklenen Yerler</h3>
+<div id="last-added-places-container">
+<h3>Son Eklenen Mekanlar</h3>
 
 <div id="last-places-list">
   <% Place.last_ten.each do |place| %>
-        <%= link_to "+#{place.name}", place_path(place), class: "place-card dark-green" %>
+        <%= link_to "#{place.name}", place_path(place), class: "place-card" %>
     <% end %>
   </div>
 </div>
