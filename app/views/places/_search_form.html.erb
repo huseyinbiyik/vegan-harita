@@ -1,15 +1,15 @@
-<div id="search-wrapper" class="bg-beige">
+<div id="search-wrapper">
   <%= form_with id:"search-form", url: search_places_path, method: :post, data: {controller: "debounce ", debounce_target: "form"} do |form| %>
 
     <%= form.search_field :name_search,
                       id: "search-field",
-                      class: "medium-font dark-green",
-                      placeholder: "Yer ara...",
+                      placeholder: "Mekan ara...",
                       autofocus: "true",
+                      autocomplete: "off",
                       data: {
                         action: "input->debounce#search "
                       } %>
   <% end %>
 
-  <div id="search-results" class="bg-beige"></div>
+  <div id="search-results"></div>
 </div>

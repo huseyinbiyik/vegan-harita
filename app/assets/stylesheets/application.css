@@ -15,14 +15,10 @@
  */
 
 :root {
-  --brown: #a94c2e;
-  --yellow: #deb35b;
-  --beige: #e5dccf;
-  --dark-green: #243e2e;
-  --dark-blue: #153143;
-  --green: #a7d4bc;
-  --black: #262626;
-  --pinkish: #ffa98c;
+  --green: #01da5a;
+  --black: #000;
+  --white: #fff;
+  --gray: #989e9a;
 }
 
 *,
@@ -32,72 +28,12 @@
   -webkit-box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: Clash Display Variable, sans-serif;
+  font-family: General Sans, sans-serif;
 }
 
 @font-face {
-  font-family: "Clash Display Variable";
-  src: url("ClashDisplay-Variable.ttf");
-}
-
-body {
-  border: 2px solid var(--dark-green);
-}
-
-.brown {
-  color: var(--brown);
-}
-
-.bg-brown {
-  background: var(--brown);
-}
-
-.yellow {
-  color: var(--yellow);
-}
-
-.bg-yellow {
-  background: var(--yellow);
-}
-
-.beige {
-  color: var(--beige);
-}
-
-.bg-beige {
-  background: var(--beige);
-}
-
-.dark-green {
-  color: var(--dark-green);
-}
-
-.bg-dark-green {
-  background: var(--dark-green);
-}
-
-.dark-blue {
-  color: var(--dark-blue);
-}
-
-.bg-dark-blue {
-  background: var(--dark-blue);
-}
-
-.green {
-  color: var(--green);
-}
-
-.bg-green {
-  background: var(--green);
-}
-
-.black {
-  color: var(--black);
-}
-
-.bg-black {
-  background: var(--black);
+  font-family: "General Sans";
+  src: url("GeneralSans.ttf");
 }
 
 h2 {
@@ -108,8 +44,8 @@ h2 {
 }
 
 a {
+  color: var(--black);
   text-decoration: none;
-  color: #243e2e;
 }
 
 .user-forms {
@@ -157,11 +93,6 @@ input[type="password"] {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.session-links {
-  line-height: 25px;
-  color: #000;
 }
 
 .large-font {

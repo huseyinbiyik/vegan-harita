@@ -1,9 +1,5 @@
-<header id="navbar" class="bg-beige">
-  <div id="logo-container" class="medium-font">
-    <a href="/" id="logo" class="medium-weight dark-green">Vegan Harita</a>
-    <span id="beta" class="brown">BETA</span>
-  </div>
-
+<header id="navbar">
+  <%= link_to image_tag("logo.svg", alt: "Logo", id: "logo"), root_path %>
   <div id="search-container" data-controller="search">
     <%= render "places/search_form" %>
 
@@ -13,40 +9,50 @@
     },
     id: "search-icon" %>
   </div>
-
 <nav data-controller="navigation" data-navigation-state-value="false">
   <ul id="nav-menu" data-navigation-target="menu">
     <li class="nav-link">
       <% if user_signed_in? && current_user.role == "admin" %>
-        <%= link_to approvals_path, class:"nav-admin-link medium-font dark-green" do %>
+        <%= link_to approvals_path, class:"nav-admin-link" do %>
           <span>Onay Paneli</span>
           <% end %>
         <% end %>
     </li>
-    <li>
-      <%= link_to new_place_path, id:"add-place-link", class:"medium-font dark-green" do %>
+    <li class="nav-link">
+      <%= link_to new_place_path, id:"add-place-link" do %>
         <%= image_tag "add-place.svg"%>
-        <span>Yer Ekle</span>
+        <span>Mekan Ekle</span>
       <% end %>
     </li>
-      <% if user_signed_in? %>
-        <%= link_to destroy_user_session_path, method: :delete, id: "logout-link", class: "session-links medium-font bg-brown beige" do %>
-          <%= image_tag "logout-icon.svg" %>
-          <span>Çıkış Yap</span>
-        <% end %>
+    <% if user_signed_in? %>
+      <li class="wrapper">
+        <%= image_tag "account-icon.svg", id:"account-icon" %>
+        <ul class="dropdown">
+          <li>
+          <%= link_to "Hesabım", edit_user_registration_path %>
+          </li>
+          <li>
+            <%= link_to destroy_user_session_path, method: :delete, id: "logout-link" do %>
+              <%= image_tag "logout-icon.svg", id:"logout-icon" %>
+              <span>Çıkış Yap</span>
+            <% end %>
+          </li>
+        </ul>
+      </li>
       <% else %>
-        <%= link_to new_user_session_path, id: "sign-in-link", class: "session-links medium-font bg-brown" do %>
-          <%= image_tag "sign-in-icon.svg" %>
-          <span class="beige">Giriş Yap</span>
+      <li class="nav-link">
+        <%= link_to new_user_session_path, id: "sign-in-link" do %>
+          Giriş Yap
         <% end %>
+      </li>
       <% end %>
     </li>
   </ul>
 
   <button id="burger" class="mobile" data-action="click->navigation#toggle">
-    <span class="bg-dark-green"></span>
-    <span class="bg-dark-green"></span>
-    <span class="bg-dark-green"></span>
+    <span></span>
+    <span></span>
+    <span></span>
   </button>
 </nav>
 
