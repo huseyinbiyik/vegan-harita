@@ -12,7 +12,11 @@ class ReviewsController < ApplicationController
     @place = Place.find(params[:place_id])
     @review = @place.reviews.build(review_params)
     @review.user = current_user
-    @review.save
+    if @review.save
+      redirect_to place_url(@place), notice: 'Değerlendirmeniz başarıyla kaydedildi.'
+    else
+      redirect_to place_url(@place), notice: 'Değerlendirmeniz kaydedilemedi.'
+    end
   end
 
   def update
