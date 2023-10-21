@@ -58,6 +58,8 @@ a {
 }
 
 .field label {
+  font-size: 14px;
+  font-weight: 400;
 }
 
 .field input {
