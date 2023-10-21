@@ -25,6 +25,7 @@ class PlacesController < ApplicationController
   end
 
   def show
+    @reviews = @place.reviews.order(created_at: :desc)
     return unless @place.approved == false
 
     redirect_to places_path, notice: 'Mekan henüz onaylanmadı. Onaylandığında burada olacak.'
