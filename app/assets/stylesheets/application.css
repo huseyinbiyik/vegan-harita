@@ -49,38 +49,28 @@ a {
 }
 
 .user-forms {
-  padding-top: 27px;
-  height: calc(100vh - 61px);
+  
 }
 
 .user-forms h2 {
-  margin-top: 33px;
-  font-size: 32px;
-  line-height: 39px;
-  text-align: center;
-  margin-bottom: 20px;
+ 
 }
 
 .field {
-  margin-bottom: 15px;
+
 }
 
 .field label {
-  height: 20px;
-  line-height: 20px;
-  text-align: left;
+  
 }
 
 .field input {
-  width: 225px;
-  height: 30px;
-  border: 1px solid var(--black);
-  padding: 6px;
+
 }
 
 .field input[type="email"],
 input[type="password"] {
-  line-height: 25px;
+  
 }
 
 ::placeholder {
@@ -90,33 +80,7 @@ input[type="password"] {
 }
 
 .session-links-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.large-font {
-  font-size: 32px;
-}
-
-.medium-font {
-  font-size: 20px;
-}
-
-.small-font {
-  font-size: 16px;
-}
-
-.bold {
-  font-weight: 700;
-}
-
-.semi-bold {
-  font-weight: 600;
-}
-
-.medium-weight {
-  font-weight: 500;
+  
 }
 
 @media (min-width: 1024px) {
@@ -125,10 +89,10 @@ input[type="password"] {
   }
 
   .user-forms h2 {
-    margin-top: 100px;
+    
   }
 
   .field input {
-    width: 300px;
+    
   }
 }

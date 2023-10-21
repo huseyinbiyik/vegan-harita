@@ -7,9 +7,7 @@
 }
 
 .remember {
-  width: 100%;
-  display: flex;
-  float: left;
+
 }
 
 #user_remember_me {
@@ -19,27 +17,15 @@
 }
 
 #new_user .actions button {
-  height: 60px;
-  width: 184px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 2px solid var(--black);
-  margin-top: 5px;
-  margin-bottom: 17px;
-  background-color: var(--brown);
 }
 
 .session-icon {
-  margin-right: 8px;
 }
 
 .session-text {
-  line-height: 25px;
 }
 
 @media (min-width: 1024px) {
   .remember {
-    width: 300px;
   }
 }
