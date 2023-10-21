@@ -37,10 +37,6 @@
 }
 
 h2 {
-  line-height: 39px;
-  text-align: center;
-  margin-top: 60px;
-  margin-bottom: 20px;
 }
 
 a {
@@ -49,28 +45,26 @@ a {
 }
 
 .user-forms {
-  
+  font-size: 24px;
+  font-weight: 500;
 }
 
 .user-forms h2 {
- 
+  font-size: 24px;
+  font-weight: 500;
 }
 
 .field {
-
 }
 
 .field label {
-  
 }
 
 .field input {
-
 }
 
 .field input[type="email"],
 input[type="password"] {
-  
 }
 
 ::placeholder {
@@ -80,7 +74,6 @@ input[type="password"] {
 }
 
 .session-links-container {
-  
 }
 
 @media (min-width: 1024px) {
@@ -89,10 +82,8 @@ input[type="password"] {
   }
 
   .user-forms h2 {
-    
   }
 
   .field input {
-    
   }
 }
