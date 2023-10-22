@@ -20,6 +20,8 @@ class AdminsController < ApplicationController
       menu.creator = @users.find(menu.contributors.first)
       menu.save
     end
+
+    @pending_reviews = Review.where(approved: false)
   end
 
   def approve_user
@@ -129,6 +131,32 @@ class AdminsController < ApplicationController
       end
     end
   end
+
+  def approve_review
+    review = Review.find(params[:id])
+    if review.approve
+      review.user.points += 2
+      review.user.save
+      respond_to do |format|
+        format.turbo_stream do
+          render turbo_stream: turbo_stream.remove("review_#{params[:id]}")
+        end
+      end
+    else
+      redirect_to approvals_path, alert: 'Değerlendirme onaylanamadı.'
+    end
+  end
+
+  def reject_review
+    review = Review.find(params[:id])
+    review.destroy
+    respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.remove("review_#{params[:id]}")
+      end
+    end
+  end
+
 
   private
 

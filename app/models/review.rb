@@ -13,6 +13,10 @@ class Review < ApplicationRecord
 
   scope :approved, -> { where(approved: true) }
 
+  def approve
+    self.approved = true
+    save
+  end
 
   private
 
