@@ -164,8 +164,8 @@
 
   <div id="reviews-container">
     <h2>Müşteriler bu mekanı nasıl değerlendiriyor?</h2>
-    <% @reviews.each do |review| %>
-      <%= render review %>
+    <% @reviews.approved.each do |review| %>
+      <%= render review%>
     <% end %>
   </div>
 

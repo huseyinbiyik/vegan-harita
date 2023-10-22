@@ -1,4 +1,4 @@
-<%= form_with(model: [@place, review], url: place_reviews_path) do |form| %>
+<%= form_with(model: [@place, review], url: review.persisted? ? place_review_path(@place, review) : place_reviews_path(@place), method: review.persisted? ? :patch : :post) do |form| %>
   <div>
     <%= form.label "Puanınız", style: "display: block" %>
     <div class="rating">

@@ -1,4 +1,4 @@
-<h1>Editing review</h1>
-
+<%= turbo_frame_tag @review do %>
+<h2>Değerlendirmeni Düzenle</h2>
 <%= render "form", review: @review %>
-
+<% end %>

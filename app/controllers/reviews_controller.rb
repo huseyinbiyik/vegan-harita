@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_review, only: %i[edit update destroy]
+  before_action :set_place, only: %i[new edit create update]
 
   def new
     @review = Review.new
@@ -9,7 +10,6 @@ class ReviewsController < ApplicationController
   def edit; end
 
   def create
-    @place = Place.find(params[:place_id])
     @review = @place.reviews.build(review_params)
     @review.user = current_user
     if @review.save
@@ -20,7 +20,11 @@ class ReviewsController < ApplicationController
   end
 
   def update
-    @review.update(review_params)
+    if @review.update(review_params)
+      redirect_to [@place, @review], notice: 'Review was successfully updated.'
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -31,6 +35,10 @@ class ReviewsController < ApplicationController
 
   def set_review
     @review = Review.find(params[:id])
+  end
+
+  def set_place
+    @place = Place.find(params[:place_id])
   end
 
   def review_params

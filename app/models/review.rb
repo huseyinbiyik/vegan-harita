@@ -11,6 +11,9 @@ class Review < ApplicationRecord
   validates :content, presence: true, length: { minimum: 5, maximum: 500 }
   validates :feedback, length: { maximum: 500 }
 
+  scope :approved, -> { where(approved: true) }
+
+
   private
 
   def images_count_within_limit
