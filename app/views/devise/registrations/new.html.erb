@@ -6,17 +6,17 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :email, 'E-posta' %><br />
+    <%= f.label :email, 'E-posta' %>
     <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'kullanıcı@mail.com' %>
   </div>
 
   <div class="field">
-    <%= f.label :password, 'Parola' %><br />
+    <%= f.label :password, 'Parola' %>
     <%= f.password_field :password, autocomplete: "new-password", placeholder: '******' %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation, 'Parola Doğrulaması' %><br />
+    <%= f.label :password_confirmation, 'Parola Doğrulaması' %>
     <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: '******' %>
   </div>
 

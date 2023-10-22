@@ -46,7 +46,7 @@ a {
 
 .user-forms {
   font-size: 24px;
-  font-weight: 500;
+  
 }
 
 .user-forms h2 {
@@ -55,24 +55,38 @@ a {
 }
 
 .field {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .field label {
   font-size: 14px;
-  font-weight: 400;
+  
 }
 
 .field input {
+  width: 240px;
+  height: 42px;
+  padding: 10px 8px;
+  border-radius: 5px;
+  border: 1px solid var(--gray);
+  background: var(--white);
+}
+
+.field input:focus {
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid var(--green);
 }
 
 .field input[type="email"],
 input[type="password"] {
+  color: var(--gray);
 }
 
 ::placeholder {
-  font-size: 20px;
-  line-height: 25px;
-  color: var(--black);
+  color: var(--gray);
 }
 
 .session-links-container {
