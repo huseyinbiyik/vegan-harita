@@ -5,7 +5,6 @@
   margin: 0 auto;
   gap: 16px;
   /* width: 240px; */
-  
 }
 
 #remember {
@@ -13,8 +12,7 @@
   flex-direction: row;
   gap: 8px;
   align-items: center;
-  width: 240px
-  
+  width: 240px;
 }
 
 #user_remember_me {
@@ -22,13 +20,10 @@
   height: 20px;
 }
 
-#new_user .actions button {
-}
-
-.session-icon {
-}
-
-.session-text {
+#login-button {
+  color: var(--white);
+  font-weight: 500;
+  background: var(--green);
 }
 
 @media (min-width: 1024px) {

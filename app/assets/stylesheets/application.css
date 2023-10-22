@@ -46,7 +46,6 @@ a {
 
 .user-forms {
   font-size: 24px;
-  
 }
 
 .user-forms h2 {
@@ -62,7 +61,6 @@ a {
 
 .field label {
   font-size: 14px;
-  
 }
 
 .field input {
@@ -90,6 +88,16 @@ input[type="password"] {
 }
 
 .session-links-container {
+}
+
+.actions input {
+  width: 240px;
+  height: 41.856px;
+  border-radius: 20px;
+  border: 1px solid var(--gray);
+  color: var(--black);
+  font-weight: 500;
+  background-color: var(--white)
 }
 
 @media (min-width: 1024px) {

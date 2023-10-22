@@ -20,12 +20,7 @@
     <% end %>
 
     <div class="actions">
-      <%= f.button :submit do %>
-        <span class="session-icon">
-          <%= image_tag "sign-in-icon.svg" %>
-        </span>
-        <span class="session-text">Giriş Yap</span>
-      <% end %>
+      <%= f.submit "Giriş Yap", id:"login-button" %>
     </div>
   <% end %>
 
