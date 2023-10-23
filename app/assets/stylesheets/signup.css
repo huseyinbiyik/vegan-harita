@@ -1,3 +1,7 @@
+.g-recaptcha {
+  transform: scale(0.8);
+}
+
 #signup-button {
   color: var(--white);
   font-weight: 500;
