@@ -107,7 +107,7 @@ input[type="password"] {
 .field input:focus {
   outline: none;
   border-radius: 5px;
-  border: 0.313rem solid var(--green);
+  border: 0.063rem solid var(--green);
 }
 
 @media (min-width: 1024px) {
