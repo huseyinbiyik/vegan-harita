@@ -6,4 +6,5 @@
   color: var(--white);
   font-weight: 500;
   background: var(--green);
+  border: none;
 }

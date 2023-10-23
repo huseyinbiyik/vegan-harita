@@ -68,7 +68,7 @@ a {
   width: 15rem;
   height: 2.625rem;
   padding: 0.625rem 8px;
-  border-radius: 0.5rem;
+  border-radius: 0.313rem;
   border: 0.063rem solid var(--gray);
   background: var(--white);
 }
