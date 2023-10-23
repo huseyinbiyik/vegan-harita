@@ -1,0 +1,8 @@
+<%= button_to place_menu_likes_path(@place, menu), method: :patch do %>
+  <% if menu.liked_by?(current_user) %>
+  <%= image_tag("loved.svg", class: "heart") %>
+  <% else %>
+  <%= image_tag("love.svg", class: "heart") %>
+  <% end %>
+<% end %>
+<%= menu.likes.count %>
