@@ -80,6 +80,7 @@ input[type="password"] {
 
 ::placeholder {
   color: var(--gray);
+  font-size: 1rem;
 }
 
 .session-links-container {
