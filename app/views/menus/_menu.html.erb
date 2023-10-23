@@ -1,12 +1,11 @@
 <div class="menu-item" id="<%= dom_id menu %>">
-    <%= turbo_frame_tag "menu_edit_#{menu.id}" do  %>
 
   <div>
     <p class="name medium-font semi-bold brown">
       <%= menu.name %>
 
-      <%= render partial: "menus/likes", locals: {menu: menu} %>
-      
+      <%= render partial: "menus/likes", locals: {place: @place, menu: menu} %>
+
       <%= link_to "Düzenle", new_menu_edit_path(@place, menu), data: { turbo_frame: "menu_edit_#{menu.id}" }, class: "beige"%>
     </p>
 
@@ -24,5 +23,6 @@
       <%= menu.description %>
     </p>
   </div>
+    <%= turbo_frame_tag "menu_edit_#{menu.id}" do  %>
   <% end %>
 </div>
