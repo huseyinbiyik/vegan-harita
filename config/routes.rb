@@ -3,6 +3,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
   resources :places do
+    resources :reviews, except: %i[index show]
     resources :menus
     collection do
       post :search
@@ -25,6 +26,8 @@ Rails.application.routes.draw do
     delete 'reject-menu/:id', to: "admins#reject_menu", as: :reject_menu
     post 'approve-menu-edit/:id', to: "admins#approve_menu_edit", as: :approve_menu_edit
     delete 'reject-menu-edit/:id', to: "admins#reject_menu_edit", as: :reject_menu_edit
+    post 'approve-review/:id', to: "admins#approve_review", as: :approve_review
+    delete 'reject-review/:id', to: "admins#reject_review", as: :reject_review
   end
 
 

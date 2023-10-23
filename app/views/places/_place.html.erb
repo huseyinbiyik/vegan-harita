@@ -1,9 +1,12 @@
 <div id="<%= dom_id place %>" class="place">
   <div class="page-heading-container bg-dark-green">
     <%= turbo_frame_tag "place-name" do %>
-    <p class="page-title medium-font bold yellow"><%= place.name %><%= link_to "Düzenle", new_place_edit_path(place), class: "beige"  %></p>
-        <% end %>
+      <p class="page-title medium-font bold yellow"><%= place.name %> <%= link_to "Düzenle", new_place_edit_path(place), class: "beige"  %>
+    <% end %>
+    <%= average_rating(@reviews)%>
+    <a href="#reviews-container"> <%= @reviews.size %> Değerlendirme</a>
   </div>
+
 
   <div class="social-links bg-yellow">
     <% social_links = {
@@ -158,4 +161,18 @@
     <p> Bu mekanın menüsü henüz eklenmemiş gibi görünüyor. :(</p>
     <%end%>
   </div>
+
+  <div id="reviews-container">
+    <h2>Müşteriler bu mekanı nasıl değerlendiriyor?</h2>
+    <% @reviews.approved.each do |review| %>
+      <%= render review%>
+    <% end %>
+  </div>
+
+<% if user_signed_in? %>
+  <%= turbo_frame_tag "new_review" do %>
+    <%= link_to "Değerlendirme yaz", new_place_review_path(@place)%>
+  <% end %>
+<% end %>
+
 </div>

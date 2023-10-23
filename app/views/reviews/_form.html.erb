@@ -1,0 +1,34 @@
+<%= form_with(model: [@place, review], url: review.persisted? ? place_review_path(@place, review) : place_reviews_path(@place), method: review.persisted? ? :patch : :post) do |form| %>
+  <div>
+    <%= form.label "Puanınız", style: "display: block" %>
+    <div class="rating">
+      <%= form.collection_radio_buttons(:rating, [[5],[4],[3],[2],[1]], :first, :last) do |star| %>
+        <%= star.radio_button %>
+        <%= star.label(class: "star-numbers") %>
+      <% end %>
+    </div>
+  </div>
+
+  <div>
+    <%= form.label "Değerlendirmeniz", style: "display: block" %>
+    <%= form.text_area :content, placeholder: "Yorumunuz" %>
+  </div>
+
+<%# # Parantez içindeki kısım tooltip olsun %>
+  <div>
+        <%= form.label "Mekan Sahibine Geribildiriminiz (Diğer kullanıcılar tarafından görüntülenmez)", style: "display: block" %>
+        <%= form.text_area :feedback, placeholder: "Bence şu yemeğiniz biraz 🧂lu" %>
+  <div>
+
+    <%= form.label "Fotoğraflar", style: "display: block" %>
+    <%= form.file_field :images, multiple: true, accept: "image/*" %>
+  </div>
+
+  <div class= "add-new-place-form-group">
+    <%= form.submit "Gönder" %>
+  </div>
+  <div class= "add-new-place-form-group">
+    <a href="#" class="cancel">İptal</a>
+  </div>
+
+<% end %>

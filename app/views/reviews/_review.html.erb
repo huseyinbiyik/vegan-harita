@@ -1,0 +1,35 @@
+<div id="<%= dom_id review %>">
+<%= turbo_frame_tag dom_id(review) do %>
+  <p>
+    <%# <%= image_tag review.user.avatar %> %>
+    <%= review.user.email %>
+  </p>
+
+  <div class="show-rating">
+    <% (1..5).each do |i| %>
+      <% if i <= review.rating %>
+        <span class="star filled"></span>
+      <% else %>
+        <span class="star unfilled"></span>
+      <% end %>
+    <% end %>
+  </div>
+
+  <p>
+    <strong>Content:</strong>
+    <%= time_in_words(review) %>
+    <%= review.content %>
+  </p>
+
+  <div>
+    <% review.images.each do |image| %>
+      <%= image_tag image.variant(resize_to_limit: [81,81]) %>
+    <% end %>
+  </div>
+
+<% if review.user == current_user && user_signed_in? %>
+  <%= link_to "Düzenle", edit_place_review_path(@place, review) %>
+  <%= link_to "Sil", place_review_path(@place, review), method: "delete", remote: true, data: { turbo_method: "delete", turbo_confirm: "Silmek istediğinizden emin misiniz?" } %>
+<% end %>
+<% end %>
+</div>
