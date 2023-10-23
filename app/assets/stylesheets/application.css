@@ -45,6 +45,11 @@ a {
 }
 
 .user-forms {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 24px;
+  gap: 16px;
 }
 
 .user-forms h2 {
@@ -93,7 +98,9 @@ input[type="password"] {
   gap: 16px;
 }
 
-
+.action {
+  margin-top: 8px;
+}
 
 .actions input {
   width: 240px;
