@@ -76,6 +76,7 @@ a {
 .field input[type="email"],
 input[type="password"] {
   color: var(--gray);
+  font-size: 1rem;
 }
 
 ::placeholder {
@@ -109,6 +110,11 @@ input[type="password"] {
   outline: none;
   border-radius: 5px;
   border: 0.063rem solid var(--green);
+}
+
+.session-links {
+  color: var(--gray);
+  text-decoration-line: underline;
 }
 
 @media (min-width: 1024px) {
