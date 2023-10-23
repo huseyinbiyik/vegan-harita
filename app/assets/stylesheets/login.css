@@ -25,7 +25,7 @@
   background: var(--green);
 }
 
-#signup-link {
+#login-form #signup-link {
   width: 240px;
   height: 42px;
   border-radius: 20px;
