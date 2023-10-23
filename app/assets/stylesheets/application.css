@@ -47,6 +47,7 @@ a {
   align-items: center;
   margin-top: 1.5rem;
   gap: 1rem;
+  padding: 0 20px;
 }
 
 .user-forms h2 {
