@@ -41,6 +41,10 @@ a {
   text-decoration: none;
 }
 
+input {
+  font-size: 1rem;
+}
+
 .user-forms {
   display: flex;
   flex-direction: column;
@@ -73,12 +77,6 @@ a {
   border-radius: 0.313rem;
   border: 0.063rem solid var(--gray);
   background: var(--white);
-}
-
-.field input[type="email"],
-input[type="password"] {
-  color: var(--gray);
-  font-size: 1rem;
 }
 
 ::placeholder {
