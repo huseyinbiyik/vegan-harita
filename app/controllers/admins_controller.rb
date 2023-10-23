@@ -157,7 +157,6 @@ class AdminsController < ApplicationController
     end
   end
 
-
   private
 
   def authenticate_admin
