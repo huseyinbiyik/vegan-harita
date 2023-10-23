@@ -9,6 +9,10 @@ class Menu < ApplicationRecord
 
   enum product_category: { Yemek: 0, Tatlı: 1, İçecek: 2 }
 
+  scope :food, -> { where(product_category: 0, approved: true).order(likes_count: :desc) }
+  scope :dessert, -> { where(product_category: 1, approved: true).order(likes_count: :desc) }
+  scope :drink, -> { where(product_category: 2, approved: true).order(likes_count: :desc) }
+
   def approve
     self.approved = true
     save
@@ -24,5 +28,9 @@ class Menu < ApplicationRecord
 
   def unlike(user)
     likes.where(user:).destroy_all
+  end
+
+  def most_liked?(place)
+    likes_count == place.menus.maximum(:likes_count) && likes_count >= 5
   end
 end

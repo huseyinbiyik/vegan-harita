@@ -7,4 +7,9 @@
     <% end %>
   <% end %>
   <%= menu.likes.count %>
+  <span>
+  <% if menu.most_liked?(place) %>
+    En çok sevilen ürün ❤️‍🔥
+  <% end %>
+  <span>
 <% end %>
