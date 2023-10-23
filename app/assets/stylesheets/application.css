@@ -116,6 +116,12 @@ input[type="password"] {
   text-decoration-line: underline;
 }
 
+#re-send {
+  background-color: var(--black);
+  border: none;
+  color: var(--white);
+}
+
 @media (min-width: 1024px) {
   body {
     min-height: 100vh;
