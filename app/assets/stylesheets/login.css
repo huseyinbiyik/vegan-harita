@@ -4,7 +4,6 @@
   align-items: center;
   margin: 0 auto;
   gap: 16px;
-  /* width: 240px; */
 }
 
 #remember {
@@ -24,6 +23,16 @@
   color: var(--white);
   font-weight: 500;
   background: var(--green);
+}
+
+#signup-link {
+  width: 240px;
+  height: 42px;
+  border-radius: 20px;
+  border: 1px solid var(--gray);
+  display: flex;
+  align-items: center;
+  justify-content: center;  
 }
 
 @media (min-width: 1024px) {
