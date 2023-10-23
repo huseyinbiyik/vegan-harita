@@ -36,9 +36,6 @@
   src: url("GeneralSans.ttf");
 }
 
-h2 {
-}
-
 a {
   color: var(--black);
   text-decoration: none;
@@ -76,12 +73,6 @@ a {
   background: var(--white);
 }
 
-.field input:focus {
-  outline: none;
-  border-radius: 5px;
-  border: 1px solid var(--green);
-}
-
 .field input[type="email"],
 input[type="password"] {
   color: var(--gray);
@@ -113,6 +104,12 @@ input[type="password"] {
   font-size: 16px;
 }
 
+.field input:focus {
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid var(--green);
+}
+
 @media (min-width: 1024px) {
   body {
     min-height: 100vh;
@@ -120,11 +117,5 @@ input[type="password"] {
 
   .user-forms {
     margin-top: 127px;
-  }
-
-  .user-forms h2 {
-  }
-
-  .field input {
   }
 }

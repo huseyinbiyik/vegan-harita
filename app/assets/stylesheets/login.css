@@ -32,10 +32,5 @@
   border: 1px solid var(--gray);
   display: flex;
   align-items: center;
-  justify-content: center;  
-}
-
-@media (min-width: 1024px) {
-  .remember {
-  }
+  justify-content: center;
 }
