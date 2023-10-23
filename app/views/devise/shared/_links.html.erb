@@ -1,17 +1,17 @@
 <%- if controller_name != 'sessions' %>
-  <%= link_to "Giriş Yap", new_session_path(resource_name), class: "session-links" %>
+  <%= link_to "Giriş yap", new_session_path(resource_name), class: "session-links" %>
 <% end %>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to "Kayıt Ol", new_registration_path(resource_name), class: "session-links", id:"signup-link" %>
+  <%= link_to "Kayıt ol", new_registration_path(resource_name), class: "session-links", id:"signup-link" %>
 <% end %>
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to "Parolamı Unuttum", new_password_path(resource_name), class: "session-links" %>
+  <%= link_to "Parolamı unuttum", new_password_path(resource_name), class: "session-links" %>
 <% end %>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-  <%= link_to "Onay mailini almadınız mı?", new_confirmation_path(resource_name), class: "session-links" %>
+  <%= link_to "Onay e-postası almadım", new_confirmation_path(resource_name), class: "session-links" %>
 <% end %>
 
 <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
