@@ -1,12 +1,10 @@
+.g-recaptcha {
+  transform: scale(0.8);
+}
+
 #signup-button {
-  height: 60px;
-  width: 184px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 2px solid var(--black);
-  margin-top: 5px;
-  margin-bottom: 17px;
-  line-height: 25px;
-  text-align: left;
+  color: var(--white);
+  font-weight: 500;
+  background: var(--green);
+  border: none;
 }

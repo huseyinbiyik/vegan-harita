@@ -3,43 +3,41 @@
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
-  width: 225px;
+  gap: 1rem;
 }
 
-.remember {
-  width: 100%;
+#remember {
   display: flex;
-  float: left;
+  flex-direction: row;
+  gap: 0.5rem;
+  align-items: center;
+  width: 15rem;
 }
 
 #user_remember_me {
-  height: 20px;
-  width: 20px;
-  margin-right: 4px;
+  width: 1.25rem;
+  height: 1.25rem;
 }
 
-#new_user .actions button {
-  height: 60px;
-  width: 184px;
+#remember label {
+  color: var(--gray);
+}
+
+#login-button {
+  color: var(--white);
+  font-weight: 500;
+  background: var(--green);
+  border: none;
+}
+
+#login-form #signup-link {
+  width: 15rem;
+  height: 2.625rem;
+  border-radius: 1.25rem;
+  border: 0.063rem solid var(--gray);
   display: flex;
-  justify-content: center;
   align-items: center;
-  border: 2px solid var(--black);
-  margin-top: 5px;
-  margin-bottom: 17px;
-  background-color: var(--brown);
-}
-
-.session-icon {
-  margin-right: 8px;
-}
-
-.session-text {
-  line-height: 25px;
-}
-
-@media (min-width: 1024px) {
-  .remember {
-    width: 300px;
-  }
+  justify-content: center;
+  color: var(--black);
+  text-decoration: none;
 }

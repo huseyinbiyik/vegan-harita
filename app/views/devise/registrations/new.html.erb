@@ -1,23 +1,23 @@
-<section class="user-forms bg-green">
+<section class="user-forms">
 
-<h2 class="medium-weight black">Kayıt Ol</h2>
+<h2>Kayıt Ol</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { data: { turbo: false}}) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :email, 'E-posta', class: "black" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'kullanıcı@mail.com', class: "bg-beige" %>
+    <%= f.label :email, 'E-posta' %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "mail@adresiniz.com" %>
   </div>
 
   <div class="field">
-    <%= f.label :password, class: "black" 'Parola' %><br />
-    <%= f.password_field :password, autocomplete: "new-password", placeholder: '******', class: "bg-beige" %>
+    <%= f.label :password, 'Parola' %>
+    <%= f.password_field :password, autocomplete: "new-password", placeholder: '******' %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation, 'Parola Doğrulaması', class: "black" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: '******', class: "bg-beige" %>
+    <%= f.label :password_confirmation, 'Parola Doğrulaması' %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: '******' %>
   </div>
 
   <div class="field">
@@ -26,7 +26,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Kayıt Ol", id:"signup-button", class: "medium-font beige bg-dark-green" %>
+    <%= f.submit "Kayıt ol", id:"signup-button" %>
   </div>
 <% end %>
 

@@ -1,20 +1,17 @@
-<section class="user-forms bg-green">
-  <h2 class="medium-weight black">Onay talimatlarını yeniden gönder</h2>
+<section class="user-forms">
+  <h2>Onay talimatlarını yeniden gönder</h2>
 
   <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="field">
-      <%= f.label :email, 'E-posta', class: "black" %><br />
-      <%= f.email_field :email, autofocus: true, class:"bg-beige", autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+      <%= f.label :email, 'E-posta' %>
+      <%= f.email_field :email, placeholder: "mail@adresiniz.com", autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
     </div>
 
     <div class="actions">
-      <%= f.button :submit do %>
-        <span class="session-text medium-font beige">Gönder</span>
-      <% end %> 
+      <%= f.submit "Gönder", id:"re-send" %>
     </div>
-    
   <% end %>
 
   <div class="session-links-container">
