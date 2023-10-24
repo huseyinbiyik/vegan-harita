@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations' }
   resources :places do
     resources :reviews, except: %i[index show]
-    resources :menus
+    resources :menus do
+      resource :likes, module: :menus
+    end
     collection do
       post :search
     end

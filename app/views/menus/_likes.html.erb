@@ -1,0 +1,15 @@
+<%= tag.div id: dom_id(menu, :likes) do %>
+  <%= button_to place_menu_likes_path(place, menu), method: :patch, disabled: !user_signed_in? do %>
+    <% if menu.liked_by?(current_user) %>
+      <%= image_tag("loved.svg", class: "heart") %>
+    <% else %>
+      <%= image_tag("love.svg", class: "heart") %>
+    <% end %>
+  <% end %>
+  <%= menu.likes.count %>
+  <span>
+  <% if menu.most_liked?(place) %>
+    En çok sevilen ürün ❤️‍🔥
+  <% end %>
+  <span>
+<% end %>
