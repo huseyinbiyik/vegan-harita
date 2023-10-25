@@ -4,7 +4,9 @@
       <p class="page-title medium-font bold yellow"><%= place.name %> <%= link_to "Düzenle", new_place_edit_path(place), class: "beige"  %>
     <% end %>
     <%= average_rating(@reviews)%>
+    <% if @reviews.present? %>
     <a href="#reviews-container"> <%= @reviews.size %> Değerlendirme</a>
+    <% end %>
   </div>
 
 
