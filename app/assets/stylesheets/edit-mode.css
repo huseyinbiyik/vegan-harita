@@ -1,0 +1,34 @@
+.edit-icon-container {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
+
+.edit-icon-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px dashed var(--green);
+  border-radius: 50%;
+  box-sizing: border-box;
+  animation: rotateBorder 4s linear infinite;
+}
+
+@keyframes rotateBorder {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.edit-icon-container img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
