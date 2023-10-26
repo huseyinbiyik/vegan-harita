@@ -1,10 +1,25 @@
-<div id="<%= dom_id place %>" class="place">
+<div id="<%= dom_id place %>" class="place" data-controller="edit">
   <div class="page-heading-container bg-dark-green">
+    <button data-action="click->edit#toggle">
+      <span class="edit-icon-container">
+        <%=image_tag "edit.svg", class: "edit-icon" %>
+      </span>
+      <span data-edit-target="toggleContent">Düzenleme Öner</span>
+    </button>
+
     <%= turbo_frame_tag "place-name" do %>
-      <p class="page-title medium-font bold yellow"><%= place.name %> <%= link_to "Düzenle", new_place_edit_path(place), class: "beige"  %>
+      <span class="page-title medium-font bold yellow"><%= place.name %></span>
+        <%= link_to new_place_edit_path(place), class: "edit beige", hidden: true do  %>
+          <span class="edit-icon-container">
+            <%= image_tag "edit.svg", class: "edit-icon" %>
+          </span>
+          <% end %>
     <% end %>
+
     <%= average_rating(@reviews)%>
+    <% if @reviews.present? %>
     <a href="#reviews-container"> <%= @reviews.size %> Değerlendirme</a>
+    <% end %>
   </div>
 
 
@@ -24,21 +39,33 @@
             <%= link_to "https://#{value}", target: "_blank" do %>
               <%= image_tag "#{key}.svg", class: "social" %>
             <% end %>
-            <%= link_to "Düzenle", new_place_edit_path(place), class: "beige"  %>
+            <%= link_to new_place_edit_path(place), class: "edit beige", hidden: true do  %>
+              <span class="edit-icon-container">
+                <%= image_tag "edit.svg", class: "edit-icon" %>
+              </span>
+            <% end %>
           <% end %>
         <% elsif key == "email" %>
           <%= turbo_frame_tag "place-email" do %>
             <%= link_to "#{value}", href: "mailto:#{value}" do %>
               <%= image_tag "#{key}.svg", class: "social" %>
             <% end %>
-            <%= link_to "Düzenle", new_place_edit_path(place), class: "beige"  %>
+            <%= link_to new_place_edit_path(place), class: "edit beige", hidden: true do  %>
+              <span class="edit-icon-container">
+                <%= image_tag "edit.svg", class: "edit-icon" %>
+              </span>
+            <% end %>
           <% end %>
         <% else %>
           <%= turbo_frame_tag "place-#{key}" do %>
           <%= link_to "#{value}", target: "_blank" do %>
             <%= image_tag "#{key}.svg", class: "social" %>
           <% end %>
-          <%= link_to "Düzenle", new_place_edit_path(place), class: "beige"  %>
+          <%= link_to new_place_edit_path(place), class: "edit beige", hidden: true do  %>
+              <span class="edit-icon-container">
+                <%= image_tag "edit.svg", class: "edit-icon" %>
+              </span>
+          <% end %>
           <% end %>
         <% end %>
       <% else %>
@@ -46,7 +73,11 @@
           <%= link_to "#{value}" do %>
             <%= image_tag "#{key}.svg", class: "social disabled" %>
           <% end %>
-          <%= link_to "Düzenle", new_place_edit_path(place), class: "beige"  %>
+          <%= link_to new_place_edit_path(place), class: "edit beige", hidden: true do  %>
+              <span class="edit-icon-container">
+                <%= image_tag "edit.svg", class: "edit-icon" %>
+              </span>
+          <% end %>
         <% end %>
       <% end %>
     <% end %>
@@ -55,6 +86,11 @@
   <%= turbo_frame_tag "place-images" do %>
   <div data-controller="slider" class="slider bg-dark-green">
     <div class="slider-container">
+      <%= link_to new_place_edit_path(place), class: "edit beige", hidden: true do %>
+              <span class="edit-icon-container">
+                <%= image_tag "edit.svg", class: "edit-icon" %>
+              </span>
+      <% end %>
       <% if place.images.attached? %>
         <% place.images.each do |image| %>
           <%= image_tag image, class: "slider-image", data: { slider_target: "image" } %>
@@ -70,7 +106,6 @@
       <% end %>
       </div>
     </div>
-   <%= link_to "Düzenle", new_place_edit_path(place), class: "beige"  %>
   <% end %>
 
 
@@ -87,7 +122,11 @@
       <span class="detail dark-green">Vegan Seçenekli</span>
     </div>
   <% end %>
-        <%= link_to "Düzenle", new_place_edit_path(place), class: "beige"  %>
+        <%= link_to new_place_edit_path(place), class: "edit beige", hidden: true do %>
+              <span class="edit-icon-container">
+                <%= image_tag "edit.svg", class: "edit-icon" %>
+              </span>
+        <% end %>
   <% end %>
 
     <div class="detail-group">
@@ -101,7 +140,11 @@
             <%= image_tag "direction.svg", class: "detail-icon", id: "direction-icon" %>
           <span class="detail">Yol Tarifi</span>
           <% end %>
-        <%= link_to "Düzenle", new_place_edit_path(place), class: "beige"  %>
+        <%= link_to new_place_edit_path(place), class: "edit beige", hidden: true do  %>
+              <span class="edit-icon-container">
+                <%= image_tag "edit.svg", class: "edit-icon" %>
+              </span>
+          <% end %>
         <% end %>
       </div>
 
@@ -119,7 +162,11 @@
         <%= image_tag "phone.svg", class: "detail-icon disabled", id: "phone-icon" %>
       <% end %>
     <% end %>
-    <%= link_to "Düzenle", new_place_edit_path(place), class: "beige"  %>
+    <%= link_to new_place_edit_path(place), class: "edit beige", hidden: true do  %>
+              <span class="edit-icon-container">
+                <%= image_tag "edit.svg", class: "edit-icon" %>
+              </span>
+    <% end %>
     <% end %>
   </div>
 
@@ -132,14 +179,18 @@
       <% else %>
         <span class="yellow">Etiket Yok</span>
       <% end %>
-    <%= link_to "Düzenle", new_place_edit_path(place), class: "beige"  %>
+    <%= link_to new_place_edit_path(place), class: "edit beige", hidden: true do  %>
+      <span class="edit-icon-container">
+        <%= image_tag "edit.svg", class: "edit-icon" %>
+      </span>
+    <% end %>
     <% end %>
   </div>
 
   <div id="menu" class="bg-dark-green">
     <div id="menu-header" class="green">
         <h1 class="medium-font semi-bold">MENÜ</h1>
-        <%= link_to new_place_menu_path(@place), data: { turbo_frame: "new_menu"}, id: "add-new-product", class: "green" do %>
+        <%= link_to new_place_menu_path(@place), data: { turbo_frame: "new_menu"}, id: "add-new-product", class: "edit green", hidden: true do %>
           <%= image_tag "add-icon.svg" %>
           <span>Ürün Ekle</span>
         <% end %>
