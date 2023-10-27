@@ -3,54 +3,53 @@
   font-weight: 500;
 }
 
+#place_address {
+  border-bottom: 0 !important;
+}
+
 #add-new-place-form label {
   font-size: 14px;
 }
 
-/* old */
-
-#add-new-place {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 #add-new-place-form {
+  margin: 0 20px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  max-width: 400px;
-  padding: 0 20px 0 20px;
+  gap: 1rem;
+  align-items: center;
 }
 
-#add-new-place-form div {
-  width: 100%;
-}
-
-#add-new-place-form .add-new-place-form-group {
-  margin-bottom: 15px;
+.add-new-place-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  width: 240px;
 }
 
 #add-new-place-form input[type="text"] {
-  width: 100%;
-  height: 30px;
-  border: 1px solid var(--black);
-  padding: 0 5px 0 5px;
+  height: 42px;
+  width: 240px;
+  flex-shrink: 0;
+  border-radius: 0.313rem;
+  border: 0.063rem solid var(--gray);
+}
+
+#add-new-place-form ::placeholder {
+  padding: 0.625rem 0.5rem;
 }
 
 #add-new-place-form #map {
-  width: 100%;
-  height: 20vh;
-  border: 1px solid var(--black);
-  margin-bottom: 15px;
+  width: 240px;
+  height: 126px;
+  border-radius: 0px 0px 5px 5px;
+  margin-top: -6px;
+  border-radius: 0px 0px 5px 5px;
+  border: 1px solid var(--green);
 }
 
 /* Style image upload  */
 #add-new-place-form #place_images {
-  height: 30px;
-  width: 100%;
+  padding: 8px;
 }
 
 #add-new-place-form #place_images::-webkit-file-upload-button {
@@ -60,46 +59,54 @@
 #add-new-place-form #place_images::before {
   content: "Dosya Seçin";
   display: inline-block;
-  background: var(--beige);
-  padding: 5px 8px;
   outline: none;
   white-space: nowrap;
   -webkit-user-select: none;
   cursor: pointer;
-  font-size: 16px;
-  border: 1px solid var(--black);
-}
-
-/*  Tags, place edit form */
-
-.tags-form-container {
-  height: 160px;
-}
-
-.tags-form-container label {
-  display: inline-block;
-  margin-bottom: 5px;
-  background: var(--beige);
-  padding: 5px 8px;
+  padding: 3px 9px 3px 4px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 0.1px solid var(--black);
+  background: var(--white);
+  width: 90px;
+  height: 25px;
 }
 
 .tags-form {
   overflow: scroll;
-  height: 100px;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.tag {
+  border-radius: 5px;
+  border: 1px solid var(--gray);
+  padding: 10px 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  width: auto;
 }
 
 /* Style image upload  */
 #add-new-place-form select {
-  width: 100%;
-  height: 30px;
-  border: 1px solid var(--black);
-  padding: 0 5px 0 5px;
+  width: 161px;
+  height: 42px;
+  border-radius: 5px;
+  border: 1px solid var(--gray);
+  font-size: 16px;
+  padding: 10px 8px;
 }
 
 #add-new-place-form input[type="submit"] {
-  width: 120px;
-  height: 40px;
-  padding: 0 5px 0 5px;
-  cursor: pointer;
-  border: 1px solid var(--black);
+  margin-top: 2.25rem;
+  width: 240px;
+  height: 42px;
+  border-radius: 20px;
+  background: var(--green);
+  color: var(--white);
+  font-weight: 500;
+  border: none;
 }

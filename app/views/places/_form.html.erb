@@ -15,9 +15,9 @@
   <div class="add-new-place-form-group">
     <%= form.label "Adres", style: "display: block" %>
     <%= form.text_field :address,  data: {place_target: "field", action: "keydown->place#preventSubmit"}, placeholder: "X Vegan Cafe, Kadıköy...", required: true %>
+    <div id="map"  data-place-target="map"></div>
   </div>
 
-  <div id="map"  data-place-target="map"></div>
 
 
   <%= form.hidden_field :latitude, data: {place_target: "latitude"} %>
@@ -55,7 +55,7 @@
   <%= form.label "Bu mekanı tanımlayan etiketleri seçin", style: "display: block"%>
   <div class="tags-form">
   <% Tag.all.each do |tag| %>
-    <label class="checkbox-inline">
+    <label class="checkbox-inline tag">
       <%= form.check_box :tag_ids, { multiple: true, id: "tag-select" }, tag.id, nil %>
       <%= tag.name %>
     </label>
