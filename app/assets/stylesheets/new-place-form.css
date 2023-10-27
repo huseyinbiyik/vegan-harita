@@ -38,6 +38,9 @@
   flex-shrink: 0;
   border-radius: 0.313rem;
   border: 0.063rem solid var(--gray);
+  font-size: 16px;
+  padding: 0.625rem 0.5rem;
+
 }
 
 #add-new-place-form ::placeholder {
