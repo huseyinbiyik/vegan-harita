@@ -12,7 +12,7 @@
 }
 
 #add-new-place-form {
-  margin: 0 20px;
+  margin: 0 20px 48px 20px;
   display: flex;
   flex-direction: column;
   gap: 1rem;
