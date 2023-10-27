@@ -26,6 +26,7 @@
       <%= form.label "İsim", style: "display: block" %>
       <%= form.text_field :name, placeholder: "X Vegan Cafe", required: true %>
     </div>
+
     <% if place.images.attached? %>
     <div class= "add-new-place-form-group">
       <%=  form.label "Silinecek Fotoğrafları Seç", style: "display: block" %>
@@ -37,6 +38,7 @@
       <% end %>
     </div>
     <% end %>
+
     <div class= "add-new-place-form-group">
       <%= form.label "Görsel", style: "display: block" %>
       <%= form.file_field :images, multiple: true, accept: "image/*" %>
@@ -63,19 +65,19 @@
   <div class="sub-group">
     <div class= "add-new-place-form-group">
       <%= form.label "Instagram", style: "display: block" %>
-      <%= form.text_field :instagram_url, placeholder: "instagram.com/" %>
+      <%= form.text_field :instagram_url, placeholder: "instagram.com/", class:"lined" %>
     </div>
 
     <div class= "add-new-place-form-group">
       <%= form.label "Facebook", style: "display: block" %>
-      <%= form.text_field :facebook_url, placeholder: "facebook.com/" %>
+      <%= form.text_field :facebook_url, placeholder: "facebook.com/", class:"lined" %>
     </div>
   </div>
 
   <div class="sub-group">
     <div class= "add-new-place-form-group">
       <%= form.label "X", style: "display: block" %>
-      <%= form.text_field :twitter_url, placeholder: "x.com/" %>
+      <%= form.text_field :twitter_url, placeholder: "x.com/", class:"lined" %>
     </div>
 
     <div class= "add-new-place-form-group">
@@ -96,7 +98,7 @@
     </div>
   </div>
 
-  <div class= "add-new-place-form-group">
+  <div class= "add-new-place-form-group", id="submit-place" >
     <%= form.submit "Gönder" %>
   </div>
 <% end %>

@@ -115,3 +115,42 @@
   font-weight: 500;
   border: none;
 }
+
+.lined::placeholder {
+  width: fit-content;
+  border-right: 0.063rem solid var(--gray);
+}
+
+@media (min-width: 1024px) {
+  .add-new-place-form-group {
+    width: 35.75rem;
+  }
+
+  #add-new-place-form input[type="text"] {
+    width: 35.75rem;
+  }
+
+  #add-new-place-form #map {
+    width: 35.75rem;
+  }
+
+  .sub-group {
+    display: flex;
+    flex-direction: row;
+    gap: 0.75rem;
+    width: 35.75rem;
+  }
+
+  .sub-group input {
+    width: 17.5rem !important;
+  }
+
+  #add-new-place-form #place_images {
+    border-radius: 0.313rem;
+    border: 0.063rem solid var(--gray);
+  }
+
+  #submit-place {
+    align-items: center;
+  }
+}
