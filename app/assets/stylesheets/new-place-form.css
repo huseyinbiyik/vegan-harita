@@ -1,5 +1,5 @@
 #add-place {
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 500;
 }
 
@@ -8,11 +8,11 @@
 }
 
 #add-new-place-form label {
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 #add-new-place-form {
-  margin: 0 20px 48px 20px;
+  margin: 0 1.25rem 3rem 1.25rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -23,12 +23,18 @@
   display: flex;
   flex-direction: column;
   gap: 0.125rem;
-  width: 240px;
+  width: 15rem;
+}
+
+.sub-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 #add-new-place-form input[type="text"] {
-  height: 42px;
-  width: 240px;
+  height: 2.625rem;
+  width: 15rem;
   flex-shrink: 0;
   border-radius: 0.313rem;
   border: 0.063rem solid var(--gray);
@@ -39,17 +45,16 @@
 }
 
 #add-new-place-form #map {
-  width: 240px;
-  height: 126px;
-  border-radius: 0px 0px 5px 5px;
-  margin-top: -6px;
-  border-radius: 0px 0px 5px 5px;
-  border: 1px solid var(--green);
+  width: 15rem;
+  height: 7.875rem;
+  margin-top: -0.375rem;
+  border-radius: 0 0 0.313rem 0.313rem;
+  border: 0.063rem solid var(--green);
 }
 
 /* Style image upload  */
 #add-new-place-form #place_images {
-  padding: 8px;
+  padding: 0.5rem;
 }
 
 #add-new-place-form #place_images::-webkit-file-upload-button {
@@ -63,13 +68,13 @@
   white-space: nowrap;
   -webkit-user-select: none;
   cursor: pointer;
-  padding: 3px 9px 3px 4px;
-  font-size: 14px;
-  border-radius: 5px;
-  border: 0.1px solid var(--black);
+  padding: 0.188rem 0.563rem 0.188rem 0.25rem;
+  font-size: 0.875rem;
+  border-radius: 0.313rem;
+  border: 0.006rem solid var(--black);
   background: var(--white);
-  width: 90px;
-  height: 25px;
+  width: 5.625rem;
+  height: 1.563rem;
 }
 
 .tags-form {
@@ -77,34 +82,34 @@
   height: auto;
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 0.75rem;
 }
 
 .tag {
-  border-radius: 5px;
-  border: 1px solid var(--gray);
-  padding: 10px 8px;
+  border-radius: 0.313rem;
+  border: 0.063rem solid var(--gray);
+  padding: 0.625rem 0.5rem;
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 0.25rem;
   width: auto;
 }
 
 /* Style image upload  */
 #add-new-place-form select {
-  width: 161px;
-  height: 42px;
-  border-radius: 5px;
-  border: 1px solid var(--gray);
-  font-size: 16px;
-  padding: 10px 8px;
+  width: 10.063rem;
+  height: 2.625rem;
+  border-radius: 0.313rem;
+  border: 0.063rem solid var(--gray);
+  font-size: 1rem;
+  padding: 0.625rem 0.5rem;
 }
 
 #add-new-place-form input[type="submit"] {
   margin-top: 2.25rem;
-  width: 240px;
-  height: 42px;
-  border-radius: 20px;
+  width: 15rem;
+  height: 2.625rem;
+  border-radius: 1.25rem;
   background: var(--green);
   color: var(--white);
   font-weight: 500;

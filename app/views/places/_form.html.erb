@@ -18,32 +18,29 @@
     <div id="map"  data-place-target="map"></div>
   </div>
 
-
-
   <%= form.hidden_field :latitude, data: {place_target: "latitude"} %>
   <%= form.hidden_field :longitude, data: {place_target: "longitude"}  %>
 
-  <div class= "add-new-place-form-group">
-    <%= form.label "İsim", style: "display: block" %>
-    <%= form.text_field :name, placeholder: "X Vegan Cafe", required: true %>
-  </div>
-
-
-  <% if place.images.attached? %>
-  <div class= "add-new-place-form-group">
-    <%=  form.label "Silinecek Fotoğrafları Seç", style: "display: block" %>
-    <% place.images.each do |image| %>
-      <div class="image-checkbox">
-        <%= form.check_box :deleted_images, { multiple: true, id: "image-select" }, image.id, nil %>
-        <%= image_tag image.variant(resize_to_limit: [100,100]), class: "image-checkbox-image" %>
-      </div>
+  <div class="sub-group">
+    <div class= "add-new-place-form-group">
+      <%= form.label "İsim", style: "display: block" %>
+      <%= form.text_field :name, placeholder: "X Vegan Cafe", required: true %>
+    </div>
+    <% if place.images.attached? %>
+    <div class= "add-new-place-form-group">
+      <%=  form.label "Silinecek Fotoğrafları Seç", style: "display: block" %>
+      <% place.images.each do |image| %>
+        <div class="image-checkbox">
+          <%= form.check_box :deleted_images, { multiple: true, id: "image-select" }, image.id, nil %>
+          <%= image_tag image.variant(resize_to_limit: [100,100]), class: "image-checkbox-image" %>
+        </div>
+      <% end %>
+    </div>
     <% end %>
-  </div>
-  <% end %>
-
-  <div class= "add-new-place-form-group">
-    <%= form.label "Görsel", style: "display: block" %>
-    <%= form.file_field :images, multiple: true, accept: "image/*" %>
+    <div class= "add-new-place-form-group">
+      <%= form.label "Görsel", style: "display: block" %>
+      <%= form.file_field :images, multiple: true, accept: "image/*" %>
+    </div>
   </div>
 
   <div class= "add-new-place-form-group">
@@ -51,47 +48,52 @@
     <%= form.select :vegan, options_for_select([["Vegan Seçenekli", true], ["Vegan", false]]), {} %>
   </div>
 
-<div class="add-new-place-form-group tags-form-container " >
-  <%= form.label "Bu mekanı tanımlayan etiketleri seçin", style: "display: block"%>
-  <div class="tags-form">
-  <% Tag.all.each do |tag| %>
-    <label class="checkbox-inline tag">
-      <%= form.check_box :tag_ids, { multiple: true, id: "tag-select" }, tag.id, nil %>
-      <%= tag.name %>
-    </label>
-  <% end %>
+  <div class="add-new-place-form-group tags-form-container " >
+    <%= form.label "Bu mekanı tanımlayan etiketleri seçin", style: "display: block"%>
+    <div class="tags-form">
+    <% Tag.all.each do |tag| %>
+      <label class="checkbox-inline tag">
+        <%= form.check_box :tag_ids, { multiple: true, id: "tag-select" }, tag.id, nil %>
+        <%= tag.name %>
+      </label>
+    <% end %>
+      </div>
+  </div>
+
+  <div class="sub-group">
+    <div class= "add-new-place-form-group">
+      <%= form.label "Instagram", style: "display: block" %>
+      <%= form.text_field :instagram_url, placeholder: "instagram.com/" %>
     </div>
-</div>
 
-
-  <div class= "add-new-place-form-group">
-    <%= form.label "Instagram", style: "display: block" %>
-    <%= form.text_field :instagram_url, placeholder: "instagram.com/" %>
+    <div class= "add-new-place-form-group">
+      <%= form.label "Facebook", style: "display: block" %>
+      <%= form.text_field :facebook_url, placeholder: "facebook.com/" %>
+    </div>
   </div>
 
-  <div class= "add-new-place-form-group">
-    <%= form.label "Facebook", style: "display: block" %>
-    <%= form.text_field :facebook_url, placeholder: "facebook.com/" %>
+  <div class="sub-group">
+    <div class= "add-new-place-form-group">
+      <%= form.label "X", style: "display: block" %>
+      <%= form.text_field :twitter_url, placeholder: "x.com/" %>
+    </div>
+
+    <div class= "add-new-place-form-group">
+      <%= form.label "Web site adresi", style: "display: block" %>
+      <%= form.text_field :web_url, placeholder: "veganharita.com" %>
+    </div>
   </div>
 
-  <div class= "add-new-place-form-group">
-    <%= form.label "X", style: "display: block" %>
-    <%= form.text_field :twitter_url, placeholder: "x.com/" %>
-  </div>
+  <div class="sub-group">
+    <div class= "add-new-place-form-group">
+      <%= form.label "E-posta", style: "display: block" %>
+      <%= form.text_field :email, placeholder: "mail@mail.com" %>
+    </div>
 
-  <div class= "add-new-place-form-group">
-    <%= form.label "Web site adresi", style: "display: block" %>
-    <%= form.text_field :web_url, placeholder: "veganharita.com" %>
-  </div>
-
-  <div class= "add-new-place-form-group">
-    <%= form.label "E-posta", style: "display: block" %>
-    <%= form.text_field :email, placeholder: "mail@mail.com" %>
-  </div>
-
-  <div class= "add-new-place-form-group">
-    <%= form.label "Telefon", style: "display: block" %>
-    <%= form.text_field :phone, pattern: "[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}",  placeholder: "5*********" %>
+    <div class= "add-new-place-form-group">
+      <%= form.label "Telefon", style: "display: block" %>
+      <%= form.text_field :phone, pattern: "[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}",  placeholder: "5*********" %>
+    </div>
   </div>
 
   <div class= "add-new-place-form-group">
