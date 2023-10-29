@@ -7,6 +7,8 @@
 
 #place_address {
   border-bottom: 0 !important;
+  border-radius: 5px 5px 0 0 !important;
+  margin-bottom: -2px;
 }
 
 #add-new-place-form label {
@@ -51,7 +53,6 @@
 #add-new-place-form #map {
   width: 15rem;
   height: 7.875rem;
-  margin-top: -0.375rem;
   border-radius: 0 0 0.313rem 0.313rem;
   border: 0.063rem solid var(--green);
 }
