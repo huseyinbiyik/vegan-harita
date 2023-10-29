@@ -14,7 +14,7 @@
 
   <div class="add-new-place-form-group">
     <%= form.label "Adres", style: "display: block" %>
-    <%= form.text_field :address,  data: {place_target: "field", action: "keydown->place#preventSubmit"}, placeholder: "X Vegan Cafe, Kadıköy...", required: true %>
+    <%= form.text_field :address,  data: {place_target: "field", action: "keydown->place#preventSubmit"}, placeholder: "X Vegan Cafe, Kadıköy...", autofocus: true, required: true %>
     <div id="map"  data-place-target="map"></div>
   </div>
 
