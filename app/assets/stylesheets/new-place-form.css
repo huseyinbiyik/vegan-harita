@@ -65,6 +65,7 @@
 
 #add-new-place-form #place_images::-webkit-file-upload-button {
   visibility: hidden;
+  width: 0;
 }
 
 #add-new-place-form #place_images::before {
