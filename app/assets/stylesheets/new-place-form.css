@@ -123,9 +123,29 @@
   border: none;
 }
 
-.lined::placeholder {
-  width: fit-content;
-  border-right: 0.063rem solid var(--gray);
+.social-field {
+  position: relative;
+}
+
+#instagram {
+  padding-left: 8.888rem !important;
+}
+
+#facebook {
+  padding-left: 8.512rem !important;
+}
+
+#x {
+  padding-left: 4.819rem !important;
+}
+
+.platform {
+  position: absolute;
+  height: 42px;
+  border-right: 1px solid var(--gray);
+  top: 21px;
+  padding: 10px 8px;
+  color: var(--gray);
 }
 
 @media (min-width: 1024px) {

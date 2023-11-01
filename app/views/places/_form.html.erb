@@ -63,21 +63,24 @@
   </div>
 
   <div class="sub-group">
-    <div class= "add-new-place-form-group">
+    <div class= "add-new-place-form-group social-field">
       <%= form.label "Instagram", style: "display: block" %>
-      <%= form.text_field :instagram_url, placeholder: "instagram.com/", class:"lined" %>
+      <span class="platform">instagram.com/</span>
+      <%= form.text_field :instagram_url, id:"instagram" %>
     </div>
 
-    <div class= "add-new-place-form-group">
+    <div class= "add-new-place-form-group social-field">
       <%= form.label "Facebook", style: "display: block" %>
-      <%= form.text_field :facebook_url, placeholder: "facebook.com/", class:"lined" %>
+      <span class="platform">facebook.com/</span>
+      <%= form.text_field :facebook_url, id:"facebook" %>
     </div>
   </div>
 
   <div class="sub-group">
-    <div class= "add-new-place-form-group">
+    <div class= "add-new-place-form-group social-field">
       <%= form.label "X", style: "display: block" %>
-      <%= form.text_field :twitter_url, placeholder: "x.com/", class:"lined" %>
+      <span class="platform">x.com/</span>
+      <%= form.text_field :twitter_url, id:"x" %>
     </div>
 
     <div class= "add-new-place-form-group">
