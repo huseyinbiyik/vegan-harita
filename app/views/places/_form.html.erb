@@ -54,10 +54,10 @@
     <%= form.label "Bu mekanı tanımlayan etiketleri seçin", style: "display: block"%>
     <div class="tags-form">
     <% Tag.all.each do |tag| %>
-      <label class="checkbox-inline tag">
+      <span class="checkbox-inline tag">
         <%= form.check_box :tag_ids, { multiple: true, id: "tag-select" }, tag.id, nil %>
         <%= tag.name %>
-      </label>
+      </span>
     <% end %>
       </div>
   </div>
