@@ -60,6 +60,8 @@
 
 /* Style image upload  */
 #add-new-place-form #place_images {
+  border-radius: 0.313rem;
+  border: 0.063rem solid var(--gray);
   padding: 0.5rem;
 }
 
@@ -170,11 +172,6 @@
 
   .sub-group input {
     width: 17.5rem !important;
-  }
-
-  #add-new-place-form #place_images {
-    border-radius: 0.313rem;
-    border: 0.063rem solid var(--gray);
   }
 
   #submit-place {
