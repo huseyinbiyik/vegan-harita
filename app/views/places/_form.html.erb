@@ -55,8 +55,8 @@
     <div class="tags-form">
     <% Tag.all.each do |tag| %>
       <span class="checkbox-inline tag">
-        <%= form.check_box :tag_ids, { multiple: true, class: "tag-select" }, tag.id, nil %>
-        <%= tag.name %>
+        <%= form.check_box :tag_ids, { multiple: true, class: "tag-select",  checked: false }, tag.id, nil %>
+        <%= form.label :tag_ids, tag.name, value: tag.id %>
       </span>
     <% end %>
       </div>
