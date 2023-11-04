@@ -13,7 +13,7 @@
   <% end %>
 
   <div class="add-new-place-form-group" id="address-group">
-    <%= form.label "Adres", style: "display: block" %>
+    <%= form.label "Adres (gerekli)", style: "display: block" %>
     <%= form.text_field :address,  data: {place_target: "field", action: "keydown->place#preventSubmit"}, placeholder: "X Vegan Cafe, Kadıköy...", autofocus: true, required: true %>
     <div id="form-map"  data-place-target="map"></div>
   </div>
@@ -23,7 +23,7 @@
 
   <div class="sub-group">
     <div class= "add-new-place-form-group">
-      <%= form.label "İsim", style: "display: block" %>
+      <%= form.label "İsim (gerekli)", style: "display: block" %>
       <%= form.text_field :name, placeholder: "X Vegan Cafe", required: true %>
     </div>
 
