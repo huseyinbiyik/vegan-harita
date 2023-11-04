@@ -103,7 +103,7 @@ label {
   font-size: 1rem;
 }
 
-.field input:focus {
+input:focus {
   outline: none;
   border: 0.063rem solid var(--green);
 }

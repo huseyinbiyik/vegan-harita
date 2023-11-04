@@ -26,11 +26,6 @@
   gap: 1rem;
 }
 
-#add-new-place-form input:focus {
-  outline: none;
-  border: 0.063rem solid var(--green);
-}
-
 #add-new-place-form #map {
   width: 15rem;
   height: 7.875rem;
