@@ -5,16 +5,6 @@
   padding: 3rem 0 1rem 0;
 }
 
-#place_address {
-  border-bottom: 0 !important;
-  border-radius: 5px 5px 0 0 !important;
-  margin-bottom: -2px;
-}
-
-#add-new-place-form label {
-  font-size: 0.875rem;
-}
-
 #add-new-place-form {
   margin: 0 1.25rem 3rem 1.25rem;
   display: flex;
@@ -36,16 +26,6 @@
   gap: 1rem;
 }
 
-#add-new-place-form input[type="text"] {
-  height: 2.625rem;
-  width: 15rem;
-  flex-shrink: 0;
-  border-radius: 0.313rem;
-  border: 0.063rem solid var(--gray);
-  font-size: 16px;
-  padding: 0.625rem 0.5rem;
-}
-
 #add-new-place-form input:focus {
   outline: none;
   border: 0.063rem solid var(--green);
@@ -55,7 +35,6 @@
   width: 15rem;
   height: 7.875rem;
   border-radius: 0 0 0.313rem 0.313rem;
-  border: 0.063rem solid var(--green);
 }
 
 /* Style image upload  */
@@ -104,6 +83,11 @@
   width: auto;
 }
 
+.tag-select {
+  width: 15px;
+  height: 15px;
+}
+
 /* Style image upload  */
 #add-new-place-form select {
   width: 10.063rem;
@@ -129,25 +113,25 @@
   position: relative;
 }
 
-#instagram {
-  padding-left: 8.888rem !important;
-}
-
-#facebook {
-  padding-left: 8.512rem !important;
-}
-
-#x {
-  padding-left: 4.819rem !important;
-}
-
 .platform {
   position: absolute;
   height: 42px;
-  border-right: 1px solid var(--gray);
   top: 21px;
   padding: 10px 8px;
+  border-right: 1px solid var(--gray);
   color: var(--gray);
+}
+
+#instagram {
+  padding-left: 142px;
+}
+
+#facebook {
+  padding-left: 136px;
+}
+
+#x {
+  padding-left: 77px;
 }
 
 @media (min-width: 1024px) {

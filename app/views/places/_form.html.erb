@@ -55,7 +55,7 @@
     <div class="tags-form">
     <% Tag.all.each do |tag| %>
       <span class="checkbox-inline tag">
-        <%= form.check_box :tag_ids, { multiple: true, id: "tag-select" }, tag.id, nil %>
+        <%= form.check_box :tag_ids, { multiple: true, class: "tag-select" }, tag.id, nil %>
         <%= tag.name %>
       </span>
     <% end %>
@@ -65,22 +65,22 @@
   <div class="sub-group">
     <div class= "add-new-place-form-group social-field">
       <%= form.label "Instagram", style: "display: block" %>
-      <span class="platform">instagram.com/</span>
-      <%= form.text_field :instagram_url, id:"instagram" %>
+        <span class="platform">instagram.com/</span>
+        <%= form.text_field :instagram_url, id:"instagram" %>
     </div>
 
     <div class= "add-new-place-form-group social-field">
       <%= form.label "Facebook", style: "display: block" %>
-      <span class="platform">facebook.com/</span>
-      <%= form.text_field :facebook_url, id:"facebook" %>
+        <span class="platform">facebook.com/</span>
+        <%= form.text_field :facebook_url, id:"facebook" %>
     </div>
   </div>
 
   <div class="sub-group">
     <div class= "add-new-place-form-group social-field">
       <%= form.label "X", style: "display: block" %>
-      <span class="platform">x.com/</span>
-      <%= form.text_field :twitter_url, id:"x" %>
+        <span class="platform">x.com/</span>
+        <%= form.text_field :twitter_url, id:"x" %>
     </div>
 
     <div class= "add-new-place-form-group">

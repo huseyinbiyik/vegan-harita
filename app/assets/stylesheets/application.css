@@ -43,6 +43,12 @@ a {
 
 input {
   font-size: 1rem;
+  width: 15rem;
+  height: 2.625rem;
+  padding: 0.625rem 0.5rem;
+  border-radius: 0.313rem;
+  border: 0.063rem solid var(--gray);
+  background: var(--white);
 }
 
 .user-forms {
@@ -66,17 +72,8 @@ input {
   gap: 0.125rem;
 }
 
-.field label {
+label {
   font-size: 0.875rem;
-}
-
-.field input {
-  width: 15rem;
-  height: 2.625rem;
-  padding: 0.625rem 0.5rem;
-  border-radius: 0.313rem;
-  border: 0.063rem solid var(--gray);
-  background: var(--white);
 }
 
 ::placeholder {
