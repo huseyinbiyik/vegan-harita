@@ -97,7 +97,7 @@ label {
 
 .tags-form {
   overflow: scroll;
-  max-height: 98px;
+  max-height: 131px;
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
