@@ -1,100 +1,206 @@
 #add-new-place {
-  width: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  width: calc(100vw - 80px);
+  margin: auto;
+}
+
+#add-place {
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-align: center;
+  padding: 1rem 0 1rem 0;
+}
+
+#address-group {
+  gap: 0;
+}
+
+#place_address {
+  border-radius: 5px 5px 0 0;
+}
+
+#form-map {
+  height: 7.875rem;
+  border-radius: 0 0 0.313rem 0.313rem;
+  border: 1px solid var(--gray);
+  border-top: none;
+  min-width: 240px;
+  max-width: 572px;
+}
+
+#place_address:focus ~ #form-map {
+  border: 1px solid var(--green);
+  border-top: none;
 }
 
 #add-new-place-form {
+  margin: 0 1.25rem 3rem 1.25rem;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  max-width: 400px;
-  padding: 0 20px 0 20px;
+  gap: 1rem;
+  align-items: center;
+  width: calc(100vw - 80px);
 }
 
-#add-new-place-form div {
+.add-new-place-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
   width: 100%;
+  max-width: 572px;
 }
 
-#add-new-place-form .add-new-place-form-group {
-  margin-bottom: 15px;
+#add-new-place input[type="text"],
+label {
+  min-width: 240px;
+  max-width: 572px;
 }
 
-#add-new-place-form input[type="text"] {
+.sub-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   width: 100%;
-  height: 30px;
-  border: 1px solid var(--black);
-  padding: 0 5px 0 5px;
-}
-
-#add-new-place-form input[type="text"]::placeholder {
-  color: var(--dark-green);
-  opacity: 0.7;
-  font-size: 16px;
-}
-
-#add-new-place-form #map {
-  width: 100%;
-  height: 20vh;
-  border: 1px solid var(--black);
-  margin-bottom: 15px;
+  max-width: 572px;
 }
 
 /* Style image upload  */
 #add-new-place-form #place_images {
-  height: 30px;
-  width: 100%;
+  border-radius: 0.313rem;
+  border: 0.063rem solid var(--gray);
+  padding: 0.5rem;
+  width: 240px;
 }
 
 #add-new-place-form #place_images::-webkit-file-upload-button {
   visibility: hidden;
+  width: 0;
 }
 
 #add-new-place-form #place_images::before {
-  content: "Fotoğraf Seç";
+  content: "Dosya Seçin";
   display: inline-block;
-  background: var(--beige);
-  padding: 5px 8px;
   outline: none;
   white-space: nowrap;
   -webkit-user-select: none;
   cursor: pointer;
-  font-size: 16px;
-  border: 1px solid var(--black);
-}
-
-/*  Tags, place edit form */
-
-.tags-form-container {
-  height: 160px;
-}
-
-.tags-form-container label {
-  display: inline-block;
-  margin-bottom: 5px;
-  background: var(--beige);
-  padding: 5px 8px;
+  padding: 0.188rem 0.563rem 0.188rem 0.25rem;
+  font-size: 0.875rem;
+  border-radius: 0.313rem;
+  border: 0.006rem solid var(--black);
+  background: var(--white);
+  width: 5.625rem;
+  height: 1.563rem;
 }
 
 .tags-form {
   overflow: scroll;
-  height: 100px;
+  max-height: 131px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.tag {
+  border-radius: 0.313rem;
+  border: 0.063rem solid var(--gray);
+  padding: 0.625rem 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  width: auto;
+  height: 42px;
+}
+
+.tag-select {
+  width: 15px;
+  height: 15px;
+}
+
+.tag-names {
+  min-width: auto;
+  max-width: unset;
 }
 
 /* Style image upload  */
 #add-new-place-form select {
-  width: 100%;
-  height: 30px;
-  border: 1px solid var(--black);
-  padding: 0 5px 0 5px;
+  width: 10.063rem;
+  height: 2.625rem;
+  border-radius: 0.313rem;
+  border: 0.063rem solid var(--gray);
+  font-size: 1rem;
+  padding: 0.625rem 0.5rem;
 }
 
 #add-new-place-form input[type="submit"] {
-  width: 120px;
-  height: 40px;
-  padding: 0 5px 0 5px;
-  cursor: pointer;
-  border: 1px solid var(--black);
+  margin-top: 2.25rem;
+  width: 15rem;
+  height: 2.625rem;
+  border-radius: 1.25rem;
+  background: var(--green);
+  color: var(--white);
+  font-weight: 500;
+  border: none;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.social-field {
+  position: relative;
+}
+
+.platform {
+  position: absolute;
+  height: 42px;
+  top: 21px;
+  padding: 10px 8px;
+  border-right: 1px solid var(--gray);
+  color: var(--gray);
+}
+
+#instagram {
+  padding-left: 142px;
+}
+
+#facebook {
+  padding-left: 136px;
+}
+
+#x {
+  padding-left: 77px;
+}
+
+@media (min-width: 1024px) {
+  #add-place {
+    padding-top: 48px;
+  }
+
+  .add-new-place-form-group {
+    width: 35.75rem;
+  }
+
+  .add-new-place-form-group input[type="text"] {
+    width: 572px;
+  }
+
+  #form-map {
+    width: 35.75rem;
+  }
+
+  .sub-group {
+    display: flex;
+    flex-direction: row;
+    gap: 0.75rem;
+    width: 35.75rem;
+  }
+
+  #add-new-place-form .sub-group input {
+    width: 280px;
+  }
+
+  #submit-place {
+    align-items: center;
+  }
 }
