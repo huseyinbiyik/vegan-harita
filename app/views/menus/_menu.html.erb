@@ -1,24 +1,24 @@
-<div class="menu-item" id="<%= dom_id menu %>">
+<section class="menu-item" id="<%= dom_id menu %>">
 
-  <div>
-    <p class="name medium-font semi-bold brown">
+  <div class="menu-heading-container">
+    <h4 class="name">
       <%= menu.name %>
 
-      <%= render partial: "menus/likes", locals: {place: @place, menu: menu} %>
+      <%= link_to new_menu_edit_path(@place, menu), data: { turbo_frame: "menu_edit_#{menu.id}" }, class: "edit", hidden: true do %>
+                        <span class="edit-icon-container">
+                  <%= image_tag "edit.svg", class: "edit-icon" %>
+                </span>
+        <% end %>
+     </h4>
 
-      <%= link_to new_menu_edit_path(@place, menu), data: { turbo_frame: "menu_edit_#{menu.id}" }, class: "edit beige", hidden: true do %>
-                      <span class="edit-icon-container">
-                <%= image_tag "edit.svg", class: "edit-icon" %>
-              </span>
-      <% end %>
-    </p>
-
-    <p class="price medium-font medium-weight yellow">
-      <%= menu.price %>
+    <p class="price">
+      <%= menu.price %> ₺
     </p>
   </div>
 
-  <div>
+  <%= render partial: "menus/likes", locals: {place: @place, menu: menu} %>
+
+  <div class="menu-item-details">
     <% if menu.image.attached? %>
       <%= image_tag menu.image, class: "menu-image" %>
     <% end %>
@@ -29,4 +29,4 @@
   </div>
     <%= turbo_frame_tag "menu_edit_#{menu.id}" do  %>
   <% end %>
-</div>
+</section>
