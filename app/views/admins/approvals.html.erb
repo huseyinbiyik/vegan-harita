@@ -1,14 +1,21 @@
+<section class="pending">
 <h2>Kullanıcı Onayları</h2>
 
 <% @pending_users.each do |user| %>
-  <div class="user" id="user_<%= user.id %>">
-    <p><%= user.email %> - <%= user.points %></p>
-    <%= link_to "Onayla", approve_user_path(user), method: "post", remote: true, data: { turbo_method: "post" } %>
-  </div>
+  <article class="pending-user" id="user_<%= user.id %>">
+    <ul class="pending-item">
+      <li>Kullanıcı Adı: <%= user.email %></li>
+      <li>Kullanıcı Numarası: <%= user.points %></li>
+      <li>
+        <%= link_to "Onayla", approve_user_path(user), method: "post", remote: true, data: { turbo_method: "post" } %>
+      </li>
+    </ul>
+  </article>
 <% end %>
 
-<h2>Yeni Mekan Onayları</h2>
 <section class="pending">
+  <h2>Yeni Mekan Onayları</h2>
+
   <% @pending_places.each do |pending_place| %>
     <article class="pending-place" id="place_<%= pending_place.id %>">
       <ul class="pending-item">
@@ -44,8 +51,9 @@
   <% end %>
 </section>
 
-<h2>Mekan Düzenleme Onayları</h2>
 <section class="pending">
+  <h2>Mekan Düzenleme Onayları</h2>
+
   <% @pending_place_edits.each do |place_edit| %>
     <article class="pending-edit", id="place_edit_<%= place_edit.id %>">
       <ul class="pending-item">
@@ -54,19 +62,19 @@
         <% if place_edit.name %>
         <li>Adı:  <%= place_edit.changeable.name %> --> <%= place_edit.name %></li>
         <% end %>
-
-      <% if place_edit.images.attached? %>
-              <p>Eklenen Fotoğraflar:</p>
+        
+        <% if place_edit.images.attached? %>
+          <p>Eklenen Fotoğraflar:</p>
         <%= render partial: "shared/slider", locals: { images: place_edit.images, id: place_edit.id } %>
-      <% end %>
-
-      <% unless place_edit.deleted_images.nil? %>
-        <p>Silinen Fotoğraflar:</p>
-        <% place_edit.deleted_images.each do |image_id| %>
-          <% image = ActiveStorage::Attachment.where(id: image_id).first %>
-          <%= image_tag url_for(image) %>
         <% end %>
-      <% end %>
+
+        <% unless place_edit.deleted_images.nil? %>
+          <p>Silinen Fotoğraflar:</p>
+          <% place_edit.deleted_images.each do |image_id| %>
+           <% image = ActiveStorage::Attachment.where(id: image_id).first %>
+           <%= image_tag url_for(image) %>
+          <% end %>
+        <% end %>
 
         <% if place_edit.address %>
         <li>Adres: <%= place_edit.changeable.address %> <%= place_edit.address %></li>
@@ -95,77 +103,87 @@
         <% if place_edit.tag_ids %>
         <li>Etiketler:
           <%= place_edit.changeable.tag_ids.map { |tag_id| Tag.find(tag_id).name }.join(", ") %>
-          -->
-        <%= place_edit.tag_ids.map { |tag_id| Tag.find(tag_id).name }.join(", ") %>
-         </li>
+          <%= place_edit.tag_ids.map { |tag_id| Tag.find(tag_id).name }.join(", ") %>
+        </li>
         <% end %>
-
-
         <li>Düzenleyen: <%= place_edit.user.email %></li>
+        <li class="edit-buttons">
+          <%= link_to "Onayla", approve_place_edit_path(id: place_edit.id), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
+          <%= link_to "Reddet", reject_place_edit_path(id: place_edit.id), class: "reject-btn", method: "delete", remote: true, data: { turbo_method: "delete" } %>
+        </li>
       </ul>
-      <div class="edit-buttons">
-        <%= link_to "Onayla", approve_place_edit_path(id: place_edit.id), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
-        <%= link_to "Reddet", reject_place_edit_path(id: place_edit.id), class: "reject-btn", method: "delete", remote: true, data: { turbo_method: "delete" } %>
-      </div>
     </article>
     <div class="edit-divider"></div>
   <% end %>
 </section>
 
-<h2>Menü Ekleme Onayları </h2>
+<section class="pending">
+  <h2>Menü Ekleme Onayları </h2>
 
-<% @pending_menus.each do |menu| %>
-  <div class="menu" id="menu_<%= menu.id %>">
-    <p><%= link_to "#{menu.place.name}", place_path(menu.place.id) %></p>
-    <p><%= menu.description %></p>
-     <% if menu.image.attached? %>
-              <p>Ürün Fotoğrafı:</p>
-              <%= image_tag menu.image %>
-      <% end %>
-    <p><%= menu.product_category %></p>
-    <p><%= menu.price %></p>
-    <p><%= menu.creator.email %></p>
+  <% @pending_menus.each do |menu| %>
+    <article class="pending-menu" id="menu_<%= menu.id %>">
+      <ul class="pending-item">
+        <li>Mekanın Adı: <%= link_to "#{menu.place.name}", place_path(menu.place.id) %></li>
+        <li>Ürün Tanımı: <%= menu.description %></li>
+        <% if menu.image.attached? %>
+          <li>Ürün Fotoğrafı:</li>
+          <%= image_tag menu.image %>
+        <% end %>
+        <li>Ürün Kategorisi: <%= menu.product_category %></li>
+        <li>Fiyat: <%= menu.price %></li>
+        <li>Ekleyen: <%= menu.creator.email %></li>
+        <li>
+          <%= link_to "Onayla", approve_menu_path(menu), method: "post", remote: true, data: { turbo_method: "post" } %>
+          <%= link_to "Reddet", reject_menu_path(menu), method: "delete", remote: true, data: { turbo_method: "delete" } %>
+        </li>
+      </ul>
+    </article>
+  <%end%>
+</section>
 
-    <%= link_to "Onayla", approve_menu_path(menu), method: "post", remote: true, data: { turbo_method: "post" } %>
-    <%= link_to "Reddet", reject_menu_path(menu), method: "delete", remote: true, data: { turbo_method: "delete" } %>
-  </div>
-<%end%>
 
+<section>
 <h2>Menü Düzenleme Onayları </h2>
 
 <% @pending_menu_edits.each do |menu_edit| %>
-  <div class="menu" id="menu_edit_<%= menu_edit.id %>">
-    <p><%= link_to "#{menu_edit.changeable.place.name}", place_path(menu_edit.changeable.place.id) %></p>
-    <p><%= menu_edit.changeable.name %></p>
-    <p><%= menu_edit.name %></p>
-    <p><%= menu_edit.changeable.description %></p>
-    <p><%= menu_edit.description %></p>
-      <%= image_tag menu_edit.image if menu_edit.image.attached? %>
-    <p><%= menu_edit.changeable.product_category %></p>
-    <p><%= menu_edit.product_category %></p>
-    <p><%= menu_edit.changeable.price %></p>
-    <p><%= menu_edit.price %></p>
-    <p><%= menu_edit.user.email %></p>
-
-    <%= link_to "Onayla", approve_menu_edit_path(menu_edit), method: "post", remote: true, data: { turbo_method: "post" } %>
-    <%= link_to "Reddet", reject_menu_edit_path(menu_edit), method: "delete", remote: true, data: { turbo_method: "delete" } %>
-  </div>
+  <article class="pending-menu" id="menu_edit_<%= menu_edit.id %>">
+    <ul class="pending-item">
+      <li>Mekanın Adı: <%= link_to "#{menu_edit.changeable.place.name}", place_path(menu_edit.changeable.place.id) %></li>
+      <li>Ürün Adı: <%= menu_edit.changeable.name %></li>
+      <li>Önerilen Ürün Adı: <%= menu_edit.name %></li>
+      <li>Ürün Tanımı: <%= menu_edit.changeable.description %></li>
+      <li>Önerilen Ürün Tanımı: <%= menu_edit.description %></li>
+      <li><%= image_tag menu_edit.image if menu_edit.image.attached? %></li>
+      <li>Ürün Kategorisi: <%= menu_edit.changeable.product_category %></li>
+      <li>Önerilen Ürün Kategorisi: <%= menu_edit.product_category %></li>
+      <li>Fiyat: <%= menu_edit.changeable.price %></li>
+      <li>Önerilen Fiyat: <%= menu_edit.price %></li>
+      <li>Kullanıcı Epostası: <%= menu_edit.user.email %></li>
+      <li>
+        <%= link_to "Onayla", approve_menu_edit_path(menu_edit), method: "post", remote: true, data: { turbo_method: "post" } %>
+        <%= link_to "Reddet", reject_menu_edit_path(menu_edit), method: "delete", remote: true, data: { turbo_method: "delete" } %>
+      </li>
+    </ul>
+  </article>
 <%end%>
+</section>
 
-<h2>Mekan Değerlendirme Onayları</h2>
+<section class="pending">
+  <h2>Mekan Değerlendirme Onayları</h2>
 
-<% @pending_reviews.each do |review| %>
-  <div class="review" id="review_<%= review.id %>">
-    <p><%= link_to "#{review.place.name}", place_path(review.place.id) %></p>
-    <p><%= review.rating %></p>
-    <p><%= review.content %></p>
-    <p><%= review.feedback %></p>
-    <p><%= review.user.email %></p>
-
-    <%= link_to "Onayla", approve_review_path(review), method: "post", remote: true, data: { turbo_method: "post" } %>
-    <%= link_to "Reddet", reject_review_path(review), method: "delete", remote: true, data: { turbo_method: "delete" } %>
-  </div>
-<%end%>
-
-
-
+  <% @pending_reviews.each do |review| %>
+    <article class="pending-review" id="review_<%= review.id %>">
+      <ul class="pending-item">
+      <li>Mekanın Adı: <%= link_to "#{review.place.name}", place_path(review.place.id) %></li>
+      <li>Değerlendirme Puanı: <%= review.rating %></li>
+      <li>Değerlendirme İçeriği: <%= review.content %></li>
+      <li>Değerlendirme Geribildirimi: <%= review.feedback %></li>
+      <li>Kullanıcı Epostası <%= review.user.email %></li>
+      <li>
+        <%= link_to "Onayla", approve_review_path(review), method: "post", remote: true, data: { turbo_method: "post" } %>
+        <%= link_to "Reddet", reject_review_path(review), method: "delete", remote: true, data: { turbo_method: "delete" } %>
+      </li>
+      </ul>
+    </article>
+  <%end%>
+</section>
