@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  root 'places#index'
+
   devise_for :users, controllers: { registrations: 'users/registrations' }
   resources :places do
     resources :reviews, except: %i[index show]
@@ -31,7 +33,4 @@ Rails.application.routes.draw do
     post 'approve-review/:id', to: "admins#approve_review", as: :approve_review
     delete 'reject-review/:id', to: "admins#reject_review", as: :reject_review
   end
-
-
-  root 'places#index'
 end
