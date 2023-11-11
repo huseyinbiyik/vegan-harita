@@ -164,8 +164,9 @@
       <% if value.present? %>
         <% if key == "web" %>
           <%= turbo_frame_tag "place-web" do %>
-            <%= link_to "https://#{value}", target: "_blank" do %>
+            <%= link_to "https://#{value}", target: "_blank", class: "social-link" do %>
               <%= image_tag "#{key}.svg", class: "social" %>
+            <span class="visible-on-desktop"><%= value %></span>
             <% end %>
             <%= link_to new_place_edit_path(place), class: "edit ", hidden: true do  %>
               <span class="edit-icon-container">
@@ -175,8 +176,9 @@
           <% end %>
         <% elsif key == "email" %>
           <%= turbo_frame_tag "place-email" do %>
-            <%= link_to "#{value}", href: "mailto:#{value}" do %>
+            <%= link_to "#{value}", href: "mailto:#{value}", class: "social-link" do %>
               <%= image_tag "#{key}.svg", class: "social" %>
+            <span class="visible-on-desktop"><%= value %></span>
             <% end %>
             <%= link_to new_place_edit_path(place), class: "edit ", hidden: true do  %>
               <span class="edit-icon-container">
@@ -186,8 +188,9 @@
           <% end %>
         <% else %>
           <%= turbo_frame_tag "place-#{key}" do %>
-          <%= link_to "#{value}", target: "_blank" do %>
+          <%= link_to "#{value}", target: "_blank", class:"social-link" do %>
             <%= image_tag "#{key}.svg", class: "social" %>
+            <span class="visible-on-desktop"><%= value %></span>
           <% end %>
           <%= link_to new_place_edit_path(place), class: "edit ", hidden: true do  %>
               <span class="edit-icon-container">

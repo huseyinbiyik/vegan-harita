@@ -97,12 +97,11 @@
         overflow-x: scroll;
         scrollbar-width: none;
         -ms-overflow-style: none;
+        gap: 8px;
 
         &::-webkit-scrollbar {
           display: none;
         }
-
-        gap: 8px;
 
         .place-tag {
           font-size: 0.875rem;
@@ -383,6 +382,18 @@
                 }
               }
             }
+          }
+        }
+
+        .social-links {
+          flex-direction: column;
+          gap: 16px;
+
+          .social-link {
+            display: flex;
+            align-items: center;
+            column-gap: 6px;
+            color: var(--gray);
           }
         }
       }
