@@ -253,17 +253,25 @@
     <%end%>
   </section>
 
+  <hr id="separator">
 
-  <div id="reviews-container">
+
+  <section id="reviews">
     <h2>Müşteriler bu mekanı nasıl değerlendiriyor?</h2>
-    <% @reviews.approved.each do |review| %>
-      <%= render review%>
-    <% end %>
-  </div>
+    <div class="reviews-wrapper">
+      <% @reviews.approved.each do |review| %>
+        <%= render review%>
+      <% end %>
 
-<% if user_signed_in? %>
-  <%= turbo_frame_tag "new_review" do %>
-    <%= link_to "Değerlendirme yaz", new_place_review_path(@place)%>
-  <% end %>
-<% end %>
+      <% if user_signed_in? %>
+        <%= turbo_frame_tag "new_review" do %>
+          <%= link_to  new_place_review_path(@place), class: "add-review-btn" do %>
+          <%= image_tag "add-review.svg"%>
+          Değerlendirme yaz
+          <% end %>
+        <% end %>
+      <% end %>
+  </div>
+</section>
 </main>
+
