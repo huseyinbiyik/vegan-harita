@@ -235,10 +235,14 @@
 
   #reviews {
     padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
     & h2 {
       font-size: 1.25rem;
       font-weight: 500;
       margin-bottom: 16px;
+      max-width: 280px;
     }
     .review {
       margin-bottom: 20px;
@@ -254,7 +258,7 @@
           align-items: center;
           font-size: 0.875rem;
           word-break: break-word;
-          max-width: 70px;
+          width: 100px;
           color: var(--gray);
 
           & a {
@@ -307,6 +311,7 @@
     }
 
     .add-review-btn {
+      max-width: 280px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -317,6 +322,7 @@
       padding: 11px 35px;
       width: 100%;
       border-radius: 20px;
+      margin: 0 auto;
     }
   }
 }
@@ -422,6 +428,49 @@
 
           .most-liked {
             font-size: 1.125rem;
+          }
+        }
+      }
+    }
+
+    #reviews {
+      flex-direction: row;
+      gap: 27px;
+
+      & h2 {
+        font-size: 1.75rem;
+      }
+
+      .review {
+        margin-bottom: 40px;
+        .review-wrapper {
+          .reviewer-info {
+            width: 140px;
+
+            .review-avatar {
+              width: 70px;
+              height: 70px;
+            }
+          }
+
+          .review-content {
+            .show-rating {
+              .star {
+                width: 20px;
+                height: 20px;
+              }
+            }
+
+            .review-time {
+              font-size: 1rem;
+            }
+
+            .review-images-container {
+              .review-image {
+                width: 120px;
+                height: 120px;
+              }
+            }
           }
         }
       }
