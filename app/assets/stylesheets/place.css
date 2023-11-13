@@ -23,7 +23,7 @@
   .place-heading-container {
     padding: 1rem 20px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
 
     .review-score-container {
@@ -270,7 +270,8 @@
           align-items: center;
           font-size: 0.875rem;
           word-break: break-word;
-          width: 100px;
+          min-width: 90px;
+          max-width: 90px;
           color: var(--gray);
 
           & a {
