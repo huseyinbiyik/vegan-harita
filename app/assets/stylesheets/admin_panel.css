@@ -27,6 +27,7 @@
   flex-direction: column;
   min-width: 240px;
   max-width: 572px;
+  margin: auto;
 }
 
 .pending-item li {
@@ -40,20 +41,32 @@
   font-weight: 500;
 }
 
+.pending-item li:last-child {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 10px;
+  height: 42px;
+}
+
 .approve-btn {
-  border: 1px solid var(--black);
-  height: 20px;
-  padding: 0 7px;
-  background-color: var(--dark-green);
-  color: var(--beige);
+  border-radius: 20px;
+  background: var(--green);
+  color: var(--white);
+  font-weight: 500;
+  height: 42px;
+  padding: 0.813rem 1.313rem;
+  line-height: 100%;
 }
 
 .reject-btn {
-  border: 1px solid var(--black);
-  height: 20px;
-  padding: 0 7px;
-  background-color: var(--brown);
-  color: var(--beige);
+  border-radius: 20px;
+  background: var(--black);
+  color: var(--white);
+  font-weight: 500;
+  height: 42px;
+  padding: 0.813rem 1.313rem;
+  line-height: 100%;
 }
 
 @media (min-width: 1024px) {
@@ -70,4 +83,3 @@
     width: 150px;
   }
 }
-
