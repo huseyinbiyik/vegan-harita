@@ -1,17 +1,18 @@
 <section class="pending">
-<h2>Kullanıcı Onayları</h2>
+  <h2>Kullanıcı Onayları</h2>
 
-<% @pending_users.each do |user| %>
-  <article class="pending-user" id="user_<%= user.id %>">
-    <ul class="pending-item">
-      <li>Kullanıcı Adı: <%= user.email %></li>
-      <li>Kullanıcı Numarası: <%= user.points %></li>
-      <li>
-        <%= link_to "Onayla", approve_user_path(user), method: "post", remote: true, data: { turbo_method: "post" } %>
-      </li>
-    </ul>
-  </article>
-<% end %>
+  <% @pending_users.each do |user| %>
+    <article class="pending-user" id="user_<%= user.id %>">
+      <ul class="pending-item">
+        <li><span>Kullanıcı Adı: </span><%= user.email %></li>
+        <li><span>Kullanıcı Numarası: </span><%= user.points %></li>
+        <li>
+          <%= link_to "Onayla", approve_user_path(user), method: "post", remote: true, data: { turbo_method: "post" } %>
+        </li>
+      </ul>
+    </article>
+  <% end %>
+</section>
 
 <section class="pending">
   <h2>Yeni Mekan Onayları</h2>
@@ -19,35 +20,34 @@
   <% @pending_places.each do |pending_place| %>
     <article class="pending-place" id="place_<%= pending_place.id %>">
       <ul class="pending-item">
-        <li>Öneri Tarihi: <%= pending_place.created_at %></li>
-        <li>Mekanın Adı: <%= pending_place.name %></li>
-        <li>Adres: <%= pending_place.address %></li>
+        <li><span>Öneri Tarihi: </span><%= pending_place.created_at %></li>
+        <li><span>Mekanın Adı: </span><%= pending_place.name %></li>
+        <li><span>Adres: </span><%= pending_place.address %></li>
         <li style="height: 100%;">
           <% if pending_place.images.attached? %>
-            <p>Eklenen Fotoğraflar:</p>
+            <span>Eklenen Fotoğraflar:</span>
             <%= render partial: "shared/slider", locals: { images: pending_place.images } %>
           <% end %>
         </li>
-        <li>Vegan mı? <%= pending_place.vegan %></li>
-        <li>Etiketler:
+        <li><span>Vegan mı? </span><%= pending_place.vegan %></li>
+        <li><span>Etiketler: </span>
           <% pending_place.tag_ids.each do |tag_id| %>
             <%= Tag.find(tag_id).name %>
           <% end %>
         </li>
-        <li>Instagram: <%= pending_place.instagram_url %></li>
-        <li>Facebook: <%= pending_place.facebook_url %></li>
-        <li>Twitter: <%= pending_place.twitter_url %></li>
-        <li>Web Sitesi: <%= pending_place.web_url %></li>
-        <li>E-posta: <%= pending_place.email %></li>
-        <li>Telefon: <%= pending_place.phone %></li>
-        <li>Ekleyen: <%= pending_place.creator.email %></li>
+        <li><span>Instagram: </span><%= pending_place.instagram_url %></li>
+        <li><span>Facebook: </span><%= pending_place.facebook_url %></li>
+        <li><span>Twitter: </span><%= pending_place.twitter_url %></li>
+        <li><span>Web Sitesi: </span><%= pending_place.web_url %></li>
+        <li><span>E-posta: </span><%= pending_place.email %></li>
+        <li><span>Telefon: </span><%= pending_place.phone %></li>
+        <li><span>Ekleyen: </span><%= pending_place.creator.email %></li>
         <li>
           <%= link_to "Onayla", approve_place_path(id: pending_place.id), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
           <%= link_to "Reddet", reject_place_path(id: pending_place.id), class: "reject-btn", method: "delete", remote: true, data: { turbo_method: "delete" } %>
         </li>
       </ul>
     </article>
-    <div class="place-divider"></div>
   <% end %>
 </section>
 
@@ -57,19 +57,19 @@
   <% @pending_place_edits.each do |place_edit| %>
     <article class="pending-edit", id="place_edit_<%= place_edit.id %>">
       <ul class="pending-item">
-        <li>Öneri Tarihi: <%= place_edit.created_at %></li>
-        <li>Mekanın Adı: <%= link_to "#{place_edit.changeable.name}", place_path(place_edit.changeable.id) %></li>
+        <li><span>Öneri Tarihi: </span><%= place_edit.created_at %></li>
+        <li><span>Mekanın Adı: </span><%= link_to "#{place_edit.changeable.name}", place_path(place_edit.changeable.id) %></li>
         <% if place_edit.name %>
-        <li>Adı:  <%= place_edit.changeable.name %> --> <%= place_edit.name %></li>
+        <li><span>Adı: </span><%= place_edit.changeable.name %> --> <%= place_edit.name %></li>
         <% end %>
         
         <% if place_edit.images.attached? %>
-          <p>Eklenen Fotoğraflar:</p>
+          <span>Eklenen Fotoğraflar:</span>
         <%= render partial: "shared/slider", locals: { images: place_edit.images, id: place_edit.id } %>
         <% end %>
 
         <% unless place_edit.deleted_images.nil? %>
-          <p>Silinen Fotoğraflar:</p>
+          <span>Silinen Fotoğraflar:</span>
           <% place_edit.deleted_images.each do |image_id| %>
            <% image = ActiveStorage::Attachment.where(id: image_id).first %>
            <%= image_tag url_for(image) %>
@@ -77,43 +77,42 @@
         <% end %>
 
         <% if place_edit.address %>
-        <li>Adres: <%= place_edit.changeable.address %> <%= place_edit.address %></li>
+        <li><span>Adres: </span><%= place_edit.changeable.address %> <%= place_edit.address %></li>
         <% end %>
         <% if place_edit.vegan %>
-        <li>Vegan mı? <%= place_edit.changeable.vegan %> <%= place_edit.vegan %></li>
+        <li><span>Vegan mı? </span><%= place_edit.changeable.vegan %> <%= place_edit.vegan %></li>
         <% end %>
         <% if place_edit.instagram_url %>
-        <li>Instagram: <%= place_edit.changeable.instagram_url %> <%= place_edit.instagram_url %></li>
+        <li><span>Instagram: </span><%= place_edit.changeable.instagram_url %> <%= place_edit.instagram_url %></li>
         <% end %>
         <% if place_edit.facebook_url %>
-        <li>Facebook: <%= place_edit.changeable.facebook_url %> <%= place_edit.facebook_url %></li>
+        <li><span>Facebook: </span><%= place_edit.changeable.facebook_url %> <%= place_edit.facebook_url %></li>
         <% end %>
         <% if place_edit.twitter_url %>
-        <li>Twitter: <%= place_edit.changeable.twitter_url %> <%= place_edit.twitter_url %></li>
+        <li><span>Twitter: </span><%= place_edit.changeable.twitter_url %> <%= place_edit.twitter_url %></li>
         <% end %>
         <% if place_edit.web_url %>
-        <li>Web Sitesi: <%= place_edit.changeable.web_url %> <%= place_edit.web_url %></li>
+        <li><span>Web Sitesi: </span><%= place_edit.changeable.web_url %> <%= place_edit.web_url %></li>
         <% end %>
         <% if place_edit.email %>
-        <li>E-posta: <%= place_edit.changeable.email %> <%= place_edit.email %></li>
+        <li><span>E-posta: </span><%= place_edit.changeable.email %> <%= place_edit.email %></li>
         <% end %>
         <% if place_edit.phone %>
-        <li>Telefon: <%= place_edit.changeable.phone %> <%= place_edit.phone %></li>
+        <li><span>Telefon: </span><%= place_edit.changeable.phone %> <%= place_edit.phone %></li>
         <% end %>
         <% if place_edit.tag_ids %>
-        <li>Etiketler:
+        <li><span>Etiketler: </span>
           <%= place_edit.changeable.tag_ids.map { |tag_id| Tag.find(tag_id).name }.join(", ") %>
           <%= place_edit.tag_ids.map { |tag_id| Tag.find(tag_id).name }.join(", ") %>
         </li>
         <% end %>
-        <li>Düzenleyen: <%= place_edit.user.email %></li>
+        <li><span>Düzenleyen: </span><%= place_edit.user.email %></li>
         <li class="edit-buttons">
           <%= link_to "Onayla", approve_place_edit_path(id: place_edit.id), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
           <%= link_to "Reddet", reject_place_edit_path(id: place_edit.id), class: "reject-btn", method: "delete", remote: true, data: { turbo_method: "delete" } %>
         </li>
       </ul>
     </article>
-    <div class="edit-divider"></div>
   <% end %>
 </section>
 
@@ -123,15 +122,15 @@
   <% @pending_menus.each do |menu| %>
     <article class="pending-menu" id="menu_<%= menu.id %>">
       <ul class="pending-item">
-        <li>Mekanın Adı: <%= link_to "#{menu.place.name}", place_path(menu.place.id) %></li>
-        <li>Ürün Tanımı: <%= menu.description %></li>
+        <li><span>Mekanın Adı: </span><%= link_to "#{menu.place.name}", place_path(menu.place.id) %></li>
+        <li><span>Ürün Tanımı: <span><%= menu.description %></li>
         <% if menu.image.attached? %>
-          <li>Ürün Fotoğrafı:</li>
+          <li><span>Ürün Fotoğrafı: </span></li>
           <%= image_tag menu.image %>
         <% end %>
-        <li>Ürün Kategorisi: <%= menu.product_category %></li>
-        <li>Fiyat: <%= menu.price %></li>
-        <li>Ekleyen: <%= menu.creator.email %></li>
+        <li><span>Ürün Kategorisi: </span><%= menu.product_category %></li>
+        <li><span>Fiyat: </span><%= menu.price %></li>
+        <li><span>Ekleyen: </span><%= menu.creator.email %></li>
         <li>
           <%= link_to "Onayla", approve_menu_path(menu), method: "post", remote: true, data: { turbo_method: "post" } %>
           <%= link_to "Reddet", reject_menu_path(menu), method: "delete", remote: true, data: { turbo_method: "delete" } %>
@@ -142,23 +141,23 @@
 </section>
 
 
-<section>
+<section class="pending">
 <h2>Menü Düzenleme Onayları </h2>
 
 <% @pending_menu_edits.each do |menu_edit| %>
   <article class="pending-menu" id="menu_edit_<%= menu_edit.id %>">
     <ul class="pending-item">
-      <li>Mekanın Adı: <%= link_to "#{menu_edit.changeable.place.name}", place_path(menu_edit.changeable.place.id) %></li>
-      <li>Ürün Adı: <%= menu_edit.changeable.name %></li>
-      <li>Önerilen Ürün Adı: <%= menu_edit.name %></li>
-      <li>Ürün Tanımı: <%= menu_edit.changeable.description %></li>
-      <li>Önerilen Ürün Tanımı: <%= menu_edit.description %></li>
+      <li><span>Mekanın Adı: </span><%= link_to "#{menu_edit.changeable.place.name}", place_path(menu_edit.changeable.place.id) %></li>
+      <li><span>Ürün Adı: </span><%= menu_edit.changeable.name %></li>
+      <li><span>Önerilen Ürün Adı: </span><%= menu_edit.name %></li>
+      <li><span>Ürün Tanımı: </span><%= menu_edit.changeable.description %></li>
+      <li><span>Önerilen Ürün Tanımı: </span><%= menu_edit.description %></li>
       <li><%= image_tag menu_edit.image if menu_edit.image.attached? %></li>
-      <li>Ürün Kategorisi: <%= menu_edit.changeable.product_category %></li>
-      <li>Önerilen Ürün Kategorisi: <%= menu_edit.product_category %></li>
-      <li>Fiyat: <%= menu_edit.changeable.price %></li>
-      <li>Önerilen Fiyat: <%= menu_edit.price %></li>
-      <li>Kullanıcı Epostası: <%= menu_edit.user.email %></li>
+      <li><span>Ürün Kategorisi: </span><%= menu_edit.changeable.product_category %></li>
+      <li><span>Önerilen Ürün Kategorisi: </span><%= menu_edit.product_category %></li>
+      <li><span>Fiyat: </span><%= menu_edit.changeable.price %></li>
+      <li><span>Önerilen Fiyat: </span><%= menu_edit.price %></li>
+      <li><span>Kullanıcı Epostası: </span><%= menu_edit.user.email %></li>
       <li>
         <%= link_to "Onayla", approve_menu_edit_path(menu_edit), method: "post", remote: true, data: { turbo_method: "post" } %>
         <%= link_to "Reddet", reject_menu_edit_path(menu_edit), method: "delete", remote: true, data: { turbo_method: "delete" } %>
@@ -174,11 +173,11 @@
   <% @pending_reviews.each do |review| %>
     <article class="pending-review" id="review_<%= review.id %>">
       <ul class="pending-item">
-      <li>Mekanın Adı: <%= link_to "#{review.place.name}", place_path(review.place.id) %></li>
-      <li>Değerlendirme Puanı: <%= review.rating %></li>
-      <li>Değerlendirme İçeriği: <%= review.content %></li>
-      <li>Değerlendirme Geribildirimi: <%= review.feedback %></li>
-      <li>Kullanıcı Epostası <%= review.user.email %></li>
+      <li><span>Mekanın Adı: </span><%= link_to "#{review.place.name}", place_path(review.place.id) %></li>
+      <li><span>Değerlendirme Puanı: </span><%= review.rating %></li>
+      <li><span>Değerlendirme İçeriği: </span><%= review.content %></li>
+      <li><span>Değerlendirme Geribildirimi: </span><%= review.feedback %></li>
+      <li><span>Kullanıcı Epostası: </span><%= review.user.email %></li>
       <li>
         <%= link_to "Onayla", approve_review_path(review), method: "post", remote: true, data: { turbo_method: "post" } %>
         <%= link_to "Reddet", reject_review_path(review), method: "delete", remote: true, data: { turbo_method: "delete" } %>
