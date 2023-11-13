@@ -24,7 +24,7 @@
   <div class="sub-group">
     <div class= "add-new-place-form-group">
       <%= form.label "İsim (gerekli)", style: "display: block" %>
-      <%= form.text_field :name, placeholder: "X Vegan Cafe", required: true %>
+      <%= form.text_field :name, placeholder: "X Vegan Cafe", required: true, maxlength: 80, size: nil %>
     </div>
 
     <% if place.images.attached? %>

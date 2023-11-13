@@ -2,13 +2,14 @@
 
   <%= form_with(model: @change_log, url: create_place_edit_path(@place), method: :post) do |form| %>
 
-    <div class= "add-new-place-form-group">
-      <%= form.label "Mekanın Adı", style: "display: block", class:"beige" %>
-      <%= form.text_field :name, value: @place.name, placeholder: "X Vegan Cafe", class:"bg-beige, dark-green", required: true %>
+    <div class="form-group">
+      <%= form.label "Mekanın Adı" %>
+      <%= form.text_field :name, value: @place.name, placeholder: "X Vegan Cafe", required: true, maxlength: 80, size: nil, autofocus: true %>
     </div>
 
-    <div class= "add-new-place-form-group">
-      <%= form.submit "Gönder", class: "small-font bg-yellow dark-green" %>
+    <div class="form-btns">
+      <%= form.submit "Gönder", class:"primary-green-btn", data: { turbo_confirm: "Emin misiniz?" }  %>
+      <a href="#" class="turbo-cancel-btn">İptal</a>
     </div>
 
   <% end %>

@@ -356,6 +356,54 @@
   }
 }
 
+/* Inline forms  */
+.form-btns {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  width: 230px;
+
+  .primary-green-btn {
+    font-size: 1rem;
+    font-weight: 500;
+    height: 42px;
+    border-radius: 20px;
+    width: 118px;
+    background-color: var(--green);
+    color: var(--white);
+    border: none;
+  }
+
+  .turbo-cancel-btn {
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 20px;
+    color: var(--gray);
+    border: 1px solid var(--gray);
+    width: 100px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+#place-name {
+  & form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 10px;
+    margin-bottom: 16px;
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      & input {
+        width: 230px;
+      }
+    }
+  }
+}
+
 @media (min-width: 1024px) {
   .place {
     padding: 0 48px;
