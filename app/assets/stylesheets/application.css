@@ -137,6 +137,7 @@ input {
   .visible-on-desktop {
     display: block;
   }
+
   body {
     min-height: 100vh;
   }

@@ -71,7 +71,7 @@
         .place-detail {
           flex: 1;
           display: flex;
-          align-items: top;
+          align-items: flex-start;
           justify-content: center;
 
           .place-action-wrapper {
@@ -87,6 +87,7 @@
                 text-align: center;
               }
             }
+
             .detail-icon {
               height: 32px;
               width: auto;
@@ -231,6 +232,7 @@
           object-fit: cover;
           border-radius: 10px;
         }
+
         .description {
           word-break: break-word;
           width: 280px;
@@ -244,12 +246,16 @@
     display: flex;
     flex-direction: column;
     align-self: center;
-    & h2 {
-      font-size: 1.25rem;
-      font-weight: 500;
-      margin-bottom: 16px;
-      max-width: 280px;
+
+    #reviews-header {
+      & h2 {
+        font-size: 1.25rem;
+        font-weight: 500;
+        margin-bottom: 16px;
+        max-width: 280px;
+      }
     }
+
     .review {
       margin-bottom: 20px;
 
@@ -278,17 +284,20 @@
             border-radius: 50%;
           }
         }
+
         .review-content {
           .show-rating {
             display: flex;
             align-items: center;
             margin-bottom: 8px;
+
             .star {
               margin: 0;
               width: 14px;
               height: 14px;
             }
           }
+
           .review-time {
             margin-left: 14px;
             font-size: 0.875rem;
@@ -414,6 +423,7 @@
           font-size: 1.75rem;
         }
       }
+
       .menu-category-heading {
         margin-top: 24px;
         margin-bottom: 8px;
@@ -427,6 +437,7 @@
 
       .menu-item {
         margin-bottom: 32px;
+
         .menu-heading-container {
           .name {
             font-size: 1.25rem;
@@ -455,12 +466,15 @@
       flex-direction: row;
       gap: 27px;
 
-      & h2 {
-        font-size: 1.75rem;
+      #reviews-header {
+        & h2 {
+          font-size: 1.75rem;
+        }
       }
 
       .review {
         margin-bottom: 40px;
+
         .review-wrapper {
           .reviewer-info {
             width: 140px;

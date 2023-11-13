@@ -260,7 +260,9 @@
 
 
   <section id="reviews">
-    <h2>Müşteriler bu mekanı nasıl değerlendiriyor?</h2>
+    <div id="reviews-header">
+      <h2>Müşteriler bu mekanı nasıl değerlendiriyor?</h2>
+    </div>
     <div class="reviews-wrapper">
       <% @reviews.approved.each do |review| %>
         <%= render review%>
