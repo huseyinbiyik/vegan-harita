@@ -6,6 +6,11 @@
   gap: 1rem;
 }
 
+#user_email,
+#user_password {
+  width: 240px;
+}
+
 #remember {
   display: flex;
   flex-direction: row;
