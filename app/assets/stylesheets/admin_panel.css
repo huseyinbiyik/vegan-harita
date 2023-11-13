@@ -55,3 +55,19 @@
   background-color: var(--brown);
   color: var(--beige);
 }
+
+@media (min-width: 1024px) {
+  .pending article {
+    width: 70vw;
+  }
+
+  .pending-item li {
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .pending span {
+    width: 150px;
+  }
+}
+
