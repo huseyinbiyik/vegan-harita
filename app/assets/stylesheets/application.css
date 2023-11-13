@@ -19,6 +19,8 @@
   --black: #000;
   --white: #fff;
   --gray: #989e9a;
+
+  scroll-behavior: smooth;
 }
 
 *,
@@ -48,6 +50,11 @@ input {
   border-radius: 0.313rem;
   border: 0.063rem solid var(--gray);
   background: var(--white);
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.5;
 }
 
 .user-forms {
@@ -118,7 +125,15 @@ input:focus {
   color: var(--white);
 }
 
+.visible-on-desktop {
+  display: none;
+}
+
 @media (min-width: 1024px) {
+  .visible-on-desktop {
+    display: block;
+  }
+
   body {
     min-height: 100vh;
   }
