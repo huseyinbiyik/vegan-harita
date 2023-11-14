@@ -151,13 +151,11 @@
       <li><span>Mekanın Adı: </span><%= link_to "#{menu_edit.changeable.place.name}", place_path(menu_edit.changeable.place.id) %></li>
       <li><span>Ürün Adı: </span><%= menu_edit.changeable.name %> <span class="arrow"> → </span> <%= menu_edit.name %></li>
       <li><span>Ürün Tanımı: </span><%= menu_edit.changeable.description %> <span class="arrow"> → </span> <%= menu_edit.description %></li>
-
-      <li><%= image_tag menu_edit.image if menu_edit.image.attached? %></li>
-
+      <% if menu_edit.image.attached? %>
+        <li> <%= image_tag menu_edit.image %>% </li>
+      <% end %>
       <li><span>Ürün Kategorisi: </span><%= menu_edit.changeable.product_category %> <span class="arrow"> → </span> <%= menu_edit.product_category %></li>
-
       <li><span>Fiyat: </span><%= menu_edit.changeable.price %> <span class="arrow"> → </span> <%= menu_edit.price %></li>
-
       <li><span>Kullanıcı Epostası: </span><%= menu_edit.user.email %></li>
       <li>
         <%= link_to "Onayla", approve_menu_edit_path(menu_edit), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>

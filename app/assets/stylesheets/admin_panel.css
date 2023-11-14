@@ -25,14 +25,19 @@
   list-style-type: none;
   display: flex;
   flex-direction: column;
-  margin: auto;
+  margin: 0 0 16px 0;
 }
 
 .pending-item li {
-  line-height: 30px;
   display: flex;
   flex-direction: column;
   overflow-wrap: break-word;
+  border-bottom: 1px solid var(--gray);
+  padding: 16px 0;
+}
+
+.pending-item li:last-child {
+  border-bottom: none;
 }
 
 .pending-item span {
