@@ -18,15 +18,13 @@
 }
 
 .pending article {
-  width: calc(100vw - 40px);
+  width: 80vw;
 }
 
 .pending-item {
   list-style-type: none;
   display: flex;
   flex-direction: column;
-  min-width: 240px;
-  max-width: 572px;
   margin: auto;
 }
 
@@ -69,9 +67,18 @@
   line-height: 100%;
 }
 
+.arrow {
+  color: var(--green);
+}
+
+
 @media (min-width: 1024px) {
   .pending article {
-    width: 70vw;
+    width: 80vw;
+  }
+
+  .pending-item {
+    width: 80vw;
   }
 
   .pending-item li {
@@ -82,8 +89,4 @@
   .pending span {
     width: 150px;
   }
-}
-
-.arrow {
-  color: var(--green);
 }
