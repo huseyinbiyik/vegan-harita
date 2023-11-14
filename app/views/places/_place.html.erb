@@ -22,12 +22,14 @@
       </div>
     </div>
     <div class="place-heading-right">
-      <button id="place-edit-toggle-button" data-action="click->edit#toggle">
-        <span class="edit-icon-container">
-          <%=image_tag "edit.svg", class: "edit-icon" %>
-        </span>
-        <span class="place-toggle-text" data-edit-target="toggleContent">Düzenleme Öner</span>
-      </button>
+      <% if user_signed_in? %>
+        <button id="place-edit-toggle-button" data-action="click->edit#toggle">
+          <span class="edit-icon-container">
+            <%=image_tag "edit.svg", class: "edit-icon" %>
+          </span>
+          <span class="place-toggle-text" data-edit-target="toggleContent">Düzenleme Öner</span>
+        </button>
+      <% end %>
     </div>
   </div>
 

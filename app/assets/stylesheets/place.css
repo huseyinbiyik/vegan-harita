@@ -387,6 +387,7 @@
     justify-content: center;
   }
 }
+
 #place-name {
   & form {
     display: flex;
@@ -394,15 +395,86 @@
     align-items: flex-end;
     gap: 10px;
     margin-bottom: 16px;
+
     .form-group {
       display: flex;
       flex-direction: column;
+
       & input {
         width: 230px;
       }
     }
   }
 }
+
+.place-features {
+  .slider {
+    overflow: scroll;
+
+    .edit {
+      position: absolute;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+
+      .edit-icon-container {
+        left: calc(50% - 21px);
+        top: calc(50% - 21px);
+      }
+    }
+
+    & form {
+      .photo-select-form-container {
+        margin: 0 20px;
+
+        & p {
+          margin: 16px 0;
+        }
+
+        .select-images-container {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+
+          .image-checkbox {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            & input[type="checkbox"] {
+              position: absolute;
+              width: 20px;
+              height: 20px;
+            }
+          }
+        }
+      }
+
+      .add-new-photos {
+        margin: 16px 20px 40px 20px;
+        display: flex;
+        flex-direction: column;
+
+        & label {
+          font-size: 1rem;
+        }
+      }
+
+      .form-btns {
+        width: 100%;
+        justify-content: center;
+        margin-top: 16px;
+      }
+    }
+  }
+}
+
+/* Inline forms end  */
 
 @media (min-width: 1024px) {
   .place {
