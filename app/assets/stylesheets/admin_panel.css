@@ -83,3 +83,7 @@
     width: 150px;
   }
 }
+
+.arrow {
+  color: var(--green);
+}
