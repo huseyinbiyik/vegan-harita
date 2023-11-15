@@ -40,10 +40,6 @@
   padding: 16px 0;
 }
 
-.pending-item li:last-child {
-  border-bottom: none;
-}
-
 .pending-title {
   color: var(--gray);
 }
@@ -54,6 +50,7 @@
   justify-content: flex-end;
   gap: 10px;
   height: 42px;
+  border-bottom: none;
 }
 
 .compared div {
