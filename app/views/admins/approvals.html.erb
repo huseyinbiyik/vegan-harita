@@ -35,7 +35,7 @@
         </li>
         <li><span class="pending-title">Instagram: </span><%= pending_place.instagram_url %></li>
         <li><span class="pending-title">Facebook: </span><%= pending_place.facebook_url %></li>
-        <li><span class="pending-title">Twitter: </span><%= pending_place.twitter_url %></li>
+        <li><span class="pending-title">X: </span><%= pending_place.twitter_url %></li>
         <li><span class="pending-title">Web Sitesi: </span><%= pending_place.web_url %></li>
         <li><span class="pending-title">E-posta: </span><%= pending_place.email %></li>
         <li><span class="pending-title">Telefon: </span><%= pending_place.phone %></li>
@@ -98,7 +98,7 @@
           </li>
         <% end %>
         <% if place_edit.twitter_url %>
-          <li class="compared"><span class="pending-title">Twitter: </span>
+          <li class="compared"><span class="pending-title">X: </span>
             <div><%= place_edit.changeable.twitter_url %> <span class="arrow"> → </span> <%= place_edit.twitter_url %></div>
           </li>
         <% end %>
