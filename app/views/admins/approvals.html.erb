@@ -31,9 +31,7 @@
         </li>
         <li><span>Vegan mı? </span><%= pending_place.vegan %></li>
         <li><span>Etiketler: </span>
-          <% pending_place.tag_ids.each do |tag_id| %>
-            <%= Tag.find(tag_id).name %>
-          <% end %>
+          <%= pending_place.tag_ids.map { |tag_id| Tag.find(tag_id).name }.join(" | ") %>
         </li>
         <li><span>Instagram: </span><%= pending_place.instagram_url %></li>
         <li><span>Facebook: </span><%= pending_place.facebook_url %></li>
