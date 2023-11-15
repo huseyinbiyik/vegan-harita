@@ -52,6 +52,11 @@
   height: 42px;
 }
 
+.compared div {
+  display: flex;
+  flex-direction: column;
+}
+
 .approve-btn {
   border-radius: 20px;
   background: var(--green);
