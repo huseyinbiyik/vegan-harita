@@ -154,7 +154,7 @@
               <%= image_tag menu.image %>
             <% end %>
             <li><span class="pending-title">Ürün Kategorisi: </span><%= menu.product_category %></li>
-            <li><span class="pending-title">Fiyat: </span><%= menu.price %></li>
+            <li><span class="pending-title">Fiyat: </span><%= "#{menu.price} TL" %></li>
             <li><span class="pending-title">Ekleyen: </span><%= menu.creator.email %></li>
             <li>
               <%= link_to "Onayla", approve_menu_path(menu), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
@@ -186,7 +186,7 @@
             <div><%= menu_edit.changeable.product_category %> <span class="arrow"> → </span> <%= menu_edit.product_category %><div>
           </li>
           <li class="compared"><span class="pending-title">Fiyat: </span>
-            <div><%= menu_edit.changeable.price %> <span class="arrow"> → </span> <%= menu_edit.price %></div>
+            <div><%= "#{menu_edit.changeable.price} TL" %> <span class="arrow"> → </span> <%= "#{menu_edit.price} TL" %></div>
             </li>
           <li><span class="pending-title">Kullanıcı Epostası: </span><%= menu_edit.user.email %></li>
           <li>
