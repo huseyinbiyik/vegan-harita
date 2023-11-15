@@ -360,8 +360,8 @@
 .form-btns {
   display: flex;
   justify-content: space-between;
-  gap: 8px;
-  width: 230px;
+
+  width: 280px;
 
   .primary-green-btn {
     font-size: 1rem;
@@ -380,7 +380,7 @@
     border-radius: 20px;
     color: var(--gray);
     border: 1px solid var(--gray);
-    width: 100px;
+    width: 118px;
     height: 42px;
     display: flex;
     align-items: center;
@@ -407,6 +407,7 @@
   }
 }
 
+/* Inline images form starts */
 .place-features {
   .slider {
     overflow: scroll;
@@ -416,8 +417,7 @@
       z-index: 2;
       width: 100%;
       height: 100%;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      background-color: rgba(255, 255, 255, 0.5);
 
       .edit-icon-container {
         left: calc(50% - 21px);
@@ -471,6 +471,46 @@
         margin-top: 16px;
       }
     }
+  }
+}
+/* Inline images form end */
+#place-vegan {
+  & form {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .form-inputs-container {
+    width: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .select-vegan {
+    width: 100%;
+    height: 42px;
+    border-radius: 5px;
+    border: 1px solid var(--gray);
+    font-size: 1rem;
+    padding: 10px 8px;
+  }
+
+  & label {
+    font-size: 1rem;
   }
 }
 

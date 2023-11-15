@@ -63,7 +63,6 @@
     <div class="place-details">
       <div class="place-details-action-wrapper">
         <div class="place-detail">
-          <%= turbo_frame_tag "place-vegan" do %>
             <div class="place-action-wrapper">
               <% if place.vegan? %>
                 <div class="detail-group">
@@ -76,14 +75,18 @@
                   <span class="detail">Vegan Seçenekli</span>
                 </div>
               <% end %>
-              <%= link_to new_place_edit_path(place), class: "edit ", hidden: true do %>
+
+            </div>
+
+                          <%= turbo_frame_tag "place-vegan" do %>
+                  <%= link_to new_place_edit_path(place), class: "edit ", hidden: true do %>
                 <span class="edit-icon-container">
                   <%= image_tag "edit.svg", class: "edit-icon" %>
                 </span>
               <% end %>
-            </div>
           <% end %>
         </div>
+
 
         <div class="place-detail">
           <div class="place-action-wrapper">
