@@ -141,21 +141,24 @@
           <% end %>
         </div>
       </div>
-      <div class="place-tags">
-            <% if place.tags.present? %>
-              <% place.tags.each do |tag| %>
-                <span class="place-tag" ><%= tag.name %></span>
-              <% end %>
-            <% else %>
-              <span>Etiket Yok</span>
-            <% end %>
+
+      <%= turbo_frame_tag "place-tags" do %>
+        <div class="place-tags">
           <%= link_to new_place_edit_path(place), class: "edit ", hidden: true do  %>
             <span class="edit-icon-container">
               <%= image_tag "edit.svg", class: "edit-icon" %>
             </span>
           <% end %>
-        <%= turbo_frame_tag "place-tags" %>
-      </div>
+          <% if place.tags.present? %>
+            <% place.tags.each do |tag| %>
+              <span class="place-tag" ><%= tag.name %></span>
+            <% end %>
+          <% else %>
+            <span>Etiket Yok</span>
+          <% end %>
+        </div>
+      <% end %>
+
       <div class="social-links">
     <% social_links = {
       "instagram" => place.instagram_url,
