@@ -56,13 +56,16 @@
 <% end %>
 
 <%= turbo_frame_tag "place-phone" do %>
-  <%= form_with(model: @change_log, url: create_place_edit_path(@place), method: :post) do |form| %>
-    <div class= "add-new-place-form-group">
-        <%= form.label "Telefon", style: "display: block", class:"beige" %>
-        <%= form.text_field :phone, value: @place.phone, pattern: "[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}",  placeholder: "5XXXXXXXXX", class:"bg-beige dark-green" %>
+  <%= form_with(model: @change_log, url: create_place_edit_path(@place), method: :post, class: "modalize") do |form| %>
+    <div class= "inputs-wrapper">
+      <div class="form-group">
+        <%= form.label "Telefon", style: "display: block" %>
+        <%= form.text_field :phone, value: @place.phone, pattern: "[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}",  placeholder: "5XXXXXXXXX"  %>
       </div>
-      <div class= "add-new-place-form-group">
-        <%= form.submit "Gönder", class: "small-font bg-yellow dark-green" %>
+      <div class="form-buttons">
+        <%= form.submit "Gönder", class:"primary-green-btn", data: { turbo_confirm: "Emin misiniz?" }  %>
+        <a href="#" class="turbo-cancel-btn">İptal</a>
+      </div>
     </div>
   <% end %>
 <% end %>
