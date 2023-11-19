@@ -33,20 +33,24 @@
 <% end %>
 
 <%= turbo_frame_tag "place-location" do %>
-  <%= form_with(model: @change_log, data: {controller: "place", action: "google-maps-callback@window->place#initializeMap"}, url: create_place_edit_path(@place), method: :post, class: "map-modal") do |form| %>
-  <div class= "add-new-place-form-group">
-    <%= form.label "Adres", style: "display: block" %>
-    <%= form.text_field :address,  data: {place_target: "field", action: "keydown->place#preventSubmit"}, placeholder: "X Vegan Cafe, Kadıköy...", required: true %>
+  <%= form_with(model: @change_log, data: {controller: "place", action: "google-maps-callback@window->place#initializeMap"}, url: create_place_edit_path(@place), method: :post, class: "modalize") do |form| %>
+
+    <div id="modal-location-wrapper">
+  <div class= "form-group">
+    <%= form.label "Adres" %>
+    <%= form.text_field :address,  data: {place_target: "field", action: "keydown->place#preventSubmit"}, placeholder: "X Vegan Cafe, Kadıköy...", required: true, autofocus: true, id: "location-input" %>
+      <div id="modal-map"  data-place-target="map"></div>
   </div>
 
-  <div id="map"  data-place-target="map"></div>
 
 
   <%= form.hidden_field :latitude, data: {place_target: "latitude"} %>
   <%= form.hidden_field :longitude, data: {place_target: "longitude"}  %>
 
-      <div class= "add-new-place-form-group">
-      <%= form.submit "Gönder", class: "small-font bg-yellow dark-green" %>
+    <div class="form-buttons">
+      <%= form.submit "Gönder", class:"primary-green-btn", data: { turbo_confirm: "Emin misiniz?" }  %>
+      <a href="#" class="turbo-cancel-btn">İptal</a>
+    </div>
     </div>
   <% end %>
 <% end %>
