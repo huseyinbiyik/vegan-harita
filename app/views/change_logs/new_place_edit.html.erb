@@ -18,13 +18,13 @@
 
 
 <%= turbo_frame_tag "place-vegan" do %>
-  <%= form_with(model: @change_log, url: create_place_edit_path(@place), method: :post) do |form| %>
+  <%= form_with(model: @change_log, url: create_place_edit_path(@place), method: :post, class: "modalize") do |form| %>
 
-    <div class="form-inputs-container">
+    <div class="inputs-wrapper">
       <%= form.label "Bu işletme vegan mı yoksa sadece bazı vegan seçenekler mi sunuyor?" %>
       <%= form.select :vegan, options_for_select([["Vegan", true], ["Vegan Seçenekli", false]], selected: @place.vegan), {}, class: "select-vegan" %>
 
-      <div class="form-btns">
+      <div class="form-buttons">
         <%= form.submit "Gönder", class:"primary-green-btn", data: { turbo_confirm: "Emin misiniz?" }  %>
         <a href="#" class="turbo-cancel-btn">Vazgeç</a>
       </div>
