@@ -71,27 +71,32 @@
 <% end %>
 
 <%= turbo_frame_tag "place-web" do %>
-  <%= form_with(model: @change_log, url: create_place_edit_path(@place), method: :post) do |form| %>
-    <div class= "add-new-place-form-group">
-    <%= form.label "Web site Adresi", style: "display: block", class:"beige" %>
-    <%= form.text_field :web_url, value: @place.web_url, placeholder: "siteadresi.com", class:"bg-beige dark-green" %>
-  </div>
-  <div class= "add-new-place-form-group">
-    <%= form.submit "Gönder", class: "small-font bg-yellow dark-green" %>
-  </div>
+  <%= form_with(model: @change_log, url: create_place_edit_path(@place), method: :post, class: "modalize") do |form| %>
+    <div class="inputs-wrapper">
+      <div class= "form-group">
+        <%= form.label "Website Adresi", style: "display: block" %>
+        <%= form.text_field :web_url, value: @place.web_url, placeholder: "siteadresi.com" %>
+      </div>
+      <div class="form-buttons">
+        <%= form.submit "Gönder", class:"primary-green-btn", data: { turbo_confirm: "Emin misiniz?" }  %>
+        <a href="#" class="turbo-cancel-btn">İptal</a>
+      </div>
+    </div>
   <% end %>
 <% end %>
 
 <%= turbo_frame_tag "place-email" do %>
-  <%= form_with(model: @change_log, url: create_place_edit_path(@place), method: :post) do |form| %>
-  <div class= "add-new-place-form-group">
-    <%= form.label "Email Adresi", style: "display: block", class:"beige" %>
-    <%= form.text_field :email, value: @place.email, placeholder: "mail@mail.com", class:"bg-beige dark-green"
-     %>
-  </div>
-    <div class= "add-new-place-form-group">
-    <%= form.submit "Gönder", class: "small-font bg-yellow dark-green" %>
-  </div>
+  <%= form_with(model: @change_log, url: create_place_edit_path(@place), method: :post, class: "modalize") do |form| %>
+    <div class= "inputs-wrapper">
+      <div class= "form-group">
+        <%= form.label "E-posta", style: "display: block" %>
+        <%= form.text_field :email, value: @place.email, placeholder: "mail@mail.com" %>
+      </div>
+      <div class="form-buttons">
+        <%= form.submit "Gönder", class:"primary-green-btn", data: { turbo_confirm: "Emin misiniz?" }  %>
+        <a href="#" class="turbo-cancel-btn">İptal</a>
+      </div>
+    </div>
   <% end %>
 <% end %>
 
@@ -113,26 +118,34 @@
 
 
 <%= turbo_frame_tag "place-facebook" do %>
-  <%= form_with(model: @change_log, url: create_place_edit_path(@place), method: :post) do |form| %>
-  <div class= "add-new-place-form-group">
-    <%= form.label "Facebook Adresi", value: @place.facebook_url, style: "display: block", class:"beige" %>
-    <%= form.text_field :facebook_url, placeholder: "https://www.facebook.com/yeradi/", class:"bg-beige dark-green" %>
-  </div>
-    <div class= "add-new-place-form-group">
-    <%= form.submit "Gönder", class: "small-font bg-yellow dark-green" %>
-  </div>
+  <%= form_with(model: @change_log, url: create_place_edit_path(@place), method: :post, class: "modalize") do |form| %>
+    <div class= "inputs-wrapper">
+      <div class="form-group modal-social-group">
+        <%= form.label "Facebook", style: "display: block" %>
+          <span class="social-platform">facebook.com/</span>
+          <%= form.text_field :facebook_url, value: @place.facebook_url, class:"social-input" %>
+      </div>
+      <div class="form-buttons">
+        <%= form.submit "Gönder", class:"primary-green-btn", data: { turbo_confirm: "Emin misiniz?" }  %>
+        <a href="#" class="turbo-cancel-btn">İptal</a>
+      </div>
+    </div>
   <% end %>
 <% end %>
 
 <%= turbo_frame_tag "place-twitter" do %>
-  <%= form_with(model: @change_log, url: create_place_edit_path(@place), method: :post) do |form| %>
-  <div class= "add-new-place-form-group">
-    <%= form.label "Twitter Adresi", value: @place.twitter_url, style: "display: block", class:"beige" %>
-    <%= form.text_field :twitter_url, placeholder: "https://www.twitter.com/yeradi/", class:"bg-beige dark-green" %>
-  </div>
-    <div class= "add-new-place-form-group">
-    <%= form.submit "Gönder", class: "small-font bg-yellow dark-green" %>
-  </div>
+  <%= form_with(model: @change_log, url: create_place_edit_path(@place), method: :post, class: "modalize") do |form| %>
+    <div class= "inputs-wrapper">
+      <div class="form-group modal-social-group">
+        <%= form.label "X", style: "display: block" %>
+        <span class="social-platform">x.com/</span>
+        <%= form.text_field :twitter_url, value: @place.twitter_url, class:"social-input-twitter" %>
+      </div>
+      <div class="form-buttons">
+        <%= form.submit "Gönder", class:"primary-green-btn", data: { turbo_confirm: "Emin misiniz?" }  %>
+        <a href="#" class="turbo-cancel-btn">İptal</a>
+      </div>
+    </div>
   <% end %>
 <% end %>
 

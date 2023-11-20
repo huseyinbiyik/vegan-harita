@@ -563,7 +563,11 @@
   }
 
   .social-input {
-    padding-left: 150px;
+    padding-left: 138px;
+  }
+
+  .social-input-twitter {
+    padding-left: 75px;
   }
 }
 /* Place social links form end */
