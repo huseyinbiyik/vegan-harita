@@ -96,16 +96,21 @@
 <% end %>
 
 <%= turbo_frame_tag "place-instagram" do %>
-  <%= form_with(model: @change_log, url: create_place_edit_path(@place), method: :post) do |form| %>
-  <div class= "add-new-place-form-group">
-    <%= form.label "Instagram Adresi", style: "display: block", class:"beige" %>
-    <%= form.text_field :instagram_url, value: @place.instagram_url, placeholder: "https://www.instagram.com/yeradi/", class:"bg-beige dark-green" %>
-  </div>
-    <div class= "add-new-place-form-group">
-    <%= form.submit "Gönder", class: "small-font bg-yellow dark-green" %>
-  </div>
+  <%= form_with(model: @change_log, url: create_place_edit_path(@place), method: :post, class: "modalize") do |form| %>
+    <div class= "inputs-wrapper">
+      <div class="form-group modal-social-group">
+        <%= form.label "Instagram", style: "display: block" %>
+        <span class="social-platform">instagram.com/</span>
+        <%= form.text_field :instagram_url, value: @place.instagram_url, class: "social-input"  %>
+      </div>
+      <div class="form-buttons">
+        <%= form.submit "Gönder", class:"primary-green-btn", data: { turbo_confirm: "Emin misiniz?" }  %>
+        <a href="#" class="turbo-cancel-btn">İptal</a>
+      </div>
+    </div>
   <% end %>
 <% end %>
+
 
 <%= turbo_frame_tag "place-facebook" do %>
   <%= form_with(model: @change_log, url: create_place_edit_path(@place), method: :post) do |form| %>

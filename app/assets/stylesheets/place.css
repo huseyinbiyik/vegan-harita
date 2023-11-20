@@ -549,6 +549,25 @@
 }
 /* Place tags form end */
 
+/* Place social links form starts */
+.modal-social-group {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  .social-platform {
+    position: absolute;
+    top: 22px;
+    padding: 10px 8px;
+    border-right: 1px solid var(--gray);
+  }
+
+  .social-input {
+    padding-left: 150px;
+  }
+}
+/* Place social links form end */
+
 /* Inline forms end  */
 
 @media (min-width: 1024px) {
