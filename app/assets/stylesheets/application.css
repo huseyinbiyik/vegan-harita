@@ -125,6 +125,10 @@ input:focus {
   color: var(--white);
 }
 
+.relative {
+  position: relative;
+}
+
 .visible-on-desktop {
   display: none;
 }

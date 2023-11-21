@@ -3,7 +3,7 @@
     <div class="place-heading-left">
       <h1 class="place-heading-title"><%= place.name %>
       <%= turbo_frame_tag "place-name" do %>
-        <%= link_to new_place_edit_path(place), class: "edit ", hidden: true do  %>
+        <%= link_to new_place_edit_path(place), class: "edit-button", hidden: true do  %>
             <span class="edit-icon-container">
               <%= image_tag "edit.svg", class: "edit-icon" %>
             </span>
@@ -37,7 +37,7 @@
     <div data-controller="slider" class="slider">
       <%= turbo_frame_tag "place-images" do %>
         <div class="slider-container">
-          <%= link_to new_place_edit_path(place), class: "edit ", hidden: true do %>
+          <%= link_to new_place_edit_path(place), class: "edit-button ", hidden: true do %>
             <span class="edit-icon-container">
               <%= image_tag "edit.svg", class: "edit-icon" %>
             </span>
@@ -79,7 +79,7 @@
             </div>
 
                           <%= turbo_frame_tag "place-vegan" do %>
-                  <%= link_to new_place_edit_path(place), class: "edit ", hidden: true do %>
+                  <%= link_to new_place_edit_path(place), class: "edit-button ", hidden: true do %>
                 <span class="edit-icon-container">
                   <%= image_tag "edit.svg", class: "edit-icon" %>
                 </span>
@@ -107,7 +107,7 @@
                 <% end %>
               </div>
 
-              <%= link_to new_place_edit_path(place), class: "edit ", hidden: true do  %>
+              <%= link_to new_place_edit_path(place), class: "edit-button", hidden: true do  %>
                 <span class="edit-icon-container">
                   <%= image_tag "edit.svg", class: "edit-icon" %>
                 </span>
@@ -132,7 +132,7 @@
                   <%= image_tag "phone.svg", class: "detail-icon disabled", id: "phone-icon" %>
                 <% end %>
               <% end %>
-              <%= link_to new_place_edit_path(place), class: "edit ", hidden: true do  %>
+              <%= link_to new_place_edit_path(place), class: "edit-button", hidden: true do  %>
                 <span class="edit-icon-container">
                   <%= image_tag "edit.svg", class: "edit-icon" %>
                 </span>
@@ -144,7 +144,7 @@
 
       <%= turbo_frame_tag "place-tags" do %>
         <div class="place-tags">
-          <%= link_to new_place_edit_path(place), class: "edit ", hidden: true do  %>
+          <%= link_to new_place_edit_path(place), class: "edit-button ", hidden: true do  %>
             <span class="edit-icon-container">
               <%= image_tag "edit.svg", class: "edit-icon" %>
             </span>
@@ -171,36 +171,36 @@
     <% social_links.each do |key, value| %>
       <% if value.present? %>
         <% if key == "web" %>
-          <%= turbo_frame_tag "place-web" do %>
+          <%= turbo_frame_tag "place-web",  class: "relative" do %>
             <%= link_to "https://#{value}", target: "_blank", class: "social-link" do %>
               <%= image_tag "#{key}.svg", class: "social" %>
             <span class="visible-on-desktop"><%= value %></span>
             <% end %>
-            <%= link_to new_place_edit_path(place), class: "edit ", hidden: true do  %>
+            <%= link_to new_place_edit_path(place), class: "edit-button ", hidden: true do  %>
               <span class="edit-icon-container">
                 <%= image_tag "edit.svg", class: "edit-icon" %>
               </span>
             <% end %>
           <% end %>
         <% elsif key == "email" %>
-          <%= turbo_frame_tag "place-email" do %>
+          <%= turbo_frame_tag "place-email", class: "relative" do %>
             <%= link_to "#{value}", href: "mailto:#{value}", class: "social-link" do %>
               <%= image_tag "#{key}.svg", class: "social" %>
             <span class="visible-on-desktop"><%= value %></span>
             <% end %>
-            <%= link_to new_place_edit_path(place), class: "edit ", hidden: true do  %>
+            <%= link_to new_place_edit_path(place), class: "edit-button ", hidden: true do  %>
               <span class="edit-icon-container">
                 <%= image_tag "edit.svg", class: "edit-icon" %>
               </span>
             <% end %>
           <% end %>
         <% else %>
-          <%= turbo_frame_tag "place-#{key}" do %>
+          <%= turbo_frame_tag "place-#{key}", class: "relative" do %>
           <%= link_to "#{value}", target: "_blank", class:"social-link" do %>
             <%= image_tag "#{key}.svg", class: "social" %>
             <span class="visible-on-desktop"><%= value %></span>
           <% end %>
-          <%= link_to new_place_edit_path(place), class: "edit ", hidden: true do  %>
+          <%= link_to new_place_edit_path(place), class: "edit-button ", hidden: true do  %>
               <span class="edit-icon-container">
                 <%= image_tag "edit.svg", class: "edit-icon" %>
               </span>
@@ -208,11 +208,11 @@
           <% end %>
         <% end %>
       <% else %>
-        <%= turbo_frame_tag "place-#{key}" do %>
+        <%= turbo_frame_tag "place-#{key}", class: "relative" do %>
           <%= link_to "#{value}" do %>
             <%= image_tag "#{key}.svg", class: "social disabled" %>
           <% end %>
-          <%= link_to new_place_edit_path(place), class: "edit ", hidden: true do  %>
+          <%= link_to new_place_edit_path(place), class: "edit-button ", hidden: true do  %>
               <span class="edit-icon-container">
                 <%= image_tag "edit.svg", class: "edit-icon" %>
               </span>
@@ -230,7 +230,7 @@
   <section id="menu">
     <div id="menu-header">
       <h2>MENÜ</h2>
-        <%= link_to new_place_menu_path(@place), data: { turbo_frame: "new_menu"}, id: "add-new-product", class: "edit green", hidden: true do %>
+        <%= link_to new_place_menu_path(@place), data: { turbo_frame: "new_menu"}, id: "add-new-product", class: "green", hidden: true do %>
           <%= image_tag "add-icon.svg" %>
           <span>Ürün Ekle</span>
         <% end %>
