@@ -1,5 +1,5 @@
 <%= turbo_frame_tag "menu_edit_#{@menu.id}" do %>
-<%= form_with(model: [@change_log], url: create_menu_edit_path(place_id: @place), method: :post) do |form| %>
+<%= form_with(model: [@change_log], url: create_menu_edit_path(place_id: @place), method: :post, class: "modalize", id: "corba") do |form| %>
 
   <div>
     <%= form.label "İsim", style: "display: block", class:"yellow" %>
