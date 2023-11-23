@@ -55,6 +55,8 @@
         font-size: 1.125rem;
         font-weight: 500;
         word-break: break-word;
+        display: flex;
+        align-items: center;
       }
 
       .price {
