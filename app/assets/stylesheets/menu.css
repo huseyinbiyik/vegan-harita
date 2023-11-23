@@ -4,9 +4,22 @@
   align-self: center;
 
   #menu-header {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-direction: row;
+
     & h2 {
       font-size: 1.25rem;
       font-weight: 500;
+    }
+
+    #add-new-product {
+      background-color: var(--green);
+      color: var(--white);
+      border-radius: 20px;
+      height: 100%;
+      padding: 8px 12px;
     }
   }
 

@@ -230,10 +230,7 @@
   <section id="menu">
     <div id="menu-header">
       <h2>MENÜ</h2>
-        <%= link_to new_place_menu_path(@place), data: { turbo_frame: "new_menu"}, id: "add-new-product", class: "edit-button", hidden: true do %>
-          <%= image_tag "add-icon.svg" %>
-          <span>Ürün Ekle</span>
-        <% end %>
+      <%= link_to new_place_menu_path(@place), data: { turbo_frame: "new_menu"}, id: "add-new-product", class: "edit-button", hidden: true do %>+Ürün Ekle<% end %>
     </div>
       <%= turbo_frame_tag "new_menu" %>
       <% if @place.menus.present? %>
