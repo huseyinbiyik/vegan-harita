@@ -11,7 +11,7 @@
   <% end %>
 
   <div class="form-group">
-    <%= form.label "İsim", style: "display: block" %>
+    <%= form.label "Ürünün İsmi", style: "display: block" %>
     <%= form.text_field :name, placeholder: "Kuzey Kore Usulü Kızarmış Tofu", autofocus: true, required: true %>
   </div>
 
@@ -35,8 +35,8 @@
     <%= form.number_field :price, placeholder: "33", step: 0.5, class:"menu-item-price-input" %>
   </div>
 
-    <div class="form-buttons">
-      <%= form.submit "Gönder", class:"primary-green-btn", data: { turbo_confirm: "Emin misiniz?" }  %>
-      <a href="#" class="turbo-cancel-btn">İptal</a>
-    </div>
+  <div class="form-buttons">
+    <%= form.submit "Gönder", class:"primary-green-btn", data: { turbo_confirm: "Emin misiniz?" }  %>
+      <a href="#" class="turbo-cancel-btn">Boşver</a>
+  </div>
 <% end %>
