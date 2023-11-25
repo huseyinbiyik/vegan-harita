@@ -4,7 +4,7 @@
     <h4 class="name">
       <%= menu.name %>
 
-      <%= link_to new_menu_edit_path(@place, menu), data: { turbo_frame: "menu_edit_#{menu.id}" }, class: "edit-button", hidden: true do %>
+      <%= link_to new_menu_edit_path(@place, menu), data: { turbo_frame: "menu_edit_#{menu.id}" }, class: "edit-wrapper", hidden: true do %>
         <span class="edit-icon-container">
           <%= image_tag "edit.svg", class: "edit-icon" %>
          </span>

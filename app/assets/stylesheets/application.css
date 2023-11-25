@@ -186,6 +186,10 @@ select:focus {
   color: var(--white);
 }
 
+.absolute {
+  position: absolute;
+}
+
 .relative {
   position: relative;
 }
