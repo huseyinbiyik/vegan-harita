@@ -11,13 +11,13 @@
       <% end %>
       </h1>
 
-      <div class="review-score-container">
+      <div class="place-review-score-container">
         <span class="review-score">
           <%= image_tag "review-star.svg" %>
           <%= average_rating(@reviews)%>
         </span>
         <% if @reviews.present? %>
-          <a class="review-count" href="#reviews"><%= @reviews.size %> Değerlendirme</a>
+          <a class="review-size" href="#reviews"><%= @reviews.size %> Değerlendirme</a>
         <% end %>
       </div>
     </div>
@@ -33,7 +33,7 @@
     </div>
   </div>
 
-  <section class="place-features">
+  <section class="place-features-container">
     <div data-controller="slider" class="slider">
       <div class="slider-container">
         <% if place.images.attached? %>
@@ -59,49 +59,43 @@
       <% end %>
     </div>
 
-
     <div class="place-details">
-      <div class="place-details-action-wrapper">
+
+      <div class="place-details-primary-wrapper">
         <div class="place-detail">
-            <div class="place-action-wrapper">
-              <% if place.vegan? %>
-                <div class="detail-group">
-                  <%= image_tag "vegan-place.svg", class: "detail-icon", id: "vegan-icon" %>
-                  <span class="detail ">Vegan</span>
-                </div>
-              <% else %>
-                <div class="detail-group">
-                  <%= image_tag "vegan-friendly-place.svg", class: "detail-icon", id: "vegan-icon" %>
-                  <span class="detail">Vegan Seçenekli</span>
-                </div>
-              <% end %>
+          <% if place.vegan? %>
+            <div class="detail-group">
+              <%= image_tag "vegan-place.svg", class: "detail-icon", id: "vegan-icon" %>
+              <span class="detail ">Vegan</span>
             </div>
-            <%= turbo_frame_tag "place-vegan", class: "edit-wrapper", hidden: true do %>
-              <%= link_to new_place_edit_path(place), class: "edit-button " do %>
-                <span class="edit-icon-container">
-                  <%= image_tag "edit.svg", class: "edit-icon" %>
-                </span>
-              <% end %>
+          <% else %>
+            <div class="detail-group">
+              <%= image_tag "vegan-friendly-place.svg", class: "detail-icon", id: "vegan-icon" %>
+              <span class="detail">Vegan Seçenekli</span>
+            </div>
+          <% end %>
+          <%= turbo_frame_tag "place-vegan", class: "edit-wrapper", hidden: true do %>
+            <%= link_to new_place_edit_path(place), class: "edit-button " do %>
+              <span class="edit-icon-container">
+                <%= image_tag "edit.svg", class: "edit-icon" %>
+              </span>
             <% end %>
+          <% end %>
         </div>
 
         <div class="place-detail">
-          <div class="place-action-wrapper">
-            <div class="detail-group">
-              <%= image_tag "open.svg", class: "detail-icon", id: "open-icon" %>
-              <span class="detail">Şu anda açık</span>
-            </div>
+          <div class="detail-group">
+            <%= image_tag "open.svg", class: "detail-icon", id: "open-icon" %>
+            <span class="detail">Şu anda açık</span>
           </div>
         </div>
 
         <div class="place-detail">
-          <div class="place-action-wrapper">
-            <div class="detail-group">
-              <%= link_to "https://www.google.com/maps/dir/?api=1&destination=#{place.latitude},#{place.longitude}", target: "_blank", class: "detail-group" do %>
-                <%= image_tag "direction.svg", class: "detail-icon"%>
-                <span class="detail">Yol Tarifi</span>
-              <% end %>
-            </div>
+          <div class="detail-group">
+            <%= link_to "https://www.google.com/maps/dir/?api=1&destination=#{place.latitude},#{place.longitude}", target: "_blank", class: "detail-group" do %>
+              <%= image_tag "direction.svg", class: "detail-icon"%>
+              <span class="detail">Yol Tarifi</span>
+            <% end %>
           </div>
           <%= turbo_frame_tag "place-location", class: "edit-wrapper", hidden: true do %>
             <%= link_to new_place_edit_path(place), class: "edit-button" do  %>
@@ -114,20 +108,18 @@
 
 
         <div class="place-detail">
-          <div class="place-action-wrapper">
-            <% if place.phone.present? %>
-              <div class="detail-group">
-                <%= link_to "tel:#{place.phone}", class: "detail-group" do %>
-                  <%= image_tag "phone.svg", class: "detail-icon" %>
-                    <span class="detail">Ara</span>
-                  <% end %>
-              </div>
-            <% else %>
-              <%= link_to "#" do %>
-                <%= image_tag "phone.svg", class: "detail-icon disabled", id: "phone-icon" %>
+          <% if place.phone.present? %>
+            <div class="detail-group">
+              <%= link_to "tel:#{place.phone}", class: "detail-group" do %>
+                <%= image_tag "phone.svg", class: "detail-icon" %>
+                <span class="detail">Ara</span>
               <% end %>
+            </div>
+          <% else %>
+            <%= link_to "#" do %>
+              <%= image_tag "phone.svg", class: "detail-icon disabled", id: "phone-icon" %>
             <% end %>
-          </div>
+          <% end %>
           <%= turbo_frame_tag "place-phone", class: "edit-wrapper", hidden: true do %>
             <%= link_to new_place_edit_path(place), class: "edit-button" do  %>
               <span class="edit-icon-container">
@@ -229,7 +221,7 @@
   </div>
   </section>
 
-  <hr id="separator">
+  <hr class="separator">
 
 
   <section id="menu">
@@ -266,7 +258,7 @@
     <%end%>
   </section>
 
-  <hr id="separator">
+  <hr class="separator">
 
 
   <section id="reviews">

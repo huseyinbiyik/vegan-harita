@@ -22,7 +22,7 @@
 
     <div class="inputs-wrapper">
       <%= form.label "Bu işletme vegan mı yoksa sadece bazı vegan seçenekler mi sunuyor?" %>
-      <%= form.select :vegan, options_for_select([["Vegan", true], ["Vegan Seçenekli", false]], selected: @place.vegan), {}, class: "select-vegan" %>
+      <%= form.select :vegan, options_for_select([["Vegan", true], ["Vegan Seçenekli", false]], selected: @place.vegan), {}, class: "select-type" %>
 
       <div class="form-buttons">
         <%= form.submit "Gönder", class:"primary-green-btn", data: { turbo_confirm: "Emin misiniz?" }  %>
@@ -36,21 +36,21 @@
   <%= form_with(model: @change_log, data: {controller: "place", action: "google-maps-callback@window->place#initializeMap"}, url: create_place_edit_path(@place), method: :post, class: "modalize") do |form| %>
 
     <div id="modal-location-wrapper">
-  <div class= "form-group">
-    <%= form.label "Adres" %>
-    <%= form.text_field :address,  data: {place_target: "field", action: "keydown->place#preventSubmit"}, placeholder: "X Vegan Cafe, Kadıköy...", required: true, autofocus: true, id: "location-input" %>
-      <div id="modal-map"  data-place-target="map"></div>
-  </div>
+      <div class= "form-group">
+        <%= form.label "Adres" %>
+        <%= form.text_field :address,  data: {place_target: "field", action: "keydown->place#preventSubmit"}, placeholder: "X Vegan Cafe, Kadıköy...", required: true, autofocus: true, id: "location-input" %>
+          <div id="modal-map"  data-place-target="map"></div>
+      </div>
 
 
 
-  <%= form.hidden_field :latitude, data: {place_target: "latitude"} %>
-  <%= form.hidden_field :longitude, data: {place_target: "longitude"}  %>
+      <%= form.hidden_field :latitude, data: {place_target: "latitude"} %>
+      <%= form.hidden_field :longitude, data: {place_target: "longitude"}  %>
 
-    <div class="form-buttons">
-      <%= form.submit "Gönder", class:"primary-green-btn", data: { turbo_confirm: "Emin misiniz?" }  %>
-      <a href="#" class="turbo-cancel-btn">Boşver</a>
-    </div>
+      <div class="form-buttons">
+        <%= form.submit "Gönder", class:"primary-green-btn", data: { turbo_confirm: "Emin misiniz?" }  %>
+        <a href="#" class="turbo-cancel-btn">Boşver</a>
+      </div>
     </div>
   <% end %>
 <% end %>
@@ -170,7 +170,7 @@
 <% end %>
 
 <%= turbo_frame_tag "place-images" do %>
-  <%= form_with(model: @change_log, url: create_place_edit_path(@place), method: :post) do |form| %>
+  <%= form_with(model: @change_log, url: create_place_edit_path(@place), method: :post, class: "modal-form") do |form| %>
     <div class= "add-new-photos">
       <%= form.label "Yeni Fotoğraflar Ekleyin" %>
       <%= form.file_field :images, multiple: true, accept: "image/*" %>

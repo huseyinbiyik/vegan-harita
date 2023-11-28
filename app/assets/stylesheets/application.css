@@ -53,6 +53,7 @@ input {
 }
 
 /* Hide increment buttons in number inputs starts */
+
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -64,6 +65,7 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+
 /* Hide increment buttons in number inputs ends */
 
 input[type="file"] {
