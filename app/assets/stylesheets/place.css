@@ -233,27 +233,35 @@
   &::-webkit-scrollbar {
     display: none;
   }
+}
 
-  .place-tag {
-    font-size: 0.875rem;
-    border: 1px solid var(--gray);
-    border-radius: 5px;
-    padding: 3px 7px;
-    white-space: nowrap;
+.place-tag {
+  font-size: 0.875rem;
+  border: 1px solid var(--gray);
+  border-radius: 5px;
+  padding: 3px 7px;
+  white-space: nowrap;
+}
+
+/* Place tags modal form starts */
+#place-tags-modal {
+  padding: 20px;
+  overflow: scroll;
+
+  .tags-form {
+    height: 100%;
+    max-height: 100%;
+    overflow: scroll;
   }
 }
+
+/* Place tags modal form ends */
 
 .social-links {
   margin-top: 16px;
   display: flex;
   justify-content: space-between;
   max-width: 280px;
-
-  .social {
-    width: 42px;
-    height: 42px;
-  }
-
   .edit-button {
     position: absolute;
     top: 0;
@@ -261,6 +269,35 @@
     background-color: rgba(255, 255, 255, 0.8);
   }
 }
+
+.social {
+  width: 42px;
+  height: 42px;
+}
+
+/* Place social links modal form starts */
+.modal-social-group {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.social-platform {
+  position: absolute;
+  top: 22px;
+  padding: 10px 8px;
+  border-right: 1px solid var(--gray);
+}
+
+.social-input {
+  padding-left: 138px;
+}
+
+.social-input-twitter {
+  padding-left: 75px;
+}
+
+/* Place social links modal form end */
 
 #reviews {
   padding: 0 20px;
@@ -433,44 +470,6 @@
     justify-content: center;
   }
 }
-
-/* Place tags form starts */
-#place-tags-modal {
-  padding: 20px;
-  overflow: scroll;
-
-  .tags-form {
-    height: 100%;
-    max-height: 100%;
-    overflow: scroll;
-  }
-}
-
-/* Place tags form end */
-
-/* Place social links form starts */
-.modal-social-group {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-
-  .social-platform {
-    position: absolute;
-    top: 22px;
-    padding: 10px 8px;
-    border-right: 1px solid var(--gray);
-  }
-
-  .social-input {
-    padding-left: 138px;
-  }
-
-  .social-input-twitter {
-    padding-left: 75px;
-  }
-}
-
-/* Place social links form end */
 
 /* Inline forms end  */
 

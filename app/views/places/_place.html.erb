@@ -130,99 +130,98 @@
         </div>
       </div>
 
-        <div class="place-tags">
-          <%= turbo_frame_tag "place-tags", class: "edit-wrapper", hidden: true do %>
-            <%= link_to new_place_edit_path(place), class: "edit-button " do  %>
-              <span class="edit-icon-container">
-                <%= image_tag "edit.svg", class: "edit-icon" %>
-              </span>
-            <% end %>
+      <div class="place-tags">
+        <%= turbo_frame_tag "place-tags", class: "edit-wrapper", hidden: true do %>
+          <%= link_to new_place_edit_path(place), class: "edit-button " do  %>
+            <span class="edit-icon-container">
+              <%= image_tag "edit.svg", class: "edit-icon" %>
+            </span>
           <% end %>
-          <% if place.tags.present? %>
-            <% place.tags.each do |tag| %>
-              <span class="place-tag" ><%= tag.name %></span>
-            <% end %>
-          <% else %>
-            <span>Etiket Yok</span>
+        <% end %>
+        <% if place.tags.present? %>
+          <% place.tags.each do |tag| %>
+            <span class="place-tag" ><%= tag.name %></span>
           <% end %>
-        </div>
+        <% else %>
+          <span>Etiket Yok</span>
+        <% end %>
+      </div>
 
       <div class="social-links">
-    <% social_links = {
-      "instagram" => place.instagram_url,
-      "facebook" => place.facebook_url,
-      "twitter" => place.twitter_url,
-      "web" => place.web_url,
-      "email" => place.email
-    } %>
+        <% social_links = {
+          "instagram" => place.instagram_url,
+          "facebook" => place.facebook_url,
+          "twitter" => place.twitter_url,
+          "web" => place.web_url,
+          "email" => place.email
+        } %>
 
-    <% social_links.each do |key, value| %>
-      <% if value.present? %>
-        <% if key == "web" %>
-          <div class="relative">
-            <%= link_to "https://#{value}", target: "_blank", class: "social-link" do %>
-              <%= image_tag "#{key}.svg", class: "social" %>
-              <span class="visible-on-desktop"><%= value %></span>
-            <% end %>
-            <%= turbo_frame_tag "place-web",  class: "edit-wrapper", hidden: true  do %>
-              <%= link_to new_place_edit_path(place), class: "edit-button " do  %>
-                <span class="edit-icon-container">
-                  <%= image_tag "edit.svg", class: "edit-icon" %>
-                </span>
-              <% end %>
-            <% end %>
-          </div>
+        <% social_links.each do |key, value| %>
+          <% if value.present? %>
+            <% if key == "web" %>
+              <div class="relative">
+                <%= link_to "https://#{value}", target: "_blank", class: "social-link" do %>
+                  <%= image_tag "#{key}.svg", class: "social" %>
+                  <span class="visible-on-desktop"><%= value %></span>
+                <% end %>
+                <%= turbo_frame_tag "place-web",  class: "edit-wrapper", hidden: true  do %>
+                  <%= link_to new_place_edit_path(place), class: "edit-button " do  %>
+                    <span class="edit-icon-container">
+                      <%= image_tag "edit.svg", class: "edit-icon" %>
+                    </span>
+                  <% end %>
+                <% end %>
+              </div>
 
-        <% elsif key == "email" %>
-          <div class="relative">
-            <%= link_to "#{value}", href: "mailto:#{value}", class: "social-link" do %>
-              <%= image_tag "#{key}.svg", class: "social" %>
-              <span class="visible-on-desktop"><%= value %></span>
-            <% end %>
-            <%= turbo_frame_tag "place-email", class: "edit-wrapper", hidden: true do %>
-              <%= link_to new_place_edit_path(place), class: "edit-button " do  %>
-                <span class="edit-icon-container">
-                  <%= image_tag "edit.svg", class: "edit-icon" %>
-                </span>
-              <% end %>
-            <% end %>
-          </div>
+            <% elsif key == "email" %>
+              <div class="relative">
+                <%= link_to "#{value}", href: "mailto:#{value}", class: "social-link" do %>
+                  <%= image_tag "#{key}.svg", class: "social" %>
+                  <span class="visible-on-desktop"><%= value %></span>
+                <% end %>
+                <%= turbo_frame_tag "place-email", class: "edit-wrapper", hidden: true do %>
+                  <%= link_to new_place_edit_path(place), class: "edit-button " do  %>
+                    <span class="edit-icon-container">
+                      <%= image_tag "edit.svg", class: "edit-icon" %>
+                    </span>
+                  <% end %>
+                <% end %>
+              </div>
+            <% else %>
+              <div class="relative">
+                <%= link_to "#{value}", target: "_blank", class:"social-link" do %>
+                  <%= image_tag "#{key}.svg", class: "social" %>
+                  <span class="visible-on-desktop"><%= value %></span>
+                <% end %>
+                <%= turbo_frame_tag "place-#{key}", class: "edit-wrapper", hidden: true  do %>
+                  <%= link_to new_place_edit_path(place), class: "edit-button " do  %>
+                    <span class="edit-icon-container">
+                      <%= image_tag "edit.svg", class: "edit-icon" %>
+                    </span>
+                  <% end %>
+                <% end %>
+              </div>
+          <% end %>
         <% else %>
-          <div class="relative">
-            <%= link_to "#{value}", target: "_blank", class:"social-link" do %>
-              <%= image_tag "#{key}.svg", class: "social" %>
-              <span class="visible-on-desktop"><%= value %></span>
-            <% end %>
-            <%= turbo_frame_tag "place-#{key}", class: "edit-wrapper", hidden: true  do %>
-              <%= link_to new_place_edit_path(place), class: "edit-button " do  %>
-                <span class="edit-icon-container">
-                  <%= image_tag "edit.svg", class: "edit-icon" %>
-                </span>
+            <div class="relative">
+              <%= link_to "#{value}" do %>
+                <%= image_tag "#{key}.svg", class: "social disabled" %>
               <% end %>
-            <% end %>
-          </div>
-      <% end %>
-    <% else %>
-        <div class="relative">
-          <%= link_to "#{value}" do %>
-            <%= image_tag "#{key}.svg", class: "social disabled" %>
+              <%= turbo_frame_tag "place-#{key}", class: "edit-wrapper", hidden: true do %>
+                <%= link_to new_place_edit_path(place), class: "edit-button" do %>
+                  <span class="edit-icon-container">
+                    <%= image_tag "edit.svg", class: "edit-icon" %>
+                  </span>
+                <% end %>
+              <% end %>
+            </div>
           <% end %>
-          <%= turbo_frame_tag "place-#{key}", class: "edit-wrapper", hidden: true do %>
-            <%= link_to new_place_edit_path(place), class: "edit-button" do %>
-              <span class="edit-icon-container">
-                <%= image_tag "edit.svg", class: "edit-icon" %>
-              </span>
-            <% end %>
-          <% end %>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
+        <% end %>
+      </div>
   </div>
   </section>
 
   <hr class="separator">
-
 
   <section id="menu">
     <div id="menu-header">

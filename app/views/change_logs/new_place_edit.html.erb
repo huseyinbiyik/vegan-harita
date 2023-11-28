@@ -75,7 +75,7 @@
     <div class="inputs-wrapper">
       <div class= "form-group">
         <%= form.label "Website Adresi", style: "display: block" %>
-        <%= form.text_field :web_url, value: @place.web_url, placeholder: "siteadresi.com" %>
+        <%= form.text_field :web_url, value: @place.web_url, placeholder: "siteadresi.com", autofocus: true %>
       </div>
       <div class="form-buttons">
         <%= form.submit "Gönder", class:"primary-green-btn", data: { turbo_confirm: "Emin misiniz?" }  %>
@@ -90,7 +90,7 @@
     <div class= "inputs-wrapper">
       <div class= "form-group">
         <%= form.label "E-posta", style: "display: block" %>
-        <%= form.text_field :email, value: @place.email, placeholder: "mail@mail.com" %>
+        <%= form.text_field :email, value: @place.email, placeholder: "mail@mail.com", autofocus: true %>
       </div>
       <div class="form-buttons">
         <%= form.submit "Gönder", class:"primary-green-btn", data: { turbo_confirm: "Emin misiniz?" }  %>
@@ -106,7 +106,7 @@
       <div class="form-group modal-social-group">
         <%= form.label "Instagram", style: "display: block" %>
         <span class="social-platform">instagram.com/</span>
-        <%= form.text_field :instagram_url, value: @place.instagram_url, class: "social-input"  %>
+        <%= form.text_field :instagram_url, value: @place.instagram_url, class: "social-input", autofocus: true  %>
       </div>
       <div class="form-buttons">
         <%= form.submit "Gönder", class:"primary-green-btn", data: { turbo_confirm: "Emin misiniz?" }  %>
@@ -123,7 +123,7 @@
       <div class="form-group modal-social-group">
         <%= form.label "Facebook", style: "display: block" %>
           <span class="social-platform">facebook.com/</span>
-          <%= form.text_field :facebook_url, value: @place.facebook_url, class:"social-input" %>
+          <%= form.text_field :facebook_url, value: @place.facebook_url, class:"social-input", autofocus: true %>
       </div>
       <div class="form-buttons">
         <%= form.submit "Gönder", class:"primary-green-btn", data: { turbo_confirm: "Emin misiniz?" }  %>
@@ -139,7 +139,7 @@
       <div class="form-group modal-social-group">
         <%= form.label "X", style: "display: block" %>
         <span class="social-platform">x.com/</span>
-        <%= form.text_field :twitter_url, value: @place.twitter_url, class:"social-input-twitter" %>
+        <%= form.text_field :twitter_url, value: @place.twitter_url, class:"social-input-twitter", autofocus: true %>
       </div>
       <div class="form-buttons">
         <%= form.submit "Gönder", class:"primary-green-btn", data: { turbo_confirm: "Emin misiniz?" }  %>
