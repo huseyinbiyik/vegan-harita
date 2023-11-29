@@ -7,7 +7,7 @@ export default class extends Controller {
       this.toggleContentTarget.textContent === "Düzenleme Öner"
         ? "Vazgeç"
         : "Düzenleme Öner";
-    this.element.querySelectorAll(".edit").forEach((element) => {
+    this.element.querySelectorAll(".edit-wrapper").forEach((element) => {
       if (element.hasAttribute("hidden")) {
         element.removeAttribute("hidden");
       } else {

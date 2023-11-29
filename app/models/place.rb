@@ -1,6 +1,8 @@
 class Place < ApplicationRecord
   attr_accessor :creator
 
+  validates :name, presence: true, length: { minimum: 1, maximum: 80 }
+
   validates :instagram_url, format: { with: %r{\Ahttps?://(www\.)?instagram\.com/[\w-]+/?\z}i }, allow_blank: true
 
   validates :facebook_url, format: { with: %r{\Ahttps?://(www\.)?facebook\.com/}i }, allow_blank: true

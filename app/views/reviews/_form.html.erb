@@ -1,7 +1,7 @@
-<%= form_with(model: [@place, review], url: review.persisted? ? place_review_path(@place, review) : place_reviews_path(@place), method: review.persisted? ? :patch : :post) do |form| %>
-  <div>
+<%= form_with(model: [@place, review], url: review.persisted? ? place_review_path(@place, review) : place_reviews_path(@place), method: review.persisted? ? :patch : :post, class: "add-review") do |form| %>
+  <div class="review-form-group">
     <%= form.label "Puanınız", style: "display: block" %>
-    <div class="rating">
+    <div class="rating" id="rating-section">
       <%= form.collection_radio_buttons(:rating, [[5],[4],[3],[2],[1]], :first, :last) do |star| %>
         <%= star.radio_button %>
         <%= star.label(class: "star-numbers") %>
@@ -9,26 +9,24 @@
     </div>
   </div>
 
-  <div>
+  <div class="review-form-group">
     <%= form.label "Değerlendirmeniz", style: "display: block" %>
-    <%= form.text_area :content, placeholder: "Yorumunuz" %>
+    <%= form.text_area :content, placeholder: "Yorumunuz", required: true %>
   </div>
 
-<%# # Parantez içindeki kısım tooltip olsun %>
-  <div>
-        <%= form.label "Mekan Sahibine Geribildiriminiz (Diğer kullanıcılar tarafından görüntülenmez)", style: "display: block" %>
-        <%= form.text_area :feedback, placeholder: "Bence şu yemeğiniz biraz 🧂lu" %>
-  <div>
+  <div class="review-form-group">
+    <%= form.label "Mekan Sahibine Geribildiriminiz (Diğer kullanıcılar tarafından görüntülenmez)", style: "display: block" %>
+    <%= form.text_area :feedback, placeholder: "Bence şu yemeğiniz biraz tuzlu..." %>
+  </div>
 
+
+  <div class="review-form-group">
     <%= form.label "Fotoğraflar", style: "display: block" %>
     <%= form.file_field :images, multiple: true, accept: "image/*" %>
   </div>
 
-  <div class= "add-new-place-form-group">
-    <%= form.submit "Gönder" %>
+  <div class="form-buttons">
+    <%= form.submit "Gönder", class:"primary-green-btn", data: { turbo_confirm: "Emin misiniz?" }  %>
+    <a href="#" class="turbo-cancel-btn">Boşver</a>
   </div>
-  <div class= "add-new-place-form-group">
-    <a href="#" class="cancel">İptal</a>
-  </div>
-
 <% end %>

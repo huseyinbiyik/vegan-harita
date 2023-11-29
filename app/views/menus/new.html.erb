@@ -1,10 +1,10 @@
 <%= turbo_frame_tag "new_menu" do %>
-<div id="product-form-container" class="bg-dark-green">
-  <h1 class="page-title medium-font bold yellow">Ürün Ekle</h1>
-  <div>
-  <%= render "form", menu: @menu %>
+  <div  class="menu-form-container"">
+    <h3>Menüye Ürün Ekle</h3>
+    <div>
+      <%= render "form", menu: @menu %>
+    </div>
   </div>
-</div>
 <% end %>
 
 
