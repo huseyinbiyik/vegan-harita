@@ -1,5 +1,5 @@
 <%= turbo_frame_tag "menu_edit_#{@menu.id}" do %>
-  <div class="edit-menu-form-container">
+  <div class="menu-form-container">
     <%= form_with(model: [@change_log], url: create_menu_edit_path(place_id: @place), method: :post, class: "menu-form") do |form| %>
 
         <div class="form-group">

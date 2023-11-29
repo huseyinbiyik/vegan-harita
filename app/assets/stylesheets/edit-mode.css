@@ -17,7 +17,7 @@
   border: 1px dashed var(--green);
   border-radius: 50%;
   box-sizing: border-box;
-  animation: rotateBorder 5s linear forwards;
+  animation: rotateBorder 10s linear infinite;
 }
 
 @keyframes rotateBorder {

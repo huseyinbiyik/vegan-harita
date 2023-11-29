@@ -228,7 +228,7 @@
       <h2>MENÜ</h2>
       <%= link_to new_place_menu_path(@place), data: { turbo_frame: "new_menu"}, id: "add-new-product", class: "edit-wrapper", hidden: true do %>+Ürün Ekle<% end %>
     </div>
-      <%= turbo_frame_tag "new_menu" %>
+    <%= turbo_frame_tag "new_menu" %>
       <% if @place.menus.present? %>
         <% if @place.menus.food.present? %>
           <h3 class="menu-category-heading">
@@ -250,11 +250,9 @@
             İçecekler</h3>
           <%= render @place.menus.drink, locals: {place: @place} %>
         <% end %>
-
-
-    <%else%>
-    <p> Bu mekanın menüsü henüz eklenmemiş gibi görünüyor. :(</p>
-    <%end%>
+      <%else%>
+        <p> Bu mekanın menüsü henüz eklenmemiş gibi 🙁</p>
+      <%end%>
   </section>
 
   <hr class="separator">
