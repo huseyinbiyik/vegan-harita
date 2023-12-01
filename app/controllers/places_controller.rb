@@ -53,6 +53,31 @@ class PlacesController < ApplicationController
     end
   end
 
+  def edit
+    @place = Place.find(params[:id])
+  end
+
+  def update
+    place = Place.find(params[:id])
+    change_log = ChangeLog.new(place_params)
+    change_log.images.attach(params[:place][:images])
+    change_log.deleted_images = params[:place][:deleted_images]
+    change_log.changeable = place
+    change_log.user = current_user
+
+    respond_to do |format|
+      if change_log.save
+        change_log.approve_place_edit if current_user.admin?
+        format.html do
+          redirect_to place_url(place),
+                      notice: 'Mekan değişiklik isteği başarıyla değerlendirmeye gönderildi. Desteğiniz için teşekkür ederiz 💚'
+        end
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+      end
+    end
+  end
+
   private
 
   def set_place
@@ -61,7 +86,7 @@ class PlacesController < ApplicationController
 
   def place_params
     params.require(:place).permit(
-      :name, :address, :latitude, :longitude, :vegan, :image, :instagram_url,
+      :name, :address, :latitude, :longitude, :vegan, :instagram_url,
       :facebook_url, :twitter_url, :web_url, :email, :phone, :approved, tag_ids: [], contributors: []
     )
   end

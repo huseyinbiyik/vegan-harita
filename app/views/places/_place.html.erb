@@ -3,7 +3,7 @@
     <div class="place-heading-left">
       <h1 class="place-heading-title"><%= place.name %>
       <%= turbo_frame_tag "place-name", class:"edit-wrapper", hidden: true do %>
-        <%= link_to new_place_edit_path(place), class: "edit-button" do  %>
+        <%= link_to edit_place_path(place), class: "edit-button" do  %>
             <span class="edit-icon-container">
               <%= image_tag "edit.svg", class: "edit-icon" %>
             </span>
@@ -51,7 +51,7 @@
         <% end %>
       </div>
       <%= turbo_frame_tag "place-images", class: "edit-wrapper", hidden: true do %>
-        <%= link_to new_place_edit_path(place), class: "edit-button " do %>
+        <%= link_to edit_place_path(place), class: "edit-button " do %>
           <span class="edit-icon-container">
             <%= image_tag "edit.svg", class: "edit-icon" %>
           </span>
@@ -75,7 +75,7 @@
             </div>
           <% end %>
           <%= turbo_frame_tag "place-vegan", class: "edit-wrapper", hidden: true do %>
-            <%= link_to new_place_edit_path(place), class: "edit-button " do %>
+            <%= link_to edit_place_path(place), class: "edit-button " do %>
               <span class="edit-icon-container">
                 <%= image_tag "edit.svg", class: "edit-icon" %>
               </span>
@@ -98,7 +98,7 @@
             <% end %>
           </div>
           <%= turbo_frame_tag "place-location", class: "edit-wrapper", hidden: true do %>
-            <%= link_to new_place_edit_path(place), class: "edit-button" do  %>
+            <%= link_to edit_place_path(place), class: "edit-button" do  %>
               <span class="edit-icon-container">
                   <%= image_tag "edit.svg", class: "edit-icon" %>
               </span>
@@ -121,7 +121,7 @@
             <% end %>
           <% end %>
           <%= turbo_frame_tag "place-phone", class: "edit-wrapper", hidden: true do %>
-            <%= link_to new_place_edit_path(place), class: "edit-button" do  %>
+            <%= link_to edit_place_path(place), class: "edit-button" do  %>
               <span class="edit-icon-container">
                 <%= image_tag "edit.svg", class: "edit-icon" %>
               </span>
@@ -132,7 +132,7 @@
 
       <div class="place-tags">
         <%= turbo_frame_tag "place-tags", class: "edit-wrapper", hidden: true do %>
-          <%= link_to new_place_edit_path(place), class: "edit-button " do  %>
+          <%= link_to edit_place_path(place), class: "edit-button " do  %>
             <span class="edit-icon-container">
               <%= image_tag "edit.svg", class: "edit-icon" %>
             </span>
@@ -165,7 +165,7 @@
                   <span class="visible-on-desktop"><%= value %></span>
                 <% end %>
                 <%= turbo_frame_tag "place-web",  class: "edit-wrapper", hidden: true  do %>
-                  <%= link_to new_place_edit_path(place), class: "edit-button " do  %>
+                  <%= link_to edit_place_path(place), class: "edit-button " do  %>
                     <span class="edit-icon-container">
                       <%= image_tag "edit.svg", class: "edit-icon" %>
                     </span>
@@ -180,7 +180,7 @@
                   <span class="visible-on-desktop"><%= value %></span>
                 <% end %>
                 <%= turbo_frame_tag "place-email", class: "edit-wrapper", hidden: true do %>
-                  <%= link_to new_place_edit_path(place), class: "edit-button " do  %>
+                  <%= link_to edit_place_path(place), class: "edit-button " do  %>
                     <span class="edit-icon-container">
                       <%= image_tag "edit.svg", class: "edit-icon" %>
                     </span>
@@ -194,7 +194,7 @@
                   <span class="visible-on-desktop"><%= value %></span>
                 <% end %>
                 <%= turbo_frame_tag "place-#{key}", class: "edit-wrapper", hidden: true  do %>
-                  <%= link_to new_place_edit_path(place), class: "edit-button " do  %>
+                  <%= link_to edit_place_path(place), class: "edit-button " do  %>
                     <span class="edit-icon-container">
                       <%= image_tag "edit.svg", class: "edit-icon" %>
                     </span>
@@ -208,7 +208,7 @@
                 <%= image_tag "#{key}.svg", class: "social disabled" %>
               <% end %>
               <%= turbo_frame_tag "place-#{key}", class: "edit-wrapper", hidden: true do %>
-                <%= link_to new_place_edit_path(place), class: "edit-button" do %>
+                <%= link_to edit_place_path(place), class: "edit-button" do %>
                   <span class="edit-icon-container">
                     <%= image_tag "edit.svg", class: "edit-icon" %>
                   </span>

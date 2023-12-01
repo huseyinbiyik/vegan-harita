@@ -1,35 +1,6 @@
 class ChangeLogsController < ApplicationController
   before_action :authenticate_user!
 
-  def new_place_edit
-    @place = Place.find(params[:id])
-    @change_log = ChangeLog.new
-  end
-
-  def create_place_edit
-    place = Place.find(params[:id])
-    change_log = ChangeLog.new(change_log_params)
-    change_log.changeable = place
-    change_log.user = current_user
-
-    if change_log.user.role == 'admin'
-      change_log.approve_place_edit
-      redirect_to place_url(place), notice: 'Mekan değişiklik isteği başarıyla onaylandı.'
-    elsif change_log.save
-      respond_to do |format|
-        format.html do
-          redirect_to place_url(place),
-                      notice: 'Mekan değişiklik isteği başarıyla değerlendirmeye gönderildi.
-                       Desteğiniz için teşekkür ederiz 💚'
-        end
-      end
-    else
-      respond_to do |format|
-        format.html { render :new_place_edit, status: :unprocessable_entity }
-      end
-    end
-  end
-
   def new_menu_edit
     @menu = Menu.find(params[:menu_id])
     @place = Place.find(params[:place_id])
