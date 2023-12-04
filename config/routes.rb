@@ -14,11 +14,6 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'change-logs/place/:id', to: 'change_logs#new_place_edit', as: :new_place_edit
-  post 'change-logs/:id', to: 'change_logs#create_place_edit', as: :create_place_edit
-  get 'change-logs/menu/:place_id/:menu_id', to: 'change_logs#new_menu_edit', as: :new_menu_edit
-  post 'change-logs/menu/place_id/:menu_id', to: 'change_logs#create_menu_edit', as: :create_menu_edit
-
   scope 'admin-panel' do
     get "approvals", to: "admins#approvals", as: :approvals
     post "approve-user/:id", to: "admins#approve_user", as: :approve_user

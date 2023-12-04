@@ -1,4 +1,4 @@
-<%= form_with(model: [@place, @menu], url: place_menus_path, class: "menu-form") do |form| %>
+<%= form_with(model: [@place, @menu], class: "menu-form") do |form| %>
   <% if menu.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(menu.errors.count, "error") %> prohibited this menu from being saved:</h2>
@@ -20,10 +20,15 @@
     <%= form.text_area :description, placeholder: "Tofu, soğan ve susam ve Kuzey Kore baharatları...", required: true %>
   </div>
 
-  <div>
-    <%= form.label "Görsel Seçin", style: "display: block" %>
-    <%= form.file_field :image, accept: "image/*" %>
-  </div>
+      <div>
+        <% if @menu.image.attached? %>
+          <%= form.label "Fotoğrafı Değiştir", style: "display: block" %>
+            <%= image_tag @menu.image, class: "menu-image" %>
+            <% else %>
+              <%= form.label "Görsel Seçin", style: "display: block" %>
+        <% end %>
+        <%= form.file_field :image, accept: "image/*" %>
+      </div>
 
   <div>
     <%= form.label "Ürün Kategorisi", style: "display: block" %>
