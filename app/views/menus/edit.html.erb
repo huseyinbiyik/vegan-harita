@@ -1,0 +1,7 @@
+<%= turbo_frame_tag "menu_edit_#{@menu.id}" do %>
+  <div  class="menu-form-container"">
+    <div>
+      <%= render "form", menu: @menu %>
+    </div>
+  </div>
+<% end %>

@@ -6,7 +6,6 @@ export default class extends Controller {
   initialize() {
     this.index = 0;
     this.showCurrentImage();
-    console.log(this.imageTargets.length);
   }
 
   next() {

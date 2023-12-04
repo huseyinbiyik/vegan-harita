@@ -15,4 +15,8 @@ class User < ApplicationRecord
     self.approved = true
     save
   end
+
+  def admin?
+    role == 'admin'
+  end
 end

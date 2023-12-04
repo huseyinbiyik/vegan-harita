@@ -1,10 +1,10 @@
 <%= turbo_frame_tag "place-name" do %>
 
-  <%= form_with(model: @change_log, url: create_place_edit_path(@place), method: :post, class: "modalize") do |form| %>
+  <%= form_with(model: @place, class: "modalize") do |form| %>
     <div class="inputs-wrapper">
       <div class="form-group">
         <%= form.label "Mekanın Adı" %>
-        <%= form.text_field :name, value: @place.name, placeholder: "X Vegan Cafe", required: true, maxlength: 80, size: nil, autofocus: true, class: "modal-input" %>
+        <%= form.text_field :name, placeholder: "X Vegan Cafe", required: true, maxlength: 80, size: nil, autofocus: true, class: "modal-input" %>
       </div>
 
       <div class="form-buttons">
@@ -18,8 +18,7 @@
 
 
 <%= turbo_frame_tag "place-vegan" do %>
-  <%= form_with(model: @change_log, url: create_place_edit_path(@place), method: :post, class: "modalize") do |form| %>
-
+  <%= form_with(model: @place, class: "modalize") do |form| %>
     <div class="inputs-wrapper">
       <%= form.label "Bu işletme vegan mı yoksa sadece bazı vegan seçenekler mi sunuyor?" %>
       <%= form.select :vegan, options_for_select([["Vegan", true], ["Vegan Seçenekli", false]], selected: @place.vegan), {}, class: "select-type" %>
@@ -32,8 +31,9 @@
   <% end %>
 <% end %>
 
+
 <%= turbo_frame_tag "place-location" do %>
-  <%= form_with(model: @change_log, data: {controller: "place", action: "google-maps-callback@window->place#initializeMap"}, url: create_place_edit_path(@place), method: :post, class: "modalize") do |form| %>
+  <%= form_with(model: @place, data: {controller: "place", action: "google-maps-callback@window->place#initializeMap"}, class: "modalize") do |form| %>
 
     <div id="modal-location-wrapper">
       <div class= "form-group">
@@ -41,8 +41,6 @@
         <%= form.text_field :address,  data: {place_target: "field", action: "keydown->place#preventSubmit"}, placeholder: "X Vegan Cafe, Kadıköy...", required: true, autofocus: true, id: "location-input" %>
           <div id="modal-map"  data-place-target="map"></div>
       </div>
-
-
 
       <%= form.hidden_field :latitude, data: {place_target: "latitude"} %>
       <%= form.hidden_field :longitude, data: {place_target: "longitude"}  %>
@@ -56,11 +54,11 @@
 <% end %>
 
 <%= turbo_frame_tag "place-phone" do %>
-  <%= form_with(model: @change_log, url: create_place_edit_path(@place), method: :post, class: "modalize") do |form| %>
+  <%= form_with(model: @place, class: "modalize") do |form| %>
     <div class= "inputs-wrapper">
       <div class="form-group">
         <%= form.label "Telefon", style: "display: block" %>
-        <%= form.text_field :phone, value: @place.phone, pattern: "[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}",  placeholder: "5XXXXXXXXX", autofocus: true  %>
+        <%= form.text_field :phone, pattern: "[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}",  placeholder: "5XXXXXXXXX", autofocus: true  %>
       </div>
       <div class="form-buttons">
         <%= form.submit "Gönder", class:"primary-green-btn", data: { turbo_confirm: "Emin misiniz?" }  %>
@@ -71,11 +69,11 @@
 <% end %>
 
 <%= turbo_frame_tag "place-web" do %>
-  <%= form_with(model: @change_log, url: create_place_edit_path(@place), method: :post, class: "modalize") do |form| %>
+  <%= form_with(model: @place, class: "modalize") do |form| %>
     <div class="inputs-wrapper">
       <div class= "form-group">
         <%= form.label "Website Adresi", style: "display: block" %>
-        <%= form.text_field :web_url, value: @place.web_url, placeholder: "siteadresi.com", autofocus: true %>
+        <%= form.text_field :web_url, placeholder: "siteadresi.com", autofocus: true %>
       </div>
       <div class="form-buttons">
         <%= form.submit "Gönder", class:"primary-green-btn", data: { turbo_confirm: "Emin misiniz?" }  %>
@@ -86,11 +84,11 @@
 <% end %>
 
 <%= turbo_frame_tag "place-email" do %>
-  <%= form_with(model: @change_log, url: create_place_edit_path(@place), method: :post, class: "modalize") do |form| %>
+  <%= form_with(model: @place, class: "modalize") do |form| %>
     <div class= "inputs-wrapper">
       <div class= "form-group">
         <%= form.label "E-posta", style: "display: block" %>
-        <%= form.text_field :email, value: @place.email, placeholder: "mail@mail.com", autofocus: true %>
+        <%= form.text_field :email, placeholder: "mail@mail.com", autofocus: true %>
       </div>
       <div class="form-buttons">
         <%= form.submit "Gönder", class:"primary-green-btn", data: { turbo_confirm: "Emin misiniz?" }  %>
@@ -101,12 +99,12 @@
 <% end %>
 
 <%= turbo_frame_tag "place-instagram" do %>
-  <%= form_with(model: @change_log, url: create_place_edit_path(@place), method: :post, class: "modalize") do |form| %>
+  <%= form_with(model: @place, class: "modalize") do |form| %>
     <div class= "inputs-wrapper">
       <div class="form-group modal-social-group">
         <%= form.label "Instagram", style: "display: block" %>
         <span class="social-platform">instagram.com/</span>
-        <%= form.text_field :instagram_url, value: @place.instagram_url, class: "social-input", autofocus: true  %>
+        <%= form.text_field :instagram_url, class: "social-input", autofocus: true  %>
       </div>
       <div class="form-buttons">
         <%= form.submit "Gönder", class:"primary-green-btn", data: { turbo_confirm: "Emin misiniz?" }  %>
@@ -118,12 +116,12 @@
 
 
 <%= turbo_frame_tag "place-facebook" do %>
-  <%= form_with(model: @change_log, url: create_place_edit_path(@place), method: :post, class: "modalize") do |form| %>
+  <%= form_with(model: @place, class: "modalize") do |form| %>
     <div class= "inputs-wrapper">
       <div class="form-group modal-social-group">
         <%= form.label "Facebook", style: "display: block" %>
           <span class="social-platform">facebook.com/</span>
-          <%= form.text_field :facebook_url, value: @place.facebook_url, class:"social-input", autofocus: true %>
+          <%= form.text_field :facebook_url, class:"social-input", autofocus: true %>
       </div>
       <div class="form-buttons">
         <%= form.submit "Gönder", class:"primary-green-btn", data: { turbo_confirm: "Emin misiniz?" }  %>
@@ -134,12 +132,12 @@
 <% end %>
 
 <%= turbo_frame_tag "place-twitter" do %>
-  <%= form_with(model: @change_log, url: create_place_edit_path(@place), method: :post, class: "modalize") do |form| %>
+  <%= form_with(model: @place, class: "modalize") do |form| %>
     <div class= "inputs-wrapper">
       <div class="form-group modal-social-group">
         <%= form.label "X", style: "display: block" %>
         <span class="social-platform">x.com/</span>
-        <%= form.text_field :twitter_url, value: @place.twitter_url, class:"social-input-twitter", autofocus: true %>
+        <%= form.text_field :twitter_url, class:"social-input-twitter", autofocus: true %>
       </div>
       <div class="form-buttons">
         <%= form.submit "Gönder", class:"primary-green-btn", data: { turbo_confirm: "Emin misiniz?" }  %>
@@ -150,7 +148,7 @@
 <% end %>
 
 <%= turbo_frame_tag "place-tags" do %>
-  <%= form_with(model: @change_log, url: create_place_edit_path(@place), method: :post, class: "modalize") do |form| %>
+  <%= form_with(model: @place, class: "modalize") do |form| %>
   <div class="add-new-place-form-group tags-form-container" id="place-tags-modal" >
     <%= form.label "Bu mekanı tanımlayan etiketleri seçin", style: "display: block"%>
     <div class="tags-form">
@@ -170,7 +168,7 @@
 <% end %>
 
 <%= turbo_frame_tag "place-images" do %>
-  <%= form_with(model: @change_log, url: create_place_edit_path(@place), method: :post, class: "modal-form") do |form| %>
+  <%= form_with(model: @place, class: "modal-form") do |form| %>
     <div class= "add-new-photos">
       <%= form.label "Yeni Fotoğraflar Ekleyin" %>
       <%= form.file_field :images, multiple: true, accept: "image/*" %>
