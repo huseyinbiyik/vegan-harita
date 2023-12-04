@@ -70,7 +70,8 @@ class PlacesController < ApplicationController
         change_log.approve_place_edit if current_user.admin?
         format.html do
           redirect_to place_url(place),
-                      notice: 'Mekan değişiklik isteği başarıyla değerlendirmeye gönderildi. Desteğiniz için teşekkür ederiz 💚'
+                      notice: 'Mekan değişiklik isteği başarıyla değerlendirmeye gönderildi.
+                      Desteğiniz için teşekkür ederiz 💚'
         end
       else
         format.html { render :edit, status: :unprocessable_entity }
