@@ -9,9 +9,9 @@ class Menu < ApplicationRecord
 
   enum product_category: { Yemek: 0, Tatlı: 1, İçecek: 2 }
 
-  scope :food, -> { where(product_category: 0, approved: true).order(likes_count: :desc) }
-  scope :dessert, -> { where(product_category: 1, approved: true).order(likes_count: :desc) }
-  scope :drink, -> { where(product_category: 2, approved: true).order(likes_count: :desc) }
+  scope :food, -> { where(product_category: 0, approved: true, active: true).order(likes_count: :desc) }
+  scope :dessert, -> { where(product_category: 1, approved: true, active: true).order(likes_count: :desc) }
+  scope :drink, -> { where(product_category: 2, approved: true, active: true).order(likes_count: :desc) }
 
   def approve
     self.approved = true

@@ -29,3 +29,11 @@
     transform: rotate(360deg);
   }
 }
+
+.delete-icon-container {
+  margin-left: 10px;
+}
+
+.delete-icon-container::before {
+  border: 1px dashed var(--red);
+}
