@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :change_logs, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_one_attached :avatar
 
   enum role: { user: 0, admin: 1 }
 
