@@ -3,7 +3,7 @@
   <%= render "devise/shared/error_messages", resource: resource %>
   <div class="field">
     <%= f.label :avatar %>
-    <%= image_tag(current_user.avatar, height: "100px", width: "100px") if current_user.avatar.attached? %>
+    <%= image_tag(resource.avatar, height: "100px", width: "100px") if resource.avatar.attached? %>
     <%= f.file_field :avatar %>
   </div>
   <div class="field">
