@@ -466,6 +466,36 @@
 
 /* Inline forms end  */
 
+#contributors {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 16px;
+
+  & h2 {
+    font-size: 1.75rem;
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+}
+
+.contributors-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 16px;
+  max-width: 280px;
+  gap: 16px;
+  flex-wrap: wrap;
+
+  & img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+}
+
 @media (min-width: 1024px) {
   .separator {
     margin: 48px 0;

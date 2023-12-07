@@ -1,6 +1,6 @@
 class PlacesController < ApplicationController
   before_action :authenticate_user!, except: %i[index show search]
-  before_action :set_place, only: %i[show]
+  before_action :set_place, only: %i[show edit update]
 
   def index
     @places = Place.approved
@@ -25,10 +25,9 @@ class PlacesController < ApplicationController
   end
 
   def show
+    redirect_to root_path, notice: t('controllers.places.not_approved') unless @place.approved || current_user&.admin?
     @reviews = @place.reviews.order(created_at: :desc).with_attached_images
-    return unless @place.approved == false
-
-    redirect_to places_path, notice: 'Mekan henüz onaylanmadı. Onaylandığında burada olacak.'
+    @contributors = User.where(id: @place.contributors).with_attached_avatar
   end
 
   def new
@@ -52,22 +51,19 @@ class PlacesController < ApplicationController
     end
   end
 
-  def edit
-    @place = Place.find(params[:id])
-  end
+  def edit; end
 
   def update
-    place = Place.find(params[:id])
     change_log = ChangeLog.new(place_params)
     change_log.deleted_images = params[:place][:deleted_images]
-    change_log.changeable = place
+    change_log.changeable = @place
     change_log.user = current_user
 
     respond_to do |format|
       if change_log.save
         change_log.approve_place_edit if current_user.admin?
         format.html do
-          redirect_to place_url(place),
+          redirect_to place_url(@place),
                       notice: 'Mekan değişiklik isteği başarıyla değerlendirmeye gönderildi.
                       Desteğiniz için teşekkür ederiz 💚'
         end
