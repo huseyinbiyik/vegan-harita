@@ -185,9 +185,24 @@ tr:
         password: "Parola"
         password_confirmation: "Parola tekrarı"
         current_password: "Mevcut parola"
+      menu:
+        name: "Kuzey Kore Usulü Kızarmış Tofu"
+        description: "Tofu, soğan ve susam ve Kuzey Kore baharatları..."
+      place_edits:
+        web_url : "siteadresi.com"
+      review:
+        content: "Yorumunuz"
+        feedback: "Bence şu yemeğiniz biraz tuzlu..."
     errors:
       messages:
         blank: "boş olamaz"
         confirmation: "eşleşmiyor"
         too_short: "çok kısa (en az %{count} karakter)"
-  
+  helpers:
+    placeholder:
+      name_search: "Mekan ara..."
+      user:
+        email: "mail@adresiniz.com"
+      
+      
+      

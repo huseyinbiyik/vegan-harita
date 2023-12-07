@@ -11,12 +11,12 @@
 
   <div class="review-form-group">
     <%= form.label t('your_review'), style: "display: block" %>
-    <%= form.text_area :content, placeholder: "Yorumunuz", required: true %>
+    <%= form.text_area :content, placeholder: Review.human_attribute_name('content'), required: true %>
   </div>
 
   <div class="review-form-group">
     <%= form.label t('owner_feedback'), style: "display: block" %>
-    <%= form.text_area :feedback, placeholder: "Bence şu yemeğiniz biraz tuzlu..." %>
+    <%= form.text_area :feedback, placeholder: Review.human_attribute_name('feedback') %>
   </div>
 
 
