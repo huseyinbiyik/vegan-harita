@@ -1,6 +1,6 @@
 <%= form_with(model: [@place, review], url: review.persisted? ? place_review_path(@place, review) : place_reviews_path(@place), method: review.persisted? ? :patch : :post, class: "add-review") do |form| %>
   <div class="review-form-group">
-    <%= form.label t('your_score'), style: "display: block" %>
+    <%= form.label t('your_rating'), style: "display: block" %>
     <div class="rating" id="rating-section">
       <%= form.collection_radio_buttons(:rating, [[5],[4],[3],[2],[1]], :first, :last) do |star| %>
         <%= star.radio_button %>

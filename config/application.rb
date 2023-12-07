@@ -21,5 +21,8 @@ module VhApi
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
     config.i18n.default_locale = :en
+    # available languages will be turkish and english
+    config.i18n.available_locales = [:en, :tr]
+
   end
 end
