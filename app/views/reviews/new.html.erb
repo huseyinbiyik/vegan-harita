@@ -1,5 +1,5 @@
 <%= turbo_frame_tag :new_review do %>
-  <h2>Bir Yeni Değerlendirme</h2>
+  <h2> <%= t :new_review %> </h2>
   <%= render "form", review: @review %>
 <% end %>
 
