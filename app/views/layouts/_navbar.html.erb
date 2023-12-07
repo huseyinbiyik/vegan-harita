@@ -14,14 +14,14 @@
     <li class="nav-link">
       <% if user_signed_in? && current_user.role == "admin" %>
         <%= link_to approvals_path, class:"nav-admin-link" do %>
-          <span>Onay Paneli</span>
+          <span><%= t :panel %></span>
           <% end %>
         <% end %>
     </li>
     <li class="nav-link">
       <%= link_to new_place_path, id:"add-place-link" do %>
         <%= image_tag "add-place.svg"%>
-        <span>Mekan Ekle</span>
+        <span><%= t :add_place %></span>
       <% end %>
     </li>
     <% if user_signed_in? %>
@@ -29,12 +29,12 @@
         <%= image_tag "account-icon.svg", id:"account-icon" %>
         <ul class="dropdown">
           <li>
-          <%= link_to "Hesabım", edit_user_registration_path %>
+          <%= link_to t('my_account'), edit_user_registration_path %>
           </li>
           <li>
             <%= link_to destroy_user_session_path, method: :delete, id: "logout-link" do %>
               <%= image_tag "logout-icon.svg", id:"logout-icon" %>
-              <span>Çıkış Yap</span>
+              <span><%= t :logOut %></span>
             <% end %>
           </li>
         </ul>
@@ -42,7 +42,7 @@
       <% else %>
       <li class="nav-link">
         <%= link_to new_user_session_path, id: "sign-in-link" do %>
-          Giriş Yap
+          <%= t :logIn %>
         <% end %>
       </li>
       <% end %>

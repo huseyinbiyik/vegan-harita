@@ -5,8 +5,8 @@
     <%= image_tag "default-place-image.jpg", class:"review-avatar" %>
     <%= review.user.email %>
     <% if review.user == current_user && user_signed_in? %>
-  <%= link_to "Düzenle", edit_place_review_path(@place, review) %>
-  <%= link_to "Sil", place_review_path(@place, review), method: "delete", remote: true, data: { turbo_method: "delete", turbo_confirm: "Silmek istediğinizden emin misiniz?" } %>
+  <%= link_to t('edit'), edit_place_review_path(@place, review) %>
+  <%= link_to t('delete'), place_review_path(@place, review), method: "delete", remote: true, data: { turbo_method: "delete", turbo_confirm: t('sure_delete') } %>
 <% end %>
 <% end %>
   </div>

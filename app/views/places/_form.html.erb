@@ -2,8 +2,8 @@
   <% if place.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(place.errors.count, "hata") %>
-        şu sorundan dolayı arıza çıktı:</h2>
-
+        <%= t :error_reason %>
+      </h2>
       <ul>
         <% place.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -13,7 +13,7 @@
   <% end %>
 
   <div class="add-new-place-form-group" id="address-group">
-    <%= form.label "Adres (gerekli)", style: "display: block" %>
+    <%= form.label t('address_required'), style: "display: block" %>
     <%= form.text_field :address,  data: {place_target: "field", action: "keydown->place#preventSubmit"}, placeholder: "X Vegan Cafe, Kadıköy...", autofocus: true, required: true %>
     <div id="form-map"  data-place-target="map"></div>
   </div>
@@ -23,13 +23,13 @@
 
   <div class="sub-group">
     <div class= "add-new-place-form-group">
-      <%= form.label "İsim (gerekli)", style: "display: block" %>
+      <%= form.label t('name_required'), style: "display: block" %>
       <%= form.text_field :name, placeholder: "X Vegan Cafe", required: true, maxlength: 80, size: nil %>
     </div>
 
     <% if place.images.attached? %>
     <div class= "add-new-place-form-group">
-      <%=  form.label "Silinecek Fotoğrafları Seç", style: "display: block" %>
+      <%=  form.label t('select_delete'), style: "display: block" %>
       <% place.images.each do |image| %>
         <div class="image-checkbox">
           <%= form.check_box :deleted_images, { multiple: true, id: "image-select" }, image.id, nil %>
@@ -40,18 +40,18 @@
     <% end %>
 
     <div class= "add-new-place-form-group">
-      <%= form.label "Görsel", style: "display: block" %>
+      <%= form.label t('image'), style: "display: block" %>
       <%= form.file_field :images, multiple: true, accept: "image/*" %>
     </div>
   </div>
 
   <div class= "add-new-place-form-group">
-    <%= form.label "Bu işletme vegan mı yoksa sadece bazı vegan seçenekler mi sunuyor?", style: "display: block" %>
-    <%= form.select :vegan, options_for_select([["Vegan Seçenekli", true], ["Vegan", false]]), {} %>
+    <%= form.label t('place_vegan'), style: "display: block" %>
+    <%= form.select :vegan, options_for_select([[ t('has_option'), true], [ t('vegan'), false]]), {} %>
   </div>
 
   <div class="add-new-place-form-group tags-form-container " >
-    <%= form.label "Bu mekanı tanımlayan etiketleri seçin", style: "display: block"%>
+    <%= form.label t('select_tags'), style: "display: block"%>
     <div class="tags-form">
     <% Tag.all.each do |tag| %>
       <span class="checkbox-inline tag">
@@ -64,45 +64,45 @@
 
   <div class="sub-group">
     <div class= "add-new-place-form-group social-field">
-      <%= form.label "Instagram", style: "display: block" %>
-        <span class="platform">instagram.com/</span>
+      <%= form.label t('instagram'), style: "display: block" %>
+        <span class="platform"><%= t :instagram_link %> </span>
         <%= form.text_field :instagram_url, id:"instagram" %>
     </div>
 
     <div class= "add-new-place-form-group social-field">
-      <%= form.label "Facebook", style: "display: block" %>
-        <span class="platform">facebook.com/</span>
+      <%= form.label t('facebook'), style: "display: block" %>
+        <span class="platform"><%= t :facebook_link %> </span>
         <%= form.text_field :facebook_url, id:"facebook" %>
     </div>
   </div>
 
   <div class="sub-group">
     <div class= "add-new-place-form-group social-field">
-      <%= form.label "X", style: "display: block" %>
-        <span class="platform">x.com/</span>
+      <%= form.label t('x'), style: "display: block" %>
+        <span class="platform"> <%= t :x_link %> </span>
         <%= form.text_field :twitter_url, id:"x" %>
     </div>
 
     <div class= "add-new-place-form-group">
-      <%= form.label "Website adresi", style: "display: block" %>
+      <%= form.label t('website_link'), style: "display: block" %>
       <%= form.text_field :web_url, placeholder: "veganharita.com" %>
     </div>
   </div>
 
   <div class="sub-group">
     <div class= "add-new-place-form-group">
-      <%= form.label "E-posta", style: "display: block" %>
+      <%= form.label t('mail'), style: "display: block" %>
       <%= form.text_field :email, placeholder: "mail@mail.com" %>
     </div>
 
     <div class= "add-new-place-form-group">
-      <%= form.label "Telefon", style: "display: block" %>
+      <%= form.label t('phone'), style: "display: block" %>
       <%= form.text_field :phone, pattern: "[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}",  placeholder: "5*********" %>
     </div>
   </div>
 
   <div class= "add-new-place-form-group", id="submit-place" >
-    <%= form.submit "Gönder" %>
+    <%= form.submit t('submit') %>
   </div>
 <% end %>
 

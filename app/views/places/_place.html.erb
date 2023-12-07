@@ -17,7 +17,7 @@
           <%= average_rating(@reviews)%>
         </span>
         <% if @reviews.present? %>
-          <a class="review-size" href="#reviews"><%= @reviews.size %> Değerlendirme</a>
+          <a class="review-size" href="#reviews"><%= @reviews.size %> <%= t :review %> </a>
         <% end %>
       </div>
     </div>
@@ -27,7 +27,7 @@
           <span class="edit-icon-container">
             <%=image_tag "edit.svg", class: "edit-icon" %>
           </span>
-          <span class="place-toggle-text" data-edit-target="toggleContent">Düzenleme Öner</span>
+          <span class="place-toggle-text" data-edit-target="toggleContent"> <%= t :suggest %> </span>
         </button>
       <% end %>
     </div>
@@ -66,12 +66,12 @@
           <% if place.vegan? %>
             <div class="detail-group">
               <%= image_tag "vegan-place.svg", class: "detail-icon", id: "vegan-icon" %>
-              <span class="detail ">Vegan</span>
+              <span class="detail "> <%= t :vegan %> </span>
             </div>
           <% else %>
             <div class="detail-group">
               <%= image_tag "vegan-friendly-place.svg", class: "detail-icon", id: "vegan-icon" %>
-              <span class="detail">Vegan Seçenekli</span>
+              <span class="detail"> <%= t :has_option %> </span>
             </div>
           <% end %>
           <%= turbo_frame_tag "place-vegan", class: "edit-wrapper", hidden: true do %>
@@ -86,7 +86,7 @@
         <div class="place-detail">
           <div class="detail-group">
             <%= image_tag "open.svg", class: "detail-icon", id: "open-icon" %>
-            <span class="detail">Şu anda açık</span>
+            <span class="detail"> <%= t :open %> </span>
           </div>
         </div>
 
@@ -94,7 +94,7 @@
           <div class="detail-group">
             <%= link_to "https://www.google.com/maps/dir/?api=1&destination=#{place.latitude},#{place.longitude}", target: "_blank", class: "detail-group" do %>
               <%= image_tag "direction.svg", class: "detail-icon"%>
-              <span class="detail">Yol Tarifi</span>
+              <span class="detail"> <%= t :directions %> </span>
             <% end %>
           </div>
           <%= turbo_frame_tag "place-location", class: "edit-wrapper", hidden: true do %>
@@ -112,7 +112,7 @@
             <div class="detail-group">
               <%= link_to "tel:#{place.phone}", class: "detail-group" do %>
                 <%= image_tag "phone.svg", class: "detail-icon" %>
-                <span class="detail">Ara</span>
+                <span class="detail"> <%= t :call %> </span>
               <% end %>
             </div>
           <% else %>
@@ -143,7 +143,7 @@
             <span class="place-tag" ><%= tag.name %></span>
           <% end %>
         <% else %>
-          <span>Etiket Yok</span>
+          <span> <%= t :no_tag %> </span>
         <% end %>
       </div>
 
@@ -225,33 +225,36 @@
 
   <section id="menu">
     <div id="menu-header">
-      <h2>MENÜ</h2>
-      <%= link_to new_place_menu_path(@place), data: { turbo_frame: "new_menu"}, id: "add-new-product", class: "edit-wrapper", hidden: true do %>+Ürün Ekle<% end %>
+      <h2> <%= t :menu %> </h2>
+      <%= link_to new_place_menu_path(@place), data: { turbo_frame: "new_menu"}, id: "add-new-product", class: "edit-wrapper", hidden: true do %> <%= t :add_product %> <% end %>
     </div>
     <%= turbo_frame_tag "new_menu" %>
       <% if @place.menus.present? %>
         <% if @place.menus.food.present? %>
           <h3 class="menu-category-heading">
             <%= image_tag "menu-category-food.svg"%>
-            Yemekler</h3>
+            <%= t :meals %>
+          </h3>
           <%= render @place.menus.food, locals: {place: @place} %>
         <% end %>
 
         <% if @place.menus.dessert.present? %>
           <h3 class="menu-category-heading">
             <%= image_tag "menu-category-dessert.svg"%>
-            Tatlılar</h3>
+            <%= t :desserts %>
+          </h3>
           <%= render @place.menus.dessert, locals: {place: @place} %>
         <% end %>
 
         <% if @place.menus.drink.present? %>
           <h3 class="menu-category-heading">
             <%= image_tag "menu-category-drink.svg"%>
-            İçecekler</h3>
+            <%= t :drinks %>
+          </h3>
           <%= render @place.menus.drink, locals: {place: @place} %>
         <% end %>
       <%else%>
-        <p> Bu mekanın menüsü henüz eklenmemiş gibi 🙁</p>
+        <p> <%= t :no_menu %> </p>
       <%end%>
   </section>
 
@@ -260,7 +263,7 @@
 
   <section id="reviews">
     <div id="reviews-header">
-      <h2>Müşteriler bu mekanı nasıl değerlendiriyor?</h2>
+      <h2> <%= t :customers_review %> </h2>
     </div>
     <div class="reviews-wrapper">
       <% @reviews.approved.each do |review| %>
@@ -270,8 +273,8 @@
       <% if user_signed_in? %>
         <%= turbo_frame_tag "new_review" do %>
           <%= link_to  new_place_review_path(@place), class: "add-review-btn" do %>
-          <%= image_tag "add-review.svg"%>
-          Değerlendirme yaz
+            <%= image_tag "add-review.svg"%>
+            <%= t :add_review %>
           <% end %>
         <% end %>
       <% end %>

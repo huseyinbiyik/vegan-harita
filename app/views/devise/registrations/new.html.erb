@@ -1,22 +1,22 @@
 <section class="user-forms">
 
-<h2>Kayıt Ol</h2>
+<h2><%= t :signUp %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { data: { turbo: false}}) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :email, 'E-posta' %>
+    <%= f.label :email, t('mail') %>
     <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "mail@adresiniz.com" %>
   </div>
 
   <div class="field">
-    <%= f.label :password, 'Parola' %>
+    <%= f.label :password, t('password') %>
     <%= f.password_field :password, autocomplete: "new-password", placeholder: '******' %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation, 'Parola Doğrulaması' %>
+    <%= f.label :password_confirmation, t('password_confirmation') %>
     <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: '******' %>
   </div>
 
@@ -26,7 +26,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Kayıt ol", id:"signup-button" %>
+    <%= f.submit t('signup'), id:"signup-button" %>
   </div>
 <% end %>
 
