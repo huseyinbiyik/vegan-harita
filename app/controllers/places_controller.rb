@@ -37,7 +37,6 @@ class PlacesController < ApplicationController
 
   def create
     @place = Place.new(place_params)
-    @place.images.attach(params[:place][:images])
     @place.contributors << current_user.id
     @place.approved = true if current_user && current_user.role == 'admin'
 
@@ -88,7 +87,7 @@ class PlacesController < ApplicationController
   def place_params
     params.require(:place).permit(
       :name, :address, :latitude, :longitude, :vegan, :instagram_url,
-      :facebook_url, :twitter_url, :web_url, :email, :phone, :approved, tag_ids: [], contributors: []
+      :facebook_url, :twitter_url, :web_url, :email, :phone, :approved, tag_ids: [], contributors: [], images: []
     )
   end
 end
