@@ -67,7 +67,7 @@
             <% end %>
             </div>
           </li>
-          
+
           <% if place_edit.images.attached? %>
             <span class="pending-title"><%= t :photos_added %></span>
           <%= render partial: "shared/slider", locals: { images: place_edit.images, id: place_edit.id } %>
@@ -190,6 +190,10 @@
             <div><%= "#{menu_edit.changeable.price} TL" %> <span class="arrow"> → </span> <%= "#{menu_edit.price} TL" %></div>
             </li>
           <li><span class="pending-title"><%= t :edited_by %></span><%= menu_edit.user.email %></li>
+
+            <li class="compared"><span class="pending-title">Silme Talebi </span>
+            <div><%= menu_edit.changeable.active %> <span class="arrow"> → </span> <%= menu_edit.active %><div>
+          </li>
           <li>
             <%= link_to t('approve'), approve_menu_edit_path(menu_edit), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
             <%= link_to t('reject'), reject_menu_edit_path(menu_edit), class: "reject-btn", method: "delete", remote: true, data: { turbo_method: "delete" } %>

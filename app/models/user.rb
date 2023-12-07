@@ -8,6 +8,9 @@ class User < ApplicationRecord
   has_many :change_logs, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_one_attached :avatar, dependent: :destroy
+
+  validate :avatar_file_type
 
   enum role: { user: 0, admin: 1 }
 
@@ -18,5 +21,11 @@ class User < ApplicationRecord
 
   def admin?
     role == 'admin'
+  end
+
+  def avatar_file_type
+    return unless avatar.attached? && !avatar.content_type.in?('image/png, image/jpeg, image/jpg')
+
+    errors.add(:avatar, 'Incorrect file format! Only jpg and png types are acceptable.')
   end
 end
