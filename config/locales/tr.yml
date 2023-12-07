@@ -113,3 +113,81 @@ tr:
   sure_delete: "Silmek istediğinizden emin misiniz?"
   edit_review: "Değerlendirmeni Düzenle"
   new_review: "Bir Yeni Değerlendirme"
+  devise:
+    confirmations:
+      confirmed: "E-posta adresiniz başırılı bir şekilde onaylandı."
+      send_instructions: "Birkaç dakika içinde e-posta adresinizi nasıl onaylayacağınız hakkında bir e-posta alacaksınız."
+      send_paranoid_instructions: "Eğer e-posta adresiniz veri tabanımızda kayıtlı ise birkaç dakika içinde e-posta adresinizi nasıl onaylayacağınızla ilgili bir e-posta alacaksınız."
+    failure:
+      already_authenticated: "Zaten giriş yaptınız."
+      inactive: "Hesabınız henüz aktifleştirilmedi."
+      invalid: "Geçersiz %{authentication_keys} veya parola."
+      locked: "Hesabınız kilitli."
+      last_attempt: "Hesabınız kilitlenmeden önceki son şansınız."
+      not_found_in_database: "Geçersiz %{authentication_keys} veya parola."
+      timeout: "Oturum süreniz sonlandı. Lütfen devam etmek için tekrar giriş yapın."
+      unauthenticated: "Devam etmeden önce giriş yapmalı veya kayıt olmalısınız."
+      unconfirmed: "Devam etmeden önce eposta adresinizi onaylamalısınız."
+    mailer:
+      confirmation_instructions:
+        subject: "Onaylama talimatları"
+      reset_password_instructions:
+        subject: "Parola sıfırlama talimatları"
+      unlock_instructions:
+        subject: "Kilit kaldırma talimalatları"
+      email_changed:
+        subject: "Eposta değişti."
+      password_change:
+        subject: "Parola değişti."
+    omniauth_callbacks:
+      failure: "\"%{reason}\" olduğu için %{kind}'den doğrulama yapılamıyor."
+      success: "%{kind} hesabından başarılı bir şekilde doğrulandı."
+    passwords:
+      no_token: "Parola sıfırlama e-postasından gelmeden bu sayfaya erişemezsiniz. Eğer bir parola sıfırlama e-postasından geliyorsanız tam bir URL kullandığınızdan emin olunuz."
+      send_instructions: "Birkaç dakika içinde parolanızı nasıl sıfırlayacağınızla ilgili bir e-posta alacaksınız."
+      send_paranoid_instructions: "Eğer e-posta adresiniz sistemimizde kayıtlı ise birkaç dakika içinde e-posta adresinize bir parola kurtarma linki alacaksınız."
+      updated: "Parolanız başarılı bir şekilde değiştirildi. Şimdi giriş yapabilirsiniz."
+      updated_not_active: "Parolanız başarılı bir şekilde değiştirildi."
+    registrations:
+      destroyed: "Güle güle! Hesabınız başarılı bir şekilde iptal edildi. Sizi tekrar görmeyi umut ediyoruz."
+      signed_up: "Hoşgeldiniz! Başarılı bir şekilde kayıt oldunuz."
+      signed_up_but_inactive: "Başarılı bir şekilde kayıt oldunuz. Ancak henüz hesabınızı doğrulamadığınız için giriş yapamasınız."
+      signed_up_but_locked: "Başarılı bir şekilde kayıt oldunuz. Ancak hesabınız kilitli olduğu için giriş yapamazsınız."
+      signed_up_but_unconfirmed: "Eposta adresinize onaylama linkli bir mesaj gönderildi. Lütfen hesabınızı aktifleştirmek için linke tıklayın."
+      update_needs_confirmation: "Hesabınız başarılı bir şekilde güncellendi. Fakat e-posta adresinizi onaylamanız gerekmekte. Lütfen gelen kutunuzu kontrol ediniz ve yeni e-posta adresinizi onaylama linkine tıklayınız."
+      updated: "Hesabınız başarılı bir şekilde güncellendi."
+      updated_but_not_signed_in: "Hesabınız başarılı bir şekilde güncellendi. Ancak parolanız değiştiği için tekrar giriş yapmalısınız."
+    sessions:
+      signed_in: "Giriş başarılı."
+      signed_out: "Çıkış başarılı."
+      already_signed_out: "Çıkış başarılı."
+    unlocks:
+      send_instructions: "Birkaç dakika içinde hesabınızın kilidini nasıl kaldıracağınızla ilgili bir e-posta alacaksınız."
+      send_paranoid_instructions: "Eğer hesabınız varsa birkaç dakika içinde hesabınızın kilidini nasıl kaldırıcağınızla ilgili bir e-posta alacaksınız."
+      unlocked: "Başarılı bir şekilde hesabınızın kilidi kaldırıldı. Devam etmek için lütfen giriş yapın."
+  errors:
+    messages:
+      already_confirmed: "Zaten onaylandı, lütfen giriş yapmayı deneyin."
+      confirmation_period_expired: "%{period} süresi içinde onaylanması gerekiyor. Lütfen yeni bir tane isteyin."
+      expired: "Sona erdi, lütfen yeni bir tane isteyin."
+      not_found: "Bulunamadı."
+      not_locked: "Kilitlenmedi."
+      not_saved:
+        one: "Kaydedilirken %{resource}'dan 1 hata yakalandı:"
+        other: "Kaydedilirken %{resource}'dan %{count} hata yakalandı:"
+  activerecord:
+    models:
+      user: "Kullanıcı"
+    attributes:
+      user:
+        name: "Ad"
+        email: "E-posta"
+        password: "Parola"
+        password_confirmation: "Parola tekrarı"
+        current_password: "Mevcut parola"
+    errors:
+      messages:
+        blank: "boş olamaz"
+        confirmation: "eşleşmiyor"
+        too_short: "çok kısa (en az %{count} karakter)"
+  
