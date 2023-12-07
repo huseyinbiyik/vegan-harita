@@ -2,7 +2,11 @@
 <%= turbo_frame_tag dom_id(review) do %>
 <div class="review-wrapper">
   <div class="reviewer-info">
-    <%= image_tag "default-place-image.jpg", class:"review-avatar" %>
+    <% if review.user.avatar.attached? %>
+      <%= image_tag review.user.avatar.variant(resize_to_limit: [70,70]), class:"review-avatar", loading: "lazy" %>
+    <% else %>
+      <%= image_tag "default-place-image.jpg", class:"review-avatar", loading: "lazy" %>
+    <% end %>
     <%= review.user.email %>
     <% if review.user == current_user && user_signed_in? %>
   <%= link_to "Düzenle", edit_place_review_path(@place, review) %>
