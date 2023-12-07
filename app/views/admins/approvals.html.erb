@@ -180,7 +180,12 @@
             <div><%= menu_edit.changeable.description %> <span class="arrow"> → </span> <%= menu_edit.description %></div>
           </li>
           <% if menu_edit.image.attached? %>
-            <li> <%= image_tag menu_edit.image %>% </li>
+            <li class="compared"><span class="pending-title">Ürün Fotoğrafı: </span>
+              <div>
+                <%= image_tag menu_edit.changeable.image.variant(resize_to_limit: [500,500]) %>
+                <span class="arrow"> → </span>
+                <%= image_tag menu_edit.image.variant(resize_to_limit: [500,500]) %>
+              </div>
           <% end %>
           <li class="compared"><span class="pending-title">Ürün Kategorisi: </span>
             <div><%= menu_edit.changeable.product_category %> <span class="arrow"> → </span> <%= menu_edit.product_category %><div>
