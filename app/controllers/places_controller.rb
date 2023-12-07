@@ -59,7 +59,6 @@ class PlacesController < ApplicationController
   def update
     place = Place.find(params[:id])
     change_log = ChangeLog.new(place_params)
-    change_log.images.attach(params[:place][:images])
     change_log.deleted_images = params[:place][:deleted_images]
     change_log.changeable = place
     change_log.user = current_user
