@@ -78,28 +78,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_04_202454) do
     t.index ["place_id"], name: "index_menus_on_place_id"
   end
 
-  create_table "place_edits", force: :cascade do |t|
-    t.bigint "place_id", null: false
-    t.bigint "user_id", null: false
-    t.string "name"
-    t.float "longitude"
-    t.float "latitude"
-    t.text "address"
-    t.boolean "vegan"
-    t.string "instagram_url"
-    t.string "facebook_url"
-    t.string "twitter_url"
-    t.string "web_url"
-    t.string "email"
-    t.string "phone"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "tag_ids", default: [], array: true
-    t.integer "deleted_images", default: [], array: true
-    t.index ["place_id"], name: "index_place_edits_on_place_id"
-    t.index ["user_id"], name: "index_place_edits_on_user_id"
-  end
-
   create_table "places", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -168,8 +146,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_04_202454) do
   add_foreign_key "change_logs", "users"
   add_foreign_key "likes", "users"
   add_foreign_key "menus", "places"
-  add_foreign_key "place_edits", "places"
-  add_foreign_key "place_edits", "users"
   add_foreign_key "reviews", "places"
   add_foreign_key "reviews", "users"
 end
