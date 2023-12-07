@@ -214,6 +214,12 @@
         <li><span class="pending-title">Puan: </span><%= review.rating %></li>
         <li><span class="pending-title">İçerik: </span><%= review.content %></li>
         <li><span class="pending-title">Geribildirim: </span><%= review.feedback %></li>
+        <li style="height: 100%;">
+          <% if review.images.attached? %>
+            <span class="pending-title">Eklenen Fotoğraflar:</span>
+            <%= render partial: "shared/slider", locals: { images: review.images } %>
+          <% end %>
+        </li>
         <li><span class="pending-title">Kullanıcı Epostası: </span><%= review.user.email %></li>
         <li>
           <%= link_to "Onayla", approve_review_path(review), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
