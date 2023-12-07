@@ -6,14 +6,14 @@
       <%= image_tag("love.svg", class: "heart") %>
     <% end %>
     <span class="like-counter">
-    <%= menu.likes.count %> beğeni
+    <%= menu.likes.count %> <%= t :like %>
     </span>
   <% end %>
   <% if menu.most_liked?(place) %>
   <span class="most-liked">
   <%= image_tag "heart.svg", class: "red-heart"%>
-     En çok beğenilen
-      <%= image_tag "heart.svg", class: "red-heart"%>
+  <%= t :most_liked %>
+  <%= image_tag "heart.svg", class: "red-heart"%>
   <span>
   <% end %>
 <% end %>
