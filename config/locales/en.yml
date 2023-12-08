@@ -110,7 +110,7 @@ en:
   select_delete: "Select the photos you want to delete"
   image: "I"
   place_vegan: "Is this place vegan or just offering some vegan options?"
-  has_option: "Vegan Option"
+  has_options: "Vegan Option"
   vegan: "Vegan"
   select_tags: "Select the tags that describe this place"
   instagram_link: "instagram.com/"
