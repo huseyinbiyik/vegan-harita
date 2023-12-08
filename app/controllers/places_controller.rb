@@ -1,6 +1,6 @@
 class PlacesController < ApplicationController
   before_action :authenticate_user!, except: %i[index show search]
-  before_action :set_place, only: %i[show]
+  before_action :set_place, only: %i[show edit update]
 
   def index
     @places = Place.approved
@@ -25,10 +25,9 @@ class PlacesController < ApplicationController
   end
 
   def show
-    @reviews = @place.reviews.order(created_at: :desc)
-    return unless @place.approved == false
-
-    redirect_to places_path, notice: 'Mekan henüz onaylanmadı. Onaylandığında burada olacak.'
+    redirect_to root_path, notice: t('controllers.places.not_approved') unless @place.approved || current_user&.admin?
+    @reviews = @place.reviews.order(created_at: :desc).with_attached_images
+    @contributors = User.where(id: @place.contributors).with_attached_avatar
   end
 
   def new
@@ -37,7 +36,6 @@ class PlacesController < ApplicationController
 
   def create
     @place = Place.new(place_params)
-    @place.images.attach(params[:place][:images])
     @place.contributors << current_user.id
     @place.approved = true if current_user && current_user.role == 'admin'
 
@@ -53,23 +51,19 @@ class PlacesController < ApplicationController
     end
   end
 
-  def edit
-    @place = Place.find(params[:id])
-  end
+  def edit; end
 
   def update
-    place = Place.find(params[:id])
     change_log = ChangeLog.new(place_params)
-    change_log.images.attach(params[:place][:images])
     change_log.deleted_images = params[:place][:deleted_images]
-    change_log.changeable = place
+    change_log.changeable = @place
     change_log.user = current_user
 
     respond_to do |format|
       if change_log.save
         change_log.approve_place_edit if current_user.admin?
         format.html do
-          redirect_to place_url(place),
+          redirect_to place_url(@place),
                       notice: 'Mekan değişiklik isteği başarıyla değerlendirmeye gönderildi.
                       Desteğiniz için teşekkür ederiz 💚'
         end
@@ -88,7 +82,7 @@ class PlacesController < ApplicationController
   def place_params
     params.require(:place).permit(
       :name, :address, :latitude, :longitude, :vegan, :instagram_url,
-      :facebook_url, :twitter_url, :web_url, :email, :phone, :approved, tag_ids: [], contributors: []
+      :facebook_url, :twitter_url, :web_url, :email, :phone, :approved, tag_ids: [], contributors: [], images: []
     )
   end
 end

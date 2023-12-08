@@ -203,6 +203,14 @@ tr:
       name_search: "Mekan ara..."
       user:
         email: "mail@adresiniz.com"
-      
-      
-      
+  controllers:
+    places:
+      not_approved: "Bu mekan henüz onaylanmadı. Onaylandığı zaman tam burada olacak."
+  views:
+    places:
+      show:
+        contributors: "Katkıda Bulunanlar"
+
+
+
+

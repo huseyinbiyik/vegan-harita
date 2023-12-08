@@ -233,4 +233,11 @@ en:
     placeholder:
       name_search: "Search Place..."
       user:
-        email: "your@address.com"  
+        email: "your@address.com"
+  controllers:
+    places:
+      not_approved: "This place is not approved yet. It will be here when it's approved."
+  views:
+    places:
+      show:
+        contributors: "Contributors"

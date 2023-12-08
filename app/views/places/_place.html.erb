@@ -2,15 +2,14 @@
   <div class="place-heading-container">
     <div class="place-heading-left">
       <h1 class="place-heading-title"><%= place.name %>
-      <%= turbo_frame_tag "place-name", class:"edit-wrapper", hidden: true do %>
-        <%= link_to edit_place_path(place), class: "edit-button" do  %>
+        <%= turbo_frame_tag "place-name", class:"edit-wrapper", hidden: true do %>
+          <%= link_to edit_place_path(place), class: "edit-button" do  %>
             <span class="edit-icon-container">
               <%= image_tag "edit.svg", class: "edit-icon" %>
             </span>
           <% end %>
-      <% end %>
+        <% end %>
       </h1>
-
       <div class="place-review-score-container">
         <span class="review-score">
           <%= image_tag "review-star.svg" %>
@@ -32,7 +31,6 @@
       <% end %>
     </div>
   </div>
-
   <section class="place-features-container">
     <div data-controller="slider" class="slider">
       <div class="slider-container">
@@ -58,9 +56,7 @@
         <% end %>
       <% end %>
     </div>
-
     <div class="place-details">
-
       <div class="place-details-primary-wrapper">
         <div class="place-detail">
           <% if place.vegan? %>
@@ -82,14 +78,12 @@
             <% end %>
           <% end %>
         </div>
-
         <div class="place-detail">
           <div class="detail-group">
             <%= image_tag "open.svg", class: "detail-icon", id: "open-icon" %>
             <span class="detail"> <%= t :open %> </span>
           </div>
         </div>
-
         <div class="place-detail">
           <div class="detail-group">
             <%= link_to "https://www.google.com/maps/dir/?api=1&destination=#{place.latitude},#{place.longitude}", target: "_blank", class: "detail-group" do %>
@@ -100,13 +94,11 @@
           <%= turbo_frame_tag "place-location", class: "edit-wrapper", hidden: true do %>
             <%= link_to edit_place_path(place), class: "edit-button" do  %>
               <span class="edit-icon-container">
-                  <%= image_tag "edit.svg", class: "edit-icon" %>
+                <%= image_tag "edit.svg", class: "edit-icon" %>
               </span>
             <% end %>
           <% end %>
         </div>
-
-
         <div class="place-detail">
           <% if place.phone.present? %>
             <div class="detail-group">
@@ -129,7 +121,6 @@
           <% end %>
         </div>
       </div>
-
       <div class="place-tags">
         <%= turbo_frame_tag "place-tags", class: "edit-wrapper", hidden: true do %>
           <%= link_to edit_place_path(place), class: "edit-button " do  %>
@@ -146,7 +137,6 @@
           <span> <%= t :no_tag %> </span>
         <% end %>
       </div>
-
       <div class="social-links">
         <% social_links = {
           "instagram" => place.instagram_url,
@@ -155,7 +145,6 @@
           "web" => place.web_url,
           "email" => place.email
         } %>
-
         <% social_links.each do |key, value| %>
           <% if value.present? %>
             <% if key == "web" %>
@@ -172,7 +161,6 @@
                   <% end %>
                 <% end %>
               </div>
-
             <% elsif key == "email" %>
               <div class="relative">
                 <%= link_to "#{value}", href: "mailto:#{value}", class: "social-link" do %>
@@ -201,8 +189,8 @@
                   <% end %>
                 <% end %>
               </div>
-          <% end %>
-        <% else %>
+            <% end %>
+          <% else %>
             <div class="relative">
               <%= link_to "#{value}" do %>
                 <%= image_tag "#{key}.svg", class: "social disabled" %>
@@ -218,49 +206,42 @@
           <% end %>
         <% end %>
       </div>
-  </div>
+    </div>
   </section>
-
   <hr class="separator">
-
   <section id="menu">
     <div id="menu-header">
       <h2> <%= t :menu %> </h2>
       <%= link_to new_place_menu_path(@place), data: { turbo_frame: "new_menu"}, id: "add-new-product", class: "edit-wrapper", hidden: true do %> <%= t :add_product %> <% end %>
     </div>
     <%= turbo_frame_tag "new_menu" %>
-      <% if @place.menus.present? %>
-        <% if @place.menus.food.present? %>
-          <h3 class="menu-category-heading">
-            <%= image_tag "menu-category-food.svg"%>
-            <%= t :meals %>
-          </h3>
-          <%= render @place.menus.food, locals: {place: @place} %>
-        <% end %>
-
-        <% if @place.menus.dessert.present? %>
-          <h3 class="menu-category-heading">
-            <%= image_tag "menu-category-dessert.svg"%>
-            <%= t :desserts %>
-          </h3>
-          <%= render @place.menus.dessert, locals: {place: @place} %>
-        <% end %>
-
-        <% if @place.menus.drink.present? %>
-          <h3 class="menu-category-heading">
-            <%= image_tag "menu-category-drink.svg"%>
-            <%= t :drinks %>
-          </h3>
-          <%= render @place.menus.drink, locals: {place: @place} %>
-        <% end %>
-      <%else%>
-        <p> <%= t :no_menu %> </p>
-      <%end%>
+    <% if @place.menus.present? %>
+      <% if @place.menus.food.present? %>
+        <h3 class="menu-category-heading">
+          <%= image_tag "menu-category-food.svg"%>
+          <%= t :meals %>
+        </h3>
+        <%= render @place.menus.food, locals: {place: @place} %>
+      <% end %>
+      <% if @place.menus.dessert.present? %>
+        <h3 class="menu-category-heading">
+          <%= image_tag "menu-category-dessert.svg"%>
+          <%= t :desserts %>
+        </h3>
+        <%= render @place.menus.dessert, locals: {place: @place} %>
+      <% end %>
+      <% if @place.menus.drink.present? %>
+        <h3 class="menu-category-heading">
+          <%= image_tag "menu-category-drink.svg"%>
+          <%= t :drinks %>
+        </h3>
+        <%= render @place.menus.drink, locals: {place: @place} %>
+      <% end %>
+    <%else%>
+      <p> <%= t :no_menu %> </p>
+    <%end%>
   </section>
-
   <hr class="separator">
-
-
   <section id="reviews">
     <div id="reviews-header">
       <h2> <%= t :customers_review %> </h2>
@@ -269,7 +250,6 @@
       <% @reviews.approved.each do |review| %>
         <%= render review%>
       <% end %>
-
       <% if user_signed_in? %>
         <%= turbo_frame_tag "new_review" do %>
           <%= link_to  new_place_review_path(@place), class: "add-review-btn" do %>
@@ -278,7 +258,23 @@
           <% end %>
         <% end %>
       <% end %>
-  </div>
-</section>
+    </div>
+  </section>
+  <hr class="separator">
+  <section id="contributors">
+    <div id="contributors-header">
+      <h2> <%= t("views.places.show.contributors") %> </h2>
+    </div>
+    <div class="contributors-wrapper">
+      <% @contributors.each do |contributor| %>
+        <div class="contributor">
+          <% if contributor.avatar.attached? %>
+            <%= image_tag contributor.avatar.variant(resize_to_limit: [50,50]), class:"contributor-avatar", loading: "lazy" %>
+          <% else %>
+            <%= image_tag "default-place-image.jpg", class:"contributor-avatar", loading: "lazy" %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </section>
 </main>
-
