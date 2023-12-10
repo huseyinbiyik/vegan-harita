@@ -157,6 +157,7 @@ tr:
       update_needs_confirmation: "Hesabınız başarılı bir şekilde güncellendi. Fakat e-posta adresinizi onaylamanız gerekmekte. Lütfen gelen kutunuzu kontrol ediniz ve yeni e-posta adresinizi onaylama linkine tıklayınız."
       updated: "Hesabınız başarılı bir şekilde güncellendi."
       updated_but_not_signed_in: "Hesabınız başarılı bir şekilde güncellendi. Ancak parolanız değiştiği için tekrar giriş yapmalısınız."
+      edit_user: "Hesabımı Düzenle"
     sessions:
       signed_in: "Giriş başarılı."
       signed_out: "Çıkış başarılı."
