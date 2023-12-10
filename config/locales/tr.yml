@@ -158,8 +158,8 @@ tr:
       updated: "Hesabınız başarılı bir şekilde güncellendi."
       updated_but_not_signed_in: "Hesabınız başarılı bir şekilde güncellendi. Ancak parolanız değiştiği için tekrar giriş yapmalısınız."
     sessions:
-      signed_in: "Giriş başarılı."
-      signed_out: "Çıkış başarılı."
+      signed_in: "Hoşgeldiniz!"
+      signed_out: "Hoşçakalın! Başarılı bir şekilde çıkış yaptınız."
       already_signed_out: "Çıkış başarılı."
     unlocks:
       send_instructions: "Birkaç dakika içinde hesabınızın kilidini nasıl kaldıracağınızla ilgili bir e-posta alacaksınız."
