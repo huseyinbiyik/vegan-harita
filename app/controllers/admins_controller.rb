@@ -1,4 +1,4 @@
-class AdminsController < ApplicationController
+class AdminsController < ApplicationController # rubocop:disable Metrics/ClassLength
   before_action :authenticate_admin
 
   def approvals
@@ -28,7 +28,13 @@ class AdminsController < ApplicationController
     user = User.find(params[:id])
     if user.approve
       respond_to do |format|
-        format.turbo_stream { render turbo_stream: turbo_stream.remove("user_#{user.id}") }
+        format.turbo_stream do
+          flash.now[:notice] = 'Kullanıcı onaylandı.'
+          render turbo_stream: [
+            turbo_stream.remove("user_#{params[:id]}"),
+            turbo_stream.update('flash_messages', partial: 'shared/flash_messages', locals: { flash: })
+          ]
+        end
       end
     else
       redirect_to approvals_path, alert: 'Kullanıcı onaylanamadı.'
@@ -42,7 +48,13 @@ class AdminsController < ApplicationController
       place.creator.points += 10
       place.creator.save
       respond_to do |format|
-        format.turbo_stream { render turbo_stream: turbo_stream.remove("place_#{params[:id]}") }
+        format.turbo_stream do
+          flash.now[:notice] = 'Mekan onaylandı.'
+          render turbo_stream: [
+            turbo_stream.remove("place_#{params[:id]}"),
+            turbo_stream.update('flash_messages', partial: 'shared/flash_messages', locals: { flash: })
+          ]
+        end
       end
     else
       redirect_to approvals_path, alert: 'Mekan onaylanamadı.'

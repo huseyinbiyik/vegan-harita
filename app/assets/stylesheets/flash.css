@@ -1,0 +1,55 @@
+#flash_messages {
+  position: fixed;
+  top: 70px;
+  right: 20px;
+  z-index: 5;
+  max-width: 280px;
+}
+
+#flash_messages .notice,
+#flash_messages .alert {
+  padding: 10px 20px;
+  border: 1px solid;
+  border-radius: 5px;
+  color: var(--white);
+  animation: enter 0.5s, leave 0.5s 4s forwards;
+}
+
+@keyframes enter {
+  from {
+    transform: translateX(calc(100% + 100px));
+    animation-timing-function: cubic-bezier(0.68, -0.55, 0.25, 1.35);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes leave {
+  from {
+    transform: translateX(0);
+    animation-timing-function: cubic-bezier(0.68, -0.55, 0.25, 1.35);
+  }
+  to {
+    transform: translateX(calc(100% + 100px));
+  }
+}
+
+#flash_messages .notice {
+  background-color: var(--green);
+  border-color: var(--green);
+  box-shadow: 0 0 10px var(--green);
+}
+
+#flash_messages .alert {
+  border-color: var(--red);
+  background-color: var(--red);
+  box-shadow: 0 0 10px var(--red);
+}
+
+@media (min-width: 1024px) {
+  #flash_messages {
+    right: 48px;
+    max-width: 400px;
+  }
+}

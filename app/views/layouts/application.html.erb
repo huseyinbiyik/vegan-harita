@@ -6,10 +6,8 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-
     <script>
       window.dispatchMapsEvent = function (...args) {
         const event = new CustomEvent("google-maps-callback", {
@@ -20,18 +18,18 @@
         window.dispatchEvent(event);
       }
     </script>
-
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Rails.application.credentials.google_maps[:api_key]}&libraries=places&callback=dispatchMapsEvent",
     async: true,
     defer: true,
     "data-turbolinks-eval": false %>
   </head>
-
   <body>
+    <div id="flash_messages">
+      <% flash.each do |type, message| %>
+        <div data-controller="flash" class="<%= type %>"><%= message %></div>
+      <% end %>
+    </div>
     <%= render "layouts/navbar" %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     <%= yield %>
-
   </body>
 </html>
