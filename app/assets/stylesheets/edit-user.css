@@ -1,0 +1,29 @@
+#avatar-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 80px;
+  margin: auto; 
+}
+
+#avatar-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 80px;
+}
+
+#user_avatar {
+  border: none;
+}
+
+#user_avatar::before {
+  content: "";
+  background: url("camera.svg") no-repeat right bottom;
+  width: 80px;
+  height: 80px;
+  border-radius: 0;
+  position: absolute;
+  bottom: 2px;
+  right: 0;
+  border: none;
+}

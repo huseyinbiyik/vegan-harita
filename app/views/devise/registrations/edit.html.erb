@@ -1,10 +1,12 @@
+<section class="user-forms">
 <h2><%= t('devise.registrations.edit_user') %></h2>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-  <div class="field">
-    <%= f.label :avatar %>
-    <%= image_tag(resource.avatar, height: "100px", width: "100px") if resource.avatar.attached? %>
-    <%= f.file_field :avatar %>
+  <div class="field" id="avatar-field">
+    <div id="avatar-container">
+      <%= image_tag(resource.avatar, height: "100px", width: "100px", id: "avatar-img") if resource.avatar.attached? %>
+      <%= f.file_field :avatar %>
+    </div>
   </div>
   <div class="field">
     <%= f.label :email %>
@@ -14,7 +16,7 @@
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
   <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><
+    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i>
     <%= f.password_field :password, autocomplete: "new-password" %>
     <% if @minimum_password_length %>
       <em><%= @minimum_password_length %> characters minimum</em>
