@@ -47,3 +47,19 @@
   background: var(--green);
   border: none;
 }
+
+#cancel {
+  color: var(--red);
+  margin-top: 16px;
+}
+
+#cancel-button {
+  background-color: var(--black);
+  border: none;
+  color: var(--white);
+  width: 15rem;
+  height: 2.625rem;
+  border-radius: 1.25rem;
+  font-weight: 500;
+  font-size: 1rem;
+}
