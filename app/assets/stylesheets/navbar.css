@@ -305,6 +305,7 @@ nav {
 
   #account-icon {
     display: block;
+    border-radius: 80px;
   }
 
   .dropdown {
