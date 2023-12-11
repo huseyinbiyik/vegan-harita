@@ -1,0 +1,73 @@
+#avatar-container {
+  position: relative;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  margin: auto;
+}
+
+#avatar-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+#user_avatar {
+  border: none;
+  width: 0;
+  padding: 0;
+}
+
+#user_avatar::-webkit-file-upload-button {
+  visibility: hidden;
+  width: 0;
+}
+
+#user_avatar::before {
+  content: "";
+  background: url("camera.svg") no-repeat right bottom;
+  width: 80px;
+  height: 80px;
+  border-radius: 0;
+  position: absolute;
+  bottom: 2px;
+  right: 0;
+  border: none;
+}
+
+#edit_user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  gap: 16px;
+}
+
+#user_password_confirmation,
+#user_current_password {
+  width: 240px;
+}
+
+#update-button {
+  color: var(--white);
+  font-weight: 500;
+  background: var(--green);
+  border: none;
+}
+
+#cancel {
+  color: var(--red);
+  margin-top: 16px;
+}
+
+#cancel-button {
+  background-color: var(--red);
+  border: none;
+  color: var(--white);
+  width: 15rem;
+  height: 2.625rem;
+  border-radius: 1.25rem;
+  font-weight: 500;
+  font-size: 1rem;
+}
