@@ -305,7 +305,7 @@ nav {
 
   #account-icon {
     display: block;
-    border-radius: 80px;
+    border-radius: 50%;
     object-fit: cover;
   }
 
