@@ -188,6 +188,7 @@ en:
       update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirmation link to confirm your new email address."
       updated: "Your account has been updated successfully."
       updated_but_not_signed_in: "Your account has been updated successfully, but since your password was changed, you need to sign in again."
+      edit_user: "Edit User"
     sessions:
       signed_in: "Signed in successfully."
       signed_out: "Signed out successfully."
@@ -215,7 +216,7 @@ en:
         email: "E-mail"
         password: "Password"
         password_confirmation: "Password confirmation"
-        current_password: "Current password"
+        current_password: "Current password (required)"
       menu:
         name: "North Korean Fried Tofu"
         description: "Tofu, onion and sesame and North Korean spices..."
@@ -241,3 +242,10 @@ en:
     places:
       show:
         contributors: "Contributors"
+  minimum: "minimum"
+  characters: "characters"
+  edit_account: "Edit My Account"
+  waiting_for: "Currently waiting confirmation for:"
+  cancel: "Cancel my account"
+  unhappy: "Unhappy?"
+  update: "Update"

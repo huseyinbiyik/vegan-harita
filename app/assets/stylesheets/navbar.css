@@ -305,6 +305,8 @@ nav {
 
   #account-icon {
     display: block;
+    border-radius: 50%;
+    object-fit: cover;
   }
 
   .dropdown {
@@ -316,7 +318,6 @@ nav {
     box-shadow: 0 0.25rem 1.25rem 0 rgba(0, 0, 0, 0.25);
     padding: 0.5rem 1rem;
     font-size: 1.125rem;
-    width: 6.625rem;
     height: 5.25rem;
     z-index: 2;
   }

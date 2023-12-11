@@ -157,6 +157,7 @@ tr:
       update_needs_confirmation: "Hesabınız başarılı bir şekilde güncellendi. Fakat e-posta adresinizi onaylamanız gerekmekte. Lütfen gelen kutunuzu kontrol ediniz ve yeni e-posta adresinizi onaylama linkine tıklayınız."
       updated: "Hesabınız başarılı bir şekilde güncellendi."
       updated_but_not_signed_in: "Hesabınız başarılı bir şekilde güncellendi. Ancak parolanız değiştiği için tekrar giriş yapmalısınız."
+      edit_user: "Hesabımı Düzenle"
     sessions:
       signed_in: "Hoşgeldiniz!"
       signed_out: "Hoşçakalın! Başarılı bir şekilde çıkış yaptınız."
@@ -184,7 +185,7 @@ tr:
         email: "E-posta"
         password: "Parola"
         password_confirmation: "Parola tekrarı"
-        current_password: "Mevcut parola"
+        current_password: "Mevcut parola (gerekli)"
       menu:
         name: "Kuzey Kore Usulü Kızarmış Tofu"
         description: "Tofu, soğan ve susam ve Kuzey Kore baharatları..."
@@ -210,7 +211,13 @@ tr:
     places:
       show:
         contributors: "Katkıda Bulunanlar"
-
+  minimum: "en az"
+  characters: "karakter"
+  edit_account: "Hesabımı Düzenle"
+  waiting_for: "Şunun için onay bekleniyor:"
+  cancel: "Hesabımı sil"
+  update: "Güncelle"
+  unhappy: "Memnun değil misiniz?"
 
 
 
