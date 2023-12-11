@@ -213,7 +213,11 @@ tr:
         contributors: "Katkıda Bulunanlar"
   minimum: "en az"
   characters: "karakter"
-
+  edit_account: "Hesabımı Düzenle"
+  waiting_for: "Şunun için onay bekleniyor:"
+  cancel: "Hesabımı sil"
+  update: "Güncelle"
+  unhappy: "Memnun değil misiniz?"
 
 
 

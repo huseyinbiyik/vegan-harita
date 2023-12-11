@@ -1,5 +1,5 @@
 <section class="user-forms">
-  <h2><%= t('devise.registrations.edit_user') %></h2>
+  <h2><%= t :edit_account %></h2>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
@@ -17,7 +17,7 @@
     </div>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <div> <%= t :waiting_for %> <%= resource.unconfirmed_email %></div>
     <% end %>
 
     <div class="field">
@@ -38,13 +38,13 @@
     </div>
 
     <div class="actions">
-      <%= f.submit "Update", id:"update-button" %>
+      <%= f.submit t('update'), id:"update-button" %>
     </div>
   <% end %>
   
 
-  <h3 id="cancel">Cancel my account</h3>
+  <h3 id="cancel"><%= t :cancel %></h3>
 
-  <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, id:"cancel-button" %></p>
+  <p> <%= t :unhappy %> <%= button_to t('cancel'), registration_path(resource_name), data: { confirm: t('sure') }, method: :delete, id:"cancel-button" %></p>
 
 </section>

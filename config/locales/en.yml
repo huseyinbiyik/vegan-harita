@@ -244,3 +244,8 @@ en:
         contributors: "Contributors"
   minimum: "minimum"
   characters: "characters"
+  edit_account: "Edit My Account"
+  waiting_for: "Currently waiting confirmation for:"
+  cancel: "Cancel my account"
+  unhappy: "Unhappy?"
+  update: "Update"
