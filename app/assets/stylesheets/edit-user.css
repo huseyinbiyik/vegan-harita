@@ -1,8 +1,8 @@
 #avatar-container {
   position: relative;
-  display: flex;
   align-items: center;
   width: 80px;
+  height: 80px;
   margin: auto;
 }
 
@@ -15,6 +15,13 @@
 
 #user_avatar {
   border: none;
+  width: 0;
+  padding: 0;
+}
+
+#user_avatar::-webkit-file-upload-button {
+  visibility: hidden;
+  width: 0;
 }
 
 #user_avatar::before {
