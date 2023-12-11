@@ -55,7 +55,7 @@
 }
 
 #cancel-button {
-  background-color: var(--black);
+  background-color: var(--red);
   border: none;
   color: var(--white);
   width: 15rem;
