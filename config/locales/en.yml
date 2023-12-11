@@ -216,7 +216,7 @@ en:
         email: "E-mail"
         password: "Password"
         password_confirmation: "Password confirmation"
-        current_password: "Current password"
+        current_password: "Current password (required)"
       menu:
         name: "North Korean Fried Tofu"
         description: "Tofu, onion and sesame and North Korean spices..."
@@ -242,3 +242,5 @@ en:
     places:
       show:
         contributors: "Contributors"
+  minimum: "minimum"
+  characters: "characters"

@@ -185,7 +185,7 @@ tr:
         email: "E-posta"
         password: "Parola"
         password_confirmation: "Parola tekrarı"
-        current_password: "Mevcut parola"
+        current_password: "Mevcut parola (gerekli)"
       menu:
         name: "Kuzey Kore Usulü Kızarmış Tofu"
         description: "Tofu, soğan ve susam ve Kuzey Kore baharatları..."
@@ -211,6 +211,8 @@ tr:
     places:
       show:
         contributors: "Katkıda Bulunanlar"
+  minimum: "en az"
+  characters: "karakter"
 
 
 
