@@ -1,50 +1,38 @@
 <section class="user-forms">
   <h2><%= t :edit_account %></h2>
-
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
-
-    <div class="field" id="avatar-field">
+    <div class="field" id="avatar-field" data-controller="utils">
       <div id="avatar-container">
-        <%= image_tag(resource.avatar, height: "100px", width: "100px", id: "avatar-img") if resource.avatar.attached? %>
-        <%= f.file_field :avatar %>
+        <%= image_tag resource.avatar.variant( resize_to_limit: [100,100]), id: "avatar-img", data: {utils_target: "preview"} if resource.avatar.attached? %>
+        <%= f.file_field :avatar, accept: "image/png, image/jpeg", data: {action: "change->utils#uploadAvatar"} %>
       </div>
     </div>
-
     <div class="field">
       <%= f.label :email %>
       <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: true %>
     </div>
-
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <div> <%= t :waiting_for %> <%= resource.unconfirmed_email %></div>
     <% end %>
-
     <div class="field">
       <%= f.label :password %>
       <%= f.password_field :password, autocomplete: "new-password", placeholder: "******" %>
       <% if @minimum_password_length %>
       <% end %>
     </div>
-
     <div class="field">
       <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "******" %>
     </div>
-
     <div class="field">
       <%= f.label :current_password %>
       <%= f.password_field :current_password, autocomplete: "current-password", placeholder: "******" %>
     </div>
-
     <div class="actions">
       <%= f.submit t('update'), id:"update-button" %>
     </div>
   <% end %>
-  
-
   <h3 id="cancel"><%= t :cancel %></h3>
-
   <p> <%= t :unhappy %> <%= button_to t('cancel'), registration_path(resource_name), data: { confirm: t('sure') }, method: :delete, id:"cancel-button" %></p>
-
 </section>
