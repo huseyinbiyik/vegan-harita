@@ -37,13 +37,13 @@ class PlacesController < ApplicationController
   def create
     @place = Place.new(place_params)
     @place.contributors << current_user.id
-    @place.approved = true if current_user && current_user.role == 'admin'
+    @place.approved = true if current_user&.admin?
 
     respond_to do |format|
       if @place.save
         format.html do
-          redirect_to place_url(@place),
-                      notice: 'Yeni mekan başarıyla değerlendirmeye gönderildi. Desteğiniz için teşekkür ederiz 💚'
+          redirect_to root_path,
+                      notice: t('controllers.places.create.success')
         end
       else
         format.html { render :new, status: :unprocessable_entity }
