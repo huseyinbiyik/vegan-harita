@@ -96,7 +96,6 @@
   }
 }
 
-.modal-form,
 .modalize {
   position: fixed;
   height: 100%;
@@ -115,6 +114,7 @@
 
   & p {
     margin: 16px 0;
+    text-align: center;
   }
 }
 
@@ -438,6 +438,7 @@
   justify-content: space-between;
   width: 280px;
   margin: 16px auto;
+  z-index: 3;
 
   .primary-green-btn {
     font-size: 1rem;

@@ -1,194 +1,118 @@
-<%= turbo_frame_tag "place-name" do %>
-
-  <%= form_with(model: @place, class: "modalize") do |form| %>
-    <div class="inputs-wrapper">
-      <div class="form-group">
-        <%= form.label t('name_of_place') %>
-        <%= form.text_field :name, placeholder: "X Vegan Cafe", required: true, maxlength: 80, size: nil, autofocus: true, class: "modal-input" %>
+<%= turbo_frame_tag params[:attribute] do %>
+  <%= form_with(model: @change_log, url: place_path(@place), method: :patch, class: "modalize",
+          data: params[:attribute] == "location" ? {controller: "place", action: "google-maps-callback@window->place#initializeMap"} : {}) do |form| %>
+    <% if params[:attribute] == "name" %>
+      <div class="inputs-wrapper">
+        <div class="form-group">
+          <%= form.label t('name_of_place') %>
+          <%= form.text_field :name, placeholder: "X Vegan Cafe", value: @place.name, size: nil, autofocus: true, class: "modal-input" %>
+        </div>
       </div>
-
-      <div class="form-buttons">
-        <%= form.submit t('submit'), class:"primary-green-btn", data: { turbo_confirm: t('sure') }  %>
-        <a href="#" class="turbo-cancel-btn"> <%= t :nevermind %> </a>
-      </div>
-    </div>
-
-  <% end %>
-<% end %>
-
-
-<%= turbo_frame_tag "place-vegan" do %>
-  <%= form_with(model: @place, class: "modalize") do |form| %>
-    <div class="inputs-wrapper">
-      <%= form.label t('place_vegan') %>
-      <%= form.select :vegan, options_for_select([[ t('vegan'), true], [ t('has_options'), false]], selected: @place.vegan), {}, class: "select-type" %>
-
-      <div class="form-buttons">
-        <%= form.submit t('submit'), class:"primary-green-btn", data: { turbo_confirm: t('sure') }  %>
-        <a href="#" class="turbo-cancel-btn"> <%= t :nevermind %> </a>
-      </div>
-    </div>
-  <% end %>
-<% end %>
-
-
-<%= turbo_frame_tag "place-location" do %>
-  <%= form_with(model: @place, data: {controller: "place", action: "google-maps-callback@window->place#initializeMap"}, class: "modalize") do |form| %>
-
-    <div id="modal-location-wrapper">
-      <div class= "form-group">
-        <%= form.label t('address') %>
-        <%= form.text_field :address,  data: {place_target: "field", action: "keydown->place#preventSubmit"}, placeholder: "X Vegan Cafe, Kadıköy...", required: true, autofocus: true, id: "location-input" %>
-        <div id="modal-map"  data-place-target="map"></div>
-      </div>
-
-      <%= form.hidden_field :latitude, data: {place_target: "latitude"} %>
-      <%= form.hidden_field :longitude, data: {place_target: "longitude"}  %>
-
-      <div class="form-buttons">
-        <%= form.submit t('submit'), class:"primary-green-btn", data: { turbo_confirm: t('sure') }  %>
-        <a href="#" class="turbo-cancel-btn"><%= t :nevermind %></a>
-      </div>
-    </div>
-  <% end %>
-<% end %>
-
-<%= turbo_frame_tag "place-phone" do %>
-  <%= form_with(model: @place, class: "modalize") do |form| %>
-    <div class= "inputs-wrapper">
-      <div class="form-group">
-        <%= form.label t('phone'), style: "display: block" %>
-        <%= form.text_field :phone, pattern: "[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}",  placeholder: "5XXXXXXXXX", autofocus: true  %>
-      </div>
-      <div class="form-buttons">
-        <%= form.submit t('submit'), class:"primary-green-btn", data: { turbo_confirm: t('sure') }  %>
-        <a href="#" class="turbo-cancel-btn"> <%= t :nevermind %> </a>
-      </div>
-    </div>
-  <% end %>
-<% end %>
-
-<%= turbo_frame_tag "place-web" do %>
-  <%= form_with(model: @place, class: "modalize") do |form| %>
-    <div class="inputs-wrapper">
-      <div class= "form-group">
-        <%= form.label t('websiteAddress'), style: "display: block" %>
-        <%= form.text_field :web_url, placeholder: t('activerecord.attributes.place_edits.web_url'), autofocus: true %>
-      </div>
-      <div class="form-buttons">
-        <%= form.submit t('submit'), class:"primary-green-btn", data: { turbo_confirm: t('sure') }  %>
-        <a href="#" class="turbo-cancel-btn"> <%= t :nevermind %> </a>
-      </div>
-    </div>
-  <% end %>
-<% end %>
-
-<%= turbo_frame_tag "place-email" do %>
-  <%= form_with(model: @place, class: "modalize") do |form| %>
-    <div class= "inputs-wrapper">
-      <div class= "form-group">
-        <%= form.label t('mail'), style: "display: block" %>
-        <%= form.text_field :email, placeholder: "mail@mail.com", autofocus: true %>
-      </div>
-      <div class="form-buttons">
-        <%= form.submit t('submit'), class:"primary-green-btn", data: { turbo_confirm: t('sure') }  %>
-        <a href="#" class="turbo-cancel-btn"> <%= t :nevermind %> </a>
-      </div>
-    </div>
-  <% end %>
-<% end %>
-
-<%= turbo_frame_tag "place-instagram" do %>
-  <%= form_with(model: @place, class: "modalize") do |form| %>
-    <div class= "inputs-wrapper">
-      <div class="form-group modal-social-group">
-        <%= form.label t('instagram'), style: "display: block" %>
-        <span class="social-platform"> <%= t :instagram_link %> </span>
-        <%= form.text_field :instagram_url, class: "social-input", autofocus: true  %>
-      </div>
-      <div class="form-buttons">
-        <%= form.submit t('submit'), class:"primary-green-btn", data: { turbo_confirm: t('sure') }  %>
-        <a href="#" class="turbo-cancel-btn"> <%= t :nevermind %> </a>
-      </div>
-    </div>
-  <% end %>
-<% end %>
-
-
-<%= turbo_frame_tag "place-facebook" do %>
-  <%= form_with(model: @place, class: "modalize") do |form| %>
-    <div class= "inputs-wrapper">
-      <div class="form-group modal-social-group">
-        <%= form.label t('facebook'), style: "display: block" %>
-          <span class="social-platform"> <%= t :facebook_link %> </span>
-          <%= form.text_field :facebook_url, class:"social-input", autofocus: true %>
-      </div>
-      <div class="form-buttons">
-        <%= form.submit t('submit'), class:"primary-green-btn", data: { turbo_confirm: t('sure') }  %>
-        <a href="#" class="turbo-cancel-btn"> <%= t :nevermind %> </a>
-      </div>
-    </div>
-  <% end %>
-<% end %>
-
-<%= turbo_frame_tag "place-twitter" do %>
-  <%= form_with(model: @place, class: "modalize") do |form| %>
-    <div class= "inputs-wrapper">
-      <div class="form-group modal-social-group">
-        <%= form.label t('x'), style: "display: block" %>
-        <span class="social-platform"> <%= t :x_link %> </span>
-        <%= form.text_field :twitter_url, class:"social-input-twitter", autofocus: true %>
-      </div>
-      <div class="form-buttons">
-        <%= form.submit t('submit'), class:"primary-green-btn", data: { turbo_confirm: t('sure') }  %>
-        <a href="#" class="turbo-cancel-btn"> <%= t :nevermind %> </a>
-      </div>
-    </div>
-  <% end %>
-<% end %>
-
-<%= turbo_frame_tag "place-tags" do %>
-  <%= form_with(model: @place, class: "modalize") do |form| %>
-  <div class="add-new-place-form-group tags-form-container" id="place-tags-modal" >
-    <%= form.label t('select_tags'), style: "display: block"%>
-    <div class="tags-form">
-    <% Tag.all.each do |tag| %>
-      <span class="checkbox-inline tag">
-        <%= form.check_box :tag_ids, { multiple: true, class: "tag-select", checked: @place.tag_ids.include?(tag.id) }, tag.id, nil %>
-        <%= form.label :tag_ids, tag.name, value: tag.id, class: "tag-names" %>
-      </span>
     <% end %>
+    <% if params[:attribute] == "vegan" %>
+      <div class="inputs-wrapper">
+        <%= form.label t('place_vegan') %>
+        <%= form.select :vegan, options_for_select([[ t('vegan'), true], [ t('has_options'), false]], selected: @change_log.vegan), {}, class: "select-type" %>
       </div>
-  </div>
-    <div class="form-buttons">
-      <%= form.submit t('submit'), class:"primary-green-btn", data: { turbo_confirm: t('sure') }  %>
-      <a href="#" class="turbo-cancel-btn"> <%= t :nevermind %> </a>
-    </div>
-  <% end %>
-<% end %>
+    <% end %>
+    <% if params[:attribute] == "location" %>
+      <div id="place-location">
+        <div id="modal-location-wrapper">
+          <div class= "form-group">
+            <%= form.label t('address') %>
+            <%= form.text_field :address, value: @place.address,  data: {place_target: "field", action: "keydown->place#preventSubmit"}, placeholder: "X Vegan Cafe, Kadıköy...", required: true, autofocus: true, id: "location-input" %>
+            <div id="modal-map"  data-place-target="map"></div>
+          </div>
 
-<%= turbo_frame_tag "place-images" do %>
-  <%= form_with(model: @place, class: "modal-form") do |form| %>
-    <div class= "add-new-photos">
-      <%= form.label t('new_photos') %>
-      <%= form.file_field :images, multiple: true, accept: "image/*" %>
-    </div>
-
-    <% if @place.images.attached? %>
-      <div class= "photo-select-form-container">
-        <p> <%= t :select_delete %> </p>
-        <div class="select-images-container">
-          <% @place.images.each do |image| %>
-            <div class="image-checkbox">
-              <%= form.check_box :deleted_images, { multiple: true }, image.id, nil %>
-              <%= image_tag image.variant(resize_to_limit: [280,280]), class: "image-checkbox-image" %>
-            </div>
+          <%= form.hidden_field :latitude, data: {place_target: "latitude"} %>
+          <%= form.hidden_field :longitude, data: {place_target: "longitude"}  %>
+        </div>
+      </div>
+    <% end %>
+    <% if params[:attribute] == "phone" %>
+      <div class= "inputs-wrapper">
+        <div class="form-group">
+          <%= form.label t('phone'), style: "display: block" %>
+          <%= form.text_field :phone, value: @place.phone, pattern: "[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}",  placeholder: "5XXXXXXXXX", autofocus: true  %>
+        </div>
+      </div>
+    <% end %>
+    <% if params[:attribute] == "web" %>
+      <div class="inputs-wrapper">
+        <div class= "form-group">
+          <%= form.label t('websiteAddress'), style: "display: block" %>
+          <%= form.text_field :web_url, value: @place.web_url, placeholder: t('activerecord.attributes.place_edits.web_url'), autofocus: true %>
+        </div>
+      </div>
+    <% end %>
+    <% if params[:attribute] == "email" %>
+      <div class= "inputs-wrapper">
+        <div class= "form-group">
+          <%= form.label t('mail'), style: "display: block" %>
+          <%= form.text_field :email, value: @place.email, placeholder: "mail@mail.com", autofocus: true %>
+        </div>
+      </div>
+    <% end %>
+    <% if params[:attribute] == "instagram" %>
+      <div class= "inputs-wrapper">
+        <div class="form-group modal-social-group">
+          <%= form.label t('instagram'), style: "display: block" %>
+          <span class="social-platform"> <%= t :instagram_link %> </span>
+          <%= form.text_field :instagram_url, value: @place.instagram_url, class: "social-input", autofocus: true  %>
+        </div>
+      </div>
+    <% end %>
+    <% if params[:attribute] == "facebook" %>
+      <div class= "inputs-wrapper">
+        <div class="form-group modal-social-group">
+          <%= form.label t('facebook'), style: "display: block" %>
+          <span class="social-platform"> <%= t :facebook_link %> </span>
+          <%= form.text_field :facebook_url, value: @place.facebook_url, class:"social-input", autofocus: true %>
+        </div>
+      </div>
+    <% end %>
+    <% if params[:attribute] == "twitter" %>
+      <div class= "inputs-wrapper">
+        <div class="form-group modal-social-group">
+          <%= form.label t('x'), style: "display: block" %>
+          <span class="social-platform"> <%= t :x_link %> </span>
+          <%= form.text_field :twitter_url, value: @place.twitter_url, class:"social-input-twitter", autofocus: true %>
+        </div>
+      </div>
+    <% end %>
+    <% if params[:attribute] == "tags" %>
+      <div class="add-new-place-form-group tags-form-container" id="place-tags-modal" >
+        <%= form.label t('select_tags'), style: "display: block"%>
+        <div class="tags-form">
+          <% Tag.all.each do |tag| %>
+            <span class="checkbox-inline tag">
+              <%= form.check_box :tag_ids, { multiple: true, class: "tag-select", checked: @place.tag_ids.include?(tag.id) }, tag.id, nil %>
+              <%= form.label :tag_ids, tag.name, value: tag.id, class: "tag-names" %>
+            </span>
           <% end %>
         </div>
       </div>
     <% end %>
+    <% if params[:attribute] == "images" %>
+      <div class= "add-new-photos">
+        <%= form.label t('new_photos') %>
+        <%= form.file_field :images, multiple: true, accept: "image/*" %>
+      </div>
 
-
+      <% if @place.images.attached? %>
+        <div class= "photo-select-form-container">
+          <p> <%= t :select_delete %> </p>
+          <div class="select-images-container">
+            <% @place.images.each do |image| %>
+              <div class="image-checkbox">
+                <%= form.check_box :deleted_images, { multiple: true }, image.id, nil %>
+                <%= image_tag image.variant(resize_to_limit: [280,280]), class: "image-checkbox-image" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
     <div class="form-buttons">
       <%= form.submit t('submit'), class:"primary-green-btn", data: { turbo_confirm: t('sure') }  %>
       <a href="#" class="turbo-cancel-btn"> <%= t :nevermind %> </a>

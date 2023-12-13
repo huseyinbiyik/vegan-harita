@@ -207,6 +207,9 @@ tr:
   controllers:
     places:
       not_approved: "Bu mekan henüz onaylanmadı. Onaylandığı zaman tam burada olacak."
+      update:
+        success: "Mekan değişiklik isteği başarıyla değerlendirmeye gönderildi. Desteğiniz için teşekkür ederiz 💚"
+        failure: "Mekan değişiklik isteği gönderilirken bir hata oluştu 😞. Lütfen tekrar deneyin."
   views:
     places:
       show:

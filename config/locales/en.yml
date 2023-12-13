@@ -238,6 +238,9 @@ en:
   controllers:
     places:
       not_approved: "This place is not approved yet. It will be here when it's approved."
+      update:
+        success: "Place edit request sent successfully. Thank you for your contribution! 💚"
+        failure: "There was a problem with your edit request. Please try again."
   views:
     places:
       show:
