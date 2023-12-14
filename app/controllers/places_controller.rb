@@ -37,13 +37,13 @@ class PlacesController < ApplicationController
   def create
     @place = Place.new(place_params)
     @place.contributors << current_user.id
-    @place.approved = true if current_user && current_user.role == 'admin'
+    @place.approved = true if current_user&.admin?
 
     respond_to do |format|
       if @place.save
         format.html do
-          redirect_to place_url(@place),
-                      notice: 'Yeni mekan başarıyla değerlendirmeye gönderildi. Desteğiniz için teşekkür ederiz 💚'
+          redirect_to root_path,
+                      notice: t('controllers.places.create.success')
         end
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -51,24 +51,29 @@ class PlacesController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    @change_log = ChangeLog.new
+  end
 
   def update
-    change_log = ChangeLog.new(place_params)
-    change_log.deleted_images = params[:place][:deleted_images]
-    change_log.changeable = @place
-    change_log.user = current_user
+    @change_log = ChangeLog.new(change_log_params)
+    @change_log.changeable = @place
+    @change_log.user = current_user
 
     respond_to do |format|
-      if change_log.save
-        change_log.approve_place_edit if current_user.admin?
-        format.html do
-          redirect_to place_url(@place),
-                      notice: 'Mekan değişiklik isteği başarıyla değerlendirmeye gönderildi.
-                      Desteğiniz için teşekkür ederiz 💚'
+      if @change_log.save
+        @change_log.approve_place_edit if current_user.admin?
+        format.turbo_stream do
+          flash.now[:notice] = t('controllers.places.update.success')
+          render turbo_stream: turbo_stream.update('flash_messages', partial: 'shared/flash_messages',
+                                                                     locals: { flash: })
         end
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        format.turbo_stream do
+          flash.now[:alert] = t('controllers.places.update.failure')
+          render turbo_stream: turbo_stream.update('flash_messages', partial: 'shared/flash_messages',
+                                                                     locals: { flash: })
+        end
       end
     end
   end
@@ -84,5 +89,11 @@ class PlacesController < ApplicationController
       :name, :address, :latitude, :longitude, :vegan, :instagram_url,
       :facebook_url, :twitter_url, :web_url, :email, :phone, :approved, tag_ids: [], contributors: [], images: []
     )
+  end
+
+  def change_log_params
+    params.require(:change_log).permit(:name, :address, :latitude, :longitude, :vegan, :instagram_url,
+                                       :facebook_url, :twitter_url, :web_url, :email, :phone, :approved, tag_ids: [],
+                                                                                                         contributors: [], images: [], deleted_images: []) # rubocop:disable Layout/LineLength
   end
 end

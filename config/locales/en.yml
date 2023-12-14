@@ -30,7 +30,7 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  pending_users: "Users Waitin for Approval"
+  pending_users: "Users Waiting for Approval"
   user_name: "Username"
   score: "Score"
   pending_places: "Places Waiting for Approval"
@@ -50,7 +50,7 @@ en:
   place_edits: "Place Edits Waiting for Approval"
   photos_deleted: "Photos Deleted:"
   delete_request: "Delete Request"
-  edited_by: "Editted by:"
+  edited_by: "Edited by:"
   pending_menus: "Menus Waiting for Approval"
   product_name: "Product Name"
   product_description: "Product Description"
@@ -104,11 +104,11 @@ en:
   like: "likes"
   most_liked: "Most Liked"
   add_to_menu: "Add Product to Menu"
-  error_reason: "problem occured due to this issue:"
+  error_reason: "problem occurred due to this issue:"
   address_required: "Address (required)"
   name_required: "Name (required)"
   select_delete: "Select the photos you want to delete"
-  image: "I"
+  image: "Image"
   place_vegan: "Is this place vegan or just offering some vegan options?"
   has_options: "Vegan Option"
   vegan: "Vegan"
@@ -221,7 +221,7 @@ en:
         name: "North Korean Fried Tofu"
         description: "Tofu, onion and sesame and North Korean spices..."
       place_edits:
-        web_url : "siteaddress.com"
+        web_url : "websiteaddress.com"
       review:
         content: "Your Review"
         feedback: "I think your food is a little salty..."
@@ -238,6 +238,29 @@ en:
   controllers:
     places:
       not_approved: "This place is not approved yet. It will be here when it's approved."
+      create:
+        success: "Place suggestion sent successfully. Thank you for your contribution! 💚"
+      update:
+        success: "Place edit request sent successfully. Thank you for your contribution! 💚"
+        failure: "There was a problem with your edit request. Please try again."
+    menus:
+      create:
+        success: "Menu suggestion sent successfully. Thank you for your contribution! 💚"
+      update:
+        success: "Menu edit request sent successfully. Thank you for your contribution! 💚"
+        failure: "There was a problem with your edit request. Please try again."
+      destroy:
+      success: "Menu suggestion sent successfully. Thank you for your contribution! 💚"
+      failure: "There was a problem with your edit request. Please try again."
+    reviews:
+      create:
+        success: "Review sent successfully. Thank you for your contribution! 💚"
+      update:
+        success: "Review updated successfully. Thank you for your contribution! 💚"
+        failure: "There was a problem with your edit request. Please try again."
+      destroy:
+        success: "Review deleted successfully. Thank you for your contribution! 💚"
+        failure: "There was a problem with your edit request. Please try again."
   views:
     places:
       show:

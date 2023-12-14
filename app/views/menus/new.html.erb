@@ -1,11 +1,6 @@
 <%= turbo_frame_tag "new_menu" do %>
-  <div  class="menu-form-container"">
+  <div  class="menu-form-container" data-controller="form">
     <h3><%= t :add_to_menu %></h3>
-    <div>
-      <%= render "form", menu: @menu %>
-    </div>
+    <%= render "form", menu: @menu %>
   </div>
 <% end %>
-
-
-

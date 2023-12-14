@@ -1,4 +1,6 @@
-<%= form_with(model: [@place, @menu], class: "menu-form") do |form| %>
+  <%= form_with(model: [@place, @menu],
+    data: { action: @menu.persisted? ? "turbo:submit-end->form#submitEnd" : "turbo:submit-end->form#resetForm", form_target: "form" },
+    class: "menu-form") do |form| %>
   <% if menu.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(menu.errors.count, "error") %> prohibited this menu from being saved:</h2>
@@ -9,37 +11,31 @@
       </ul>
     </div>
   <% end %>
-
   <div class="form-group">
     <%= form.label t('product_name'), style: "display: block" %>
     <%= form.text_field :name, placeholder: Menu.human_attribute_name('name'), autofocus: true, required: true %>
   </div>
-
   <div class="form-group">
     <%= form.label t('product_description'), style: "display: block" %>
     <%= form.text_area :description, placeholder: Menu.human_attribute_name('description'), required: true %>
   </div>
-
-      <div>
-        <% if @menu.image.attached? %>
-          <%= form.label t('change_image'), style: "display: block" %>
-            <%= image_tag @menu.image, class: "menu-image" %>
-            <% else %>
-              <%= form.label t('select_image'), style: "display: block" %>
-        <% end %>
-        <%= form.file_field :image, accept: "image/*" %>
-      </div>
-
+  <div>
+    <% if @menu.image.attached? %>
+      <%= form.label t('change_image'), style: "display: block" %>
+      <%= image_tag @menu.image, class: "menu-image" %>
+    <% else %>
+      <%= form.label t('select_image'), style: "display: block" %>
+    <% end %>
+    <%= form.file_field :image, accept: "image/*" %>
+  </div>
   <div>
     <%= form.label t('product_category'), style: "display: block" %>
     <%= form.select :product_category, Menu.product_categories.keys %>
   </div>
-
   <div>
     <%= form.label t('price'), style: "display: block" %>
     <%= form.number_field :price, placeholder: "33", step: 0.5, class:"menu-item-price-input" %>
   </div>
-
   <div class="form-buttons">
     <%= form.submit t('submit'), class:"primary-green-btn", data: { turbo_confirm: t('sure') } %>
     <a href="#" class="turbo-cancel-btn"><%= t :nevermind %></a>

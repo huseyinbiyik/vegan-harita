@@ -2,8 +2,8 @@
   <div class="place-heading-container">
     <div class="place-heading-left">
       <h1 class="place-heading-title"><%= place.name %>
-        <%= turbo_frame_tag "place-name", class:"edit-wrapper", hidden: true do %>
-          <%= link_to edit_place_path(place), class: "edit-button" do  %>
+        <%= turbo_frame_tag :name, class:"edit-wrapper", hidden: true do %>
+          <%= link_to edit_place_path(place, attribute: :name), class: "edit-button" do  %>
             <span class="edit-icon-container">
               <%= image_tag "edit.svg", class: "edit-icon" %>
             </span>
@@ -48,8 +48,8 @@
           <%= image_tag "default-place-image.jpg", class: "slider-image", data: { slider_target: "image" } %>
         <% end %>
       </div>
-      <%= turbo_frame_tag "place-images", class: "edit-wrapper", hidden: true do %>
-        <%= link_to edit_place_path(place), class: "edit-button " do %>
+      <%= turbo_frame_tag :images, class: "edit-wrapper", hidden: true do %>
+        <%= link_to edit_place_path(place, attribute: :images), class: "edit-button " do %>
           <span class="edit-icon-container">
             <%= image_tag "edit.svg", class: "edit-icon" %>
           </span>
@@ -70,8 +70,8 @@
               <span class="detail"> <%= t :has_options %> </span>
             </div>
           <% end %>
-          <%= turbo_frame_tag "place-vegan", class: "edit-wrapper", hidden: true do %>
-            <%= link_to edit_place_path(place), class: "edit-button " do %>
+          <%= turbo_frame_tag :vegan, class: "edit-wrapper", hidden: true do %>
+            <%= link_to edit_place_path(place, attribute: :vegan), class: "edit-button" do %>
               <span class="edit-icon-container">
                 <%= image_tag "edit.svg", class: "edit-icon" %>
               </span>
@@ -91,8 +91,8 @@
               <span class="detail"> <%= t :directions %> </span>
             <% end %>
           </div>
-          <%= turbo_frame_tag "place-location", class: "edit-wrapper", hidden: true do %>
-            <%= link_to edit_place_path(place), class: "edit-button" do  %>
+          <%= turbo_frame_tag :location , class: "edit-wrapper", hidden: true do %>
+            <%= link_to edit_place_path(place, attribute: :location), class: "edit-button" do  %>
               <span class="edit-icon-container">
                 <%= image_tag "edit.svg", class: "edit-icon" %>
               </span>
@@ -112,8 +112,8 @@
               <%= image_tag "phone.svg", class: "detail-icon disabled", id: "phone-icon" %>
             <% end %>
           <% end %>
-          <%= turbo_frame_tag "place-phone", class: "edit-wrapper", hidden: true do %>
-            <%= link_to edit_place_path(place), class: "edit-button" do  %>
+          <%= turbo_frame_tag :phone, class: "edit-wrapper", hidden: true do %>
+            <%= link_to edit_place_path(place, attribute: :phone), class: "edit-button" do  %>
               <span class="edit-icon-container">
                 <%= image_tag "edit.svg", class: "edit-icon" %>
               </span>
@@ -122,8 +122,8 @@
         </div>
       </div>
       <div class="place-tags">
-        <%= turbo_frame_tag "place-tags", class: "edit-wrapper", hidden: true do %>
-          <%= link_to edit_place_path(place), class: "edit-button " do  %>
+        <%= turbo_frame_tag :tags, class: "edit-wrapper", hidden: true do %>
+          <%= link_to edit_place_path(place, attribute: :tags), class: "edit-button " do  %>
             <span class="edit-icon-container">
               <%= image_tag "edit.svg", class: "edit-icon" %>
             </span>
@@ -153,8 +153,8 @@
                   <%= image_tag "#{key}.svg", class: "social" %>
                   <span class="visible-on-desktop"><%= value %></span>
                 <% end %>
-                <%= turbo_frame_tag "place-web",  class: "edit-wrapper", hidden: true  do %>
-                  <%= link_to edit_place_path(place), class: "edit-button " do  %>
+                <%= turbo_frame_tag :web,  class: "edit-wrapper", hidden: true  do %>
+                  <%= link_to edit_place_path(place, attribute: :web), class: "edit-button " do  %>
                     <span class="edit-icon-container">
                       <%= image_tag "edit.svg", class: "edit-icon" %>
                     </span>
@@ -167,8 +167,8 @@
                   <%= image_tag "#{key}.svg", class: "social" %>
                   <span class="visible-on-desktop"><%= value %></span>
                 <% end %>
-                <%= turbo_frame_tag "place-email", class: "edit-wrapper", hidden: true do %>
-                  <%= link_to edit_place_path(place), class: "edit-button " do  %>
+                <%= turbo_frame_tag :email, class: "edit-wrapper", hidden: true do %>
+                  <%= link_to edit_place_path(place,attribute: :email), class: "edit-button " do  %>
                     <span class="edit-icon-container">
                       <%= image_tag "edit.svg", class: "edit-icon" %>
                     </span>
@@ -181,8 +181,8 @@
                   <%= image_tag "#{key}.svg", class: "social" %>
                   <span class="visible-on-desktop"><%= value %></span>
                 <% end %>
-                <%= turbo_frame_tag "place-#{key}", class: "edit-wrapper", hidden: true  do %>
-                  <%= link_to edit_place_path(place), class: "edit-button " do  %>
+                <%= turbo_frame_tag key, class: "edit-wrapper", hidden: true do %>
+                  <%= link_to edit_place_path(place, attribute: key), class: "edit-button " do  %>
                     <span class="edit-icon-container">
                       <%= image_tag "edit.svg", class: "edit-icon" %>
                     </span>
@@ -195,8 +195,8 @@
               <%= link_to "#{value}" do %>
                 <%= image_tag "#{key}.svg", class: "social disabled" %>
               <% end %>
-              <%= turbo_frame_tag "place-#{key}", class: "edit-wrapper", hidden: true do %>
-                <%= link_to edit_place_path(place), class: "edit-button" do %>
+              <%= turbo_frame_tag key, class: "edit-wrapper", hidden: true do %>
+                <%= link_to edit_place_path(place, attribute: key), class: "edit-button " do  %>
                   <span class="edit-icon-container">
                     <%= image_tag "edit.svg", class: "edit-icon" %>
                   </span>
