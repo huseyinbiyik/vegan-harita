@@ -220,6 +220,14 @@ tr:
       destroy:
         success: "Menü silme isteği başarıyla değerlendirmeye gönderildi. Desteğiniz için teşekkür ederiz 💚"
         failure: "Menü silme isteği gönderilirken bir hata oluştu 😞. Lütfen tekrar deneyin."
+    reviews:
+      create:
+        success: "Değerlendirmeniz başarıyla değerlendirmeye gönderildi. Desteğiniz için teşekkür ederiz 💚"
+      update:
+        success: "Değerlendirmeniz başarıyla güncellendi. Desteğiniz için teşekkür ederiz 💚"
+      destroy:
+        success: "Değerlendirmeniz başarılı şekilde silindi. Desteğiniz için teşekkür ederiz 💚"
+        failure: "Değerlendirme silme isteği gönderilirken bir hata oluştu 😞. Lütfen tekrar deneyin."
   views:
     places:
       show:

@@ -252,6 +252,15 @@ en:
       destroy:
       success: "Menu suggestion sent successfully. Thank you for your contribution! 💚"
       failure: "There was a problem with your edit request. Please try again."
+    reviews:
+      create:
+        success: "Review sent successfully. Thank you for your contribution! 💚"
+      update:
+        success: "Review updated successfully. Thank you for your contribution! 💚"
+        failure: "There was a problem with your edit request. Please try again."
+      destroy:
+        success: "Review deleted successfully. Thank you for your contribution! 💚"
+        failure: "There was a problem with your edit request. Please try again."
   views:
     places:
       show:
