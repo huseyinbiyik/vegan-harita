@@ -212,6 +212,11 @@ tr:
       update:
         success: "Mekan değişiklik isteği başarıyla değerlendirmeye gönderildi. Desteğiniz için teşekkür ederiz 💚"
         failure: "Mekan değişiklik isteği gönderilirken bir hata oluştu 😞. Lütfen tekrar deneyin."
+    menus:
+      create:
+        success: "Menü öneriniz başarıyla değerlendirmeye gönderildi. Desteğiniz için teşekkür ederiz 💚"
+      update:
+        success: "Menü değişiklik isteği başarıyla değerlendirmeye gönderildi. Desteğiniz için teşekkür ederiz 💚"
   views:
     places:
       show:

@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus";
 
 // Connects to data-controller="form"
 export default class extends Controller {
-  static targets = ["frame"];
+  static targets = ["frame", "form"];
 
   hideFrame() {
     this.frameTarget.remove();
@@ -15,6 +15,6 @@ export default class extends Controller {
   }
 
   resetForm() {
-    this.frameTarget.reset();
+    this.formTarget.reset();
   }
 }

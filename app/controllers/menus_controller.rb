@@ -19,7 +19,7 @@ class MenusController < ApplicationController
     respond_to do |format|
       if menu.save && @place.save
         format.turbo_stream do
-          flash.now[:notice] = 'Ürün başarıyla eklendi.'
+          flash.now[:notice] = t('controllers.menus.create.success')
           render turbo_stream: turbo_stream.update('flash_messages', partial: 'shared/flash_messages',
                                                                      locals: { flash: })
         end
@@ -39,10 +39,10 @@ class MenusController < ApplicationController
     respond_to do |format|
       if change_log.save
         change_log.approve_menu_edit if current_user.admin?
-        format.html do
-          redirect_to @place,
-                      notice: 'Ürün değişiklik isteği başarıyla değerlendirmeye gönderildi.
-                      Desteğiniz için teşekkür ederiz 💚'
+        format.turbo_stream do
+          flash.now[:notice] = t('controllers.menus.update.success')
+          render turbo_stream: turbo_stream.update('flash_messages', partial: 'shared/flash_messages',
+                                                                     locals: { flash: })
         end
       else
         format.html { render :edit, status: :unprocessable_entity }

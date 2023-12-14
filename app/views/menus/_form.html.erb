@@ -1,5 +1,6 @@
-<%= form_with(model: [@place, @menu], data: {controller: "form", action: "turbo:submit-end->form#resetForm",
-              form_target: "frame" }, class: "menu-form") do |form| %>
+  <%= form_with(model: [@place, @menu],
+    data: { action: @menu.persisted? ? "turbo:submit-end->form#submitEnd" : "turbo:submit-end->form#resetForm", form_target: "form" },
+    class: "menu-form") do |form| %>
   <% if menu.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(menu.errors.count, "error") %> prohibited this menu from being saved:</h2>
