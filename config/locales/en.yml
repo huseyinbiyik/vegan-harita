@@ -249,6 +249,9 @@ en:
       update:
         success: "Menu edit request sent successfully. Thank you for your contribution! 💚"
         failure: "There was a problem with your edit request. Please try again."
+      destroy:
+      success: "Menu suggestion sent successfully. Thank you for your contribution! 💚"
+      failure: "There was a problem with your edit request. Please try again."
   views:
     places:
       show:

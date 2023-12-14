@@ -57,9 +57,15 @@ class MenusController < ApplicationController
     else
       change_log = ChangeLog.new(active: false, changeable: @menu, user: current_user)
       if change_log.save
-        redirect_to @place, notice: 'Ürün silme isteği başarıyla değerlendirmeye gönderildi.'
+        respond_to do |format|
+          format.turbo_stream do
+            flash.now[:notice] = t('controllers.menus.destroy.success')
+            render turbo_stream: turbo_stream.update('flash_messages', partial: 'shared/flash_messages',
+                                                                       locals: { flash: })
+          end
+        end
       else
-        redirect_to @place, alert: 'Ürün silme isteği gönderilemedi.'
+        redirect_to @place, alert: t('controllers.menus.destroy.failure')
       end
     end
   end
