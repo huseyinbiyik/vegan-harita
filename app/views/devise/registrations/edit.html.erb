@@ -4,7 +4,7 @@
     <%= render "devise/shared/error_messages", resource: resource %>
     <div class="field" id="avatar-field" data-controller="utils">
       <div id="avatar-container">
-        <%= image_tag resource.avatar.variant( resize_to_limit: [100,100]), id: "avatar-img", data: {utils_target: "preview"} if resource.avatar.attached? %>
+        <%= image_tag resource.avatar.variant( resize_to_limit: [100,100]), id: "avatar-img", class: "avatar", data: {utils_target: "preview"} if resource.avatar.attached? %>
         <%= f.file_field :avatar, accept: "image/png, image/jpeg", data: {action: "change->utils#uploadAvatar"} %>
       </div>
     </div>

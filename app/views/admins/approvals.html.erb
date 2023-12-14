@@ -6,6 +6,9 @@
       <% @pending_users.each do |user| %>
         <article class="pending-user" id="user_<%= user.id %>">
           <ul class="pending-item">
+            <% if user.avatar.attached? %>
+              <li><%= image_tag user.avatar, class:"avatar", loading: "lazy"%></li>
+            <% end %>
             <li><span class="pending-title"><%= t :user_name %>:</span><%= user.email %></li>
             <li><span class="pending-title"><%= t :score %>:</span><%= user.points %></li>
             <li class="admin-btns">

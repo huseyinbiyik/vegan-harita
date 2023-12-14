@@ -2,8 +2,8 @@ class AdminsController < ApplicationController
   before_action :authenticate_admin
 
   def approvals
-    @users = User.all
-    @pending_users = User.where(approved: false).order('created_at DESC')
+    @users = User.all.with_attached_avatar
+    @pending_users = @users.where(approved: false).order('created_at DESC')
 
     @change_logs = ChangeLog.all.order('created_at DESC')
     @pending_place_edits = @change_logs.where(changeable_type: 'Place')
