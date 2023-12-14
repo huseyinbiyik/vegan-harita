@@ -68,7 +68,6 @@ class PlacesController < ApplicationController
           render turbo_stream: turbo_stream.update('flash_messages', partial: 'shared/flash_messages',
                                                                      locals: { flash: })
         end
-
       else
         format.turbo_stream do
           flash.now[:alert] = t('controllers.places.update.failure')

@@ -13,14 +13,15 @@ class MenusController < ApplicationController
 
   def create
     menu = @place.menus.create(menu_params)
-    menu.contributors << current_user.id
-    menu.image.attach(params[:menu][:image])
-    menu.approved = true if current_user && current_user.role == 'admin'
+    menu.creator = current_user
+    menu.approved = true if current_user&.admin?
 
     respond_to do |format|
-      if menu.save
-        format.html do
-          redirect_to @place, notice: 'Eklediğiniz ürün değerlendirmeye gönderildi.'
+      if menu.save && @place.save
+        format.turbo_stream do
+          flash.now[:notice] = 'Ürün başarıyla eklendi.'
+          render turbo_stream: turbo_stream.update('flash_messages', partial: 'shared/flash_messages',
+                                                                     locals: { flash: })
         end
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -32,7 +33,6 @@ class MenusController < ApplicationController
 
   def update
     change_log = ChangeLog.new(menu_params)
-    change_log.image.attach(params[:menu][:image])
     change_log.changeable = @menu
     change_log.user = current_user
 
@@ -75,7 +75,6 @@ class MenusController < ApplicationController
   end
 
   def menu_params
-    params.require(:menu).permit(:name, :description, :product_category, :place_id, :price, :image,
-                                 contributors: [])
+    params.require(:menu).permit(:name, :description, :product_category, :place_id, :price, :image)
   end
 end

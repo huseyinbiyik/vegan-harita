@@ -16,10 +16,6 @@ class AdminsController < ApplicationController # rubocop:disable Metrics/ClassLe
     end
 
     @pending_menus = Menu.where(approved: false)
-    @pending_menus.each do |menu|
-      menu.creator = @users.find(menu.contributors.first)
-      menu.save
-    end
 
     @pending_reviews = Review.where(approved: false)
   end
@@ -106,10 +102,10 @@ class AdminsController < ApplicationController # rubocop:disable Metrics/ClassLe
 
   def approve_menu
     menu = Menu.find(params[:id])
-    if menu.approve
-      menu.creator = User.find(menu.contributors.first)
-      menu.creator.points += 1
-      menu.creator.save
+    menu.approve
+    menu.creator.points += 1
+
+    if menu.save && menu.creator.save
       respond_to do |format|
         format.turbo_stream do
           flash.now[:notice] = 'Menü onaylandı'

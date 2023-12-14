@@ -39,7 +39,6 @@ class Place < ApplicationRecord
 
   def approve
     self.approved = true
-    save
   end
 
   private

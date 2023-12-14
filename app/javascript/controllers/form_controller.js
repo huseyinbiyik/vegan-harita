@@ -13,4 +13,8 @@ export default class extends Controller {
       this.hideFrame();
     }
   }
+
+  resetForm() {
+    this.frameTarget.reset();
+  }
 }
