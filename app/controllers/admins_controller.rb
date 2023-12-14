@@ -2,8 +2,8 @@ class AdminsController < ApplicationController # rubocop:disable Metrics/ClassLe
   before_action :authenticate_admin
 
   def approvals
-    @users = User.all
-    @pending_users = User.where(approved: false).order('created_at DESC')
+    @users = User.all.with_attached_avatar
+    @pending_users = @users.where(approved: false).order('created_at DESC')
 
     @change_logs = ChangeLog.all.order('created_at DESC')
     @pending_place_edits = @change_logs.where(changeable_type: 'Place')
@@ -22,7 +22,8 @@ class AdminsController < ApplicationController # rubocop:disable Metrics/ClassLe
 
   def approve_user
     user = User.find(params[:id])
-    if user.approve
+    user.approve
+    if user.save
       respond_to do |format|
         format.turbo_stream do
           flash.now[:notice] = 'Kullanıcı onaylandı.'
@@ -39,10 +40,10 @@ class AdminsController < ApplicationController # rubocop:disable Metrics/ClassLe
 
   def approve_place
     place = Place.find(params[:id])
-    if place.approve
-      place.creator = User.find(place.contributors.first)
-      place.creator.points += 10
-      place.creator.save
+    place.approve
+    place.creator = User.find(place.contributors.first)
+    place.creator.points += 10
+    if place.save
       respond_to do |format|
         format.turbo_stream do
           flash.now[:notice] = 'Mekan onaylandı'
@@ -163,9 +164,9 @@ class AdminsController < ApplicationController # rubocop:disable Metrics/ClassLe
 
   def approve_review
     @review = Review.find(params[:id])
-    if @review.approve
-      @review.user.points += 2
-      @review.user.save
+    @review.approve
+    @review.user.points += 2
+    if @review.user.save && @review.save
       respond_to do |format|
         format.turbo_stream do
           flash.now[:notice] = 'Değerlendirme onaylandı'

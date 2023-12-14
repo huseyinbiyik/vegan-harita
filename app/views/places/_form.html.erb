@@ -47,7 +47,7 @@
 
   <div class= "add-new-place-form-group">
     <%= form.label t('place_vegan'), style: "display: block" %>
-    <%= form.select :vegan, options_for_select([[ t('has_option'), true], [ t('vegan'), false]]), {} %>
+    <%= form.select :vegan, options_for_select([[ t('has_option'), false], [ t('vegan'), true]]), {} %>
   </div>
 
   <div class="add-new-place-form-group tags-form-container " >

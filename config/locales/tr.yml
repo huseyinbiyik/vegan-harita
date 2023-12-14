@@ -79,7 +79,7 @@ tr:
   select_delete: "Silinecek Fotoğrafları Seç"
   image: "Görsel"
   place_vegan: "Bu işletme vegan mı yoksa sadece bazı vegan seçenekler mi sunuyor?"
-  has_options: "Vegan Seçenekli"
+  has_option: "Vegan Seçenekli"
   vegan: "Vegan"
   select_tags: "Bu mekanı tanımlayan etiketleri seçin"
   instagram_link: "instagram.com/"

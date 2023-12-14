@@ -44,6 +44,10 @@
   color: var(--gray);
 }
 
+.user-info {
+  align-items: center;
+}
+
 .pending-item li:last-child {
   display: flex;
   flex-direction: row;
