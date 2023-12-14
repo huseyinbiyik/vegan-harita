@@ -1,7 +1,6 @@
 class Menu < ApplicationRecord
-  attr_accessor :creator
-
   belongs_to :place
+  belongs_to :creator, class_name: 'User', foreign_key: 'creator_id'
   has_many :change_logs, as: :changeable, dependent: :destroy
   has_many :likes, as: :record, dependent: :destroy
 
@@ -15,7 +14,6 @@ class Menu < ApplicationRecord
 
   def approve
     self.approved = true
-    save
   end
 
   def liked_by?(user)

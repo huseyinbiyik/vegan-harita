@@ -1,4 +1,4 @@
-<%= form_with(model: [@place, review], url: review.persisted? ? place_review_path(@place, review) : place_reviews_path(@place), method: review.persisted? ? :patch : :post, class: "add-review") do |form| %>
+<%= form_with(model: [@place, review], class: "add-review", data: { controller: "form", action: "turbo:submit-end->form#submitEnd", form_target: "frame" }) do |form| %>
   <div class="review-form-group">
     <%= form.label t('your_rating'), style: "display: block" %>
     <div class="rating" id="rating-section">
@@ -8,23 +8,18 @@
       <% end %>
     </div>
   </div>
-
   <div class="review-form-group">
     <%= form.label t('your_review'), style: "display: block" %>
     <%= form.text_area :content, placeholder: Review.human_attribute_name('content'), required: true %>
   </div>
-
   <div class="review-form-group">
     <%= form.label t('owner_feedback'), style: "display: block" %>
     <%= form.text_area :feedback, placeholder: Review.human_attribute_name('feedback') %>
   </div>
-
-
   <div class="review-form-group">
     <%= form.label t('photos'), style: "display: block" %>
     <%= form.file_field :images, multiple: true, accept: "image/*" %>
   </div>
-
   <div class="form-buttons">
     <%= form.submit t('submit'), class:"primary-green-btn", data: { turbo_confirm: t('sure') }  %>
     <a href="#" class="turbo-cancel-btn"> <%= t :nevermind %> </a>

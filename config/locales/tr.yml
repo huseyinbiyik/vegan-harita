@@ -159,8 +159,8 @@ tr:
       updated_but_not_signed_in: "Hesabınız başarılı bir şekilde güncellendi. Ancak parolanız değiştiği için tekrar giriş yapmalısınız."
       edit_user: "Hesabımı Düzenle"
     sessions:
-      signed_in: "Giriş başarılı."
-      signed_out: "Çıkış başarılı."
+      signed_in: "Hoşgeldiniz!"
+      signed_out: "Hoşçakalın! Başarılı bir şekilde çıkış yaptınız."
       already_signed_out: "Çıkış başarılı."
     unlocks:
       send_instructions: "Birkaç dakika içinde hesabınızın kilidini nasıl kaldıracağınızla ilgili bir e-posta alacaksınız."
@@ -207,6 +207,27 @@ tr:
   controllers:
     places:
       not_approved: "Bu mekan henüz onaylanmadı. Onaylandığı zaman tam burada olacak."
+      create:
+        success: "Mekan öneriniz başarıyla değerlendirmeye gönderildi. Desteğiniz için teşekkür ederiz 💚"
+      update:
+        success: "Mekan değişiklik isteği başarıyla değerlendirmeye gönderildi. Desteğiniz için teşekkür ederiz 💚"
+        failure: "Mekan değişiklik isteği gönderilirken bir hata oluştu 😞. Lütfen tekrar deneyin."
+    menus:
+      create:
+        success: "Menü öneriniz başarıyla değerlendirmeye gönderildi. Desteğiniz için teşekkür ederiz 💚"
+      update:
+        success: "Menü değişiklik isteği başarıyla değerlendirmeye gönderildi. Desteğiniz için teşekkür ederiz 💚"
+      destroy:
+        success: "Menü silme isteği başarıyla değerlendirmeye gönderildi. Desteğiniz için teşekkür ederiz 💚"
+        failure: "Menü silme isteği gönderilirken bir hata oluştu 😞. Lütfen tekrar deneyin."
+    reviews:
+      create:
+        success: "Değerlendirmeniz başarıyla değerlendirmeye gönderildi. Desteğiniz için teşekkür ederiz 💚"
+      update:
+        success: "Değerlendirmeniz başarıyla güncellendi. Desteğiniz için teşekkür ederiz 💚"
+      destroy:
+        success: "Değerlendirmeniz başarılı şekilde silindi. Desteğiniz için teşekkür ederiz 💚"
+        failure: "Değerlendirme silme isteği gönderilirken bir hata oluştu 😞. Lütfen tekrar deneyin."
   views:
     places:
       show:
