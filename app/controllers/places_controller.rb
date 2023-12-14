@@ -94,6 +94,6 @@ class PlacesController < ApplicationController
   def change_log_params
     params.require(:change_log).permit(:name, :address, :latitude, :longitude, :vegan, :instagram_url,
                                        :facebook_url, :twitter_url, :web_url, :email, :phone, :approved, tag_ids: [],
-                                                                                                         contributors: [], images: [], deleted_images: [])
+                                                                                                         contributors: [], images: [], deleted_images: []) # rubocop:disable Layout/LineLength
   end
 end

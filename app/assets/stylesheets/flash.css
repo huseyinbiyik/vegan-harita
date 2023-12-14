@@ -20,6 +20,7 @@
     transform: translateX(calc(100% + 100px));
     animation-timing-function: cubic-bezier(0.68, -0.55, 0.25, 1.35);
   }
+
   to {
     transform: translateX(0);
   }
@@ -30,6 +31,7 @@
     transform: translateX(0);
     animation-timing-function: cubic-bezier(0.68, -0.55, 0.25, 1.35);
   }
+
   to {
     transform: translateX(calc(100% + 100px));
   }

@@ -162,16 +162,13 @@ class AdminsController < ApplicationController # rubocop:disable Metrics/ClassLe
   end
 
   def approve_review
-    review = Review.find(params[:id])
-    if review.approve
-      review.user.points += 2
-      review.user.save
+    @review = Review.find(params[:id])
+    if @review.approve
+      @review.user.points += 2
+      @review.user.save
       respond_to do |format|
         format.turbo_stream do
           flash.now[:notice] = 'Değerlendirme onaylandı'
-          render turbo_stream: [turbo_stream.remove("review_#{params[:id]}"), turbo_stream.update('flash_messages',
-                                                                                                  partial: 'shared/flash_messages',
-                                                                                                  locals: { flash: })]
         end
       end
     else
@@ -180,14 +177,11 @@ class AdminsController < ApplicationController # rubocop:disable Metrics/ClassLe
   end
 
   def reject_review
-    review = Review.find(params[:id])
-    review.destroy
+    @review = Review.find(params[:id])
+    @review.destroy
     respond_to do |format|
       format.turbo_stream do
         flash.now[:notice] = 'Değerlendirme reddedildi'
-        render turbo_stream: [turbo_stream.remove("review_#{params[:id]}"), turbo_stream.update('flash_messages',
-                                                                                                partial: 'shared/flash_messages',
-                                                                                                locals: { flash: })]
       end
     end
   end
