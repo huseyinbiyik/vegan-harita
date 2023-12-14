@@ -16,7 +16,7 @@
     <% if params[:attribute] == "vegan" %>
       <div class="inputs-wrapper">
         <%= form.label t('place_vegan') %>
-        <%= form.select :vegan, options_for_select([[ t('vegan'), true], [ t('has_option'), false]], selected: @change_log.vegan), {}, class: "select-type" %>
+        <%= form.select :vegan, options_for_select([[ t('vegan'), true], [ t('has_option'), false]], selected: @place.vegan), {}, class: "select-type" %>
       </div>
     <% end %>
     <% if params[:attribute] == "location" %>
