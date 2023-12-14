@@ -29,12 +29,12 @@
             <li><span class="pending-title"><%= t :suggestion_date %></span><%= pending_place.created_at %></li>
             <li><span class="pending-title"><%= t :place_name %>:</span><%= pending_place.name %></li>
             <li><span class="pending-title"><%= t :address %>:</span><%= pending_place.address %></li>
-            <li style="height: 100%;">
-              <% if pending_place.images.attached? %>
+            <% if pending_place.images.attached? %>
+              <li style="height: 100%;">
                 <span class="pending-title"><%= t :photos_added %></span>
                 <%= render partial: "shared/slider", locals: { images: pending_place.images } %>
-              <% end %>
-            </li>
+              </li>
+            <% end %>
             <li><span class="pending-title"><%= t :is_vegan %></span><%= pending_place.vegan %></li>
             <li><span class="pending-title"><%= t :tags %></span>
               <%= pending_place.tag_ids.map { |tag_id| Tag.find(tag_id).name }.join(" | ") %>
@@ -45,7 +45,8 @@
             <li><span class="pending-title"><%= t :website %></span><%= pending_place.web_url %></li>
             <li><span class="pending-title"><%= t :mail %>:</span><%= pending_place.email %></li>
             <li><span class="pending-title"><%= t :phone %>:</span><%= pending_place.phone %></li>
-            <li><span class="pending-title"><%= t :added_by %></span><%= pending_place.creator.email %></li>
+            <li class="user-info"><span class="pending-title"><%= t :added_by %></span><% if pending_place.creator.avatar.attached? %><%= image_tag pending_place.creator.avatar, class: "avatar", loading: "lazy" %> <% end %>
+            <%= pending_place.creator.email %></li>
             <li class="admin-btns">
               <%= link_to t('approve'), approve_place_path(id: pending_place.id), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
               <%= link_to t('reject'), reject_place_path(id: pending_place.id), class: "reject-btn", method: "delete", remote: true, data: { turbo_method: "delete" } %>
@@ -132,7 +133,7 @@
               </div>
             </li>
           <% end %>
-          <li><span class="pending-title"><%= t :edited_by %></span><%= place_edit.user.email %></li>
+          <li class="user-info"><span class="pending-title"><%= t :edited_by %></span><% if place_edit.user.avatar.attached? %><%= image_tag place_edit.user.avatar, class: "avatar", loading: "lazy" %> <% end %> <%= place_edit.user.email %></li>
           <li class="admin-btns">
             <%= link_to t('approve'), approve_place_edit_path(id: place_edit.id), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
             <%= link_to t('reject'), reject_place_edit_path(id: place_edit.id), class: "reject-btn", method: "delete", remote: true, data: { turbo_method: "delete" } %>
@@ -159,7 +160,7 @@
             <% end %>
             <li><span class="pending-title"><%= t :product_category %>:</span><%= menu.product_category %></li>
             <li><span class="pending-title"><%= t :price %>:</span><%= "#{menu.price}" %></li>
-            <li><span class="pending-title"><%= t :added_by %></span><%= menu.creator.email %></li>
+            <li class="user-info"><span class="pending-title"><%= t :added_by %></span><% if menu.creator.avatar.attached? %> <%= image_tag menu.creator.avatar, class: "avatar", loading: "lazy" %> <% end %> <%= menu.creator.email %></li>
             <li>
               <%= link_to t('approve'), approve_menu_path(menu), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
               <%= link_to t('reject'), reject_menu_path(menu), method: "delete", class: "reject-btn", remote: true, data: { turbo_method: "delete" } %>
@@ -200,7 +201,7 @@
           <li class="compared"><span class="pending-title"> <%= t :delete_request %> </span>
             <div><%= menu_edit.changeable.active %> <span class="arrow"> → </span> <%= menu_edit.active %><div>
           </li>
-          <li><span class="pending-title"><%= t :edited_by %></span><%= menu_edit.user.email %></li>
+          <li class="user-info"><span class="pending-title"><%= t :edited_by %></span><% if menu_edit.user.avatar.attached? %> <%= image_tag menu_edit.user.avatar, class: "avatar", loading: "lazy" %> <% end %> <%= menu_edit.user.email %></li>
           <li>
             <%= link_to t('approve'), approve_menu_edit_path(menu_edit), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
             <%= link_to t('reject'), reject_menu_edit_path(menu_edit), class: "reject-btn", method: "delete", remote: true, data: { turbo_method: "delete" } %>
@@ -222,13 +223,13 @@
         <li><span class="pending-title"><%= t :rating %>:</span><%= review.rating %></li>
         <li><span class="pending-title"><%= t :review_content %>:</span><%= review.content %></li>
         <li><span class="pending-title"><%= t :feedback %>:</span><%= review.feedback %></li>
-        <li style="height: 100%;">
           <% if review.images.attached? %>
-            <span class="pending-title"><%= t :photos_added %></span>
-            <%= render partial: "shared/slider", locals: { images: review.images } %>
+            <li style="height: 100%;">
+              <span class="pending-title"><%= t :photos_added %></span>
+              <%= render partial: "shared/slider", locals: { images: review.images } %>
+            </li>
           <% end %>
-        </li>
-        <li><span class="pending-title"><%= t :reviewer %></span><%= review.user.email %></li>
+        <li class="user-info"><span class="pending-title"><%= t :reviewer %></span><% if review.user.avatar.attached? %> <%= image_tag review.user.avatar, class: "avatar", loading: "lazy" %> <% end %> <%= review.user.email %></li>
         <li>
           <%= link_to t('approve'), approve_review_path(review), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
           <%= link_to t('reject'), reject_review_path(review), class: "reject-btn", method: "delete", remote: true, data: { turbo_method: "delete" } %>
