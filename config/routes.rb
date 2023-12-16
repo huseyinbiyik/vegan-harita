@@ -28,4 +28,6 @@ Rails.application.routes.draw do
     post 'approve-review/:id', to: "admins#approve_review", as: :approve_review
     delete 'reject-review/:id', to: "admins#reject_review", as: :reject_review
   end
+
+  get "up" => "rails/health#show", as: :rails_health_check
 end
