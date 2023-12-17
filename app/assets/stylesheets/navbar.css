@@ -310,7 +310,8 @@ nav {
   }
 
   .dropdown {
-    display: none;
+    visibility: hidden;
+    transition: visibility 0s linear 0.5s;
     position: absolute;
     right: 0;
     border-radius: 0 0 0.625rem 0.625rem;
@@ -320,12 +321,14 @@ nav {
     font-size: 1.125rem;
     height: 5.25rem;
     z-index: 2;
+    gap: 0.5rem;
   }
 
   .wrapper:hover .dropdown {
+    visibility: visible;
+    transition-delay: 0s;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
   }
 
   #logout-link {
