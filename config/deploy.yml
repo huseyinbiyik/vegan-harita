@@ -6,7 +6,13 @@ image: huseyinbiyik/vegan-harita
 
 # Deploy to these servers.
 servers:
-  - 134.122.76.57
+  web:
+    hosts:
+      - 134.122.76.57
+    labels:
+      traefik.http.routers.blog.entrypoints: websecure
+      traefik.http.routers.blog.rule: Host(`veganharita.com`)
+      traefik.http.routers.blog.tls.certresolver: letsencrypt
 
 # Credentials for your image host.
 registry:
@@ -65,10 +71,22 @@ accessories:
 #       - data:/data
 
 # Configure custom arguments for Traefik
-# traefik:
-#   args:
-#     accesslog: true
-#     accesslog.format: json
+traefik:
+  options:
+      publish:
+        - "443:443"
+      volume:
+        - "letsencrypt:/letsencrypt" # To save the configuration file.
+  args:
+    entryPoints.web.address: ":80"
+    entryPoints.websecure.address: ":443"
+    entryPoints.web.http.redirections.entryPoint.to: websecure # We want to force https
+    entryPoints.web.http.redirections.entryPoint.scheme: https
+    entryPoints.web.http.redirections.entrypoint.permanent: true
+    certificatesResolvers.letsencrypt.acme.email: "iletisim@veganharita.com"
+    certificatesResolvers.letsencrypt.acme.storage: "/letsencrypt/acme.json" # Must match the path in `volume`
+    certificatesResolvers.letsencrypt.acme.httpchallenge: true
+    certificatesResolvers.letsencrypt.acme.httpchallenge.entrypoint: web # Must match the role in `servers`
 
 # Configure a custom healthcheck (default is /up on port 3000)
 # healthcheck:
