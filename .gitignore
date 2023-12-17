@@ -43,3 +43,6 @@
 
 # Ignore vscode
 .vscode/*
+
+# Ignore all environment files
+/.env*
