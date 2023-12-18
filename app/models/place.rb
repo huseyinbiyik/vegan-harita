@@ -4,9 +4,12 @@ class Place < ApplicationRecord
   validates :name, presence: true, length: { maximum: 80 }
   validates :address, presence: true, length: { maximum: 80 }
   validates :latitude, presence: { message: I18n.t('activerecord.attributes.place.pick_from_map_suggestions') }
-  validates :instagram_handle, format: { with: %r{\Ahttps?://(www\.)?instagram\.com/[\w-]+/?\z}i }, allow_blank: true
-  validates :facebook_handle, format: { with: %r{\Ahttps?://(www\.)?facebook\.com/}i }, allow_blank: true
-  validates :x_url, format: { with: %r{\Ahttps?://(www\.)?twitter\.com/[\w-]+/?\z}i }, allow_blank: true
+  validates :instagram_handle,
+            format: { with: /\A[\w.-]+\z/, message: I18n.t('activerecord.attributes.place.instagram_invalid') }, allow_blank: true
+  validates :facebook_handle,
+            format: { with: /\A[\w.-]+\z/, message: I18n.t('activerecord.attributes.place.facebook_invalid') }, allow_blank: true
+  validates :x_handle,
+            format: { with: /\A[\w.-]+\z/, message: I18n.t('activerecord.attributes.place.x_invalid') }, allow_blank: true
   validates :web_url, format: { with: %r{\A(https?://)?(.+\.)?[^./]+\.[^./]+\z}i }, allow_blank: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, allow_blank: true
   validates :phone, format: { with: /\A[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}\z/i }, allow_blank: true

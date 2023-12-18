@@ -220,6 +220,9 @@ en:
       place:
         latitude: "Address:"
         pick_from_map_suggestions: "Please pick a location provided by Google Maps for the address you entered"
+        instagram_invalid: "Instagram username is invalid. Please enter a valid username. You can find your username in your Instagram profile URL. For example, if your profile URL is instagram.com/username, your username is username."
+        facebook_invalid: "Facebook username is invalid. Please enter a valid username. You can find your username in your Facebook profile URL. For example, if your profile URL is facebook.com/username, your username is username."
+        x_invalid: "X username is invalid. Please enter a valid username. You can find your username in your X profile URL. For example, if your profile URL is x.com/username, your username is username."
       menu:
         name: "North Korean Fried Tofu"
         description: "Tofu, onion and sesame and North Korean spices..."
