@@ -1,14 +1,14 @@
 module PlacesHelper
   def instagram_link(place)
-    link_to('Instagram', place.instagram_url, target: '_blank') if place.instagram_url.present?
+    link_to('Instagram', place.instagram_handle, target: '_blank') if place.instagram_handle.present?
   end
 
   def facebook_link(place)
-    link_to('Facebook', place.facebook_url, target: '_blank') if place.facebook_url.present?
+    link_to('Facebook', place.facebook_handle, target: '_blank') if place.facebook_handle.present?
   end
 
   def twitter_link(place)
-    link_to('Twitter', place.twitter_url, target: '_blank') if place.twitter_url.present?
+    link_to('Twitter', place.x_handle, target: '_blank') if place.x_handle.present?
   end
 
   def web_link(place)

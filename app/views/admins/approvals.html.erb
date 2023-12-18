@@ -39,9 +39,9 @@
             <li><span class="pending-title"><%= t :tags %></span>
               <%= pending_place.tag_ids.map { |tag_id| Tag.find(tag_id).name }.join(" | ") %>
             </li>
-            <li><span class="pending-title"><%= t :instagram %>:</span><%= pending_place.instagram_url %></li>
-            <li><span class="pending-title"><%= t :facebook %>:</span><%= pending_place.facebook_url %></li>
-            <li><span class="pending-title"><%= t :x %>:</span><%= pending_place.twitter_url %></li>
+            <li><span class="pending-title"><%= t :instagram %>:</span><%= pending_place.instagram_handle %></li>
+            <li><span class="pending-title"><%= t :facebook %>:</span><%= pending_place.facebook_handle %></li>
+            <li><span class="pending-title"><%= t :x %>:</span><%= pending_place.x_handle %></li>
             <li><span class="pending-title"><%= t :website %></span><%= pending_place.web_url %></li>
             <li><span class="pending-title"><%= t :mail %>:</span><%= pending_place.email %></li>
             <li><span class="pending-title"><%= t :phone %>:</span><%= pending_place.phone %></li>
@@ -95,19 +95,19 @@
               <div><%= place_edit.changeable.vegan %> <span class="arrow"> → </span> <%= place_edit.vegan %></div>
             </li>
           <% end %>
-          <% if place_edit.instagram_url %>
+          <% if place_edit.instagram_handle %>
             <li class="compared"><span class="pending-title"><%= t :instagram %>:</span>
-              <div><%= place_edit.changeable.instagram_url %> <span class="arrow"> → </span> <%= place_edit.instagram_url %></div>
+              <div><%= place_edit.changeable.instagram_handle %> <span class="arrow"> → </span> <%= place_edit.instagram_handle %></div>
             </li>
           <% end %>
-          <% if place_edit.facebook_url %>
+          <% if place_edit.facebook_handle %>
             <li class="compared"><span class="pending-title"><%= t :facebook %>:</span>
-              <div><%= place_edit.changeable.facebook_url %> <span class="arrow"> → </span> <%= place_edit.facebook_url %></div>
+              <div><%= place_edit.changeable.facebook_handle %> <span class="arrow"> → </span> <%= place_edit.facebook_handle %></div>
             </li>
           <% end %>
-          <% if place_edit.twitter_url %>
+          <% if place_edit.x_handle %>
             <li class="compared"><span class="pending-title"><%= t :x %>:</span>
-              <div><%= place_edit.changeable.twitter_url %> <span class="arrow"> → </span> <%= place_edit.twitter_url %></div>
+              <div><%= place_edit.changeable.x_handle %> <span class="arrow"> → </span> <%= place_edit.x_handle %></div>
             </li>
           <% end %>
           <% if place_edit.web_url %>
