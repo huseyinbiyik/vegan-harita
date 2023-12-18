@@ -62,7 +62,7 @@
         <div class="form-group modal-social-group">
           <%= form.label t('instagram'), style: "display: block" %>
           <span class="social-platform"> <%= t :instagram_link %> </span>
-          <%= form.text_field :instagram_handle, value: @place.instagram_handle, class: "social-input", autofocus: true  %>
+          <%= form.text_field :instagram_handle, value: @place.instagram_handle, class: "social-input", autofocus: true, maxlength: 30 %>
         </div>
       </div>
     <% end %>
@@ -71,7 +71,7 @@
         <div class="form-group modal-social-group">
           <%= form.label t('facebook'), style: "display: block" %>
           <span class="social-platform"> <%= t :facebook_link %> </span>
-          <%= form.text_field :facebook_handle, value: @place.facebook_handle, class:"social-input", autofocus: true %>
+          <%= form.text_field :facebook_handle, value: @place.facebook_handle, class:"social-input", autofocus: true, maxlength: 50 %>
         </div>
       </div>
     <% end %>
@@ -80,7 +80,7 @@
         <div class="form-group modal-social-group">
           <%= form.label t('x'), style: "display: block" %>
           <span class="social-platform"> <%= t :x_link %> </span>
-          <%= form.text_field :x_handle, value: @place.x_handle, class:"social-input-xr", autofocus: true %>
+          <%= form.text_field :x_handle, value: @place.x_handle, class:"social-input-x", autofocus: true, maxlength: 50 %>
         </div>
       </div>
     <% end %>
