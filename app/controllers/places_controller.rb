@@ -36,7 +36,7 @@ class PlacesController < ApplicationController
 
   def create
     @place = Place.new(place_params)
-    @place.contributors << current_user.id
+    @place.contributors << current_user.id unless @place.contributors.include?(current_user.id)
     @place.approved = true if current_user&.admin?
 
     respond_to do |format|
