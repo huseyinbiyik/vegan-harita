@@ -1,4 +1,4 @@
-<%= form_with(model: place, data: {controller: "place", action: "google-maps-callback@window->place#initializeMap"}, html: {id: "add-new-place-form"}, url: place.new_record? ? places_path : place_place_edits_path(place), method: :post) do |form| %>
+<%= form_with(model: place, data: {controller: "place", action: "google-maps-callback@window->place#initializeMap"}, html: {id: "add-new-place-form"}) do |form| %>
   <% if place.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(place.errors.count, "hata") %>
@@ -27,18 +27,6 @@
       <%= form.text_field :name, placeholder: "X Vegan Cafe", required: true, maxlength: 80, size: nil %>
     </div>
 
-    <% if place.images.attached? %>
-    <div class= "add-new-place-form-group">
-      <%=  form.label t('select_delete'), style: "display: block" %>
-      <% place.images.each do |image| %>
-        <div class="image-checkbox">
-          <%= form.check_box :deleted_images, { multiple: true, id: "image-select" }, image.id, nil %>
-          <%= image_tag image.variant(resize_to_limit: [100,100]), class: "image-checkbox-image" %>
-        </div>
-      <% end %>
-    </div>
-    <% end %>
-
     <div class= "add-new-place-form-group">
       <%= form.label t('image'), style: "display: block" %>
       <%= form.file_field :images, multiple: true, accept: "image/*" %>
@@ -66,13 +54,13 @@
     <div class= "add-new-place-form-group social-field">
       <%= form.label t('instagram'), style: "display: block" %>
         <span class="platform"><%= t :instagram_link %> </span>
-        <%= form.text_field :instagram_handle, id:"instagram" %>
+        <%= form.text_field :instagram_handle, id:"instagram", placeholder: "veganharita", maxlength: 30 %>
     </div>
 
     <div class= "add-new-place-form-group social-field">
       <%= form.label t('facebook'), style: "display: block" %>
         <span class="platform"><%= t :facebook_link %> </span>
-        <%= form.text_field :facebook_handle, id:"facebook" %>
+        <%= form.text_field :facebook_handle, id:"facebook", placeholder: "veganharita", maxlength: 50 %>
     </div>
   </div>
 
@@ -80,7 +68,7 @@
     <div class= "add-new-place-form-group social-field">
       <%= form.label t('x'), style: "display: block" %>
         <span class="platform"> <%= t :x_link %> </span>
-        <%= form.text_field :x_handle, id:"x" %>
+        <%= form.text_field :x_handle, id:"x", placeholder: "veganharita", maxlength: 50 %>
     </div>
 
     <div class= "add-new-place-form-group">
