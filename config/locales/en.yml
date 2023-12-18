@@ -217,6 +217,9 @@ en:
         password: "Password"
         password_confirmation: "Password confirmation"
         current_password: "Current password (required)"
+      place:
+        latitude: "Address:"
+        pick_from_map_suggestions: "Please pick a location provided by Google Maps for the address you entered"
       menu:
         name: "North Korean Fried Tofu"
         description: "Tofu, onion and sesame and North Korean spices..."

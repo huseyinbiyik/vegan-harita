@@ -1,20 +1,15 @@
 class Place < ApplicationRecord
   attr_accessor :creator
 
-  validates :name, presence: true, length: { minimum: 1, maximum: 80 }
-
+  validates :name, presence: true, length: { maximum: 80 }
+  validates :address, presence: true, length: { maximum: 80 }
+  validates :latitude, presence: { message: I18n.t('activerecord.attributes.place.pick_from_map_suggestions') }
   validates :instagram_url, format: { with: %r{\Ahttps?://(www\.)?instagram\.com/[\w-]+/?\z}i }, allow_blank: true
-
   validates :facebook_url, format: { with: %r{\Ahttps?://(www\.)?facebook\.com/}i }, allow_blank: true
-
   validates :twitter_url, format: { with: %r{\Ahttps?://(www\.)?twitter\.com/[\w-]+/?\z}i }, allow_blank: true
-
   validates :web_url, format: { with: %r{\A(https?://)?(.+\.)?[^./]+\.[^./]+\z}i }, allow_blank: true
-
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, allow_blank: true
-
   validates :phone, format: { with: /\A[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}\z/i }, allow_blank: true
-
   validate :images_count_within_limit
 
   has_many :change_logs, as: :changeable, dependent: :destroy
