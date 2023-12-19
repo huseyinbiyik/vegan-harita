@@ -235,6 +235,8 @@ tr:
     places:
       show:
         contributors: "Katkıda Bulunanlar"
+        suggest_edit: "Düzenleme Öner"
+        cancel: "Vazgeç"
   minimum: "en az"
   characters: "karakter"
   edit_account: "Hesabımı Düzenle"

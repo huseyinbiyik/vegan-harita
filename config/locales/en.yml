@@ -271,6 +271,8 @@ en:
     places:
       show:
         contributors: "Contributors"
+        suggest_edit: "Suggest an Edit"
+        cancel: "Cancel"
   minimum: "minimum"
   characters: "characters"
   edit_account: "Edit My Account"
