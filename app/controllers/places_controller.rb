@@ -36,7 +36,7 @@ class PlacesController < ApplicationController
 
   def create
     @place = Place.new(place_params)
-    @place.contributors << current_user.id
+    @place.contributors << current_user.id unless @place.contributors.include?(current_user.id)
     @place.approved = true if current_user&.admin?
 
     respond_to do |format|
@@ -86,14 +86,14 @@ class PlacesController < ApplicationController
 
   def place_params
     params.require(:place).permit(
-      :name, :address, :latitude, :longitude, :vegan, :instagram_url,
-      :facebook_url, :twitter_url, :web_url, :email, :phone, :approved, tag_ids: [], contributors: [], images: []
+      :name, :address, :latitude, :longitude, :vegan, :instagram_handle,
+      :facebook_handle, :x_handle, :web_url, :email, :phone, :approved, tag_ids: [], contributors: [], images: []
     )
   end
 
   def change_log_params
-    params.require(:change_log).permit(:name, :address, :latitude, :longitude, :vegan, :instagram_url,
-                                       :facebook_url, :twitter_url, :web_url, :email, :phone, :approved, tag_ids: [],
+    params.require(:change_log).permit(:name, :address, :latitude, :longitude, :vegan, :instagram_handle,
+                                       :facebook_handle, :x_handle, :web_url, :email, :phone, :approved, tag_ids: [],
                                                                                                          contributors: [], images: [], deleted_images: []) # rubocop:disable Layout/LineLength
   end
 end

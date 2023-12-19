@@ -1,6 +1,6 @@
 class MenusController < ApplicationController
-  before_action :authenticate_user!, except: %i[index show]
-  before_action :set_menu, only: %i[show edit update destroy]
+  before_action :authenticate_user!, except: %i[index]
+  before_action :set_menu, only: %i[edit update destroy]
   before_action :set_place, only: %i[new edit update create destroy]
 
   def index

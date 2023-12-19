@@ -186,6 +186,9 @@ tr:
         password: "Parola"
         password_confirmation: "Parola tekrarı"
         current_password: "Mevcut parola (gerekli)"
+      place:
+        latitude: "Adres alanı:"
+        pick_from_map_suggestions: "Lütfen Google Maps tarafından önerilen adreslerden birini seçin."
       menu:
         name: "Kuzey Kore Usulü Kızarmış Tofu"
         description: "Tofu, soğan ve susam ve Kuzey Kore baharatları..."

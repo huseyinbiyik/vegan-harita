@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_14_214333) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_18_171052) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -87,9 +87,9 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_14_214333) do
     t.float "latitude"
     t.text "address"
     t.boolean "vegan"
-    t.string "instagram_url"
-    t.string "facebook_url"
-    t.string "twitter_url"
+    t.string "instagram_handle"
+    t.string "facebook_handle"
+    t.string "x_handle"
     t.string "web_url"
     t.string "email"
     t.string "phone"

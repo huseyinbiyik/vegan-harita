@@ -20,7 +20,7 @@ class ReviewsController < ApplicationController
                                                                      locals: { flash: })
         end
       else
-        render format.turbo_stream do
+        format.turbo_stream do
           flash.now[:alert] = t('controllers.reviews.create.failure')
           render turbo_stream: turbo_stream.update('flash_messages', partial: 'shared/flash_messages',
                                                                      locals: { flash: })
