@@ -3,8 +3,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.2.2'
 
-gem 'rubocop', '>= 1.0', '< 2.0'
-
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.1.2'
 
@@ -63,6 +61,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'rubocop', '>= 1.0', '< 2.0'
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem 'dockerfile-rails', '>= 1.0.0'
   gem 'erb-formatter'
