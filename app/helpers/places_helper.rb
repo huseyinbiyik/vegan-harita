@@ -21,7 +21,7 @@ module PlacesHelper
       asset_path('find-me.svg'),
       I18n.t('you_are_here'),
       I18n.t('location_not_found'),
-      I18n.t('location_not_supported'),
+      I18n.t('location_not_supported')
     ].to_json
   end
 end
