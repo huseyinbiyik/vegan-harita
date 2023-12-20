@@ -1,4 +1,7 @@
 tr:
+  you_are_here: "Buradasınız"
+  location_not_found: "Konum bulunamadı"
+  location_not_supported: "Tarayıcınız konum servisini desteklemiyor"
   ago: "önce"
   pending_users: "Onay Bekleyen Kullanıcılar"
   user_name: "Kullanıcı Adı"

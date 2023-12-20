@@ -30,7 +30,9 @@ class Place < ApplicationRecord
   scope :approved, -> { where(approved: true) }
 
   def featured_image
-    images.attached? ? images.first : '../default-place-image.jpeg'
+    return unless images.attached?
+
+    Rails.application.routes.url_helpers.rails_blob_path(images.first, only_path: true)
   end
 
   # For the search area

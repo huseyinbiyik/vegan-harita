@@ -6,15 +6,25 @@
 }
 
 /* Customizing place infoWindow */
-.info-window-image {
-  width: 6.25rem;
-  height: 6.25rem;
-}
-
 .info-window {
   display: flex;
-  flex-direction: row;
-  column-gap: 0.625rem;
+  flex-direction: column;
+  height: auto;
+
+  & h3 {
+    margin-bottom: 0;
+  }
+
+  & p {
+    font-size: 1rem;
+  }
+}
+
+.info-window-image {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
 }
 
 /* Customizing find me button */
@@ -45,5 +55,10 @@
 
   #custom-zoom-controller-container {
     margin-right: 3rem;
+  }
+
+  .info-window-image {
+    height: auto;
+    max-height: 180px;
   }
 }

@@ -3,8 +3,9 @@ import { MarkerClusterer } from "@googlemaps/markerclusterer";
 
 export default class extends Controller {
   static targets = ["map"];
-  static values = { icons: Array };
+  static values = { assets: Array };
   connect() {
+    console.log(this.assetsValue[5]);
     if (typeof google != "undefined") {
       this.initializeMap();
     }
@@ -43,8 +44,8 @@ export default class extends Controller {
 
   createCustomMapControls() {
     // Icons in assets folder
-    const ZoomInIcon = this.iconsValue[2];
-    const ZoomOutIcon = this.iconsValue[3];
+    const ZoomInIcon = this.assetsValue[2];
+    const ZoomOutIcon = this.assetsValue[3];
 
     function CustomZoomInControl(controlDiv, map) {
       var controlUI = document.createElement("div");
@@ -108,7 +109,7 @@ export default class extends Controller {
           infoWindow.setPosition(pos);
           infoWindow.setContent(`
                 <div class="info-window">
-                  <h3>Şu anda buradasınız</h3>
+                  <p>${this.assetsValue[5]} ✋</p>
                 </div>
               `);
           infoWindow.open(this.map);
@@ -125,14 +126,14 @@ export default class extends Controller {
       infoWindow.setPosition(pos);
       infoWindow.setContent(
         browserHasGeolocation
-          ? "Konum bilgisi alınamadı"
-          : "Tarayıcınız konum bilgisini desteklemiyor"
+          ? `${this.assetsValue[6]}`
+          : `${this.assetsValue[7]}`
       );
       infoWindow.open(this.map);
     };
 
     const locationButton = document.createElement("button");
-    locationButton.innerHTML = `<img src="${this.iconsValue[4]}" alt="find-me">`;
+    locationButton.innerHTML = `<img src="${this.assetsValue[4]}" alt="find-me">`;
     locationButton.classList.add("custom-map-control-button");
     locationButton.id = "location-button";
     this.map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(
@@ -145,14 +146,16 @@ export default class extends Controller {
     const locations = await this.fetchPlaces();
     if (locations) {
       // Marker icons located on public folder
-      const VeganMarkerIcon = this.iconsValue[0];
-      const veganFriendlyMarkerIcon = this.iconsValue[1];
+      const VeganMarkerIcon = this.assetsValue[0];
+      const veganFriendlyMarkerIcon = this.assetsValue[1];
 
       // Info window
       const infoWindow = new google.maps.InfoWindow({
         content: "",
         className: "custom-info-window",
         disableAutoPan: true,
+        maxWidth: 280,
+        minWidth: 280,
       });
 
       // Create markers for each location
@@ -165,27 +168,25 @@ export default class extends Controller {
             scaledSize: new google.maps.Size(50, 60),
           },
         });
-
         // Info window on click
         marker.addListener("click", () => {
           infoWindow.setContent(
             // Link to the place page
             label
               ? `
-        <a href=${
-          window.location.origin + "/places/" + position.id
-        } class="info-window">
-        <img src=${position.featured_image}
-        class="info-window-image"
-        alt=${label}>
-        <div class="info-window-vegan-status">
-        <h3>${label} <small>(${
-                  position.vegan ? "Vegan" : "Vegan Seçenekli"
-                })</small>
-        </h3>
+              <div class="info-window">
+              <a href=${window.location.origin + "/places/" + position.id} >
+              ${
+                position.featured_image
+                  ? `<img src=${position.featured_image} class="info-window-image" alt=${label}>`
+                  : ""
+              }
+              <div class="info-window-vegan-status">
+              <h3>${label}</h3>
         <p>${position.address}</p>
         </div>
         </a>
+        </div>
         `
               : ""
           );
