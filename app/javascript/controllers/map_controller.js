@@ -5,7 +5,6 @@ export default class extends Controller {
   static targets = ["map"];
   static values = { assets: Array };
   connect() {
-    console.log(this.assetsValue[5]);
     if (typeof google != "undefined") {
       this.initializeMap();
     }
