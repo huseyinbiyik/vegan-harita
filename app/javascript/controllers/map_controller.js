@@ -8,7 +8,6 @@ export default class extends Controller {
     if (typeof google != "undefined") {
       this.initializeMap();
     }
-    console.log(this.iconsValue);
   }
 
   initializeMap() {
