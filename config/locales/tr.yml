@@ -1,4 +1,5 @@
 tr:
+  ago: "önce"
   pending_users: "Onay Bekleyen Kullanıcılar"
   user_name: "Kullanıcı Adı"
   score: "Puanı"
@@ -235,6 +236,8 @@ tr:
     places:
       show:
         contributors: "Katkıda Bulunanlar"
+        suggest_edit: "Düzenleme Öner"
+        cancel: "Vazgeç"
   minimum: "en az"
   characters: "karakter"
   edit_account: "Hesabımı Düzenle"
@@ -242,6 +245,22 @@ tr:
   cancel: "Hesabımı sil"
   update: "Güncelle"
   unhappy: "Memnun değil misiniz?"
-
+  datetime:
+    distance_in_words:
+      x_days:
+        one: "1 gün"
+        other: "%{count} gün"
+      x_minutes:
+        one: "1 dakika"
+        other: "%{count} dakika"
+      x_months:
+        one: "1 ay"
+        other: "%{count} ay"
+      x_seconds:
+        one: "1 saniye"
+        other: "%{count} saniye"
+      x_years:
+        one: "1 yıl"
+        other: "%{count} yıl"
 
 

@@ -3,6 +3,7 @@ import { MarkerClusterer } from "@googlemaps/markerclusterer";
 
 export default class extends Controller {
   static targets = ["map"];
+  static values = { icons: Array };
   connect() {
     if (typeof google != "undefined") {
       this.initializeMap();
@@ -41,12 +42,16 @@ export default class extends Controller {
   }
 
   createCustomMapControls() {
+    // Icons in assets folder
+    const ZoomInIcon = this.iconsValue[2];
+    const ZoomOutIcon = this.iconsValue[3];
+
     function CustomZoomInControl(controlDiv, map) {
       var controlUI = document.createElement("div");
       controlUI.style.marginBottom = "10px";
       controlDiv.appendChild(controlUI);
       var controlText = document.createElement("img");
-      controlText.src = "../zoom-in.svg";
+      controlText.src = ZoomInIcon;
       controlUI.appendChild(controlText);
       google.maps.event.addDomListener(controlUI, "click", function () {
         map.setZoom(map.getZoom() + 1);
@@ -55,7 +60,7 @@ export default class extends Controller {
       controlUILeft.style.marginBottom = "45px";
       controlDiv.appendChild(controlUILeft);
       var controlTextLeft = document.createElement("img");
-      controlTextLeft.src = "../zoom-out.svg";
+      controlTextLeft.src = ZoomOutIcon;
       controlUILeft.appendChild(controlTextLeft);
       google.maps.event.addDomListener(controlUILeft, "click", function () {
         map.setZoom(map.getZoom() - 1);
@@ -127,7 +132,7 @@ export default class extends Controller {
     };
 
     const locationButton = document.createElement("button");
-    locationButton.innerHTML = `<img src="../find-me.svg" alt="find-me">`;
+    locationButton.innerHTML = `<img src="${this.iconsValue[4]}" alt="find-me">`;
     locationButton.classList.add("custom-map-control-button");
     locationButton.id = "location-button";
     this.map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(
@@ -140,8 +145,8 @@ export default class extends Controller {
     const locations = await this.fetchPlaces();
     if (locations) {
       // Marker icons located on public folder
-      const VeganMarkerIcon = "../vegan-place.svg";
-      const veganFriendlyMarkerIcon = "../vegan-friendly-place.svg";
+      const VeganMarkerIcon = this.iconsValue[0];
+      const veganFriendlyMarkerIcon = this.iconsValue[1];
 
       // Info window
       const infoWindow = new google.maps.InfoWindow({

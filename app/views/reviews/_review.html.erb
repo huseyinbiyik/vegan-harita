@@ -1,43 +1,38 @@
 <div id="<%= dom_id review %>" class="review">
-<%= turbo_frame_tag dom_id(review) do %>
-<div class="review-wrapper">
-  <div class="reviewer-info">
-    <% if review.user.avatar.attached? %>
-      <%= image_tag review.user.avatar.variant(resize_to_limit: [70,70]), class:"review-avatar", loading: "lazy" %>
-    <% else %>
-      <%= image_tag "default-place-image.jpg", class:"review-avatar", loading: "lazy" %>
-    <% end %>
-    <%= review.user.email %>
-    <% if review.user == current_user && user_signed_in? %>
-  <%= link_to t('edit'), edit_place_review_path(@place, review) %>
-  <%= link_to t('delete'), place_review_path(@place, review), method: "delete", remote: true, data: { turbo_method: "delete", turbo_confirm: t('sure_delete') } %>
-<% end %>
-<% end %>
-  </div>
-
-<div class="review-content">
-  <div class="show-rating">
-    <% (1..5).each do |i| %>
-      <% if i <= review.rating %>
-        <span class="star filled"></span>
-      <% else %>
-        <span class="star unfilled"></span>
+  <%= turbo_frame_tag dom_id(review) do %>
+    <div class="review-wrapper">
+      <div class="reviewer-info">
+        <% if review.user.avatar.attached? %>
+          <%= image_tag review.user.avatar.variant(resize_to_limit: [70,70]), class:"review-avatar", loading: "lazy" %>
+        <% else %>
+          <%= image_tag "default-place-image.jpg", class:"review-avatar", loading: "lazy" %>
+        <% end %>
+        <%= review.user.email %>
+        <% if review.user == current_user && user_signed_in? %>
+          <%= link_to t('edit'), edit_place_review_path(@place, review) %>
+          <%= link_to t('delete'), place_review_path(@place, review), method: "delete", remote: true, data: { turbo_method: "delete", turbo_confirm: t('sure_delete') } %>
+        <% end %>
       <% end %>
-    <% end %>
-    <span class="review-time"><%= time_in_words(review) %><span>
-  </div>
-
-  <p>
-    <%= review.content %>
-  </p>
-
-  <div class="review-images-container ">
-    <% review.images.each do |image| %>
-      <%= image_tag image.variant(resize_to_limit: [500,500]), class:"review-image" %>
-    <% end %>
-  </div>
-  </div>
-
-
-</div>
-</div>
+    </div>
+    <div class="review-content">
+      <div class="show-rating">
+        <% (1..5).each do |i| %>
+          <% if i <= review.rating %>
+            <span class="star filled"></span>
+          <% else %>
+            <span class="star unfilled"></span>
+          <% end %>
+        <% end %>
+        <span class="review-time"><%= time_in_words(review) %><span>
+          </div>
+          <p>
+            <%= review.content %>
+          </p>
+          <div class="review-images-container ">
+            <% review.images.each do |image| %>
+              <%= image_tag image.variant(resize_to_limit: [500,500]), class:"review-image" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>

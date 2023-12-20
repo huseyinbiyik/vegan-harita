@@ -11,4 +11,14 @@ module PlacesHelper
       value
     end
   end
+
+  def map_icons
+    [
+      asset_path('vegan-place.svg'),
+      asset_path('vegan-friendly-place.svg'),
+      asset_path('zoom-in.svg'),
+      asset_path('zoom-out.svg'),
+      asset_path('find-me.svg')
+    ].to_json
+  end
 end

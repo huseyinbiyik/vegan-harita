@@ -7,7 +7,7 @@ module ReviewsHelper
       review.created_at.strftime('%I:%M %p')
     elsif time_difference < 7.days
       # If the review was created less than a week ago, show how many days ago
-      "#{time_ago_in_words(review.created_at)} önce"
+      "#{time_ago_in_words(review.created_at)} #{t('ago')}"
     else
       # If the review was created more than a week ago, show the date
       review.created_at.strftime('%B %d, %Y')

@@ -30,6 +30,7 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  ago: "ago"
   pending_users: "Users Waiting for Approval"
   user_name: "Username"
   score: "Score"
@@ -271,6 +272,8 @@ en:
     places:
       show:
         contributors: "Contributors"
+        suggest_edit: "Suggest an Edit"
+        cancel: "Cancel"
   minimum: "minimum"
   characters: "characters"
   edit_account: "Edit My Account"
