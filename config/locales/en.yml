@@ -30,6 +30,9 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  you_are_here: "You are here"
+  location_not_found: "Location not found"
+  location_not_supported: "Your browser does not support location services"
   ago: "ago"
   pending_users: "Users Waiting for Approval"
   user_name: "Username"
