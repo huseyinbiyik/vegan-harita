@@ -27,6 +27,17 @@
   border-radius: 5px;
 }
 
+.place-status {
+  display: inline-flex;
+  padding: 2px 4px;
+  border-radius: 5px;
+  border: 1px solid var(--gray);
+}
+
+.place-open-true {
+  border-color: var(--green);
+}
+
 /* Customizing find me button */
 .custom-map-control-button {
   margin-right: 1.25rem;

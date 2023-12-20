@@ -2,6 +2,8 @@ tr:
   you_are_here: "Buradasınız"
   location_not_found: "Konum bulunamadı"
   location_not_supported: "Tarayıcınız konum servisini desteklemiyor"
+  open_right_now: "Şu anda açık"
+  closed_right_now: "Şu anda kapalı"
   ago: "önce"
   pending_users: "Onay Bekleyen Kullanıcılar"
   user_name: "Kullanıcı Adı"

@@ -167,31 +167,47 @@ export default class extends Controller {
             scaledSize: new google.maps.Size(50, 60),
           },
         });
+
         // Info window on click
         marker.addListener("click", () => {
-          infoWindow.setContent(
-            // Link to the place page
-            label
-              ? `
-              <div class="info-window">
-              <a href=${window.location.origin + "/places/" + position.id} >
-              ${
-                position.featured_image
-                  ? `<img src=${position.featured_image} class="info-window-image" alt=${label}>`
+          const service = new google.maps.places.PlacesService(this.map);
+          const request = {
+            placeId: position.place_id,
+            fields: ["opening_hours", "utc_offset_minutes"],
+          };
+
+          service.getDetails(request, (place, status) => {
+            if (status === google.maps.places.PlacesServiceStatus.OK) {
+              const checkOpeningHours = place.opening_hours?.isOpen();
+              const isOpen = checkOpeningHours
+                ? `${this.assetsValue[8]}`
+                : `${this.assetsValue[9]}`;
+              infoWindow.setContent(
+                label
+                  ? `
+            <div class="info-window">
+            <a href=${window.location.origin + "/places/" + position.id} >
+            ${
+              position.featured_image
+                ? `<img src=${position.featured_image} class="info-window-image" alt=${label}>`
+                : ""
+            }
+            <div class="info-window-vegan-status">
+            <h3>${label}</h3>
+            <p class="place-status place-open-${checkOpeningHours}">${isOpen}</p>
+            <p>${position.address}</p>
+            </div>
+            </a>
+            </div>
+            `
                   : ""
-              }
-              <div class="info-window-vegan-status">
-              <h3>${label}</h3>
-        <p>${position.address}</p>
-        </div>
-        </a>
-        </div>
-        `
-              : ""
-          );
-          infoWindow.open(map, marker);
-          this.map.setCenter(marker.getPosition());
+              );
+              infoWindow.open(this.map, marker);
+              this.map.setCenter(marker.getPosition());
+            }
+          });
         });
+
         return marker;
       });
 
