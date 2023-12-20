@@ -153,6 +153,8 @@ export default class extends Controller {
         content: "",
         className: "custom-info-window",
         disableAutoPan: true,
+        maxWidth: 280,
+        minWidth: 280,
       });
 
       // Create markers for each location
@@ -165,27 +167,25 @@ export default class extends Controller {
             scaledSize: new google.maps.Size(50, 60),
           },
         });
-
         // Info window on click
         marker.addListener("click", () => {
           infoWindow.setContent(
             // Link to the place page
             label
               ? `
-        <a href=${
-          window.location.origin + "/places/" + position.id
-        } class="info-window">
-        <img src=${position.featured_image}
-        class="info-window-image"
-        alt=${label}>
-        <div class="info-window-vegan-status">
-        <h3>${label} <small>(${
-                  position.vegan ? "Vegan" : "Vegan Seçenekli"
-                })</small>
-        </h3>
+              <div class="info-window">
+              <a href=${window.location.origin + "/places/" + position.id} >
+              ${
+                position.featured_image
+                  ? `<img src=${position.featured_image} class="info-window-image" alt=${label}>`
+                  : ""
+              }
+              <div class="info-window-vegan-status">
+              <h3>${label}</h3>
         <p>${position.address}</p>
         </div>
         </a>
+        </div>
         `
               : ""
           );
