@@ -170,7 +170,8 @@ export default class extends Controller {
 
         // Info window on click
         marker.addListener("click", () => {
-          const service = new google.maps.places.PlacesService(this.map);
+          const dummyDiv = document.createElement("div");
+          const service = new google.maps.places.PlacesService(dummyDiv);
           const request = {
             placeId: position.place_id,
             fields: ["opening_hours", "utc_offset_minutes"],

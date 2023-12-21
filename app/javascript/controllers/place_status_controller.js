@@ -22,7 +22,6 @@ export default class extends Controller {
     service.getDetails(request, (place, status) => {
       if (status === google.maps.places.PlacesServiceStatus.OK) {
         const openingHours = place.opening_hours;
-        console.log(openingHours);
 
         this.openingHoursTableTarget.innerHTML +=
           openingHours.weekday_text.join("<br>");
