@@ -175,6 +175,10 @@
   width: auto;
 }
 
+.place-closed {
+  filter: grayscale(1);
+}
+
 /* Modal forms start */
 .select-type {
   width: 100%;
