@@ -34,6 +34,7 @@ en:
   location_not_found: "Location not found"
   location_not_supported: "Your browser does not support location services"
   open_right_now: "Open right now"
+  opening_hours: "Opening Hours"
   closed_right_now: "Closed right now"
   ago: "ago"
   pending_users: "Users Waiting for Approval"

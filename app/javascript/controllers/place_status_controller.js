@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus";
 
 // Connects to data-controller="place-status"
 export default class extends Controller {
-  static targets = ["statusOpen", "statusClose", "icon"];
+  static targets = ["statusOpen", "statusClose", "openingHoursTable", "icon"];
   static values = { placeId: String };
   connect() {
     if (typeof google != "undefined") {
@@ -22,6 +22,10 @@ export default class extends Controller {
     service.getDetails(request, (place, status) => {
       if (status === google.maps.places.PlacesServiceStatus.OK) {
         const openingHours = place.opening_hours;
+        console.log(openingHours);
+
+        this.openingHoursTableTarget.innerHTML +=
+          openingHours.weekday_text.join("<br>");
 
         // Better to use both conditionals for low network connections and to avoid  misinformation instead of just default one
         if (openingHours.isOpen()) {

@@ -79,14 +79,17 @@
           <% end %>
         </div>
         <div class="place-detail">
-          <div class="detail-group" data-controller="place-status" data-place-status-place-id-value="<%= place.place_id %>">
+          <div class="detail-group place-status-wrapper" data-controller="place-status" data-place-status-place-id-value="<%= place.place_id %>">
             <div class="dynamic-icon-wrapper">
               <%= image_tag "status.svg", class: "detail-icon", data: { place_status_target: "icon" } %>
               <span class="detail dynamic-status" data-place-status-target="statusOpen" hidden><%= t("open").downcase %> </span>
               <span class="detail dynamic-status" data-place-status-target="statusClose" hidden><%= t("closed").downcase %></span>
+              <div class="opening-hours-table" data-place-status-target="openingHoursTable" >
+                <span class="opening-hours-table-heading"><%= t('opening_hours')%></span>
+              </div>
             </div>
-            <span class="detail" data-place-status-target="statusOpen" hidden><%= t("open_right_now") %> </span>
-            <span class="detail" data-place-status-target="statusClose" hidden><%= t("closed_right_now") %></span>
+            <span class="detail dotted" data-place-status-target="statusOpen" hidden><%= t("open_right_now") %> </span>
+            <span class="detail dotted" data-place-status-target="statusClose" hidden><%= t("closed_right_now") %></span>
           </div>
         </div>
         <div class="place-detail">
