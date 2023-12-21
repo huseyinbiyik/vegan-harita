@@ -156,8 +156,11 @@ label {
   height: 42px;
   top: 21px;
   padding: 10px 8px;
-  border-right: 1px solid var(--gray);
+  /* border-radious */
+  border-radius: 5px 0 0 5px;
+  border: 1px solid var(--gray);
   color: var(--gray);
+  background-color: var(--ligth-gray);
 }
 
 #instagram {
