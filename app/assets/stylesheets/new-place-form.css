@@ -156,11 +156,14 @@ label {
   height: 42px;
   top: 21px;
   padding: 10px 8px;
-  /* border-radious */
   border-radius: 5px 0 0 5px;
   border: 1px solid var(--gray);
   color: var(--gray);
   background-color: var(--ligth-gray);
+}
+
+.platform-input:focus ~.platform {
+  border-right-color: var(--green);
 }
 
 #instagram {
@@ -174,6 +177,8 @@ label {
 #x {
   padding-left: 77px;
 }
+
+
 
 @media (min-width: 1024px) {
   #add-place {

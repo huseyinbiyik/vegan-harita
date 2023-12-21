@@ -53,22 +53,22 @@
   <div class="sub-group">
     <div class= "add-new-place-form-group social-field">
       <%= form.label t('instagram'), style: "display: block" %>
-        <span class="platform"><%= t :instagram_link %> </span>
-        <%= form.text_field :instagram_handle, id:"instagram", placeholder: "veganharita", maxlength: 30 %>
+      <%= form.text_field :instagram_handle, id:"instagram", class: "platform-input", placeholder: "veganharita", maxlength: 30 %>
+      <span class="platform"><%= t :instagram_link %> </span>
     </div>
 
     <div class= "add-new-place-form-group social-field">
       <%= form.label t('facebook'), style: "display: block" %>
-        <span class="platform"><%= t :facebook_link %> </span>
-        <%= form.text_field :facebook_handle, id:"facebook", placeholder: "veganharita", maxlength: 50 %>
+      <%= form.text_field :facebook_handle, id:"facebook", class: "platform-input", placeholder: "veganharita", maxlength: 50 %>
+      <span class="platform"><%= t :facebook_link %> </span>
     </div>
   </div>
 
   <div class="sub-group">
     <div class= "add-new-place-form-group social-field">
       <%= form.label t('x'), style: "display: block" %>
-        <span class="platform"> <%= t :x_link %> </span>
-        <%= form.text_field :x_handle, id:"x", placeholder: "veganharita", maxlength: 50 %>
+      <%= form.text_field :x_handle, id:"x", class: "platform-input", placeholder: "veganharita", maxlength: 50 %>
+      <span class="platform", id="x-label"> <%= t :x_link %> </span>
     </div>
 
     <div class= "add-new-place-form-group">
