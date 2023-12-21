@@ -27,15 +27,30 @@
   border-radius: 5px;
 }
 
+.info-window-heading {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
 .place-status {
-  display: inline-flex;
-  padding: 2px 4px;
-  border-radius: 5px;
-  border: 1px solid var(--gray);
+  position: relative;
+  display: flex;
+  justify-content: center;
 }
 
 .place-open-true {
-  border-color: var(--green);
+  filter: grayscale(0);
+}
+
+.place-open-false {
+  filter: grayscale(1);
+}
+
+.status-text {
+  position: absolute;
+  bottom: 0;
+  font-size: 0.75rem;
 }
 
 /* Customizing find me button */

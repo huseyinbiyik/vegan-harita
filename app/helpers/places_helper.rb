@@ -22,8 +22,9 @@ module PlacesHelper
       I18n.t('you_are_here'), # 5
       I18n.t('location_not_found'), # 6
       I18n.t('location_not_supported'), # 7
-      I18n.t('open_right_now'), # 8
-      I18n.t('closed_right_now') # 9
+      I18n.t('open'), # 8
+      I18n.t('closed'), # 9
+      asset_path('status.svg') # 10
     ].to_json
   end
 end

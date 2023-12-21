@@ -193,13 +193,19 @@ export default class extends Controller {
                 ? `<img src=${position.featured_image} class="info-window-image" alt=${label}>`
                 : ""
             }
-            <div class="info-window-vegan-status">
-            <h3>${label}</h3>
-            <p class="place-status place-open-${checkOpeningHours}">${isOpen}</p>
-            <p>${position.address}</p>
+
+            <div>
+              <div class="info-window-heading">
+                <h3>${label}</h3>
+                <div class="place-status place-open-${checkOpeningHours}">
+                  <img src=${this.assetsValue[10]}>
+                  <span class="status-text">${isOpen.toLowerCase()}</span>
+                </div>
+              </div>
+              <p>${position.address}</p>
             </div>
             </a>
-            </div>
+          </div>
             `
                   : ""
               );
