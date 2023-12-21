@@ -179,6 +179,19 @@
   filter: grayscale(1);
 }
 
+.dynamic-icon-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dynamic-status {
+  position: absolute;
+  bottom: 0;
+  font-size: 0.75rem;
+}
+
 /* Modal forms start */
 .select-type {
   width: 100%;
@@ -550,6 +563,10 @@
     .detail {
       white-space: nowrap;
       font-size: 1.125rem;
+    }
+
+    .dynamic-status {
+      font-size: 0.8rem;
     }
   }
 
