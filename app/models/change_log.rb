@@ -1,5 +1,5 @@
 class ChangeLog < ApplicationRecord
-  store_accessor :data, :name, :vegan, :latitude, :longitude, :address, :phone, :web_url,
+  store_accessor :data, :name, :vegan, :latitude, :place_id, :longitude, :address, :phone, :web_url,
                  :email, :facebook_handle, :instagram_handle, :x_handle, :tag_ids, :deleted_images,
                  :description, :product_category, :price, :contributors, :active
   belongs_to :changeable, polymorphic: true
@@ -12,6 +12,7 @@ class ChangeLog < ApplicationRecord
       name:,
       longitude:,
       latitude:,
+      place_id:,
       address:,
       vegan:,
       instagram_handle:,

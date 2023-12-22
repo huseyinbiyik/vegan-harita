@@ -27,6 +27,32 @@
   border-radius: 5px;
 }
 
+.info-window-heading {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.place-status {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.place-open-true {
+  filter: grayscale(0);
+}
+
+.place-open-false {
+  filter: grayscale(1);
+}
+
+.status-text {
+  position: absolute;
+  bottom: 0;
+  font-size: 0.75rem;
+}
+
 /* Customizing find me button */
 .custom-map-control-button {
   margin-right: 1.25rem;
