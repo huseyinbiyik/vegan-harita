@@ -12,11 +12,11 @@
     </div>
     <div class="field">
       <%= form.label t('views.home.contact.name_username') %>
-      <%= form.text_field :name %>
+      <%= form.text_field :name, maxlength: 50 %>
     </div>
     <div class="field">
       <%= form.label t(:your_email) %>
-      <%= form.email_field :email %>
+      <%= form.email_field :email, maxlength: 50 %>
     </div>
     <div class="field">
       <%= flash[:recaptcha_error] %>

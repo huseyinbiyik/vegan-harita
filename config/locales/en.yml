@@ -256,6 +256,7 @@ en:
   controllers:
     home:
       message_received: "Your message has been received. Thank you for your contribution! 💚"
+      invalid_data: "Invalid data. Please try again."
     places:
       not_approved: "This place is not approved yet. It will be here when it's approved."
       create:

@@ -222,6 +222,7 @@ tr:
   controllers:
     home:
       message_received: "Mesajınız başarıyla gönderildi. Katkınız için teşekkür ederiz 💚"
+      invalid_data: "Gönderdiğiniz bilgilerde bir hata var. Lütfen tekrar deneyin."
     places:
       not_approved: "Bu mekan henüz onaylanmadı. Onaylandığı zaman tam burada olacak."
       create:
