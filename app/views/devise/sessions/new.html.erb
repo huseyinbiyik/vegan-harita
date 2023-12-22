@@ -1,9 +1,6 @@
 <section class="user-forms" id="login-form">
   <h2><%= t :logIn %></h2>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name), data: {turbo: false}) do |f| %>
-    <% if flash[:alert] %>
-      <div style="color: var(--red);"><%= flash[:alert] %></div>
-    <% end %>
     <div class="field">
       <%= f.label :email, t('mail') %>
       <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: true%>
