@@ -154,7 +154,6 @@ nav {
 }
 
 #sign-in-link {
-  height: 2.625rem;
   border-radius: 1.25rem;
   background: var(--green);
   color: var(--white);
