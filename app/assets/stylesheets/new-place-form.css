@@ -162,23 +162,21 @@ label {
   background-color: var(--ligth-gray);
 }
 
-.platform-input:focus ~.platform {
+.platform-input:focus ~ .platform {
   border-right-color: var(--green);
 }
 
-#instagram {
+#instagram-input {
   padding-left: 142px;
 }
 
-#facebook {
+#facebook-input {
   padding-left: 136px;
 }
 
-#x {
+#x-input {
   padding-left: 77px;
 }
-
-
 
 @media (min-width: 1024px) {
   #add-place {
