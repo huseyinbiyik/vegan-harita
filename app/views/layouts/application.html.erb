@@ -22,6 +22,21 @@
     async: true,
     defer: true,
     "data-turbolinks-eval": false %>
+    <!-- Google Analytics -->
+    <% if Rails.env.production? %>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=<%= Rails.application.credentials.dig(:google_analytics, :tracking_id) %>"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', '<%= Rails.application.credentials.dig(:google_analytics, :tracking_id) %>', {'anonymize_ip': true});
+
+        document.addEventListener('turbo:render', function() {
+          gtag('config', '<%= Rails.application.credentials.dig(:google_analytics, :tracking_id) %>', {'page_path': window.location.pathname});
+        });
+      </script>
+    <% end %>
   </head>
   <body>
     <div id="flash_messages">
