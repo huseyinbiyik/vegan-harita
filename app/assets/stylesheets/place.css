@@ -258,10 +258,11 @@
   align-items: center;
   flex-direction: row;
   overflow-x: scroll;
+  overflow-y: hidden;
   scrollbar-width: none;
   -ms-overflow-style: none;
   gap: 8px;
-
+  
   &::-webkit-scrollbar {
     display: none;
   }
