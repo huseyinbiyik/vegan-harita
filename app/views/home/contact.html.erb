@@ -1,21 +1,25 @@
-<%= form_with url: send_mail_path, html: { multipart: true } do |form| %>
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.email_field :email %>
-  </div>
-  <div class="field">
-    <%= form.label :message %>
-    <%= form.text_area :message %>
-  </div>
-  <div class="field">
-    <%= form.label :images %>
-    <%= form.file_field :images, multiple: true %>
-  </div>
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+<main id="contact">
+  <h1><%= t('views.home.contact.contact_us') %></h1>
+  <p><%= t('views.home.contact.contact_us_text') %></p>
+  <%= form_with url: send_mail_path, html: { multipart: true, class: "contact-form" } do |form| %>
+    <div class="field">
+      <%= form.label t('views.home.contact.message') %>
+      <%= form.text_area :message, autofocus: true, maxlength: 500, required: true %>
+    </div>
+    <div class="field">
+      <%= form.label t(:images) %>
+      <%= form.file_field :images, multiple: true, accept: 'image/jpeg,image/gif,image/png' %>
+    </div>
+    <div class="field">
+      <%= form.label t('views.home.contact.name_username') %>
+      <%= form.text_field :name %>
+    </div>
+    <div class="field">
+      <%= form.label t(:your_email) %>
+      <%= form.email_field :email %>
+    </div>
+    <div class="actions">
+      <%= form.submit t(:submit) %>
+    </div>
+  <% end %>
+</main>

@@ -1,4 +1,6 @@
 tr:
+  your_email: "E-posta adresiniz"
+  contact: "İletişim"
   you_are_here: "Buradasınız"
   location_not_found: "Konum bulunamadı"
   location_not_supported: "Tarayıcınız konum servisini desteklemiyor"
@@ -85,6 +87,7 @@ tr:
   name_required: "İsim (gerekli)"
   select_delete: "Silinecek Fotoğrafları Seç"
   image: "Görsel"
+  images: "Görseller"
   place_vegan: "Bu işletme vegan mı yoksa sadece bazı vegan seçenekler mi sunuyor?"
   has_option: "Vegan Seçenekli"
   vegan: "Vegan"
@@ -240,6 +243,12 @@ tr:
         success: "Değerlendirmeniz başarılı şekilde silindi. Desteğiniz için teşekkür ederiz 💚"
         failure: "Değerlendirme silme isteği gönderilirken bir hata oluştu 😞. Lütfen tekrar deneyin."
   views:
+    home:
+      contact:
+        contact_us: "Bize Yazın"
+        contact_us_text: "İyi dilek, öneri, şikayet, geri bildirim, hata vb. herhangi bir konu için lütfen bize yazın"
+        message: "Mesajınız"
+        name_username: "Adınız ya da kullanıcı adınız"
     places:
       show:
         contributors: "Katkıda Bulunanlar"

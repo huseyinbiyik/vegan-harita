@@ -1,0 +1,37 @@
+#contact {
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .field {
+    margin-bottom: 16px;
+  }
+
+  .actions {
+    padding-top: 8px;
+
+    & input {
+      background-color: var(--black);
+      color: var(--white);
+      width: 100%;
+    }
+  }
+
+  & h1 {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-top: 24px;
+  }
+
+  & p {
+    margin: 10px 0 20px 0;
+    max-width: 500px;
+  }
+}
+
+.contact-form {
+  width: 100%;
+  max-width: 500px;
+}
