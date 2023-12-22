@@ -30,6 +30,7 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  captcha_error: "Please check the box below to prove you are not a robot"
   your_email: "Your E-mail"
   contact: "Contact"
   you_are_here: "You are here"
@@ -253,6 +254,8 @@ en:
       user:
         email: "your@address.com"
   controllers:
+    home:
+      message_received: "Your message has been received. Thank you for your contribution! 💚"
     places:
       not_approved: "This place is not approved yet. It will be here when it's approved."
       create:

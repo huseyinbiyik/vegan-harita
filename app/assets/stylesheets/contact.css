@@ -7,6 +7,9 @@
 
   .field {
     margin-bottom: 16px;
+    .g-recaptcha {
+      transform: scale(1);
+    }
   }
 
   .actions {

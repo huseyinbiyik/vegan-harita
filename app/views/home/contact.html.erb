@@ -18,6 +18,10 @@
       <%= form.label t(:your_email) %>
       <%= form.email_field :email %>
     </div>
+    <div class="field">
+      <%= flash[:recaptcha_error] %>
+      <%= recaptcha_tags %>
+    </div>
     <div class="actions">
       <%= form.submit t(:submit) %>
     </div>

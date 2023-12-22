@@ -1,4 +1,5 @@
 tr:
+  captcha_error: "Lütfen robot olmadığınızı doğrulayın 🤖"
   your_email: "E-posta adresiniz"
   contact: "İletişim"
   you_are_here: "Buradasınız"
@@ -219,6 +220,8 @@ tr:
       user:
         email: "mail@adresiniz.com"
   controllers:
+    home:
+      message_received: "Mesajınız başarıyla gönderildi. Katkınız için teşekkür ederiz 💚"
     places:
       not_approved: "Bu mekan henüz onaylanmadı. Onaylandığı zaman tam burada olacak."
       create:
