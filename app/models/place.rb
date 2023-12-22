@@ -3,6 +3,7 @@ class Place < ApplicationRecord
 
   validates :name, presence: true, length: { maximum: 80 }
   validates :address, presence: true, length: { maximum: 500 }
+  validates :place_id, presence: true, uniqueness: true
   validates :latitude, presence: { message: I18n.t('activerecord.attributes.place.pick_from_map_suggestions') }
   validates :instagram_handle,
             format: { with: /\A[\w.-]+\z/, message: I18n.t('activerecord.attributes.place.instagram_invalid') },

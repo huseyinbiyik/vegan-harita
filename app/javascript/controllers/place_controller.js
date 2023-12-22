@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-  static targets = ["map", "latitude", "longitude", "field"];
+  static targets = ["map", "latitude", "longitude", "place_id", "field"];
 
   connect() {
     if (typeof google != "undefined") {
@@ -55,6 +55,7 @@ export default class extends Controller {
         "geometry",
         "icon",
         "name",
+        "place_id",
       ]);
       this._autocomplete.setComponentRestrictions({ country: ["tr"] });
       this._autocomplete.addListener(
@@ -80,6 +81,7 @@ export default class extends Controller {
 
     this.latitudeTarget.value = place.geometry.location.lat();
     this.longitudeTarget.value = place.geometry.location.lng();
+    this.place_idTarget.value = place.place_id;
   }
 
   preventSubmit(e) {

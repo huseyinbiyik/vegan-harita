@@ -201,6 +201,10 @@ select:focus {
   display: none;
 }
 
+.dotted {
+  text-decoration: underline dotted;
+}
+
 @media (min-width: 1024px) {
   .visible-on-desktop {
     display: block;

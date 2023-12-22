@@ -171,8 +171,53 @@
 }
 
 .detail-icon {
-  height: 32px;
+  height: 26px;
   width: auto;
+}
+
+.place-closed {
+  filter: grayscale(1);
+}
+
+.dynamic-icon-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dynamic-status {
+  position: absolute;
+  bottom: 0;
+  font-size: 0.75rem;
+}
+
+.opening-hours-table {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: visibility 0s 0.3s, opacity 0.3s, transform 0.3s;
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  width: 190px;
+  background-color: var(--white);
+  color: var(--black);
+  border-radius: 10px;
+  z-index: 2;
+  padding: 10px;
+  box-shadow: 0 0.25rem 1.25rem 0 rgba(0, 0, 0, 0.25);
+}
+
+.place-status-wrapper:hover .opening-hours-table {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+  transition: visibility 0s, opacity 0.3s, transform 0.3s;
+}
+
+.opening-hours-table-heading {
+  font-weight: 500;
 }
 
 /* Modal forms start */
@@ -543,9 +588,17 @@
     flex-direction: row;
     gap: 4px;
 
+    .detail-icon {
+      height: 36px;
+    }
+
     .detail {
       white-space: nowrap;
       font-size: 1.125rem;
+    }
+
+    .dynamic-status {
+      font-size: 0.8rem;
     }
   }
 
