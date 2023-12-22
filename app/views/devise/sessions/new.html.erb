@@ -1,29 +1,25 @@
 <section class="user-forms" id="login-form">
   <h2><%= t :logIn %></h2>
-
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), data: {turbo: false}) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
     <div class="field">
       <%= f.label :email, t('mail') %>
       <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: true%>
     </div>
-
     <div class="field">
       <%= f.label :password, t('password') %>
       <%= f.password_field :password, autocomplete: "current-password", placeholder: "******" %>
     </div>
-
     <% if devise_mapping.rememberable? %>
       <div class="field" id="remember">
         <%= f.check_box :remember_me %>
         <%= f.label :remember_me, t('remember')  %>
       </div>
     <% end %>
-
     <div class="actions">
       <%= f.submit t('login'), id:"login-button" %>
     </div>
   <% end %>
-
   <div class="session-links-container">
     <%= render "devise/shared/links" %>
   </div>
