@@ -129,10 +129,10 @@ tr:
     failure:
       already_authenticated: "Zaten giriş yaptınız."
       inactive: "Hesabınız henüz aktifleştirilmedi."
-      invalid: "Geçersiz %{authentication_keys} veya parola."
+      invalid: "Geçersiz %{authentication_keys} veya parola"
       locked: "Hesabınız kilitli."
       last_attempt: "Hesabınız kilitlenmeden önceki son şansınız."
-      not_found_in_database: "Geçersiz %{authentication_keys} veya parola."
+      not_found_in_database: "Geçersiz %{authentication_keys} veya parola"
       timeout: "Oturum süreniz sonlandı. Lütfen devam etmek için tekrar giriş yapın."
       unauthenticated: "Devam etmeden önce giriş yapmalı veya kayıt olmalısınız."
       unconfirmed: "Devam etmeden önce eposta adresinizi onaylamalısınız."
@@ -167,8 +167,8 @@ tr:
       updated_but_not_signed_in: "Hesabınız başarılı bir şekilde güncellendi. Ancak parolanız değiştiği için tekrar giriş yapmalısınız."
       edit_user: "Hesabımı Düzenle"
     sessions:
-      signed_in: "Hoşgeldiniz!"
-      signed_out: "Hoşçakalın! Başarılı bir şekilde çıkış yaptınız."
+      signed_in: "Hoşgeldiniz! 👋"
+      signed_out: "Güle güle! Tekrar görüşmek üzere. 👋 "
       already_signed_out: "Çıkış başarılı."
     unlocks:
       send_instructions: "Birkaç dakika içinde hesabınızın kilidini nasıl kaldıracağınızla ilgili bir e-posta alacaksınız."
