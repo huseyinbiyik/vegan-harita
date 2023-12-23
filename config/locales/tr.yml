@@ -1,4 +1,7 @@
 tr:
+  captcha_error: "Lütfen robot olmadığınızı doğrulayın 🤖"
+  your_email: "E-posta adresiniz"
+  contact: "İletişim"
   you_are_here: "Buradasınız"
   location_not_found: "Konum bulunamadı"
   location_not_supported: "Tarayıcınız konum servisini desteklemiyor"
@@ -81,10 +84,11 @@ tr:
   most_liked: "En çok beğenilen"
   add_to_menu: "Menüye Ürün Ekle"
   error_reason: "şu sorundan dolayı arıza çıktı:"
-  address_required: "Adres (gerekli)"
-  name_required: "İsim (gerekli)"
+  address_required: "Adres<span class='red-text'>*</span>"
+  name_required: "İsim<span class='red-text'>*</span>"
   select_delete: "Silinecek Fotoğrafları Seç"
   image: "Görsel"
+  images: "Görseller"
   place_vegan: "Bu işletme vegan mı yoksa sadece bazı vegan seçenekler mi sunuyor?"
   has_option: "Vegan Seçenekli"
   vegan: "Vegan"
@@ -216,6 +220,9 @@ tr:
       user:
         email: "mail@adresiniz.com"
   controllers:
+    home:
+      message_received: "Mesajınız başarıyla gönderildi. Katkınız için teşekkür ederiz 💚"
+      invalid_data: "Gönderdiğiniz bilgilerde bir hata var. Lütfen tekrar deneyin."
     places:
       not_approved: "Bu mekan henüz onaylanmadı. Onaylandığı zaman tam burada olacak."
       create:
@@ -240,6 +247,12 @@ tr:
         success: "Değerlendirmeniz başarılı şekilde silindi. Desteğiniz için teşekkür ederiz 💚"
         failure: "Değerlendirme silme isteği gönderilirken bir hata oluştu 😞. Lütfen tekrar deneyin."
   views:
+    home:
+      contact:
+        contact_us: "Bize Yazın"
+        contact_us_text: "İyi dilek, öneri, şikayet, geri bildirim, hata vb. herhangi bir konu için lütfen bize yazın."
+        message: "<span>Mesajınız<span class='red-text'>*</span></span>"
+        name_username: "Adınız ya da kullanıcı adınız"
     places:
       show:
         contributors: "Katkıda Bulunanlar"

@@ -1,0 +1,29 @@
+<main id="contact">
+  <h1><%= t('views.home.contact.contact_us') %></h1>
+  <p><%= t('views.home.contact.contact_us_text') %></p>
+  <%= form_with url: send_mail_path, html: { multipart: true, class: "contact-form", data: {turbo: false} } do |form| %>
+    <div class="field">
+      <%= form.label :message, t('views.home.contact.message').html_safe %>
+      <%= form.text_area :message, value: @contact_params[:message], autofocus: true, maxlength: 2000, required: true %>
+    </div>
+    <div class="field">
+      <%= form.label t(:images)%>
+      <%= form.file_field :images, multiple: true, accept: 'image/jpeg,image/gif,image/png' %>
+    </div>
+    <div class="field">
+      <%= form.label t('views.home.contact.name_username') %>
+      <%= form.text_field :name, value: @contact_params[:name], maxlength: 50 %>
+    </div>
+    <div class="field">
+      <%= form.label t(:your_email) %>
+      <%= form.email_field :email,value: @contact_params[:email], maxlength: 50 %>
+    </div>
+    <div class="field">
+      <%= flash[:recaptcha_error] %>
+      <%= recaptcha_tags %>
+    </div>
+    <div class="actions">
+      <%= form.submit t(:submit) %>
+    </div>
+  <% end %>
+</main>
