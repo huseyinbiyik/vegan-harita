@@ -250,8 +250,8 @@ tr:
     home:
       contact:
         contact_us: "Bize Yazın"
-        contact_us_text: "İyi dilek, öneri, şikayet, geri bildirim, hata vb. herhangi bir konu için lütfen bize yazın"
-        message: "Mesajınız"
+        contact_us_text: "İyi dilek, öneri, şikayet, geri bildirim, hata vb. herhangi bir konu için lütfen bize yazın."
+        message: "<span>Mesajınız<span class='red-text'>*</span></span>"
         name_username: "Adınız ya da kullanıcı adınız"
     places:
       show:

@@ -287,7 +287,7 @@ en:
       contact:
         contact_us: "Contact Us"
         contact_us_text: "You can write to us for any subject such as good wishes, suggestions, complaints, feedback, errors, etc."
-        message: "Your message"
+        message: "<span>Your message<span class='red-text'>*<span></span>"
         name_username: "Name or username"
     places:
       show:

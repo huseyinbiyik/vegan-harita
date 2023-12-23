@@ -3,11 +3,11 @@
   <p><%= t('views.home.contact.contact_us_text') %></p>
   <%= form_with url: send_mail_path, html: { multipart: true, class: "contact-form", data: {turbo: false} } do |form| %>
     <div class="field">
-      <%= form.label t('views.home.contact.message') %>
-      <%= form.text_area :message, value: @contact_params[:message], autofocus: true, maxlength: 500, required: true %>
+      <%= form.label :message, t('views.home.contact.message').html_safe %>
+      <%= form.text_area :message, value: @contact_params[:message], autofocus: true, maxlength: 2000, required: true %>
     </div>
     <div class="field">
-      <%= form.label t(:images) %>
+      <%= form.label t(:images)%>
       <%= form.file_field :images, multiple: true, accept: 'image/jpeg,image/gif,image/png' %>
     </div>
     <div class="field">

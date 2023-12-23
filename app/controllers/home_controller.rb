@@ -31,8 +31,8 @@ class HomeController < ApplicationController
     sanitized_params = params.permit(:name, :email, :message, images: [])
     return false if sanitized_params[:name].length > 50
     return false if sanitized_params[:email].length > 50
-    return false if sanitized_params[:message].length > 500
-    return false if sanitized_params[:images].length > 10
+    return false if sanitized_params[:message].length > 2000
+    return false if sanitized_params[:images].length > 5
     return false if sanitized_params[:images].any? { |image| image.size > 5.megabytes }
 
     sanitized_params
