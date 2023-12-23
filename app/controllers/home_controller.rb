@@ -1,6 +1,8 @@
 class HomeController < ApplicationController
   prepend_before_action :check_captcha, only: [:send_mail]
-  def contact; end
+  def contact
+    @contact_params = { name: '', email: '', message: '', images: [] }
+  end
 
   def send_mail
     contact_params = validate_params
@@ -9,7 +11,8 @@ class HomeController < ApplicationController
                                   contact_params[:images]).deliver_now
       redirect_to contact_path, notice: t('controllers.home.message_received')
     else
-      redirect_to contact_path, alert: t('controllers.home.invalid_data')
+      flash.now[:alert] = t('controllers.home.invalid_data')
+      render :contact
     end
   end
 
@@ -18,7 +21,10 @@ class HomeController < ApplicationController
   def check_captcha
     return if verify_recaptcha
 
-    redirect_to contact_path, alert: t(:captcha_error)
+    @contact_params = params.permit(:name, :email, :message, images: [])
+
+    flash.now[:alert] = t(:captcha_error)
+    render :contact
   end
 
   def validate_params

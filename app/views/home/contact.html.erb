@@ -1,10 +1,10 @@
 <main id="contact">
   <h1><%= t('views.home.contact.contact_us') %></h1>
   <p><%= t('views.home.contact.contact_us_text') %></p>
-  <%= form_with url: send_mail_path, html: { multipart: true, class: "contact-form" } do |form| %>
+  <%= form_with url: send_mail_path, html: { multipart: true, class: "contact-form", data: {turbo: false} } do |form| %>
     <div class="field">
       <%= form.label t('views.home.contact.message') %>
-      <%= form.text_area :message, autofocus: true, maxlength: 500, required: true %>
+      <%= form.text_area :message, value: @contact_params[:message], autofocus: true, maxlength: 500, required: true %>
     </div>
     <div class="field">
       <%= form.label t(:images) %>
@@ -12,11 +12,11 @@
     </div>
     <div class="field">
       <%= form.label t('views.home.contact.name_username') %>
-      <%= form.text_field :name, maxlength: 50 %>
+      <%= form.text_field :name, value: @contact_params[:name], maxlength: 50 %>
     </div>
     <div class="field">
       <%= form.label t(:your_email) %>
-      <%= form.email_field :email, maxlength: 50 %>
+      <%= form.email_field :email,value: @contact_params[:email], maxlength: 50 %>
     </div>
     <div class="field">
       <%= flash[:recaptcha_error] %>
