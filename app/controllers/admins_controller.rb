@@ -41,8 +41,8 @@ class AdminsController < ApplicationController # rubocop:disable Metrics/ClassLe
   def approve_place
     place = Place.find(params[:id])
     place.approve
-    place.creator = User.find(place.contributors.first)
-    place.creator.points += 10
+    creator = User.find(place.contributors.first)
+    creator.points += 10
     if place.save
       respond_to do |format|
         format.turbo_stream do
@@ -104,7 +104,7 @@ class AdminsController < ApplicationController # rubocop:disable Metrics/ClassLe
   def approve_menu
     menu = Menu.find(params[:id])
     menu.approve
-    menu.creator.points += 1
+    menu.creator.points += 5
 
     if menu.save && menu.creator.save
       respond_to do |format|
