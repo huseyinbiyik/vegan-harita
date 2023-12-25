@@ -262,7 +262,7 @@
   scrollbar-width: none;
   -ms-overflow-style: none;
   gap: 8px;
-  
+
   &::-webkit-scrollbar {
     display: none;
   }

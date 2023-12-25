@@ -52,25 +52,33 @@
       </div>
   </div>
 
+  <%# socials %>
   <div class="sub-group">
     <div class= "add-new-place-form-group social-field">
       <%= form.label t('instagram'), style: "display: block" %>
-      <%= form.text_field :instagram_handle, id:"instagram-input", class: "platform-input", placeholder: "veganharita", maxlength: 30 %>
-      <span class="platform"><%= t :instagram_link %> </span>
+      <div class="social-wrapper">
+        <%= form.text_field :instagram_handle, id:"instagram-input", class: "platform-input", placeholder: "veganharita", maxlength: 30 %>
+        <span class="platform"><%= t :instagram_link %> </span>
+      </div>
     </div>
 
+    
     <div class= "add-new-place-form-group social-field">
       <%= form.label t('facebook'), style: "display: block" %>
-      <%= form.text_field :facebook_handle, id:"facebook-input", class: "platform-input", placeholder: "veganharita", maxlength: 50 %>
-      <span class="platform"><%= t :facebook_link %> </span>
+      <div class="social-wrapper">
+        <%= form.text_field :facebook_handle, id:"facebook-input", class: "platform-input", placeholder: "veganharita", maxlength: 50 %>
+        <span class="platform"><%= t :facebook_link %> </span>
+      </div>
     </div>
   </div>
 
   <div class="sub-group">
     <div class= "add-new-place-form-group social-field">
       <%= form.label t('x'), style: "display: block" %>
-      <%= form.text_field :x_handle, id:"x-input", class: "platform-input", placeholder: "veganharita", maxlength: 50 %>
-      <span class="platform", id="x-label"> <%= t :x_link %> </span>
+      <div class="social-wrapper">
+        <%= form.text_field :x_handle, id:"x-input", class: "platform-input", placeholder: "veganharita", maxlength: 50 %>
+        <span class="platform", id="x-label"> <%= t :x_link %> </span>
+      </div>
     </div>
 
     <div class= "add-new-place-form-group">
