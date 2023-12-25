@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   private
 
   def set_locale
-    I18n.locale = extract_locale_from_accept_language_header
+    I18n.locale = current_user&.locale || extract_locale_from_accept_language_header || I18n.default_locale
   end
 
   def extract_locale_from_accept_language_header
@@ -17,6 +17,6 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:account_update, keys: %i[approved role points avatar])
+    devise_parameter_sanitizer.permit(:account_update, keys: %i[approved role points avatar locale])
   end
 end
