@@ -31,7 +31,7 @@
     </div>
     <div class="field">
       <%= f.label :locale, t('language') %>
-      <%= f.select :locale, [[t('english'), 'en'], [t('turkish'), 'tr']] %>
+      <%= f.select :locale, [[t('english'), 'en'], [t('turkish'), 'tr']], selected: f.object.locale || extract_locale_from_accept_language_header %>
     </div>
     <div class="field">
       <%= f.label :current_password %>
