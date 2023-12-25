@@ -282,5 +282,7 @@ tr:
       x_years:
         one: "1 yıl"
         other: "%{count} yıl"
-
+  english: "İngilizce"
+  turkish: "Türkçe"
+  language: "Dil tercihiniz"
 

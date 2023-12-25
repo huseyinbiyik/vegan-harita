@@ -139,6 +139,10 @@ select {
   gap: 0.125rem;
 }
 
+select {
+  width: 100%;
+}
+
 label {
   font-size: 0.875rem;
 }

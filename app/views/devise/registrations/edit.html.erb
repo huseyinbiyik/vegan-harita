@@ -30,6 +30,10 @@
       <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "******" %>
     </div>
     <div class="field">
+      <%= f.label :locale, t('language') %>
+      <%= f.select :locale, [[t('english'), 'en'], [t('turkish'), 'tr']] %>
+    </div>
+    <div class="field">
       <%= f.label :current_password %>
       <%= f.password_field :current_password, autocomplete: "current-password", placeholder: "******" %>
     </div>

@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
 
+  validates :locale, inclusion: { in: I18n.available_locales.map(&:to_s) }, allow_blank: true
+
   has_many :place_edits, dependent: :destroy
   has_many :change_logs, dependent: :destroy
   has_many :reviews, dependent: :destroy
