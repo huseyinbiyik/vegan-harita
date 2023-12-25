@@ -6,10 +6,9 @@ class User < ApplicationRecord
 
   validates :locale, inclusion: { in: I18n.available_locales.map(&:to_s) }, allow_blank: true
 
-  has_many :place_edits, dependent: :destroy
-  has_many :change_logs, dependent: :destroy
-  has_many :reviews, dependent: :destroy
-  has_many :likes, dependent: :destroy
+  has_many :change_logs
+  has_many :reviews
+  has_many :likes
   has_one_attached :avatar, dependent: :destroy
 
   validate :avatar_file_type
