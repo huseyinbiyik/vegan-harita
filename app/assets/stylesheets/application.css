@@ -225,4 +225,8 @@ select:focus {
   .user-forms {
     margin-top: 80px;
   }
+
+  .edit-user {
+    margin-top: 24px;
+  }
 }

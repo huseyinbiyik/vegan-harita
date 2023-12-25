@@ -264,7 +264,7 @@ tr:
   waiting_for: "Şunun için onay bekleniyor:"
   cancel: "Hesabımı sil"
   update: "Güncelle"
-  unhappy: "Memnun değil misiniz?"
+  unhappy: "Bizden memnun değil misiniz?"
   datetime:
     distance_in_words:
       x_days:

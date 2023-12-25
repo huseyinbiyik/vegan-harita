@@ -1,4 +1,4 @@
-<section class="user-forms">
+<section class="user-forms edit-user">
   <h2><%= t :edit_account %></h2>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, data: {turbo: false} }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
@@ -41,6 +41,6 @@
       <%= f.submit t('update'), id:"update-button" %>
     </div>
   <% end %>
-  <h3 id="cancel"><%= t :cancel %></h3>
-  <p> <%= t :unhappy %> <%= button_to t('cancel'), registration_path(resource_name), data: { confirm: t('sure') }, method: :delete, id:"cancel-button" %></p>
+  <br>
+  <p> <%= t :unhappy %> <%= button_to t('cancel'), registration_path(resource_name), data: { turbo_confirm: t('sure') }, method: :delete, id:"cancel-button" %></p>
 </section>
