@@ -66,12 +66,16 @@ label {
   max-width: 572px;
 }
 
-/* Style image upload  */
+.select-wrapper {
+  position: relative;
+}
+
 #add-new-place-form #place_images {
   border-radius: 0.313rem;
   border: 0.063rem solid var(--gray);
   padding: 0.5rem;
-  width: 240px;
+  width: 280px;
+  color: transparent;
 }
 
 #add-new-place-form #place_images::-webkit-file-upload-button {
@@ -81,6 +85,7 @@ label {
 
 #add-new-place-form #place_images::before {
   content: "Dosya Seçin";
+  color: var(--black);
   display: inline-block;
   outline: none;
   white-space: nowrap;
@@ -93,6 +98,14 @@ label {
   background: var(--white);
   width: 5.625rem;
   height: 1.563rem;
+}
+
+#file-upload-btn {
+  position: absolute;
+  left: 114px;
+  bottom: 11px;
+  font-size: 14px;
+  
 }
 
 .tags-form {

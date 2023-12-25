@@ -75,6 +75,8 @@ tr:
   logOut: "Çıkış Yap"
   change_image: "Görseli Değiştir"
   select_image: "Görsel Seçin"
+  select_file: "Dosya seçin"
+  files_selected: "dosya seçildi"
   sure: "Emin misiniz?"
   nevermind: "Boşver"
   like: "beğeni"
