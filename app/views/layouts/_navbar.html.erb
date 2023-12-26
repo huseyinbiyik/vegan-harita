@@ -10,13 +10,13 @@
   </div>
   <nav data-controller="navigation" data-navigation-state-value="false">
     <ul id="nav-menu" data-navigation-target="menu">
-      <li class="nav-link">
-        <% if user_signed_in? && current_user.role == "admin" %>
+      <% if user_signed_in? && current_user.role == "admin" %>
+        <li class="nav-link">
           <%= link_to approvals_path, class:"nav-admin-link" do %>
             <span><%= t :panel %></span>
           <% end %>
-        <% end %>
-      </li>
+        </li>
+      <% end %>
       <li class="nav-link">
         <%= link_to new_place_path, id:"add-place-link" do %>
           <%= image_tag "add-place.svg"%>
