@@ -161,6 +161,7 @@ nav {
   line-height: 100%;
   padding: 0.813rem 1.313rem;
   font-size: 1.125rem;
+  width: max-content;
 }
 
 #account-icon {
