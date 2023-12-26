@@ -2,6 +2,8 @@
 
 Rails.application.routes.draw do
   root 'places#index'
+  get 'contact', to: 'home#contact'
+  post 'send_mail', to: 'home#send_mail'
 
   devise_for :users, controllers: { registrations: 'users/registrations' }
   resources :places do

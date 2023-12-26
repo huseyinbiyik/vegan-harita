@@ -206,6 +206,10 @@ select:focus {
   text-decoration: underline dotted;
 }
 
+.red-text {
+  color: var(--red);
+}
+
 @media (min-width: 1024px) {
   .visible-on-desktop {
     display: block;

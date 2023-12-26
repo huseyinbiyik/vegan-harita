@@ -30,6 +30,9 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  captcha_error: "Please check the box below to prove you are not a robot"
+  your_email: "Your E-mail"
+  contact: "Contact"
   you_are_here: "You are here"
   location_not_found: "Location not found"
   location_not_supported: "Your browser does not support location services"
@@ -114,10 +117,11 @@ en:
   most_liked: "Most Liked"
   add_to_menu: "Add Product to Menu"
   error_reason: "problem occurred due to this issue:"
-  address_required: "Address (required)"
-  name_required: "Name (required)"
+  address_required: "Address<span class='red-text'>*</span>"
+  name_required: "Name<span class='red-text'>*</span>"
   select_delete: "Select the photos you want to delete"
   image: "Image"
+  images: "Images"
   place_vegan: "Is this place vegan or just offering some vegan options?"
   has_option: "Vegan Option"
   vegan: "Vegan"
@@ -252,6 +256,9 @@ en:
       user:
         email: "your@address.com"
   controllers:
+    home:
+      message_received: "Your message has been received. Thank you for your contribution! 💚"
+      invalid_data: "Invalid data. Please try again."
     places:
       not_approved: "This place is not approved yet. It will be here when it's approved."
       create:
@@ -278,6 +285,12 @@ en:
         success: "Review deleted successfully. Thank you for your contribution! 💚"
         failure: "There was a problem with your edit request. Please try again."
   views:
+    home:
+      contact:
+        contact_us: "Contact Us"
+        contact_us_text: "You can write to us for any subject such as good wishes, suggestions, complaints, feedback, errors, etc."
+        message: "Your message<span class='red-text'>*</span>"
+        name_username: "Name or username"
     places:
       show:
         contributors: "Contributors"
