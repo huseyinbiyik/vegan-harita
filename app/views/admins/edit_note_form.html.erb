@@ -1,0 +1,6 @@
+<%= turbo_frame_tag "note_#{@user.id}" do %>
+  <%= form_with model: @user, url: update_note_path(@user), method: :patch do |f| %>
+    <%= f.text_field :admin_note %>
+    <%= f.submit "Güncelle" %>
+  <% end %>
+<% end %>
