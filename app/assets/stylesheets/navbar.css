@@ -73,7 +73,6 @@ header {
 #search-form {
   display: flex;
   padding: 0.5rem 1.25rem;
-  height: 2.625rem;
 }
 
 #search-field {
