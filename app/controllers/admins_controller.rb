@@ -187,6 +187,29 @@ class AdminsController < ApplicationController # rubocop:disable Metrics/ClassLe
     end
   end
 
+  def edit_note_form
+    @user = User.find(params[:id])
+  end
+
+  def update_note
+    @user = User.find(params[:id])
+    @user.admin_note = params[:user][:admin_note]
+    if @user.save
+      respond_to do |format|
+        format.turbo_stream do
+          flash.now[:notice] = 'Not güncellendi.'
+          render turbo_stream: [
+            turbo_stream.replace("note_#{params[:id]}", partial: 'admins/user_note', locals: { user: @user }),
+            turbo_stream.update('flash_messages', partial: 'shared/flash_messages', locals: { flash: })
+          ]
+        end
+      end
+    else
+      flash.now[:alert] = 'Not güncellenemedi.'
+      render turbo_stream: turbo_stream.update('flash_messages', partial: 'shared/flash_messages', locals: { flash: })
+    end
+  end
+
   private
 
   def authenticate_admin
