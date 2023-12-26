@@ -266,7 +266,7 @@ tr:
   waiting_for: "Şunun için onay bekleniyor:"
   cancel: "Hesabımı sil"
   update: "Güncelle"
-  unhappy: "Memnun değil misiniz?"
+  unhappy: "Bizden memnun değil misiniz?"
   datetime:
     distance_in_words:
       x_days:
@@ -284,5 +284,7 @@ tr:
       x_years:
         one: "1 yıl"
         other: "%{count} yıl"
-
+  english: "İngilizce"
+  turkish: "Türkçe"
+  language: "Dil tercihiniz"
 

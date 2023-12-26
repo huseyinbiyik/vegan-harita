@@ -41,8 +41,8 @@ class AdminsController < ApplicationController # rubocop:disable Metrics/ClassLe
   def approve_place
     place = Place.find(params[:id])
     place.approve
-    place.creator = User.find(place.contributors.first)
-    place.creator.points += 10
+    creator = User.find(place.contributors.first)
+    creator.points += 10
     if place.save
       respond_to do |format|
         format.turbo_stream do
@@ -104,7 +104,7 @@ class AdminsController < ApplicationController # rubocop:disable Metrics/ClassLe
   def approve_menu
     menu = Menu.find(params[:id])
     menu.approve
-    menu.creator.points += 1
+    menu.creator.points += 5
 
     if menu.save && menu.creator.save
       respond_to do |format|
@@ -184,6 +184,29 @@ class AdminsController < ApplicationController # rubocop:disable Metrics/ClassLe
       format.turbo_stream do
         flash.now[:notice] = 'Değerlendirme reddedildi'
       end
+    end
+  end
+
+  def edit_note_form
+    @user = User.find(params[:id])
+  end
+
+  def update_note
+    @user = User.find(params[:id])
+    @user.admin_note = params[:user][:admin_note]
+    if @user.save
+      respond_to do |format|
+        format.turbo_stream do
+          flash.now[:notice] = 'Not güncellendi.'
+          render turbo_stream: [
+            turbo_stream.replace("note_#{params[:id]}", partial: 'admins/user_note', locals: { user: @user }),
+            turbo_stream.update('flash_messages', partial: 'shared/flash_messages', locals: { flash: })
+          ]
+        end
+      end
+    else
+      flash.now[:alert] = 'Not güncellenemedi.'
+      render turbo_stream: turbo_stream.update('flash_messages', partial: 'shared/flash_messages', locals: { flash: })
     end
   end
 

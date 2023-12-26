@@ -29,6 +29,8 @@ Rails.application.routes.draw do
     delete 'reject-menu-edit/:id', to: "admins#reject_menu_edit", as: :reject_menu_edit
     post 'approve-review/:id', to: "admins#approve_review", as: :approve_review
     delete 'reject-review/:id', to: "admins#reject_review", as: :reject_review
+    get 'edit_note_form/:id', to: "admins#edit_note_form", as: :edit_note_form
+    patch 'update_note/:id', to: "admins#update_note", as: :update_note
   end
 
   get "up" => "rails/health#show", as: :rails_health_check

@@ -39,11 +39,6 @@ class Place < ApplicationRecord
   # For the search area
   scope :filter_by_name, ->(name) { where('name ILIKE ?', "%#{name}%") }
 
-  # Last 10 places
-  def self.last_ten
-    order(created_at: :desc).limit(10)
-  end
-
   def approve
     self.approved = true
   end

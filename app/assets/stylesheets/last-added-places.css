@@ -17,10 +17,9 @@
     top: 0;
     left: 0;
     font-size: 1.5rem;
-    border-right: 0.031rem solid var(--gray);
     padding: 0.5rem 2rem 0.5rem 3rem;
     height: 3.125rem;
-    background-color: white;
+    background-color: var(--white);
   }
 
   #last-places-list {
