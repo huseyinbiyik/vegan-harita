@@ -321,7 +321,13 @@ nav {
     height: 5.25rem;
     z-index: 2;
     gap: 0.5rem;
+
+    li {
+      width: max-content;
+    }
   }
+
+
 
   .wrapper:hover .dropdown {
     visibility: visible;
@@ -334,6 +340,7 @@ nav {
     border: none;
     padding: 0;
     justify-content: center;
+    width: 100%;
   }
 
   #logout-icon {
