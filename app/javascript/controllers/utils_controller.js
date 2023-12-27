@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus";
 
 // Connects to data-controller="utils"
 export default class extends Controller {
-  static targets = ["preview", "uploadBtn"];
+  static targets = ["preview", "uploadBtn", "editUploadBtn"];
   static values = { assets: Array};
 
   uploadAvatar(e) {
@@ -18,6 +18,14 @@ export default class extends Controller {
       this.uploadBtnTarget.textContent = `${inputElement.files.length} ${this.assetsValue[0]}`;
     } else {
       this.uploadBtnTarget.textContent = `${this.assetsValue[1]}`;
+    }
+  }
+  editUploads(e) {
+    const inputElement = e.target;
+    if(inputElement.files.length > 0) {
+      this.editUploadBtnTarget.textContent = `${inputElement.files.length} ${this.assetsValue[0]}`;
+    } else {
+      this.editUploadBtnTarget.textContent = `${this.assetsValue[1]}`;
     }
   }
 }
