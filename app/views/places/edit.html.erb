@@ -92,7 +92,7 @@
           <% Tag.all.each do |tag| %>
             <span class="checkbox-inline tag">
               <%= form.check_box :tag_ids, { multiple: true, class: "tag-select", checked: @place.tag_ids.include?(tag.id) }, tag.id, nil %>
-              <%= form.label :tag_ids, tag.name, value: tag.id, class: "tag-names" %>
+              <%= form.label :tag_ids, I18n.t("tags.#{tag.name}"), value: tag.id, class: "tag-names" %>
             </span>
           <% end %>
         </div>

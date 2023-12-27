@@ -43,7 +43,7 @@
               </li>
             <% end %>
             <li><span class="pending-title"><%= t :is_vegan %></span><%= pending_place.vegan %></li>
-            <li><span class="pending-title"><%= t :tags %></span>
+            <li><span class="pending-title">Etiketler</span>
               <%= pending_place.tag_ids.map { |tag_id| Tag.find(tag_id).name }.join(" | ") %>
             </li>
             <li><span class="pending-title"><%= t :instagram %>:</span><%= pending_place.instagram_handle %></li>
@@ -133,7 +133,7 @@
             </li>
           <% end %>
           <% if place_edit.tag_ids %>
-            <li class="compared"><span class="pending-title"><%= t :tags %></span>
+            <li class="compared"><span class="pending-title">Etiketler</span>
               <div><%= place_edit.changeable.tag_ids.map { |tag_id| Tag.find(tag_id).name }.join(" | ") %>
               <span class="arrow"> → </span>
               <%= place_edit.tag_ids.map { |tag_id| Tag.find(tag_id).name }.join(" | ") %>

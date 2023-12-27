@@ -139,7 +139,7 @@
         <% end %>
         <% if place.tags.present? %>
           <% place.tags.each do |tag| %>
-            <span class="place-tag" ><%= tag.name %></span>
+            <span class="place-tag" ><%=  I18n.t("tags.#{tag.name}") %></span>
           <% end %>
         <% else %>
           <span> <%= t :no_tag %> </span>
