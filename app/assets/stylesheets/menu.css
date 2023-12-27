@@ -53,11 +53,9 @@
 
 #menu-upload-btn {
   position: absolute;
-  position: absolute;
   left: 114px;
   bottom: 11px;
   font-size: 14px;
-
 }
 
 #menu_image {
@@ -84,7 +82,6 @@
   background: var(--white);
   width: 5.625rem;
   height: 1.563rem;
-
 }
 
 .menu-heading-container {
