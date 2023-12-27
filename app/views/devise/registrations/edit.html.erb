@@ -29,7 +29,7 @@
       <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "******" %>
     </div>
-    <div class="field">
+    <div class="field select">
       <%= f.label :locale, t('language') %>
       <%= f.select :locale, [[t('english'), 'en'], [t('turkish'), 'tr']], selected: f.object.locale || extract_locale_from_accept_language_header %>
     </div>
