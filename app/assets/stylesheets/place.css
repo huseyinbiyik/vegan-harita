@@ -200,7 +200,7 @@
   position: absolute;
   top: calc(100% + 5px);
   left: 0;
-  width: 190px;
+  width: 200px;
   background-color: var(--white);
   color: var(--black);
   border-radius: 10px;
