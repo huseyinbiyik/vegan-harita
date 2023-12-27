@@ -51,6 +51,42 @@
   margin-bottom: 20px;
 }
 
+#menu-upload-btn {
+  position: absolute;
+  position: absolute;
+  left: 114px;
+  bottom: 11px;
+  font-size: 14px;
+
+}
+
+#menu_image {
+  color: transparent;
+}
+
+#menu_image::-webkit-file-upload-button {
+  visibility: hidden;
+  width: 0;
+}
+
+#menu_image::before {
+  content: "Dosya Seçin";
+  color: var(--black);
+  display: inline-block;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  padding: 0.188rem 0.563rem 0.188rem 0.25rem;
+  font-size: 0.875rem;
+  border-radius: 0.313rem;
+  border: 0.006rem solid var(--black);
+  background: var(--white);
+  width: 5.625rem;
+  height: 1.563rem;
+
+}
+
 .menu-heading-container {
   width: 100%;
   display: flex;

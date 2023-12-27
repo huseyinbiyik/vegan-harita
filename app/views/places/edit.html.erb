@@ -101,8 +101,8 @@
     <% if params[:attribute] == "images" %>
       <div class= "add-new-photos select-wrapper" data-controller="utils" data-utils-assets-value="<%= [t('files_selected'), t('select_file')].to_json %>">
         <%= form.label t('new_photos') %>
-        <span id="upload-edit-btn" data-utils-target="editUploadBtn"><%= t(:select_file) %></span>
-        <%= form.file_field :images, multiple: true, accept: "image/*", data: { action: "change->utils#editUploads"} %>
+        <span id="upload-edit-btn" data-utils-target="uploadBtn"><%= t(:select_file) %></span>
+        <%= form.file_field :images, multiple: true, accept: "image/*", data: { action: "change->utils#uploadFiles"} %>
       </div>
 
       <% if @place.images.attached? %>
