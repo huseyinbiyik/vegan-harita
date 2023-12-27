@@ -16,9 +16,10 @@
     <%= form.label t('owner_feedback'), style: "display: block" %>
     <%= form.text_area :feedback, placeholder: Review.human_attribute_name('feedback') %>
   </div>
-  <div class="review-form-group">
+  <div class="review-form-group select-wrapper" data-controller= "utils" data-utils-assets-value="<%= [t('files_selected'), t('select_file')].to_json %>">
     <%= form.label t('photos'), style: "display: block" %>
-    <%= form.file_field :images, multiple: true, accept: "image/*" %>
+    <span id="upload-edit-btn" data-utils-target="uploadBtn"><%= t(:select_file) %></span>
+    <%= form.file_field :images, multiple: true, accept: "image/*", data: { action: "change->utils#uploadFiles"} %>
   </div>
   <div class="form-buttons">
     <%= form.submit t('submit'), class:"primary-green-btn", data: { turbo_confirm: t('sure') }  %>

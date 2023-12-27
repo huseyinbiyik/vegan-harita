@@ -73,7 +73,6 @@ header {
 #search-form {
   display: flex;
   padding: 0.5rem 1.25rem;
-  height: 2.625rem;
 }
 
 #search-field {
@@ -142,7 +141,8 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 16px;
   list-style-type: none;
 }
 
@@ -153,8 +153,12 @@ nav {
   font-size: 1.125rem;
 }
 
+.nav-link {
+  height: 42px;
+  padding: 8px 16px;
+}
+
 #sign-in-link {
-  height: 2.625rem;
   border-radius: 1.25rem;
   background: var(--green);
   color: var(--white);
@@ -162,10 +166,15 @@ nav {
   line-height: 100%;
   padding: 0.813rem 1.313rem;
   font-size: 1.125rem;
+  width: max-content;
 }
 
 #account-icon {
   display: none;
+}
+
+.wrapper {
+  margin-top: 80px;
 }
 
 .dropdown {
@@ -280,27 +289,28 @@ nav {
     display: flex;
     gap: 2rem;
     list-style-type: none;
-
-    /* width: 41.688rem; */
     justify-content: flex-end;
   }
 
   .nav-link {
     display: flex;
     align-items: center;
+    height: auto;
+    padding: 0;
   }
 
   .nav-link span {
     white-space: nowrap;
   }
 
-  #add-place-link {
-    gap: 0.125rem;
-  }
-
   .wrapper {
+    margin-top: 0;
     position: relative;
     display: inline-block;
+  }
+
+  #add-place-link {
+    gap: 0.125rem;
   }
 
   #account-icon {
@@ -314,14 +324,23 @@ nav {
     transition: visibility 0s linear 0.5s;
     position: absolute;
     right: 0;
-    border-radius: 0 0 0.625rem 0.625rem;
+    border-radius: 10px;
     background: var(--white);
     box-shadow: 0 0.25rem 1.25rem 0 rgba(0, 0, 0, 0.25);
-    padding: 0.5rem 1rem;
     font-size: 1.125rem;
     height: 5.25rem;
     z-index: 2;
     gap: 0.5rem;
+
+    & li {
+      width: max-content;
+      height: 24px;
+      padding: 0;
+    }
+  }
+
+  .dropdown li:nth-child(1) {
+    padding: 8px 16px;
   }
 
   .wrapper:hover .dropdown {
@@ -335,6 +354,7 @@ nav {
     border: none;
     padding: 0;
     justify-content: center;
+    width: 100%;
   }
 
   #logout-icon {

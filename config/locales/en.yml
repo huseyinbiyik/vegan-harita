@@ -109,6 +109,8 @@ en:
   logOut: "Log Out"
   change_image: "Change Image"
   select_image: "Select Image"
+  select_file: "Select File"
+  files_selected: "file(s) selected"
   sure: "Are you sure?"
   nevermind: "Nevermind"
   like: "likes"
