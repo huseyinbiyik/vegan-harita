@@ -324,16 +324,15 @@ nav {
     transition: visibility 0s linear 0.5s;
     position: absolute;
     right: 0;
-    border-radius: 0 0 0.625rem 0.625rem;
+    border-radius: 10px;
     background: var(--white);
     box-shadow: 0 0.25rem 1.25rem 0 rgba(0, 0, 0, 0.25);
-    padding: 0.5rem 1rem;
     font-size: 1.125rem;
     height: 5.25rem;
     z-index: 2;
     gap: 0.5rem;
 
-    li {
+    & li {
       width: max-content;
       height: 24px;
       padding: 0;
