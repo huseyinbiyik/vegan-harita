@@ -306,3 +306,11 @@ en:
   english: "English"
   turkish: "Turkish"
   language: "Language preference"
+  tags:
+    breakfast: 'Breakfast'
+    dessert: 'Dessert'
+    coffee: 'Coffee'
+    fast_food: 'Fast Food'
+    world_cuisine: 'World Cuisine'
+    market: 'Market'
+    delivery: 'Delivery'
