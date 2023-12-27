@@ -20,7 +20,7 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: '******' %>
   </div>
 
-  <div class="field">
+  <div class="field recaptcha-container">
     <%= flash[:recaptcha_error] %>
     <%= recaptcha_tags %>
   </div>

@@ -7,10 +7,6 @@
 
   .field {
     margin-bottom: 16px;
-
-    .g-recaptcha {
-      transform: scale(1);
-    }
   }
 
   .actions {
@@ -38,4 +34,13 @@
 .contact-form {
   width: 100%;
   max-width: 500px;
+}
+
+@media (min-width: 1024px) {
+  #contact {
+    .g-recaptcha {
+      transform: scale(1);
+      transform-origin: 0 0;
+    }
+  }
 }
