@@ -9,3 +9,7 @@
   background: var(--green);
   border: none;
 }
+
+.select {
+  width: 100%;
+}
