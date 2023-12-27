@@ -135,7 +135,6 @@ select {
 }
 
 .field {
-  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 0.125rem;
@@ -209,6 +208,15 @@ select:focus {
 
 .red-text {
   color: var(--red);
+}
+
+.g-recaptcha {
+  transform: scale(0.77);
+  transform-origin: 0 0;
+}
+
+.recaptcha-container {
+  width: 240px;
 }
 
 @media (min-width: 1024px) {
