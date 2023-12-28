@@ -79,6 +79,7 @@ tr:
   change_image: "Görseli Değiştir"
   select_image: "Görsel Seçin"
   select_file: "Dosya seçin"
+  no_file_selected: "Henüz dosya seçilmedi"
   files_selected: "dosya seçildi"
   sure: "Emin misiniz?"
   nevermind: "Boşver"

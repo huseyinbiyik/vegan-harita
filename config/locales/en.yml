@@ -110,6 +110,7 @@ en:
   change_image: "Change Image"
   select_image: "Select Image"
   select_file: "Select File"
+  no_file_selected: "No file selected"
   files_selected: "file(s) selected"
   sure: "Are you sure?"
   nevermind: "Nevermind"
