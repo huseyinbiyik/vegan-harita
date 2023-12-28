@@ -76,9 +76,9 @@ header {
 }
 
 #search-field {
-  background-color: transparent;
   width: 100%;
   border: none;
+  background: var(--white);
 }
 
 #search-field::placeholder {
