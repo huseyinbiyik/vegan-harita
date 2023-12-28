@@ -6,9 +6,10 @@
       <%= form.label :message, t('views.home.contact.message').html_safe %>
       <%= form.text_area :message, value: @contact_params[:message], autofocus: true, maxlength: 2000, required: true %>
     </div>
-    <div class="field">
-      <%= form.label t(:images)%>
-      <%= form.file_field :images, multiple: true, accept: 'image/jpeg,image/gif,image/png' %>
+    <div class="field select-wrapper" data-controller="utils" data-utils-assets-value="<%= [t('files_selected'), t('select_file')].to_json %>">
+      <%= form.label t('image') %>
+      <span id="file-upload-btn" data-utils-target="uploadBtn"><%= t(:select_file) %></span>
+      <%= form.file_field :images, multiple: true, accept: "image/*", data: { action: "change->utils#uploadFiles"}, id: "image-input" %>
     </div>
     <div class="field">
       <%= form.label t('views.home.contact.name_username') %>
