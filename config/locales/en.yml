@@ -238,6 +238,8 @@ en:
         instagram_invalid: "Instagram username is invalid. Please enter a valid username. You can find your username in your Instagram profile URL. For example, if your profile URL is instagram.com/username, your username is username."
         facebook_invalid: "Facebook username is invalid. Please enter a valid username. You can find your username in your Facebook profile URL. For example, if your profile URL is facebook.com/username, your username is username."
         x_invalid: "X username is invalid. Please enter a valid username. You can find your username in your X profile URL. For example, if your profile URL is x.com/username, your username is username."
+        image_invalid: "Please select a valid image file. Valid image file extensions are: jpg, jpeg, webp, png"
+        image_size_invalid: "Please select an image file smaller than 3MB"
       menu:
         name: "North Korean Fried Tofu"
         description: "Tofu, onion and sesame and North Korean spices..."
@@ -248,9 +250,16 @@ en:
         feedback: "I think your food is a little salty..."
     errors:
       messages:
-        blank: "cannot be blank"
+        blank: "can't be blank"
         confirmation: "doesn't match"
         too_short: "too short (%{count} characters minimum)"
+        models:
+          place:
+            attributes:
+              address:
+                taken: "already exists"
+              place_id:
+                taken: "already exists"
   helpers:
     placeholder:
       name_search: "Search Place..."
@@ -315,3 +324,8 @@ en:
     world_cuisine: 'World Cuisine'
     market: 'Market'
     delivery: 'Delivery'
+  places:
+    form:
+      web_url_error_message: "Please enter a valid domain name like 'veganharita.com'"
+      phone_error_message: "Please enter a valid phone number like '5071234567' or '2121234567"
+      images_with_warning: "Images (each Max 3MB and 10 images)"
