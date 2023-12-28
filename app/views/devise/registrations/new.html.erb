@@ -1,6 +1,6 @@
 <section class="user-forms">
 
-<h2><%= t :signUp %></h2>
+<h1><%= t :signUp %></h1>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { data: { turbo: false}}) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -20,7 +20,7 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: '******' %>
   </div>
 
-  <div class="field">
+  <div class="field recaptcha-container">
     <%= flash[:recaptcha_error] %>
     <%= recaptcha_tags %>
   </div>

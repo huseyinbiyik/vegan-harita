@@ -109,6 +109,9 @@ en:
   logOut: "Log Out"
   change_image: "Change Image"
   select_image: "Select Image"
+  select_file: "Select File"
+  no_file_selected: "No file selected"
+  files_selected: "file(s) selected"
   sure: "Are you sure?"
   nevermind: "Nevermind"
   like: "likes"
@@ -304,3 +307,11 @@ en:
   english: "English"
   turkish: "Turkish"
   language: "Language preference"
+  tags:
+    breakfast: 'Breakfast'
+    dessert: 'Dessert'
+    coffee: 'Coffee'
+    fast_food: 'Fast Food'
+    world_cuisine: 'World Cuisine'
+    market: 'Market'
+    delivery: 'Delivery'

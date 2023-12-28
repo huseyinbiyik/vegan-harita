@@ -1,5 +1,5 @@
-<section class="user-forms edit-user">
-  <h2><%= t :edit_account %></h2>
+<section class="user-forms" style="margin-top: 24px;">
+  <h1><%= t :edit_account %></h1>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, data: {turbo: false} }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
     <div class="field" id="avatar-field" data-controller="utils">
@@ -29,7 +29,7 @@
       <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "******" %>
     </div>
-    <div class="field">
+    <div class="field select">
       <%= f.label :locale, t('language') %>
       <%= f.select :locale, [[t('english'), 'en'], [t('turkish'), 'tr']], selected: f.object.locale || extract_locale_from_accept_language_header %>
     </div>

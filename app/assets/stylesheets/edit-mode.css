@@ -20,6 +20,39 @@
   animation: rotateBorder 10s linear infinite;
 }
 
+#change_log_images {
+  color: transparent;
+}
+
+#change_log_images::-webkit-file-upload-button {
+  visibility: hidden;
+  width: 0;
+}
+
+#change_log_images::before {
+  content: attr(data-content);
+  color: var(--black);
+  display: inline-block;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  padding: 0.188rem 0.563rem 0.188rem 0.25rem;
+  font-size: 0.875rem;
+  border-radius: 0.313rem;
+  border: 0.006rem solid var(--black);
+  background: var(--white);
+  width: 5.625rem;
+  height: 1.563rem;
+}
+
+#upload-edit-btn {
+  position: absolute;
+  left: 114px;
+  bottom: 11px;
+  font-size: 14px;
+}
+
 @keyframes rotateBorder {
   from {
     transform: rotate(0deg);

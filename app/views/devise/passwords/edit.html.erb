@@ -1,5 +1,7 @@
-<h2><%= t :change_your_password %></h2>
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, data: {turbo: false} }) do |f| %>
+<section class="user-forms">
+  <h1><%= t :change_your_password %></h1>
+
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, data: {turbo: false} }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
   <%= f.hidden_field :reset_password_token %>
   <div class="field">
@@ -13,8 +15,14 @@
     <%= f.label :password_confirmation, t('confirm_password') %>
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
-  <div class="actions">
-    <%= f.submit t('change_password') %>
-  </div>
-<% end %>
-<%= render "devise/shared/links" %>
+
+    <div class="actions">
+      <%= f.submit t('change_password'), id: "reset-password" %>
+    </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</section>
+
+
+

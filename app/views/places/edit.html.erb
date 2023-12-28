@@ -92,16 +92,17 @@
           <% Tag.all.each do |tag| %>
             <span class="checkbox-inline tag">
               <%= form.check_box :tag_ids, { multiple: true, class: "tag-select", checked: @place.tag_ids.include?(tag.id) }, tag.id, nil %>
-              <%= form.label :tag_ids, tag.name, value: tag.id, class: "tag-names" %>
+              <%= form.label :tag_ids, I18n.t("tags.#{tag.name}"), value: tag.id, class: "tag-names" %>
             </span>
           <% end %>
         </div>
       </div>
     <% end %>
     <% if params[:attribute] == "images" %>
-      <div class= "add-new-photos">
+      <div class= "add-new-photos select-wrapper" data-controller="utils" data-utils-assets-value="<%= [t('files_selected'), t('no_file_selected')].to_json %>">
         <%= form.label t('new_photos') %>
-        <%= form.file_field :images, multiple: true, accept: "image/*" %>
+        <span id="upload-edit-btn" data-utils-target="uploadBtn"><%= t(:no_file_selected) %></span>
+        <%= form.file_field :images, multiple: true, accept: "image/*", data: { action: "change->utils#uploadFiles", content: t('select_image')} %>
       </div>
 
       <% if @place.images.attached? %>

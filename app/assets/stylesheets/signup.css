@@ -1,5 +1,6 @@
 .g-recaptcha {
-  transform: scale(0.8);
+  transform: scale(0.77);
+  transform-origin: 0 0;
 }
 
 #signup-button {
@@ -7,4 +8,8 @@
   font-weight: 500;
   background: var(--green);
   border: none;
+}
+
+.select {
+  width: 100%;
 }

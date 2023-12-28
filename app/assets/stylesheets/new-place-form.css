@@ -52,12 +52,6 @@
   max-width: 572px;
 }
 
-#add-new-place input[type="text"],
-label {
-  min-width: 240px;
-  max-width: 572px;
-}
-
 .sub-group {
   display: flex;
   flex-direction: column;
@@ -66,12 +60,17 @@ label {
   max-width: 572px;
 }
 
-/* Style image upload  */
+.select-wrapper {
+  position: relative;
+}
+
 #add-new-place-form #place_images {
   border-radius: 0.313rem;
   border: 0.063rem solid var(--gray);
   padding: 0.5rem;
-  width: 240px;
+  min-width: 240px;
+  max-width: 572px;
+  color: transparent;
 }
 
 #add-new-place-form #place_images::-webkit-file-upload-button {
@@ -80,7 +79,8 @@ label {
 }
 
 #add-new-place-form #place_images::before {
-  content: "Dosya Seçin";
+  content: attr(data-content);
+  color: var(--black);
   display: inline-block;
   outline: none;
   white-space: nowrap;
@@ -93,6 +93,13 @@ label {
   background: var(--white);
   width: 5.625rem;
   height: 1.563rem;
+}
+
+#file-upload-btn {
+  position: absolute;
+  left: 114px;
+  bottom: 11px;
+  font-size: 14px;
 }
 
 .tags-form {
@@ -147,29 +154,45 @@ label {
   margin-left: auto;
 }
 
-.social-field {
-  position: relative;
+.social-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+#instagram-input {
+  width: 100%;
+}
+
+#facebook-input {
+  width: 100%;
+}
+
+#x-input {
+  width: 100%;
 }
 
 .platform {
-  position: absolute;
   height: 42px;
   top: 21px;
   padding: 10px 8px;
-  border-right: 1px solid var(--gray);
+  border-radius: 5px 0 0 5px;
+  border: 1px solid var(--gray);
   color: var(--gray);
+  background-color: var(--ligth-gray);
 }
 
-#instagram {
-  padding-left: 142px;
+.platform-input {
+  border-radius: 0 5px 5px 0;
+  border-left: none;
 }
 
-#facebook {
-  padding-left: 136px;
+.platform-input:focus {
+  border-left: none;
 }
 
-#x {
-  padding-left: 77px;
+.platform-input:focus ~ .platform {
+  border-color: var(--green);
 }
 
 @media (min-width: 1024px) {
@@ -181,12 +204,12 @@ label {
     width: 35.75rem;
   }
 
-  .add-new-place-form-group input[type="text"] {
-    width: 572px;
-  }
-
   #form-map {
     width: 35.75rem;
+  }
+
+  #add-new-place-form #place_images {
+    width: 280px;
   }
 
   .sub-group {
@@ -196,8 +219,25 @@ label {
     width: 35.75rem;
   }
 
-  #add-new-place-form .sub-group input {
+  .sub-group input {
     width: 280px;
+  }
+
+  .social-wrapper {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  #instagram-input {
+    width: 146px;
+  }
+
+  #facebook-input {
+    width: 152px;
+  }
+
+  #x-input {
+    width: 211px;
   }
 
   #submit-place {

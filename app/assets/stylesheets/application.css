@@ -16,12 +16,14 @@
 
 :root {
   --green: #01da5a;
-  --red: #f00;
-  --black: #000;
-  --white: #fff;
+  --red: #ed1a25;
+  --black: #000e06;
+  --white: #fcfcfc;
   --gray: #989e9a;
+  --light-gray: #f5f5f5;
 
   scroll-behavior: smooth;
+  background-color: var(--white);
 }
 
 *,
@@ -39,8 +41,24 @@
   src: url("GeneralSans-Variable.ttf");
 }
 
-a {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+input,
+textarea,
+select,
+button,
+label,
+span {
   color: var(--black);
+}
+
+a {
   text-decoration: none;
 }
 
@@ -51,6 +69,7 @@ input {
   border-radius: 0.313rem;
   border: 0.063rem solid var(--gray);
   background: var(--white);
+  background-color: var(--white);
 }
 
 /* Hide increment buttons in number inputs starts */
@@ -82,7 +101,7 @@ input[type="file"]::-webkit-file-upload-button {
 }
 
 input[type="file"]::before {
-  content: "Dosya Seçin";
+  content: attr(data-content);
   display: inline-block;
   outline: none;
   white-space: nowrap;
@@ -102,6 +121,7 @@ textarea {
   height: 84px;
   border-radius: 5px;
   padding: 10px 8px;
+  background: var(--white);
 }
 
 select {
@@ -111,6 +131,8 @@ select {
   border: 0.063rem solid var(--gray);
   font-size: 1rem;
   padding: 0.625rem 0.5rem;
+  background: var(--white);
+  background-color: var(--white);
 }
 
 .disabled {
@@ -127,7 +149,7 @@ select {
   padding: 0 20px;
 }
 
-.user-forms h2 {
+.user-forms h1 {
   font-size: 1.5rem;
   font-weight: 500;
   text-align: center;
@@ -176,6 +198,8 @@ select:focus {
   outline: none;
   border: 1px solid var(--green);
   transition: 0.3s;
+  background: var(--white);
+  background-color: var(--white);
 }
 
 .session-links {
@@ -209,6 +233,15 @@ select:focus {
   color: var(--red);
 }
 
+.g-recaptcha {
+  transform: scale(0.77);
+  transform-origin: 0 0;
+}
+
+.recaptcha-container {
+  width: 240px;
+}
+
 @media (min-width: 1024px) {
   .visible-on-desktop {
     display: block;
@@ -216,6 +249,7 @@ select:focus {
 
   body {
     min-height: 100vh;
+    background-color: var(--white);
   }
 
   .user-forms {

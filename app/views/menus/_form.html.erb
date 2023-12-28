@@ -19,14 +19,15 @@
     <%= form.label t('product_description'), style: "display: block" %>
     <%= form.text_area :description, placeholder: Menu.human_attribute_name('description'), required: true %>
   </div>
-  <div>
+  <div class="select-wrapper" data-controller= "utils" data-utils-assets-value="<%= [t('files_selected'), t('no_file_selected')].to_json %>">
     <% if @menu.image.attached? %>
       <%= form.label t('change_image'), style: "display: block" %>
       <%= image_tag @menu.image, class: "menu-image" %>
     <% else %>
       <%= form.label t('select_image'), style: "display: block" %>
     <% end %>
-    <%= form.file_field :image, accept: "image/*" %>
+    <span id="menu-upload-btn" data-utils-target="uploadBtn"><%= t(:no_file_selected) %></span>
+    <%= form.file_field :image, accept: "image/*", data: { action: "change->utils#uploadFiles", content: t('select_image')} %>
   </div>
   <div>
     <%= form.label t('product_category'), style: "display: block" %>

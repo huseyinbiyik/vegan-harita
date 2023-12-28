@@ -78,6 +78,9 @@ tr:
   logOut: "Çıkış Yap"
   change_image: "Görseli Değiştir"
   select_image: "Görsel Seçin"
+  select_file: "Dosya seçin"
+  no_file_selected: "Henüz dosya seçilmedi"
+  files_selected: "dosya seçildi"
   sure: "Emin misiniz?"
   nevermind: "Boşver"
   like: "beğeni"
@@ -285,4 +288,12 @@ tr:
   english: "İngilizce"
   turkish: "Türkçe"
   language: "Dil tercihiniz"
+  tags:
+    breakfast: 'Kahvaltı'
+    dessert: 'Tatlı'
+    coffee: 'Kahve'
+    fast_food: 'Fast Food'
+    world_cuisine: 'Dünya Mutfakları'
+    market: 'Market'
+    delivery: 'Paket Servis'
 

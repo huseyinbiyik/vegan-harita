@@ -200,7 +200,7 @@
   position: absolute;
   top: calc(100% + 5px);
   left: 0;
-  width: 190px;
+  width: 200px;
   background-color: var(--white);
   color: var(--black);
   border-radius: 10px;
@@ -235,7 +235,6 @@
     max-width: 500px;
     min-width: 280px;
     width: 100%;
-    padding: 0 20px;
   }
 
   #modal-map {
@@ -259,6 +258,7 @@
   align-items: center;
   flex-direction: row;
   overflow-x: scroll;
+  overflow-y: hidden;
   scrollbar-width: none;
   -ms-overflow-style: none;
   gap: 8px;
