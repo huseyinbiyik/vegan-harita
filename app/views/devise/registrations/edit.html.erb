@@ -1,4 +1,4 @@
-<section class="user-forms">
+<section class="user-forms" style="margin-top: 24px;">
   <h1><%= t :edit_account %></h1>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, data: {turbo: false} }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
