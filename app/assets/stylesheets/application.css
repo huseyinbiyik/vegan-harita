@@ -101,7 +101,7 @@ input[type="file"]::-webkit-file-upload-button {
 }
 
 input[type="file"]::before {
-  content: "Dosya Seçin";
+  content: attr(data-content);
   display: inline-block;
   outline: none;
   white-space: nowrap;
@@ -198,8 +198,8 @@ select:focus {
   outline: none;
   border: 1px solid var(--green);
   transition: 0.3s;
-  background-color: var(--white);
   background: var(--white);
+  background-color: var(--white);
 }
 
 .session-links {

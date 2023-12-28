@@ -79,7 +79,7 @@
 }
 
 #add-new-place-form #place_images::before {
-  content: "Dosya Seçin";
+  content: attr(data-content);
   color: var(--black);
   display: inline-block;
   outline: none;
