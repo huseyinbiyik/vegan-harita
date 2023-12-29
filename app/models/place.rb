@@ -4,17 +4,17 @@ class Place < ApplicationRecord
   validates :name, presence: true, length: { maximum: 80 }
   validates :address, presence: true, length: { maximum: 500 }, uniqueness: true
   validates :place_id, presence: true, uniqueness: true
-  validates :vegan, inclusion: { in: [true, false] }, allow_nil: false
+  validates :vegan, inclusion: { in: [ true, false ] }, allow_nil: false
   validates :instagram_handle,
-            format: { with: /\A[\w.-]+\z/, message: I18n.t('activerecord.attributes.place.instagram_invalid') },
+            format: { with: /\A[\w.-]+\z/, message: I18n.t("activerecord.attributes.place.instagram_invalid") },
             allow_blank: true,
             length: { maximum: 30 }
   validates :facebook_handle,
-            format: { with: /\A[\w.-]+\z/, message: I18n.t('activerecord.attributes.place.facebook_invalid') },
+            format: { with: /\A[\w.-]+\z/, message: I18n.t("activerecord.attributes.place.facebook_invalid") },
             allow_blank: true,
             length: { maximum: 50 }
   validates :x_handle,
-            format: { with: /\A[\w.-]+\z/, message: I18n.t('activerecord.attributes.place.x_invalid') },
+            format: { with: /\A[\w.-]+\z/, message: I18n.t("activerecord.attributes.place.x_invalid") },
             allow_blank: true,
             length: { maximum: 50 }
   validates :web_url,
@@ -42,7 +42,7 @@ class Place < ApplicationRecord
   end
 
   # For the search area
-  scope :filter_by_name, ->(name) { where('name ILIKE ?', "%#{name}%") }
+  scope :filter_by_name, ->(name) { where("name ILIKE ?", "%#{name}%") }
 
   def approve
     self.approved = true
@@ -56,18 +56,18 @@ class Place < ApplicationRecord
     images.each do |image|
       unless image.content_type.in?(%('image/jpeg image/png image/jpg image/webp'))
         errors.add(:images,
-                   I18n.t('activerecord.attributes.place.image_invalid'))
+                   I18n.t("activerecord.attributes.place.image_invalid"))
       end
     end
   end
 
   # Validation for adding images to place on add new form
   def images_count_within_limit
-    errors.add(:images, I18n.t('max_image_limit', count: 10)) if images.count > 10
+    errors.add(:images, I18n.t("max_image_limit", count: 10)) if images.count > 10
     images.each do |image|
       if image.byte_size > 3.megabytes
         errors.add(:images,
-                   I18n.t('activerecord.attributes.place.image_size_invalid'))
+                   I18n.t("activerecord.attributes.place.image_size_invalid"))
       end
     end
   end

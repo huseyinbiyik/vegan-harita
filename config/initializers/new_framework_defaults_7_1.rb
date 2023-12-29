@@ -38,7 +38,7 @@
 
 ###
 # Active Record Encryption now uses SHA-256 as its hash digest algorithm.
-# 
+#
 # There are 3 scenarios to consider.
 #
 # 1. If you have data encrypted with previous Rails versions, and you have

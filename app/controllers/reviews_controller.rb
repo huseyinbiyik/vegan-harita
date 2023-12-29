@@ -15,14 +15,14 @@ class ReviewsController < ApplicationController
     respond_to do |format|
       if @review.save
         format.turbo_stream do
-          flash.now[:notice] = t('controllers.reviews.create.success')
-          render turbo_stream: turbo_stream.update('flash_messages', partial: 'shared/flash_messages',
+          flash.now[:notice] = t("controllers.reviews.create.success")
+          render turbo_stream: turbo_stream.update("flash_messages", partial: "shared/flash_messages",
                                                                      locals: { flash: })
         end
       else
         format.turbo_stream do
-          flash.now[:alert] = t('controllers.reviews.create.failure')
-          render turbo_stream: turbo_stream.update('flash_messages', partial: 'shared/flash_messages',
+          flash.now[:alert] = t("controllers.reviews.create.failure")
+          render turbo_stream: turbo_stream.update("flash_messages", partial: "shared/flash_messages",
                                                                      locals: { flash: })
         end
       end
@@ -31,19 +31,19 @@ class ReviewsController < ApplicationController
 
   def update
     if @review.update(review_params)
-      flash.now[:notice] = t('controllers.reviews.update.success')
-      render turbo_stream: turbo_stream.update('flash_messages', partial: 'shared/flash_messages',
+      flash.now[:notice] = t("controllers.reviews.update.success")
+      render turbo_stream: turbo_stream.update("flash_messages", partial: "shared/flash_messages",
                                                                  locals: { flash: })
     else
-      redirect_to @place, alert: t('controllers.reviews.update.failure')
+      redirect_to @place, alert: t("controllers.reviews.update.failure")
     end
   end
 
   def destroy
     if @review.destroy
-      redirect_to @place, notice: t('controllers.reviews.destroy.success')
+      redirect_to @place, notice: t("controllers.reviews.destroy.success")
     else
-      redirect_to @place, alert: t('controllers.reviews.destroy.failure')
+      redirect_to @place, alert: t("controllers.reviews.destroy.failure")
     end
   end
 
