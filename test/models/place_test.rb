@@ -1,3 +1,5 @@
+# rubocop:disable Metrics/ClassLength
+
 require 'test_helper'
 
 class PlaceTest < ActiveSupport::TestCase
@@ -302,5 +304,5 @@ class PlaceTest < ActiveSupport::TestCase
     assert_not_includes Place.filter_by_name('Test2'), @place
   end
   # SCOPES END
-
 end
+# rubocop:enable Metrics/ClassLength
