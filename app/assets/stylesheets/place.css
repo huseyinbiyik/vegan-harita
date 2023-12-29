@@ -262,10 +262,10 @@
   scrollbar-width: none;
   -ms-overflow-style: none;
   gap: 8px;
+}
 
-  &::-webkit-scrollbar {
-    display: none;
-  }
+.place-tags::-webkit-scrollbar {
+  display: none;
 }
 
 .place-tag {

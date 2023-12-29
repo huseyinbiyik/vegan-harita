@@ -326,6 +326,11 @@ en:
     world_cuisine: 'World Cuisine'
     market: 'Market'
     delivery: 'Delivery'
+    italian_cuisine: 'Italian Cuisine'
+    bar: 'Bar'
+    detox: 'Detox'
+    traditional_turkish_cuisine: 'Traditional Turkish Cuisine'
+    bakery: 'Bakery'
   places:
     form:
       web_url_error_message: "Please enter a valid domain name like 'veganharita.com'"
