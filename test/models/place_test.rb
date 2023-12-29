@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class PlaceTest < ActiveSupport::TestCase
+  include ActionDispatch::TestProcess
+
   def setup
     @place = Place.new(name: 'Test Place', address: '123 Test St', place_id: '1', latitude: '40.7128')
   end
@@ -9,6 +11,7 @@ class PlaceTest < ActiveSupport::TestCase
     @place = nil
   end
 
+  # VALIDATIONS START
   test 'should be valid' do
     assert @place.valid?
   end
@@ -201,4 +204,98 @@ class PlaceTest < ActiveSupport::TestCase
     @place.phone = ''
     assert @place.valid?
   end
+
+  # VALIDATIONS END
+
+  # RELATIONSHIPS START
+  test 'should have many change_logs' do
+    assert_respond_to @place, :change_logs
+  end
+
+  test 'should have many menus' do
+    assert_respond_to @place, :menus
+  end
+
+  test 'should have many images' do
+    assert_respond_to @place, :images
+  end
+
+  test 'should have many tags' do
+    assert_respond_to @place, :tags
+  end
+
+  test 'should have many reviews' do
+    assert_respond_to @place, :reviews
+  end
+
+  # RELATIONSHIPS END
+
+  # METHODS & CALLBACKS START
+  test 'featured_image should return first image path' do
+    @place.save
+    file1 = fixture_file_upload('test.png')
+    fixture_file_upload('test2.png')
+
+    @place.images.attach(file1)
+    assert_equal Rails.application.routes.url_helpers.rails_blob_path(@place.images.first, only_path: true),
+                 @place.featured_image
+  end
+
+  test 'featured_image should return nil if no images attached' do
+    assert_nil @place.featured_image
+  end
+
+  test 'approve should set approved to true' do
+    @place.approve
+    assert @place.approved
+  end
+
+  test 'should add error if image type is invalid' do
+    file = fixture_file_upload('test.gif')
+    @place.images.attach(file)
+    assert_not @place.valid?
+    assert_equal I18n.t('activerecord.attributes.place.image_invalid'), @place.errors[:images].first
+  end
+
+  test 'should add error if more than 10 images' do
+    11.times do
+      file = fixture_file_upload('test.png')
+      @place.images.attach(file)
+    end
+    assert_not @place.valid?
+    assert_equal I18n.t('max_image_limit', count: 10), @place.errors[:images].first
+  end
+
+  test 'should add error if image size is more than 3mb' do
+    file = fixture_file_upload('testbig.jpeg', 'image/jpeg')
+    @place.images.attach(file)
+    assert_not @place.valid?
+    assert_equal I18n.t('activerecord.attributes.place.image_size_invalid'), @place.errors[:images].first
+  end
+
+  # METHODS & CALLBACKS END
+
+  # SCOPES START
+  test 'should return approved places' do
+    @place.approve
+    @place.save
+    assert_includes Place.approved, @place
+  end
+
+  test 'should not return unapproved places' do
+    @place.save
+    assert_not_includes Place.approved, @place
+  end
+
+  test 'should return places with name like' do
+    @place.save
+    assert_includes Place.filter_by_name('Test'), @place
+  end
+
+  test 'should not return places with name not like' do
+    @place.save
+    assert_not_includes Place.filter_by_name('Test2'), @place
+  end
+  # SCOPES END
+
 end

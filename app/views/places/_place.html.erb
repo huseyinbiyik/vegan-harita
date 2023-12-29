@@ -110,7 +110,7 @@
         <div class="place-detail">
           <% if place.phone.present? %>
             <div class="detail-group">
-              <%= link_to "tel:#{place.phone}", class: "detail-group" do %>
+              <%= link_to "tel: 0#{place.phone}", class: "detail-group" do %>
                 <%= image_tag "phone.svg", class: "detail-icon" %>
                 <span class="detail"> <%= t :call %> </span>
               <% end %>
