@@ -14,7 +14,7 @@ export default class extends Controller {
     this.createMap();
     this.createCustomMapControls();
     this.createMarkers();
-    this.getMyCurrentLocation();
+    // this.getMyCurrentLocation();
     this.centerToMyCurrentLocation();
   }
 

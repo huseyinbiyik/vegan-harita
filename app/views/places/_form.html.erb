@@ -25,13 +25,13 @@
   <div class="sub-group">
     <div class= "add-new-place-form-group">
       <%= form.label :name, t('name_required').html_safe, style: "display: block" %>
-      <%= form.text_field :name, placeholder: "X Vegan Cafe", required: true, maxlength: 80, size: nil %>
+      <%= form.text_field :name, placeholder: "X Vegan Cafe", required: true, maxlength: 100, size: nil %>
     </div>
 
   <div class= "select-wrapper add-new-place-form-group" data-controller="utils" data-utils-assets-value="<%= [t('files_selected'), t('no_file_selected')].to_json %>">
-      <%= form.label t('image'), style: "display: block" %>
+      <%= form.label t('.images_with_warning'), style: "display: block" %>
       <span id="file-upload-btn" data-utils-target="uploadBtn"><%= t(:no_file_selected) %></span>
-      <%= form.file_field :images, multiple: true, accept: "image/*", data: { action: "change->utils#uploadFiles", content: t('select_image')} %>
+      <%= form.file_field :images, multiple: true, accept: "image/jpeg,image/jpg,image/png,image/webp" , data: { action: "change->utils#uploadFiles", content: t('select_image')} %>
     </div>
   </div>
 
@@ -83,19 +83,19 @@
 
     <div class= "add-new-place-form-group">
       <%= form.label t('website_link'), style: "display: block" %>
-      <%= form.text_field :web_url, placeholder: "veganharita.com" %>
+      <%= form.text_field :web_url, placeholder: "veganharita.com", pattern: "(?!www)^(([a-z0-9]+(-[a-z0-9]+)*\.)*[a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}(\/[a-zA-Z0-9]*)?$", title:  t('.web_url_error_message') , maxlength: 50 %>
     </div>
   </div>
 
   <div class="sub-group">
     <div class= "add-new-place-form-group">
       <%= form.label t('mail'), style: "display: block" %>
-      <%= form.text_field :email, placeholder: "mail@mail.com" %>
+      <%= form.email_field :email, placeholder: "mail@mail.com" %>
     </div>
 
     <div class= "add-new-place-form-group">
       <%= form.label t('phone'), style: "display: block" %>
-      <%= form.text_field :phone, pattern: "[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}",  placeholder: "5*********" %>
+      <%= form.phone_field :phone, pattern: "[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}",  placeholder: "123 456 78 90", title: t('.phone_error_message') %>
     </div>
   </div>
 

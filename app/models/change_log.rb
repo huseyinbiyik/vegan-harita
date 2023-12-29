@@ -7,6 +7,42 @@ class ChangeLog < ApplicationRecord
   has_many_attached :images
   has_one_attached :image
 
+  validates :user_id, presence: true
+  validates :changeable_id, presence: true
+  validates :changeable_type, presence: true
+  validates :data, presence: true
+  validates :name, presence: true, if: -> { changeable_type == 'Place' && name.present? }, length: { maximum: 80 }
+  validates :place_id, presence: true, if: lambda {
+                                             place_id.present?
+                                           }
+  validates :address, presence: true, if: -> { address.present? }
+  validates :vegan, inclusion: { in: %w[true false] }, unless: -> { vegan.nil? }
+  validates :instagram_handle,
+            format: { with: /\A[\w.-]+\z/, message: I18n.t('activerecord.attributes.place.instagram_invalid') },
+            allow_blank: true,
+            length: { maximum: 30 },
+            if: -> { instagram_handle.present? }
+  validates :facebook_handle,
+            format: { with: /\A[\w.-]+\z/, message: I18n.t('activerecord.attributes.place.facebook_invalid') },
+            allow_blank: true,
+            length: { maximum: 50 },
+            if: -> { facebook_handle.present? }
+  validates :x_handle,
+            format: { with: /\A[\w.-]+\z/, message: I18n.t('activerecord.attributes.place.x_invalid') },
+            allow_blank: true,
+            length: { maximum: 50 },
+            if: -> { x_handle.present? }
+  validates :web_url,
+            format:
+              { with: %r{\A(?!www)(([a-z0-9]+(-[a-z0-9]+)*\.)*[a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}(/[a-zA-Z0-9]*)?\z},
+                allow_blank: true },
+            if: -> { web_url.present? }
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, allow_blank: true, if: -> { email.present? }
+  validates :phone, format: { with: /\A[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}\z/i }, allow_blank: true, if: lambda {
+                                                                                                        phone.present?
+                                                                                                      }
+  validates :tag_ids, presence: true, if: -> { tag_ids.present? }
+
   def place_attributes
     {
       name:,

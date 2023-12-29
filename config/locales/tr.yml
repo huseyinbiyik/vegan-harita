@@ -1,4 +1,6 @@
 tr:
+  max_image_limit: "Maksimum %{count} fotoğraf yükleyebilirsiniz."
+  only_alphanumeric: "yalnızca harf ve rakam içerebilir"
   captcha_error: "Lütfen robot olmadığınızı doğrulayın 🤖"
   your_email: "E-posta adresiniz"
   contact: "İletişim"
@@ -79,7 +81,7 @@ tr:
   change_image: "Görseli Değiştir"
   select_image: "Görsel Seçin"
   select_file: "Dosya seçin"
-  no_file_selected: "Henüz dosya seçilmedi"
+  no_file_selected: "dosya seçilmedi"
   files_selected: "dosya seçildi"
   sure: "Emin misiniz?"
   nevermind: "Boşver"
@@ -89,7 +91,7 @@ tr:
   error_reason: "şu sorundan dolayı arıza çıktı:"
   address_required: "Adres<span class='red-text'>*</span>"
   name_required: "İsim<span class='red-text'>*</span>"
-  select_delete: "Silinecek Fotoğrafları Seç"
+  select_delete: "Silinecek Fotoğrafları Seçin"
   image: "Görsel"
   images: "Görseller"
   place_vegan: "Bu işletme vegan mı yoksa sadece bazı vegan seçenekler mi sunuyor?"
@@ -202,8 +204,25 @@ tr:
         password_confirmation: "Parola tekrarı"
         current_password: "Mevcut parola (gerekli)"
       place:
+        name: "Mekan Adı"
+        address: "Adres"
+        web_url: "Website Adresi"
+        phone: "Telefon"
+        instagram: "Instagram"
+        facebook: "Facebook"
+        x: "X"
+        tags: "Etiketler"
+        is_vegan: "Vegan mı?"
+        place_id: "Google Maps ID"
+        latitude: "Enlem"
         latitude: "Adres alanı:"
+        images: "Fotoğraflar"
         pick_from_map_suggestions: "Lütfen Google Maps tarafından önerilen adreslerden birini seçin."
+        instagram_invalid: "Instagram kullanıcı adı geçersiz. Profilinizde veya URL'inizdeki kullanıcı adını girin. Mesela bizimkisi: veganharita"
+        facebook_invalid: "Facebook kullanıcı adı geçersiz. URL'inizdeki kullanıcı adını girin. "
+        x_invalid: "X (Twitter) kullanıcı adı geçersiz. URL'inizin sonundaki kullanıcı adını girin. "
+        image_invalid: "Geçersiz dosya türü. Lütfen yalnızca JPG, JPEG, PNG veya WEBP dosyalarını yükleyin."
+        image_size_invalid: "Dosya boyutu çok büyük. Lütfen 3MB'dan küçük bir dosya yükleyin."
       menu:
         name: "Kuzey Kore Usulü Kızarmış Tofu"
         description: "Tofu, soğan ve susam ve Kuzey Kore baharatları..."
@@ -217,6 +236,17 @@ tr:
         blank: "boş olamaz"
         confirmation: "eşleşmiyor"
         too_short: "çok kısa (en az %{count} karakter)"
+      models:
+        place:
+          attributes:
+            address:
+              taken: "Bu adres zaten sistemde mevcut. Lütfen halihazırdaki bir mekanı eklemediğinizden emin olun."
+            place_id:
+              taken: "Bu adres zaten sistemde mevcut. Lütfen halihazırdaki bir mekanı eklemediğinizden emin olun."
+            web_url:
+              invalid: "Geçersiz URL. Şu formatta deneyin: veganharita.com"
+            email:
+              invalid: "Geçersiz e-posta adresi. Şu formatta deneyin: abc@gmail.com"
   helpers:
     placeholder:
       name_search: "Mekan ara..."
@@ -296,4 +326,14 @@ tr:
     world_cuisine: 'Dünya Mutfakları'
     market: 'Market'
     delivery: 'Paket Servis'
+  places:
+    form:
+      web_url_error_message: "Lütfen geçerli bir URL girin. Örnek: veganharita.com"
+      phone_error_message: "Lütfen geçerli bir telefon numarası girin. Örnek: 5321234567 veya 2121234567"
+      images_with_warning: "Fotoğraflar (her biri en fazla 3MB ve 10 adet)"
+    edit:
+      web_url_error_message: "Lütfen geçerli bir URL girin. Örnek: veganharita.com"
+      phone_error_message: "Lütfen geçerli bir telefon numarası girin. Örnek: 5321234567 veya 2121234567"
+      images_with_warning: "Fotoğraflar (her biri en fazla 3MB ve 10 adet)"
+
 
