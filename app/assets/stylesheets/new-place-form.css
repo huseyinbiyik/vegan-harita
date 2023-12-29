@@ -109,6 +109,11 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
+  scrollbar-width: none;  /* Firefox */
+}
+
+.tags-form::-webkit-scrollbar {
+  display: none;
 }
 
 .tag {
