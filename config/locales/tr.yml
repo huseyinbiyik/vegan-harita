@@ -326,6 +326,11 @@ tr:
     world_cuisine: 'Dünya Mutfakları'
     market: 'Market'
     delivery: 'Paket Servis'
+    italian_cuisine: 'İtalyan Mutfağı'
+    bar: 'Bar'
+    detox: 'Detoks'
+    traditional_turkish_cuisine: 'Geleneksel Türk Mutfağı'
+    bakery: 'Fırın'
   places:
     form:
       web_url_error_message: "Lütfen geçerli bir URL girin. Örnek: veganharita.com"
