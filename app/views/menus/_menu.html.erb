@@ -16,7 +16,9 @@
      </h4>
 
     <p class="price">
-      <%= menu.price %>₺
+      <% if menu.price =! 0 %>
+        <%= menu.price %>₺
+      <% end %>
     </p>
   </div>
 
