@@ -4,7 +4,7 @@ class PlaceTest < ActiveSupport::TestCase
   include ActionDispatch::TestProcess
 
   def setup
-    @place = Place.new(name: 'Test Place', address: '123 Test St', place_id: '1', latitude: '40.7128')
+    @place = Place.new(name: 'Test Place', address: '123 Test St', place_id: '1', latitude: '40.7128', vegan: true)
   end
 
   def teardown
@@ -60,11 +60,16 @@ class PlaceTest < ActiveSupport::TestCase
     assert_equal ['has already been taken'], duplicate_place.errors[:place_id]
   end
 
-  test 'latitude should be present' do
-    @place.latitude = ''
+  test 'vegan should be true or false' do
+    @place.vegan = nil
     assert_not @place.valid?
-    assert_equal ['Please pick a location provided by Google Maps for the address you entered'],
-                 @place.errors[:latitude]
+    assert_equal ['is not included in the list'], @place.errors[:vegan]
+  end
+
+  test 'vegan should not be blank' do
+    @place.vegan = ''
+    assert_not @place.valid?
+    assert_equal ['is not included in the list'], @place.errors[:vegan]
   end
 
   test 'instagram_handle should be valid' do
