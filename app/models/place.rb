@@ -62,7 +62,7 @@ class Place < ApplicationRecord
 
   # Validation for adding images to place on add new form
   def images_count_within_limit
-    errors.add(:images, 'Şu an için en fazla 10 fotoğraf ekleyebilirsiniz 😞') if images.count > 10
+    errors.add(:images, I18n.t('max_image_limit', count: 10)) if images.count > 10
     images.each do |image|
       if image.byte_size > 3.megabytes
         errors.add(:images,
