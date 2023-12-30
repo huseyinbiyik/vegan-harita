@@ -27,4 +27,10 @@
       <%= form.submit t(:submit) %>
     </div>
   <% end %>
+  <div class="legal-links">
+    <%= link_to t('privacy_policy'), privacy_policy_path %> |
+    <%= link_to t('terms_of_use'), terms_of_use_path %> |
+    <%= link_to t('cookie_policy'), cookie_policy_path %> |
+    <%= link_to t('user_agreement'), user_agreement_path %>
+  </div>
 </main>

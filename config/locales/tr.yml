@@ -1,4 +1,8 @@
 tr:
+  privacy_policy: "Gizlilik Politikası"
+  terms_of_use: "Kullanım Koşulları"
+  cookie_policy: "Çerez Politikası"
+  user_agreement: "Kullanıcı Sözleşmesi"
   max_image_limit: "Maksimum %{count} fotoğraf yükleyebilirsiniz."
   only_alphanumeric: "yalnızca harf ve rakam içerebilir"
   captcha_error: "Lütfen robot olmadığınızı doğrulayın 🤖"
