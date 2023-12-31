@@ -1,36 +1,37 @@
 <section class="user-forms">
-
-<h1><%= t :signUp %></h1>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { data: { turbo: false}}) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email, t('mail') %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: true %>
+  <h1><%= t :signUp %></h1>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { data: { turbo: false}}) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="field">
+      <%= f.label :email, t('mail') %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: true, required: true %>
+    </div>
+    <div class="field">
+      <%= f.label :password, t('password') %>
+      <%= f.password_field :password, autocomplete: "new-password", placeholder: '******', required: true %>
+    </div>
+    <div class="field">
+      <%= f.label :password_confirmation, t('password_confirmation') %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: '******', required: true%>
+    </div>
+    <div class="field">
+      <%= f.hidden_field :user_agreement_accepted, value: false %>
+      <div class="user-agreement-checkbox-wrapper">
+        <%= f.check_box :user_agreement_accepted, {}, true, false%>
+        <div class="user-agreement-link-wrapper" >
+          <%= t('sign_user_agreement').html_safe %>
+        </div>
+      </div>
+    </div>
+    <div class="field recaptcha-container">
+      <%= flash[:recaptcha_error] %>
+      <%= recaptcha_tags %>
+    </div>
+    <div class="actions" style="margin-top:0;">
+      <%= f.submit t('signup'), id:"signup-button" %>
+    </div>
+  <% end %>
+  <div class="session-links-container">
+    <%= render "devise/shared/links" %>
   </div>
-
-  <div class="field">
-    <%= f.label :password, t('password') %>
-    <%= f.password_field :password, autocomplete: "new-password", placeholder: '******' %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation, t('password_confirmation') %>
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: '******' %>
-  </div>
-
-  <div class="field recaptcha-container">
-    <%= flash[:recaptcha_error] %>
-    <%= recaptcha_tags %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit t('signup'), id:"signup-button" %>
-  </div>
-<% end %>
-
-<div class="session-links-container">
-  <%= render "devise/shared/links" %>
-</div>
 </div>

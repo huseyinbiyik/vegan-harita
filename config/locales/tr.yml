@@ -207,6 +207,7 @@ tr:
         password: "Parola"
         password_confirmation: "Parola tekrarı"
         current_password: "Mevcut parola (gerekli)"
+        user_agreement_accepted: "Kullanıcı Sözleşmesi"
       place:
         name: "Mekan Adı"
         address: "Adres"
@@ -241,6 +242,10 @@ tr:
         confirmation: "eşleşmiyor"
         too_short: "çok kısa (en az %{count} karakter)"
       models:
+        user:
+          attributes:
+            user_agreement_accepted:
+              accepted: "'ni kabul etmelisiniz."
         place:
           attributes:
             address:
@@ -344,5 +349,6 @@ tr:
       web_url_error_message: "Lütfen geçerli bir URL girin. Örnek: veganharita.com"
       phone_error_message: "Lütfen geçerli bir telefon numarası girin. Örnek: 5321234567 veya 2121234567"
       images_with_warning: "Fotoğraflar (her biri en fazla 3MB ve 10 adet)"
+  sign_user_agreement: "<a href='/legals/user-agreement' target='_blank'><span class='underlined'>Kullanıcı Sözleşmesi</span>'ni okudum ve kabul ediyorum.</a>"
 
 
