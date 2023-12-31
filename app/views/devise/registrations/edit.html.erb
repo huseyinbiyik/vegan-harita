@@ -25,13 +25,13 @@
     <% end %>
     <div class="field">
       <%= f.label :password %>
-      <%= f.password_field :password, autocomplete: "new-password", placeholder: "******" %>
+      <%= f.password_field :password, autocomplete: "new-password", placeholder: "********" %>
       <% if @minimum_password_length %>
       <% end %>
     </div>
     <div class="field">
       <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "******" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "********" %>
     </div>
     <div class="field select">
       <%= f.label :locale, t('language') %>
@@ -39,7 +39,7 @@
     </div>
     <div class="field">
       <%= f.label :current_password %>
-      <%= f.password_field :current_password, autocomplete: "current-password", placeholder: "******" %>
+      <%= f.password_field :current_password, autocomplete: "current-password", placeholder: "********" %>
     </div>
     <div class="actions">
       <%= f.submit t('update'), id:"update-button" %>
