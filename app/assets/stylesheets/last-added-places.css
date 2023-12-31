@@ -5,6 +5,7 @@
 @media (min-width: 1024px) {
   #last-added-places-container {
     display: block;
+    margin: 0 48px;
     position: relative;
     overflow: hidden;
     height: 3.125rem;
@@ -77,5 +78,20 @@
     text-decoration: underline;
     font-size: 1.125rem;
     font-weight: 400;
+  }
+
+  #vh-instagram {
+    background-color: white;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 9px 0;
+  }
+
+  #vh-instagram a {
+    display: flex;
+    align-items: center;
+    gap: 5px;
   }
 }
