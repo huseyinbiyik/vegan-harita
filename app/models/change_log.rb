@@ -102,6 +102,8 @@ class ChangeLog < ApplicationRecord
 
     menu.image.attach(image.blob) if image.attached?
 
+    menu.place.contributors << user.id unless menu.place.contributors.include?(user.id)
+    menu.place.save
     menu.save
 
     user.increment!(:points)
