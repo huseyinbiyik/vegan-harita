@@ -1,13 +1,51 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-# one:
-#   name: MyString
-#   description: MyText
-#   product_category: 1
-#   place: one
+one:
+  name: Food Menu
+  description: MyText
+  product_category: 0
+  place: one
+  creator: one
+  approved: true
+  active: true
+  likes_count: 2
 
-# two:
-#   name: MyString
-#   description: MyText
-#   product_category: 1
-#   place: two
+two:
+  name: Most liked food menu
+  description: MyText
+  product_category: 0
+  place: one
+  creator: one
+  approved: true
+  active: true
+  likes_count: 3
+
+three:
+  name: Most liked available
+  description: MyText
+  product_category: 1
+  place: one
+  creator: one
+  approved: true
+  active: true
+  likes_count: 5
+
+four:
+  name: Not approved menu
+  description: MyText
+  product_category: 2
+  place: one
+  creator: one
+  approved: false
+  active: true
+  likes_count: 7
+
+five:
+  name: Not active menu
+  description: MyText
+  product_category: 2
+  place: one
+  creator: one
+  approved: true
+  active: false
+  likes_count: 9

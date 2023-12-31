@@ -341,5 +341,6 @@ en:
       phone_error_message: "Please enter a valid phone number like '5071234567' or '2121234567"
       images_with_warning: "Images (each Max 3MB and 20 images)"
   menus:
-    image_with_warning: "Images (max 3MB)"
+    form:
+      image_with_warning: "Images (max 3MB)"
 
