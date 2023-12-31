@@ -37,7 +37,7 @@ tr:
   delete_request: "Silme Talebi"
   edited_by: "Düzenleyen:"
   pending_menus: "Onay Bekleyen Menüler"
-  product_name: "Ürünün İsmi"
+  product_name: "Ürünün ismi"
   product_description: "Ürün Açıklaması"
   product_photo: "Ürün Fotoğrafı"
   product_category: "Ürün Kategorisi"
@@ -82,7 +82,7 @@ tr:
   add_place: "Mekan Ekle"
   my_account: "Hesabım"
   logOut: "Çıkış Yap"
-  change_image: "Görseli Değiştir"
+  change_image: "Görseli Değiştir (Max 3MB)"
   select_image: "Görsel Seçin"
   select_file: "Dosya seçin"
   no_file_selected: "dosya seçilmedi"
@@ -349,6 +349,9 @@ tr:
       web_url_error_message: "Lütfen geçerli bir URL girin. Örnek: veganharita.com"
       phone_error_message: "Lütfen geçerli bir telefon numarası girin. Örnek: 5321234567 veya 2121234567"
       images_with_warning: "Fotoğraflar (her biri en fazla 3MB ve 10 adet)"
+  menus:
+    form:
+      image_with_warning: "Yemek Görseli (en fazla 3MB)"
   sign_user_agreement: "<a href='/legals/user-agreement' target='_blank'><span class='underlined'>Kullanıcı Sözleşmesi</span>'ni okudum ve kabul ediyorum.</a>"
 
 

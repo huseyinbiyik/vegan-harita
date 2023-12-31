@@ -109,7 +109,7 @@ en:
   add_place: "Add Place"
   my_account: "My Account"
   logOut: "Log Out"
-  change_image: "Change Image"
+  change_image: "Change Image (Max 3MB)"
   select_image: "Select Image"
   select_file: "Select File"
   no_file_selected: "No file selected"
@@ -345,5 +345,8 @@ en:
       web_url_error_message: "Please enter a valid domain name like 'veganharita.com'"
       phone_error_message: "Please enter a valid phone number like '5071234567' or '2121234567"
       images_with_warning: "Images (each Max 3MB and 20 images)"
+  menus:
+    form:
+      image_with_warning: "Images (max 3MB)"
   sign_user_agreement: "<a href='/legals/user-agreement' target='_blank'>I read and accept the <span class='underlined'>User Agreement</span></a>"
 
