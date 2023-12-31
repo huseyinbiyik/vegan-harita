@@ -249,8 +249,9 @@
           <% if contributor.avatar.attached? %>
             <%= image_tag contributor.avatar.variant(resize_to_limit: [50,50]), class:"contributor-avatar", loading: "lazy" %>
           <% else %>
-            <%= image_tag "default-place-image.jpg", class:"contributor-avatar", loading: "lazy" %>
+            <%= image_tag "account-icon.svg", class:"contributor-avatar", loading: "lazy" %>
           <% end %>
+          <span class="contributor-name"><%= contributor.username %></span>
         </div>
       <% end %>
     </div>

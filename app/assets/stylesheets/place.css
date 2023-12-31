@@ -539,6 +539,22 @@
   }
 }
 
+.contributor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.875rem;
+  word-break: break-word;
+  min-width: 90px;
+  max-width: 90px;
+  color: var(--gray);
+
+  & a {
+    color: var(--gray);
+    text-decoration: underline;
+  }
+}
+
 @media (min-width: 1024px) {
   .separator {
     margin: 48px 0;
