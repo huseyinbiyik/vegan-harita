@@ -18,7 +18,7 @@
     top: 0;
     left: 0;
     font-size: 1.5rem;
-    padding: 0.5rem 2rem 0.5rem 3rem;
+    padding: 8px 32px 8px 0;
     height: 3.125rem;
     background-color: var(--white);
   }
