@@ -172,7 +172,7 @@ tr:
       updated: "Parolanız başarılı bir şekilde değiştirildi. Şimdi giriş yapabilirsiniz."
       updated_not_active: "Parolanız başarılı bir şekilde değiştirildi."
     registrations:
-      destroyed: "Güle güle! Hesabınız başarılı bir şekilde iptal edildi. Sizi tekrar görmeyi umut ediyoruz."
+      destroyed: "Güle güle! Hesabınız başarılı bir şekilde silindi. Sizi tekrar görmeyi umut ediyoruz."
       signed_up: "Hoşgeldiniz! Başarılı bir şekilde kayıt oldunuz."
       signed_up_but_inactive: "Başarılı bir şekilde kayıt oldunuz. Ancak henüz hesabınızı doğrulamadığınız için giriş yapamasınız."
       signed_up_but_locked: "Başarılı bir şekilde kayıt oldunuz. Ancak hesabınız kilitli olduğu için giriş yapamazsınız."

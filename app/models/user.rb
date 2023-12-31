@@ -11,9 +11,10 @@ class User < ApplicationRecord
 
 
 
-  has_many :change_logs
-  has_many :reviews
-  has_many :likes
+  has_many :change_logs, dependent: :destroy
+  has_many :menus, dependent: :destroy, foreign_key: "creator_id"
+  has_many :reviews, dependent: :destroy
+  has_many :likes, dependent: :destroy
   has_one_attached :avatar, dependent: :destroy
 
   validate :avatar_file_type
