@@ -55,6 +55,14 @@
         </li>
       <% end %>
     </li>
+    <li class="nav-link mobile">
+      <div class="vh-instagram">
+        <%= link_to "https://www.instagram.com/veganharita", target: "_blank" do %>
+          <%= image_tag ('instagram.svg') %>
+          <span>veganharita</span>
+        <% end %>
+      </div>
+    </li>
   </ul>
   <button id="burger" class="mobile" data-action="click->navigation#toggle">
     <span></span>

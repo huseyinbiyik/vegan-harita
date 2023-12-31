@@ -158,6 +158,18 @@ nav {
   padding: 8px 16px;
 }
 
+.nav-link:last-child {
+  margin-top: 50px;
+  padding: 0 16px;
+}
+
+.vh-instagram a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: 42px;
+}
+
 #sign-in-link {
   border-radius: 1.25rem;
   background: var(--green);
@@ -206,6 +218,11 @@ nav {
 }
 
 @media (min-width: 1024px) {
+  .mobile {
+    display: none;
+    width: 0;
+  }
+
   header {
     justify-content: space-between;
     padding: 1rem 3rem;
@@ -363,6 +380,10 @@ nav {
   }
 
   #logout-icon {
+    display: none;
+  }
+
+  .nav-link:last-child {
     display: none;
   }
 }
