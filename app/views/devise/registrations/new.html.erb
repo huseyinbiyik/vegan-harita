@@ -8,11 +8,11 @@
     </div>
     <div class="field">
       <%= f.label :password, t('password') %>
-      <%= f.password_field :password, autocomplete: "new-password", placeholder: '******', required: true %>
+      <%= f.password_field :password, autocomplete: "new-password", placeholder: '********', required: true, minlength: 8 %>
     </div>
     <div class="field">
       <%= f.label :password_confirmation, t('password_confirmation') %>
-      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: '******', required: true%>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: '********', required: true, minlength: 8 %>
     </div>
     <div class="field">
       <%= f.hidden_field :user_agreement_accepted, value: false %>

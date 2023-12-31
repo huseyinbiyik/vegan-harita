@@ -71,7 +71,7 @@ tr:
   forgotPassword: "Parolamı Unuttum"
   signUp: "Kayıt Ol"
   password: "Parola"
-  password_confirmation: "Parola Doğrulaması"
+  password_confirmation: "Parola Doğrulama"
   signup: "Kayıt ol"
   logIn: "Giriş Yap"
   remember: "Beni Hatırla"
