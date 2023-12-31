@@ -45,7 +45,10 @@
           <div class="slider-number" data-slider-target="number">
           </div>
         <% else %>
-          <%= image_tag "default-place-image.jpg", class: "slider-image", data: { slider_target: "image" } %>
+          <div class="no-photo-wrapper">
+            <%= image_tag "default-place-image.jpg", class: "slider-image", data: { slider_target: "image" }, loading: "lazy", class: "default-image" %>
+            <p class="no-photo" > <%= t :no_photo %> </p>
+          </div>
         <% end %>
       </div>
       <%= turbo_frame_tag :images, class: "edit-wrapper", hidden: true do %>

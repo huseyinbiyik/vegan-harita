@@ -10,7 +10,6 @@ class ChangeLog < ApplicationRecord
   validates :user_id, presence: true
   validates :changeable_id, presence: true
   validates :changeable_type, presence: true
-  validates :data, presence: true
   validates :name, presence: true, if: -> { changeable_type == "Place" && name.present? }, length: { maximum: 80 }
   validates :place_id, presence: true, if: lambda {
                                              place_id.present?
