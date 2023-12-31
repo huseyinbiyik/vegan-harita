@@ -1,17 +1,31 @@
 class Menu < ApplicationRecord
-  belongs_to :place
-  belongs_to :creator, class_name: 'User', foreign_key: 'creator_id'
-  has_many :change_logs, as: :changeable, dependent: :destroy
-  has_many :likes, as: :record, dependent: :destroy
-
-  has_one_attached :image, dependent: :destroy
-
+  # Enums
   enum product_category: { Yemek: 0, Tatlı: 1, İçecek: 2 }
 
+  # Associations
+  belongs_to :place
+  belongs_to :creator, class_name: "User", foreign_key: "creator_id"
+  has_many :change_logs, as: :changeable, dependent: :destroy
+  has_many :likes, as: :record, dependent: :destroy
+  has_one_attached :image, dependent: :destroy
+
+  # Validations
+  validates :name, presence: true, length: { maximum: 50 }
+  validates :description, length: { maximum: 500 }
+  validates :product_category, presence: true, inclusion: { in: %w[Yemek Tatlı İçecek] }
+  validates :place_id, presence: true
+  validates :creator_id, presence: true
+  validates :approved, inclusion: { in: [ true, false ] }, allow_nil: false
+  validates :active, inclusion: { in: [ true, false ] }, allow_nil: false
+  validate :check_image
+  validates :price, numericality: { greater_than_or_equal_to: 0 }, allow_nil: true
+
+  # Scopes
   scope :food, -> { where(product_category: 0, approved: true, active: true).order(likes_count: :desc) }
   scope :dessert, -> { where(product_category: 1, approved: true, active: true).order(likes_count: :desc) }
   scope :drink, -> { where(product_category: 2, approved: true, active: true).order(likes_count: :desc) }
 
+  # Public instance methods
   def approve
     self.approved = true
   end
@@ -29,6 +43,18 @@ class Menu < ApplicationRecord
   end
 
   def most_liked?(place)
-    likes_count == place.menus.maximum(:likes_count) && likes_count >= 5
+    max_likes = place.menus.where(approved: true, active: true).maximum(:likes_count)
+    likes_count == max_likes && likes_count >= 5 && self.approved && self.active
+  end
+
+  private
+
+  # Private methods
+  def check_image
+    if image.attached? && !image.content_type.in?(%w[image/jpeg image/png image/jpg image/webp])
+      errors.add(:image, I18n.t("activerecord.attributes.menu.image_invalid"))
+    elsif image.attached? && image.blob.byte_size > 3.megabytes
+      errors.add(:image, I18n.t("activerecord.attributes.menu.image_size"))
+    end
   end
 end

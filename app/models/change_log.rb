@@ -11,24 +11,24 @@ class ChangeLog < ApplicationRecord
   validates :changeable_id, presence: true
   validates :changeable_type, presence: true
   validates :data, presence: true
-  validates :name, presence: true, if: -> { changeable_type == 'Place' && name.present? }, length: { maximum: 80 }
+  validates :name, presence: true, if: -> { changeable_type == "Place" && name.present? }, length: { maximum: 80 }
   validates :place_id, presence: true, if: lambda {
                                              place_id.present?
                                            }
   validates :address, presence: true, if: -> { address.present? }
   validates :vegan, inclusion: { in: %w[true false] }, unless: -> { vegan.nil? }
   validates :instagram_handle,
-            format: { with: /\A[\w.-]+\z/, message: I18n.t('activerecord.attributes.place.instagram_invalid') },
+            format: { with: /\A[\w.-]+\z/, message: I18n.t("activerecord.attributes.place.instagram_invalid") },
             allow_blank: true,
             length: { maximum: 30 },
             if: -> { instagram_handle.present? }
   validates :facebook_handle,
-            format: { with: /\A[\w.-]+\z/, message: I18n.t('activerecord.attributes.place.facebook_invalid') },
+            format: { with: /\A[\w.-]+\z/, message: I18n.t("activerecord.attributes.place.facebook_invalid") },
             allow_blank: true,
             length: { maximum: 50 },
             if: -> { facebook_handle.present? }
   validates :x_handle,
-            format: { with: /\A[\w.-]+\z/, message: I18n.t('activerecord.attributes.place.x_invalid') },
+            format: { with: /\A[\w.-]+\z/, message: I18n.t("activerecord.attributes.place.x_invalid") },
             allow_blank: true,
             length: { maximum: 50 },
             if: -> { x_handle.present? }
@@ -42,6 +42,9 @@ class ChangeLog < ApplicationRecord
                                                                                                         phone.present?
                                                                                                       }
   validates :tag_ids, presence: true, if: -> { tag_ids.present? }
+
+  # Menu validations
+
 
   def place_attributes
     {
@@ -105,4 +108,15 @@ class ChangeLog < ApplicationRecord
 
     destroy
   end
+
+  private
+
+    # Private methods
+    def check_image
+      if image.attached? && !image.content_type.in?(%w[image/jpeg image/png image/jpg image/webp])
+        errors.add(:image, I18n.t("activerecord.attributes.menu.image_invalid"))
+      elsif image.attached? && image.blob.byte_size > 3.megabytes
+        errors.add(:image, I18n.t("activerecord.attributes.menu.image_size"))
+      end
+    end
 end

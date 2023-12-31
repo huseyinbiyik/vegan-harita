@@ -12,7 +12,7 @@ class Menus::LikesController < ApplicationController
 
     respond_to do |format|
       format.turbo_stream do
-        render turbo_stream: turbo_stream.replace(dom_id(@menu, :likes), partial: 'menus/likes',
+        render turbo_stream: turbo_stream.replace(dom_id(@menu, :likes), partial: "menus/likes",
                                                                          locals: { place: @menu.place, menu: @menu })
       end
     end
