@@ -30,6 +30,7 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  username_placeholder: "veganharita"
   max_image_limit: "You can upload up to %{count} images"
   only_alphanumeric: "Can only contain letters and numbers"
   captcha_error: "Please check the box below to prove you are not a robot"

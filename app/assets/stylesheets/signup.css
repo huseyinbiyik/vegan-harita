@@ -31,3 +31,7 @@
   display: inline-block;
   margin-right: 10px;
 }
+
+#user_username {
+  width: 240px;
+}

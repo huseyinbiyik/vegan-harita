@@ -1,4 +1,6 @@
 tr:
+  username: "Kullanıcı Adı"
+  username_placeholder: "veganharita"
   privacy_policy: "Gizlilik Politikası"
   terms_of_use: "Kullanım Koşulları"
   cookie_policy: "Çerez Politikası"
@@ -202,6 +204,7 @@ tr:
       user: "Kullanıcı"
     attributes:
       user:
+        username: "Kullanıcı Adı"
         name: "Ad"
         email: "E-posta"
         password: "Parola"
@@ -244,6 +247,10 @@ tr:
       models:
         user:
           attributes:
+            username:
+              taken: "Bu kullanıcı adı zaten kullanılıyor."
+            email:
+              taken: "Bu e-posta adresi zaten kullanılıyor."
             user_agreement_accepted:
               accepted: "'ni kabul etmelisiniz."
         place:
