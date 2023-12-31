@@ -261,6 +261,7 @@ en:
       models:
         user:
           attributes:
+            username_invalid: "Username is invalid. Can only contain letters and numbers"
             user_agreement_accepted:
               accepted: "You must accept the User Agreement"
         place:

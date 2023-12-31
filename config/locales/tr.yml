@@ -249,6 +249,7 @@ tr:
         user:
           attributes:
             username:
+              invalid: "yalnızca harf ve rakam içerebilir"
               taken: "Bu kullanıcı adı zaten kullanılıyor."
             email:
               taken: "Bu e-posta adresi zaten kullanılıyor."
