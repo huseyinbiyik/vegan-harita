@@ -1,4 +1,7 @@
 tr:
+  no_photo: "Henüz fotoğraf eklenmemiş"
+  username: "Kullanıcı Adı"
+  username_placeholder: "veganharita"
   privacy_policy: "Gizlilik Politikası"
   terms_of_use: "Kullanım Koşulları"
   cookie_policy: "Çerez Politikası"
@@ -71,7 +74,7 @@ tr:
   forgotPassword: "Parolamı Unuttum"
   signUp: "Kayıt Ol"
   password: "Parola"
-  password_confirmation: "Parola Doğrulaması"
+  password_confirmation: "Parola Doğrulama"
   signup: "Kayıt ol"
   logIn: "Giriş Yap"
   remember: "Beni Hatırla"
@@ -170,7 +173,7 @@ tr:
       updated: "Parolanız başarılı bir şekilde değiştirildi. Şimdi giriş yapabilirsiniz."
       updated_not_active: "Parolanız başarılı bir şekilde değiştirildi."
     registrations:
-      destroyed: "Güle güle! Hesabınız başarılı bir şekilde iptal edildi. Sizi tekrar görmeyi umut ediyoruz."
+      destroyed: "Güle güle! Hesabınız başarılı bir şekilde silindi. Sizi tekrar görmeyi umut ediyoruz."
       signed_up: "Hoşgeldiniz! Başarılı bir şekilde kayıt oldunuz."
       signed_up_but_inactive: "Başarılı bir şekilde kayıt oldunuz. Ancak henüz hesabınızı doğrulamadığınız için giriş yapamasınız."
       signed_up_but_locked: "Başarılı bir şekilde kayıt oldunuz. Ancak hesabınız kilitli olduğu için giriş yapamazsınız."
@@ -202,6 +205,7 @@ tr:
       user: "Kullanıcı"
     attributes:
       user:
+        username: "Kullanıcı Adı"
         name: "Ad"
         email: "E-posta"
         password: "Parola"
@@ -244,6 +248,10 @@ tr:
       models:
         user:
           attributes:
+            username:
+              taken: "Bu kullanıcı adı zaten kullanılıyor."
+            email:
+              taken: "Bu e-posta adresi zaten kullanılıyor."
             user_agreement_accepted:
               accepted: "'ni kabul etmelisiniz."
         place:
@@ -257,6 +265,8 @@ tr:
             email:
               invalid: "Geçersiz e-posta adresi. Şu formatta deneyin: abc@gmail.com"
   helpers:
+    reviews_helper:
+      not_yet_rated: "Henüz değerlendirilmedi"
     placeholder:
       name_search: "Mekan ara..."
       user:

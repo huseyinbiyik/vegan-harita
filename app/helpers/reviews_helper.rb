@@ -15,7 +15,7 @@ module ReviewsHelper
   end
 
   def average_rating(reviews)
-    return "Henüz değerlendirme yapılmamış." if reviews.blank?
+    return I18n.t("helpers.reviews_helper.not_yet_rated") if reviews.blank?
 
     "#{number_with_precision(reviews.average(:rating), precision: 1)}/5"
   end

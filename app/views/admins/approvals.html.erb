@@ -9,7 +9,7 @@
             <% if user.avatar.attached? %>
               <li><%= image_tag user.avatar.variant(resize_to_limit: [100,100]), class:"avatar", loading: "lazy"%></li>
             <% end %>
-            <li><span class="pending-title"><%= t :user_name %>:</span><%= user.email %></li>
+            <li><span class="pending-title"><%= t :user_name %>:</span><%= user.username %></li>
             <li><span class="pending-title"><%= t :score %>:</span><%= user.points %></li>
             <li><span class="pending-title">Not</span>
               <%= turbo_frame_tag "note_#{user.id}" do %>
@@ -140,7 +140,7 @@
               </div>
             </li>
           <% end %>
-          <li class="user-info"><span class="pending-title"><%= t :edited_by %></span><% if place_edit.user.avatar.attached? %><%= image_tag place_edit.user.avatar.variant(resize_to_limit: [100,100]), class: "avatar", loading: "lazy" %> <% end %> <%= place_edit.user.email %></li>
+          <li class="user-info"><span class="pending-title"><%= t :edited_by %></span><% if place_edit.user.avatar.attached? %><%= image_tag place_edit.user.avatar.variant(resize_to_limit: [100,100]), class: "avatar", loading: "lazy" %> <% end %> <%= place_edit.user.username %></li>
           <li class="admin-btns">
             <%= link_to t('approve'), approve_place_edit_path(id: place_edit.id), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
             <%= link_to t('reject'), reject_place_edit_path(id: place_edit.id), class: "reject-btn", method: "delete", remote: true, data: { turbo_method: "delete" } %>
@@ -208,7 +208,7 @@
           <li class="compared"><span class="pending-title"> <%= t :delete_request %> </span>
             <div><%= menu_edit.changeable.active %> <span class="arrow"> → </span> <%= menu_edit.active %><div>
           </li>
-          <li class="user-info"><span class="pending-title"><%= t :edited_by %></span><% if menu_edit.user.avatar.attached? %> <%= image_tag menu_edit.user.avatar.variant(resize_to_limit: [100,100]), class: "avatar", loading: "lazy" %> <% end %> <%= menu_edit.user.email %></li>
+          <li class="user-info"><span class="pending-title"><%= t :edited_by %></span><% if menu_edit.user.avatar.attached? %> <%= image_tag menu_edit.user.avatar.variant(resize_to_limit: [100,100]), class: "avatar", loading: "lazy" %> <% end %> <%= menu_edit.user.username %></li>
           <li>
             <%= link_to t('approve'), approve_menu_edit_path(menu_edit), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
             <%= link_to t('reject'), reject_menu_edit_path(menu_edit), class: "reject-btn", method: "delete", remote: true, data: { turbo_method: "delete" } %>
@@ -236,7 +236,7 @@
               <%= render partial: "shared/slider", locals: { images: review.images } %>
             </li>
           <% end %>
-        <li class="user-info"><span class="pending-title"><%= t :reviewer %></span><% if review.user.avatar.attached? %> <%= image_tag review.user.avatar.variant(resize_to_limit: [100,100]), class: "avatar", loading: "lazy" %> <% end %> <%= review.user.email %></li>
+        <li class="user-info"><span class="pending-title"><%= t :reviewer %></span><% if review.user.avatar.attached? %> <%= image_tag review.user.avatar.variant(resize_to_limit: [100,100]), class: "avatar", loading: "lazy" %> <% end %> <%= review.user.username %></li>
         <li>
           <%= link_to t('approve'), approve_review_path(review), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
           <%= link_to t('reject'), reject_review_path(review), class: "reject-btn", method: "delete", remote: true, data: { turbo_method: "delete" } %>

@@ -12,6 +12,7 @@
 
 .select {
   width: 100%;
+  max-width: 240px;
 }
 
 .user-agreement-checkbox-wrapper {
@@ -30,4 +31,8 @@
   width: 24px;
   display: inline-block;
   margin-right: 10px;
+}
+
+#user_username {
+  width: 240px;
 }

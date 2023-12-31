@@ -7,7 +7,7 @@
         <% else %>
           <%= image_tag "default-place-image.jpg", class:"review-avatar", loading: "lazy" %>
         <% end %>
-        <%= review.user.email %>
+        <%= review.user.username %>
         <% if review.user == current_user && user_signed_in? %>
           <%= link_to t('edit'), edit_place_review_path(@place, review) %>
           <%= link_to t('delete'), place_review_path(@place, review), method: "delete", remote: true, data: { turbo_method: "delete", turbo_confirm: t('sure_delete') } %>

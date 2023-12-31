@@ -30,6 +30,8 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  no_photo: "No Photo"
+  username_placeholder: "veganharita"
   max_image_limit: "You can upload up to %{count} images"
   only_alphanumeric: "Can only contain letters and numbers"
   captcha_error: "Please check the box below to prove you are not a robot"
@@ -268,6 +270,8 @@ en:
             place_id:
               taken: "already exists"
   helpers:
+    reviews_helper:
+      not_yet_rated: "Henüz değerlendirilmedi"
     placeholder:
       name_search: "Search Place..."
       user:

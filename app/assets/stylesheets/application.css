@@ -246,6 +246,11 @@ select:focus {
   width: 240px;
 }
 
+.default-image {
+  filter: blur(5px);
+  opacity: 0.5;
+}
+
 @media (min-width: 1024px) {
   .visible-on-desktop {
     display: block;

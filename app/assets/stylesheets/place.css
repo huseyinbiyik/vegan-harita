@@ -96,6 +96,21 @@
   }
 }
 
+.no-photo-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.no-photo {
+  position: absolute;
+  top: 50%;
+  background-color: var(--black);
+  color: var(--white);
+  padding: 4px 8px;
+  border-radius: 0 5px 5px 0;
+}
+
 .photo-select-form-container {
   margin: 16px 20px;
 
@@ -536,6 +551,22 @@
     height: 50px;
     border-radius: 50%;
     object-fit: cover;
+  }
+}
+
+.contributor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.875rem;
+  word-break: break-word;
+  min-width: 90px;
+  max-width: 90px;
+  color: var(--gray);
+
+  & a {
+    color: var(--gray);
+    text-decoration: underline;
   }
 }
 
