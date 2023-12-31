@@ -234,6 +234,7 @@ en:
         password: "Password"
         password_confirmation: "Password confirmation"
         current_password: "Current password (required)"
+        user_agreement_accepted: "User Agreement"
       place:
         latitude: "Address:"
         pick_from_map_suggestions: "Please pick a location provided by Google Maps for the address you entered"
@@ -255,13 +256,17 @@ en:
         blank: "can't be blank"
         confirmation: "doesn't match"
         too_short: "too short (%{count} characters minimum)"
-        models:
-          place:
-            attributes:
-              address:
-                taken: "already exists"
-              place_id:
-                taken: "already exists"
+      models:
+        user:
+          attributes:
+            user_agreement_accepted:
+              accepted: "You must accept the User Agreement"
+        place:
+          attributes:
+            address:
+              taken: "already exists"
+            place_id:
+              taken: "already exists"
   helpers:
     placeholder:
       name_search: "Search Place..."
@@ -343,4 +348,5 @@ en:
   menus:
     form:
       image_with_warning: "Images (max 3MB)"
+  sign_user_agreement: "<a href='/legals/user-agreement' target='_blank'>I read and accept the <span class='underlined'>User Agreement</span></a>"
 

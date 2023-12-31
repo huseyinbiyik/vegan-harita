@@ -33,5 +33,12 @@ Rails.application.routes.draw do
     patch "update_note/:id", to: "admins#update_note", as: :update_note
   end
 
+  scope "legals" do
+    get "privacy-policy", to: "legals#privacy_policy"
+    get "terms-of-use", to: "legals#terms_of_use"
+    get "cookie-policy", to: "legals#cookie_policy"
+    get "user-agreement", to: "legals#user_agreement"
+  end
+
   get "up" => "rails/health#show", as: :rails_health_check
 end

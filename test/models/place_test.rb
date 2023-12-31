@@ -46,7 +46,7 @@ class PlaceTest < ActiveSupport::TestCase
     duplicate_place = @place.dup
     @place.save
     assert_not duplicate_place.valid?
-    assert_equal [ "has already been taken" ], duplicate_place.errors[:address]
+    assert_equal [ "already exists" ], duplicate_place.errors[:address]
   end
 
   test "place_id should be present" do
@@ -59,7 +59,7 @@ class PlaceTest < ActiveSupport::TestCase
     duplicate_place = @place.dup
     @place.save
     assert_not duplicate_place.valid?
-    assert_equal [ "has already been taken" ], duplicate_place.errors[:place_id]
+    assert_equal [ "already exists" ], duplicate_place.errors[:place_id]
   end
 
   test "vegan should be true or false" do

@@ -1,4 +1,8 @@
 tr:
+  privacy_policy: "Gizlilik Politikası"
+  terms_of_use: "Kullanım Koşulları"
+  cookie_policy: "Çerez Politikası"
+  user_agreement: "Kullanıcı Sözleşmesi"
   max_image_limit: "Maksimum %{count} fotoğraf yükleyebilirsiniz."
   only_alphanumeric: "yalnızca harf ve rakam içerebilir"
   captcha_error: "Lütfen robot olmadığınızı doğrulayın 🤖"
@@ -203,6 +207,7 @@ tr:
         password: "Parola"
         password_confirmation: "Parola tekrarı"
         current_password: "Mevcut parola (gerekli)"
+        user_agreement_accepted: "Kullanıcı Sözleşmesi"
       place:
         name: "Mekan Adı"
         address: "Adres"
@@ -237,6 +242,10 @@ tr:
         confirmation: "eşleşmiyor"
         too_short: "çok kısa (en az %{count} karakter)"
       models:
+        user:
+          attributes:
+            user_agreement_accepted:
+              accepted: "'ni kabul etmelisiniz."
         place:
           attributes:
             address:
@@ -343,5 +352,6 @@ tr:
   menus:
     form:
       image_with_warning: "Yemek Görseli (en fazla 3MB)"
+  sign_user_agreement: "<a href='/legals/user-agreement' target='_blank'><span class='underlined'>Kullanıcı Sözleşmesi</span>'ni okudum ve kabul ediyorum.</a>"
 
 

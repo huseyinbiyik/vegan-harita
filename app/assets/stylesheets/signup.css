@@ -13,3 +13,21 @@
 .select {
   width: 100%;
 }
+
+.user-agreement-checkbox-wrapper {
+  display: flex;
+  font-size: 14px;
+  width: 240px;
+  align-items: center;
+}
+
+.user-agreement-link-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+#user_user_agreement_accepted {
+  width: 24px;
+  display: inline-block;
+  margin-right: 10px;
+}

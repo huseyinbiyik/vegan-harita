@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable
 
   validates :locale, inclusion: { in: I18n.available_locales.map(&:to_s) }, allow_blank: true
+  validates :user_agreement_accepted, acceptance: true
 
   has_many :change_logs
   has_many :reviews
