@@ -82,3 +82,12 @@
   bottom: 11px;
   font-size: 14px;
 }
+
+.legal-links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 3rem;
+  gap: 1rem;
+  padding: 0 20px;
+}
