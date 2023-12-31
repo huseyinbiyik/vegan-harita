@@ -1,0 +1,8 @@
+one:
+    user: one
+    changeable_type: Menu
+    changeable_id: 1
+    data: |
+      {"name": "Test Change Log"}
+
+

@@ -22,12 +22,12 @@ class User < ApplicationRecord
   end
 
   def admin?
-    role == 'admin'
+    role == "admin"
   end
 
   def avatar_file_type
-    return unless avatar.attached? && !avatar.content_type.in?('image/png, image/jpeg, image/jpg')
+    return unless avatar.attached? && !avatar.content_type.in?("image/png, image/jpeg, image/jpg")
 
-    errors.add(:avatar, 'Incorrect file format! Only jpg and png types are acceptable.')
+    errors.add(:avatar, "Incorrect file format! Only jpg and png types are acceptable.")
   end
 end

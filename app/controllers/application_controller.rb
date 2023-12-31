@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  http_basic_authenticate_with name: 'notready', password: 'yet'
+  http_basic_authenticate_with name: "notready", password: "yet"
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
   helper_method :extract_locale_from_accept_language_header
@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   end
 
   def extract_locale_from_accept_language_header
-    accept_language = request.env['HTTP_ACCEPT_LANGUAGE']
+    accept_language = request.env["HTTP_ACCEPT_LANGUAGE"]
     accept_language&.scan(/^[a-z]{2}/)&.first
   end
 
@@ -21,6 +21,6 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up,
                                       keys: %i[email password password_confirmation user_agreement_accepted])
     devise_parameter_sanitizer.permit(:account_update,
-                                      keys: [:approved, :role, :points, :avatar, :locale, :'admin_note)'])
+                                      keys: [ :approved, :role, :points, :avatar, :locale, :'admin_note)' ])
   end
 end

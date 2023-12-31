@@ -8,6 +8,6 @@ class ContactMailer < ApplicationMailer
       attachments[image.original_filename] = File.read(image.tempfile) if image.present?
     end
 
-    mail(to: 'iletisim@veganharita.com', subject: 'İletişim Formundan Mesaj Var')
+    mail(to: "iletisim@veganharita.com", subject: "İletişim Formundan Mesaj Var")
   end
 end
