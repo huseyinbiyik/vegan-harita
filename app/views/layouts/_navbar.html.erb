@@ -28,6 +28,9 @@
           <span><%= t :contact %></span>
         <% end %>
       </li>
+
+   
+
       <% if user_signed_in? %>
         <li class="wrapper">
           <% if current_user.avatar.attached? %>
@@ -45,6 +48,7 @@
                 <span><%= t :logOut %></span>
               <% end %>
             </li>
+
           </ul>
         </li>
       <% else %>
@@ -54,6 +58,14 @@
           <% end %>
         </li>
       <% end %>
+    </li>
+    <li class="nav-link">
+      <div class="vh-instagram mobile">
+        <%= link_to "https://www.instagram.com/veganharita", target: "_blank" do %>
+          <%= image_tag ('instagram.svg') %>
+          <span>@veganharita</span>
+        <% end %>
+      </div>
     </li>
   </ul>
   <button id="burger" class="mobile" data-action="click->navigation#toggle">
