@@ -16,7 +16,7 @@
      </h4>
 
     <p class="price">
-      <% if menu.price =! 0 %>
+      <% if menu.price != 0 && menu.price != nil %>
         <%= menu.price %>₺
       <% end %>
     </p>
