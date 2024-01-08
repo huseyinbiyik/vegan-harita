@@ -1,6 +1,8 @@
 require "test_helper"
 
 class MenuTest < ActiveSupport::TestCase
+  include ActionDispatch::TestProcess
+
   setup do
     @menu = menus(:one)
   end
@@ -170,4 +172,42 @@ test "should belong to place" do
   # METHODS END
 
   # CALLBACKS START
+  test "should destroy associated change_logs" do
+    assert_difference "ChangeLog.count", -1 do
+      @menu.destroy
+    end
+  end
+
+  test "should destroy associated likes" do
+    assert_difference "Like.count", -1 do
+      @menu.destroy
+    end
+  end
+
+  test "should destroy associated image when menu is destroyed" do
+    @menu.save
+    file = fixture_file_upload("test.png")
+    @menu.image.attach(file)
+
+    assert_difference "ActiveStorage::Attachment.count", -1 do
+      @menu.destroy
+    end
+  end
+  # CALLBACKS END
+
+  # PRIVATE METHODS START
+  test "should add error if image type is invalid" do
+    file = fixture_file_upload("test.gif")
+    @menu.image.attach(file)
+    assert_not @menu.valid?
+    assert_equal I18n.t("activerecord.attributes.menu.image_invalid"), @menu.errors[:image].first
+  end
+
+  test "should add error if image size is too big" do
+    file = fixture_file_upload("testbig.jpeg", "image/jpeg")
+    @menu.image.attach(file)
+    assert_not @menu.valid?
+    assert_equal I18n.t("activerecord.attributes.menu.image_size"), @menu.errors[:image].first
+  end
+  # PRIVATE METHODS END
 end
