@@ -2,10 +2,6 @@ tr:
   no_photo: "Henüz fotoğraf eklenmemiş"
   username: "Kullanıcı Adı"
   username_placeholder: "veganharita"
-  privacy_policy: "Gizlilik Politikası"
-  terms_of_use: "Kullanım Koşulları"
-  cookie_policy: "Çerez Politikası"
-  user_agreement: "Kullanıcı Sözleşmesi"
   max_image_limit: "Maksimum %{count} fotoğraf yükleyebilirsiniz."
   only_alphanumeric: "yalnızca harf ve rakam içerebilir"
   captcha_error: "Lütfen robot olmadığınızı doğrulayın 🤖"
@@ -364,5 +360,11 @@ tr:
     form:
       image_with_warning: "Yemek Görseli (en fazla 3MB)"
   sign_user_agreement: "<a href='/legals/user-agreement' target='_blank'><span class='underlined'>Kullanıcı Sözleşmesi</span>'ni okudum ve kabul ediyorum.</a>"
-
-
+  privacy_policy:
+    link_text: "Gizlilik Politikası"
+  terms_of_use:
+    link_text: "Kullanım Koşulları"
+  cookie_policy:
+    link_text: "Çerez Politikası"
+  user_agreement:
+    link_text: "Kullanıcı Sözleşmesi"

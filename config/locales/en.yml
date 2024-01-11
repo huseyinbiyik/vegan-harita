@@ -354,4 +354,11 @@ en:
     form:
       image_with_warning: "Images (max 3MB)"
   sign_user_agreement: "<a href='/legals/user-agreement' target='_blank'>I read and accept the <span class='underlined'>User Agreement</span></a>"
-
+  privacy_policy:
+    link_text: "Privacy Policy"
+  terms_of_use:
+    link_text: "Terms of Use"
+  cookie_policy:
+    link_text: "Cookie Policy"
+  user_agreement:
+    link_text: "User Agreement"
