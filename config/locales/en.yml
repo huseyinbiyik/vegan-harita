@@ -426,4 +426,21 @@ en:
     managing_text_html: "<p>After all these explanations, the issue of which cookies to use is left entirely to the free will of our users. You can manage your cookie preferences as soon as you enter our website by deleting or blocking them from your browser's settings, or you can change these settings at any time in the future. For more detailed information, you can check out our Privacy Policy or contact us via e-mail address iletisim@veganharita.com.</p>"
   user_agreement:
     link_text: "User Agreement"
-    
+    title_html: "<h1>User Agreement</h1>"
+    last_update_html: "<span> Last update: 30/12/2023 </span>"
+    usage_html: "<h2>Website Usage</h2>"
+    usage_text_html: "<p>By using this website, you accept this user agreement and privacy policy.</p><br>"
+    content_html: "<h2>Content Sharing</h2>"
+    content_text_html: "<p>Illegal, immoral or offensive content is not allowed in content sharing via the website. In case of violation, we have the right to remove the content and terminate the membership.</p><br>"
+    notice_html: "<h2>Copyright Notice</h2>"
+    notice_text_html: "<p>The user declares that they own all copyrights regarding any content they share on this website.</p>
+    <p>In case of sharing content subject to copyright, the user agrees to grant the website the right to use, reproduce, distribute and all other uses of the content.</p>
+    <p>The website operator disclaims all costs and liabilities arising from legal liabilities that may arise due to the use of copyrighted content. In case of copyright infringement, the user has the obligation to inform the website operator to report such situations and remove the content.</p>
+    <p>The website operator reserves the right to review copyrighted content and remove it when necessary. In case of copyright infringement, the content will be removed quickly.</p>
+    <p>The website operator is not obliged to support the user in any legal process arising from sharing copyrighted content.</p><br>"
+    privacy_html: "<h2>Privacy</h2>"
+    privacy_text_html: "<p>Your user information will be kept confidential. However, as the website operator, we have the right to share certain of your information with the competent authorities in order to comply with laws and regulations.</p><br>"
+    disclaimer_html: "<h2>Disclaimer</h2>"
+    disclaimer_text_html: "<p>We do not guarantee the accuracy and currency of the content on the website. Users should rely on information at their own risk.</p><br>"
+    changes_html: "<h2>Changes</h2>"
+    changes_text_html: "<p>This user agreement may be changed from time to time. It is the user's responsibility to follow updates.</p>"

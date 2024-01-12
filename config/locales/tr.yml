@@ -438,3 +438,21 @@ tr:
     managing_text_html: "<p>Tüm bu açıklamalardan sonra, hangi çerezlerin kullanılacağı konusu, tamamen kullanıcılarımızın özgür iradelerine bırakılmıştır. Çerez tercihlerinizi, tarayıcınızın ayarlarından silerek ya da engelleyerek, web sitemize adım attığınız anda yönetebilir ya da gelecekte, istediğiniz zaman bu ayarları değiştirebilirsiniz. Daha ayrıntılı bilgi için Gizlilik Politikamıza göz atabilir ya da bizlerle iletisim@veganharita.com e-mail adresi üzerinden iletişime geçebilirsiniz.</p>"
   user_agreement:
     link_text: "Kullanıcı Sözleşmesi"
+    title_html: "<h1>Kullanıcı Sözleşmesi</h1>"
+    last_update_html: "<span> Son güncellenme: 30/12/2023 </span>"
+    usage_html: "<h2>Web Sitesi Kullanımı</h2>"
+    usage_text_html: "<p>Bu web sitesini kullanarak, bu kullanıcı sözleşmesini ve gizlilik politikasını kabul etmiş sayılırsınız.</p><br>"
+    content_html: "<h2>İçerik Paylaşımı</h2>"
+    content_text_html: "<p>Web sitesi üzerinden yapılan içerik paylaşımlarında yasa dışı, ahlaki olmayan veya rahatsız edici içeriklere izin verilmez. İhlal durumunda, içeriğin kaldırılması ve üyeliğin sonlandırılması hakkına sahibiz.</p><br>"
+    notice_html: "<h2>Telif Hakkı Bildirimi</h2>"
+    notice_text_html: "<p>Kullanıcı, bu web sitesi üzerinden paylaştığı her türlü içerikle ilgili olarak, içeriğin tüm telif haklarına sahip olduğunu beyan eder.</p>
+    <p>Telif hakkına tabi içeriklerin paylaşılması durumunda, kullanıcı, içeriğin kullanımı, çoğaltılması, dağıtılması ve diğer her türlü kullanım hakkını web sitesine tanıdığını kabul eder.</p>
+    <p>Web sitesi işletmecisi, telif hakkına tabi içeriklerin kullanımı nedeniyle ortaya çıkabilecek yasal sorumluluklardan doğan tüm maliyetleri ve yükümlülükleri kabul etmez. Kullanıcı, telif hakkı ihlali durumunda web sitesi işletmecisini bu tür durumları bildirme ve içerikleri kaldırma konusunda bilgilendirme yükümlülüğüne sahiptir.</p>
+    <p>Web sitesi işletmecisi, telif hakkına tabi içerikleri inceleme ve gerektiğinde kaldırma hakkını saklı tutar. Telif hakkı ihlali durumunda içerik hızlı bir şekilde kaldırılacaktır.</p>
+    <p>Web sitesi işletmecisi, telif hakkına tabi içeriklerin paylaşılmasından kaynaklanan herhangi bir hukuki süreçte kullanıcıyı desteklemekle yükümlü değildir.</p><br>"
+    privacy_html: "<h2>Gizlilik</h2>"
+    privacy_text_html: "<p>Kullanıcı bilgileriniz gizli tutulacaktır. Ancak, web sitesi işletmecisi olarak yasa ve düzenlemelere uymak amacıyla, belirli bilgilerinizi yetkili makamlarla paylaşma hakkına sahibiz.</p><br>"
+    disclaimer_html: "<h2>Sorumluluk Reddi</h2>"
+    disclaimer_text_html: "<p>Web sitesindeki içeriklerin doğruluğu ve güncelliği konusunda herhangi bir garanti vermemekteyiz. Kullanıcılar, kendi riskleri altında bilgiye güvenmelidir.</p><br>"
+    changes_html: "<h2>Değişiklikler</h2>"
+    changes_text_html: "<p>Bu kullanıcı sözleşmesi zaman zaman değiştirilebilir. Güncellemeleri takip etmek kullanıcının sorumluluğundadır.</p>"
