@@ -356,9 +356,38 @@ en:
   sign_user_agreement: "<a href='/legals/user-agreement' target='_blank'>I read and accept the <span class='underlined'>User Agreement</span></a>"
   privacy_policy:
     link_text: "Privacy Policy"
+    title_html: "<h1>Privacy Policy</h1>"
+    last_update_html: "<span>Last update: 30/12/2023</span>"
+    intro_html: "<p>Your safety is important to us. For this reason, the personal data you share with us is protected sensitively. In this context, in accordance with the Personal Data Protection Law No. 6698 (“KVKK”) and relevant legislation, we, as the data controller, would like to inform you about the processing of your personal data.<br><br>We, veganharita.com, as the data controller, with this privacy and personal data protection policy, which of your personal data will be processed for what purpose, with whom and why the processed data can be shared, our data processing method and legal reasons; aim to enlighten you about what your rights are regarding your processed data.</p><br>"
+    method_html: "<h2>Your Collected Personal Data, Collection Method and Legal Reason</h2>"
+    method_text_html: "<p>Your user agent information (e.g. web browser) is used only for analysis purposes and cookies, etc. It will be processed based on legitimate interest processing within the framework and duration of the service and contractual relationship between us by obtaining, recording, storing and updating through technologies, automatic or non-automatic methods and sometimes from third parties such as analytics providers, search information providers, technology providers.</p><br>"
+    purpose_html: "<h2>Purpose of Processing Your Personal Data</h2>"
+    purpose_text_html: "<p>Your personal data you share with us is only available through analysis; to be able to fulfill the requirements of the services we offer in the best possible way, to ensure that these services can be accessed and benefited from at the maximum level by you, to be able to develop our services in line with your needs and to bring you together with more comprehensive service providers within legal frameworks and to comply with the obligations arising from the law (personal data can be shared with judicial and administrative authorities upon request); will be processed and updated in accordance with its purpose and in a measured manner throughout the contract and service, in order to be able to be shared.</p><br>"
+    transfer_html: "<h2>To Whom and For What Purposes Collected Personal Data Can Be Transferred</h2>"
+    transfer_text_html: "<p>Your personal data you share with us; can be transferred to domestic and foreign third parties, institutions and organizations from which we receive and/or provide services to carry out our activities, with whom we have contractual relations and cooperate, and to judicial and administrative authorities upon request, provided that the necessary technical and administrative measures are taken.</p><br>"
+    rights_html: "<h2>Your Rights as the Person Whose Personal Data is Processed</h2>"
+    rights_text_html: "In accordance with Article 11 of KVKK, anyone can exercise the following rights by applying to the data controller:
+    <ol style='list-style-type: lower-alpha; list-style-position: inside;'>
+    <li>Learning whether personal data is processed, </li>
+    <li> Requesting information if personal data has been processed, </li>
+    <li>Learning the purpose of processing personal data and whether they are used for their intended purpose, </li>
+    <li>Knowing the third parties to whom personal data is transferred domestically or abroad, </li>
+    <li>Requesting correction of personal data if they are incomplete or incorrectly processed, </li>
+    <li>Requesting deletion or destruction of personal data, </li>
+    <li>Requesting that the transactions carried out in accordance with clauses (e) and (f) be notified to third parties to whom personal data are transferred, </li>
+    <li> Objecting to the emergence of a result against the person by analyzing the processed data exclusively through automatic systems, </li>
+    <li> They have the right to demand compensation for the damage in case of damage due to illegal processing of personal data </li>
+    </ol>
+    <br>
+    <p>
+    You can contact us via iletisim@veganharita.com to exercise your rights listed above.
+    </p><br>"
+    contact_html: "<h2>Contact</h2>"
+    contact_text_html: "<p>You are completely free to accept or reject the processing of only your necessary personal data in accordance with this privacy and personal data processing policy in order to perform analyzes to provide you with services. If you continue to use the site, we will assume that you have accepted it. For more detailed information, please do not hesitate to contact us via e-mail address iletisim@veganharita.com.</p>"
   terms_of_use:
     link_text: "Terms of Use"
   cookie_policy:
     link_text: "Cookie Policy"
   user_agreement:
     link_text: "User Agreement"
+    

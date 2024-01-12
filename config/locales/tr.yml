@@ -362,6 +362,35 @@ tr:
   sign_user_agreement: "<a href='/legals/user-agreement' target='_blank'><span class='underlined'>Kullanıcı Sözleşmesi</span>'ni okudum ve kabul ediyorum.</a>"
   privacy_policy:
     link_text: "Gizlilik Politikası"
+    title_html: "<h1>Gizlilik Politikası</h1>"
+    last_update_html: "<span> Son güncellenme: 30/12/2023 </span>"
+    intro_html: "<p>Güvenliğiniz bizim için önemli. Bu sebeple bizimle paylaşacağınız kişisel verileriz hassasiyetle korunmaktadır. Bu kapsamda, 6698 sayılı Kişisel Verilerin Korunması Kanunu (“KVKK”) ve ilgili mevzuat uyarınca, veri sorumlusu sıfatıyla, kişisel verilerinizin işlenmesi ile ilgili olarak sizleri bilgilendirmek istiyoruz. <br><br>
+    Biz, veganharita.com, veri sorumlusu olarak, bu gizlilik ve kişisel verilerin korunması politikası ile, hangi kişisel verilerinizin hangi amaçla işleneceği, işlenen verilerin kimlerle ve neden paylaşılabileceği, veri işleme yöntemimiz ve hukuki sebeplerimiz ile; işlenen verilerinize ilişkin haklarınızın neler olduğu hususunda sizleri aydınlatmayı amaçlıyoruz.</p><br>"
+    method_html: "<h2>Toplanan Kişisel Verileriniz, Toplanma Yöntemi ve Hukuki Sebebi</h2>"
+    method_text_html: "<p>Kullanıcı aracısı bilgileriniz(örn. web tarayıcısı), sadece analiz yapmak amacıyla ve çerezler (cookies) vb. teknolojiler vasıtasıyla, otomatik veya otomatik olmayan yöntemlerle ve bazen de analitik sağlayıcılar,  arama bilgi sağlayıcıları, teknoloji sağlayıcıları gibi üçüncü taraflardan elde edilerek, kaydedilerek, depolanarak ve güncellenerek, aramızdaki hizmet ve sözleşme ilişkisi çerçevesinde ve süresince, meşru menfaat işleme şartına dayanılarak işlenecektir.</p><br>"
+    purpose_html: "<h2>Kişisel Verilerinizin İşlenme Amacı</h2>"
+    purpose_text_html: "<p>Bizimle paylaştığınız kişisel verileriniz sadece analiz yapmak suretiyle; sunduğumuz hizmetlerin gerekliliklerini en iyi şekilde yerine getirebilmek, bu hizmetlere sizin tarafınızdan ulaşılabilmesini ve maksimum düzeyde faydalanılabilmesini sağlamak, hizmetlerimizi, ihtiyaçlarınız doğrultusunda geliştirebilmek ve sizleri daha geniş kapsamlı hizmet sağlayıcıları ile yasal çerçeveler içerisinde buluşturabilmek ve kanundan doğan zorunlulukların (kişisel verilerin talep halinde adli ve idari makamlarla paylaşılması) yerine getirilebilmesi amacıyla, sözleşme ve hizmet süresince, amacına uygun ve ölçülü bir şekilde işlenecek ve güncellenecektir.</p><br>"
+    transfer_html: "<h2>Toplanan Kişisel Verilerin Kimlere ve Hangi Amaçlarla Aktarılabileceği</h2>"
+    transfer_text_html: "<p>Bizimle paylaştığınız kişisel verileriniz; faaliyetlerimizi yürütmek üzere hizmet aldığımız ve/veya verdiğimiz, sözleşmesel ilişki içerisinde bulunduğumuz, iş birliği yaptığımız, yurt içi ve yurt dışındaki 3. şahıslar ile kurum ve kuruluşlara ve talep halinde adli ve idari makamlara, gerekli teknik ve idari önlemler alınması koşulu ile aktarılabilecektir.</p><br>"
+    rights_html: "<h2>Kişisel Verileri İşlenen Kişi Olarak Haklarınız</h2>"
+    rights_text_html: "KVKK madde 11 uyarınca herkes, veri sorumlusuna başvurarak aşağıdaki haklarını kullanabilir:
+    <ol style='list-style-type: lower-alpha; list-style-position: inside;'>
+    <li> Kişisel veri işlenip işlenmediğini öğrenme, </li>
+    <li> Kişisel verileri işlenmişse buna ilişkin bilgi talep etme, </li>
+    <li> Kişisel verilerin işlenme amacını ve bunların amacına uygun kullanılıp kullanılmadığını öğrenme, </li>
+    <li> Yurt içinde veya yurt dışında kişisel verilerin aktarıldığı üçüncü kişileri bilme, </li>
+    <li> Kişisel verilerin eksik veya yanlış işlenmiş olması hâlinde bunların düzeltilmesini isteme, </li>
+    <li> Kişisel verilerin silinmesini veya yok edilmesini isteme, </li>
+    <li> (e) ve (f) bentleri uyarınca yapılan işlemlerin, kişisel verilerin aktarıldığı üçüncü kişilere bildirilmesini isteme, </li>
+    <li> İşlenen verilerin münhasıran otomatik sistemler vasıtasıyla analiz edilmesi suretiyle kişinin kendisi aleyhine bir sonucun ortaya çıkmasına itiraz etme, </li>
+    <li> Kişisel verilerin kanuna aykırı olarak işlenmesi sebebiyle zarara uğraması hâlinde zararın giderilmesini talep etme, haklarına sahiptir </li>
+    </ol>
+    <br>
+    <p>
+    Yukarıda sayılan haklarınızı kullanmak üzere iletisim@veganharita.com üzerinden bizimle iletişime geçebilirsiniz.
+    </p><br>"
+    contact_html: "<h2>İletişim</h2>"
+    contact_text_html: "<p>Sizlere hizmet sunabilmek amaçlı analizler yapabilmek için, sadece gerekli olan kişisel verilerinizin, işbu gizlilik ve kişisel verilerin işlenmesi politikası uyarınca işlenmesini, kabul edip etmemek hususunda tamamen özgürsünüz. Siteyi kullanmaya devam ettiğiniz takdirde kabul etmiş olduğunuz tarafımızca varsayılacak olup, daha ayrıntılı bilgi için bizimle iletisim@veganharita.com e-mail adresi üzerinden iletişime geçmekten lütfen çekinmeyiniz.</p>"
   terms_of_use:
     link_text: "Kullanım Koşulları"
   cookie_policy:
