@@ -7,7 +7,7 @@ class PlacesController < ApplicationController
     @last_ten_places = @places.last(10).reverse
     respond_to do |format|
       format.html
-      format.json { render json: @places.to_json(methods: :featured_image) }
+      format.json { render json: @places.to_json(methods: [ :featured_image, :address ]) }
     end
   end
 
