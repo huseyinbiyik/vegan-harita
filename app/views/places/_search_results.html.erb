@@ -1,7 +1,9 @@
 <% places.each do |place| %>
   <div class="search-results-link-container">
-    <%= link_to highlight(place.name, params[:name_search]),
-    place,
-    class: "search-results-link" %>
+    <%= link_to place_path(place), class:"search-results-link" do %>
+      <%= highlight(place.name, params[:name_search]) %>
+      <br>
+      <span class="search-address"><%= place.address %></span>
+    <% end %>
   </div>
 <% end %>
