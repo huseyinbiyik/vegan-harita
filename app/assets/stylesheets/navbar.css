@@ -101,12 +101,17 @@ header {
   height: auto;
   border: 0.031rem solid var(--gray);
   width: 100%;
+  padding: 1rem 1.25rem;
 }
 
 .search-results-link {
-  padding: 1rem 1.25rem;
   text-decoration: none;
   display: block;
+}
+
+.search-address {
+  font-size: 14px;
+  color: var(--gray);
 }
 
 .extend {
@@ -299,8 +304,11 @@ nav {
   }
 
   .search-results-link {
-    padding-left: 0.625rem;
     border: none;
+  }
+
+  .search-address {
+    font-size: 14px;
   }
 
   #burger {
