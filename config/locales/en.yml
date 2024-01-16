@@ -354,4 +354,93 @@ en:
     form:
       image_with_warning: "Images (max 3MB)"
   sign_user_agreement: "<a href='/legals/user-agreement' target='_blank'>I read and accept the <span class='underlined'>User Agreement</span></a>"
-
+  privacy_policy:
+    link_text: "Privacy Policy"
+    title_html: "<h1>Privacy Policy</h1>"
+    last_update_html: "<span>Last update: 30/12/2023</span>"
+    intro_html: "<p>Your safety is important to us. For this reason, the personal data you share with us is protected sensitively. In this context, in accordance with the Personal Data Protection Law No. 6698 (“KVKK”) and relevant legislation, we, as the data controller, would like to inform you about the processing of your personal data.<br><br>We, veganharita.com, as the data controller, with this privacy and personal data protection policy, which of your personal data will be processed for what purpose, with whom and why the processed data can be shared, our data processing method and legal reasons; aim to enlighten you about what your rights are regarding your processed data.</p><br>"
+    method_html: "<h2>Your Collected Personal Data, Collection Method and Legal Reason</h2>"
+    method_text_html: "<p>Your user agent information (e.g. web browser) is used only for analysis purposes and cookies, etc. It will be processed based on legitimate interest processing within the framework and duration of the service and contractual relationship between us by obtaining, recording, storing and updating through technologies, automatic or non-automatic methods and sometimes from third parties such as analytics providers, search information providers, technology providers.</p><br>"
+    purpose_html: "<h2>Purpose of Processing Your Personal Data</h2>"
+    purpose_text_html: "<p>Your personal data you share with us is only available through analysis; to be able to fulfill the requirements of the services we offer in the best possible way, to ensure that these services can be accessed and benefited from at the maximum level by you, to be able to develop our services in line with your needs and to bring you together with more comprehensive service providers within legal frameworks and to comply with the obligations arising from the law (personal data can be shared with judicial and administrative authorities upon request); will be processed and updated in accordance with its purpose and in a measured manner throughout the contract and service, in order to be able to be shared.</p><br>"
+    transfer_html: "<h2>To Whom and For What Purposes Collected Personal Data Can Be Transferred</h2>"
+    transfer_text_html: "<p>Your personal data you share with us; can be transferred to domestic and foreign third parties, institutions and organizations from which we receive and/or provide services to carry out our activities, with whom we have contractual relations and cooperate, and to judicial and administrative authorities upon request, provided that the necessary technical and administrative measures are taken.</p><br>"
+    rights_html: "<h2>Your Rights as the Person Whose Personal Data is Processed</h2>"
+    rights_text_html: "In accordance with Article 11 of KVKK, anyone can exercise the following rights by applying to the data controller:
+    <ol style='list-style-type: lower-alpha; list-style-position: inside;'>
+    <li>Learning whether personal data is processed, </li>
+    <li> Requesting information if personal data has been processed, </li>
+    <li>Learning the purpose of processing personal data and whether they are used for their intended purpose, </li>
+    <li>Knowing the third parties to whom personal data is transferred domestically or abroad, </li>
+    <li>Requesting correction of personal data if they are incomplete or incorrectly processed, </li>
+    <li>Requesting deletion or destruction of personal data, </li>
+    <li>Requesting that the transactions carried out in accordance with clauses (e) and (f) be notified to third parties to whom personal data are transferred, </li>
+    <li> Objecting to the emergence of a result against the person by analyzing the processed data exclusively through automatic systems, </li>
+    <li> They have the right to demand compensation for the damage in case of damage due to illegal processing of personal data </li>
+    </ol>
+    <br><p>You can contact us via iletisim@veganharita.com to exercise your rights listed above.
+    </p><br>"
+    contact_html: "<h2>Contact</h2>"
+    contact_text_html: "<p>You are completely free to accept or reject the processing of only your necessary personal data in accordance with this privacy and personal data processing policy in order to perform analyzes to provide you with services. If you continue to use the site, we will assume that you have accepted it. For more detailed information, please do not hesitate to contact us via e-mail address iletisim@veganharita.com.</p>"
+  terms_of_use:
+    link_text: "Terms of Use"
+    title_html: "<h1>Terms of Use </h1>"
+    last_update_html: "<span>Last update: 30/12/2023 </span>"
+    intro_html: "<p> Dear visitor, please read this terms of use agreement carefully before visiting our website https://veganharita.com. Your access to the site is entirely dependent on your acceptance of this agreement and your compliance with the terms set forth in this agreement. If you do not accept any of the terms of this agreement, please terminate your access to the site. Please note that if you continue to access the site, we will assume that you have accepted the entire text of this agreement, unconditionally and without restriction.</p><br><p> https://veganharita.com website is managed by Vegan Harita and will hereinafter be referred to as SITE. The Terms of Use for this site come into force upon publication. The right to make changes belongs to the SITE unilaterally and all our users are deemed to have accepted these changes, which will be shared on the SITE.</p><br>"
+    privacy_html: "<h2> Privacy </h2>"
+    privacy_text_html: "<p>Privacy is available on a separate page to regulate the basis of processing of your personal data by us. If you use the SITE, you agree that the processing of this data occurs in accordance with the privacy policy. </p><br>"
+    scope_html: "<h2> Scope of Service </h2>"
+    scope_text_html: "<p>As Vegan Harita, we are completely free to determine the scope and nature of the services we will provide within the framework of the law; any changes we make regarding the services will be deemed to have entered into force upon being published on the SITE. </p><br>"
+    copyrights_html: "<h2> Copyrights </h2>"
+    copyrights_text_html: "<p>The owner of all text, code, graphics, logos, images, sound files and software used on the SITE (hereinafter referred to as \"content\") is Vegan Harita, and all rights are reserved. Reproduction or copying of site content without written permission is strictly prohibited. </p><br>"
+    provisions_html: "<h2> General Provisions </h2>"
+    provisions_text_html: "<p>All users undertake that they will use the SITE only for lawful and personal purposes and will not engage in any activity that may infringe the rights of third parties. The legal and criminal responsibilities for their transactions and actions within the SITE belong to them. SITE has no direct and/or indirect liability for any damages that third parties have suffered or may suffer due to these works and actions.</p><br>
+    <p> We do our best to ensure the accuracy and up-to-dateness of the information available on the SITE. However, despite our efforts, this information may lag behind actual changes and there may be some differences. For this reason, we do not give any express or implied warranty or make any commitment regarding the accuracy and currency of the information on the site. </p><br>
+    <p> The SITE may contain hyperlinks to other websites, applications and platforms operated by third parties and whose contents are not known to us. The SITE functionality only provides access to these sites, and we do not accept any responsibility for their content. </p><br>
+    <p> Although we do our best to keep the SITE free of viruses, we do not guarantee that it is completely free of viruses. Therefore, it is the responsibility of the users to take the necessary precautions against viruses when downloading data. Virus etc. We do not accept responsibility for any damage that may be caused by malicious programs, codes or materials. </p><br>
+    <p> We do not guarantee that there will be no defects or errors in the services offered on the SITE or that uninterrupted service will be provided. We may terminate your access to the SITE and its services or any part thereof at any time without notice. </p><br>"
+    liability_html: "<h2> Limitation of Liability </h2>"
+    liability_text_html: "<p> Our liability for damages arising from the use of the SITE is limited to intent and gross negligence. In case of damages arising from breach of contract, the total compensation that can be claimed is limited to foreseeable damages. The above-mentioned limitations of liability also do not apply in case of damage to human life, bodily injury or damage to a person's health. In all cases legally considered force majeure, we will not be liable for any compensation due to delay, non-performance or default.</p><br>"
+    dispute_html: "<h2> Dispute Resolution </h2>"
+    dispute_text_html: "<p> In resolving any disputes arising from the implementation or interpretation of this Agreement, the laws of the Republic of Turkey shall apply; Yozgat Courthouse and Enforcement Directorate is authorized. </p>"
+  cookie_policy:
+    link_text: "Cookie Policy"
+    title_html: "<h1>Cookie Policy</h1>"
+    last_update_html: "<span>Last update: 30/12/2023</span>"
+    intro_html: "<p>We, as veganharita.com, care about your security and with this Cookie Policy, we aim to briefly inform our visitors about which cookies we use on our website, for what purpose and how to change your cookie settings.</p><br><p>In order to serve you better, please read this Cookie Policy to have brief information about what kind of personal data is collected through cookies, for what purpose and how it is processed. For more information, you can check out our Privacy Policy or contact us without hesitation.</p><br>"
+    cookie_html: "<h2>What is a cookie?</h2>"
+    cookie_text_html: "<p>Cookies are small files saved on users' devices so that they can use websites more efficiently. Since users' information is processed through cookies, users must be informed and their consent must be obtained in accordance with the Personal Data Protection Law No. 6698.</p><br><p>We use various cookies to ensure that our visitors can benefit from our website in the most efficient way and to improve their user experience.</p><br>"
+    mandatory_html: "<h2>Mandatory Cookies</h2>"
+    mandatory_text_html: "<p>Mandatory cookies are cookies that make the website usable by enabling basic functions of the website. The website will not function properly without these cookies.</p><br>"
+    performance_html: "<h2>Performance Cookies</h2>"
+    performance_text_html: "<p>Performans çerezleri, ziyaretçilerin web sitesine ilişkin kullanım bilgilerini ve tercihlerini anonim olarak toplayan ve bu sayede web sitesinin performansının geliştirilmesine olanak sağlayan çerezlerdir.</p><br>"
+    functional_html: "<h2>Fonksiyonel Çerezler</h2>"
+    functional_text_html: "<p>Fonksiyonel çerezler, kullanıcıların web sitesine ilişkin geçmiş kullanımlarından yola çıkılarak gelecekteki ziyaretlerinde tanınmalarını ve hatırlanmalarını sağlayan ve bu sayede web sitelerinin kullanıcılara dil, bölge vb. gibi kişiselleştirilmiş bir hizmet sunmasına olanak tanıyan çerezlerdir.</p><br>" 
+    advertising_html: "<h2>Advertising Cookies</h2>"
+    advertising_text_html: "<p>Advertising cookies are third-party cookies and are used to track visitors' behavior on websites. The purpose of these cookies is to help display advertisements that will be of interest to visitors based on their needs, and the responsibility belongs to the third parties that own the cookies.</p><br>"
+    personal_data_html: "<h2>What are the Personal Data Processed with Cookies?</h2>"
+    personal_data_text_html: "<p> Cookie data collected by Google Analytics is protected by Google's privacy policy. These include information such as visitors' location and device characteristics. Apart from this, no personal data is collected.</p></p><br>"
+    purpose_html: "<h2>For what purpose are cookies used?</h2>"
+    purpose_text_html: "<p>Our website uses cookies to ensure security by detecting suspicious activities, to increase functionality and performance in line with users' preferences, to develop and personalize products and services and to facilitate access to these services, and to fulfill contractual and legal responsibilities. In addition, information is shared with third parties in order to connect users with a wider range of service providers.</p><br>"
+    managing_html: "<h2>How Are Cookies Managed?</h2>"
+    managing_text_html: "<p>After all these explanations, the issue of which cookies to use is left entirely to the free will of our users. You can manage your cookie preferences as soon as you enter our website by deleting or blocking them from your browser's settings, or you can change these settings at any time in the future. For more detailed information, you can check out our Privacy Policy or contact us via e-mail address iletisim@veganharita.com.</p>"
+  user_agreement:
+    link_text: "User Agreement"
+    title_html: "<h1>User Agreement</h1>"
+    last_update_html: "<span> Last update: 30/12/2023 </span>"
+    usage_html: "<h2>Website Usage</h2>"
+    usage_text_html: "<p>By using this website, you accept this user agreement and privacy policy.</p><br>"
+    content_html: "<h2>Content Sharing</h2>"
+    content_text_html: "<p>Illegal, immoral or offensive content is not allowed in content sharing via the website. In case of violation, we have the right to remove the content and terminate the membership.</p><br>"
+    notice_html: "<h2>Copyright Notice</h2>"
+    notice_text_html: "<p>The user declares that they own all copyrights regarding any content they share on this website.</p>
+    <p>In case of sharing content subject to copyright, the user agrees to grant the website the right to use, reproduce, distribute and all other uses of the content.</p>
+    <p>The website operator disclaims all costs and liabilities arising from legal liabilities that may arise due to the use of copyrighted content. In case of copyright infringement, the user has the obligation to inform the website operator to report such situations and remove the content.</p>
+    <p>The website operator reserves the right to review copyrighted content and remove it when necessary. In case of copyright infringement, the content will be removed quickly.</p>
+    <p>The website operator is not obliged to support the user in any legal process arising from sharing copyrighted content.</p><br>"
+    privacy_html: "<h2>Privacy</h2>"
+    privacy_text_html: "<p>Your user information will be kept confidential. However, as the website operator, we have the right to share certain of your information with the competent authorities in order to comply with laws and regulations.</p><br>"
+    disclaimer_html: "<h2>Disclaimer</h2>"
+    disclaimer_text_html: "<p>We do not guarantee the accuracy and currency of the content on the website. Users should rely on information at their own risk.</p><br>"
+    changes_html: "<h2>Changes</h2>"
+    changes_text_html: "<p>This user agreement may be changed from time to time. It is the user's responsibility to follow updates.</p>"

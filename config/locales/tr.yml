@@ -2,10 +2,6 @@ tr:
   no_photo: "Henüz fotoğraf eklenmemiş"
   username: "Kullanıcı Adı"
   username_placeholder: "veganharita"
-  privacy_policy: "Gizlilik Politikası"
-  terms_of_use: "Kullanım Koşulları"
-  cookie_policy: "Çerez Politikası"
-  user_agreement: "Kullanıcı Sözleşmesi"
   max_image_limit: "Maksimum %{count} fotoğraf yükleyebilirsiniz."
   only_alphanumeric: "yalnızca harf ve rakam içerebilir"
   captcha_error: "Lütfen robot olmadığınızı doğrulayın 🤖"
@@ -364,5 +360,99 @@ tr:
     form:
       image_with_warning: "Yemek Görseli (en fazla 3MB)"
   sign_user_agreement: "<a href='/legals/user-agreement' target='_blank'><span class='underlined'>Kullanıcı Sözleşmesi</span>'ni okudum ve kabul ediyorum.</a>"
-
-
+  privacy_policy:
+    link_text: "Gizlilik Politikası"
+    title_html: "<h1>Gizlilik Politikası</h1>"
+    last_update_html: "<span> Son güncellenme: 30/12/2023 </span>"
+    intro_html: "<p>Güvenliğiniz bizim için önemli. Bu sebeple bizimle paylaşacağınız kişisel verileriz hassasiyetle korunmaktadır. Bu kapsamda, 6698 sayılı Kişisel Verilerin Korunması Kanunu (“KVKK”) ve ilgili mevzuat uyarınca, veri sorumlusu sıfatıyla, kişisel verilerinizin işlenmesi ile ilgili olarak sizleri bilgilendirmek istiyoruz. <br><br>
+    Biz, veganharita.com, veri sorumlusu olarak, bu gizlilik ve kişisel verilerin korunması politikası ile, hangi kişisel verilerinizin hangi amaçla işleneceği, işlenen verilerin kimlerle ve neden paylaşılabileceği, veri işleme yöntemimiz ve hukuki sebeplerimiz ile; işlenen verilerinize ilişkin haklarınızın neler olduğu hususunda sizleri aydınlatmayı amaçlıyoruz.</p><br>"
+    method_html: "<h2>Toplanan Kişisel Verileriniz, Toplanma Yöntemi ve Hukuki Sebebi</h2>"
+    method_text_html: "<p>Kullanıcı aracısı bilgileriniz(örn. web tarayıcısı), sadece analiz yapmak amacıyla ve çerezler (cookies) vb. teknolojiler vasıtasıyla, otomatik veya otomatik olmayan yöntemlerle ve bazen de analitik sağlayıcılar,  arama bilgi sağlayıcıları, teknoloji sağlayıcıları gibi üçüncü taraflardan elde edilerek, kaydedilerek, depolanarak ve güncellenerek, aramızdaki hizmet ve sözleşme ilişkisi çerçevesinde ve süresince, meşru menfaat işleme şartına dayanılarak işlenecektir.</p><br>"
+    purpose_html: "<h2>Kişisel Verilerinizin İşlenme Amacı</h2>"
+    purpose_text_html: "<p>Bizimle paylaştığınız kişisel verileriniz sadece analiz yapmak suretiyle; sunduğumuz hizmetlerin gerekliliklerini en iyi şekilde yerine getirebilmek, bu hizmetlere sizin tarafınızdan ulaşılabilmesini ve maksimum düzeyde faydalanılabilmesini sağlamak, hizmetlerimizi, ihtiyaçlarınız doğrultusunda geliştirebilmek ve sizleri daha geniş kapsamlı hizmet sağlayıcıları ile yasal çerçeveler içerisinde buluşturabilmek ve kanundan doğan zorunlulukların (kişisel verilerin talep halinde adli ve idari makamlarla paylaşılması) yerine getirilebilmesi amacıyla, sözleşme ve hizmet süresince, amacına uygun ve ölçülü bir şekilde işlenecek ve güncellenecektir.</p><br>"
+    transfer_html: "<h2>Toplanan Kişisel Verilerin Kimlere ve Hangi Amaçlarla Aktarılabileceği</h2>"
+    transfer_text_html: "<p>Bizimle paylaştığınız kişisel verileriniz; faaliyetlerimizi yürütmek üzere hizmet aldığımız ve/veya verdiğimiz, sözleşmesel ilişki içerisinde bulunduğumuz, iş birliği yaptığımız, yurt içi ve yurt dışındaki 3. şahıslar ile kurum ve kuruluşlara ve talep halinde adli ve idari makamlara, gerekli teknik ve idari önlemler alınması koşulu ile aktarılabilecektir.</p><br>"
+    rights_html: "<h2>Kişisel Verileri İşlenen Kişi Olarak Haklarınız</h2>"
+    rights_text_html: "KVKK madde 11 uyarınca herkes, veri sorumlusuna başvurarak aşağıdaki haklarını kullanabilir:
+    <ol style='list-style-type: lower-alpha; list-style-position: inside;'>
+    <li> Kişisel veri işlenip işlenmediğini öğrenme, </li>
+    <li> Kişisel verileri işlenmişse buna ilişkin bilgi talep etme, </li>
+    <li> Kişisel verilerin işlenme amacını ve bunların amacına uygun kullanılıp kullanılmadığını öğrenme, </li>
+    <li> Yurt içinde veya yurt dışında kişisel verilerin aktarıldığı üçüncü kişileri bilme, </li>
+    <li> Kişisel verilerin eksik veya yanlış işlenmiş olması hâlinde bunların düzeltilmesini isteme, </li>
+    <li> Kişisel verilerin silinmesini veya yok edilmesini isteme, </li>
+    <li> (e) ve (f) bentleri uyarınca yapılan işlemlerin, kişisel verilerin aktarıldığı üçüncü kişilere bildirilmesini isteme, </li>
+    <li> İşlenen verilerin münhasıran otomatik sistemler vasıtasıyla analiz edilmesi suretiyle kişinin kendisi aleyhine bir sonucun ortaya çıkmasına itiraz etme, </li>
+    <li> Kişisel verilerin kanuna aykırı olarak işlenmesi sebebiyle zarara uğraması hâlinde zararın giderilmesini talep etme, haklarına sahiptir </li>
+    </ol>
+    <br>
+    <p>
+    Yukarıda sayılan haklarınızı kullanmak üzere iletisim@veganharita.com üzerinden bizimle iletişime geçebilirsiniz.
+    </p><br>"
+    contact_html: "<h2>İletişim</h2>"
+    contact_text_html: "<p>Sizlere hizmet sunabilmek amaçlı analizler yapabilmek için, sadece gerekli olan kişisel verilerinizin, işbu gizlilik ve kişisel verilerin işlenmesi politikası uyarınca işlenmesini, kabul edip etmemek hususunda tamamen özgürsünüz. Siteyi kullanmaya devam ettiğiniz takdirde kabul etmiş olduğunuz tarafımızca varsayılacak olup, daha ayrıntılı bilgi için bizimle iletisim@veganharita.com e-mail adresi üzerinden iletişime geçmekten lütfen çekinmeyiniz.</p>"
+  terms_of_use:
+    link_text: "Kullanım Koşulları"
+    title_html: "<h1> Kullanım Koşulları </h1>"
+    last_update_html: "<span>Son güncellenme: 30/12/2023 </span>"
+    intro_html: " <p> Sevgili ziyaretçimiz, lütfen https://veganharita.com web sitemizi ziyaret etmeden önce işbu kullanım koşulları sözleşmesini dikkatlice okuyunuz. Siteye erişiminiz tamamen bu sözleşmeyi kabulünüze ve bu sözleşme ile belirlenen şartlara uymanıza bağlıdır. Şayet bu sözleşmede yazan herhangi bir koşulu kabul etmiyorsanız, lütfen siteye erişiminizi sonlandırınız. Siteye erişiminizi sürdürdüğünüz takdirde, koşulsuz ve kısıtlamasız olarak, işbu sözleşme metninin tamamını kabul ettiğinizin, tarafımızca varsayılacağını lütfen unutmayınız. </p><br>
+    <p> https://veganharita.com web sitesi Vegan Harita tarafından yönetilmekte olup, bundan sonra SİTE olarak anılacaktır. İşbu siteye ilişkin Kullanım Koşulları, yayınlanmakla yürürlüğe girer. Değişiklik yapma hakkı, tek taraflı olarak SİTE'ye aittir ve SİTE üzerinden güncel olarak paylaşılacak olan bu değişiklikleri, tüm kullanıcılarımız baştan kabul etmiş sayılır. </p><br>"
+    privacy_html: "<h2> Gizlilik </h2>"
+    privacy_text_html: "<p> Gizlilik, ayrı bir sayfada, kişisel verilerinizin tarafımızca işlenmesinin esaslarını düzenlemek üzere mevcuttur. SİTE'yi kullandığınız takdirde, bu verilerin işlenmesinin gizlilik politikasına uygun olarak gerçekleştiğini kabul edersiniz. </p><br>"
+    scope_html: " <h2> Hizmet Kapsamı </h2>"
+    scope_text_html: "<p>Vegan Harita olarak, sunacağımız hizmetlerin kapsamını ve niteliğini, yasalar çerçevesinde belirlemekte tamamen serbest olup; hizmetlere ilişkin yapacağımız değişiklikler, SİTE'de yayınlanmakla yürürlüğe girmiş sayılacaktır. </p><br>"
+    copyrights_html: "<h2>Telif Hakları </h2>"
+    copyrights_text_html: "<p>SİTE'de yayınlanan tüm metin, kod, grafikler, logolar, resimler, ses dosyaları ve kullanılan yazılımın sahibi (bundan böyle ve daha sonra \"içerik\" olarak anılacaktır) Vegan Harita olup, tüm hakları saklıdır. Yazılı izin olmaksızın site içeriğinin çoğaltılması veya kopyalanması kesinlikle yasaktır.</p><br>"
+    provisions_html: "<h2>Genel Hükümler</h2>"
+    provisions_text_html: "<p>Kullanıcıların tamamı, SİTE'yi yalnızca hukuka uygun ve şahsi amaçlarla kullanacaklarını ve üçüncü kişinin haklarına tecavüz teşkil edecek nitelikteki herhangi bir faaliyette bulunmayacağını taahhüt eder. SİTE dahilinde yaptıkları işlem ve eylemlerindeki, hukuki ve cezai sorumlulukları kendilerine aittir. İşbu iş ve eylemler sebebiyle, üçüncü kişilerin uğradıkları veya uğrayabilecekleri zararlardan dolayı SİTE'nin doğrudan ve/veya dolaylı hiçbir sorumluluğu yoktur.</p><br>
+    <p> SİTE'de mevcut bilgilerin doğruluk ve güncelliğini sağlamak için elimizden geleni yapmaktayız. Lakin gösterdiğimiz çabaya rağmen, bu bilgiler, fiili değişikliklerin gerisinde kalabilir, birtakım farklılıklar olabilir. Bu sebeple, site içerisinde yer alan bilgilerin doğruluğu ve güncelliği ile ilgili tarafımızca, açık veya zımni, herhangi bir garanti verilmemekte, hiçbir taahhütte bulunulmamaktadır. </p><br>
+    <p> SİTE'de üçüncü şahıslar tarafından işletilen ve içerikleri tarafımızca bilinmeyen diğer web sitelerine, uygulamalara ve platformlara köprüler (hyperlink) bulunabilir. SİTE, işlevsellik yalnızca bu sitelere ulaşımı sağlamakta olup, içerikleri ile ilgili hiçbir sorumluluk kabul etmemekteyiz. </p><br>
+    <p> SİTE'yi virüslerden temizlenmiş tutmak konusunda elimizden geleni yapsak da, virüslerin tamamen bulunmadığı garantisini vermemekteyiz. Bu nedenle veri indirirken, virüslere karşı gerekli önlemi almak, kullanıcıların sorumluluğundadır. Virüs vb. kötü amaçlı programlar, kodlar veya materyallerin sebep olabileceği zararlardan dolayı sorumluluk kabul etmemekteyiz. </p><br>
+    <p> SİTE'de sunulan hizmetlerde, kusur veya hata olmayacağına ya da kesintisiz hizmet verileceğine dair garanti vermemekteyiz. SİTE'ye ve sitenin hizmetlerine veya herhangi bir bölümüne olan erişiminizi önceden bildirmeksizin herhangi bir zamanda sonlandırabiliriz. </p><br>
+    <h2> Sorumluluğun Sınırlandırılması </h2>
+    <p> SİTE'nin kullanımından doğan zararlara ilişkin sorumluluğumuz, kast ve ağır ihmal ile sınırlıdır. Sözleşmenin ihlalinden doğan zararlarda, talep edilebilecek toplam tazminat, öngörülebilir hasarlar ile sınırlıdır. Yukarıda bahsedilen sorumluluk sınırlamaları aynı zamanda insan hayatına, bedeni yaralanmaya veya bir kişinin sağlığına gelebilecek zararlar durumunda geçerli değildir. Hukuken mücbir sebep sayılan tüm durumlarda, gecikme, ifa etmeme veya temerrütten dolayı, herhangi bir tazminat yükümlülüğümüz doğmayacaktır. </p><br>"
+    liability_html: "<h2> Sorumluluğun Sınırlandırılması </h2>"
+    liability_text_html: "<p> SİTE'nin kullanımından doğan zararlara ilişkin sorumluluğumuz, kast ve ağır ihmal ile sınırlıdır. Sözleşmenin ihlalinden doğan zararlarda, talep edilebilecek toplam tazminat, öngörülebilir hasarlar ile sınırlıdır. Yukarıda bahsedilen sorumluluk sınırlamaları aynı zamanda insan hayatına, bedeni yaralanmaya veya bir kişinin sağlığına gelebilecek zararlar durumunda geçerli değildir. Hukuken mücbir sebep sayılan tüm durumlarda, gecikme, ifa etmeme veya temerrütten dolayı, herhangi bir tazminat yükümlülüğümüz doğmayacaktır.</p><br>"
+    dispute_html: "<h2>Uyuşmazlık Çözümü </h2>"
+    dispute_text_html: "<p>İşbu Sözleşme'nin uygulanmasından veya yorumlanmasından doğacak her türlü uyuşmazlığın çözümünde, Türkiye Cumhuriyeti yasaları uygulanır; Yozgat Adliyesi ve İcra Müdürlüğü yetkilidir. </p>"
+  cookie_policy:
+    link_text: "Çerez Politikası"
+    title_html: "<h1>Çerez Politikası</h1>"
+    last_update_html: "<span>Son güncellenme: 30/12/2023 </span>"
+    intro_html: "<p>Biz, veganharita.com, olarak güvenliğinize önem veriyor ve bu Çerez Politikası ile ziyaretçilerimizi, web sitemizde hangi çerezleri, hangi amaçla kullandığımız ve çerez ayarlarınızı nasıl değiştireceğiniz konularında kısaca bilgilendirmeyi hedefliyoruz.</p><br><p>Sizlere daha iyi hizmet verebilmek adına, çerezler vasıtasıyla, ne tür kişisel verilerinizin hangi amaçla toplandığı ve nasıl işlendiği konularında, kısaca bilgi sahibi olmak için lütfen bu Çerez Politikasını okuyunuz. Daha fazla bilgi için Gizlilik Politikamıza göz atabilir ya da bizlerle çekinmeden iletişime geçebilirsiniz.</p><br>"
+    cookie_html: "<h2>Çerez Nedir?</h2>"
+    cookie_text_html: "<p>Çerezler, kullanıcıların web sitelerini daha verimli bir şekilde kullanabilmeleri adına, cihazlarına kaydedilen küçük dosyacıklardır. Çerezler vasıtasıyla kullanıcıların bilgilerinin işleniyor olması sebebiyle, 6698 sayılı Kişisel Verilerin Korunması Kanunu gereğince, kullanıcıların bilgilendirilmeleri ve onaylarının alınması gerekmektedir.</p><br><p>Bizler de ziyaretçilerimizin, web sitemizden en verimli şekilde yararlanabilmelerini ve  ziyaretçilerimizin kullanıcı deneyimlerinin geliştirilebilmesini sağlamak adına, çeşitli çerezler kullanmaktayız.</p><br>"
+    mandatory_html: "<h2>Zorunlu Çerezler</h2>"
+    mandatory_text_html: "<p>Zorunlu çerezler, web sitesine ilişkin temel işlevleri etkinleştirerek web sitesinin kullanılabilir hale gelmesini sağlayan çerezlerdir. Web sitesi bu çerezler olmadan düzgün çalışmaz.</p><br>"
+    performance_html: "<h2>Performans Çerezleri</h2>"
+    performance_text_html: "<p>Performans çerezleri, ziyaretçilerin web sitesine ilişkin kullanım bilgilerini ve tercihlerini anonim olarak toplayan ve bu sayede web sitesinin performansının geliştirilmesine olanak sağlayan çerezlerdir.</p><br>"
+    functional_html: "<h2>Fonksiyonel Çerezler</h2>"
+    functional_text_html: "<p>Fonksiyonel çerezler, kullanıcıların web sitesine ilişkin geçmiş kullanımlarından yola çıkılarak gelecekteki ziyaretlerinde tanınmalarını ve hatırlanmalarını sağlayan ve bu sayede web sitelerinin kullanıcılara dil, bölge vb. gibi kişiselleştirilmiş bir hizmet sunmasına olanak tanıyan çerezlerdir.</p><br>"
+    advertising_html: "<h2>Reklam Çerezleri</h2>"
+    advertising_text_html: "<p>Reklam çerezleri, üçüncü taraflara ait çerezlerdir ve web sitelerinde ziyaretçilerin davranışlarını izlemek için kullanılırlar. Bu çerezlerin amaçları, ziyaretçilerin ihtiyaçlarına yönelik ilgilerini çekecek reklamların gösterilmesine yardımcı olmaktır ve sorumluluğu çerez sahibi üçüncü taraflara aittir.</p><br>"
+    personal_data_html: "<h2>Çerezler İle İşlenen Kişisel Veriler Nelerdir?</h2>"
+    personal_data_text_html: "<p>Google Analytics ile toplanan çerez verileri, Google’ın gizlilik politikası ile korunmaktadır. Bunlar ziyaretçilerin konumu, cihaz özellikleri gibi bilgileri içerir. Bunun haricinde herhangi bir kişisel veri toplanmamaktadır.</p><br>"
+    purpose_html: "<h2>Çerezler Hangi Amaçla Kullanılmaktadır?</h2>"
+    purpose_text_html: "<p>Web sitemizde, şüpheli eylemlerin tespiti yoluyla güvenliğin sağlanması, kullanıcıların tercihleri doğrultusunda işlevsellik ve performansın artırılması, ürünlerin ve hizmetlerin geliştirilmesi ve kişiselleştirilmesi ile bu hizmetlere ulaşımın kolaylaştırılması, sözleşmesel ve hukuki sorumlulukların yerine getirilmesi amaçlı çerezler kullanmaktadır. Ayrıca kullanıcıların daha geniş kapsamlı hizmet sağlayıcılar ile buluşturulabilmesi amacıyla üçüncü taraflarla bilgi paylaşımı da söz konusudur.</p><br>"
+    managing_html: "<h2>Çerezler Nasıl Yönetilmektedir?</h2>"
+    managing_text_html: "<p>Tüm bu açıklamalardan sonra, hangi çerezlerin kullanılacağı konusu, tamamen kullanıcılarımızın özgür iradelerine bırakılmıştır. Çerez tercihlerinizi, tarayıcınızın ayarlarından silerek ya da engelleyerek, web sitemize adım attığınız anda yönetebilir ya da gelecekte, istediğiniz zaman bu ayarları değiştirebilirsiniz. Daha ayrıntılı bilgi için Gizlilik Politikamıza göz atabilir ya da bizlerle iletisim@veganharita.com e-mail adresi üzerinden iletişime geçebilirsiniz.</p>"
+  user_agreement:
+    link_text: "Kullanıcı Sözleşmesi"
+    title_html: "<h1>Kullanıcı Sözleşmesi</h1>"
+    last_update_html: "<span> Son güncellenme: 30/12/2023 </span>"
+    usage_html: "<h2>Web Sitesi Kullanımı</h2>"
+    usage_text_html: "<p>Bu web sitesini kullanarak, bu kullanıcı sözleşmesini ve gizlilik politikasını kabul etmiş sayılırsınız.</p><br>"
+    content_html: "<h2>İçerik Paylaşımı</h2>"
+    content_text_html: "<p>Web sitesi üzerinden yapılan içerik paylaşımlarında yasa dışı, ahlaki olmayan veya rahatsız edici içeriklere izin verilmez. İhlal durumunda, içeriğin kaldırılması ve üyeliğin sonlandırılması hakkına sahibiz.</p><br>"
+    notice_html: "<h2>Telif Hakkı Bildirimi</h2>"
+    notice_text_html: "<p>Kullanıcı, bu web sitesi üzerinden paylaştığı her türlü içerikle ilgili olarak, içeriğin tüm telif haklarına sahip olduğunu beyan eder.</p>
+    <p>Telif hakkına tabi içeriklerin paylaşılması durumunda, kullanıcı, içeriğin kullanımı, çoğaltılması, dağıtılması ve diğer her türlü kullanım hakkını web sitesine tanıdığını kabul eder.</p>
+    <p>Web sitesi işletmecisi, telif hakkına tabi içeriklerin kullanımı nedeniyle ortaya çıkabilecek yasal sorumluluklardan doğan tüm maliyetleri ve yükümlülükleri kabul etmez. Kullanıcı, telif hakkı ihlali durumunda web sitesi işletmecisini bu tür durumları bildirme ve içerikleri kaldırma konusunda bilgilendirme yükümlülüğüne sahiptir.</p>
+    <p>Web sitesi işletmecisi, telif hakkına tabi içerikleri inceleme ve gerektiğinde kaldırma hakkını saklı tutar. Telif hakkı ihlali durumunda içerik hızlı bir şekilde kaldırılacaktır.</p>
+    <p>Web sitesi işletmecisi, telif hakkına tabi içeriklerin paylaşılmasından kaynaklanan herhangi bir hukuki süreçte kullanıcıyı desteklemekle yükümlü değildir.</p><br>"
+    privacy_html: "<h2>Gizlilik</h2>"
+    privacy_text_html: "<p>Kullanıcı bilgileriniz gizli tutulacaktır. Ancak, web sitesi işletmecisi olarak yasa ve düzenlemelere uymak amacıyla, belirli bilgilerinizi yetkili makamlarla paylaşma hakkına sahibiz.</p><br>"
+    disclaimer_html: "<h2>Sorumluluk Reddi</h2>"
+    disclaimer_text_html: "<p>Web sitesindeki içeriklerin doğruluğu ve güncelliği konusunda herhangi bir garanti vermemekteyiz. Kullanıcılar, kendi riskleri altında bilgiye güvenmelidir.</p><br>"
+    changes_html: "<h2>Değişiklikler</h2>"
+    changes_text_html: "<p>Bu kullanıcı sözleşmesi zaman zaman değiştirilebilir. Güncellemeleri takip etmek kullanıcının sorumluluğundadır.</p>"
