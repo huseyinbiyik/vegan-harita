@@ -105,13 +105,13 @@ header {
 }
 
 .search-results-link {
-  /* padding: 1rem 1.25rem; */
   text-decoration: none;
   display: block;
 }
 
 .search-address {
   font-size: 14px;
+  color: var(--gray);
 }
 
 .extend {
