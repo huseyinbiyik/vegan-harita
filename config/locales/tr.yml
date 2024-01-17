@@ -1,4 +1,5 @@
 tr:
+  is_not_allowed: "geçersiz. Lütfen başka bir tane deneyin."
   no_photo: "Henüz fotoğraf eklenmemiş"
   username: "Kullanıcı Adı"
   username_placeholder: "veganharita"
@@ -339,7 +340,7 @@ tr:
     dessert: 'Tatlı'
     coffee: 'Kahve'
     fast_food: 'Fast Food'
-    world_cuisine: 'Dünya Mutfakları'
+    world_cuisine: 'Dünya Mutfağı'
     market: 'Market'
     delivery: 'Paket Servis'
     italian_cuisine: 'İtalyan Mutfağı'

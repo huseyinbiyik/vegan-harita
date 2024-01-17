@@ -214,7 +214,7 @@ class PlaceTest < ActiveSupport::TestCase
 
   # VALIDATIONS END
 
-  # RELATIONSHIPS START
+  # ASSOCIATIONS START
   test "should have many change_logs" do
     assert_respond_to @place, :change_logs
   end
@@ -235,7 +235,7 @@ class PlaceTest < ActiveSupport::TestCase
     assert_respond_to @place, :reviews
   end
 
-  # RELATIONSHIPS END
+  # ASSOCIATIONS END
 
   # METHODS & CALLBACKS START
   test "featured_image should return first image path" do
