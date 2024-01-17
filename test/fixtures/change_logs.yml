@@ -3,3 +3,8 @@ one:
   changeable: one (Menu)
   data: |
     {"name": "Test Change Log"}
+two:
+  user: one
+  changeable: one (Place)
+  data: |
+    {"name": "Test Change Log"}

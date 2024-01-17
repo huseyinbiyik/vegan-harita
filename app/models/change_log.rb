@@ -1,12 +1,11 @@
 class ChangeLog < ApplicationRecord
-  store_accessor :data, :name, :vegan, :latitude, :place_id, :longitude, :address, :phone, :web_url,
-                 :email, :facebook_handle, :instagram_handle, :x_handle, :tag_ids, :deleted_images,
-                 :description, :product_category, :price, :contributors, :active
+  # Associations
   belongs_to :changeable, polymorphic: true
   belongs_to :user
   has_many_attached :images
   has_one_attached :image
 
+  # Validations
   validates :user_id, presence: true
   validates :changeable_id, presence: true
   validates :changeable_type, presence: true
@@ -42,9 +41,13 @@ class ChangeLog < ApplicationRecord
                                                                                                       }
   validates :tag_ids, presence: true, if: -> { tag_ids.present? }
 
-  # Menu validations
+
+  store_accessor :data, :name, :vegan, :latitude, :place_id, :longitude, :address, :phone, :web_url,
+                 :email, :facebook_handle, :instagram_handle, :x_handle, :tag_ids, :deleted_images,
+                 :description, :product_category, :price, :contributors, :active
 
 
+  # Public methods
   def place_attributes
     {
       name:,
