@@ -43,7 +43,7 @@ class AdminsController < ApplicationController # rubocop:disable Metrics/ClassLe
     place.approve
     creator = User.find(place.contributors.first)
     creator.points += 10
-    if place.save
+    if place.save && creator.save
       respond_to do |format|
         format.turbo_stream do
           flash.now[:notice] = "Mekan onaylandı"
