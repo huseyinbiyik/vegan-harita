@@ -28,7 +28,6 @@ class MenusController < ApplicationController
       end
     end
   end
-
   def edit; end
 
   def update
