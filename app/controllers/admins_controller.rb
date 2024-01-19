@@ -103,8 +103,14 @@ class AdminsController < ApplicationController # rubocop:disable Metrics/ClassLe
 
   def approve_menu
     menu = Menu.find(params[:id])
+    place = menu.place
     menu.approve
     menu.creator.points += 5
+
+    unless place.contributors.include?(menu.creator.id)
+      place.contributors << menu.creator.id
+      place.save
+    end
 
     if menu.save && menu.creator.save
       respond_to do |format|

@@ -16,11 +16,6 @@ class MenusController < ApplicationController
     menu.creator = current_user
     menu.approved = true if current_user&.admin?
 
-    unless @place.contributors.include?(current_user.id)
-      @place.contributors << current_user.id
-      @place.save
-    end
-
     respond_to do |format|
       if menu.save
         format.turbo_stream do
