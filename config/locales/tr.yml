@@ -252,6 +252,8 @@ tr:
               taken: "Bu e-posta adresi zaten kullanılıyor."
             user_agreement_accepted:
               accepted: "'ni kabul etmelisiniz."
+            current_password:
+              invalid: "geçersiz"
         place:
           attributes:
             address:
