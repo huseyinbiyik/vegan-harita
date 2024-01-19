@@ -17,7 +17,7 @@ class MenusController < ApplicationController
     menu.approved = true if current_user&.admin?
 
     respond_to do |format|
-      if menu.save
+      if menu.save && @place.save
         format.turbo_stream do
           flash.now[:notice] = t("controllers.menus.create.success")
           render turbo_stream: turbo_stream.update("flash_messages", partial: "shared/flash_messages",
