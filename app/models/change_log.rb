@@ -9,12 +9,14 @@ class ChangeLog < ApplicationRecord
   validates :user_id, presence: true
   validates :changeable_id, presence: true
   validates :changeable_type, presence: true
-  validates :name, presence: true, if: -> { changeable_type == "Place" && name.present? }, length: { maximum: 80 }
-  validates :place_id, presence: true, if: lambda {
-                                             place_id.present?
-                                           }
-  validates :address, presence: true, if: -> { address.present? }
+
+  # JSONB attributes validations
+  validates :name, if: -> { changeable_type == "Place" && name.present? }, length: { minimum: 2, maximum: 80 }
+  # This place_id comes from Google Places API
+  validates :place_id, length: { minimum: 2, maximum: 80 }, if: lambda { changeable_type == "Place" && address.present? && place_id.present? }
+  validates :address, length: { minimum: 15, maximum: 500 }, if: -> { changeable_type == "Place" && address.present? }
   validates :vegan, inclusion: { in: %w[true false] }, unless: -> { vegan.nil? }
+
   validates :instagram_handle,
             format: { with: /\A[\w.-]+\z/, message: I18n.t("activerecord.attributes.place.instagram_invalid") },
             allow_blank: true,
@@ -28,7 +30,7 @@ class ChangeLog < ApplicationRecord
   validates :x_handle,
             format: { with: /\A[\w.-]+\z/, message: I18n.t("activerecord.attributes.place.x_invalid") },
             allow_blank: true,
-            length: { maximum: 50 },
+            length: { maximum: 20 },
             if: -> { x_handle.present? }
   validates :web_url,
             format:
@@ -36,11 +38,8 @@ class ChangeLog < ApplicationRecord
                 allow_blank: true },
             if: -> { web_url.present? }
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, allow_blank: true, if: -> { email.present? }
-  validates :phone, format: { with: /\A[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}\z/i }, allow_blank: true, if: lambda {
-                                                                                                        phone.present?
-                                                                                                      }
-  validates :tag_ids, presence: true, if: -> { tag_ids.present? }
-
+  validates :phone, format: { with: /\A[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}\z/i }, allow_blank: true, if: lambda { phone.present? }
+  validates :tag_ids, if: -> { tag_ids.present? }, length: { maximum: Tag.count }
 
   store_accessor :data, :name, :vegan, :latitude, :place_id, :longitude, :address, :phone, :web_url,
                  :email, :facebook_handle, :instagram_handle, :x_handle, :tag_ids, :deleted_images,

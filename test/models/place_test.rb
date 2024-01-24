@@ -6,7 +6,7 @@ class PlaceTest < ActiveSupport::TestCase
   include ActionDispatch::TestProcess
 
   def setup
-    @place = Place.new(name: "Test Place", address: "123 Test St", place_id: "1", latitude: "40.7128", vegan: true)
+    @place = places(:one)
   end
 
   def teardown

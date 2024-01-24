@@ -6,5 +6,4 @@ one:
 two:
   user: one
   changeable: one (Place)
-  data: |
-    {"name": "Test Change Log"}
+
