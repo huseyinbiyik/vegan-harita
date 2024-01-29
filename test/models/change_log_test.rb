@@ -63,14 +63,14 @@ class ChangeLogTest < ActiveSupport::TestCase
   test "name should have a minimum length" do
     @change_log_place.name = "a"
     assert_not @change_log_place.valid?
-    @change_log_place.name = "aaa"
+    @change_log_place.name = "aa"
     assert @change_log_place.valid?
   end
 
   test "name should have a maximum length" do
-    @change_log_place.name = "a" * 81
+    @change_log_place.name = "a" * 101
     assert_not @change_log_place.valid?
-    @change_log_place.name = "a" * 80
+    @change_log_place.name = "a" * 100
     assert @change_log_place.valid?
   end
 

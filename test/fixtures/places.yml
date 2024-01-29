@@ -2,7 +2,7 @@
 
 one:
   name: Test Place
-  address: 123 Test St
+  address: 123 Test St Denver, CO 80202
   place_id: 1
   latitude: 40.7128
   vegan: true

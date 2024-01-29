@@ -25,15 +25,15 @@ class PlaceTest < ActiveSupport::TestCase
   end
 
   test "name should not be too long" do
-    @place.name = "a" * 81
+    @place.name = "a" * 101
     assert_not @place.valid?
-    assert_equal [ "is too long (maximum is 80 characters)" ], @place.errors[:name]
+    assert_equal [ "is too long (maximum is 100 characters)" ], @place.errors[:name]
   end
 
   test "address should be present" do
     @place.address = ""
     assert_not @place.valid?
-    assert_equal [ "can't be blank" ], @place.errors[:address]
+    assert_equal [ "can't be blank", "too short (15 characters minimum)" ], @place.errors[:address]
   end
 
   test "address should not be too long" do

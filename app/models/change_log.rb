@@ -11,10 +11,11 @@ class ChangeLog < ApplicationRecord
   validates :changeable_type, presence: true
 
   # JSONB attributes validations
-  validates :name, if: -> { changeable_type == "Place" && name.present? }, length: { minimum: 2, maximum: 80 }
+  # Place validations
+  validates :name, presence: true, length: { minimum: 2, maximum: 100 }, if: -> { changeable_type == "Place" && name.present? }
+  validates :address, length: { minimum: 15, maximum: 500 }, if: -> { changeable_type == "Place" && address.present? }
   # This place_id comes from Google Places API
   validates :place_id, length: { minimum: 2, maximum: 80 }, if: lambda { changeable_type == "Place" && address.present? && place_id.present? }
-  validates :address, length: { minimum: 15, maximum: 500 }, if: -> { changeable_type == "Place" && address.present? }
   validates :vegan, inclusion: { in: %w[true false] }, unless: -> { vegan.nil? }
 
   validates :instagram_handle,
@@ -40,6 +41,12 @@ class ChangeLog < ApplicationRecord
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, allow_blank: true, if: -> { email.present? }
   validates :phone, format: { with: /\A[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}\z/i }, allow_blank: true, if: lambda { phone.present? }
   validates :tag_ids, if: -> { tag_ids.present? }, length: { maximum: Tag.count }
+
+  # Menu validations
+
+  validate :check_image, if: -> { changeable_type == "Menu" && image.attached? }
+
+  # Public instance methods
 
   store_accessor :data, :name, :vegan, :latitude, :place_id, :longitude, :address, :phone, :web_url,
                  :email, :facebook_handle, :instagram_handle, :x_handle, :tag_ids, :deleted_images,

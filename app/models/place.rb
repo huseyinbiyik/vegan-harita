@@ -10,9 +10,9 @@ class Place < ApplicationRecord
   has_many :reviews, dependent: :destroy
 
   # Validations
-  validates :name, presence: true, length: { maximum: 80 }
-  validates :address, presence: true, length: { maximum: 500 }, uniqueness: true
-  validates :place_id, presence: true, uniqueness: true
+  validates :address, presence: true, length: { minimum: 15, maximum: 500 }, uniqueness: true
+  validates :place_id, presence: true, uniqueness: true, length: { maximum: 80 }
+  validates :name, presence: true, length: { maximum: 100 }
   validates :vegan, inclusion: { in: [ true, false ] }, allow_nil: false
   validates :instagram_handle,
             format: { with: /\A[\w.-]+\z/, message: I18n.t("activerecord.attributes.place.instagram_invalid") },

@@ -14,13 +14,13 @@
 
   <div class="add-new-place-form-group" id="address-group">
     <%= form.label :address, t('address_required').html_safe, style: "display: block" %>
-    <%= form.text_field :address,  data: {place_target: "field", action: "keydown->place#preventSubmit"}, placeholder: "X Vegan Cafe, Kadıköy...", autofocus: true, required: true %>
+    <%= form.text_field :address,  data: {place_target: "field", action: "keydown->place#preventSubmit"}, placeholder: "X Vegan Cafe, Kadıköy...", autofocus: true, required: true,  maxlength: 100 %>
     <div id="form-map"  data-place-target="map"></div>
   </div>
 
+  <%= form.hidden_field :place_id, data: {place_target: "place_id"}%>
   <%= form.hidden_field :latitude, data: {place_target: "latitude"} %>
   <%= form.hidden_field :longitude, data: {place_target: "longitude"}  %>
-  <%= form.hidden_field :place_id, data: {place_target: "place_id"}%>
 
   <div class="sub-group">
     <div class= "add-new-place-form-group">
@@ -56,17 +56,17 @@
   <div class="sub-group">
     <div class= "add-new-place-form-group social-field">
       <%= form.label t('instagram'), style: "display: block" %>
+
       <div class="social-wrapper">
-        <%= form.text_field :instagram_handle, id:"instagram-input", class: "platform-input", placeholder: "veganharita", maxlength: 30 %>
+        <%= form.text_field :instagram_handle, id:"instagram-input", class: "platform-input", placeholder: "veganharita", maxlength: 30, pattern: "^[a-zA-Z0-9_]*$" %>
         <span class="platform"><%= t :instagram_link %> </span>
       </div>
     </div>
 
-
     <div class= "add-new-place-form-group social-field">
       <%= form.label t('facebook'), style: "display: block" %>
       <div class="social-wrapper">
-        <%= form.text_field :facebook_handle, id:"facebook-input", class: "platform-input", placeholder: "veganharita", maxlength: 50 %>
+        <%= form.text_field :facebook_handle, id:"facebook-input", class: "platform-input", placeholder: "veganharita", maxlength: 50, pattern: "^[a-zA-Z0-9_]*$" %>
         <span class="platform"><%= t :facebook_link %> </span>
       </div>
     </div>
@@ -76,7 +76,7 @@
     <div class= "add-new-place-form-group social-field">
       <%= form.label t('x'), style: "display: block" %>
       <div class="social-wrapper">
-        <%= form.text_field :x_handle, id:"x-input", class: "platform-input", placeholder: "veganharita", maxlength: 50 %>
+        <%= form.text_field :x_handle, id:"x-input", class: "platform-input", placeholder: "veganharita", maxlength: 50, pattern: "^[a-zA-Z0-9_]*$" %>
         <span class="platform", id="x-label"> <%= t :x_link %> </span>
       </div>
     </div>
@@ -95,7 +95,7 @@
 
     <div class= "add-new-place-form-group">
       <%= form.label t('phone'), style: "display: block" %>
-      <%= form.phone_field :phone, pattern: "[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}",  placeholder: "123 456 78 90", title: t('.phone_error_message') %>
+      <%= form.phone_field :phone, pattern: "[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}",  placeholder: "2121112233", title: t('.phone_error_message') %>
     </div>
   </div>
 

@@ -24,7 +24,7 @@
         <div id="modal-location-wrapper">
           <div class= "form-group">
             <%= form.label t('address') %>
-            <%= form.text_field :address, value: @place.address,  data: {place_target: "field", action: "keydown->place#preventSubmit"}, placeholder: "X Vegan Cafe, Kadıköy...", required: true, autofocus: true, id: "location-input" %>
+            <%= form.text_field :address, value: @place.address,  data: {place_target: "field", action: "keydown->place#preventSubmit"}, placeholder: "X Vegan Cafe, Kadıköy...", required: true, maxlength: 100, autofocus: true, id: "location-input" %>
             <div id="modal-map"  data-place-target="map"></div>
           </div>
 
@@ -38,7 +38,7 @@
       <div class= "inputs-wrapper">
         <div class="form-group">
           <%= form.label t('phone'), style: "display: block" %>
-          <%= form.phone_field :phone, value: @place.phone, pattern: "[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}",  placeholder: "123 456 78 90", title: t('.phone_error_message'), autofocus: true  %>
+          <%= form.phone_field :phone, value: @place.phone, pattern: "[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}",  placeholder: "2121112233", title: t('.phone_error_message'), autofocus: true  %>
         </div>
       </div>
     <% end %>

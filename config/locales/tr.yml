@@ -4,7 +4,7 @@ tr:
   username: "Kullanıcı Adı"
   username_placeholder: "veganharita"
   max_image_limit: "Maksimum %{count} fotoğraf yükleyebilirsiniz."
-  only_alphanumeric: "yalnızca harf ve rakam içerebilir"
+  only_alphanumeric: "yalnızca harf, alt tire ve rakam içerebilir"
   captcha_error: "Lütfen robot olmadığınızı doğrulayın 🤖"
   your_email: "E-posta adresiniz"
   contact: "İletişim"
@@ -259,6 +259,7 @@ tr:
             address:
               taken: "Bu adres zaten sistemde mevcut. Lütfen halihazırdaki bir mekanı eklemediğinizden emin olun."
             place_id:
+              blank: "Lütfen önerilen adreslerden birini seçin."
               taken: "Bu adres zaten sistemde mevcut. Lütfen halihazırdaki bir mekanı eklemediğinizden emin olun."
             web_url:
               invalid: "Geçersiz URL. Şu formatta deneyin: veganharita.com"
