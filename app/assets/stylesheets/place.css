@@ -163,7 +163,8 @@
 .place-details-primary-wrapper {
   margin-top: 1rem;
   display: flex;
-  justify-content: space-between;
+  gap: 24px;
+  justify-content: center;
 }
 
 .place-detail {
@@ -171,6 +172,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: center;
+  max-width: 89px;
 }
 
 .detail-group {
@@ -308,7 +310,8 @@
 .social-links {
   margin-top: 16px;
   display: flex;
-  justify-content: space-between;
+  gap: 24px;
+  justify-content: center;
 
   .edit-button {
     position: absolute;
