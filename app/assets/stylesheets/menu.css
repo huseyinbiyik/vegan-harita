@@ -204,6 +204,10 @@ select {
 /* Menu turbo edit forms ends */
 
 @media (min-width: 1024px) {
+  .menu-form {
+    overflow: hidden;
+  }
+  
   #menu {
     padding: 0;
   }
