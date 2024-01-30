@@ -618,6 +618,11 @@
     justify-content: flex-start;
   }
 
+  #place-tags-modal::-webkit-scrollbar {
+    display: none;
+}
+  
+
   .social-links {
     flex-direction: column;
     gap: 16px;
