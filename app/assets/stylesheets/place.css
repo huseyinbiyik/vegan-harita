@@ -309,7 +309,6 @@
   margin-top: 16px;
   display: flex;
   justify-content: space-between;
-  max-width: 280px;
 
   .edit-button {
     position: absolute;
@@ -541,6 +540,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   margin-top: 16px;
   max-width: 280px;
   gap: 16px;
@@ -677,5 +677,9 @@
   .review-avatar {
     width: 70px;
     height: 70px;
+  }
+
+  .contributors-wrapper {
+    max-width: 100%;
   }
 }
