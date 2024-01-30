@@ -273,6 +273,7 @@
   height: 42px;
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: row;
   overflow-x: scroll;
   overflow-y: hidden;
@@ -297,11 +298,17 @@
 #place-tags-modal {
   padding: 20px;
   overflow: scroll;
+  gap: 16px;
+
+  label:first-child {
+    text-align: center;
+  }
 
   .tags-form {
     height: 100%;
     max-height: 100%;
     overflow: scroll;
+    justify-content: center;
   }
 }
 
