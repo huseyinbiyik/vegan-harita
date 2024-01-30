@@ -1,8 +1,9 @@
 one:
   user: one
   changeable: one (Menu)
-  data: |
-    {"name": "Test Change Log"}
+  data:
+    name: Food Menu
+    product_category: Yemek
 two:
   user: one
   changeable: one (Place)

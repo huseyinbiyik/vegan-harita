@@ -288,6 +288,7 @@ tr:
         success: "Menü öneriniz başarıyla değerlendirmeye gönderildi. Desteğiniz için teşekkür ederiz 💚"
       update:
         success: "Menü değişiklik isteği başarıyla değerlendirmeye gönderildi. Desteğiniz için teşekkür ederiz 💚"
+        failure: "Menü değişiklik isteği gönderilirken bir hata oluştu 😞. Lütfen tekrar deneyin."
       destroy:
         success: "Menü silme isteği başarıyla değerlendirmeye gönderildi. Desteğiniz için teşekkür ederiz 💚"
         failure: "Menü silme isteği gönderilirken bir hata oluştu 😞. Lütfen tekrar deneyin."

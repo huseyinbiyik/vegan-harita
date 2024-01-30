@@ -224,4 +224,49 @@ class ChangeLogTest < ActiveSupport::TestCase
     assert_not @change_log_place.valid?
   end
   # Place JSONB validations end
+
+  # Menu JSONB validations
+  test "menu name should have a minimum length" do
+    @change_log.name = "a"
+    assert @change_log.valid?
+    @change_log.name = ""
+    assert_not @change_log.valid?
+  end
+
+  test "menu name should have a maximum length" do
+    @change_log.name = "a" * 51
+    assert_not @change_log.valid?
+  end
+
+  test "menu description should have a maximum length" do
+    @change_log.description = "a" * 500
+    assert @change_log.valid?
+    @change_log.description = "a" * 501
+    assert_not @change_log.valid?
+  end
+
+  test "menu product_category should be present" do
+    @change_log.product_category = nil
+    assert_not @change_log.valid?
+  end
+
+  test "menu product_category should be in the list" do
+    @change_log.product_category = "Pizza"
+    assert_not @change_log.valid?
+  end
+
+  test "menu price should be a number" do
+    @change_log.price = "a"
+    assert_not @change_log.valid?
+    @change_log.price = 1
+    assert @change_log.valid?
+  end
+
+  test "menu price can be nil" do
+    @change_log.price = nil
+    assert @change_log.valid?
+  end
+  # Menu JSONB validations end
+
+  
 end
