@@ -16,7 +16,7 @@ class ChangeLog < ApplicationRecord
   validates :address, length: { minimum: 15, maximum: 500 }, if: -> { changeable_type == "Place" && address.present? }
   # This place_id comes from Google Places API
   validates :place_id, length: { minimum: 2, maximum: 80 }, if: lambda { changeable_type == "Place" && address.present? && place_id.present? }
-  validates :vegan, inclusion: { in: %w[true false] }, unless: -> { vegan.nil? }
+  validates :vegan, inclusion: { in: %w[true false] }, allow_nil: false, if: -> { changeable_type == "Place" && vegan.present? }
 
   validates :instagram_handle,
             format: { with: /\A[\w.-]+\z/, message: I18n.t("activerecord.attributes.place.instagram_invalid") },
@@ -50,7 +50,6 @@ class ChangeLog < ApplicationRecord
   validate :check_image, if: -> { changeable_type == "Menu" && image.attached? }
 
   # Public instance methods
-
   store_accessor :data, :name, :vegan, :latitude, :place_id, :longitude, :address, :phone, :web_url,
                  :email, :facebook_handle, :instagram_handle, :x_handle, :tag_ids, :deleted_images,
                  :description, :product_category, :price, :contributors, :active

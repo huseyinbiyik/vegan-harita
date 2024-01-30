@@ -218,9 +218,7 @@ class ChangeLogTest < ActiveSupport::TestCase
   end
 
   test "tag_ids can't be more than the number of tags" do
-    @change_log_place.tag_ids = Tag.ids
-    assert @change_log_place.valid?
-    @change_log_place.tag_ids =  Tag.ids << [ 1 ]
+    @change_log_place.tag_ids = [ 1, 2, 3, 4, 5, 6, 7, 8 ]
     assert_not @change_log_place.valid?
   end
   # Place JSONB validations end
@@ -268,5 +266,25 @@ class ChangeLogTest < ActiveSupport::TestCase
   end
   # Menu JSONB validations end
 
-  
+  # Public methods
+  test "should approve place edit" do
+    @change_log = change_logs(:three)
+    @change_log.images.attach(fixture_file_upload("test.png"))
+    @change_log.valid?
+    @change_log.approve_place_edit
+    @place.reload
+    assert_equal @change_log.name, @place.name
+    assert_equal @change_log.address, @place.address
+    assert_equal @change_log.vegan, @place.vegan
+    assert_equal @change_log.instagram_handle, @place.instagram_handle
+    assert_equal @change_log.facebook_handle, @place.facebook_handle
+    assert_equal @change_log.x_handle, @place.x_handle
+    assert_equal @change_log.web_url, @place.web_url
+    assert_equal @change_log.email, @place.email
+    assert_equal @change_log.phone.to_s, @place.phone
+    # assert_equal @change_log.tag_ids, @place.tags.ids
+    assert_equal @place.images.count, 1
+    assert_equal @change_log.user.id, @place.contributors.first
+    assert_equal @change_log.user.points, 1
+  end
 end

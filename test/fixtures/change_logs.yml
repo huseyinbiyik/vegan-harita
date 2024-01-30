@@ -7,4 +7,23 @@ one:
 two:
   user: one
   changeable: one (Place)
+three:
+  user: one
+  changeable: one (Place)
+  data:
+    name: Vegan Cafe
+    address: Vegan Street, Vegan City
+    longitude: 0.0
+    latitude: 0.0
+    vegan: false
+    instagram_handle: vegan_cafe
+    facebook_handle: vegan_cafe
+    x_handle: vegan_cafe
+    web_url: vegancafe.com
+    email: vegan_cafe@vegancafe.com
+    phone: 5555555555
+
+
+
+
 
