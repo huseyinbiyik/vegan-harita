@@ -302,4 +302,12 @@ class ChangeLogTest < ActiveSupport::TestCase
     assert_equal @change_log.user.points, 1
   end
   # Public methods end
+  # PRIVATE METHODS START
+  test "should add error if image type is invalid" do
+    file = fixture_file_upload("test.gif")
+    @change_log.image.attach(file)
+    assert_not @change_log.valid?
+    assert_equal I18n.t("activerecord.attributes.menu.image_invalid"), @change_log.errors[:image].first
+  end
+  # PRIVATE METHODS END
 end
