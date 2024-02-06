@@ -173,7 +173,7 @@ test "should belong to place" do
 
   # CALLBACKS START
   test "should destroy associated change_logs" do
-    assert_difference "ChangeLog.count", -1 do
+    assert_difference "ChangeLog.count", -2 do
       @menu.destroy
     end
   end

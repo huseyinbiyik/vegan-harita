@@ -282,9 +282,24 @@ class ChangeLogTest < ActiveSupport::TestCase
     assert_equal @change_log.web_url, @place.web_url
     assert_equal @change_log.email, @place.email
     assert_equal @change_log.phone.to_s, @place.phone
-    # assert_equal @change_log.tag_ids, @place.tags.ids
+    assert_equal @change_log.tag_ids, @place.tags.ids
     assert_equal @place.images.count, 1
     assert_equal @change_log.user.id, @place.contributors.first
     assert_equal @change_log.user.points, 1
   end
+
+  test "should approve menu edit" do
+    @change_log = change_logs(:four)
+    @change_log.image.attach(fixture_file_upload("test.png"))
+    @change_log.valid?
+    @change_log.approve_menu_edit
+    @menu = Menu.find(@change_log.changeable_id)
+    assert_equal @change_log.name, @menu.name
+    assert_equal @change_log.description, @menu.description
+    assert_equal @change_log.product_category, @menu.product_category
+    assert_equal @change_log.price, @menu.price
+    assert_equal @change_log.user.id, @menu.place.contributors.first
+    assert_equal @change_log.user.points, 1
+  end
+  # Public methods end
 end
