@@ -364,7 +364,7 @@ tr:
   menus:
     form:
       image_with_warning: "Yemek Görseli (en fazla 3MB)"
-  sign_user_agreement: "<a href='/legals/user-agreement' target='_blank'><span class='underlined'>Kullanıcı Sözleşmesi</span>'ni okudum ve kabul ediyorum.</a>"
+  sign_user_agreement: "<a href='/legals/user-agreement' target='_blank'><span class='underlined'>Kullanıcı Sözleşmesi</span></a>'ni okudum ve kabul ediyorum."
   privacy_policy:
     link_text: "Gizlilik Politikası"
     title_html: "<h1>Gizlilik Politikası</h1>"
