@@ -30,6 +30,7 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  is_not_allowed: "is not allowed. Please try another one."
   no_photo: "No Photo"
   username_placeholder: "veganharita"
   max_image_limit: "You can upload up to %{count} images"

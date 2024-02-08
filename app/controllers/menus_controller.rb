@@ -44,7 +44,10 @@ class MenusController < ApplicationController
                                                                      locals: { flash: })
         end
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        format.turbo_stream do
+          flash.now[:alert] = t("controllers.menus.update.failure")
+          render turbo_stream: turbo_stream.update("flash_messages", partial: "shared/flash_messages", locals: { flash: })
+        end
       end
     end
   end

@@ -1,21 +1,23 @@
 class ChangeLog < ApplicationRecord
-  store_accessor :data, :name, :vegan, :latitude, :place_id, :longitude, :address, :phone, :web_url,
-                 :email, :facebook_handle, :instagram_handle, :x_handle, :tag_ids, :deleted_images,
-                 :description, :product_category, :price, :contributors, :active
+  # Associations
   belongs_to :changeable, polymorphic: true
   belongs_to :user
   has_many_attached :images
   has_one_attached :image
 
+  # Validations
   validates :user_id, presence: true
   validates :changeable_id, presence: true
   validates :changeable_type, presence: true
-  validates :name, presence: true, if: -> { changeable_type == "Place" && name.present? }, length: { maximum: 80 }
-  validates :place_id, presence: true, if: lambda {
-                                             place_id.present?
-                                           }
-  validates :address, presence: true, if: -> { address.present? }
-  validates :vegan, inclusion: { in: %w[true false] }, unless: -> { vegan.nil? }
+
+  # JSONB attributes validations
+  # Place validations
+  validates :name, presence: true, length: { minimum: 2, maximum: 100 }, if: -> { changeable_type == "Place" && name.present? }
+  validates :address, length: { minimum: 15, maximum: 500 }, if: -> { changeable_type == "Place" && address.present? }
+  # This place_id comes from Google Places API
+  validates :place_id, length: { minimum: 2, maximum: 80 }, if: lambda { changeable_type == "Place" && address.present? && place_id.present? }
+  validates :vegan, inclusion: { in: %w[true false] }, allow_nil: false, if: -> { changeable_type == "Place" && vegan.present? }
+
   validates :instagram_handle,
             format: { with: /\A[\w.-]+\z/, message: I18n.t("activerecord.attributes.place.instagram_invalid") },
             allow_blank: true,
@@ -29,7 +31,7 @@ class ChangeLog < ApplicationRecord
   validates :x_handle,
             format: { with: /\A[\w.-]+\z/, message: I18n.t("activerecord.attributes.place.x_invalid") },
             allow_blank: true,
-            length: { maximum: 50 },
+            length: { maximum: 20 },
             if: -> { x_handle.present? }
   validates :web_url,
             format:
@@ -37,14 +39,23 @@ class ChangeLog < ApplicationRecord
                 allow_blank: true },
             if: -> { web_url.present? }
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, allow_blank: true, if: -> { email.present? }
-  validates :phone, format: { with: /\A[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}\z/i }, allow_blank: true, if: lambda {
-                                                                                                        phone.present?
-                                                                                                      }
-  validates :tag_ids, presence: true, if: -> { tag_ids.present? }
+  validates :phone, format: { with: /\A[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}\z/i }, allow_blank: true, if: lambda { phone.present? }
+  validates :tag_ids, if: -> { tag_ids.present? }, length: { maximum: Tag.count }
 
   # Menu validations
+  validates :name, presence: true, length: { maximum: 50 }, if: -> { changeable_type == "Menu" }
+  validates :description, length: { maximum: 500 }, if: -> { changeable_type == "Menu" && description.present? }
+  validates :product_category, presence: true, inclusion: { in: %w[Yemek Tatlı İçecek] }, if: -> { changeable_type == "Menu" }
+  validates :price, numericality: { greater_than_or_equal_to: 0 }, if: -> { changeable_type == "Menu" && price.present? }
+  validate :check_image, if: -> { changeable_type == "Menu" && image.attached? }
+
+  # Public instance methods
+  store_accessor :data, :name, :vegan, :latitude, :place_id, :longitude, :address, :phone, :web_url,
+                 :email, :facebook_handle, :instagram_handle, :x_handle, :tag_ids, :deleted_images,
+                 :description, :product_category, :price, :contributors, :active
 
 
+  # Public methods
   def place_attributes
     {
       name:,

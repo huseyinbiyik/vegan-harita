@@ -1,27 +1,31 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :confirmable
+  # Enums
+  enum role: { user: 0, admin: 1 }
 
-  validates :locale, inclusion: { in: I18n.available_locales.map(&:to_s) }, allow_blank: true
-  validates :user_agreement_accepted, acceptance: true
-  validates :username, presence: true, uniqueness: true, length: { maximum: 20 }, format: { with: /\A[a-zA-Z0-9]+\Z/ }
-  validate :username_is_not_a_route
-
-
-
+  # Associations
   has_many :change_logs, dependent: :destroy
   has_many :menus, dependent: :destroy, foreign_key: "creator_id"
   has_many :reviews, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_one_attached :avatar, dependent: :destroy
 
+  # Validations
+  validates :locale, inclusion: { in: I18n.available_locales.map(&:to_s) }, allow_blank: true
+  validates :user_agreement_accepted, acceptance: true
+  validates :username, presence: true, uniqueness: true, length: { maximum: 20 }, format: { with: /\A[a-zA-Z0-9_]+\Z/ }
   validate :avatar_file_type
+  validate :username_is_not_a_route
+
+  # Scopes
+  scope :approved, -> { where(approved: true) }
+
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable, :confirmable
 
 
-  enum role: { user: 0, admin: 1 }
-
+  # Public instance methods
   def approve
     self.approved = true
     save
@@ -31,6 +35,7 @@ class User < ApplicationRecord
     role == "admin"
   end
 
+  # Private instance methods
   private
 
   def avatar_file_type
@@ -41,11 +46,12 @@ class User < ApplicationRecord
 
   def username_is_not_a_route
     routes = Rails.application.routes.routes.map do |route|
-      route.path.spec.to_s.split("/")[1]
-    end.uniq.compact
+      segment = route.path.spec.to_s.split("/")[1]
+      segment.gsub("(.:format)", "") if segment
+    end.compact.uniq
 
     if routes.include?(username)
-      errors.add(:username, "is not allowed!")
+      errors.add(:username, I18n.t("is_not_allowed"))
     end
   end
 end

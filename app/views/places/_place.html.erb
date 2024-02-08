@@ -82,7 +82,7 @@
           <% end %>
         </div>
         <div class="place-detail">
-          <div class="detail-group place-status-wrapper" data-controller="place-status" data-place-status-place-id-value="<%= place.place_id %>">
+          <div class="detail-group place-status-wrapper" data-controller="<%= 'place-status' if Rails.env.production? %>" data-place-status-place-id-value="<%= place.place_id %>">
             <div class="dynamic-icon-wrapper">
               <%= image_tag "status.svg", class: "detail-icon", data: { place_status_target: "icon" } %>
               <span class="detail dynamic-status" data-place-status-target="statusOpen" hidden><%= t("open").downcase %> </span>

@@ -6,7 +6,7 @@ class PlaceTest < ActiveSupport::TestCase
   include ActionDispatch::TestProcess
 
   def setup
-    @place = Place.new(name: "Test Place", address: "123 Test St", place_id: "1", latitude: "40.7128", vegan: true)
+    @place = places(:one)
   end
 
   def teardown
@@ -25,15 +25,15 @@ class PlaceTest < ActiveSupport::TestCase
   end
 
   test "name should not be too long" do
-    @place.name = "a" * 81
+    @place.name = "a" * 101
     assert_not @place.valid?
-    assert_equal [ "is too long (maximum is 80 characters)" ], @place.errors[:name]
+    assert_equal [ "is too long (maximum is 100 characters)" ], @place.errors[:name]
   end
 
   test "address should be present" do
     @place.address = ""
     assert_not @place.valid?
-    assert_equal [ "can't be blank" ], @place.errors[:address]
+    assert_equal [ "can't be blank", "too short (15 characters minimum)" ], @place.errors[:address]
   end
 
   test "address should not be too long" do
@@ -214,7 +214,7 @@ class PlaceTest < ActiveSupport::TestCase
 
   # VALIDATIONS END
 
-  # RELATIONSHIPS START
+  # ASSOCIATIONS START
   test "should have many change_logs" do
     assert_respond_to @place, :change_logs
   end
@@ -235,7 +235,7 @@ class PlaceTest < ActiveSupport::TestCase
     assert_respond_to @place, :reviews
   end
 
-  # RELATIONSHIPS END
+  # ASSOCIATIONS END
 
   # METHODS & CALLBACKS START
   test "featured_image should return first image path" do

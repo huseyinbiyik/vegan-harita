@@ -1,0 +1,7 @@
+one:
+  rating: 5
+  content: "MyText"
+  feedback: "MyText"
+  approved: true
+  place: one
+  user: one
