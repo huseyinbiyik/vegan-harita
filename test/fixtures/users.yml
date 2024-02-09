@@ -8,13 +8,13 @@ one:
   email: user@example.com
   encrypted_password: 123456
   username: user
+  confirmed_at: 2021-01-01 00:00:00
+  confirmation_sent_at: 2021-01-01 00:00:00
 
 two:
   email: user2@example.com
   encrypted_password: 123456
   username: user2
-# #
-# two: {}
-# # column: value
+
 
 

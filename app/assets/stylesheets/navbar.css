@@ -296,7 +296,7 @@ nav {
     background-color: var(--white);
     overflow: scroll;
     max-height: 230px;
-    scrollbar-width: none;  /* Firefox */
+    scrollbar-width: none; /* Firefox */
   }
 
   #search-results::-webkit-scrollbar {
@@ -359,7 +359,7 @@ nav {
     box-shadow: 0 0.25rem 1.25rem 0 rgba(0, 0, 0, 0.25);
     font-size: 1.125rem;
     height: 5.25rem;
-    z-index: 2;
+    z-index: 6;
     gap: 0.5rem;
 
     & li {
