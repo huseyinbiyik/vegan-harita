@@ -9,7 +9,7 @@
       <div class="inputs-wrapper">
         <div class="form-group">
           <%= form.label t('name_of_place') %>
-          <%= form.text_field :name, placeholder: "X Vegan Cafe", value: @place.name, size: nil, autofocus: true, class: "modal-input", required: true, maxlength: 100, size: nil %>
+          <%= form.text_field :name, placeholder: "X Vegan Cafe", value: @place.name, size: nil, autofocus: true, class: "modal-input", required: true, maxlength: 100 %>
         </div>
       </div>
     <% end %>
@@ -47,14 +47,6 @@
         <div class= "form-group">
           <%= form.label t('websiteAddress'), style: "display: block" %>
           <%= form.text_field :web_url, value: @place.web_url, placeholder: "veganharita.com", pattern: "(?!www)^(([a-z0-9]+(-[a-z0-9]+)*\.)*[a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}(\/[a-zA-Z0-9]*)?$", title: t('.web_url_error_message') , maxlength: 50, autofocus: true %>
-        </div>
-      </div>
-    <% end %>
-    <% if params[:attribute] == "email" %>
-      <div class= "inputs-wrapper">
-        <div class= "form-group">
-          <%= form.label t('mail'), style: "display: block" %>
-          <%= form.text_field :email, value: @place.email, placeholder: "mail@mail.com", autofocus: true %>
         </div>
       </div>
     <% end %>

@@ -5,8 +5,6 @@ module PlacesHelper
       "https://www.#{key}.com/#{value}"
     when "web"
       "https://#{value}"
-    when "email"
-      "mailto:#{value}"
     else
       value
     end

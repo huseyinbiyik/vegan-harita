@@ -7,8 +7,8 @@ class PlacesController < ApplicationController
     @last_ten_places = @places.last(10).reverse
     respond_to do |format|
       format.html
-      format.json { render json: @places.to_json(methods: :featured_image) }
-    end
+      format.json { render json: @places.as_json(except: :email, methods: :featured_image) }
+        end
   end
 
   def search
@@ -94,7 +94,7 @@ class PlacesController < ApplicationController
 
   def change_log_params
     params.require(:change_log).permit(:name, :address, :latitude, :longitude, :place_id, :vegan, :instagram_handle,
-                                       :facebook_handle, :x_handle, :web_url, :email, :phone, :approved, tag_ids: [],
+                                       :facebook_handle, :x_handle, :web_url, :phone, :approved, tag_ids: [],
                                                                                                          contributors: [], images: [], deleted_images: []) # rubocop:disable Layout/LineLength
   end
 end

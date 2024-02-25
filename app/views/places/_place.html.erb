@@ -46,7 +46,7 @@
           </div>
         <% else %>
           <div class="no-photo-wrapper">
-            <%= image_tag "default-place-image.jpg", class: "slider-image", data: { slider_target: "image" }, loading: "lazy", class: "default-image" %>
+            <%= image_tag "default-place-image.jpg", class: "slider-image default-image", data: { slider_target: "image" }, loading: "lazy" %>
             <p class="no-photo" > <%= t :no_photo %> </p>
           </div>
         <% end %>
@@ -153,8 +153,7 @@
     "instagram" => place.instagram_handle,
     "facebook" => place.facebook_handle,
     "x" => place.x_handle,
-    "web" => place.web_url,
-    "email" => place.email
+    "web" => place.web_url
   } %>
         <% social_links.each do |key, value| %>
           <% if value.present? %>
