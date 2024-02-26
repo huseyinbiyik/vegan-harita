@@ -461,3 +461,13 @@ tr:
     disclaimer_text_html: "<p>Web sitesindeki içeriklerin doğruluğu ve güncelliği konusunda herhangi bir garanti vermemekteyiz. Kullanıcılar, kendi riskleri altında bilgiye güvenmelidir.</p><br>"
     changes_html: "<h2>Değişiklikler</h2>"
     changes_text_html: "<p>Bu kullanıcı sözleşmesi zaman zaman değiştirilebilir. Güncellemeleri takip etmek kullanıcının sorumluluğundadır.</p>"
+  titles:
+    registrations:
+      new: "Vegan Harita | Kayıt Ol"
+      edit: "Vegan Harita | Hesabım"
+    sessions:
+      new: "Vegan Harita | Giriş Yap"
+    places:
+      new: "Vegan Harita | Mekan Ekle"
+    home:
+      contact: "Vegan Harita | İletişim"

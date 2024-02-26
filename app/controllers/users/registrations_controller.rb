@@ -75,4 +75,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
       render :new
     end
   end
+
+  private
+
+  def set_meta_tags
+    if action_name == "new"
+      @page_title = t("titles.registrations.new")
+    elsif action_name == "edit"
+      @page_title = t("titles.registrations.edit")
+    end
+  end
 end

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get "contact", to: "home#contact"
   post "send_mail", to: "home#send_mail"
 
-  devise_for :users, controllers: { registrations: "users/registrations" }
+  devise_for :users, controllers: { registrations: "users/registrations", sessions: "users/sessions" }
   resources :places do
     resources :reviews, except: %i[index show]
     resources :menus do
