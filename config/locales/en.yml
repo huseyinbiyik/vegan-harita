@@ -445,3 +445,13 @@ en:
     disclaimer_text_html: "<p>We do not guarantee the accuracy and currency of the content on the website. Users should rely on information at their own risk.</p><br>"
     changes_html: "<h2>Changes</h2>"
     changes_text_html: "<p>This user agreement may be changed from time to time. It is the user's responsibility to follow updates.</p>"
+  titles:
+    registrations:
+      new: "Vegan Harita | Sign Up"
+      edit: "Vegan Harita | My Account"
+    sessions:
+      new: "Vegan Harita | Log In"
+    places:
+      new: "Vegan Harita | Add Place"
+    home:
+      contact: "Vegan Harita | Contact"
