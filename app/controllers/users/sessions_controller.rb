@@ -1,9 +1,9 @@
 class Users::SessionsController < Devise::SessionsController
-  before_action :set_page_title, only: [ :new ]
+  before_action :set_meta_tags, only: [ :new ]
 
   private
 
-  def set_page_title
+  def set_meta_tags
     @page_title = t("titles.sessions.new")
   end
 end
