@@ -2,6 +2,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
   prepend_before_action :check_captcha, only: [ :create ] # Change this to be any actions you want to protect.
+  before_action :set_meta_tags, only: %i[new edit]
 
   # GET /resource/sign_up
   # def new

@@ -1,7 +1,7 @@
 class PlacesController < ApplicationController
   before_action :authenticate_user!, except: %i[index show search]
   before_action :set_place, only: %i[show edit update]
-  before_action :set_page_title, only: %i[show new]
+  before_action :set_meta_tags, only: %i[show new]
 
   def index
     @places = Place.approved
@@ -101,8 +101,7 @@ class PlacesController < ApplicationController
 
   private
 
-  def set_page_title
-    # place name if action show
+  def set_meta_tags
     if action_name == "show"
       @page_title = "Vegan Harita | " + @place.name
     elsif action_name == "new"
