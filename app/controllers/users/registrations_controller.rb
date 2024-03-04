@@ -2,6 +2,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
   prepend_before_action :check_captcha, only: [ :create ] # Change this to be any actions you want to protect.
+  before_action :set_meta_tags, only: %i[new edit]
 
   # GET /resource/sign_up
   # def new
@@ -73,6 +74,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
     respond_with_navigational(resource) do
       flash.discard(:recaptcha_error) # We need to discard flash to avoid showing it on the next page reload
       render :new
+    end
+  end
+
+  private
+
+  def set_meta_tags
+    if action_name == "new"
+      @page_title = t("titles.registrations.new")
+    elsif action_name == "edit"
+      @page_title = t("titles.registrations.edit")
     end
   end
 end
