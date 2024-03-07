@@ -1,8 +1,8 @@
-italian:
+italian_cuisine:
   name: italian
 
-turkish:
-  name: turkish
+breakfast:
+  name: breakfast
   id: 1
 
 
