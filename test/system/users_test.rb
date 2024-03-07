@@ -89,6 +89,8 @@ class UsersTest < ApplicationSystemTestCase
 
     click_on "Log in"
 
+    sleep 3
+
     find("#account-icon").hover
 
     click_on "Log Out"

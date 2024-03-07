@@ -18,7 +18,7 @@
     <div id="form-map"  data-place-target="map"></div>
   </div>
 
-  <%= form.hidden_field :place_id, data: {place_target: "place_id"}%>
+  <%= form.hidden_field :place_id, data: {place_target: "place_id"}, id: "hidden_place_id" %>
   <%= form.hidden_field :latitude, data: {place_target: "latitude"} %>
   <%= form.hidden_field :longitude, data: {place_target: "longitude"}  %>
 
@@ -83,7 +83,7 @@
 
     <div class= "add-new-place-form-group">
       <%= form.label t('website_link'), style: "display: block" %>
-      <%= form.text_field :web_url, placeholder: "veganharita.com", pattern: "(?!www)^(([a-z0-9]+(-[a-z0-9]+)*\.)*[a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}(\/[a-zA-Z0-9]*)?$", title:  t('.web_url_error_message') , maxlength: 50 %>
+      <%= form.text_field :web_url, id:"website-input", placeholder: "veganharita.com", pattern: "(?!www)^(([a-z0-9]+(-[a-z0-9]+)*\.)*[a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}(\/[a-zA-Z0-9]*)?$", title:  t('.web_url_error_message') , maxlength: 50 %>
     </div>
   </div>
 
