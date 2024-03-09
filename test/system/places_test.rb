@@ -80,13 +80,13 @@ class PlacesTest < ApplicationSystemTestCase
     page.driver.browser.switch_to.alert.accept
     assert_text "Place edit request sent successfully. Thank you for your contribution! 💚"
 
-    # find("#location").click
-    # sleep 1
-    # fill_in "change_log[address]", with: "Anıtkabir"
-    # find(".pac-item", match: :first).click
-    # click_on "Submit"
-    # page.driver.browser.switch_to.alert.accept
-    # assert_text "Place edit request sent successfully. Thank you for your contribution! 💚"
+    find("#location").click
+    sleep 1
+    fill_in "change_log[address]", with: "Anıtkabir"
+    find(".pac-item", match: :first).click
+    click_on "Submit"
+    page.driver.browser.switch_to.alert.accept
+    assert_text "Place edit request sent successfully. Thank you for your contribution! 💚"
 
     find("#phone").click
     fill_in "change_log[phone]", with: "2121112233"
