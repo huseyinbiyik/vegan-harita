@@ -3,7 +3,7 @@ one:
   changeable: one (Menu)
   data:
     name: Food Menu
-    product_category: Yemek
+    product_category: meal
 two:
   user: one
   changeable: one (Place)
@@ -28,7 +28,7 @@ four:
   data:
     name: Vegan Food
     description: MyText
-    product_category: Yemek
+    product_category: meal
     price: 10.0
 
 

@@ -31,7 +31,7 @@
   </div>
   <div>
     <%= form.label t('product_category'), style: "display: block" %>
-    <%= form.select :product_category, Menu.product_categories.keys %>
+    <%= form.select :product_category, Menu.product_categories.keys.map { |key| [t("product_categories.#{key}"), key] } %>
   </div>
   <div>
     <%= form.label t('price'), style: "display: block" %>

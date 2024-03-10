@@ -44,7 +44,7 @@ class ChangeLog < ApplicationRecord
   # Menu validations
   validates :name, presence: true, length: { maximum: 50 }, if: -> { changeable_type == "Menu" }
   validates :description, length: { maximum: 500 }, if: -> { changeable_type == "Menu" && description.present? }
-  validates :product_category, presence: true, inclusion: { in: %w[Yemek Tatlı İçecek] }, if: -> { changeable_type == "Menu" }
+  validates :product_category, presence: true, inclusion: { in: %w[meal dessert drink] }, if: -> { changeable_type == "Menu" }
   validates :price, numericality: { greater_than_or_equal_to: 0 }, if: -> { changeable_type == "Menu" && price.present? }
   validate :check_image, if: -> { changeable_type == "Menu" && image.attached? }
 
