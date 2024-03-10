@@ -1,47 +1,31 @@
 require "application_system_test_case"
 
 class MenusTest < ApplicationSystemTestCase
-  # setup do
-  #   @menu = menus(:one)
-  # end
+  setup do
+    @place = places(:one)
+    @place.approve
+    @place.save
+  end
 
-  # test 'visiting the index' do
-  #   visit menus_url
-  #   assert_selector 'h1', text: 'Menus'
-  # end
+  test "adding menu" do
+    user = users(:one)
+    sign_in user
 
-  # test 'should create menu' do
-  #   visit menus_url
-  #   click_on 'New menu'
+    visit place_url(@place)
 
-  #   fill_in 'Description', with: @menu.description
-  #   fill_in 'Name', with: @menu.name
-  #   fill_in 'Place', with: @menu.place_id
-  #   fill_in 'Product category', with: @menu.product_category
-  #   click_on 'Create Menu'
+    click_on "Suggest an Edit"
 
-  #   assert_text 'Menu was successfully created'
-  #   click_on 'Back'
-  # end
+    click_on "Add Product"
 
-  # test 'should update Menu' do
-  #   visit menu_url(@menu)
-  #   click_on 'Edit this menu', match: :first
+    fill_in "menu_name", with: "Vegan Burger"
+    fill_in "menu_description", with: "Delicious vegan burger"
+    select "Dessert", from: "menu_product_category"
+    fill_in "menu_price", with: "10"
 
-  #   fill_in 'Description', with: @menu.description
-  #   fill_in 'Name', with: @menu.name
-  #   fill_in 'Place', with: @menu.place_id
-  #   fill_in 'Product category', with: @menu.product_category
-  #   click_on 'Update Menu'
+    click_on "Submit"
+    page.driver.browser.switch_to.alert.accept
 
-  #   assert_text 'Menu was successfully updated'
-  #   click_on 'Back'
-  # end
-
-  # test 'should destroy Menu' do
-  #   visit menu_url(@menu)
-  #   click_on 'Destroy this menu', match: :first
-
-  #   assert_text 'Menu was successfully destroyed'
-  # end
+    assert_text "Menu suggestion sent successfully. Thank you for your contribution! 💚"
+    assert_equal "Vegan Burger", @place.menus.last.name
+  end
 end
