@@ -52,4 +52,7 @@ class MenusTest < ApplicationSystemTestCase
     assert_text "Menu edit request sent successfully. Thank you for your contribution! 💚"
     assert_equal "New Vegan Burger", menu.change_logs.last.data["name"]
   end
+
+  # TODO: Add test for likes, most liked etc.
+  # TODO: Add test for deleting menu
 end
