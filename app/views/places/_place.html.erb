@@ -249,7 +249,7 @@
       <% @contributors.each do |contributor| %>
         <div class="contributor">
           <% if contributor.avatar.attached? %>
-            <%= image_tag contributor.avatar.variant(resize_to_limit: [50,50]), class:"contributor-avatar", loading: "lazy" %>
+            <%= image_tag url_for(contributor.avatar.variant(:thumb)), class:"contributor-avatar", loading: "lazy" %>
           <% else %>
             <%= image_tag "account-icon.svg", class:"contributor-avatar", loading: "lazy" %>
           <% end %>
