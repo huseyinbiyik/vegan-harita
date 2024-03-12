@@ -2,7 +2,7 @@ require "test_helper"
 
 class TagTest < ActiveSupport::TestCase
   setup do
-    @tag = tags(:italian)
+    @tag = tags(:italian_cuisine)
   end
 
   teardown do

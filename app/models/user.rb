@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  # Accessors
+  attr_accessor :user_agreement_accepted
+
   # Enums
   enum role: { user: 0, admin: 1 }
 

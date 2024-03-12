@@ -201,13 +201,6 @@ class ChangeLogTest < ActiveSupport::TestCase
     assert @change_log_place.valid?
   end
 
-  test "email should be a correct format" do
-    @change_log_place.email = "test@test.com"
-    assert @change_log_place.valid?
-    @change_log_place.email = "test"
-    assert_not @change_log_place.valid?
-  end
-
   test "phone should be a correct format" do
     @change_log_place.phone = "3123640772"
     assert @change_log_place.valid?
@@ -280,7 +273,6 @@ class ChangeLogTest < ActiveSupport::TestCase
     assert_equal @change_log.facebook_handle, @place.facebook_handle
     assert_equal @change_log.x_handle, @place.x_handle
     assert_equal @change_log.web_url, @place.web_url
-    assert_equal @change_log.email, @place.email
     assert_equal @change_log.phone.to_s, @place.phone
     assert_equal @change_log.tag_ids, @place.tags.ids
     assert_equal @place.images.count, 1

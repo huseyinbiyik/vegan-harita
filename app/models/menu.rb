@@ -1,6 +1,6 @@
 class Menu < ApplicationRecord
   # Enums
-  enum product_category: { Yemek: 0, Tatlı: 1, İçecek: 2 }
+  enum product_category: { meal: 0, dessert: 1, drink: 2 }
 
   # Associations
   belongs_to :place
@@ -12,7 +12,7 @@ class Menu < ApplicationRecord
   # Validations
   validates :name, presence: true, length: { maximum: 50 }
   validates :description, length: { maximum: 500 }
-  validates :product_category, presence: true, inclusion: { in: %w[Yemek Tatlı İçecek] }
+  validates :product_category, presence: true, inclusion: { in: %w[meal dessert drink] }
   validates :place_id, presence: true
   validates :creator_id, presence: true
   validates :approved, inclusion: { in: [ true, false ] }, allow_nil: false

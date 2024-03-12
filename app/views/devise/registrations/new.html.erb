@@ -19,12 +19,9 @@
       <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: '********', required: true, minlength: 8 %>
     </div>
     <div class="field">
-      <%= f.hidden_field :user_agreement_accepted, value: false %>
       <div class="user-agreement-checkbox-wrapper">
-        <%= f.check_box :user_agreement_accepted, {}, true, false%>
-        <div class="user-agreement-link-wrapper" >
-          <%= t('sign_user_agreement').html_safe %>
-        </div>
+        <%= f.check_box :user_agreement_accepted, required: true %>
+        <%= f.label :user_agreement_accepted, t('sign_user_agreement').html_safe %>
       </div>
     </div>
     <div class="field recaptcha-container">

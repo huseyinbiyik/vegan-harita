@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_31_123931) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_08_202732) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -140,7 +140,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_31_123931) do
     t.integer "points", default: 0
     t.string "locale"
     t.text "admin_note"
-    t.boolean "user_agreement_accepted", default: false
     t.string "username"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true

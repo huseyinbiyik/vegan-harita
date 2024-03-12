@@ -38,21 +38,18 @@ class ChangeLog < ApplicationRecord
               { with: %r{\A(?!www)(([a-z0-9]+(-[a-z0-9]+)*\.)*[a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}(/[a-zA-Z0-9]*)?\z},
                 allow_blank: true },
             if: -> { web_url.present? }
-  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, allow_blank: true, if: -> { email.present? }
   validates :phone, format: { with: /\A[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}\z/i }, allow_blank: true, if: lambda { phone.present? }
   validates :tag_ids, if: -> { tag_ids.present? }, length: { maximum: Tag.count }
 
   # Menu validations
   validates :name, presence: true, length: { maximum: 50 }, if: -> { changeable_type == "Menu" }
   validates :description, length: { maximum: 500 }, if: -> { changeable_type == "Menu" && description.present? }
-  validates :product_category, presence: true, inclusion: { in: %w[Yemek Tatlı İçecek] }, if: -> { changeable_type == "Menu" }
+  validates :product_category, presence: true, inclusion: { in: %w[meal dessert drink] }, if: -> { changeable_type == "Menu" }
   validates :price, numericality: { greater_than_or_equal_to: 0 }, if: -> { changeable_type == "Menu" && price.present? }
   validate :check_image, if: -> { changeable_type == "Menu" && image.attached? }
 
   # Public instance methods
-  store_accessor :data, :name, :vegan, :latitude, :place_id, :longitude, :address, :phone, :web_url,
-                 :email, :facebook_handle, :instagram_handle, :x_handle, :tag_ids, :deleted_images,
-                 :description, :product_category, :price, :contributors, :active
+  store_accessor :data, :name, :vegan, :latitude, :place_id, :longitude, :address, :phone, :web_url, :facebook_handle, :instagram_handle, :x_handle, :tag_ids, :deleted_images, :description, :product_category, :price, :contributors, :active
 
 
   # Public methods
@@ -68,7 +65,6 @@ class ChangeLog < ApplicationRecord
       facebook_handle:,
       x_handle:,
       web_url:,
-      email:,
       phone:
     }
   end
