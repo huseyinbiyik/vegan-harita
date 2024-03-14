@@ -22,8 +22,8 @@
 
 .info-window-image {
   width: 100%;
-  height: 100px;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
   border-radius: 5px;
 }
 
@@ -84,7 +84,6 @@
   }
 
   .info-window-image {
-    height: auto;
     max-height: 180px;
   }
 }

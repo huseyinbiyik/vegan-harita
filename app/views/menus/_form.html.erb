@@ -22,7 +22,7 @@
   <div class="select-wrapper" data-controller= "utils" data-utils-assets-value="<%= [t('files_selected'), t('no_file_selected')].to_json %>">
     <% if @menu.image.attached? %>
       <%= form.label t('change_image'), style: "display: block" %>
-      <%= image_tag url_for(@menu.image), class: "menu-image" %>
+      <%= image_tag url_for(@menu.image.variant(:medium)), class: "menu-image" %>
     <% else %>
       <%= form.label t('.image_with_warning'), style: "display: block" %>
     <% end %>

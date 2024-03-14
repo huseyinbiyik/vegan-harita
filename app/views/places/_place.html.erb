@@ -36,7 +36,7 @@
       <div class="slider-container">
         <% if place.images.attached? %>
           <% place.images.each do |image| %>
-            <%= image_tag image.variant(resize_to_limit: [642,400]), class: "slider-image", data: { slider_target: "image" } %>
+            <%= image_tag url_for(image.variant(:big)), class: "slider-image", data: { slider_target: "image" } %>
           <% end %>
           <div class="slide-buttons">
             <span data-action="click->slider#previous"></span>

@@ -30,7 +30,7 @@
           </p>
           <div class="review-images-container ">
             <% review.images.each do |image| %>
-              <%= image_tag url_for(image.variant(resize_to_limit: [500,500])), class:"review-image" %>
+              <%= image_tag url_for(image.variant(:medium)), class:"review-image" %>
             <% end %>
           </div>
         </div>
