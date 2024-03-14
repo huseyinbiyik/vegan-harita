@@ -68,7 +68,7 @@ class Place < ApplicationRecord
   end
 
   def images_count_within_limit
-    errors.add(:images, I18n.t("max_image_limit", count: 10)) if images.count > 10
+    errors.add(:images, I18n.t("max_image_limit", count: 20)) if images.count > 20
     images.each do |image|
       if image.byte_size > 3.megabytes
         errors.add(:images,

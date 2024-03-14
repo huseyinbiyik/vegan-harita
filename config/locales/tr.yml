@@ -360,11 +360,11 @@ tr:
     form:
       web_url_error_message: "Lütfen geçerli bir URL girin. Örnek: veganharita.com"
       phone_error_message: "Lütfen geçerli bir telefon numarası girin. Örnek: 5321234567 veya 2121234567"
-      images_with_warning: "Fotoğraflar (her biri en fazla 3MB ve 10 adet)"
+      images_with_warning: "Fotoğraflar (her biri en fazla 3MB ve 20 adet)"
     edit:
       web_url_error_message: "Lütfen geçerli bir URL girin. Örnek: veganharita.com"
       phone_error_message: "Lütfen geçerli bir telefon numarası girin. Örnek: 5321234567 veya 2121234567"
-      images_with_warning: "Fotoğraflar (her biri en fazla 3MB ve 10 adet)"
+      images_with_warning: "Fotoğraflar (her biri en fazla 3MB ve 20 adet)"
   menus:
     form:
       image_with_warning: "Yemek Görseli (en fazla 3MB)"
