@@ -4,8 +4,8 @@
     <%= render "devise/shared/error_messages", resource: resource %>
     <div class="field" id="avatar-field" data-controller="utils">
       <div id="avatar-container">
-        <% if resource.avatar.attached? %>
-          <%= image_tag resource.avatar.variant( resize_to_limit: [100,100]), id: "avatar-img", class: "avatar", data: {utils_target: "preview"} %>
+        <% if resource.avatar.attached? && resource.avatar.blob.persisted? %>
+          <%= image_tag url_for(resource.avatar.variant(:medium)), id: "avatar-img", class: "avatar", data: {utils_target: "preview"} %>
         <% else %>
           <%= image_tag "account-icon.svg", class: "avatar", data: {utils_target: "preview"} %>
         <% end %>

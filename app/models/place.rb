@@ -5,7 +5,10 @@ class Place < ApplicationRecord
   # Associations
   has_many :change_logs, as: :changeable, dependent: :destroy
   has_many :menus, dependent: :destroy
-  has_many_attached :images, dependent: :destroy
+  has_many_attached :images, dependent: :destroy do |attachable|
+    attachable.variant :big, resize_to_limit: [ 1000, 1000 ]
+    attachable.variant :medium, resize_to_limit: [ 500, 500 ]
+  end
   has_and_belongs_to_many :tags
   has_many :reviews, dependent: :destroy
 
@@ -47,7 +50,7 @@ class Place < ApplicationRecord
   def featured_image
     return unless images.attached?
 
-    Rails.application.routes.url_helpers.rails_blob_path(images.first, only_path: true)
+    Rails.application.routes.url_helpers.rails_blob_path(images.first.variant(:medium), only_path: true)
   end
 
   private

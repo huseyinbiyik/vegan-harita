@@ -3,7 +3,7 @@
     <div class="review-wrapper">
       <div class="reviewer-info">
         <% if review.user.avatar.attached? %>
-          <%= image_tag review.user.avatar.variant(resize_to_limit: [70,70]), class:"review-avatar", loading: "lazy" %>
+          <%= image_tag url_for(review.user.avatar.variant(:medium)), class:"review-avatar", loading: "lazy" %>
         <% else %>
           <%= image_tag "default-place-image.jpg", class:"review-avatar", loading: "lazy" %>
         <% end %>
@@ -30,7 +30,7 @@
           </p>
           <div class="review-images-container ">
             <% review.images.each do |image| %>
-              <%= image_tag image.variant(resize_to_limit: [500,500]), class:"review-image" %>
+              <%= image_tag url_for(image.variant(:medium)), class:"review-image" %>
             <% end %>
           </div>
         </div>

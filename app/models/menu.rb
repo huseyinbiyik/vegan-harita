@@ -7,7 +7,9 @@ class Menu < ApplicationRecord
   belongs_to :creator, class_name: "User", foreign_key: "creator_id"
   has_many :change_logs, as: :changeable, dependent: :destroy
   has_many :likes, as: :record, dependent: :destroy
-  has_one_attached :image, dependent: :destroy
+  has_one_attached :image, dependent: :destroy do |attachable|
+    attachable.variant :medium, resize_to_limit: [ 400, 400 ]
+  end
 
   # Validations
   validates :name, presence: true, length: { maximum: 50 }

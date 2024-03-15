@@ -104,7 +104,7 @@
             <% @place.images.each do |image| %>
               <div class="image-checkbox">
                 <%= form.check_box :deleted_images, { multiple: true }, image.id, nil %>
-                <%= image_tag image.variant(resize_to_limit: [280,280]), class: "image-checkbox-image" %>
+                <%= image_tag url_for(image.variant(:medium)), class: "image-checkbox-image" %>
               </div>
             <% end %>
           </div>

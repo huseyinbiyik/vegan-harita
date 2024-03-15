@@ -10,7 +10,11 @@ class User < ApplicationRecord
   has_many :menus, dependent: :destroy, foreign_key: "creator_id"
   has_many :reviews, dependent: :destroy
   has_many :likes, dependent: :destroy
-  has_one_attached :avatar, dependent: :destroy
+  has_one_attached :avatar do |attachable|
+    attachable.variant :thumb, resize_to_limit: [ 100, 100 ]
+    attachable.variant :medium, resize_to_limit: [ 200, 200 ]
+  end
+
 
   # Validations
   validates :locale, inclusion: { in: I18n.available_locales.map(&:to_s) }, allow_blank: true

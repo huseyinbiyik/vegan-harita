@@ -244,7 +244,7 @@ class PlaceTest < ActiveSupport::TestCase
     fixture_file_upload("test2.png")
 
     @place.images.attach(file1)
-    assert_equal Rails.application.routes.url_helpers.rails_blob_path(@place.images.first, only_path: true),
+    assert_equal Rails.application.routes.url_helpers.rails_blob_path(@place.images.first.variant(:medium), only_path: true),
                  @place.featured_image
   end
 
