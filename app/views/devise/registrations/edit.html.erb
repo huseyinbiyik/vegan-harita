@@ -9,7 +9,7 @@
         <% else %>
           <%= image_tag "account-icon.svg", class: "avatar", data: {utils_target: "preview"} %>
         <% end %>
-        <%= f.file_field :avatar, accept: "image/png, image/jpeg", data: {action: "change->utils#uploadAvatar"} %>
+        <%= f.file_field :avatar, accept: "image/png, image/jpeg", direct_upload: true, data: {action: "change->utils#uploadAvatar"} %>
       </div>
     </div>
     <div class="field">

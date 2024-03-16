@@ -40,6 +40,7 @@ class ChangeLog < ApplicationRecord
             if: -> { web_url.present? }
   validates :phone, format: { with: /\A[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}\z/i }, allow_blank: true, if: lambda { phone.present? }
   validates :tag_ids, if: -> { tag_ids.present? }, length: { maximum: Tag.count }
+  validate :max_image_limit, if: -> { changeable_type == "Place" && images.attached? }
 
   # Menu validations
   validates :name, presence: true, length: { maximum: 50 }, if: -> { changeable_type == "Menu" }
@@ -125,6 +126,12 @@ class ChangeLog < ApplicationRecord
         errors.add(:image, I18n.t("activerecord.attributes.menu.image_invalid"))
       elsif image.attached? && image.blob.byte_size > 3.megabytes
         errors.add(:image, I18n.t("activerecord.attributes.menu.image_size"))
+      end
+    end
+
+    def max_image_limit
+      if changeable_type == "Place" && changeable.images.attached?
+        errors.add(:images, I18n.t("max_image_limit", count: 20)) if images.count + changeable.images.count > 20
       end
     end
 end

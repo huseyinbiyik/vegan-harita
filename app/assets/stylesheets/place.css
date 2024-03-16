@@ -139,6 +139,13 @@
     width: 20px;
     height: 20px;
   }
+
+  & img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
 }
 
 .add-new-photos {

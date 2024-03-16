@@ -164,7 +164,7 @@ export default class extends Controller {
           position: { lat: position.latitude, lng: position.longitude },
           icon: {
             url: position.vegan ? VeganMarkerIcon : veganFriendlyMarkerIcon,
-            scaledSize: new google.maps.Size(50, 60),
+            scaledSize: new google.maps.Size(50, 50),
           },
         });
 

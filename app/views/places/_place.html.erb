@@ -32,9 +32,9 @@
     </div>
   </div>
   <section class="place-features-container">
-    <div data-controller="slider" class="slider">
-      <div class="slider-container">
-        <% if place.images.attached? %>
+    <div class="slider">
+      <% if place.images.attached? %>
+        <div class="slider-container" data-controller="slider">
           <% place.images.each do |image| %>
             <%= image_tag url_for(image.variant(:big)), class: "slider-image", data: { slider_target: "image" } %>
           <% end %>
@@ -44,13 +44,13 @@
           </div>
           <div class="slider-number" data-slider-target="number">
           </div>
-        <% else %>
-          <div class="no-photo-wrapper">
-            <%= image_tag "default-place-image.jpg", class: "slider-image default-image", data: { slider_target: "image" }, loading: "lazy" %>
-            <p class="no-photo" > <%= t :no_photo %> </p>
-          </div>
-        <% end %>
-      </div>
+        </div>
+      <% else %>
+        <div class="no-photo-wrapper">
+          <%= image_tag "default-place-image.jpg", class: "slider-image default-image", loading: "lazy" %>
+          <p class="no-photo" > <%= t :no_photo %> </p>
+        </div>
+      <% end %>
       <%= turbo_frame_tag :images, class: "edit-wrapper", hidden: true do %>
         <%= link_to edit_place_path(place, attribute: :images), class: "edit-button " do %>
           <span class="edit-icon-container">

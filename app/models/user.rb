@@ -11,7 +11,7 @@ class User < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_one_attached :avatar do |attachable|
-    attachable.variant :thumb, resize_to_limit: [ 100, 100 ]
+    attachable.variant :thumb, resize_to_limit: [ 100, 100 ], preprocessed: true
     attachable.variant :medium, resize_to_limit: [ 200, 200 ]
   end
 

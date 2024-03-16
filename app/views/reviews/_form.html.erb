@@ -19,7 +19,7 @@
   <div class="review-form-group select-wrapper" data-controller= "utils" data-utils-assets-value="<%= [t('files_selected'), t('no_file_selected')].to_json %>">
     <%= form.label t('photos'), style: "display: block" %>
     <span id="upload-edit-btn" data-utils-target="uploadBtn"><%= t(:no_file_selected) %></span>
-    <%= form.file_field :images, multiple: true, accept: "image/*", data: { action: "change->utils#uploadFiles", content: t('select_image')} %>
+    <%= form.file_field :images, multiple: true, direct_upload: true, accept: "image/*", data: { action: "change->utils#uploadFiles", content: t('select_image')} %>
   </div>
   <div class="form-buttons">
     <%= form.submit t('submit'), class:"primary-green-btn", data: { turbo_confirm: t('sure') }  %>

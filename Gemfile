@@ -48,8 +48,6 @@ gem "bootsnap", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 gem "image_processing", "~> 1.2"
 
-gem "geocoder"
-
 gem "devise"
 
 gem "aws-sdk-s3", "~> 1.132"

@@ -94,7 +94,7 @@
       <div class= "add-new-photos select-wrapper" data-controller="utils" data-utils-assets-value="<%= [t('files_selected'), t('no_file_selected')].to_json %>">
         <%= form.label t('new_photos') %>
         <span id="upload-edit-btn" data-utils-target="uploadBtn"><%= t(:no_file_selected) %></span>
-        <%= form.file_field :images, multiple: true, accept: "image/jpeg,image/jpg,image/png,image/webp", data: { action: "change->utils#uploadFiles", content: t('select_image')} %>
+        <%= form.file_field :images, multiple: true, direct_upload: true, accept: "image/jpeg,image/jpg,image/png,image/webp", data: { action: "change->utils#uploadFiles", content: t('select_image')} %>
       </div>
 
       <% if @place.images.attached? %>
