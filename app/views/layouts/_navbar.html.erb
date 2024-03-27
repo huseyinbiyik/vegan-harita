@@ -10,6 +10,13 @@
   </div>
   <nav data-controller="navigation" data-navigation-state-value="false">
     <ul id="nav-menu" data-navigation-target="menu">
+      <% if user_signed_in? && current_user.approved? && current_user.place_owner? %>
+        <li class="nav-link">
+          <%= link_to dashboard_path, class:"nav-admin-link" do %>
+            <span><%= t :business_panel %></span>
+          <% end %>
+        </li>
+      <% end %>
       <% if user_signed_in? && current_user.role == "admin" %>
         <li class="nav-link">
           <%= link_to approvals_path, class:"nav-admin-link" do %>

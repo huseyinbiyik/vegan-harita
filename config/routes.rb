@@ -33,6 +33,11 @@ Rails.application.routes.draw do
     patch "update_note/:id", to: "admins#update_note", as: :update_note
   end
 
+  get "dashboard", to: "place_owners#dashboard", as: :dashboard
+  get "summary/:place_id", to: "place_owners#summary", as: :summary
+  get "navigation/:place_id", to: "place_owners#navigation", as: :navigation
+  get "feedback/:place_id", to: "place_owners#feedback", as: :feedback
+
   scope "legals" do
     get "privacy-policy", to: "legals#privacy_policy"
     get "terms-of-use", to: "legals#terms_of_use"

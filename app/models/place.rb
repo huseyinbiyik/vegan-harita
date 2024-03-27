@@ -5,12 +5,13 @@ class Place < ApplicationRecord
   # Associations
   has_many :change_logs, as: :changeable, dependent: :destroy
   has_many :menus, dependent: :destroy
+  has_and_belongs_to_many :users
+  has_and_belongs_to_many :tags
+  has_many :reviews, dependent: :destroy
   has_many_attached :images, dependent: :destroy do |attachable|
     attachable.variant :big, resize_to_limit: [ 1000, 1000 ]
     attachable.variant :medium, resize_to_limit: [ 500, 500 ]
   end
-  has_and_belongs_to_many :tags
-  has_many :reviews, dependent: :destroy
 
   # Validations
   validates :address, presence: true, length: { minimum: 15, maximum: 500 }, uniqueness: true
