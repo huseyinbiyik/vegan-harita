@@ -38,7 +38,7 @@
       <% if user_signed_in? %>
         <li class="wrapper">
           <% if current_user.avatar.attached? %>
-            <%= image_tag(url_for(current_user.avatar.variant(:thumb)), id:"account-icon", height: "40px", width: "40px") %>
+            <%= image_tag(cdn_proxy_url(current_user.avatar.variant(:thumb)), id:"account-icon", height: "40px", width: "40px") %>
           <% else %>
             <%= image_tag "account-icon.svg", id:"account-icon" %>
           <% end %>

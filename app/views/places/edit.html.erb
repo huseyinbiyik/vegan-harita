@@ -104,7 +104,7 @@
             <% @place.images.each do |image| %>
               <div class="image-checkbox">
                 <%= form.check_box :deleted_images, { multiple: true }, image.id, nil %>
-                <%= image_tag url_for(image.variant(:medium)), class: "image-checkbox-image" %>
+                <%= image_tag cdn_proxy_url(image.variant(:medium)), class: "image-checkbox-image" %>
               </div>
             <% end %>
           </div>
