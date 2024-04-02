@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_01_183225) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_02_224501) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -156,6 +156,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_01_183225) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  create_table "visits", force: :cascade do |t|
+    t.bigint "place_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["place_id"], name: "index_visits_on_place_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "change_logs", "users"
@@ -164,4 +170,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_01_183225) do
   add_foreign_key "menus", "users", column: "creator_id"
   add_foreign_key "reviews", "places"
   add_foreign_key "reviews", "users"
+  add_foreign_key "visits", "places"
 end

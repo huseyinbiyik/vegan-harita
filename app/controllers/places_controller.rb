@@ -2,6 +2,7 @@ class PlacesController < ApplicationController
   before_action :authenticate_user!, except: %i[index show search]
   before_action :set_place, only: %i[show edit update]
   before_action :set_meta_tags, only: %i[index show new]
+  before_action :record_visit, only: [ :show ]
 
   def index
     @places = Place.approved
@@ -97,6 +98,10 @@ class PlacesController < ApplicationController
     params.require(:change_log).permit(:name, :address, :latitude, :longitude, :place_id, :vegan, :instagram_handle,
                                        :facebook_handle, :x_handle, :web_url, :phone, :approved, tag_ids: [],
                                                                                                          contributors: [], images: [], deleted_images: []) # rubocop:disable Layout/LineLength
+  end
+
+  def record_visit
+    @place.visits.create unless current_user.admin? || current_user.places.include?(@place)
   end
 
   def set_meta_tags

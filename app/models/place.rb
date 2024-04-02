@@ -12,6 +12,7 @@ class Place < ApplicationRecord
   has_and_belongs_to_many :users
   has_and_belongs_to_many :tags
   has_many :reviews, dependent: :destroy
+  has_many :visits, dependent: :destroy
   has_many_attached :images, dependent: :destroy do |attachable|
     attachable.variant :big, resize_to_limit: [ 1000, 1000 ]
     attachable.variant :medium, resize_to_limit: [ 500, 500 ]
