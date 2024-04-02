@@ -52,6 +52,7 @@ gem "devise"
 
 gem "aws-sdk-s3", "~> 1.132"
 gem "recaptcha", "~> 5.15"
+gem "chartkick"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
