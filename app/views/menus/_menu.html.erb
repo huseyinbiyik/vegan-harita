@@ -3,12 +3,12 @@
   <div class="menu-heading-container">
     <h4 class="name">
       <%= menu.name %>
-      <%= link_to edit_place_menu_path(@place, menu), data: { turbo_frame: "menu_edit_#{menu.id}" }, class: "edit-wrapper", hidden: true do %>
+      <%= link_to edit_place_menu_path(@place.slug, menu), data: { turbo_frame: "menu_edit_#{menu.id}" }, class: "edit-wrapper", hidden: true do %>
         <span class="edit-icon-container">
           <%= image_tag "edit.svg", class: "edit-icon" %>
          </span>
       <% end %>
-      <%= link_to place_menu_path(@place, menu), method: :delete, data: { turbo_confirm: "Are you sure?", turbo_method: "delete" }, class: "edit-wrapper", hidden: true do %>
+      <%= link_to place_menu_path(@place.slug, menu), method: :delete, data: { turbo_confirm: "Are you sure?", turbo_method: "delete" }, class: "edit-wrapper", hidden: true do %>
         <span class="edit-icon-container delete-icon-container">
           <%= image_tag "delete.svg", class: "edit-icon delete-icon" %>
         </span>

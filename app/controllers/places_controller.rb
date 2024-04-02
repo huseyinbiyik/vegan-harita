@@ -83,7 +83,7 @@ class PlacesController < ApplicationController
   private
 
   def set_place
-    @place = Place.find(params[:id])
+    @place = Place.find_by(slug: params[:slug])
   end
 
   def place_params
@@ -98,8 +98,6 @@ class PlacesController < ApplicationController
                                        :facebook_handle, :x_handle, :web_url, :phone, :approved, tag_ids: [],
                                                                                                          contributors: [], images: [], deleted_images: []) # rubocop:disable Layout/LineLength
   end
-
-  private
 
   def set_meta_tags
     if action_name == "index"

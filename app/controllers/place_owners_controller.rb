@@ -6,14 +6,14 @@ class PlaceOwnersController < ApplicationController
   end
 
   def navigation
-    @place = Place.find(params[:place_id])
+        @place = Place.find_by(slug: params[:slug])
   end
 
   def summary
-    @place = Place.find(params[:place_id])
+        @place = Place.find_by(slug: params[:slug])
   end
 
   def feedback
-    @place = Place.find(params[:place_id])
+        @place = Place.find_by(slug: params[:slug])
   end
 end

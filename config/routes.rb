@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   post "send_mail", to: "home#send_mail"
 
   devise_for :users, controllers: { registrations: "users/registrations", sessions: "users/sessions" }
-  resources :places do
+  resources :places, param: :slug do
     resources :reviews, except: %i[index show]
     resources :menus do
       resource :likes, module: :menus

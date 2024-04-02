@@ -55,7 +55,7 @@ class MenusController < ApplicationController
   def destroy
     if current_user.admin?
       @menu.active = false
-      redirect_to @place, notice: "Ürün başarıyla silindi." if @menu.save
+      redirect_to place_path(@place.slug), notice: "Ürün başarıyla silindi." if @menu.save
     else
       change_log = ChangeLog.new(active: false, changeable: @menu, user: current_user)
       if change_log.save
@@ -67,7 +67,7 @@ class MenusController < ApplicationController
           end
         end
       else
-        redirect_to @place, alert: t("controllers.menus.destroy.failure")
+        redirect_to place_path(@place.slug), alert: t("controllers.menus.destroy.failure")
       end
     end
   end
@@ -79,7 +79,7 @@ class MenusController < ApplicationController
   end
 
   def set_place
-    @place = Place.find(params[:place_id])
+    @place = Place.find_by(slug: params[:place_slug])
   end
 
   def menu_params

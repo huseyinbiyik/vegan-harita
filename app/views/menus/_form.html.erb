@@ -1,4 +1,4 @@
-  <%= form_with(model: [@place, @menu],
+<%= form_with(model: [@place, @menu], url: @menu.new_record? ? place_menus_path(@place.slug) : place_menu_path(@place.slug, @menu),
     data: { action: @menu.persisted? ? "turbo:submit-end->form#submitEnd" : "turbo:submit-end->form#resetForm", form_target: "form" },
     class: "menu-form") do |form| %>
   <% if menu.errors.any? %>

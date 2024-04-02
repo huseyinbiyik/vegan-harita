@@ -69,7 +69,7 @@
           <ul class="pending-item">
             <li><span class="pending-title"><%= t :suggestion_date %></span><%= place_edit.created_at %></li>
             <li class="compared"><span class="pending-title"><%= t :place_name %>:</span>
-              <div><%= link_to "#{place_edit.changeable.name}", place_path(place_edit.changeable.id) %>
+              <div><%= link_to "#{place_edit.changeable.name}", place_path(place_edit.changeable.slug) %>
                 <% if place_edit.name %>
                   <span class="arrow"> → </span> <%= place_edit.name %>
                 <% end %>
@@ -145,7 +145,7 @@
       <% @pending_menus.each do |menu| %>
         <article class="pending-menu" id="menu_<%= menu.id %>">
           <ul class="pending-item">
-            <li><span class="pending-title"><%= t :place_name %>:</span><%= link_to "#{menu.place.name}", place_path(menu.place.id) %></li>
+            <li><span class="pending-title"><%= t :place_name %>:</span><%= link_to "#{menu.place.name}", place_path(menu.place.slug) %></li>
             <li><span class="pending-title"><%= t :product_name %>:</span><%= menu.name %></li>
             <li><span class="pending-title"><%= t :product_description %>:</span><%= menu.description %></li>
             <% if menu.image.attached? %>
@@ -170,7 +170,7 @@
       <% @pending_menu_edits.each do |menu_edit| %>
         <article class="pending-menu" id="menu_edit_<%= menu_edit.id %>">
           <ul class="pending-item">
-            <li><span class="pending-title"><%= t :place_name %>:</span><%= link_to "#{menu_edit.changeable.place.name}", place_path(menu_edit.changeable.place.id) %></li>
+            <li><span class="pending-title"><%= t :place_name %>:</span><%= link_to "#{menu_edit.changeable.place.name}", place_path(menu_edit.changeable.place.slug) %></li>
             <li class="compared"><span class="pending-title"><%= t :product_name %>:</span>
               <div><%= menu_edit.changeable.name %> <span class="arrow"> → </span> <%= menu_edit.name %>
                 <div>
@@ -213,7 +213,7 @@
                     <% @pending_reviews.each do |review| %>
                       <article class="pending-review" id="review_<%= review.id %>">
                         <ul class="pending-item">
-                          <li><span class="pending-title"><%= t :place_name %>:</span><%= link_to "#{review.place.name}", place_path(review.place.id) %></li>
+                          <li><span class="pending-title"><%= t :place_name %>:</span><%= link_to "#{review.place.name}", place_path(review.place.slug) %></li>
                           <li><span class="pending-title"><%= t :rating %>:</span><%= review.rating %></li>
                           <li><span class="pending-title"><%= t :review_content %>:</span><%= review.content %></li>
                           <li><span class="pending-title"><%= t :feedback %>:</span><%= review.feedback %></li>
