@@ -28,6 +28,13 @@
           </span>
           <span class="place-toggle-text" data-edit-target="toggleContent"> </span>
         </button>
+      <% else %>
+        <%= link_to (new_user_session_path), id:"place-edit-toggle-button" do %>
+          <span class="edit-icon-container">
+            <%=image_tag "edit.svg", class: "edit-icon" %>
+          </span>
+          <span class="place-toggle-text"> <%= t("views.places.show.suggest_edit") %> </span>
+        <% end %>
       <% end %>
     </div>
   </div>
