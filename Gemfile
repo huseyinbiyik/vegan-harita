@@ -80,3 +80,6 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+# Use for generation QR code
+gem "rqrcode", "~> 2.2"

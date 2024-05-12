@@ -30,6 +30,11 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  time:
+    formats:
+      only_date: "%B  %e, %Y"
+  months: "Months"
+  days: Days
   is_not_allowed: "is not allowed. Please try another one."
   no_photo: "No Photo"
   username_placeholder: "veganharita"
@@ -456,3 +461,36 @@ en:
     home:
       contact: "Vegan Harita | Contact"
   business_panel: "My Business Panel"
+  place_owner:
+    summary:
+      show:
+        place_rating: "Your place's rating: "
+        total_review_count: "Total reviews count: "
+        place_count: "There are %{size} places in Vegan Harita"
+        most_liked_product: "Your most liked product"
+        monthly_place_visit: "Your place's page is the 2nd most visited this month on our website."
+        visit_count: "Visit Count"
+        monthly_visit_count: "Page Visit by Month"
+        daily_visit_count: "Page Visit by Day"
+    shared:
+      navigation:
+        summary: "Summary"
+        reviews_and_feedbacks: "Reviews & Feedbacks"
+        download_qr: "Download QR Code"
+    feedbacks:
+      show:
+        place_rating: "Place Rating"
+        total_review_count: "Total Reviews Count"
+        rating: "Rating"
+        content: "Content"
+        feedback: "Secret Feedback"
+    qr_code:
+      show:
+        download_your_qr: "You can download your QR code that will direct your customers to the menu section on your place's page on Vegan Harita."
+        download_qr: "Download"
+  created_at: "Created at:"
+  updated_at: "Updated at:"
+  username: "Username"
+
+
+

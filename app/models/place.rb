@@ -68,6 +68,10 @@ class Place < ApplicationRecord
     end
   end
 
+  def visits_count_for_current_month
+    visits.where(created_at: Time.now.beginning_of_month..Time.now.end_of_month).count
+  end
+
   private
 
   # Private methods

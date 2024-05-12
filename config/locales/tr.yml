@@ -1,4 +1,17 @@
 tr:
+  time:
+    formats:
+      default: "%d.%m.%Y"
+      short: "%e %b"
+      long: "%e %B %Y, %H:%M"
+      only_date: "%e %B %Y"
+  date:
+    month_names:
+      [nil, Ocak, Şubat, Mart, Nisan, Mayıs, Haziran, Temmuz, Ağustos, Eylül, Ekim, Kasım, Aralık]
+    abbr_month_names:
+        [nil, Oca, Şub, Mar, Nis, May, Haz, Tem, Ağu, Eyl, Eki, Kas, Ara]
+  months: "Aylar"
+  days: "Günler"
   is_not_allowed: "geçersiz. Lütfen başka bir tane deneyin."
   no_photo: "Henüz fotoğraf eklenmemiş"
   username: "Kullanıcı Adı"
@@ -476,3 +489,35 @@ tr:
     home:
       contact: "Vegan Harita | İletişim"
   business_panel: "İşletme Panelim"
+  place_owner:
+    summary:
+      show:
+        place_rating: "Mekanınızın puanı: "
+        total_review_count: "Toplam değerlendirme sayısı: "
+        place_count: "Vegan Harita'ya kayıtlı toplamda <b>%{size}</b> mekan var."
+        most_liked_product: "En çok beğenilen ürününüz: "
+        monthly_place_visit: "Mekanınızın sayfası, web sitemizde bu ay en çok ziyaret edilenler arasında 1. sırada."
+        visit_count: "Ziyaret Sayısı"
+        monthly_visit_count: "Aylık sayfa ziyaretçi sayısı"
+        daily_visit_count: "Günlük sayfa ziyaretçi sayısı"
+    shared:
+      navigation:
+        summary: "Genel Durum"
+        reviews_and_feedbacks: "Değerlendirmeler ve Geri Bildirimler"
+        download_qr: "QR Kodunuzu İndirin"
+    feedbacks:
+      show:
+        place_rating: "Mekanınızın Puanı"
+        total_review_count: "Toplam Değerlendirme Sayısı"
+        rating: "Değerlendirme Puanı"
+        content: "Yorum"
+        feedback: "Gizli Geri Bildirim"
+    qr_code:
+      show:
+        download_your_qr: "Mekanıza ait QR kodunu indirebilirsiniz. Bu kod Vegan Harita'daki sayfanızın menüsüne yönlendirir."
+        download_qr: "İndir"
+  created_at: "Oluşturulma Tarihi:"
+  updated_at: "Son Güncelleme:"
+
+
+

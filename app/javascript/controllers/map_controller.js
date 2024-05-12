@@ -187,7 +187,7 @@ export default class extends Controller {
                 label
                   ? `
             <div class="info-window">
-            <a href=${window.location.origin + "/places/" + position.id} >
+            <a href=${window.location.origin + "/places/" + position.slug} >
             ${
               position.featured_image
                 ? `<img src=${position.featured_image} class="info-window-image" alt=${label}>`

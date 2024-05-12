@@ -33,10 +33,12 @@ Rails.application.routes.draw do
     patch "update_note/:id", to: "admins#update_note", as: :update_note
   end
 
-  get "dashboard", to: "place_owners#dashboard", as: :dashboard
-  get "summary/:place_id", to: "place_owners#summary", as: :summary
-  get "navigation/:place_id", to: "place_owners#navigation", as: :navigation
-  get "feedback/:place_id", to: "place_owners#feedback", as: :feedback
+  namespace :place_owner do
+    resources :summary, param: :slug, only: %i[show]
+    resources :feedbacks, param: :slug, only: %i[show]
+    resources :qr_code, param: :slug, only: %i[show]
+    get "download_qr/:slug", to: "qr_code#download", as: :download_qr
+  end
 
   scope "legals" do
     get "privacy-policy", to: "legals#privacy_policy"
@@ -46,8 +48,7 @@ Rails.application.routes.draw do
   end
 
   direct :cdn_proxy do |model, options|
-    expires_in = options.delete(:expires_in) { ActiveStorage.urls_expire_in }
-
+    expires_in = 5.minutes
     if Rails.env.production?
       if model.respond_to?(:signed_id)
         route_for(

@@ -12,7 +12,7 @@
     <ul id="nav-menu" data-navigation-target="menu">
       <% if user_signed_in? && current_user.approved? && current_user.place_owner? %>
         <li class="nav-link">
-          <%= link_to dashboard_path, class:"nav-admin-link" do %>
+          <%= link_to place_owner_summary_path(current_user.places.first.slug), class:"nav-admin-link" do %>
             <span><%= t :business_panel %></span>
           <% end %>
         </li>

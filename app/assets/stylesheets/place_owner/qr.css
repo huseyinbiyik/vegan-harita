@@ -1,0 +1,16 @@
+.qr-code-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.download-qr-title {
+font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.qr-code-wrapper {
+display:flex;
+flex-direction: column;
+gap: 1rem;
+}

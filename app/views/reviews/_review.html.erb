@@ -23,7 +23,7 @@
             <span class="star unfilled"></span>
           <% end %>
         <% end %>
-        <span class="review-time"><%= time_in_words(review) %><span>
+        <span class="review-time"><%= time_in_words(review, :created_at) %></span>
           </div>
           <p>
             <%= review.content %>
