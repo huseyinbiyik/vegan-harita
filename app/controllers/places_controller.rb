@@ -101,7 +101,7 @@ class PlacesController < ApplicationController
   end
 
   def record_visit
-    @place.visits.create unless current_user.admin? || current_user.places.include?(@place)
+    @place.visits.create unless current_user&.admin? || current_user&.places&.include?(@place)
   end
 
   def set_meta_tags
