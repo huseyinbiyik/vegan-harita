@@ -508,6 +508,10 @@ en:
       claim: "Claim This Place"
     create:
       claim_submitted: "Your claim request submitted successfully. We will contact you after validation process."
+      claim_not_submitted: "A problem occured. Please contact us if the issue continues."
+  admins:
+    approvals:
+      pending_claims: "Pending Claims"
 
 
 

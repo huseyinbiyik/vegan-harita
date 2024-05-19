@@ -14,14 +14,14 @@ class ClaimsController < ApplicationController
     if @claim.save
       redirect_to place_path(@place.slug), notice: t(".claim_submitted")
     else
-      render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity, alert: t(".claim_not_submitted")
     end
   end
 
   private
 
   def claim_params
-    params.require(:claim).permit(:name, :phone, :role, :email, :linkedin)
+    params.require(:claim).permit(:name, :phone, :role, :email, :linkedin, :note)
   end
 
   def set_place

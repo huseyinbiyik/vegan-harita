@@ -19,6 +19,8 @@ Rails.application.routes.draw do
 
   scope "admin-panel" do
     get "approvals", to: "admins#approvals", as: :approvals
+    post "approve-claim/:id", to: "admins#approve_claim", as: :approve_claim
+    delete "reject-claim/:id", to: "admins#reject_claim", as: :reject_claim
     post "approve-user/:id", to: "admins#approve_user", as: :approve_user
     post "approve-place/:id", to: "admins#approve_place", as: :approve_place
     delete "reject-place/:id", to: "admins#reject_place", as: :reject_place
