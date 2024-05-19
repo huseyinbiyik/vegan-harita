@@ -217,6 +217,7 @@ tr:
   activerecord:
     models:
       user: "Kullanıcı"
+      claim: "Sahiplen"
     attributes:
       user:
         username: "Kullanıcı Adı"
@@ -254,6 +255,13 @@ tr:
       review:
         content: "Yorumunuz"
         feedback: "Bence şu yemeğiniz biraz tuzlu..."
+      claim:
+        name: "İsim & soyisim"
+        email: "E-posta"
+        phone: "Telefon"
+        role: "Şirketteki pozisyonunuz"
+        linkedin: "Linkedin URL'iniz"
+        note: "Eklemek istediğiniz notlar"
     errors:
       messages:
         blank: "boş olamaz"
@@ -520,6 +528,11 @@ tr:
         download_qr: "İndir"
   created_at: "Oluşturulma Tarihi:"
   updated_at: "Son Güncelleme:"
+  claims:
+    new:
+      claim: "Bu Mekanı Sahiplen"
+    create:
+      claim_submitted: "Sahiplenme isteği başarıyla gönderildi. Gerekli doğrulamaların ardından sonucu size bildireceğiz."
 
 
 

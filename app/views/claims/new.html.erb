@@ -1,9 +1,61 @@
 <%= turbo_frame_tag :modal do %>
   <div class="modal">
-    <%= form_with model: @claim do |form| %>
-    
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="page-title"><%= t(".claim") %></h3>
+      </div>
+      <div class="claim-form-container">
+        <%= form_with model: [:place, @claim], class: "default-form" do |form| %>
+          <% if @claim.errors.any? %>
+            <div style="color: red">
+              <h2><%= pluralize(@claim.errors.count, "hata") %>
+                <%= t :error_reason %>
+              </h2>
+              <ul>
+                <% @claim.errors.each do |error| %>
+                  <li><%= error.full_message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
 
-    <% end %>
+          <div class="default-form-group">
+            <%= form.label :name, class: "default-form-label required" %>
+            <%= form.text_field :name, class: "default-form-text-input", required: true, maxlength: 100, autofocus: true %>
+          </div>
 
+          <div class="default-form-group">
+            <%= form.label :email, class: "default-form-label required" %>
+            <%= form.email_field :email, class: "default-form-input", required: true %>
+          </div>
+
+          <div class="default-form-group">
+            <%= form.label :phone, class: "default-form-label" %>
+            <%= form.phone_field :phone, class: "default-form-input", pattern: "[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}", placeholder: "5551112233" %>
+          </div>
+
+          <div class="default-form-group ">
+            <%= form.label :role, class: "default-form-label required" %>
+            <%= form.text_field :role, class: "default-form-input", required: true %>
+          </div>
+
+          <div class="default-form-group">
+            <%= form.label :linkedin, class: "default-form-label" %>
+            <%= form.text_field :linkedin, class: "default-form-input", maxlength: 100, placeholder: "https://www.linkedin.com/in/veganharita/" %>
+          </div>
+
+          <div class="default-form-group">
+            <%= form.label :note, class: "default-form-label" %>
+            <%= form.text_area :note, class: "default-form-input", maxlength: 500 %>
+          </div>
+
+          <div class="form-buttons">
+            <%= form.submit t('submit'), class: "primary-green-btn" %>
+            <%= link_to t('nevermind'), place_path(@place.slug), data: { turbo_frame: "_top" }, class: "turbo-cancel-btn" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
+
 <% end %>

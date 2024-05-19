@@ -72,8 +72,36 @@ h2 {
   font-weight: 500;
 }
 
+.page-title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
 a {
   text-decoration: none;
+}
+
+/* FORM STYLES */
+
+.default-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  overflow: scroll;
+}
+
+.default-form-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.required::after {
+  content: "*";
+  color: var(--red);
 }
 
 input {
@@ -148,6 +176,8 @@ select {
   background: var(--white);
   background-color: var(--white);
 }
+
+/* FORM STYLES END */
 
 .disabled {
   pointer-events: none;
@@ -290,6 +320,19 @@ select:focus {
   background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  padding: 20px;
+}
+
+.modal-header {
+  margin-bottom: 16px;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 
 @media (min-width: 1024px) {

@@ -23,7 +23,7 @@
     <div class="place-heading-right">
       <div class="edit-button edit-wrapper edit-options" hidden="hidden">
         <div class="flex-container">
-          <%= link_to new_claim_path, data: { turbo_frame: "modal" }, class: "claim-button" do %>
+          <%= link_to new_place_claim_path(@place.slug), data: { turbo_frame: "modal" }, class: "claim-button" do %>
             <%= image_tag "claim.svg", class: "edit-icon", height: 42 %>
             <span class="place-toggle-text"><%= t('.claim') %></span>
           <% end %>
