@@ -7,9 +7,9 @@ tr:
       only_date: "%e %B %Y"
   date:
     month_names:
-      [nil, Ocak, Şubat, Mart, Nisan, Mayıs, Haziran, Temmuz, Ağustos, Eylül, Ekim, Kasım, Aralık]
+      [ nil, Ocak, Şubat, Mart, Nisan, Mayıs, Haziran, Temmuz, Ağustos, Eylül, Ekim, Kasım, Aralık ]
     abbr_month_names:
-        [nil, Oca, Şub, Mar, Nis, May, Haz, Tem, Ağu, Eyl, Eki, Kas, Ara]
+      [ nil, Oca, Şub, Mar, Nis, May, Haz, Tem, Ağu, Eyl, Eki, Kas, Ara ]
   months: "Aylar"
   days: "Günler"
   is_not_allowed: "geçersiz. Lütfen başka bir tane deneyin."
@@ -250,7 +250,7 @@ tr:
         name: "Kuzey Kore Usulü Kızarmış Tofu"
         description: "Tofu, soğan ve susam ve Kuzey Kore baharatları..."
       place_edits:
-        web_url : "siteadresi.com"
+        web_url: "siteadresi.com"
       review:
         content: "Yorumunuz"
         feedback: "Bence şu yemeğiniz biraz tuzlu..."
@@ -327,7 +327,7 @@ tr:
     places:
       show:
         contributors: "Katkıda Bulunanlar"
-        suggest_edit: "Düzenleme Öner"
+        suggest_edit: "Düzenle"
         cancel: "Vazgeç"
   minimum: "en az"
   characters: "karakter"
@@ -378,6 +378,8 @@ tr:
       web_url_error_message: "Lütfen geçerli bir URL girin. Örnek: veganharita.com"
       phone_error_message: "Lütfen geçerli bir telefon numarası girin. Örnek: 5321234567 veya 2121234567"
       images_with_warning: "Fotoğraflar (her biri en fazla 3MB ve 20 adet)"
+    place:
+      claim: "Sahiplen"
   menus:
     form:
       image_with_warning: "Yemek Görseli (en fazla 3MB)"

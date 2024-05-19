@@ -1,18 +1,19 @@
-.place-owner-header , .place-owner-subheader {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-    gap: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    flex-wrap: wrap;
+.place-owner-header,
+.place-owner-subheader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  flex-wrap: wrap;
 }
 
 .place-owner-header-link {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 .place-owner-subheader {
-    margin-top: 1rem;
+  margin-top: 1rem;
 }

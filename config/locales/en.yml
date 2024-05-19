@@ -356,6 +356,8 @@ en:
       web_url_error_message: "Please enter a valid domain name like 'veganharita.com'"
       phone_error_message: "Please enter a valid phone number like '5071234567' or '2121234567"
       images_with_warning: "Images (each Max 3MB and 20 images)"
+    place:
+      claim: "Claim"
   menus:
     form:
       image_with_warning: "Images (max 3MB)"

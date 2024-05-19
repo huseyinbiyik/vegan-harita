@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :claims, only: %i[new create]
+
   scope "admin-panel" do
     get "approvals", to: "admins#approvals", as: :approvals
     post "approve-user/:id", to: "admins#approve_user", as: :approve_user

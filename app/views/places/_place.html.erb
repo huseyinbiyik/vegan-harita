@@ -2,8 +2,8 @@
   <div class="place-heading-container">
     <div class="place-heading-left">
       <h1 class="place-heading-title"><%= place.name %>
-        <%= turbo_frame_tag :name, class:"edit-wrapper", hidden: true do %>
-          <%= link_to edit_place_path(place.slug, attribute: :name), class: "edit-button" do  %>
+        <%= turbo_frame_tag :name, class: "edit-wrapper", hidden: true do %>
+          <%= link_to edit_place_path(place.slug, attribute: :name), class: "edit-button" do %>
             <span class="edit-icon-container">
               <%= image_tag "edit.svg", class: "edit-icon" %>
             </span>
@@ -13,7 +13,7 @@
       <div class="place-review-score-container">
         <span class="review-score">
           <%= image_tag "review-star.svg" %>
-          <%= average_rating(@reviews)%>
+          <%= average_rating(@reviews) %>
         </span>
         <% if @reviews.present? %>
           <a class="review-size" href="#reviews"><%= @reviews.size %> <%= t :review %> </a>
@@ -21,17 +21,25 @@
       </div>
     </div>
     <div class="place-heading-right">
+      <div class="edit-button edit-wrapper edit-options" hidden="hidden">
+        <div class="flex-container">
+          <%= link_to new_claim_path, data: { turbo_frame: "modal" }, class: "claim-button" do %>
+            <%= image_tag "claim.svg", class: "edit-icon", height: 42 %>
+            <span class="place-toggle-text"><%= t('.claim') %></span>
+          <% end %>
+        </div>
+      </div>
       <% if user_signed_in? %>
         <button id="place-edit-toggle-button" data-action="click->edit#toggle">
           <span class="edit-icon-container">
-            <%=image_tag "edit.svg", class: "edit-icon" %>
+            <%= image_tag "edit.svg", class: "edit-icon" %>
           </span>
           <span class="place-toggle-text" data-edit-target="toggleContent"> </span>
         </button>
       <% else %>
-        <%= link_to (new_user_session_path), id:"place-edit-toggle-button" do %>
+        <%= link_to (new_user_session_path), id: "place-edit-toggle-button" do %>
           <span class="edit-icon-container">
-            <%=image_tag "edit.svg", class: "edit-icon" %>
+            <%= image_tag "edit.svg", class: "edit-icon" %>
           </span>
           <span class="place-toggle-text"> <%= t("views.places.show.suggest_edit") %> </span>
         <% end %>
@@ -55,7 +63,7 @@
       <% else %>
         <div class="no-photo-wrapper">
           <%= image_tag "default-place-image.jpg", class: "slider-image default-image", loading: "lazy" %>
-          <p class="no-photo" > <%= t :no_photo %> </p>
+          <p class="no-photo"> <%= t :no_photo %> </p>
         </div>
       <% end %>
       <%= turbo_frame_tag :images, class: "edit-wrapper", hidden: true do %>
@@ -94,8 +102,8 @@
               <%= image_tag "status.svg", class: "detail-icon", data: { place_status_target: "icon" } %>
               <span class="detail dynamic-status" data-place-status-target="statusOpen" hidden><%= t("open").downcase %> </span>
               <span class="detail dynamic-status" data-place-status-target="statusClose" hidden><%= t("closed").downcase %></span>
-              <div class="opening-hours-table" data-place-status-target="openingHoursTable" >
-                <span class="opening-hours-table-heading"><%= t('opening_hours')%></span>
+              <div class="opening-hours-table" data-place-status-target="openingHoursTable">
+                <span class="opening-hours-table-heading"><%= t('opening_hours') %></span>
               </div>
             </div>
             <span class="detail dotted" data-place-status-target="statusOpen" hidden><%= t("open_right_now") %> </span>
@@ -105,12 +113,12 @@
         <div class="place-detail">
           <div class="detail-group">
             <%= link_to "https://www.google.com/maps/dir/?api=1&destination=#{place.latitude},#{place.longitude}", target: "_blank", class: "detail-group" do %>
-              <%= image_tag "direction.svg", class: "detail-icon"%>
+              <%= image_tag "direction.svg", class: "detail-icon" %>
               <span class="detail"> <%= t :directions %> </span>
             <% end %>
           </div>
-          <%= turbo_frame_tag :location , class: "edit-wrapper", hidden: true do %>
-            <%= link_to edit_place_path(place.slug, attribute: :location), class: "edit-button" do  %>
+          <%= turbo_frame_tag :location, class: "edit-wrapper", hidden: true do %>
+            <%= link_to edit_place_path(place.slug, attribute: :location), class: "edit-button" do %>
               <span class="edit-icon-container">
                 <%= image_tag "edit.svg", class: "edit-icon" %>
               </span>
@@ -131,7 +139,7 @@
             <% end %>
           <% end %>
           <%= turbo_frame_tag :phone, class: "edit-wrapper", hidden: true do %>
-            <%= link_to edit_place_path(place.slug, attribute: :phone), class: "edit-button" do  %>
+            <%= link_to edit_place_path(place.slug, attribute: :phone), class: "edit-button" do %>
               <span class="edit-icon-container">
                 <%= image_tag "edit.svg", class: "edit-icon" %>
               </span>
@@ -141,7 +149,7 @@
       </div>
       <div class="place-tags">
         <%= turbo_frame_tag :tags, class: "edit-wrapper", hidden: true do %>
-          <%= link_to edit_place_path(place.slug, attribute: :tags), class: "edit-button " do  %>
+          <%= link_to edit_place_path(place.slug, attribute: :tags), class: "edit-button " do %>
             <span class="edit-icon-container">
               <%= image_tag "edit.svg", class: "edit-icon" %>
             </span>
@@ -149,7 +157,7 @@
         <% end %>
         <% if place.tags.present? %>
           <% place.tags.each do |tag| %>
-            <span class="place-tag" ><%=  I18n.t("tags.#{tag.name}") %></span>
+            <span class="place-tag"><%= I18n.t("tags.#{tag.name}") %></span>
           <% end %>
         <% else %>
           <span> <%= t :no_tag %> </span>
@@ -157,11 +165,11 @@
       </div>
       <div class="social-links">
         <% social_links = {
-    "instagram" => place.instagram_handle,
-    "facebook" => place.facebook_handle,
-    "x" => place.x_handle,
-    "web" => place.web_url
-  } %>
+          "instagram" => place.instagram_handle,
+          "facebook" => place.facebook_handle,
+          "x" => place.x_handle,
+          "web" => place.web_url
+        } %>
         <% social_links.each do |key, value| %>
           <% if value.present? %>
             <div class="relative">
@@ -170,7 +178,7 @@
                 <span class="visible-on-desktop"><%= value %></span>
               <% end %>
               <%= turbo_frame_tag key, class: "edit-wrapper", hidden: true do %>
-                <%= link_to edit_place_path(place.slug, attribute: key), class: "edit-button " do  %>
+                <%= link_to edit_place_path(place.slug, attribute: key), class: "edit-button " do %>
                   <span class="edit-icon-container">
                     <%= image_tag "edit.svg", class: "edit-icon" %>
                   </span>
@@ -183,7 +191,7 @@
                 <%= image_tag "#{key}.svg", class: "social disabled" %>
               <% end %>
               <%= turbo_frame_tag key, class: "edit-wrapper", hidden: true do %>
-                <%= link_to edit_place_path(place.slug, attribute: key), class: "edit-button " do  %>
+                <%= link_to edit_place_path(place.slug, attribute: key), class: "edit-button " do %>
                   <span class="edit-icon-container">
                     <%= image_tag "edit.svg", class: "edit-icon" %>
                   </span>
@@ -199,34 +207,35 @@
   <section id="menu">
     <div id="menu-header">
       <h2> <%= t :menu %> </h2>
-      <%= link_to new_place_menu_path(@place.slug), data: { turbo_frame: "new_menu"}, id: "add-new-product", class: "edit-wrapper", hidden: true do %> <%= t :add_product %> <% end %>
+      <%= link_to new_place_menu_path(@place.slug), data: { turbo_frame: "new_menu" }, id: "add-new-product", class: "edit-wrapper", hidden: true do %> <%= t :add_product %>
+      <% end %>
     </div>
     <%= turbo_frame_tag "new_menu" %>
     <% if @place.menus.present? %>
       <% if @place.menus.food.present? %>
         <h3 class="menu-category-heading">
-          <%= image_tag "menu-category-food.svg"%>
+          <%= image_tag "menu-category-food.svg" %>
           <%= t :meals %>
         </h3>
-        <%= render @place.menus.food, locals: {place: @place} %>
+        <%= render @place.menus.food, locals: { place: @place } %>
       <% end %>
       <% if @place.menus.dessert.present? %>
         <h3 class="menu-category-heading">
-          <%= image_tag "menu-category-dessert.svg"%>
+          <%= image_tag "menu-category-dessert.svg" %>
           <%= t :desserts %>
         </h3>
-        <%= render @place.menus.dessert, locals: {place: @place} %>
+        <%= render @place.menus.dessert, locals: { place: @place } %>
       <% end %>
       <% if @place.menus.drink.present? %>
         <h3 class="menu-category-heading">
-          <%= image_tag "menu-category-drink.svg"%>
+          <%= image_tag "menu-category-drink.svg" %>
           <%= t :drinks %>
         </h3>
-        <%= render @place.menus.drink, locals: {place: @place} %>
+        <%= render @place.menus.drink, locals: { place: @place } %>
       <% end %>
-    <%else%>
+    <% else %>
       <p> <%= t :no_menu %> </p>
-    <%end%>
+    <% end %>
   </section>
   <hr class="separator">
   <section id="reviews">
@@ -235,12 +244,12 @@
     </div>
     <div class="reviews-wrapper">
       <% @reviews.approved.each do |review| %>
-        <%= render review%>
+        <%= render review %>
       <% end %>
       <% if user_signed_in? %>
         <%= turbo_frame_tag "new_review" do %>
           <%= link_to new_place_review_path(@place.slug), class: "add-review-btn" do %>
-            <%= image_tag "add-review.svg"%>
+            <%= image_tag "add-review.svg" %>
             <%= t :add_review %>
           <% end %>
         <% end %>
@@ -256,9 +265,9 @@
       <% @contributors.each do |contributor| %>
         <div class="contributor">
           <% if contributor.avatar.attached? %>
-            <%= image_tag cdn_proxy_url(contributor.avatar.variant(:thumb)), class:"contributor-avatar", loading: "lazy" %>
+            <%= image_tag cdn_proxy_url(contributor.avatar.variant(:thumb)), class: "contributor-avatar", loading: "lazy" %>
           <% else %>
-            <%= image_tag "account-icon.svg", class:"contributor-avatar", loading: "lazy" %>
+            <%= image_tag "account-icon.svg", class: "contributor-avatar", loading: "lazy" %>
           <% end %>
           <span class="contributor-name"><%= contributor.username %></span>
         </div>
