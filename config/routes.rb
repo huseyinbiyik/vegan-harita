@@ -7,16 +7,15 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: "users/registrations", sessions: "users/sessions" }
   resources :places, param: :slug do
-    resources :reviews, except: %i[index show]
     resources :menus do
       resource :likes, module: :menus
     end
+    resources :reviews, except: %i[index show]
+    resources :claims, only: %i[new create]
     collection do
       post :search
     end
   end
-
-  resources :claims, only: %i[new create]
 
   scope "admin-panel" do
     get "approvals", to: "admins#approvals", as: :approvals
@@ -61,8 +60,8 @@ Rails.application.routes.draw do
         )
       else
         signed_blob_id = model.blob.signed_id(expires_in: expires_in)
-        variation_key  = model.variation.key
-        filename       = model.blob.filename
+        variation_key = model.variation.key
+        filename = model.blob.filename
 
         route_for(
           :rails_blob_representation_proxy,

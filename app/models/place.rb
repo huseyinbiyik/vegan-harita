@@ -9,6 +9,7 @@ class Place < ApplicationRecord
   # Associations
   has_many :change_logs, as: :changeable, dependent: :destroy
   has_many :menus, dependent: :destroy
+  has_many :claims, dependent: :destroy
   has_and_belongs_to_many :users
   has_and_belongs_to_many :tags
   has_many :reviews, dependent: :destroy

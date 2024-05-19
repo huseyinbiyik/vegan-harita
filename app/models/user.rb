@@ -8,6 +8,7 @@ class User < ApplicationRecord
   # Associations
   has_many :change_logs, dependent: :destroy
   has_many :menus, dependent: :destroy, foreign_key: "creator_id"
+  has_many :claims, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_and_belongs_to_many :places
@@ -15,7 +16,6 @@ class User < ApplicationRecord
     attachable.variant :thumb, resize_to_limit: [ 100, 100 ], preprocessed: true
     attachable.variant :medium, resize_to_limit: [ 200, 200 ]
   end
-
 
   # Validations
   validates :locale, inclusion: { in: I18n.available_locales.map(&:to_s) }, allow_blank: true
@@ -31,7 +31,6 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
-
 
   # Public instance methods
   def approve
@@ -52,6 +51,7 @@ class User < ApplicationRecord
   end
 
   # Private instance methods
+
   private
 
   def avatar_file_type
