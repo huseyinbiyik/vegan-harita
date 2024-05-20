@@ -505,6 +505,7 @@ tr:
   business_panel: "İşletme Panelim"
   place_owner:
     summary:
+      unauthorized: "Bu sayfaya erişim yetkiniz bulunmamaktadır."
       show:
         place_rating: "Mekanınızın puanı: "
         total_review_count: "Toplam değerlendirme sayısı: "

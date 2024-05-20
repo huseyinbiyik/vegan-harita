@@ -477,6 +477,7 @@ en:
   business_panel: "My Business Panel"
   place_owner:
     summary:
+      unauthorized: "You are not allowed to access this zone."
       show:
         place_rating: "Your place's rating: "
         total_review_count: "Total reviews count: "
