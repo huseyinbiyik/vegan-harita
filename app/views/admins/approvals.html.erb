@@ -5,11 +5,16 @@
       <% @pending_claims.each do |claim| %>
         <article class="pending-claim" id="claim_<%= claim.id %>">
           <ul class="pending-item">
-            <li><span class="pending-title"><%= t :place_name %>
-              :</span><%= link_to "#{claim.place.name}", place_path(claim.place.slug) %></li>
-            <li><span class="pending-title"><%= t :claimant %>
-              :</span><%= claim.user.username %></li>
-            <li><span class="pending-title"><%= t :claim_date %>:</span><%= claim.created_at %></li>
+            <li>
+              <span class="pending-title"><%= t :place_name %>:</span>
+              <%= link_to "#{claim.place.name}", place_path(claim.place.slug) %>
+            </li>
+            <li><span class="pending-title"><%= t(".name") %>:</span><%= claim.name %></li>
+            <li><span class="pending-title"><%= t(".claimant") %>:</span><%= claim.user.username %></li>
+            <li><span class="pending-title"><%= t :phone %>:</span><%= claim.phone %></li>
+            <li><span class="pending-title"><%= t(".role") %>:</span><%= claim.role %></li>
+            <li><span class="pending-title"><%= t(".linkedin") %>:</span><%= claim.linkedin %></li>
+            <li><span class="pending-title"><%= t(".note") %>:</span><%= claim.note %></li>
             <li class="admin-btns">
               <%= link_to t('approve'), approve_claim_path(claim), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
               <%= link_to t('reject'), reject_claim_path(claim), class: "reject-btn", method: "delete", remote: true, data: { turbo_method: "delete" } %>

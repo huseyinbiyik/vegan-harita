@@ -2,7 +2,7 @@ class AdminsController < ApplicationController # rubocop:disable Metrics/ClassLe
   before_action :authenticate_admin
 
   def approvals
-    @pending_claims = Claim.all.order("created_at DESC")
+    @pending_claims = Claim.all.order("created_at DESC").pending
     @users = User.all.with_attached_avatar
     @pending_users = @users.where(approved: false).order("created_at DESC")
 
@@ -28,6 +28,8 @@ class AdminsController < ApplicationController # rubocop:disable Metrics/ClassLe
 
     user.places << place
     user.role = "place_owner"
+
+    claim.status = "approved"
 
     if user.save! && user.places.include?(place) && claim.destroy
       respond_to do |format|

@@ -514,6 +514,11 @@ en:
   admins:
     approvals:
       pending_claims: "Pending Claims"
+      claimant: "Claimant"
+      role: "Role"
+      name: "Name & Surname"
+      note: "Extra Note"
+      linkedin: "Linkedin"
 
 
 
