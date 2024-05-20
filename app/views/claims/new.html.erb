@@ -5,7 +5,7 @@
         <h3 class="page-title"><%= t(".claim") %></h3>
       </div>
       <div class="claim-form-container">
-        <%= form_with model: [:place, @claim], class: "default-form" do |form| %>
+        <%= form_with model: [:place, @claim], class: "default-form", data: { turbo: false } do |form| %>
           <% if @claim.errors.any? %>
             <div style="color: red">
               <h2><%= pluralize(@claim.errors.count, "hata") %>
@@ -26,7 +26,7 @@
 
           <div class="default-form-group">
             <%= form.label :email, class: "default-form-label required" %>
-            <%= form.email_field :email, class: "default-form-input", required: true %>
+            <%= form.email_field :email, class: "default-form-input" %>
           </div>
 
           <div class="default-form-group">

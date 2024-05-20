@@ -290,6 +290,10 @@ tr:
               invalid: "Geçersiz URL. Şu formatta deneyin: veganharita.com"
             email:
               invalid: "Geçersiz e-posta adresi. Şu formatta deneyin: abc@gmail.com"
+        claim:
+          attributes:
+            email:
+              invalid: "Geçersiz e-posta adresi."
   helpers:
     reviews_helper:
       not_yet_rated: "Henüz değerlendirilmedi"

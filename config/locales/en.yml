@@ -267,8 +267,6 @@ en:
         role: "Role"
         linkedin: "Linkedin"
         note: "Extra note"
-    
-    
     errors:
       messages:
         blank: "can't be blank"
@@ -286,6 +284,10 @@ en:
               taken: "already exists"
             place_id:
               taken: "already exists"
+          claim:
+            attributes:
+              email:
+                invalid: "is invalid"
   helpers:
     reviews_helper:
       not_yet_rated: "Henüz değerlendirilmedi"
