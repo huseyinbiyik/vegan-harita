@@ -483,7 +483,7 @@ en:
         total_review_count: "Total reviews count: "
         place_count: "There are %{size} places in Vegan Harita"
         most_liked_product: "Your most liked product"
-        monthly_place_visit: "Your place's page is the 2nd most visited this month on our website."
+        monthly_place_visit: "Your place's page is the <b>%{visit_rank}.</b> most visited this month on our website."
         visit_count: "Visit Count"
         monthly_visit_count: "Page Visit by Month"
         daily_visit_count: "Page Visit by Day"

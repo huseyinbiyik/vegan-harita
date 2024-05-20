@@ -4,21 +4,21 @@
   <div class="top-row">
     <div class="summary-details">
       <% if @reviews.present? %>
-        <p><%= t '.place_rating' %><b><%= average_rating(@reviews)%></b></p>
+        <p><%= t '.place_rating' %><b><%= average_rating(@reviews) %></b></p>
         <p><%= t '.total_review_count' %><b><%= @reviews.size %></b></p>
         <p><%= t '.most_liked_product' %><b><%= @most_liked_product&.name %></b></p>
       <% end %>
       <p><%= t('.place_count', size: @place_count).html_safe %>
-      <p><%= t('.monthly_place_visit') %></p>
+      <p><%= t('.monthly_place_visit', visit_rank: @place.visit_rank).html_safe %></p>
     </div>
 
-    <div class= "monthly-graph">
+    <div class="monthly-graph">
       <h2 class="text-center"><%= t('.monthly_visit_count') %></h2>
       <%= column_chart @visits_count_by_month,
                        colors: ["#01da5a", "#000e06"],
                        xtitle: t('months'),
                        ytitle: t('.visit_count'),
-                       library: { animation: { duration: 2000 }} %>
+                       library: { animation: { duration: 2000 } } %>
     </div>
   </div>
 
@@ -28,6 +28,6 @@
                    colors: ["#01da5a", "#000e06"],
                    xtitle: t('days'),
                    ytitle: t('.visit_count'),
-                   library: { animation: { easing: 'easeInOutCubic', duration: 1000 }} %>
+                   library: { animation: { easing: 'easeInOutCubic', duration: 1000 } } %>
   </div>
 </main>

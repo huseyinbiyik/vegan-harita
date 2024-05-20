@@ -511,7 +511,7 @@ tr:
         total_review_count: "Toplam değerlendirme sayısı: "
         place_count: "Vegan Harita'ya kayıtlı toplamda <b>%{size}</b> mekan var."
         most_liked_product: "En çok beğenilen ürününüz: "
-        monthly_place_visit: "Mekanınızın sayfası, web sitemizde bu ay en çok ziyaret edilenler arasında 1. sırada."
+        monthly_place_visit: "Mekanınızın sayfası, web sitemizde bu ay en çok ziyaret edilenler arasında <b>%{visit_rank}.</b> sırada."
         visit_count: "Ziyaret Sayısı"
         monthly_visit_count: "Aylık sayfa ziyaretçi sayısı"
         daily_visit_count: "Günlük sayfa ziyaretçi sayısı"
