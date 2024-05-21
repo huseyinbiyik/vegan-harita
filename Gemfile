@@ -83,3 +83,5 @@ end
 
 # Use for generation QR code
 gem "rqrcode", "~> 2.2"
+
+gem "solid_queue", "~> 0.3.1"
