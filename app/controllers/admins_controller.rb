@@ -2,6 +2,7 @@ class AdminsController < ApplicationController # rubocop:disable Metrics/ClassLe
   before_action :authenticate_admin
 
   def approvals
+    @pending_claims = Claim.all.order("created_at DESC").pending
     @users = User.all.with_attached_avatar
     @pending_users = @users.where(approved: false).order("created_at DESC")
 
@@ -18,6 +19,44 @@ class AdminsController < ApplicationController # rubocop:disable Metrics/ClassLe
     @pending_menus = Menu.where(approved: false)
 
     @pending_reviews = Review.where(approved: false)
+  end
+
+  def approve_claim
+    claim = Claim.find(params[:id])
+    user = claim.user
+    place = claim.place
+
+    user.places << place
+    user.role = "place_owner"
+
+    claim.status = "approved"
+
+    if user.save! && user.places.include?(place) && claim.destroy
+      respond_to do |format|
+        format.turbo_stream do
+          flash.now[:notice] = "Talep onaylandı."
+          render turbo_stream: [
+            turbo_stream.remove("claim_#{params[:id]}"),
+            turbo_stream.update("flash_messages", partial: "shared/flash_messages", locals: { flash: })
+          ]
+        end
+      end
+    else
+      redirect_to approvals_path, alert: "Talep onaylanamadı."
+    end
+  end
+
+  def reject_claim
+    claim = Claim.find(params[:id])
+    claim.destroy
+    respond_to do |format|
+      format.turbo_stream do
+        flash.now[:notice] = "Talep reddedildi."
+        render turbo_stream: [ turbo_stream.remove("claim_#{params[:id]}"),
+                              turbo_stream.update("flash_messages", partial: "shared/flash_messages",
+                                                  locals: { flash: }) ]
+      end
+    end
   end
 
   def approve_user
@@ -66,7 +105,7 @@ class AdminsController < ApplicationController # rubocop:disable Metrics/ClassLe
         flash.now[:notice] = "Mekan reddedildi."
         render turbo_stream: [ turbo_stream.remove("place_#{params[:id]}"),
                               turbo_stream.update("flash_messages", partial: "shared/flash_messages",
-                                                                    locals: { flash: }) ]
+                                                  locals: { flash: }) ]
       end
     end
   end
@@ -79,7 +118,7 @@ class AdminsController < ApplicationController # rubocop:disable Metrics/ClassLe
           flash.now[:notice] = "Mekan düzenlemesi onaylandı"
           render turbo_stream: [ turbo_stream.remove("place_edit_#{place_edit.id}"),
                                 turbo_stream.update("flash_messages", partial: "shared/flash_messages",
-                                                                      locals: { flash: }) ]
+                                                    locals: { flash: }) ]
         end
       end
     else
@@ -96,7 +135,7 @@ class AdminsController < ApplicationController # rubocop:disable Metrics/ClassLe
         flash.now[:notice] = "Mekan düzenlemesi reddedildi"
         render turbo_stream: [ turbo_stream.remove("place_edit_#{place_edit.id}"),
                               turbo_stream.update("flash_messages", partial: "shared/flash_messages",
-                                                                    locals: { flash: }) ]
+                                                  locals: { flash: }) ]
       end
     end
   end
@@ -118,7 +157,7 @@ class AdminsController < ApplicationController # rubocop:disable Metrics/ClassLe
           flash.now[:notice] = "Menü onaylandı"
           render turbo_stream: [ turbo_stream.remove("menu_#{params[:id]}"),
                                 turbo_stream.update("flash_messages", partial: "shared/flash_messages",
-                                                                      locals: { flash: }) ]
+                                                    locals: { flash: }) ]
         end
       end
     else
@@ -134,7 +173,7 @@ class AdminsController < ApplicationController # rubocop:disable Metrics/ClassLe
         flash.now[:notice] = "Menü reddedildi"
         render turbo_stream: [ turbo_stream.remove("menu_#{params[:id]}"),
                               turbo_stream.update("flash_messages", partial: "shared/flash_messages",
-                                                                    locals: { flash: }) ]
+                                                  locals: { flash: }) ]
       end
     end
   end
@@ -147,7 +186,7 @@ class AdminsController < ApplicationController # rubocop:disable Metrics/ClassLe
           flash.now[:notice] = "Menü düzenlemesi onaylandı"
           render turbo_stream: [ turbo_stream.remove("menu_edit_#{menu_edit.id}"),
                                 turbo_stream.update("flash_messages", partial: "shared/flash_messages",
-                                                                      locals: { flash: }) ]
+                                                    locals: { flash: }) ]
         end
       end
     else
@@ -163,7 +202,7 @@ class AdminsController < ApplicationController # rubocop:disable Metrics/ClassLe
         flash.now[:notice] = "Menü düzenlemesi reddedildi"
         render turbo_stream: [ turbo_stream.remove("menu_edit_#{menu_edit.id}"),
                               turbo_stream.update("flash_messages", partial: "shared/flash_messages",
-                                                                    locals: { flash: }) ]
+                                                  locals: { flash: }) ]
       end
     end
   end

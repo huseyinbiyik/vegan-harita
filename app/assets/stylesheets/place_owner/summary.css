@@ -1,0 +1,31 @@
+
+.summary-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.top-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+.summary-details,
+.daily-graph,
+.monthly-graph {
+  width: 100%;
+}
+
+.summary-details {
+  padding-top: 1rem;
+}
+
+.summary-details > p {
+  padding-bottom: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .top-row {
+    flex-direction: row;
+  }
+}

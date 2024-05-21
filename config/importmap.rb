@@ -11,3 +11,5 @@ pin "@googlemaps/markerclusterer", to: "https://ga.jspm.io/npm:@googlemaps/marke
 pin "fast-deep-equal", to: "https://ga.jspm.io/npm:fast-deep-equal@3.1.3/index.js"
 pin "kdbush", to: "https://ga.jspm.io/npm:kdbush@3.0.0/kdbush.js"
 pin "supercluster", to: "https://ga.jspm.io/npm:supercluster@7.1.5/index.js"
+pin "chartkick", to: "chartkick.js"
+pin "Chart.bundle", to: "Chart.bundle.js"

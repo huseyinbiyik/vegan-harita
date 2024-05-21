@@ -1,0 +1,9 @@
+<%= render "place_owner/shared/navigation" %>
+
+<main class="qr-code-container">
+<h1 class="download-qr-title text-center"><%= t('.download_your_qr') %></h1>
+  <div class="qr-code-wrapper">
+<%= raw @qr %>
+<%= link_to t('.download_qr'), place_owner_download_qr_path(@place.slug), class: "add-review-btn" %>
+  </div>
+</main>

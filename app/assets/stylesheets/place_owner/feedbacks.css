@@ -1,0 +1,33 @@
+
+.place-owner-feedback {
+  border: 1px dotted var(--gray);
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.place-owner-feedback:hover {
+  border-style: solid;
+}
+
+.place-owner-feedback > p {
+  margin-bottom: 0.5rem;
+}
+
+.place-owner-feedback-photos {
+  width: 100%;
+  display: grid;
+  grid-gap: 1rem;
+}
+
+.place-owner-single-feedback-photo {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+@media (min-width: 1024px) {
+  .place-owner-feedback-photos {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+}

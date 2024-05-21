@@ -30,6 +30,11 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  time:
+    formats:
+      only_date: "%B  %e, %Y"
+  months: "Months"
+  days: Days
   is_not_allowed: "is not allowed. Please try another one."
   no_photo: "No Photo"
   username_placeholder: "veganharita"
@@ -230,6 +235,7 @@ en:
   activerecord:
     models:
       user: "User"
+      claim: "Claim"
     attributes:
       user:
         name: "Name"
@@ -250,10 +256,17 @@ en:
         name: "North Korean Fried Tofu"
         description: "Tofu, onion and sesame and North Korean spices..."
       place_edits:
-        web_url : "websiteaddress.com"
+        web_url: "websiteaddress.com"
       review:
         content: "Your Review"
         feedback: "I think your food is a little salty..."
+      claim:
+        name: "Name & surname"
+        email: "E-mail"
+        phone: "Phone"
+        role: "Role"
+        linkedin: "Linkedin"
+        note: "Extra note"
     errors:
       messages:
         blank: "can't be blank"
@@ -271,6 +284,10 @@ en:
               taken: "already exists"
             place_id:
               taken: "already exists"
+          claim:
+            attributes:
+              email:
+                invalid: "is invalid"
   helpers:
     reviews_helper:
       not_yet_rated: "Henüz değerlendirilmedi"
@@ -351,6 +368,8 @@ en:
       web_url_error_message: "Please enter a valid domain name like 'veganharita.com'"
       phone_error_message: "Please enter a valid phone number like '5071234567' or '2121234567"
       images_with_warning: "Images (each Max 3MB and 20 images)"
+    place:
+      claim: "Claim"
   menus:
     form:
       image_with_warning: "Images (max 3MB)"
@@ -455,3 +474,52 @@ en:
       new: "Vegan Harita | Add Place"
     home:
       contact: "Vegan Harita | Contact"
+  business_panel: "My Business Panel"
+  place_owner:
+    summary:
+      unauthorized: "You are not allowed to access this zone."
+      show:
+        place_rating: "Your place's rating: "
+        total_review_count: "Total reviews count: "
+        place_count: "There are %{size} places in Vegan Harita"
+        most_liked_product: "Your most liked product"
+        monthly_place_visit: "Your place's page is the <b>%{visit_rank}.</b> most visited this month on our website."
+        visit_count: "Visit Count"
+        monthly_visit_count: "Page Visit by Month"
+        daily_visit_count: "Page Visit by Day"
+    shared:
+      navigation:
+        summary: "Summary"
+        reviews_and_feedbacks: "Reviews & Feedbacks"
+        download_qr: "Download QR Code"
+    feedbacks:
+      show:
+        place_rating: "Place Rating"
+        total_review_count: "Total Reviews Count"
+        rating: "Rating"
+        content: "Content"
+        feedback: "Secret Feedback"
+    qr_code:
+      show:
+        download_your_qr: "You can download your QR code that will direct your customers to the menu section on your place's page on Vegan Harita."
+        download_qr: "Download"
+  created_at: "Created at:"
+  updated_at: "Updated at:"
+  username: "Username"
+  claims:
+    new:
+      claim: "Claim This Place"
+    create:
+      claim_submitted: "Your claim request submitted successfully. We will contact you after validation process."
+      claim_not_submitted: "A problem occured. Please contact us if the issue continues."
+  admins:
+    approvals:
+      pending_claims: "Pending Claims"
+      claimant: "Claimant"
+      role: "Role"
+      name: "Name & Surname"
+      note: "Extra Note"
+      linkedin: "Linkedin"
+
+
+

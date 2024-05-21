@@ -2,15 +2,22 @@ class Place < ApplicationRecord
   # Accessors
   attr_accessor :creator
 
+  # Callbacks
+  before_validation :assign_slug, on: :create
+  before_save :assign_slug, if: :name_changed?
+
   # Associations
   has_many :change_logs, as: :changeable, dependent: :destroy
   has_many :menus, dependent: :destroy
+  has_many :claims, dependent: :destroy
+  has_and_belongs_to_many :users
+  has_and_belongs_to_many :tags
+  has_many :reviews, dependent: :destroy
+  has_many :visits, dependent: :destroy
   has_many_attached :images, dependent: :destroy do |attachable|
     attachable.variant :big, resize_to_limit: [ 1000, 1000 ]
     attachable.variant :medium, resize_to_limit: [ 500, 500 ]
   end
-  has_and_belongs_to_many :tags
-  has_many :reviews, dependent: :destroy
 
   # Validations
   validates :address, presence: true, length: { minimum: 15, maximum: 500 }, uniqueness: true
@@ -37,6 +44,7 @@ class Place < ApplicationRecord
   validates :phone, format: { with: /\A[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}\z/i }, allow_blank: true
   validate :images_count_within_limit
   validate :images_type
+  validates :slug, uniqueness: true
 
   # Scopes
   scope :approved, -> { where(approved: true) }
@@ -53,9 +61,25 @@ class Place < ApplicationRecord
     Rails.application.routes.url_helpers.rails_blob_path(images.first.variant(:medium), only_path: true)
   end
 
+  def create_slug
+    if Place.where(slug: name.parameterize).exists?
+      "#{name.parameterize}-#{SecureRandom.hex(4)}"
+    else
+      name.parameterize
+    end
+  end
+
+  def visits_count_for_current_month
+    visits.where(created_at: Time.now.beginning_of_month..Time.now.end_of_month).count
+  end
+
   private
 
   # Private methods
+  def assign_slug
+    self.slug = create_slug
+  end
+
   def images_type
     return unless images.attached?
 

@@ -52,6 +52,7 @@ gem "devise"
 
 gem "aws-sdk-s3", "~> 1.132"
 gem "recaptcha", "~> 5.15"
+gem "chartkick"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -79,3 +80,10 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+# Use for generation QR code
+gem "rqrcode", "~> 2.2"
+
+gem "solid_queue", "~> 0.3.1"
+
+gem "mission_control-jobs", "~> 0.2.1"

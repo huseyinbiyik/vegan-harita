@@ -3,18 +3,19 @@ class User < ApplicationRecord
   attr_accessor :user_agreement_accepted
 
   # Enums
-  enum role: { user: 0, admin: 1 }
+  enum role: { user: 0, admin: 1, place_owner: 2 }
 
   # Associations
   has_many :change_logs, dependent: :destroy
   has_many :menus, dependent: :destroy, foreign_key: "creator_id"
+  has_many :claims, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_and_belongs_to_many :places
   has_one_attached :avatar do |attachable|
     attachable.variant :thumb, resize_to_limit: [ 100, 100 ], preprocessed: true
     attachable.variant :medium, resize_to_limit: [ 200, 200 ]
   end
-
 
   # Validations
   validates :locale, inclusion: { in: I18n.available_locales.map(&:to_s) }, allow_blank: true
@@ -31,18 +32,26 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
 
-
   # Public instance methods
   def approve
     self.approved = true
     save
   end
 
+  def approved?
+    approved == true
+  end
+
   def admin?
     role == "admin"
   end
 
+  def place_owner?
+    role == "place_owner"
+  end
+
   # Private instance methods
+
   private
 
   def avatar_file_type

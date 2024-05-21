@@ -3,37 +3,44 @@
   <div id="search-container" data-controller="search">
     <%= render "places/search_form" %>
     <%= image_tag "search-icon.svg",
-    data: {
-      action: "click->search#toggle "
-    },
-    id: "search-icon" %>
+                  data: {
+                    action: "click->search#toggle "
+                  },
+                  id: "search-icon" %>
   </div>
   <nav data-controller="navigation" data-navigation-state-value="false">
     <ul id="nav-menu" data-navigation-target="menu">
+      <% if user_signed_in? && current_user.place_owner? %>
+        <li class="nav-link">
+          <%= link_to place_owner_summary_path(current_user.places.first.slug), class: "nav-admin-link" do %>
+            <span><%= t :business_panel %></span>
+          <% end %>
+        </li>
+      <% end %>
       <% if user_signed_in? && current_user.role == "admin" %>
         <li class="nav-link">
-          <%= link_to approvals_path, class:"nav-admin-link" do %>
+          <%= link_to approvals_path, class: "nav-admin-link" do %>
             <span><%= t :panel %></span>
           <% end %>
         </li>
       <% end %>
       <li class="nav-link">
-        <%= link_to new_place_path, id:"add-place-link" do %>
-          <%= image_tag "add-place.svg"%>
+        <%= link_to new_place_path, id: "add-place-link" do %>
+          <%= image_tag "add-place.svg" %>
           <span><%= t :add_place %></span>
         <% end %>
       </li>
       <li class="nav-link">
-        <%= link_to contact_path, id:"add-place-link", data: {turbo: false} do %>
+        <%= link_to contact_path, id: "add-place-link", data: { turbo: false } do %>
           <span><%= t :contact %></span>
         <% end %>
       </li>
       <% if user_signed_in? %>
         <li class="wrapper">
           <% if current_user.avatar.attached? %>
-            <%= image_tag(cdn_proxy_url(current_user.avatar.variant(:thumb)), id:"account-icon", height: "40px", width: "40px") %>
+            <%= image_tag(cdn_proxy_url(current_user.avatar.variant(:thumb)), id: "account-icon", height: "40px", width: "40px") %>
           <% else %>
-            <%= image_tag "account-icon.svg", id:"account-icon" %>
+            <%= image_tag "account-icon.svg", id: "account-icon" %>
           <% end %>
           <ul class="dropdown">
             <li>
@@ -41,7 +48,7 @@
             </li>
             <li>
               <%= link_to destroy_user_session_path, method: :delete, id: "logout-link" do %>
-                <%= image_tag "logout-icon.svg", id:"logout-icon" %>
+                <%= image_tag "logout-icon.svg", id: "logout-icon" %>
                 <span><%= t :logOut %></span>
               <% end %>
             </li>
@@ -54,20 +61,20 @@
           <% end %>
         </li>
       <% end %>
-    </li>
-    <li class="nav-link mobile">
-      <div class="vh-instagram">
-        <%= link_to "https://www.instagram.com/veganharita", target: "_blank" do %>
-          <%= image_tag ('instagram.svg') %>
-          <span>veganharita</span>
-        <% end %>
-      </div>
-    </li>
-  </ul>
-  <button id="burger" class="mobile" data-action="click->navigation#toggle">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
-</nav>
+      </li>
+      <li class="nav-link mobile">
+        <div class="vh-instagram">
+          <%= link_to "https://www.instagram.com/veganharita", target: "_blank" do %>
+            <%= image_tag ('instagram.svg') %>
+            <span>veganharita</span>
+          <% end %>
+        </div>
+      </li>
+    </ul>
+    <button id="burger" class="mobile" data-action="click->navigation#toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
 </header>

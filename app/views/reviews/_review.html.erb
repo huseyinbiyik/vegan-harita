@@ -9,8 +9,8 @@
         <% end %>
         <%= review.user.username %>
         <% if review.user == current_user && user_signed_in? %>
-          <%= link_to t('edit'), edit_place_review_path(@place, review) %>
-          <%= link_to t('delete'), place_review_path(@place, review), method: "delete", remote: true, data: { turbo_method: "delete", turbo_confirm: t('sure_delete') } %>
+          <%= link_to t('edit'), edit_place_review_path(@place.slug, review) %>
+          <%= link_to t('delete'), place_review_path(@place.slug, review), method: "delete", remote: true, data: { turbo_method: "delete", turbo_confirm: t('sure_delete') } %>
         <% end %>
       <% end %>
     </div>
@@ -23,7 +23,7 @@
             <span class="star unfilled"></span>
           <% end %>
         <% end %>
-        <span class="review-time"><%= time_in_words(review) %><span>
+        <span class="review-time"><%= time_in_words(review, :created_at) %></span>
           </div>
           <p>
             <%= review.content %>

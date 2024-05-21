@@ -35,15 +35,15 @@ class ReviewsController < ApplicationController
       render turbo_stream: turbo_stream.update("flash_messages", partial: "shared/flash_messages",
                                                                  locals: { flash: })
     else
-      redirect_to @place, alert: t("controllers.reviews.update.failure")
+      redirect_to place_path(@place.slug), alert: t("controllers.reviews.update.failure")
     end
   end
 
   def destroy
     if @review.destroy
-      redirect_to @place, notice: t("controllers.reviews.destroy.success")
+      redirect_to place_path(@place.slug), notice: t("controllers.reviews.destroy.success")
     else
-      redirect_to @place, alert: t("controllers.reviews.destroy.failure")
+      redirect_to place_path(@place.slug), alert: t("controllers.reviews.destroy.failure")
     end
   end
 
@@ -54,7 +54,7 @@ class ReviewsController < ApplicationController
   end
 
   def set_place
-    @place = Place.find(params[:place_id])
+    @place = Place.find_by(slug: params[:place_slug])
   end
 
   def review_params

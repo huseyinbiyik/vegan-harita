@@ -1,5 +1,5 @@
 <%= turbo_frame_tag params[:attribute] do %>
-<%= form_with(model: @change_log, url: place_path(@place), method: :patch, class: "modalize",
+<%= form_with(model: @change_log, url: place_path(@place.slug), method: :patch, class: "modalize",
             data: {
               controller: params[:attribute] == "location" ? "form place" : "form",
               action: params[:attribute] == "location" ? "turbo:submit-end->form#submitEnd google-maps-callback@window->place#initializeMap" : "turbo:submit-end->form#submitEnd",

@@ -1,0 +1,12 @@
+<div class="place-owner-header">
+    <% current_user.places.each do |place| %>
+      <%= link_to place_owner_summary_path(place.slug), class: "place-owner-header-link #{'active_link' if params[:slug] == place.slug}" do %>
+          <%= place.name %>
+        <% end %>
+    <% end %>
+</div>
+<div class="place-owner-subheader">
+  <%= link_to t(".summary"), place_owner_summary_path(params[:slug]), class: ("active_link" if current_page?(place_owner_summary_path(params[:slug]))) %>
+  <%= link_to  t(".reviews_and_feedbacks"), place_owner_feedback_path(params[:slug]), class: ("active_link" if current_page?(place_owner_feedback_path(params[:slug]))) %>
+  <%= link_to  t(".download_qr"), place_owner_qr_code_path(params[:slug]), class: ("active_link" if current_page?(place_owner_qr_code_path(params[:slug]))) %>
+</div>
