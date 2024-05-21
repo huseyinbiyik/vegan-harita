@@ -17,7 +17,5 @@ class PlaceOwner::SummaryController < ApplicationController
                                   .group("TO_CHAR(created_at, 'DD Mon YYYY')")
                                   .order(Arel.sql("min(created_at)"))
                                   .count
-
-    UpdateVisitRankJob.perform_later
   end
 end
