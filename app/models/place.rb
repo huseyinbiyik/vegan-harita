@@ -15,15 +15,15 @@ class Place < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :visits, dependent: :destroy
   has_many_attached :images, dependent: :destroy do |attachable|
-    attachable.variant :big, resize_to_limit: [1000, 1000]
-    attachable.variant :medium, resize_to_limit: [500, 500]
+    attachable.variant :big, resize_to_limit: [ 1000, 1000 ]
+    attachable.variant :medium, resize_to_limit: [ 500, 500 ]
   end
 
   # Validations
   validates :address, presence: true, length: { minimum: 15, maximum: 500 }, uniqueness: true
   validates :place_id, presence: true, uniqueness: true, length: { maximum: 80 }
   validates :name, presence: true, length: { maximum: 100 }
-  validates :vegan, inclusion: { in: [true, false] }, allow_nil: false
+  validates :vegan, inclusion: { in: [ true, false ] }, allow_nil: false
   validates :instagram_handle,
             format: { with: /\A[\w.-]+\z/, message: I18n.t("activerecord.attributes.place.instagram_invalid") },
             allow_blank: true,
