@@ -355,7 +355,9 @@ GEM
     zeitwerk (2.6.14)
 
 PLATFORMS
+  aarch64-linux
   arm64-darwin
+  x86_64-linux
 
 DEPENDENCIES
   aws-sdk-s3 (~> 1.132)
@@ -391,4 +393,4 @@ RUBY VERSION
    ruby 3.2.2p53
 
 BUNDLED WITH
-   2.5.7
+   2.5.10
