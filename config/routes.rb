@@ -55,6 +55,9 @@ Rails.application.routes.draw do
     get "user-agreement", to: "legals#user_agreement"
   end
 
+  get "service-worker" => "pwa#service_worker", as: :pwa_service_worker
+  get "manifest" => "pwa#manifest", as: :pwa_manifest
+
   direct :cdn_proxy do |model, options|
     expires_in = 5.minutes
     if Rails.env.production?
