@@ -30,7 +30,7 @@ Rails.application.configure do
   config.assets.compile = false
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  config.asset_host = Rails.application.credentials.dig(:aws, :cloudfront_asset_url)
+  #  config.asset_host = Rails.application.credentials.dig(:aws, :cloudfront_asset_url)
 
   # Use CDN for active storage attachments.
   config.active_storage.resolve_model_to_route = :cdn_proxy
