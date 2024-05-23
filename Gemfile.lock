@@ -275,6 +275,7 @@ GEM
       railties (>= 5.2)
     rexml (3.2.8)
       strscan (>= 3.0.9)
+    rollbar (3.5.2)
     rqrcode (2.2.0)
       chunky_png (~> 1.0)
       rqrcode_core (~> 1.0)
@@ -389,6 +390,7 @@ DEPENDENCIES
   puma (~> 6.0)
   rails!
   recaptcha (~> 5.15)
+  rollbar
   rqrcode (~> 2.2)
   rubocop-rails-omakase
   selenium-webdriver

@@ -21,9 +21,7 @@ gem "chartkick"
 gem "rqrcode", "~> 2.2"
 gem "solid_queue"
 gem "mission_control-jobs", github: "rails/mission_control-jobs", branch: "main"
-
-
-
+gem "rollbar"
 
 group :development, :test do
   gem "debug", platforms: %i[mri mingw x64_mingw]
