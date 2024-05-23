@@ -26,6 +26,7 @@ gem "rollbar"
 group :development, :test do
   gem "debug", platforms: %i[mri mingw x64_mingw]
   gem "pry", "~> 0.14.2"
+  gem "brakeman", require: false
 end
 
 group :development do
