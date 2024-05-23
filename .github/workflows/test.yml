@@ -1,0 +1,23 @@
+name: Tests
+
+on: pull_request
+
+env:
+  FORCE_COLOR: 1
+
+jobs:
+  minitest:
+    name: Minitest
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3.0"
+      - name: Install Gems
+        run: |
+          gem install bundler
+          bundle install
+      - name: Run Minitest
+        run: bundle exec rails test
+
