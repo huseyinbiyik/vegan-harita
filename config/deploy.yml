@@ -63,6 +63,23 @@ accessories:
       - config/init.sql:/docker-entrypoint-initdb.d/setup.sql
     directories:
       - data:/var/lib/postgresql/data
+  db_backup:
+    image: eeshugerman/postgres-backup-s3:15
+    host: 134.122.76.57
+    env:
+      clear:
+        SCHEDULE: "@daily"
+        BACKUP_KEEP_DAYS: 7
+        S3_REGION: eu-central-1
+        S3_BUCKET: vegan-harita-db-backups
+        S3_PREFIX: backups
+        POSTGRES_HOST: 134.122.76.57
+        POSTGRES_DATABASE: vegan_harita_production
+        POSTGRES_USER: vegan_harita
+      secret:
+        - POSTGRES_PASSWORD
+        - S3_ACCESS_KEY_ID
+        - S3_SECRET_ACCESS_KEY
 #   redis:
 #     image: redis:7.0
 #     host: 192.168.0.2
