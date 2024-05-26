@@ -46,3 +46,9 @@
 
 # Ignore all environment files
 /.env*
+/.idea/.gitignore
+/.idea/dataSources.xml
+/.idea/misc.xml
+/.idea/inspectionProfiles/Project_Default.xml
+/.idea/vcs.xml
+/.idea/vh-api.iml
