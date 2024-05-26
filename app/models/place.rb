@@ -21,7 +21,7 @@ class Place < ApplicationRecord
 
   # Validations
   validates :address, presence: true, length: { minimum: 15, maximum: 500 }, uniqueness: true
-  validates :place_id, presence: true, uniqueness: true, length: { maximum: 80 }
+  validates :place_id, presence: true, uniqueness: true, length: { maximum: 2000 }
   validates :name, presence: true, length: { maximum: 100 }
   validates :vegan, inclusion: { in: [ true, false ] }, allow_nil: false
   validates :instagram_handle,
