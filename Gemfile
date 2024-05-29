@@ -59,7 +59,6 @@ group :development, :test do
   gem "debug", platforms: %i[mri mingw x64_mingw]
   gem "pry", "~> 0.14.2"
   gem "brakeman", "~> 6.1"
-
 end
 
 group :development do
@@ -89,4 +88,3 @@ gem "rqrcode", "~> 2.2"
 gem "solid_queue", "~> 0.3.1"
 
 gem "mission_control-jobs", "~> 0.2.1"
-
