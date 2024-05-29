@@ -1,0 +1,22 @@
+name: Security Checks
+
+on: pull_request
+
+env:
+  FORCE_COLOR: 1
+
+jobs:
+  brakeman:
+    name: Brakeman
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.2.2"
+      - name: Install Gems
+        run: |
+          gem install bundler
+          bundle install
+      - name: Run Brakeman
+        run: bundle exec brakeman
