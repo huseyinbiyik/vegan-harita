@@ -11,7 +11,7 @@ jobs:
     runs-on:  ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-ruby@v1
+      - uses: ruby/setup-ruby@v1
         with:
           ruby-version: "3.2.2"
       - name: Install Gems
@@ -23,6 +23,7 @@ jobs:
           gem install --no-document rubocop rubocop-rails-omakase
       - name: Rubocop Report
         run: rubocop --color
+
   stylelint:
     name: Stylelint
     runs-on: ubuntu-22.04
