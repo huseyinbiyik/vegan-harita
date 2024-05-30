@@ -39,6 +39,16 @@ export default class extends Controller {
 
     this.map = new google.maps.Map(this.mapTarget, {
       zoom: zoom,
+      styles: [
+        {
+          featureType: "poi.business",
+          stylers: [{ visibility: "off" }],
+        },
+        {
+          featureType: "poi.place_of_worship",
+          stylers: [{ visibility: "off" }],
+        },
+      ],
       center: { lat: latitude, lng: longitude },
       disableDefaultUI: true,
       zoomControl: false,
