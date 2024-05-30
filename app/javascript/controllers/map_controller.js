@@ -79,7 +79,7 @@ export default class extends Controller {
       var controlText = document.createElement("img");
       controlText.src = ZoomInIcon;
       controlUI.appendChild(controlText);
-      google.maps.event.addDomListener(controlUI, "click", function () {
+      controlUI.addEventListener("click", function () {
         map.setZoom(map.getZoom() + 1);
       });
       var controlUILeft = document.createElement("div");
@@ -88,7 +88,7 @@ export default class extends Controller {
       var controlTextLeft = document.createElement("img");
       controlTextLeft.src = ZoomOutIcon;
       controlUILeft.appendChild(controlTextLeft);
-      google.maps.event.addDomListener(controlUILeft, "click", function () {
+      controlUILeft.addEventListener("click", function () {
         map.setZoom(map.getZoom() - 1);
       });
     }
