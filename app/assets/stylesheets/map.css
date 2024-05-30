@@ -9,27 +9,13 @@
   outline: none;
 }
 
+.gm-ui-hover-effect {
+  display: none !important;
+}
+
 /* Blue border when click on the map issue */
 .gm-style iframe + div {
   border: none !important;
-}
-
-@keyframes fadeInOut {
-  0% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0.5;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-#location-button.loading {
-  animation: fadeInOut 2s linear infinite;
 }
 
 /* Customizing place infoWindow */
@@ -95,6 +81,24 @@
 
 #location-button {
   margin-bottom: 1.875rem;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+#location-button.loading {
+  animation: fadeInOut 2s linear infinite;
 }
 
 @media (min-width: 1024px) {
