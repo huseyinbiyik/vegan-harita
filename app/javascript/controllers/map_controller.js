@@ -18,8 +18,14 @@ export default class extends Controller {
     this.centerToMyCurrentLocation();
   }
 
-  async fetchPlaces() {
-    const response = await fetch("/places.json");
+  async fetchPlaces(bounds) {
+    const response = await fetch(
+      `/places.json?north=${bounds.getNorthEast().lat()}&south=${bounds
+        .getSouthWest()
+        .lat()}&east=${bounds.getNorthEast().lng()}&west=${bounds
+        .getSouthWest()
+        .lng()}`
+    );
     const data = await response.json();
     this.places = data;
     return data;
@@ -39,6 +45,27 @@ export default class extends Controller {
       zoomControl: false,
       keyboardShortcuts: false,
     });
+
+    const debouncedFetchAndCreateMarkers = this.debounce(async () => {
+      const bounds = this.map.getBounds();
+      await this.fetchPlaces(bounds);
+      this.createMarkers();
+    }, 800); // 800ms debounce
+
+    this.map.addListener("bounds_changed", debouncedFetchAndCreateMarkers);
+  }
+
+  // Debounce function
+  debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
   }
 
   createCustomMapControls() {
@@ -142,7 +169,7 @@ export default class extends Controller {
   }
 
   async createMarkers() {
-    const locations = await this.fetchPlaces();
+    const locations = this.places;
     if (locations) {
       // Marker icons located on public folder
       const VeganMarkerIcon = this.assetsValue[0];

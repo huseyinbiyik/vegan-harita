@@ -5,12 +5,18 @@ class PlacesController < ApplicationController
   before_action :record_visit, only: [ :show ]
 
   def index
-    @places = Place.approved
-    @last_ten_places = @places.last(10).reverse
+    north = params[:north].to_f
+    south = params[:south].to_f
+    east = params[:east].to_f
+    west = params[:west].to_f
+
+    @places = Place.approved.where(latitude: south..north, longitude: west..east)
+
+    @last_ten_places = Place.approved.order(created_at: :desc).limit(10)
     respond_to do |format|
       format.html
       format.json { render json: @places.as_json(except: :email, methods: :featured_image) }
-        end
+    end
   end
 
   def search
@@ -22,7 +28,7 @@ class PlacesController < ApplicationController
     respond_to do |format|
       format.turbo_stream do
         render turbo_stream: turbo_stream.update("search-results", partial: "places/search_results",
-                                                                   locals: { places: @places })
+                                                 locals: { places: @places })
       end
     end
   end
@@ -69,13 +75,13 @@ class PlacesController < ApplicationController
         format.turbo_stream do
           flash.now[:notice] = t("controllers.places.update.success")
           render turbo_stream: turbo_stream.update("flash_messages", partial: "shared/flash_messages",
-                                                                     locals: { flash: })
+                                                   locals: { flash: })
         end
       else
         format.turbo_stream do
           flash.now[:alert] = t("controllers.places.update.failure")
           render turbo_stream: turbo_stream.update("flash_messages", partial: "shared/flash_messages",
-                                                                     locals: { flash: })
+                                                   locals: { flash: })
         end
       end
     end
@@ -97,7 +103,7 @@ class PlacesController < ApplicationController
   def change_log_params
     params.require(:change_log).permit(:name, :address, :latitude, :longitude, :place_id, :vegan, :instagram_handle,
                                        :facebook_handle, :x_handle, :web_url, :phone, :approved, tag_ids: [],
-                                                                                                         contributors: [], images: [], deleted_images: []) # rubocop:disable Layout/LineLength
+                                       contributors: [], images: [], deleted_images: []) # rubocop:disable Layout/LineLength
   end
 
   def record_visit
