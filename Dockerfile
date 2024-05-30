@@ -4,6 +4,10 @@
 ARG RUBY_VERSION=3.2.2
 FROM registry.docker.com/library/ruby:$RUBY_VERSION-slim as base
 
+# Install jemalloc
+RUN apt-get update -qq && apt-get install -y libjemalloc-dev
+ENV LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libjemalloc.so.2
+
 # Rails app lives here
 WORKDIR /rails
 
