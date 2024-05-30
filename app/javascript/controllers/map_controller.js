@@ -14,7 +14,6 @@ export default class extends Controller {
     this.createMap();
     this.createCustomMapControls();
     this.createMarkers();
-    // this.getMyCurrentLocation();
     this.centerToMyCurrentLocation();
   }
 
@@ -125,8 +124,10 @@ export default class extends Controller {
     });
 
     const handleMyCurrentLocation = () => {
+      locationButton.classList.add("loading");
       this.getMyCurrentLocation().then(
         (position) => {
+          locationButton.classList.remove("loading");
           const pos = {
             lat: position.coords.latitude,
             lng: position.coords.longitude,
@@ -141,8 +142,10 @@ export default class extends Controller {
           infoWindow.open(this.map);
 
           this.map.setCenter(pos);
+          this.map.setZoom(16);
         },
         () => {
+          locationButton.classList.remove("loading");
           handleLocationError(true, infoWindow, this.map.getCenter());
         }
       );

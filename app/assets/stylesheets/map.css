@@ -14,6 +14,24 @@
   border: none !important;
 }
 
+@keyframes fadeInOut {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+#location-button.loading {
+  animation: fadeInOut 2s linear infinite;
+}
+
 /* Customizing place infoWindow */
 .info-window {
   display: flex;
