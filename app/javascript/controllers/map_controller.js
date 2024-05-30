@@ -259,6 +259,11 @@ export default class extends Controller {
       });
 
       new MarkerClusterer({ markers, map: this.map });
+
+      // Close info window on map click
+      this.map.addListener("click", () => {
+        infoWindow.close();
+      });
     }
   }
 
