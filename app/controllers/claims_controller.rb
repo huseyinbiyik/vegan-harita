@@ -21,7 +21,7 @@ class ClaimsController < ApplicationController
   private
 
   def claim_params
-    params.require(:claim).permit(:name, :phone, :role, :linkedin, :note)
+    params.require(:claim).permit(:name, :phone, :title, :linkedin, :note)
   end
 
   def set_place

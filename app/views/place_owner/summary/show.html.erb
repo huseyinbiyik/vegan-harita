@@ -9,7 +9,7 @@
         <p><%= t '.most_liked_product' %><b><%= @most_liked_product&.name %></b></p>
       <% end %>
       <p><%= t('.place_count', size: @place_count).html_safe %>
-      <p><%= t('.monthly_place_visit', visit_rank: @place.visit_rank).html_safe %></p>
+      <p><%= t(".monthly_place_visit", visit_rank: h(place.visit_rank)) %></p>
     </div>
 
     <div class="monthly-graph">

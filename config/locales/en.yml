@@ -264,7 +264,7 @@ en:
         name: "Name & surname"
         email: "E-mail"
         phone: "Phone"
-        role: "Role"
+        title: "Title"
         linkedin: "Linkedin"
         note: "Extra note"
     errors:
@@ -516,7 +516,7 @@ en:
     approvals:
       pending_claims: "Pending Claims"
       claimant: "Claimant"
-      role: "Role"
+      title: "Title"
       name: "Name & Surname"
       note: "Extra Note"
       linkedin: "Linkedin"

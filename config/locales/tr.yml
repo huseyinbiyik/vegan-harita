@@ -259,7 +259,7 @@ tr:
         name: "İsim & soyisim"
         email: "E-posta"
         phone: "Telefon"
-        role: "Şirketteki pozisyonunuz"
+        title: "Şirketteki pozisyonunuz"
         linkedin: "Linkedin URL'iniz"
         note: "Eklemek istediğiniz notlar"
     errors:
@@ -543,7 +543,7 @@ tr:
     approvals:
       pending_claims: "Onay Bekleyen Sahiplenme İstekleri"
       claimant: "Sahiplenen Kullanıcı"
-      role: "Şirketteki Rolü"
+      title: "Şirketteki Rolü"
       name: "İsim & Soyisim"
       note: "Notlar"
       linkedin: "Linkedin"
