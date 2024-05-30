@@ -5,6 +5,15 @@
   width: 100vw;
 }
 
+#map:focus {
+  outline: none;
+}
+
+/* Blue border when click on the map issue */
+.gm-style iframe + div {
+  border: none !important;
+}
+
 /* Customizing place infoWindow */
 .info-window {
   display: flex;
