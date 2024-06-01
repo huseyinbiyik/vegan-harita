@@ -41,7 +41,7 @@
         window.dispatchEvent(event);
       }
     </script>
-    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Rails.application.credentials.google_maps[:api_key]}&libraries=places&callback=dispatchMapsEvent",
+    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Rails.application.credentials.google_maps[:api_key]}&libraries=places,marker&v=weekly&callback=dispatchMapsEvent",
     async: true,
     defer: true,
     "data-turbolinks-eval": false %>

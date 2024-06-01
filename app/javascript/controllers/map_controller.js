@@ -38,17 +38,8 @@ export default class extends Controller {
     const zoom = mapLocation ? mapLocation.zoom : 14;
 
     this.map = new google.maps.Map(this.mapTarget, {
+      mapId: "871933a16117d5a4",
       zoom: zoom,
-      styles: [
-        {
-          featureType: "poi.business",
-          stylers: [{ visibility: "off" }],
-        },
-        {
-          featureType: "poi.place_of_worship",
-          stylers: [{ visibility: "off" }],
-        },
-      ],
       center: { lat: latitude, lng: longitude },
       disableDefaultUI: true,
       zoomControl: false,
@@ -133,6 +124,7 @@ export default class extends Controller {
       disableAutoPan: true,
     });
 
+
     const handleMyCurrentLocation = () => {
       locationButton.classList.add("loading");
       this.getMyCurrentLocation().then(
@@ -184,9 +176,7 @@ export default class extends Controller {
   async createMarkers() {
     const locations = this.places;
     if (locations) {
-      // Marker icons located on public folder
-      const VeganMarkerIcon = this.assetsValue[0];
-      const veganFriendlyMarkerIcon = this.assetsValue[1];
+      const miniVeganIcon = this.assetsValue[11];
 
       // Info window
       const infoWindow = new google.maps.InfoWindow({
@@ -199,13 +189,20 @@ export default class extends Controller {
 
       // Create markers for each location
       const markers = locations.map((position) => {
+        let place_vegan = position.vegan;
+
+        const placeMarker = document.createElement("div");
+        placeMarker.className = `marker-container`;
+        placeMarker.innerHTML = `
+        ${ place_vegan ? '<img class="mini-vegan-icon" src="' + miniVeganIcon + '" alt="vegan-friendly">' : ""}
+        <span class="marker-name">${position.name}</span>
+        `
+
         let label = position.name;
-        const marker = new google.maps.Marker({
+        const marker = new google.maps.marker.AdvancedMarkerElement({
           position: { lat: position.latitude, lng: position.longitude },
-          icon: {
-            url: position.vegan ? VeganMarkerIcon : veganFriendlyMarkerIcon,
-            scaledSize: new google.maps.Size(50, 50),
-          },
+          map: this.map,
+          content: placeMarker,
         });
 
         // Info window on click
