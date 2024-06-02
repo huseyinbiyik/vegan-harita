@@ -174,8 +174,8 @@ export default class extends Controller {
   }
 
   async createMarkers() {
-    const locations = this.places;
-    if (locations) {
+    const places = this.places;
+    if (places) {
       const miniVeganIcon = this.assetsValue[11];
 
       // Info window
@@ -188,19 +188,19 @@ export default class extends Controller {
       });
 
       // Create markers for each location
-      const markers = locations.map((position) => {
-        let place_vegan = position.vegan;
+      const markers = places.map((place) => {
+        let place_vegan = place.vegan;
 
         const placeMarker = document.createElement("div");
         placeMarker.className = `marker-container`;
         placeMarker.innerHTML = `
         ${ place_vegan ? '<img class="mini-vegan-icon" src="' + miniVeganIcon + '" alt="vegan-friendly">' : ""}
-        <span class="marker-name">${position.name}</span>
+        <span class="marker-name">${place.name}</span>
         `
 
-        let label = position.name;
+        let label = place.name;
         const marker = new google.maps.marker.AdvancedMarkerElement({
-          position: { lat: position.latitude, lng: position.longitude },
+          position: { lat: place.latitude, lng: place.longitude },
           map: this.map,
           content: placeMarker,
         });
@@ -210,13 +210,13 @@ export default class extends Controller {
           const dummyDiv = document.createElement("div");
           const service = new google.maps.places.PlacesService(dummyDiv);
           const request = {
-            placeId: position.place_id,
+            placeId: place.place_id,
             fields: ["opening_hours", "utc_offset_minutes"],
           };
 
-          service.getDetails(request, (place, status) => {
+          service.getDetails(request, (requested_place, status) => {
             if (status === google.maps.places.PlacesServiceStatus.OK) {
-              const checkOpeningHours = place.opening_hours?.isOpen();
+              const checkOpeningHours = requested_place.opening_hours?.isOpen();
               const isOpen = checkOpeningHours
                 ? `${this.assetsValue[8]}`
                 : `${this.assetsValue[9]}`;
@@ -224,10 +224,10 @@ export default class extends Controller {
                 label
                   ? `
             <div class="info-window">
-            <a href=${window.location.origin + "/places/" + position.slug} >
+            <a href=${window.location.origin + "/places/" + place.slug} >
             ${
-              position.featured_image
-                ? `<img src=${position.featured_image} class="info-window-image" alt=${label}>`
+              place.featured_image
+                ? `<img src=${place.featured_image} class="info-window-image" alt=${label}>`
                 : ""
             }
 
@@ -239,7 +239,7 @@ export default class extends Controller {
                   <span class="status-text">${isOpen.toLowerCase()}</span>
                 </div>
               </div>
-              <p>${position.address}</p>
+              <p>${place.address}</p>
             </div>
             </a>
           </div>
@@ -252,10 +252,13 @@ export default class extends Controller {
           });
         });
 
-        return marker;
+        return { marker, vegan: place_vegan };
       });
 
-      new MarkerClusterer({ markers, map: this.map });
+      // Cluster only non-vegan markers
+      const nonVeganMarkers = markers.filter(({ vegan }) => !vegan).map(({ marker }) => marker);
+
+      new MarkerClusterer({ markers: nonVeganMarkers, map: this.map });
 
       // Close info window on map click
       this.map.addListener("click", () => {

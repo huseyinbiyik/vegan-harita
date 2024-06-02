@@ -28,6 +28,7 @@
   border-radius: 25px;
   padding: 5px 11px;
   background-color: var(--white);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 20px 0px;
 }
 
 .mini-vegan-icon {
