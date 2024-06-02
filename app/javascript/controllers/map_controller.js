@@ -199,7 +199,6 @@ export default class extends Controller {
             }
             <span class="marker-name">${place.name}</span>
           `;
-
           const marker = new google.maps.marker.AdvancedMarkerElement({
             position: { lat: place.latitude, lng: place.longitude },
             map: this.map,
@@ -246,7 +245,7 @@ export default class extends Controller {
                   </div>`
                 );
                 infoWindow.open(this.map, marker);
-                this.map.setCenter(marker.getPosition());
+                this.map.panTo(marker.position);
               }
             });
           });
