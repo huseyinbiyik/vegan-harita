@@ -22,18 +22,16 @@ export default class extends Controller {
     service.getDetails(request, (place, status) => {
       if (status === google.maps.places.PlacesServiceStatus.OK) {
         const openingHours = place.opening_hours;
-
-        this.openingHoursTableTarget.innerHTML +=
-          openingHours.weekday_text.join("<br>");
-
-        // Better to use both conditionals for low network connections and to avoid  misinformation instead of just default one
-        if (openingHours.isOpen()) {
-          this.iconTarget.classList.add("place-open");
+        if (openingHours) {
+          this.openingHoursTableTarget.innerHTML +=
+            openingHours.weekday_text.join("<br>");
+          console.log(this.iconTarget);
+          this.iconTarget.classList.add("place-open-true");
           this.statusOpenTargets.forEach((element) => {
             element.removeAttribute("hidden");
           });
         } else {
-          this.iconTarget.classList.add("place-closed");
+          this.iconTarget.classList.add("place-open-false");
           this.statusCloseTargets.forEach((element) => {
             element.removeAttribute("hidden");
           });

@@ -20,7 +20,11 @@ export default class extends Controller {
 
   async fetchPlaces(bounds) {
     const response = await fetch(
-        `/places.json?north=${bounds.getNorthEast().lat()}&south=${bounds.getSouthWest().lat()}&east=${bounds.getNorthEast().lng()}&west=${bounds.getSouthWest().lng()}`
+      `/places.json?north=${bounds.getNorthEast().lat()}&south=${bounds
+        .getSouthWest()
+        .lat()}&east=${bounds.getNorthEast().lng()}&west=${bounds
+        .getSouthWest()
+        .lng()}`
     );
     const data = await response.json();
     this.places = data;
@@ -96,7 +100,9 @@ export default class extends Controller {
     new CustomZoomInControl(customZoomInControlDiv, this.map);
 
     customZoomInControlDiv.index = 1;
-    this.map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(customZoomInControlDiv);
+    this.map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(
+      customZoomInControlDiv
+    );
   }
 
   getMyCurrentLocation() {
@@ -118,37 +124,37 @@ export default class extends Controller {
     const handleMyCurrentLocation = () => {
       locationButton.classList.add("loading");
       this.getMyCurrentLocation().then(
-          (position) => {
-            locationButton.classList.remove("loading");
-            const pos = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude,
-            };
+        (position) => {
+          locationButton.classList.remove("loading");
+          const pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          };
 
-            infoWindow.setPosition(pos);
-            infoWindow.setContent(`
+          infoWindow.setPosition(pos);
+          infoWindow.setContent(`
             <div class="info-window">
               <p>${this.assetsValue[5]} ✋</p>
             </div>
           `);
-            infoWindow.open(this.map);
+          infoWindow.open(this.map);
 
-            this.map.setCenter(pos);
-            this.map.setZoom(16);
-          },
-          () => {
-            locationButton.classList.remove("loading");
-            handleLocationError(true, infoWindow, this.map.getCenter());
-          }
+          this.map.setCenter(pos);
+          this.map.setZoom(16);
+        },
+        () => {
+          locationButton.classList.remove("loading");
+          handleLocationError(true, infoWindow, this.map.getCenter());
+        }
       );
     };
 
     const handleLocationError = (browserHasGeolocation, infoWindow, pos) => {
       infoWindow.setPosition(pos);
       infoWindow.setContent(
-          browserHasGeolocation
-              ? `${this.assetsValue[6]}`
-              : `${this.assetsValue[7]}`
+        browserHasGeolocation
+          ? `${this.assetsValue[6]}`
+          : `${this.assetsValue[7]}`
       );
       infoWindow.open(this.map);
     };
@@ -157,7 +163,9 @@ export default class extends Controller {
     locationButton.innerHTML = `<img src="${this.assetsValue[4]}" alt="find-me">`;
     locationButton.classList.add("custom-map-control-button");
     locationButton.id = "location-button";
-    this.map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(locationButton);
+    this.map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(
+      locationButton
+    );
     locationButton.addEventListener("click", handleMyCurrentLocation);
   }
 
@@ -182,7 +190,13 @@ export default class extends Controller {
           const placeMarker = document.createElement("div");
           placeMarker.className = `marker-container`;
           placeMarker.innerHTML = `
-            ${place.vegan ? '<img class="mini-vegan-icon" src="' + miniVeganIcon + '" alt="vegan-friendly">' : ""}
+            ${
+              place.vegan
+                ? '<img class="mini-vegan-icon" src="' +
+                  miniVeganIcon +
+                  '" alt="vegan-friendly">'
+                : ""
+            }
             <span class="marker-name">${place.name}</span>
           `;
 
@@ -202,12 +216,22 @@ export default class extends Controller {
 
             service.getDetails(request, (requested_place, status) => {
               if (status === google.maps.places.PlacesServiceStatus.OK) {
-                const checkOpeningHours = requested_place.opening_hours?.isOpen();
-                const isOpen = checkOpeningHours ? `${this.assetsValue[8]}` : `${this.assetsValue[9]}`;
+                const checkOpeningHours = requested_place.opening_hours?.isOpen(
+                  new Date()
+                );
+
+                const isOpen = checkOpeningHours
+                  ? `${this.assetsValue[8]}`
+                  : `${this.assetsValue[9]}`;
+
                 infoWindow.setContent(
-                    `<div class="info-window">
+                  `<div class="info-window">
                     <a href=${window.location.origin + "/places/" + place.slug}>
-                      ${place.featured_image ? `<img src=${place.featured_image} class="info-window-image" alt=${place.name}>` : ""}
+                      ${
+                        place.featured_image
+                          ? `<img src=${place.featured_image} class="info-window-image" alt=${place.name}>`
+                          : ""
+                      }
                       <div>
                         <div class="info-window-heading">
                           <h3>${place.name}</h3>
@@ -233,7 +257,9 @@ export default class extends Controller {
         newMarkers.push(this.markers[place.place_id]);
       });
 
-      const nonVeganMarkers = newMarkers.filter(({ vegan }) => !vegan).map(({ marker }) => marker);
+      const nonVeganMarkers = newMarkers
+        .filter(({ vegan }) => !vegan)
+        .map(({ marker }) => marker);
       new MarkerClusterer({ markers: nonVeganMarkers, map: this.map });
 
       this.map.addListener("click", () => {

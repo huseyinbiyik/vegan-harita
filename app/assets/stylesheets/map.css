@@ -98,7 +98,8 @@
   filter: grayscale(0);
 }
 
-.place-open-false {
+.place-open-false,
+.place-open-undefined {
   filter: grayscale(1);
 }
 
