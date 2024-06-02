@@ -55,7 +55,7 @@ class Menu < ApplicationRecord
   def check_image
     if image.attached? && !image.content_type.in?(%w[image/jpeg image/png image/jpg image/webp])
       errors.add(:image, I18n.t("activerecord.attributes.menu.image_invalid"))
-    elsif image.attached? && image.blob.byte_size > 3.megabytes
+    elsif image.attached? && image.blob.byte_size > 10.megabytes
       errors.add(:image, I18n.t("activerecord.attributes.menu.image_size"))
     end
   end

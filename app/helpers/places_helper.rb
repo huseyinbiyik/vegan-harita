@@ -22,7 +22,8 @@ module PlacesHelper
       I18n.t("location_not_supported"), # 7
       I18n.t("open"), # 8
       I18n.t("closed"), # 9
-      asset_path("status.svg") # 10
+      asset_path("status.svg"), # 10
+      asset_path("mini-vegan-icon.svg") # 11
     ].to_json
   end
 end

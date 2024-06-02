@@ -4,22 +4,28 @@ import { MarkerClusterer } from "@googlemaps/markerclusterer";
 export default class extends Controller {
   static targets = ["map"];
   static values = { assets: Array };
+
   connect() {
-    if (typeof google != "undefined") {
+    if (typeof google !== "undefined") {
       this.initializeMap();
     }
   }
 
   initializeMap() {
+    this.markers = {};
     this.createMap();
     this.createCustomMapControls();
-    this.createMarkers();
-    // this.getMyCurrentLocation();
     this.centerToMyCurrentLocation();
   }
 
-  async fetchPlaces() {
-    const response = await fetch("/places.json");
+  async fetchPlaces(bounds) {
+    const response = await fetch(
+      `/places.json?north=${bounds.getNorthEast().lat()}&south=${bounds
+        .getSouthWest()
+        .lat()}&east=${bounds.getNorthEast().lng()}&west=${bounds
+        .getSouthWest()
+        .lng()}`
+    );
     const data = await response.json();
     this.places = data;
     return data;
@@ -33,12 +39,33 @@ export default class extends Controller {
     const zoom = mapLocation ? mapLocation.zoom : 14;
 
     this.map = new google.maps.Map(this.mapTarget, {
+      mapId: "871933a16117d5a4",
       zoom: zoom,
       center: { lat: latitude, lng: longitude },
       disableDefaultUI: true,
       zoomControl: false,
       keyboardShortcuts: false,
     });
+
+    const debouncedFetchAndCreateMarkers = this.debounce(async () => {
+      const bounds = this.map.getBounds();
+      await this.fetchPlaces(bounds);
+      this.updateMarkers();
+    }, 800); // 800ms debounce
+
+    this.map.addListener("bounds_changed", debouncedFetchAndCreateMarkers);
+  }
+
+  debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
   }
 
   createCustomMapControls() {
@@ -47,33 +74,30 @@ export default class extends Controller {
     const ZoomOutIcon = this.assetsValue[3];
 
     function CustomZoomInControl(controlDiv, map) {
-      var controlUI = document.createElement("div");
+      const controlUI = document.createElement("div");
       controlUI.style.marginBottom = "10px";
       controlDiv.appendChild(controlUI);
-      var controlText = document.createElement("img");
+      const controlText = document.createElement("img");
       controlText.src = ZoomInIcon;
       controlUI.appendChild(controlText);
-      google.maps.event.addDomListener(controlUI, "click", function () {
+      controlUI.addEventListener("click", function () {
         map.setZoom(map.getZoom() + 1);
       });
-      var controlUILeft = document.createElement("div");
+      const controlUILeft = document.createElement("div");
       controlUILeft.style.marginBottom = "45px";
       controlDiv.appendChild(controlUILeft);
-      var controlTextLeft = document.createElement("img");
+      const controlTextLeft = document.createElement("img");
       controlTextLeft.src = ZoomOutIcon;
       controlUILeft.appendChild(controlTextLeft);
-      google.maps.event.addDomListener(controlUILeft, "click", function () {
+      controlUILeft.addEventListener("click", function () {
         map.setZoom(map.getZoom() - 1);
       });
     }
 
-    var customZoomInControlDiv = document.createElement("div");
+    const customZoomInControlDiv = document.createElement("div");
     customZoomInControlDiv.id = "custom-zoom-controller-container";
 
-    var customZoomInControl = new CustomZoomInControl(
-      customZoomInControlDiv,
-      this.map
-    );
+    new CustomZoomInControl(customZoomInControlDiv, this.map);
 
     customZoomInControlDiv.index = 1;
     this.map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(
@@ -98,8 +122,10 @@ export default class extends Controller {
     });
 
     const handleMyCurrentLocation = () => {
+      locationButton.classList.add("loading");
       this.getMyCurrentLocation().then(
         (position) => {
+          locationButton.classList.remove("loading");
           const pos = {
             lat: position.coords.latitude,
             lng: position.coords.longitude,
@@ -107,15 +133,17 @@ export default class extends Controller {
 
           infoWindow.setPosition(pos);
           infoWindow.setContent(`
-                <div class="info-window">
-                  <p>${this.assetsValue[5]} ✋</p>
-                </div>
-              `);
+            <div class="info-window">
+              <p>${this.assetsValue[5]} ✋</p>
+            </div>
+          `);
           infoWindow.open(this.map);
 
           this.map.setCenter(pos);
+          this.map.setZoom(16);
         },
         () => {
+          locationButton.classList.remove("loading");
           handleLocationError(true, infoWindow, this.map.getCenter());
         }
       );
@@ -141,12 +169,10 @@ export default class extends Controller {
     locationButton.addEventListener("click", handleMyCurrentLocation);
   }
 
-  async createMarkers() {
-    const locations = await this.fetchPlaces();
-    if (locations) {
-      // Marker icons located on public folder
-      const VeganMarkerIcon = this.assetsValue[0];
-      const veganFriendlyMarkerIcon = this.assetsValue[1];
+  updateMarkers() {
+    const places = this.places;
+    if (places) {
+      const miniVeganIcon = this.assetsValue[11];
 
       // Info window
       const infoWindow = new google.maps.InfoWindow({
@@ -157,68 +183,87 @@ export default class extends Controller {
         minWidth: 280,
       });
 
-      // Create markers for each location
-      const markers = locations.map((position) => {
-        let label = position.name;
-        const marker = new google.maps.Marker({
-          position: { lat: position.latitude, lng: position.longitude },
-          icon: {
-            url: position.vegan ? VeganMarkerIcon : veganFriendlyMarkerIcon,
-            scaledSize: new google.maps.Size(50, 50),
-          },
-        });
+      const newMarkers = [];
 
-        // Info window on click
-        marker.addListener("click", () => {
-          const dummyDiv = document.createElement("div");
-          const service = new google.maps.places.PlacesService(dummyDiv);
-          const request = {
-            placeId: position.place_id,
-            fields: ["opening_hours", "utc_offset_minutes"],
-          };
-
-          service.getDetails(request, (place, status) => {
-            if (status === google.maps.places.PlacesServiceStatus.OK) {
-              const checkOpeningHours = place.opening_hours?.isOpen();
-              const isOpen = checkOpeningHours
-                ? `${this.assetsValue[8]}`
-                : `${this.assetsValue[9]}`;
-              infoWindow.setContent(
-                label
-                  ? `
-            <div class="info-window">
-            <a href=${window.location.origin + "/places/" + position.slug} >
+      places.forEach((place) => {
+        if (!this.markers[place.place_id]) {
+          const placeMarker = document.createElement("div");
+          placeMarker.className = `marker-container`;
+          placeMarker.innerHTML = `
             ${
-              position.featured_image
-                ? `<img src=${position.featured_image} class="info-window-image" alt=${label}>`
+              place.vegan
+                ? '<img class="mini-vegan-icon" src="' +
+                  miniVeganIcon +
+                  '" alt="vegan-friendly">'
                 : ""
             }
-
-            <div>
-              <div class="info-window-heading">
-                <h3>${label}</h3>
-                <div class="place-status place-open-${checkOpeningHours}">
-                  <img src=${this.assetsValue[10]}>
-                  <span class="status-text">${isOpen.toLowerCase()}</span>
-                </div>
-              </div>
-              <p>${position.address}</p>
-            </div>
-            </a>
-          </div>
-            `
-                  : ""
-              );
-              infoWindow.open(this.map, marker);
-              this.map.setCenter(marker.getPosition());
-            }
+            <span class="marker-name">${place.name}</span>
+          `;
+          const marker = new google.maps.marker.AdvancedMarkerElement({
+            position: { lat: place.latitude, lng: place.longitude },
+            map: this.map,
+            content: placeMarker,
           });
-        });
 
-        return marker;
+          marker.addListener("click", () => {
+            const dummyDiv = document.createElement("div");
+            const service = new google.maps.places.PlacesService(dummyDiv);
+            const request = {
+              placeId: place.place_id,
+              fields: ["opening_hours", "utc_offset_minutes"],
+            };
+
+            service.getDetails(request, (requested_place, status) => {
+              if (status === google.maps.places.PlacesServiceStatus.OK) {
+                const checkOpeningHours = requested_place.opening_hours?.isOpen(
+                  new Date()
+                );
+
+                const isOpen = checkOpeningHours
+                  ? `${this.assetsValue[8]}`
+                  : `${this.assetsValue[9]}`;
+
+                infoWindow.setContent(
+                  `<div class="info-window">
+                    <a href=${window.location.origin + "/places/" + place.slug}>
+                      ${
+                        place.featured_image
+                          ? `<img src=${place.featured_image} class="info-window-image" alt=${place.name}>`
+                          : ""
+                      }
+                      <div>
+                        <div class="info-window-heading">
+                          <h3>${place.name}</h3>
+                          <div class="place-status place-open-${checkOpeningHours}">
+                            <img src=${this.assetsValue[10]}>
+                            <span class="status-text">${isOpen.toLowerCase()}</span>
+                          </div>
+                        </div>
+                        <p>${place.address}</p>
+                      </div>
+                    </a>
+                  </div>`
+                );
+                infoWindow.open(this.map, marker);
+                this.map.panTo(marker.position);
+              }
+            });
+          });
+
+          this.markers[place.place_id] = { marker, vegan: place.vegan };
+        }
+
+        newMarkers.push(this.markers[place.place_id]);
       });
 
-      new MarkerClusterer({ markers, map: this.map });
+      const nonVeganMarkers = newMarkers
+        .filter(({ vegan }) => !vegan)
+        .map(({ marker }) => marker);
+      new MarkerClusterer({ markers: nonVeganMarkers, map: this.map });
+
+      this.map.addListener("click", () => {
+        infoWindow.close();
+      });
     }
   }
 

@@ -58,7 +58,7 @@
       <%= form.label t('instagram'), style: "display: block" %>
 
       <div class="social-wrapper">
-        <%= form.text_field :instagram_handle, id:"instagram-input", class: "platform-input", placeholder: "veganharita", maxlength: 30, pattern: "^[a-zA-Z0-9_]*$" %>
+        <%= form.text_field :instagram_handle, id:"instagram-input", class: "platform-input", placeholder: "veganharita", maxlength: 30, pattern: "^[a-zA-Z0-9_.]*$" %>
         <span class="platform"><%= t :instagram_link %> </span>
       </div>
     </div>

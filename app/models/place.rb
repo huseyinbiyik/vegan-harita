@@ -69,10 +69,6 @@ class Place < ApplicationRecord
     end
   end
 
-  def visits_count_for_current_month
-    visits.where(created_at: Time.now.beginning_of_month..Time.now.end_of_month).count
-  end
-
   private
 
   # Private methods
@@ -94,7 +90,7 @@ class Place < ApplicationRecord
   def images_count_within_limit
     errors.add(:images, I18n.t("max_image_limit", count: 20)) if images.count > 20
     images.each do |image|
-      if image.byte_size > 3.megabytes
+      if image.byte_size > 10.megabytes
         errors.add(:images,
                    I18n.t("activerecord.attributes.place.image_size_invalid"))
       end

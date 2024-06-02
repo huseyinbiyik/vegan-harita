@@ -5,6 +5,61 @@
   width: 100vw;
 }
 
+#map:focus {
+  outline: none;
+}
+
+.gm-ui-hover-effect {
+  display: none !important;
+}
+
+/* Blue border when click on the map issue */
+.gm-style iframe + div {
+  border: none !important;
+}
+
+/* Customizing advanced marker */
+.marker-container {
+  border: 1px solid var(--gray);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 25px;
+  padding: 5px 11px;
+  background-color: var(--white);
+  box-shadow: rgba(0, 0, 0, 0.25) 0 4px 20px 0;
+}
+
+.mini-vegan-icon {
+  box-shadow: 0 0 0 0 rgb(1, 218, 90);
+  border-radius: 50%;
+  transform: scale(1);
+  animation: pulse 2s 2;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgb(1, 218, 90);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+}
+
+.marker-name {
+  font-size: 1rem;
+  color: var(--black);
+}
+
 /* Customizing place infoWindow */
 .info-window {
   display: flex;
@@ -43,7 +98,8 @@
   filter: grayscale(0);
 }
 
-.place-open-false {
+.place-open-false,
+.place-open-undefined {
   filter: grayscale(1);
 }
 
@@ -68,6 +124,24 @@
 
 #location-button {
   margin-bottom: 1.875rem;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+#location-button.loading {
+  animation: fadeInOut 2s linear infinite;
 }
 
 @media (min-width: 1024px) {
