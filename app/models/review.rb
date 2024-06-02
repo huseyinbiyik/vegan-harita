@@ -25,7 +25,7 @@ class Review < ApplicationRecord
   def images_count_within_limit
     errors.add(:images, "Şu an için en fazla 5 fotoğraf ekleyebilirsiniz 😞") if images.count > 5
     images.each do |image|
-      if image.byte_size > 3.megabytes
+      if image.byte_size > 10.megabytes
         errors.add(:images,
                    "Fotoğrafların her birinin boyutu 3MB'dan daha fazla olmamalı 😞.")
       end
