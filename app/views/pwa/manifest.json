@@ -4,7 +4,7 @@
   "start_url": "/",
   "id": "/",
   "display": "standalone",
-  "background_color": "#fff",
+  "background_color": "#01da5a",
   "description": "Türkiye'yi Vegan Harita ile keşfedin. Vegan restoranlar, kafeler, marketler ve daha fazlası elinizin altında.",
   "icons": [
     {
@@ -12,8 +12,8 @@
       "sizes": "310x310",
       "type": "image/png"
     }
-    ],
-  "screenshots" : [
+  ],
+  "screenshots": [
     {
       "src": "pwa-wide.jpeg",
       "sizes": "1920x1080",
@@ -29,7 +29,4 @@
       "label": "Türkiye'yi Vegan Harita ile keşfedin. Vegan restoranlar, kafeler, marketler ve daha fazlası elinizin altında."
     }
   ]
-
 }
-
-
