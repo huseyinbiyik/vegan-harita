@@ -127,6 +127,7 @@ tr:
   suggest: "Düzenleme Öner"
   open: "Açık"
   closed: "Kapalı"
+  temp_per_closed: "Veri alınamıyor. Geçici veya kalıcı olarak kapalı olabilir."
   directions: "Yol Tarifi"
   call: "Ara"
   no_tag: "Etiket Yok"
