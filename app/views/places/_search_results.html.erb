@@ -1,4 +1,16 @@
-<% places.each do |place| %>
+<% location_predictions&.each do |location| %>
+  <div class="search-results-link-container">
+    <%= link_to "#", class:"search-results-link",
+                data: {
+                  action: "click->map#panToLocation",
+                  lat: location.latitude,
+                  lon: location.longitude
+                } do %>
+      <%= highlight(location.formatted_address, params[:name_search]) %>
+    <% end %>
+  </div>
+<% end %>
+<% places&.each do |place| %>
   <div class="search-results-link-container">
     <%= link_to place_path(place.slug), class:"search-results-link" do %>
       <%= highlight(place.name, params[:name_search]) %>

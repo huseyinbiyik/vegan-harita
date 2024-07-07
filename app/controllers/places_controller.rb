@@ -19,16 +19,21 @@ class PlacesController < ApplicationController
     end
   end
 
+
+
   def search
-    @places = if params[:name_search].present?
-                @places = Place.approved.filter_by_name(params[:name_search])
+    if params[:name_search].present? && params[:name_search].length > 2
+      @places = Place.approved.filter_by_name(params[:name_search])
+      @location_predictions = Geocoder.search(params[:name_search])
+      puts "location_predictions: #{@location_predictions}"
+
     else
-                []
+      []
     end
     respond_to do |format|
       format.turbo_stream do
         render turbo_stream: turbo_stream.update("search-results", partial: "places/search_results",
-                                                 locals: { places: @places })
+                                                 locals: { places: @places, location_predictions: @location_predictions })
       end
     end
   end
