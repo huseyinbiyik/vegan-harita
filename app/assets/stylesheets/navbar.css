@@ -54,18 +54,20 @@ header {
 
 #search-container {
   position: absolute;
-  top: 10px;
+  top: 16px;
   z-index: 1;
   margin: 0 auto;
   display: flex;
-  align-items: center;
-  justify-content: flex-end;
+  width: 100%;
+  border-radius: 0 0 0.313rem 0.313rem;
+  padding: 0 20px;
 }
 
 #search-wrapper {
   background-color: var(--white);
-  border-radius: 0 0 0.313rem 0.313rem;
+  border-radius: 30px;
   box-shadow: 0 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.25);
+  width: 100%;
 }
 
 #search-icon {
@@ -75,6 +77,8 @@ header {
 
 #search-form {
   display: flex;
+  align-items: center;
+  gap: 8px;
   padding: 0.5rem 1.25rem;
 }
 
@@ -95,7 +99,6 @@ header {
 }
 
 #search-results {
-  border-top: 0.031rem solid var(--gray);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -103,7 +106,6 @@ header {
 
 .search-results-link-container {
   height: auto;
-  border: 0.031rem solid var(--gray);
   width: 100%;
   padding: 1rem 1.25rem;
 }
