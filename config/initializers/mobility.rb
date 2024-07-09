@@ -102,7 +102,7 @@ Mobility.configure do
     # locale_accessors
     #
     # Or define specific defaults by uncommenting line below
-    # locale_accessors [:en, :ja]
+    locale_accessors [ :tr, :en ]
 
     # Attribute Methods
     #

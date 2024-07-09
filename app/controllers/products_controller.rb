@@ -8,8 +8,7 @@ class ProductsController < ApplicationController
 
   # GET /products/1 or /products/1.json
   def show
-puts "Product: #{@product.name}"
-    end
+  end
 
   # GET /products/new
   def new
@@ -66,6 +65,15 @@ puts "Product: #{@product.name}"
 
     # Only allow a list of trusted parameters through.
     def product_params
-      params.require(:product).permit(:bar_code, :type, :name_en, :name_tr, :ingredients_en, :ingredients_tr)
+      params.require(:product).permit(
+        :bar_code,
+        :name_en,
+        :name_tr,
+        :ingredients_en,
+        :ingredients_tr,
+        :product_category_id,
+        :brand_id,
+        :image,
+        shop_ids: [])
     end
 end

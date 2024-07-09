@@ -2,7 +2,6 @@
   <% if product.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
-
       <ul>
         <% product.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -10,17 +9,42 @@
       </ul>
     </div>
   <% end %>
-
+  <div>
+    <%= form.label :image, style: "display: block" %>
+    <%= form.file_field :image %>
+  </div>
+  <div>
+    <%= form.label :name_tr, style: "display: block" %>
+    <%= form.text_field :name_tr %>
+  </div>
+  <div>
+    <%= form.label :name_en, style: "display: block" %>
+    <%= form.text_field :name_en %>
+  </div>
+  <div>
+    <%= form.label :ingredients_tr, style: "display: block" %>
+    <%= form.text_field :ingredients_tr %>
+  </div>
+  <div>
+    <%= form.label :ingredients_en, style: "display: block" %>
+    <%= form.text_field :ingredients_en %>
+  </div>
+  <div>
+    <%= form.label :brand, style: "display: block" %>
+    <%= form.collection_select :brand_id, Brand.all, :id, :name, prompt: true %>
+  </div>
+  <div>
+    <%= form.label :shop, style: "display: block" %>
+    <%= form.collection_select :shop_ids, Shop.all, :id, :name, {}, {multiple: true} %>
+  </div>
+  <div>
+    <%= form.label :product_category, style: "display: block" %>
+    <%= form.collection_select :product_category_id, ProductCategory.all, :id, :name, prompt: true %>
+  </div>
   <div>
     <%= form.label :bar_code, style: "display: block" %>
     <%= form.text_field :bar_code %>
   </div>
-
-  <div>
-    <%= form.label :type, style: "display: block" %>
-    <%= form.number_field :type %>
-  </div>
-
   <div>
     <%= form.submit %>
   </div>
