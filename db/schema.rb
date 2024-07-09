@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_09_193052) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_09_201341) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -155,12 +155,26 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_09_193052) do
     t.index ["user_id", "place_id"], name: "index_places_users_on_user_id_and_place_id"
   end
 
+  create_table "product_categories", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "bar_code"
     t.integer "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "status", default: false
+    t.bigint "product_category_id", null: false
+    t.index ["product_category_id"], name: "index_products_on_product_category_id"
+  end
+
+  create_table "products_shops", id: false, force: :cascade do |t|
+    t.bigint "product_id", null: false
+    t.bigint "shop_id", null: false
+    t.index ["product_id", "shop_id"], name: "index_products_shops_on_product_id_and_shop_id"
+    t.index ["shop_id", "product_id"], name: "index_products_shops_on_shop_id_and_product_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -174,6 +188,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_09_193052) do
     t.datetime "updated_at", null: false
     t.index ["place_id"], name: "index_reviews_on_place_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
+  create_table "shops", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "solid_queue_blocked_executions", force: :cascade do |t|
@@ -322,6 +342,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_09_193052) do
   add_foreign_key "likes", "users"
   add_foreign_key "menus", "places"
   add_foreign_key "menus", "users", column: "creator_id"
+  add_foreign_key "products", "product_categories"
   add_foreign_key "reviews", "places"
   add_foreign_key "reviews", "users"
   add_foreign_key "solid_queue_blocked_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
