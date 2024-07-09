@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_09_201341) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_09_204703) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -182,11 +182,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_09_201341) do
     t.text "content", null: false
     t.text "feedback"
     t.boolean "approved", default: false
-    t.bigint "place_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["place_id"], name: "index_reviews_on_place_id"
+    t.string "reviewable_type"
+    t.bigint "reviewable_id"
+    t.index ["reviewable_type", "reviewable_id"], name: "index_reviews_on_reviewable"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
@@ -343,7 +344,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_09_201341) do
   add_foreign_key "menus", "places"
   add_foreign_key "menus", "users", column: "creator_id"
   add_foreign_key "products", "product_categories"
-  add_foreign_key "reviews", "places"
   add_foreign_key "reviews", "users"
   add_foreign_key "solid_queue_blocked_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
   add_foreign_key "solid_queue_claimed_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
