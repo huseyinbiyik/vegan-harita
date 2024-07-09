@@ -22,6 +22,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :products
+
   scope "admin-panel" do
     get "approvals", to: "admins#approvals", as: :approvals
     post "approve-claim/:id", to: "admins#approve_claim", as: :approve_claim

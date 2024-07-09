@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_30_105750) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_09_193052) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -94,6 +94,31 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_30_105750) do
     t.index ["place_id"], name: "index_menus_on_place_id"
   end
 
+  create_table "mobility_string_translations", force: :cascade do |t|
+    t.string "locale", null: false
+    t.string "key", null: false
+    t.string "value"
+    t.string "translatable_type"
+    t.bigint "translatable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["translatable_id", "translatable_type", "key"], name: "index_mobility_string_translations_on_translatable_attribute"
+    t.index ["translatable_id", "translatable_type", "locale", "key"], name: "index_mobility_string_translations_on_keys", unique: true
+    t.index ["translatable_type", "key", "value", "locale"], name: "index_mobility_string_translations_on_query_keys"
+  end
+
+  create_table "mobility_text_translations", force: :cascade do |t|
+    t.string "locale", null: false
+    t.string "key", null: false
+    t.text "value"
+    t.string "translatable_type"
+    t.bigint "translatable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["translatable_id", "translatable_type", "key"], name: "index_mobility_text_translations_on_translatable_attribute"
+    t.index ["translatable_id", "translatable_type", "locale", "key"], name: "index_mobility_text_translations_on_keys", unique: true
+  end
+
   create_table "places", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -128,6 +153,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_30_105750) do
     t.bigint "user_id", null: false
     t.index ["place_id", "user_id"], name: "index_places_users_on_place_id_and_user_id"
     t.index ["user_id", "place_id"], name: "index_places_users_on_user_id_and_place_id"
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "bar_code"
+    t.integer "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "status", default: false
   end
 
   create_table "reviews", force: :cascade do |t|

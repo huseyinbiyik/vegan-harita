@@ -1,6 +1,5 @@
 <header id="navbar">
   <%= link_to image_tag("logo.svg", alt: "Logo", id: "logo"), root_path %>
-
   <nav data-controller="navigation" data-navigation-state-value="false">
     <ul id="nav-menu" data-navigation-target="menu">
       <% if user_signed_in? && current_user.place_owner? %>
@@ -18,14 +17,24 @@
         </li>
       <% end %>
       <li class="nav-link">
+        <%= link_to places_path, id: "add-place-link" do %>
+          <span><%= Place.model_name.human(count: 2) %></span>
+        <% end %>
+      </li>
+      <li class="nav-link">
         <%= link_to new_place_path, id: "add-place-link" do %>
           <%= image_tag "add-place.svg" %>
           <span><%= t :add_place %></span>
         <% end %>
       </li>
       <li class="nav-link">
+        <%= link_to products_path, id: "add-place-link" do %>
+          <span><%= Product.model_name.human(count: 2) %></span>
+        <% end %>
+      </li>
+      <li class="nav-link">
         <%= link_to contact_path, id: "add-place-link", data: { turbo: false } do %>
-          <span><%= t :contact %></span>
+          <span><%= t(".contact") %></span>
         <% end %>
       </li>
       <% if user_signed_in? %>
@@ -54,20 +63,20 @@
           <% end %>
         </li>
       <% end %>
-      </li>
-      <li class="nav-link mobile">
-        <div class="vh-instagram">
-          <%= link_to "https://www.instagram.com/veganharita", target: "_blank" do %>
-            <%= image_tag ('instagram.svg') %>
-            <span>veganharita</span>
-          <% end %>
-        </div>
-      </li>
-    </ul>
-    <button id="burger" class="mobile" data-action="click->navigation#toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-  </nav>
+    </li>
+    <li class="nav-link mobile">
+      <div class="vh-instagram">
+        <%= link_to "https://www.instagram.com/veganharita", target: "_blank" do %>
+          <%= image_tag ('instagram.svg') %>
+          <span>veganharita</span>
+        <% end %>
+      </div>
+    </li>
+  </ul>
+  <button id="burger" class="mobile" data-action="click->navigation#toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
 </header>

@@ -157,7 +157,7 @@ en:
   no_menu: "Looks like the menu of this place hasn't been added yet 🙁"
   customers_review: "How do customers review this place?"
   add_review: "Write a review"
-  name_of_place: "NAme of the Place"
+  name_of_place: "Name of the Place"
   websiteAddress: "Website Address"
   new_photos: "Add New Photos"
   last_added: "Last Added Places"
@@ -237,6 +237,12 @@ en:
     models:
       user: "User"
       claim: "Claim"
+      place:
+        one: "Place"
+        other: "Places"
+      product:
+        one: "Product"
+        other: "Products"
     attributes:
       user:
         name: "Name"

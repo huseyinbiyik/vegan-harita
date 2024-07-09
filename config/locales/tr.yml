@@ -219,6 +219,12 @@ tr:
     models:
       user: "Kullanıcı"
       claim: "Sahiplen"
+      place:
+        one: "Mekan"
+        other: "Mekanlar"
+      product:
+        one: "Ürün"
+        other: "Ürünler"
     attributes:
       user:
         username: "Kullanıcı Adı"
