@@ -26,4 +26,8 @@
     <strong><%= Shop.model_name.human %> :</strong>
     <%= product.shops.map(&:name).join(", ") %>
   </p>
+  <p>
+    <strong><%= Product.human_attribute_name(:statement) %> :</strong>
+    <%= product.statement %>
+  </p>
 </div>

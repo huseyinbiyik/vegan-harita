@@ -74,6 +74,7 @@ class ProductsController < ApplicationController
         :product_category_id,
         :brand_id,
         :image,
+        :statement,
         shop_ids: [])
     end
 end

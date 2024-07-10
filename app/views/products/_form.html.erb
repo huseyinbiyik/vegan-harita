@@ -46,6 +46,11 @@
     <%= form.text_field :bar_code %>
   </div>
   <div>
+    <%= form.label :statement, style: "display: block" %>
+    <%= form.rich_text_area :statement %>
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>

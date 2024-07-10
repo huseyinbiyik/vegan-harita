@@ -12,4 +12,5 @@ class Product < ApplicationRecord
     attachable.variant :big, resize_to_limit: [ 500, 500 ]
     attachable.variant :medium, resize_to_limit: [ 250, 250 ]
   end
+  has_rich_text :statement
 end

@@ -285,6 +285,7 @@ en:
         name: "Product Name"
         ingredients: "Ingredients"
         product_category: "Product Category"
+        statement: "Statement"
       shop:
         name: "Name"
     errors:

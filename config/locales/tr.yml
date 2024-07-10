@@ -280,6 +280,7 @@ tr:
         name: "Ürün Adı"
         ingredients: "İçerik"
         product_category: "Ürün Kategorisi"
+        statement: "Açıklama"
       shop:
         name: "Mağaza Adı"
     errors:
