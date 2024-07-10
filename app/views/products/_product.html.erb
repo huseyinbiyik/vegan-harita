@@ -1,15 +1,29 @@
 <div id="<%= dom_id product %>">
+  <div>
+    <%= image_tag cdn_proxy_url(product.image.variant(:big)), loading: "lazy", alt: product.name %>
+  </div>
   <p>
-    <strong>Name:</strong>
+    <strong><%= Product.human_attribute_name(:name) %> :</strong>
     <%= product.name %>
   </p>
   <p>
-    <strong>Ingredients:</strong>
+    <strong><%= Brand.model_name.human %> :</strong>
+    <%= product.brand.name %>
+  </p>
+  <p>
+    <strong><%= Product.human_attribute_name(:ingredients) %> :</strong>
     <%= product.ingredients %>
   </p>
   <p>
-    <strong>Bar code:</strong>
-    <%= product.bar_code %>
+    <strong> <%= t("updated_at") %> :</strong>
+    <%= l product.updated_at, format: :long %>
   </p>
-
+  <p>
+    <strong><%= Product.human_attribute_name(:product_category) %> :</strong>
+    <%= product.product_category.name %>
+  </p>
+  <p>
+    <strong><%= Shop.model_name.human %> :</strong>
+    <%= product.shops.map(&:name).join(", ") %>
+  </p>
 </div>

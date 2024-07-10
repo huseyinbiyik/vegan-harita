@@ -38,6 +38,7 @@ en:
   is_not_allowed: "is not allowed. Please try another one."
   no_photo: "No Photo"
   username_placeholder: "veganharita"
+  updated_at: "Updated at"
   max_image_limit: "You can upload up to %{count} images"
   only_alphanumeric: "Can only contain letters and numbers"
   captcha_error: "Please check the box below to prove you are not a robot"
@@ -243,6 +244,12 @@ en:
       product:
         one: "Product"
         other: "Products"
+      brand:
+        one: "Brand"
+        other: "Brands"
+      shop:
+        one: "Shop"
+        other: "Shops"
     attributes:
       user:
         name: "Name"
@@ -274,6 +281,12 @@ en:
         title: "Title"
         linkedin: "Linkedin"
         note: "Extra note"
+      product:
+        name: "Product Name"
+        ingredients: "Ingredients"
+        product_category: "Product Category"
+      shop:
+        name: "Name"
     errors:
       messages:
         blank: "can't be blank"

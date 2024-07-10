@@ -16,6 +16,7 @@ tr:
   no_photo: "Henüz fotoğraf eklenmemiş"
   username: "Kullanıcı Adı"
   username_placeholder: "veganharita"
+  updated_at: "Son Güncelleme"
   max_image_limit: "Maksimum %{count} fotoğraf yükleyebilirsiniz."
   only_alphanumeric: "yalnızca harf, alt tire ve rakam içerebilir"
   captcha_error: "Lütfen robot olmadığınızı doğrulayın 🤖"
@@ -225,6 +226,12 @@ tr:
       product:
         one: "Ürün"
         other: "Ürünler"
+      brand:
+        one: "Marka"
+        other: "Markalar"
+      shop:
+        one: "Mağaza"
+        other: "Mağazalar"
     attributes:
       user:
         username: "Kullanıcı Adı"
@@ -269,6 +276,12 @@ tr:
         title: "Şirketteki pozisyonunuz"
         linkedin: "Linkedin URL'iniz"
         note: "Eklemek istediğiniz notlar"
+      product:
+        name: "Ürün Adı"
+        ingredients: "İçerik"
+        product_category: "Ürün Kategorisi"
+      shop:
+        name: "Mağaza Adı"
     errors:
       messages:
         blank: "boş olamaz"
