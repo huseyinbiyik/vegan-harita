@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_10_204303) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_10_211111) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -180,7 +180,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_10_204303) do
     t.string "bar_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "status", default: false
+    t.boolean "confirmed", default: false
     t.bigint "product_category_id", null: false
     t.bigint "brand_id"
     t.index ["brand_id"], name: "index_products_on_brand_id"

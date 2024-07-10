@@ -13,4 +13,6 @@ class Product < ApplicationRecord
     attachable.variant :medium, resize_to_limit: [ 250, 250 ]
   end
   has_rich_text :statement
+
+  # Validations
 end
