@@ -104,6 +104,10 @@ header {
   align-items: flex-start;
 }
 
+.result-icon {
+  width: 24px;
+}
+
 .search-results-link-container {
   height: auto;
   width: 100%;
