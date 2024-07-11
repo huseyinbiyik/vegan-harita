@@ -319,7 +319,7 @@ tr:
     reviews_helper:
       not_yet_rated: "Henüz değerlendirilmedi"
     placeholder:
-      name_search: "Mekan ara..."
+      name_search: "Mekan veya konum ara..."
       user:
         email: "mail@adresiniz.com"
   controllers:

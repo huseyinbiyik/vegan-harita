@@ -313,7 +313,7 @@ en:
     reviews_helper:
       not_yet_rated: "Henüz değerlendirilmedi"
     placeholder:
-      name_search: "Search Place..."
+      name_search: "Search for places or locations..."
       user:
         email: "your@address.com"
   controllers:

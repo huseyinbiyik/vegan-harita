@@ -7,7 +7,7 @@ Geocoder.configure(
   # use_https: false,           # use HTTPS for lookup requests? (if supported)
   # http_proxy: nil,            # HTTP proxy server (user:pass@host:port)
   # https_proxy: nil,           # HTTPS proxy server (user:pass@host:port)
-  api_key: Rails.application.credentials.google_maps[:api_key]               # API key for geocoding service
+  api_key: Rails.application.credentials.dig(:google_maps, :geocoding_api_key),
   # cache: nil,                 # cache object (must respond to #[], #[]=, and #del)
 
   # Exceptions that should not be rescued by default
