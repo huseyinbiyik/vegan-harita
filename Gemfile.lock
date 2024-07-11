@@ -119,6 +119,7 @@ GEM
     concurrent-ruby (1.2.3)
     connection_pool (2.4.1)
     crass (1.0.6)
+    csv (3.3.0)
     date (3.3.4)
     debug (1.9.2)
       irb (~> 1.10)
@@ -141,6 +142,9 @@ GEM
     fugit (1.10.1)
       et-orbi (~> 1, >= 1.2.7)
       raabro (~> 1.4)
+    geocoder (1.8.3)
+      base64 (>= 0.1.0)
+      csv (>= 3.0.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.5)
@@ -382,6 +386,7 @@ DEPENDENCIES
   devise
   dockerfile-rails (>= 1.0.0)
   erb-formatter
+  geocoder (~> 1.8)
   image_processing (~> 1.2)
   importmap-rails
   jbuilder

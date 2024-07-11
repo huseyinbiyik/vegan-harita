@@ -1,3 +1,9 @@
+.map-container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
 #map {
   /* stylelint-disable unit-no-unknown */
   height: calc(100dvh - 60px);

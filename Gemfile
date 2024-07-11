@@ -19,6 +19,9 @@ gem "image_processing", "~> 1.2"
 # Authentication
 gem "devise"
 
+# Map
+gem "geocoder", "~> 1.8"
+
 # Charts
 gem "chartkick"
 

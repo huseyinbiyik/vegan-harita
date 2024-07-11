@@ -1,13 +1,6 @@
 <header id="navbar">
   <%= link_to image_tag("logo.svg", alt: "Logo", id: "logo"), root_path %>
-  <div id="search-container" data-controller="search">
-    <%= render "places/search_form" %>
-    <%= image_tag "search-icon.svg",
-                  data: {
-                    action: "click->search#toggle "
-                  },
-                  id: "search-icon" %>
-  </div>
+
   <nav data-controller="navigation" data-navigation-state-value="false">
     <ul id="nav-menu" data-navigation-target="menu">
       <% if user_signed_in? && current_user.place_owner? %>
