@@ -109,6 +109,11 @@ header {
 }
 
 .search-results-link-container {
+  & mark {
+    background-color: var(--green);
+    color: var(--white);
+  }
+
   height: auto;
   width: 100%;
   padding: 1rem 1.25rem;
