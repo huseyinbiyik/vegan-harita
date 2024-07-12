@@ -19,10 +19,6 @@ gem "image_processing", "~> 1.2"
 # Authentication
 gem "devise"
 
-# Admin interface
-gem "activeadmin"
-gem "sassc"
-
 # Map
 gem "geocoder", "~> 1.8"
 
