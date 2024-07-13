@@ -6,6 +6,8 @@
       <% if user_signed_in? && current_user.place_owner? %>
         <li class="nav-link">
           <%= link_to place_owner_summary_path(current_user.places.first.slug), class: "nav-admin-link" do %>
+            <%# claim icon %>
+            <%= image_tag "claim.svg", class: "nav-icon" %>
             <span><%= t :business_panel %></span>
           <% end %>
         </li>
@@ -13,6 +15,7 @@
       <% if user_signed_in? && current_user.role == "admin" %>
         <li class="nav-link">
           <%= link_to approvals_path, class: "nav-admin-link" do %>
+            <%= image_tag "admin-icon.svg", class: "nav-icon" %>
             <span><%= t :panel %></span>
           <% end %>
         </li>
@@ -25,6 +28,7 @@
       </li>
       <li class="nav-link">
         <%= link_to contact_path, id: "add-place-link", data: { turbo: false } do %>
+          <%= image_tag "contact-icon.svg", class: "nav-icon" %>
           <span><%= t :contact %></span>
         <% end %>
       </li>
@@ -33,18 +37,17 @@
           <% if current_user.avatar.attached? %>
             <%= image_tag(cdn_proxy_url(current_user.avatar.variant(:thumb)), id: "account-icon", height: "40px", width: "40px") %>
           <% else %>
-            <%= image_tag "account-icon.svg", id: "account-icon" %>
+            <%= image_tag "account-icon-2.svg", class: "nav-icon", id: "account-icon" %>
           <% end %>
           <ul class="dropdown">
             <li>
               <%= link_to edit_user_registration_path do%>
-              <%# account icon %>
               <span> <%= t :my_account %> </span>
               <% end %>
             </li>
             <li>
               <%= link_to destroy_user_session_path, method: :delete, id: "logout-link" do %>
-                <%= image_tag "logout-icon.svg", id: "logout-icon" %>
+                <%= image_tag "logout-icon-2.svg", class: "nav-icon", id: "logout-icon" %>
                 <span><%= t :logOut %></span>
               <% end %>
             </li>

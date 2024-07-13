@@ -105,6 +105,16 @@ nav {
   display: flex;
   list-style: none;
   background-color: pink;
+  width: 100vw;
+  /* padding */
+}
+
+#nav-menu li {
+  border: 1px solid white;
+}
+
+.nav-icon {
+  width: 20px;
 }
 
 #nav-menu span {
@@ -137,11 +147,12 @@ nav {
 }
 
 #account-icon {
-  display: none;
+  /* display: none; */
 }
 
 .wrapper {
   /* margin-top: 80px; */
+  display: flex;
 }
 
 .dropdown {
