@@ -6,7 +6,6 @@
       <% if user_signed_in? && current_user.place_owner? %>
         <li class="nav-link">
           <%= link_to place_owner_summary_path(current_user.places.first.slug), class: "nav-admin-link" do %>
-            <%# claim icon %>
             <%= image_tag "claim.svg", class: "nav-icon" %>
             <span><%= t :business_panel %></span>
           <% end %>
@@ -37,7 +36,7 @@
           <% if current_user.avatar.attached? %>
             <%= image_tag(cdn_proxy_url(current_user.avatar.variant(:thumb)), id: "account-icon", height: "40px", width: "40px") %>
           <% else %>
-            <%= image_tag "account-icon-2.svg", class: "nav-icon", id: "account-icon" %>
+            <%= image_tag "account-icon.svg", class: "nav-icon", id: "account-icon" %>
           <% end %>
           <ul class="dropdown">
             <li>
@@ -47,7 +46,7 @@
             </li>
             <li>
               <%= link_to destroy_user_session_path, method: :delete, id: "logout-link" do %>
-                <%= image_tag "logout-icon-2.svg", class: "nav-icon", id: "logout-icon" %>
+                <%= image_tag "logout-icon.svg", class: "nav-icon", id: "logout-icon" %>
                 <span><%= t :logOut %></span>
               <% end %>
             </li>
@@ -64,7 +63,7 @@
       <li class="nav-link mobile">
         <div class="vh-instagram">
           <%= link_to "https://www.instagram.com/veganharita", target: "_blank" do %>
-            <%= image_tag ('instagram.svg') %>
+            <%= image_tag ('instagram.svg'), class: "nav-icon" %>
             <span>veganharita</span>
           <% end %>
         </div>
