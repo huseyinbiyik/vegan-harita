@@ -16,8 +16,15 @@ class AdminsController < ApplicationController # rubocop:disable Metrics/ClassLe
       place.save
     end
 
-    @pending_menus = Menu.where(approved: false)
+    @pending_products = Product.where(approved: false)
+    @pending_product_edits = @change_logs.where(changeable_type: "Product")
+    @pending_product_edits.each do |product_edit|
+      product_edit.shops = Shop.where(id: product_edit.shop_ids)
+      product_edit.product_category = ProductCategory.find(product_edit.product_category_id)
+      product_edit.brand = Brand.find(product_edit.brand_id)
+    end
 
+    @pending_menus = Menu.where(approved: false)
     @pending_reviews = Review.where(approved: false)
   end
 
@@ -134,6 +141,66 @@ class AdminsController < ApplicationController # rubocop:disable Metrics/ClassLe
       format.turbo_stream do
         flash.now[:notice] = "Mekan düzenlemesi reddedildi"
         render turbo_stream: [ turbo_stream.remove("place_edit_#{place_edit.id}"),
+                              turbo_stream.update("flash_messages", partial: "shared/flash_messages",
+                                                  locals: { flash: }) ]
+      end
+    end
+  end
+
+  def approve_product
+    product = Product.find(params[:id])
+    product.approve
+    if product.save
+      product.contributors.first.user.points += 10
+      respond_to do |format|
+        format.turbo_stream do
+          flash.now[:notice] = "Ürün onaylandı"
+          render turbo_stream: [ turbo_stream.remove("product_#{params[:id]}"),
+                                turbo_stream.update("flash_messages", partial: "shared/flash_messages",
+                                                    locals: { flash: }) ]
+        end
+      end
+    else
+      redirect_to approvals_path, alert: "Ürün onaylanamadı"
+    end
+  end
+
+  def reject_product
+    product = Product.find(params[:id])
+    product.destroy
+    respond_to do |format|
+      format.turbo_stream do
+        flash.now[:notice] = "Ürün reddedildi"
+        render turbo_stream: [ turbo_stream.remove("product_#{params[:id]}"),
+                              turbo_stream.update("flash_messages", partial: "shared/flash_messages",
+                                                  locals: { flash: }) ]
+      end
+    end
+  end
+
+  def approve_product_edit
+    product_edit = ChangeLog.find(params[:id])
+    if product_edit.approve_product_edit
+      respond_to do |format|
+        format.turbo_stream do
+          flash.now[:notice] = "Ürün düzenlemesi onaylandı"
+          render turbo_stream: [ turbo_stream.remove("product_edit_#{product_edit.id}"),
+                                turbo_stream.update("flash_messages", partial: "shared/flash_messages",
+                                                    locals: { flash: }) ]
+        end
+      end
+    else
+      redirect_to approvals_path, alert: "Ürün düzenlemesi onaylanamadı"
+    end
+  end
+
+  def reject_product_edit
+    product_edit = ChangeLog.find(params[:id])
+    product_edit.destroy
+    respond_to do |format|
+      format.turbo_stream do
+        flash.now[:notice] = "Ürün düzenlemesi reddedildi"
+        render turbo_stream: [ turbo_stream.remove("product_edit_#{product_edit.id}"),
                               turbo_stream.update("flash_messages", partial: "shared/flash_messages",
                                                   locals: { flash: }) ]
       end

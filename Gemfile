@@ -31,7 +31,7 @@ gem "rqrcode", "~> 2.2"
 # Translations
 gem "mobility", "~> 1.2"
 
-# Job processing
+# Jobs
 gem "solid_queue", "~> 0.3.1"
 gem "mission_control-jobs", "~> 0.2.1"
 

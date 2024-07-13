@@ -1,0 +1,76 @@
+en:
+  activerecord:
+    models:
+      user: "User"
+      claim: "Claim"
+      place:
+        one: "Place"
+        other: "Places"
+      product:
+        one: "Product"
+        other: "Products"
+      brand:
+        one: "Brand"
+        other: "Brands"
+      shop:
+        one: "Shop"
+        other: "Shops"
+    attributes:
+      user:
+        name: "Name"
+        email: "E-mail"
+        password: "Password"
+        password_confirmation: "Password confirmation"
+        current_password: "Current password (required)"
+        user_agreement_accepted: "User Agreement"
+      place:
+        latitude: "Address:"
+        pick_from_map_suggestions: "Please pick a location provided by Google Maps for the address you entered"
+        instagram_invalid: "Instagram username is invalid. Please enter a valid username. You can find your username in your Instagram profile URL. For example, if your profile URL is instagram.com/username, your username is username."
+        facebook_invalid: "Facebook username is invalid. Please enter a valid username. You can find your username in your Facebook profile URL. For example, if your profile URL is facebook.com/username, your username is username."
+        x_invalid: "X username is invalid. Please enter a valid username. You can find your username in your X profile URL. For example, if your profile URL is x.com/username, your username is username."
+        image_invalid: "Please select a valid image file. Valid image file extensions are: jpg, jpeg, webp, png"
+        image_size_invalid: "Please select an image file smaller than 3MB"
+      menu:
+        name: "North Korean Fried Tofu"
+        description: "Tofu, onion and sesame and North Korean spices..."
+      place_edits:
+        web_url: "websiteaddress.com"
+      review:
+        content: "Your Review"
+        feedback: "I think your food is a little salty..."
+      claim:
+        name: "Name & surname"
+        email: "E-mail"
+        phone: "Phone"
+        title: "Title"
+        linkedin: "Linkedin"
+        note: "Extra note"
+      product:
+        name: "Product Name"
+        ingredients: "Ingredients"
+        product_category: "Product Category"
+        statement: "Statement"
+      shop:
+        name: "Name"
+    errors:
+      messages:
+        blank: "can't be blank"
+        confirmation: "doesn't match"
+        too_short: "too short (%{count} characters minimum)"
+      models:
+        user:
+          attributes:
+            username_invalid: "Username is invalid. Can only contain letters and numbers"
+            user_agreement_accepted:
+              accepted: "You must accept the User Agreement"
+        place:
+          attributes:
+            address:
+              taken: "already exists"
+            place_id:
+              taken: "already exists"
+          claim:
+            attributes:
+              email:
+                invalid: "is invalid"

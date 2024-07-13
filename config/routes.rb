@@ -33,6 +33,10 @@ Rails.application.routes.draw do
     delete "reject-place/:id", to: "admins#reject_place", as: :reject_place
     post "approve-place-edit/:id", to: "admins#approve_place_edit", as: :approve_place_edit
     delete "reject-place-edit/:id", to: "admins#reject_place_edit", as: :reject_place_edit
+    post "approve-product/:id", to: "admins#approve_product", as: :approve_product
+    delete "reject-product/:id", to: "admins#reject_product", as: :reject_product
+    post "approve-product-edit/:id", to: "admins#approve_product_edit", as: :approve_product_edit
+    delete "reject-product-edit/:id", to: "admins#reject_product_edit", as: :reject_product_edit
     post "approve-menu/:id", to: "admins#approve_menu", as: :approve_menu
     delete "reject-menu/:id", to: "admins#reject_menu", as: :reject_menu
     post "approve-menu-edit/:id", to: "admins#approve_menu_edit", as: :approve_menu_edit

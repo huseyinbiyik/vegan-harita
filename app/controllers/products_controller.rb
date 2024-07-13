@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
 
   # GET /products or /products.json
   def index
-    @products = Product.all
+    @products = Product.approved
   end
 
   # GET /products/1 or /products/1.json
@@ -26,23 +26,24 @@ class ProductsController < ApplicationController
     respond_to do |format|
       if @product.save
         format.html { redirect_to product_url(@product), notice: "Product was successfully created." }
-        format.json { render :show, status: :created, location: @product }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # PATCH/PUT /products/1 or /products/1.json
   def update
+    product_changes = Product.new(product_params)
+    change_log = ChangeLog.new(product_params)
+    change_log.changeable = @product
+    change_log.user = current_user
+
     respond_to do |format|
-      if @product.update(product_params)
-        format.html { redirect_to product_url(@product), notice: "Product was successfully updated." }
-        format.json { render :show, status: :ok, location: @product }
+      if product_changes.valid? && change_log.save!
+        format.html { redirect_to products_path, notice: "Product was successfully updated." }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -53,28 +54,28 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to products_url, notice: "Product was successfully destroyed." }
-      format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_product
-      @product = Product.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def product_params
-      params.require(:product).permit(
-        :bar_code,
-        :name_en,
-        :name_tr,
-        :ingredients_en,
-        :ingredients_tr,
-        :product_category_id,
-        :brand_id,
-        :image,
-        :statement,
-        shop_ids: [])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_product
+    @product = Product.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def product_params
+    params.require(:product).permit(
+      :bar_code,
+      :name_en,
+      :name_tr,
+      :ingredients_en,
+      :ingredients_tr,
+      :product_category_id,
+      :brand_id,
+      :image,
+      :statement,
+      shop_ids: [])
+  end
 end

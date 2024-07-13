@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_10_211111) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_12_211751) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,6 +22,20 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_10_211111) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["record_type", "record_id", "name"], name: "index_action_text_rich_texts_uniqueness", unique: true
+  end
+
+  create_table "active_admin_comments", force: :cascade do |t|
+    t.string "namespace"
+    t.text "body"
+    t.string "resource_type"
+    t.bigint "resource_id"
+    t.string "author_type"
+    t.bigint "author_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author"
+    t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
+    t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource"
   end
 
   create_table "active_storage_attachments", force: :cascade do |t|
@@ -50,6 +64,18 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_10_211111) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "admin_users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_admin_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
   create_table "brands", force: :cascade do |t|
@@ -82,6 +108,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_10_211111) do
     t.integer "status", default: 0
     t.index ["place_id"], name: "index_claims_on_place_id"
     t.index ["user_id"], name: "index_claims_on_user_id"
+  end
+
+  create_table "contributors", force: :cascade do |t|
+    t.string "contributable_type", null: false
+    t.bigint "contributable_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["contributable_type", "contributable_id"], name: "index_contributors_on_contributable"
+    t.index ["user_id"], name: "index_contributors_on_user_id"
   end
 
   create_table "likes", force: :cascade do |t|
@@ -180,7 +214,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_10_211111) do
     t.string "bar_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "confirmed", default: false
+    t.boolean "approved", default: false
     t.bigint "product_category_id", null: false
     t.bigint "brand_id"
     t.index ["brand_id"], name: "index_products_on_brand_id"
@@ -357,6 +391,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_10_211111) do
   add_foreign_key "change_logs", "users"
   add_foreign_key "claims", "places"
   add_foreign_key "claims", "users"
+  add_foreign_key "contributors", "users"
   add_foreign_key "likes", "users"
   add_foreign_key "menus", "places"
   add_foreign_key "menus", "users", column: "creator_id"

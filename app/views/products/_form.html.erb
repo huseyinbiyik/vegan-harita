@@ -42,14 +42,13 @@
     <%= form.collection_select :product_category_id, ProductCategory.all, :id, :name, prompt: true %>
   </div>
   <div>
-    <%= form.label :bar_code, style: "display: block" %>
-    <%= form.text_field :bar_code %>
-  </div>
-  <div>
     <%= form.label :statement, style: "display: block" %>
     <%= form.rich_text_area :statement %>
   </div>
-
+  <div>
+    <%= form.label :bar_code, style: "display: block" %>
+    <%= form.text_field :bar_code %>
+  </div>
   <div>
     <%= form.submit %>
   </div>
