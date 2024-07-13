@@ -1,6 +1,6 @@
 <div id="<%= dom_id product %>">
   <div>
-    <%= image_tag cdn_proxy_url(product.image.variant(:big)), loading: "lazy", alt: product.name  if product.image.attached? %>
+    <%= image_tag cdn_proxy_url(product.image.variant(:big)), loading: "lazy", alt: product.name if product.image.attached? %>
   </div>
   <p>
     <strong><%= Product.human_attribute_name(:name) %> :</strong>
@@ -26,6 +26,14 @@
     <strong><%= Shop.model_name.human %> :</strong>
     <%= product.shops.map(&:name).join(", ") %>
   </p>
+
+
+  <% product.contributors.each do |contributor| %>
+    <p>
+      <strong><%= Contributor.model_name.human %> :</strong>
+      <%= contributor.user.username %>
+    </p>
+  <% end %>
   <p>
     <strong><%= Product.human_attribute_name(:statement) %> :</strong>
     <%= product.statement %>

@@ -53,6 +53,8 @@ class ChangeLog < ApplicationRecord
   # Public instance methods
   store_accessor :data,
 
+                 :action,
+                 :request_message,
                  :name,
                  :vegan,
                  :latitude,

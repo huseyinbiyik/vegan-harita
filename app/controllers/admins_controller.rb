@@ -18,11 +18,13 @@ class AdminsController < ApplicationController # rubocop:disable Metrics/ClassLe
 
     @pending_products = Product.where(approved: false)
     @pending_product_edits = @change_logs.where(changeable_type: "Product")
+                                         .where("NOT EXISTS (SELECT 1 FROM jsonb_object_keys(data) AS key WHERE key = 'action')")
     @pending_product_edits.each do |product_edit|
       product_edit.shops = Shop.where(id: product_edit.shop_ids)
       product_edit.product_category = ProductCategory.find(product_edit.product_category_id)
       product_edit.brand = Brand.find(product_edit.brand_id)
     end
+    @products_requested_for_deletion = @change_logs.where(changeable_type: "Product").where("data ->> 'action' = ?", "Delete")
 
     @pending_menus = Menu.where(approved: false)
     @pending_reviews = Review.where(approved: false)

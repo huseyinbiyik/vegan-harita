@@ -1,0 +1,13 @@
+<%= form_with(model: @change_log, local: true) do |form| %>
+  <%= form.hidden_field :changeable_id, value: params[:changeable_id] %>
+  <%= form.hidden_field :changeable_type, value: params[:changeable_type] %>
+  <%= form.hidden_field :action, value: "Delete" %>
+  <div>
+    <%= form.label :request_message %>
+    <%= form.text_area :request_message %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

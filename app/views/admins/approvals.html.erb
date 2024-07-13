@@ -282,6 +282,31 @@
     </section>
   <% end %>
 
+  <% unless @products_requested_for_deletion.empty? %>
+
+    <section class="pending">
+      <h2><%= t :products_requested_for_deletion %></h2>
+      <% @products_requested_for_deletion.each do |product| %>
+        <article class="pending-product" id="product_<%= product.id %>">
+          <ul class="pending-item">
+            <li>
+              <span class="pending-title"><%= Product.human_attribute_name(:name) %>
+                :</span><%= product.request_message %>
+            </li>
+
+            <li>
+              <%= link_to "Ürüne Git", product_path(product.changeable_id) %>
+            </li>
+            <li>
+              <%= link_to t('destroy'), product_path(product.changeable_id), class: "reject-btn", method: "delete", remote: true, data: { turbo_method: "delete" } %>
+            </li>
+          </ul>
+        </article>
+      <% end %>
+    </section>
+
+  <% end %>
+
 
 
   <% unless @pending_menus.empty? %>

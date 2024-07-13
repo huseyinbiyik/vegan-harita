@@ -5,12 +5,12 @@ Rails.application.routes.draw do
     mount MissionControl::Jobs::Engine, at: "/jobs"
   end
 
-
   root "places#index"
   get "contact", to: "home#contact"
   post "send_mail", to: "home#send_mail"
 
   devise_for :users, controllers: { registrations: "users/registrations", sessions: "users/sessions" }
+
   resources :places, param: :slug do
     resources :menus do
       resource :likes, module: :menus
@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   end
 
   resources :products
+
+  resource :change_logs, only: %i[new create]
 
   scope "admin-panel" do
     get "approvals", to: "admins#approvals", as: :approvals

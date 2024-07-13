@@ -21,6 +21,7 @@ class Product < ApplicationRecord
   # Scopes
   scope :approved, -> { where(approved: true) }
   scope :pending, -> { where(approved: false) }
+  scope :with_contributors, -> { includes(contributors: :user) }
 
   # Public methods
   def approve

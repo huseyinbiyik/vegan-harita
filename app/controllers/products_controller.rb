@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
 
   # GET /products or /products.json
   def index
-    @products = Product.approved
+    @products = Product.approved.with_contributors
   end
 
   # GET /products/1 or /products/1.json
@@ -22,9 +22,10 @@ class ProductsController < ApplicationController
   # POST /products or /products.json
   def create
     @product = Product.new(product_params)
+    @contributor = @product.contributors.new(user_id: current_user.id)
 
     respond_to do |format|
-      if @product.save
+      if @product.save && @contributor.save
         format.html { redirect_to product_url(@product), notice: "Product was successfully created." }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -50,6 +51,8 @@ class ProductsController < ApplicationController
 
   # DELETE /products/1 or /products/1.json
   def destroy
+    change_log = ChangeLog.find_by(changeable_id: @product.id)
+    change_log.destroy!
     @product.destroy!
 
     respond_to do |format|
