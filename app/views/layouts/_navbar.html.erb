@@ -36,15 +36,16 @@
           <% if current_user.avatar.attached? %>
             <%= image_tag(cdn_proxy_url(current_user.avatar.variant(:thumb)), id: "account-icon", height: "40px", width: "40px") %>
           <% else %>
-            <%= image_tag "account-icon.svg", class: "nav-icon", id: "account-icon" %>
+            <%= image_tag "account-icon.svg", class: "nav-icon hidden", id: "account-icon" %>
           <% end %>
           <ul class="dropdown">
-            <li>
+            <li class= "nav-link">
               <%= link_to edit_user_registration_path do%>
+              <%= image_tag "account-icon.svg", class: "nav-icon", id: "account-icon" %>
               <span> <%= t :my_account %> </span>
               <% end %>
             </li>
-            <li>
+            <li class= "nav-link">
               <%= link_to destroy_user_session_path, method: :delete, id: "logout-link" do %>
                 <%= image_tag "logout-icon.svg", class: "nav-icon", id: "logout-icon" %>
                 <span><%= t :logOut %></span>
@@ -61,12 +62,12 @@
       <% end %>
       </li>
       <li class="nav-link mobile">
-        <div class="vh-instagram">
+        <%# <div class="vh-instagram"> %>
           <%= link_to "https://www.instagram.com/veganharita", target: "_blank" do %>
             <%= image_tag ('instagram.svg'), class: "nav-icon" %>
-            <span>veganharita</span>
+            <span id="vh-handle">veganharita</span>
           <% end %>
-        </div>
+        <%# </div> %>
       </li>
     </ul>
   </nav>
