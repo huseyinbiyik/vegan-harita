@@ -5,51 +5,12 @@ header {
   height: 3.75rem;
   padding: 0.688rem 1.25rem;
   gap: 1rem;
+  position: relative;
 }
 
 #logo {
   width: 8.25rem;
   height: 2.375rem;
-}
-
-#burger {
-  display: flex;
-  gap: 0.656rem;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  background: none;
-  border: none;
-  z-index: 2;
-  padding: 0.5rem 0.125rem;
-}
-
-#burger span {
-  width: 2.375rem;
-  height: 0.063rem;
-  background-color: #868686;
-}
-
-#burger span:nth-child(2) {
-  background-color: var(--green);
-}
-
-#burger.active {
-  position: fixed;
-  right: 1.25rem;
-  top: 1.125rem;
-}
-
-#burger.active span:nth-child(1) {
-  transform: translateY(0.313rem) rotate(45deg);
-}
-
-#burger.active span:nth-child(2) {
-  opacity: 0;
-}
-
-#burger.active span:nth-child(3) {
-  transform: translateY(-1.125rem) rotate(-45deg);
 }
 
 #search-container {
@@ -130,31 +91,20 @@ header {
 }
 
 nav {
-  display: flex;
+  position: absolute;
+  bottom: calc(60px - 100vh);
+  left: 0;
+  z-index: 1;
+  background-color: var(--white);
 }
+
+/* adjust font size of elements inside nav */
 
 #nav-menu {
-  display: none;
-}
-
-#nav-menu.active {
-  position: fixed;
-  overflow: hidden;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0.125rem solid var(--dark-green);
-  background-color: var(--white);
-  z-index: 2;
-  padding-top: 5.625rem;
-  padding-bottom: 6.25rem;
+  /* display: none; */
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  list-style-type: none;
+  list-style: none;
+  background-color: pink;
 }
 
 #add-place-link {
@@ -162,16 +112,6 @@ nav {
   align-items: center;
   gap: 0.313rem;
   font-size: 1.125rem;
-}
-
-.nav-link {
-  height: 42px;
-  padding: 8px 16px;
-}
-
-.nav-link:last-child {
-  margin-top: 50px;
-  padding: 0 16px;
 }
 
 .vh-instagram a {
