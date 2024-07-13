@@ -1,10 +1,13 @@
 <h1><%= Product.model_name.human(count: 2) %> </h1>
-  <%= link_to "New product", new_product_path %>
-  <div id="products">
-    <% @products.each do |product| %>
-      <%= render product %>
-      <p>
-        <%= link_to "Show this product", product %>
-      </p>
-    <% end %>
-  </div>
+
+<%= render "search_form" %>
+
+<%= link_to "New product", new_product_path %>
+<div id="products">
+  <% @products.each do |product| %>
+    <%= render product %>
+    <p>
+      <%= link_to "Show this product", product %>
+    </p>
+  <% end %>
+</div>

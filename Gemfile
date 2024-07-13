@@ -22,14 +22,18 @@ gem "devise"
 # Map
 gem "geocoder", "~> 1.8"
 
+# Search
+gem "ransack", "~> 4.2"
+
+# Translations
+gem "mobility", "~> 1.2"
+gem "mobility-ransack", "~> 1.2"
+
 # Charts
 gem "chartkick"
 
 # QR code generation
 gem "rqrcode", "~> 2.2"
-
-# Translations
-gem "mobility", "~> 1.2"
 
 # Jobs
 gem "solid_queue", "~> 0.3.1"

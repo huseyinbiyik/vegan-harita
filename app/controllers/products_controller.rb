@@ -1,25 +1,21 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[ show edit update destroy ]
 
-  # GET /products or /products.json
   def index
-    @products = Product.approved.with_contributors
+    @q = Product.approved.ransack(params[:q])
+    @products = @q.result(distinct: true)
   end
 
-  # GET /products/1 or /products/1.json
   def show
   end
 
-  # GET /products/new
   def new
     @product = Product.new
   end
 
-  # GET /products/1/edit
   def edit
   end
 
-  # POST /products or /products.json
   def create
     @product = Product.new(product_params)
     @contributor = @product.contributors.new(user_id: current_user.id)
@@ -33,7 +29,6 @@ class ProductsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /products/1 or /products/1.json
   def update
     product_changes = Product.new(product_params)
     change_log = ChangeLog.new(product_params)
@@ -49,7 +44,6 @@ class ProductsController < ApplicationController
     end
   end
 
-  # DELETE /products/1 or /products/1.json
   def destroy
     change_log = ChangeLog.find_by(changeable_id: @product.id)
     change_log.destroy!

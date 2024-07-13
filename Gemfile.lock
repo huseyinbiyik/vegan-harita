@@ -195,6 +195,9 @@ GEM
     mobility (1.2.9)
       i18n (>= 0.6.10, < 2)
       request_store (~> 1.0)
+    mobility-ransack (1.2.2)
+      mobility (>= 1.0.1, < 2.0)
+      ransack (>= 1.8.0, < 5.0)
     msgpack (1.7.2)
     mutex_m (0.2.0)
     net-imap (0.4.14)
@@ -269,6 +272,10 @@ GEM
       zeitwerk (~> 2.6)
     rainbow (3.1.1)
     rake (13.2.1)
+    ransack (4.2.0)
+      activerecord (>= 6.1.5)
+      activesupport (>= 6.1.5)
+      i18n
     rdoc (6.7.0)
       psych (>= 4.0.0)
     recaptcha (5.17.0)
@@ -400,10 +407,12 @@ DEPENDENCIES
   letter_opener
   mission_control-jobs (~> 0.2.1)
   mobility (~> 1.2)
+  mobility-ransack (~> 1.2)
   pg (~> 1.1)
   pry (~> 0.14.2)
   puma (~> 6.0)
   rails (~> 7.1.2)
+  ransack (~> 4.2)
   recaptcha (~> 5.15)
   rqrcode (~> 2.2)
   rubocop-rails-omakase
