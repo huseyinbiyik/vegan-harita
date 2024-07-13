@@ -137,16 +137,17 @@ nav {
 }
 
 .wrapper {
-  margin-top: 80px;
+  /* margin-top: 80px; */
 }
 
 .dropdown {
   list-style-type: none;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   align-items: center;
   gap: 1rem;
   font-size: 1.125rem;
+  border: 2px dotted red;
 }
 
 #logout-link {
@@ -301,9 +302,9 @@ nav {
     }
   }
 
-  .dropdown li:nth-child(1) {
+  /* .dropdown li:nth-child(1) {
     padding: 8px 16px;
-  }
+  } */
 
   .wrapper:hover .dropdown {
     visibility: visible;
