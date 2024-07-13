@@ -37,7 +37,10 @@
           <% end %>
           <ul class="dropdown">
             <li>
-              <%= link_to t('my_account'), edit_user_registration_path %>
+              <%= link_to edit_user_registration_path do%>
+              <%# account icon %>
+              <span> <%= t :my_account %> </span>
+              <% end %>
             </li>
             <li>
               <%= link_to destroy_user_session_path, method: :delete, id: "logout-link" do %>

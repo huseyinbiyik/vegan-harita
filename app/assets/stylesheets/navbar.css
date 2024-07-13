@@ -107,6 +107,10 @@ nav {
   background-color: pink;
 }
 
+#nav-menu span {
+  display: none;
+}
+
 #add-place-link {
   display: flex;
   align-items: center;
