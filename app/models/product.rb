@@ -23,14 +23,6 @@ class Product < ApplicationRecord
   scope :pending, -> { where(approved: false) }
   scope :with_contributors, -> { includes(contributors: :user) }
 
-  def self.ransackable_associations(auth_object = nil)
-    %w[brand change_logs contributors image_attachment image_blob product_category rich_text_statement shops]
-  end
-
-  def self.ransackable_attributes(auth_object = nil)
-    %w[name ingredients bar_code]
-  end
-
   # Public methods
   def approve
     self.approved = true
