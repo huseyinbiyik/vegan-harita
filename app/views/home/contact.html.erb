@@ -1,7 +1,7 @@
 <main id="contact">
   <h1><%= t('views.home.contact.contact_us') %></h1>
   <p><%= t('views.home.contact.contact_us_text') %></p>
-  <%= form_with url: send_mail_path, html: { multipart: true, class: "contact-form", data: {turbo: false} } do |form| %>
+  <%= form_with url: send_mail_path, html: { multipart: true, class: "contact-form", data: { turbo: false } } do |form| %>
     <div class="field">
       <%= form.label :message, t('views.home.contact.message').html_safe %>
       <%= form.text_area :message, value: @contact_params[:message], autofocus: true, maxlength: 2000, required: true %>
@@ -17,8 +17,12 @@
     </div>
     <div class="field">
       <%= form.label t(:your_email) %>
-      <%= form.email_field :email,value: @contact_params[:email], maxlength: 50 %>
+      <%= form.email_field :email, value: @contact_params[:email], maxlength: 50 %>
     </div>
+
+    <%= form.label :gender, class: "gender" %>
+    <%= form.text_field :gender, value: @contact_params[:gender], maxlength: 50, class: "gender" %>
+    
     <div class="field">
       <%= flash[:recaptcha_error] %>
       <%= recaptcha_tags %>
