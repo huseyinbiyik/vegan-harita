@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
 
   def index
     @q = Product.approved.ransack(params[:q])
-    @products = @q.result(distinct: true)
+    @products = @q.result(distinct: true).includes(:brand, :product_category, :shops, :contributors)
   end
 
   def show
@@ -70,6 +70,7 @@ class ProductsController < ApplicationController
       :ingredients_en,
       :ingredients_tr,
       :product_category_id,
+      :product_sub_category_id,
       :brand_id,
       :image,
       :statement,

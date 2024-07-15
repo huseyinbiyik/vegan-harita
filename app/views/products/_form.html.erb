@@ -35,12 +35,17 @@
   </div>
   <div>
     <%= form.label :shop, style: "display: block" %>
-    <%= form.collection_select :shop_ids, Shop.all, :id, :name, {}, {multiple: true} %>
+    <%= form.collection_select :shop_ids, Shop.all, :id, :name, {}, { multiple: true } %>
   </div>
   <div>
     <%= form.label :product_category, style: "display: block" %>
     <%= form.collection_select :product_category_id, ProductCategory.all, :id, :name, prompt: true %>
   </div>
+  <div>
+    <%= form.label :product_sub_category, style: "display: block" %>
+    <%= form.collection_select :product_sub_category_id, ProductSubCategory.all, :id, :name, prompt: true %>
+  </div>
+
   <div>
     <%= form.label :statement, style: "display: block" %>
     <%= form.rich_text_area :statement %>

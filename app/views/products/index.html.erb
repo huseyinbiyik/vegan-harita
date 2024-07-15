@@ -3,11 +3,13 @@
 <%= render "search_form" %>
 
 <%= link_to "New product", new_product_path %>
-<div id="products">
-  <% @products.each do |product| %>
-    <%= render product %>
-    <p>
-      <%= link_to "Show this product", product %>
-    </p>
-  <% end %>
-</div>
+<%= turbo_frame_tag "product_results", data: { turbo_action: "advance" } do %>
+  <div id="products">
+    <% @products.each do |product| %>
+      <%= render product %>
+      <p>
+        <%= link_to "Show this product", product, data: { turbo_frame: "_top" } %>
+      </p>
+    <% end %>
+  </div>
+<% end %>

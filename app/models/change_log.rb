@@ -82,6 +82,7 @@ class ChangeLog < ApplicationRecord
                  :shops,
                  :shop_ids,
                  :product_category_id,
+                 :product_sub_category_id,
                  :statement,
                  :bar_code
 
@@ -159,7 +160,9 @@ class ChangeLog < ApplicationRecord
       brand_id:,
       bar_code:,
       statement:,
-      shop_ids:
+      shop_ids:,
+      product_category_id:,
+      product_sub_category_id:
     }
   end
 
