@@ -52,8 +52,9 @@
       </li>
     <% else %>
       <li class="nav-link">
-        <%= link_to new_user_session_path, id: "sign-in-link" do %>
-          <%= t :logIn %>
+        <%= link_to new_user_session_path do %>
+          <%= image_tag "login-icon.svg", class: "nav-icon" %>
+          <span><%= t :logIn %></span>
         <% end %>
       </li>
     <% end %>
