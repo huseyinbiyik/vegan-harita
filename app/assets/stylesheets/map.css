@@ -6,9 +6,10 @@
 
 #map {
   /* stylelint-disable unit-no-unknown */
-  height: calc(100dvh - 60px);
+  /* height: calc(100dvh - 60px); */
   /* stylelint-enable unit-no-unknown */
   width: 100vw;
+  height: 100dvh;
 }
 
 #map:focus {

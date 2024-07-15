@@ -1,11 +1,12 @@
 header {
-  display: flex;
+  /* display: flex;
   align-items: center;
   justify-content: space-between;
   height: 3.75rem;
   padding: 0.688rem 1.25rem;
   gap: 1rem;
-  position: relative;
+  position: relative; */
+  display: none;
 }
 
 #logo {
@@ -91,13 +92,18 @@ header {
 }
 
 nav {
-  position: absolute;
+  /* position: absolute;
   bottom: calc(60px - 100vh);
   left: 0;
-  z-index: 1;
+  z-index: 1; */
   background-color: var(--white);
   padding: 5px 20px;
   width: 100%;
+  border-radius: 30px 30px 0 0;
+  height: 54px;
+  position: absolute;
+  bottom: 0;
+  box-shadow: 0 -0.25rem 0.25rem 0 rgba(0, 0, 0, 0.25);
 }
 
 /* adjust font size of elements inside nav */
