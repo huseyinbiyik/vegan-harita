@@ -9,7 +9,6 @@
   height: calc(100dvh - 62px);
   /* stylelint-enable unit-no-unknown */
   width: 100vw;
-  /* height: 100dvh; */
 }
 
 #map:focus {

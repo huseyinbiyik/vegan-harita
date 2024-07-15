@@ -1,5 +1,5 @@
-<nav data-controller="navigation" data-navigation-state-value="false">
-  <ul id="nav-menu" data-navigation-target="menu">
+<nav>
+  <ul id="nav-menu">
     <% if user_signed_in? && current_user.place_owner? %>
       <li class="nav-link">
         <%= link_to place_owner_summary_path(current_user.places.first.slug), class: "nav-admin-link" do %>
@@ -60,12 +60,10 @@
     <% end %>
     </li>
     <li class="nav-link mobile">
-      <%# <div class="vh-instagram"> %>
         <%= link_to "https://www.instagram.com/veganharita", target: "_blank" do %>
           <%= image_tag ('instagram.svg'), class: "nav-icon" %>
           <span id="vh-handle">veganharita</span>
         <% end %>
-      <%# </div> %>
     </li>
   </ul>
 </nav>

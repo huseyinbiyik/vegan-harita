@@ -95,39 +95,20 @@ header.passive-header {
 }
 
 nav {
-  /* position: absolute;
-  bottom: calc(60px - 100vh);
-  left: 0;
-  z-index: 1; */
   background-color: var(--white);
   padding: 5px 20px;
   width: 100%;
-  /* border-radius: 30px 30px 0 0; */
-  /* height: 54px; */
   height: 62px;
   position: sticky;
   bottom: 0;
   box-shadow: 0 -0.25rem 0.25rem 0 rgba(0, 0, 0, 0.25);
 }
 
-/* adjust font size of elements inside nav */
-
 #nav-menu {
-  /* display: none; */
   display: flex;
   list-style: none;
-  /* width: 100vw; */
-  /* padding */
-  /* border: 2px dotted red; */
   gap: 5px;
   justify-content: center;
-}
-
-.nav-link {
-  /* border: 2px solid white; */
-  /* display: flex;
-  flex-direction: column; */
-
 }
 
 .nav-link a {
@@ -144,7 +125,6 @@ nav {
 }
 
 #nav-menu span {
-  /* display: none; */
   font-size: 9px;
   text-align: center;
 }
@@ -156,7 +136,6 @@ nav {
 #add-place-link {
   display: flex;
   align-items: center;
-  /* gap: 0.313rem; */
   font-size: 1.125rem;
 }
 
@@ -178,21 +157,14 @@ nav {
   width: max-content;
 }
 
-#account-icon {
-  /* display: none; */
-}
-
 .wrapper {
-  /* margin-top: 80px; */
   display: flex;
 }
 
 .dropdown {
   list-style-type: none;
   display: flex;
-  /* flex-direction: column; */
   align-items: center;
-  /* gap: 1rem; */
   font-size: 1.125rem;
   gap: 5px;
 }
@@ -201,13 +173,6 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: space-between; */
-  /* width: 9.063rem; */
-  /* height: 2.625rem; */
-  /* border-radius: 1.25rem;
-  border: 0.063rem solid var(--gray); */
-  /* padding: 0.5rem 1.313rem; */
-
 }
 
 #nav-menu.hidden {
