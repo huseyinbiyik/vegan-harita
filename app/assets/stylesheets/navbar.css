@@ -38,6 +38,7 @@ header.passive-header {
 #search-icon {
   width: 1.688rem;
   height: 1.5rem;
+  z-index: 1;
 }
 
 #search-form {
@@ -267,8 +268,9 @@ nav {
     overflow: scroll;
     max-height: 60vh;
     scrollbar-width: none; /* Firefox */
-    top: 40px;
+    top: 26px;
     border-radius: 0 0 30px 30px;
+    padding-top: 25px;
   }
 
   #search-results::-webkit-scrollbar {
