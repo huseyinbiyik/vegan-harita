@@ -190,10 +190,23 @@ nav {
   }
 
   header {
-    justify-content: space-between;
-    padding: 1rem 3rem;
+    /* justify-content: space-between; */
+    padding: 16px 48px;
     height: 4.375rem;
+    /* display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 3.75rem;
+    padding: 0.688rem 1.25rem;
+    gap: 1rem; */
   }
+
+  header.passive-header, header.active-header {
+    display: block;
+    height: 60px;
+  }
+  
+ 
 
   #search-container {
     justify-content: center;
