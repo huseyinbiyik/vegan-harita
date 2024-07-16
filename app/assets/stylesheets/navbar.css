@@ -281,6 +281,8 @@ nav {
     top: 0;
     right: 0;
     width: 50%;
+    height: 60px;
+    padding-right: 48px;
   }
 
   #nav-menu {
@@ -300,11 +302,21 @@ nav {
   #add-place-wrapper {
     background-color: var(--white);
     position: absolute;
-    top: 66px;
+    top: 76px;
+    /* display: flex; */
+    /* width: 200px; */
+    height: 50px;
+    border-radius: 30px;
+    /* flex-direction: row; */
   }
 
   .nav-link span {
     white-space: nowrap;
+    
+  }
+
+  #nav-menu span {
+    font-size: 18px;
   }
 
   .wrapper {
@@ -314,7 +326,11 @@ nav {
   }
 
   #add-place-link {
-    gap: 0.125rem;
+    gap: 5px;
+    display: flex;
+    width: auto;
+    flex-direction: row;
+    padding: 8px;
   }
 
   #account-icon {
