@@ -187,7 +187,7 @@ select {
 main {
   padding: 20px;
   width: 100%;
-  min-height: calc(100vh - 112px);
+  margin-bottom: 62px;
 }
 
 .user-forms {
