@@ -297,6 +297,12 @@ nav {
     padding: 0;
   }
 
+  #add-place-wrapper {
+    background-color: var(--white);
+    position: absolute;
+    top: 66px;
+  }
+
   .nav-link span {
     white-space: nowrap;
   }
