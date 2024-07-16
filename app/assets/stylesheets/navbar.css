@@ -329,6 +329,10 @@ nav {
     /* flex-direction: row; */
   }
 
+  #add-place-icon {
+    display: block;
+  }
+
   .nav-link span {
     white-space: nowrap;
     
