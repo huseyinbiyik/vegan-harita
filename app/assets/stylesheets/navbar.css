@@ -275,6 +275,14 @@ nav {
     display: none;
   }
 
+  nav {
+    background-color: darkslategray;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+  }
+
   #nav-menu {
     display: flex;
     gap: 2rem;
