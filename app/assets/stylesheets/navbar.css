@@ -306,6 +306,10 @@ nav {
     padding: 0;
   }
 
+  .invisible-link {
+    display: none;
+  }
+
   #add-place-wrapper {
     background-color: var(--white);
     position: absolute;
