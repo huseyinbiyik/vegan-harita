@@ -169,6 +169,10 @@ nav {
   gap: 5px;
 }
 
+#account-icon {
+  display: none;
+}
+
 #logout-link {
   display: flex;
   flex-direction: column;
@@ -180,6 +184,10 @@ nav {
 }
 
 .hidden {
+  display: none;
+}
+
+.desktop {
   display: none;
 }
 

@@ -38,7 +38,11 @@
         <ul class="dropdown">
           <li class= "nav-link">
             <%= link_to edit_user_registration_path do%>
-            <%= image_tag "account-icon.svg", class: "nav-icon" %>
+            <% if current_user.avatar.attached? %>
+              <%= image_tag(cdn_proxy_url(current_user.avatar.variant(:thumb)), class: "nav-icon") %>
+            <% else %>
+              <%= image_tag "account-icon.svg", class: "nav-icon" %>
+            <% end %>
             <span> <%= t :my_account %> </span>
             <% end %>
           </li>
