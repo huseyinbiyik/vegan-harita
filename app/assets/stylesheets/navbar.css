@@ -201,6 +201,7 @@ nav {
     /* justify-content: space-between; */
     padding: 16px 48px;
     height: 4.375rem;
+
     /* display: flex;
     align-items: center;
     justify-content: space-between;
@@ -209,15 +210,15 @@ nav {
     gap: 1rem; */
   }
 
-  header.passive-header, header.active-header {
+  header.passive-header,
+  header.active-header {
     /* display: block; */
     height: 60px;
     display: flex;
     align-items: center;
-
   }
-  
- 
+
+
 
   #search-container {
     justify-content: center;
@@ -290,6 +291,7 @@ nav {
     position: absolute;
     top: 0;
     right: 0;
+
     /* width: 50%; */
     width: auto;
     height: 60px;
@@ -322,10 +324,13 @@ nav {
     background-color: var(--white);
     position: absolute;
     top: 76px;
+
     /* display: flex; */
+
     /* width: 200px; */
     height: 50px;
     border-radius: 30px;
+
     /* flex-direction: row; */
   }
 
@@ -335,7 +340,6 @@ nav {
 
   .nav-link span {
     white-space: nowrap;
-    
   }
 
   .nav-icon {
