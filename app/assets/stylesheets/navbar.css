@@ -46,6 +46,7 @@ header.passive-header {
   align-items: center;
   gap: 8px;
   padding: 0.5rem 1.25rem;
+  height: 50px;
 }
 
 #search-field {
@@ -230,10 +231,6 @@ nav {
     width: 1.188rem;
     height: 1.188rem;
   }
-
-  /* #search-form {
-    height: 100%;
-  } */
 
   #search-field {
     height: 3.125rem;
