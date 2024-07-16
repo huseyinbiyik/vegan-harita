@@ -315,6 +315,10 @@ nav {
     
   }
 
+  .nav-icon {
+    display: none;
+  }
+
   #nav-menu span {
     font-size: 18px;
   }
@@ -367,7 +371,10 @@ nav {
     visibility: visible;
     transition-delay: 0s;
     display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    padding: 8px;
   }
 
   #logout-link {
@@ -381,7 +388,7 @@ nav {
     display: none;
   }
 
-  .nav-link:last-child {
+  /* .nav-link:last-child {
     display: none;
-  }
+  } */
 }
