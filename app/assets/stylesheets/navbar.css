@@ -361,6 +361,11 @@ nav {
     height: 5.25rem;
     z-index: 6;
     gap: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
 
     & li {
       width: max-content;
@@ -372,11 +377,6 @@ nav {
   .wrapper:hover .dropdown {
     visibility: visible;
     transition-delay: 0s;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 8px;
   }
 
   #logout-link {
