@@ -202,8 +202,11 @@ nav {
   }
 
   header.passive-header, header.active-header {
-    display: block;
+    /* display: block; */
     height: 60px;
+    display: flex;
+    align-items: center;
+
   }
   
  
@@ -276,13 +279,17 @@ nav {
   }
 
   nav {
-    background-color: darkslategray;
     position: absolute;
     top: 0;
     right: 0;
-    width: 50%;
+    /* width: 50%; */
+    width: auto;
     height: 60px;
     padding-right: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: none;
   }
 
   #nav-menu {
