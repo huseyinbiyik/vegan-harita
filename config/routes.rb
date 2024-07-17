@@ -22,7 +22,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :products
+  resources :products, param: :slug do
+    collection do
+      post :search
+    end
+  end
 
   resource :change_logs, only: %i[new create]
 

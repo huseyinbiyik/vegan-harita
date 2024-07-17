@@ -6,6 +6,20 @@ class ProductsController < ApplicationController
     @products = @q.result(distinct: true).includes(:brand, :product_category, :shops, :contributors)
   end
 
+  def search
+    if params[:name_search].present?
+      @products = Product.approved.filter_by_name(params[:name_search])
+    else
+      []
+    end
+    respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.update("search-results", partial: "products/search_results",
+                                                 locals: { products: @products })
+      end
+    end
+  end
+
   def show
   end
 
@@ -58,15 +72,14 @@ class ProductsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_product
-    @product = Product.find(params[:id])
+    @product = Product.find_by(slug: params[:slug])
   end
 
   # Only allow a list of trusted parameters through.
   def product_params
     params.require(:product).permit(
       :bar_code,
-      :name_en,
-      :name_tr,
+      :name,
       :ingredients_en,
       :ingredients_tr,
       :product_category_id,

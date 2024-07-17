@@ -1,7 +1,6 @@
 class Product < ApplicationRecord
   # Translations
   extend Mobility
-  translates :name, type: :string
   translates :ingredients, type: :text
 
   # Associations
@@ -23,10 +22,31 @@ class Product < ApplicationRecord
   scope :approved, -> { where(approved: true) }
   scope :pending, -> { where(approved: false) }
   scope :with_contributors, -> { includes(contributors: :user) }
+  scope :filter_by_name, ->(name) { where("name ILIKE ?", "%#{name}%") }
+
+    # Callbacks
+    before_validation :assign_slug, on: :create
+    before_save :assign_slug, if: :name_changed?
+
 
   # Public methods
   def approve
     self.approved = true
     save
+  end
+
+  def create_slug
+    if Product.where(slug: name.parameterize).exists?
+      "#{name.parameterize}-#{SecureRandom.hex(4)}"
+    else
+      name.parameterize
+    end
+  end
+
+  private
+
+
+  def assign_slug
+    self.slug = create_slug
   end
 end

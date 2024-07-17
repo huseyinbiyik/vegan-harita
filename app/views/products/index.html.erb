@@ -1,15 +1,16 @@
-<h1><%= Product.model_name.human(count: 2) %> </h1>
-
-<%= render "search_form" %>
-
-<%= link_to "New product", new_product_path %>
-<%= turbo_frame_tag "product_results", data: { turbo_action: "advance" } do %>
-  <div id="products">
-    <% @products.each do |product| %>
-      <%= render product %>
-      <p>
-        <%= link_to "Show this product", product, data: { turbo_frame: "_top" } %>
-      </p>
-    <% end %>
-  </div>
-<% end %>
+<main>
+  <h1><%= Product.model_name.human(count: 2) %> </h1>
+  <%= render "search_form" %>
+  <%= render "filter_form" %>
+  <%= link_to "New product", new_product_path %>
+  <%= turbo_frame_tag "product_results", data: { turbo_action: "advance" } do %>
+    <div id="products">
+      <% @products.each do |product| %>
+        <%= render product %>
+        <p>
+          <%= link_to "Show this product", product, data: { turbo_frame: "_top" } %>
+        </p>
+      <% end %>
+    </div>
+  <% end %>
+</main>

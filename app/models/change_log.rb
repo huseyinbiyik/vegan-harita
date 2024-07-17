@@ -52,7 +52,6 @@ class ChangeLog < ApplicationRecord
 
   # Public instance methods
   store_accessor :data,
-
                  :action,
                  :request_message,
                  :name,
@@ -153,8 +152,7 @@ class ChangeLog < ApplicationRecord
 
   def product_attributes
     {
-      name_en:,
-      name_tr:,
+      name:,
       ingredients_en:,
       ingredients_tr:,
       brand_id:,
