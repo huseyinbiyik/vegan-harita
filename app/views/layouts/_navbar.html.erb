@@ -22,6 +22,13 @@
         <span>places</span>
       <% end %>
     </li>
+    <li class="nav-link">
+      <%# will be link to future products page %>
+      <%= link_to root_path do %>
+        <%= image_tag "product.png", class: "nav-icon" %>
+        <span>products</span>
+      <% end %>
+    </li>
     <li class="nav-link" id="add-place-wrapper" data-controller="place-link">
       <%= link_to new_place_path, id: "add-place-link" do %>
         <%= image_tag "add-place.svg", class: "nav-icon", id: "add-place-icon" %>
