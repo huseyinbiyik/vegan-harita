@@ -1,17 +1,17 @@
 <nav>
   <ul id="nav-menu">
     <% if user_signed_in? && current_user.place_owner? %>
-      <li class="nav-link">
+      <li class="nav-link panel">
         <%= link_to place_owner_summary_path(current_user.places.first.slug), class: "nav-admin-link" do %>
-          <%= image_tag "claim.svg", class: "nav-icon" %>
+          <%= image_tag "owner-icon.png", class: "nav-icon" %>
           <span><%= t :business_panel %></span>
         <% end %>
       </li>
     <% end %>
     <% if user_signed_in? && current_user.role == "admin" %>
-      <li class="nav-link">
+      <li class="nav-link panel">
         <%= link_to approvals_path, class: "nav-admin-link" do %>
-          <%= image_tag "admin-icon.svg", class: "nav-icon" %>
+          <%= image_tag "admin-icon2.png", class: "nav-icon" %>
           <span><%= t :panel %></span>
         <% end %>
       </li>
