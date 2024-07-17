@@ -125,11 +125,12 @@
 }
 
 #custom-zoom-controller-container {
-  margin-right: 1.25rem;
+  margin-right: 20px;
+  margin-bottom: 20px;
 }
 
 #location-button {
-  margin-bottom: 1.875rem;
+  margin-bottom: 50px;
 }
 
 @keyframes fadeInOut {
