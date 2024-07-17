@@ -59,7 +59,7 @@
             <span> <%= t :my_account %> </span>
             <% end %>
           </li>
-          <li class= "nav-link">
+          <li class= "nav-link desktop">
             <%= link_to destroy_user_session_path, method: :delete, id: "logout-link" do %>
               <%= image_tag "logout-icon.svg", class: "nav-icon", id: "logout-icon" %>
               <span><%= t :logOut %></span>

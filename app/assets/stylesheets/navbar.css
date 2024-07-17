@@ -180,8 +180,20 @@ nav {
 
 #logout-link {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
+  height: 42px;
+  width: 240px;
+  padding: 8px 10px;
+  background-color: var(--red);
+  border-radius: 30px;
+  margin-bottom: 24px;
+}
+
+#logout-link span {
+  color: var(--white);
+  font-weight: 500;
 }
 
 #nav-menu.hidden {

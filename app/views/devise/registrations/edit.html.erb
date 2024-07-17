@@ -47,4 +47,7 @@
   <% end %>
   <br>
   <p> <%= t :unhappy %> <%= button_to t('cancel'), registration_path(resource_name), data: { turbo_confirm: t('sure') }, method: :delete, id:"cancel-button" %></p>
-</section>
+  <%= link_to destroy_user_session_path, method: :delete, id: "logout-link" do %>
+    <span><%= t :logOut %></span>
+  <% end %>
+</main>
