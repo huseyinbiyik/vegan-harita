@@ -130,7 +130,7 @@ nav {
 
 .panel img {
   width: 40px;
-  height: 40pxcc;
+  height: 40px;
 }
 
 .panel span {
@@ -437,7 +437,7 @@ nav {
     border: none;
     padding: 0;
     justify-content: center;
-    width: 100%;
+    width: 240px;
   }
 
   #logout-icon {

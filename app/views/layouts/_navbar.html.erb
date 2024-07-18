@@ -1,7 +1,7 @@
 <nav>
   <ul id="nav-menu">
     <% if user_signed_in? && current_user.place_owner? %>
-      <li class="nav-link panel">
+      <li class="nav-link panel desktop">
         <%= link_to place_owner_summary_path(current_user.places.first.slug), class: "nav-admin-link" do %>
           <%= image_tag "owner-icon.png", class: "nav-icon" %>
           <span><%= t :business_panel %></span>

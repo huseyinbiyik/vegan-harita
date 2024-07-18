@@ -46,6 +46,13 @@
     </div>
   <% end %>
   <br>
+  <% if user_signed_in? && current_user.place_owner? %>
+    <%= link_to place_owner_summary_path(current_user.places.first.slug), id: "owner-panel" do %>
+      <%= image_tag "owner-icon.png", class: "nav-icon" %>
+      <span><%= t :business_panel %></span>
+    <% end %>
+  <% end %>
+  <br>
   <p> <%= t :unhappy %> <%= button_to t('cancel'), registration_path(resource_name), data: { turbo_confirm: t('sure') }, method: :delete, id:"cancel-button" %></p>
   <%= link_to destroy_user_session_path, method: :delete, id: "logout-link" do %>
     <span><%= t :logOut %></span>
