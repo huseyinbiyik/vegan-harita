@@ -1,5 +1,4 @@
 header {
-  display: flex;
   align-items: center;
   justify-content: space-between;
   height: 3.75rem;
@@ -256,6 +255,8 @@ nav {
   header {
     padding: 16px 48px;
     height: 4.375rem;
+    display: flex;
+
   }
 
   header.passive-header,
@@ -339,6 +340,8 @@ nav {
     align-items: center;
     justify-content: center;
     box-shadow: none;
+
+    background-color: cadetblue;
   }
 
   #nav-menu {
@@ -346,6 +349,8 @@ nav {
     gap: 2rem;
     list-style-type: none;
     justify-content: flex-end;
+    
+    border: 1px dotted red;
   }
 
   .nav-link {
@@ -353,6 +358,8 @@ nav {
     align-items: center;
     height: auto;
     padding: 0;
+
+    background-color: var(--white);
   }
 
   .invisible-link {
