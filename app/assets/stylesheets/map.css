@@ -5,9 +5,9 @@
 }
 
 #map {
-  /* stylelint-disable unit-no-unknown */
+  /* stylelint-disable */
   height: 100dvh;
-  /* stylelint-enable unit-no-unknown */
+  /* stylelint-enable */
   width: 100vw;
 }
 

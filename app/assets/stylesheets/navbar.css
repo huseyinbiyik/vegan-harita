@@ -112,12 +112,10 @@ nav {
   bottom: 0;
   box-shadow: 0 -0.25rem 0.25rem 0 rgba(0, 0, 0, 0.25);
   border-radius: 30px 30px 0 0;
-
-  
 }
 
 .panel {
-  position:fixed;
+  position: fixed;
   background-color: var(--green);
   height: 50px;
   width: 50px;
@@ -138,6 +136,7 @@ nav {
 #nav-menu {
   display: flex;
   list-style: none;
+
   /* gap: 5px; */
   justify-content: space-evenly;
   max-width: 400px;
@@ -145,8 +144,8 @@ nav {
 }
 
 .nav-link {
- width: 50px;
- height: 50px;
+  width: 50px;
+  height: 50px;
 }
 
 .nav-link a {
@@ -255,7 +254,6 @@ nav {
     padding: 16px 48px;
     height: 4.375rem;
     display: flex;
-
   }
 
   header.passive-header,
@@ -348,7 +346,7 @@ nav {
     display: flex;
     gap: 2rem;
     list-style-type: none;
-    justify-content: flex-end;    
+    justify-content: flex-end;
   }
 
   .panel {
@@ -366,7 +364,6 @@ nav {
     height: auto;
     width: auto;
     padding: 0;
-
     background-color: var(--white);
   }
 
