@@ -19,14 +19,14 @@
     <li class="nav-link">
       <%= link_to root_path do %>
         <%= image_tag "places-icon.png", class: "nav-icon" %>
-        <span>places</span>
+        <span><%= t :place_index %></span>
       <% end %>
     </li>
     <li class="nav-link">
       <%# will be link to future products page %>
       <%= link_to root_path do %>
         <%= image_tag "product.png", class: "nav-icon" %>
-        <span>products</span>
+        <span><%= t :product_index %></span>
       <% end %>
     </li>
     <li class="nav-link" id="add-place-wrapper" data-controller="place-link">
