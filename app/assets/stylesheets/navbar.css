@@ -453,7 +453,15 @@ nav {
     border: none;
     padding: 0;
     justify-content: center;
-    width: 240px;
+    background-color: var(--white);
+    margin-bottom: 0;
+    border-radius: 0%;
+    width: auto;
+  }
+
+  #logout-link span {
+    color: var(--black);
+    font-weight: normal;
   }
 
   #logout-icon {
