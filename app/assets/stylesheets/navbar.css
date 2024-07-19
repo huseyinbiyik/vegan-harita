@@ -334,29 +334,35 @@ nav {
     top: 0;
     right: 0;
     width: auto;
-    height: 60px;
+    height: 70px;
     padding-right: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: none;
-
-    background-color: cadetblue;
   }
 
   #nav-menu {
     display: flex;
     gap: 2rem;
     list-style-type: none;
-    justify-content: flex-end;
-    
-    border: 1px dotted red;
+    justify-content: flex-end;    
+  }
+
+  .panel {
+    position: unset;
+    border-radius: 0%;
+  }
+
+  .panel span {
+    display: block;
   }
 
   .nav-link {
     display: flex;
     align-items: center;
     height: auto;
+    width: auto;
     padding: 0;
 
     background-color: var(--white);
