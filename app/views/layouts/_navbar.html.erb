@@ -11,7 +11,7 @@
     <% if user_signed_in? && current_user.role == "admin" %>
       <li class="nav-link panel">
         <%= link_to approvals_path, class: "nav-admin-link" do %>
-          <%= image_tag "admin-icon2.png", class: "nav-icon" %>
+          <%= image_tag "admin-icon.png", class: "nav-icon" %>
           <span><%= t :panel %></span>
         <% end %>
       </li>
@@ -61,7 +61,6 @@
           </li>
           <li class= "nav-link desktop">
             <%= link_to destroy_user_session_path, method: :delete, id: "logout-link" do %>
-              <%= image_tag "logout-icon.svg", class: "nav-icon", id: "logout-icon" %>
               <span><%= t :logOut %></span>
             <% end %>
           </li>
