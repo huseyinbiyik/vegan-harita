@@ -7,7 +7,7 @@
         <% if resource.avatar.attached? && resource.avatar.blob.persisted? %>
           <%= image_tag cdn_proxy_url(resource.avatar.variant(:medium)), id: "avatar-img", class: "avatar", data: {utils_target: "preview"} %>
         <% else %>
-          <%= image_tag "account-icon.svg", class: "avatar", data: {utils_target: "preview"} %>
+          <%= image_tag "account.svg", class: "avatar", data: {utils_target: "preview"} %>
         <% end %>
         <%= f.file_field :avatar, accept: "image/png, image/jpeg", direct_upload: true, data: {action: "change->utils#uploadAvatar"} %>
       </div>
@@ -48,7 +48,7 @@
   <br>
   <% if user_signed_in? && current_user.place_owner? %>
     <%= link_to place_owner_summary_path(current_user.places.first.slug), id: "owner-panel" do %>
-      <%= image_tag "owner-icon.png", class: "nav-icon" %>
+      <%= image_tag "owner.svg", class: "nav-icon" %>
       <span><%= t :business_panel %></span>
     <% end %>
   <% end %>
