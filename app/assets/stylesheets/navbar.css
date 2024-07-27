@@ -161,6 +161,10 @@ nav {
   height: 24px;
 }
 
+.nav-link.active .nav-icon path {
+  fill: #000E06;
+}
+
 #nav-menu span {
   font-size: 9px;
   text-align: center;
