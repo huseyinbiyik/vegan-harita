@@ -328,10 +328,11 @@ en:
         success: "Review deleted successfully. Thank you for your contribution! 💚"
         failure: "There was a problem with your edit request. Please try again."
   views:
+    coming_soon: "Coming Soon..."
     home:
       contact:
         invite: "Meet Us on Social Media"
-        or: "----------  or  ----------"
+        or: "or"
         contact_us: "Contact Us"
         contact_us_text: "You can write to us for any subject such as good wishes, suggestions, complaints, feedback, errors, etc."
         message: "Your message<span class='red-text'>*</span>"
