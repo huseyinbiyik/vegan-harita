@@ -1,5 +1,5 @@
 <div class="map-container" data-controller="map" data-action="google-maps-callback@window->map#initializeMap" data-map-assets-value='<%= map_assets %>'>
-  <div id="search-container" class="<%= current_user&.admin? ? 'narrow-search' : 'standard-search' %>">
+  <div id="search-container">
     <%= render "places/search_form" %>
   </div>
   <div
