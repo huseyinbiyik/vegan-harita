@@ -1,25 +1,18 @@
 <ul id="account-links" class="mobile">
   <% if user_signed_in? && current_user.role == "admin" %>
     <li>
-      <%= link_to approvals_path do %>
-        <span><%= t :panel %></span>
-      <% end %>
+      <%= link_to t(:panel), approvals_path %>
     </li>
   <% end %>
   <% if user_signed_in? && current_user.place_owner? %>
     <li>
-      <%= link_to place_owner_summary_path(current_user.places.first.slug) do %>
-        <%= inline_svg_tag "owner.svg" %>
-        <span><%= t :business_panel %></span>
-      <% end %>
+      <%= link_to t(:business_panel), place_owner_summary_path(current_user.places.first.slug) %>
     </li>
   <% end %>
   <li>
     <%= link_to t('my_account'), edit_user_registration_path %>
   </li>
   <li>
-    <%= link_to destroy_user_session_path, method: :delete, id: "logout-link" do %>
-      <span><%= t :logOut %></span>
-    <% end %>
+    <%= link_to t(:logOut), destroy_user_session_path, method: :delete, id: "logout-link" %>
   </li>
 </ul>

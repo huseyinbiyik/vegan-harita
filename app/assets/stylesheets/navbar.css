@@ -222,7 +222,7 @@ nav {
   display: none;
 } */
 
-#logout-link {
+/* #logout-link {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -238,7 +238,7 @@ nav {
 #logout-link span {
   color: var(--white);
   font-weight: 500;
-}
+} */
 
 #nav-menu.hidden {
   display: none;
@@ -253,8 +253,18 @@ nav {
 }
 
 #account-links {
-  border: 2px solid red;
+  & li {
+    width: 50%;
+  }
+
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.125rem;
+  padding-top: 35%;
+  list-style-type: none;
+  align-items: center;
+  gap: 1.125rem;
 }
 
 @media (min-width: 1024px) {
@@ -481,6 +491,10 @@ nav {
   }
 
   #logout-icon {
+    display: none;
+  }
+
+  #account-links {
     display: none;
   }
 }

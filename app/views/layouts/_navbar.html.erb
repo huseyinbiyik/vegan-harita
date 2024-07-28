@@ -35,12 +35,12 @@
       <% end %>
       </li>
     <% if user_signed_in? %>
-      <li class="wrapper nav-link">
-        <%= link_to account_links_path do %>
+      <li class="wrapper nav-link <%= 'active' if current_page?(account_links_path) || current_page?(edit_user_registration_path) || current_page?(approvals_path) || (user_signed_in? && current_user.places.first.present? && current_page?(place_owner_summary_path(current_user.places.first.slug))) %>"> 
+         <%= link_to account_links_path do %>
           <% if current_user.avatar.attached? %>
             <%= image_tag(cdn_proxy_url(current_user.avatar.variant(:thumb)), id: "account-icon", height: "40px", width: "40px") %>
           <% else %>
-            <%= image_tag "account.svg", class: "nav-icon hidden", id: "account-icon" %>
+            <%= inline_svg_tag "account.svg", class: "nav-icon", id: "account-icon" %>
           <% end %>
           <span class="mobile"> <%= t :my_account %> </span>
         <% end %>
