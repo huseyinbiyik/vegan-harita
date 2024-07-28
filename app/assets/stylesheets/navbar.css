@@ -161,7 +161,7 @@ nav {
 }
 
 .nav-link.active .nav-icon {
-  fill: #000E06;
+  fill: #000e06;
 }
 
 .nav-link.active .nav-icon path {
@@ -169,7 +169,7 @@ nav {
   stroke: var(--black);
 }
 
-.nav-link.active .nav-icon line  {
+.nav-link.active .nav-icon line {
   stroke: var(--black);
 }
 

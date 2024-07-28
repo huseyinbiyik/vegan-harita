@@ -6,9 +6,6 @@
       <% end %>
     </li>
   <% end %>
-
-
-
   <% if user_signed_in? && current_user.place_owner? %>
     <li>
       <%= link_to place_owner_summary_path(current_user.places.first.slug) do %>
@@ -17,15 +14,9 @@
       <% end %>
     </li>
   <% end %>
-
-
-
   <li>
     <%= link_to t('my_account'), edit_user_registration_path %>
   </li>
-
-  
-
   <li>
     <%= link_to destroy_user_session_path, method: :delete, id: "logout-link" do %>
       <span><%= t :logOut %></span>
