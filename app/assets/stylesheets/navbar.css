@@ -411,6 +411,8 @@ nav {
 
   #add-place-icon {
     display: block;
+    fill: var(--green);
+
   }
 
   .nav-link span {
