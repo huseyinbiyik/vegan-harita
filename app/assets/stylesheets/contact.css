@@ -1,5 +1,8 @@
+#invite {
+  text-align: center;
+}
 #contact {
-  padding: 0 20px 20px 20px;
+  padding: 88px 20px 20px 20px;
   display: flex;
   justify-content: center;
   align-items: center;

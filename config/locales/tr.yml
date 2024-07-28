@@ -335,6 +335,8 @@ tr:
   views:
     home:
       contact:
+        invite: "Bizimle Sosyal Medyada Buluşun"
+        or: "----------  ya da  ----------"
         contact_us: "Bize Yazın"
         contact_us_text: "İyi dilek, öneri, şikayet, geri bildirim, hata vb. herhangi bir konu için lütfen bize yazın."
         message: "<span>Mesajınız<span class='red-text'>*</span></span>"
