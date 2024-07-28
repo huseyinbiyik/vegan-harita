@@ -49,7 +49,7 @@
           <%= image_tag "account.svg", class: "nav-icon hidden", id: "account-icon" %>
         <% end %>
         <ul class="dropdown">
-          <li class= "nav-link">
+          <li class= "nav-link <%= 'active' if current_page?(edit_user_registration_path) %>">
             <%= link_to edit_user_registration_path do%>
             <% if current_user.avatar.attached? %>
               <%= image_tag(cdn_proxy_url(current_user.avatar.variant(:thumb)), class: "nav-icon") %>

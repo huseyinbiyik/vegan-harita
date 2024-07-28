@@ -160,8 +160,17 @@ nav {
   height: 40px;
 }
 
-.nav-link.active .nav-icon path {
+.nav-link.active .nav-icon {
   fill: #000E06;
+}
+
+.nav-link.active .nav-icon path {
+  fill: var(--black);
+  stroke: var(--black);
+}
+
+.nav-link.active .nav-icon line  {
+  stroke: var(--black);
 }
 
 #nav-menu span {
