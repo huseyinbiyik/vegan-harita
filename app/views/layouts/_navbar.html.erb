@@ -69,7 +69,7 @@
     <% else %>
       <li class="nav-link <%= 'active' if current_page?(new_user_session_path) %>">
         <%= link_to new_user_session_path do %>
-          <%= inline_svg_tag "login-icon.svg", class: "nav-icon" %>
+          <%= inline_svg_tag "account.svg", class: "nav-icon" %>
           <span><%= t :logIn %></span>
         <% end %>
       </li>
