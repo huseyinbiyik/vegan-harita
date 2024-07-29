@@ -56,6 +56,22 @@
   border: none;
 }
 
+#owner-panel {
+  background-color: var(--green);
+  height: 42px;
+  width: 240px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+#owner-panel span {
+  color: var(--white);
+  font-weight: 500;
+}
+
 #cancel {
   color: var(--red);
   margin-top: 16px;

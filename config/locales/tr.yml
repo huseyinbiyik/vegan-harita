@@ -96,6 +96,8 @@ tr:
   forgot_password: "Parolamı unuttum"
   not_received_confirmation: "Onay e-postası almadım"
   panel: "Onay Paneli"
+  place_index: "Mekanlar"
+  product_index: "Ürünler"
   add_place: "Mekan Ekle"
   my_account: "Hesabım"
   logOut: "Çıkış Yap"
@@ -331,8 +333,11 @@ tr:
         success: "Değerlendirmeniz başarılı şekilde silindi. Desteğiniz için teşekkür ederiz 💚"
         failure: "Değerlendirme silme isteği gönderilirken bir hata oluştu 😞. Lütfen tekrar deneyin."
   views:
+    coming_soon: "Yakında..."
     home:
       contact:
+        invite: "Bizimle Sosyal Medyada Buluşun"
+        or: "ya da"
         contact_us: "Bize Yazın"
         contact_us_text: "İyi dilek, öneri, şikayet, geri bildirim, hata vb. herhangi bir konu için lütfen bize yazın."
         message: "<span>Mesajınız<span class='red-text'>*</span></span>"

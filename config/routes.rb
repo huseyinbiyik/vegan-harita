@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   root "places#index"
   get "contact", to: "home#contact"
+  get "account_links", to: "static#account_links"
+  get "coming_soon", to: "static#coming_soon"
   post "send_mail", to: "home#send_mail"
 
   devise_for :users, controllers: { registrations: "users/registrations", sessions: "users/sessions" }
