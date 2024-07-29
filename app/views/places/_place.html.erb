@@ -270,7 +270,7 @@
           <% if contributor.avatar.attached? %>
             <%= image_tag cdn_proxy_url(contributor.avatar.variant(:thumb)), class: "contributor-avatar", loading: "lazy" %>
           <% else %>
-            <%= image_tag "account-icon.svg", class: "contributor-avatar", loading: "lazy" %>
+            <%= image_tag "account.svg", class: "contributor-avatar", loading: "lazy" %>
           <% end %>
           <span class="contributor-name"><%= contributor.username %></span>
         </div>

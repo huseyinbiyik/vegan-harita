@@ -5,9 +5,9 @@
 }
 
 #map {
-  /* stylelint-disable unit-no-unknown */
-  height: calc(100dvh - 60px);
-  /* stylelint-enable unit-no-unknown */
+  /* stylelint-disable */
+  height: 100dvh;
+  /* stylelint-enable */
   width: 100vw;
 }
 
@@ -125,11 +125,12 @@
 }
 
 #custom-zoom-controller-container {
-  margin-right: 1.25rem;
+  margin-right: 20px;
+  margin-bottom: 20px;
 }
 
 #location-button {
-  margin-bottom: 1.875rem;
+  margin-bottom: 50px;
 }
 
 @keyframes fadeInOut {
