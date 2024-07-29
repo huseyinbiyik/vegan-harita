@@ -4,6 +4,7 @@ class ProductsController < ApplicationController
   def index
     @q = Product.approved.ransack(params[:q])
     @products = @q.result(distinct: true).includes(:brand, :product_category, :shops, :contributors)
+    @products = Product.approved.order(created_at: :desc) if @products.blank?
   end
 
   def search

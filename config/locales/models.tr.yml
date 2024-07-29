@@ -1,20 +1,30 @@
-en:
+tr:
   activerecord:
     models:
-      user: "Kullanıcı"
-      claim: "Sahiplen"
+      user:
+        one: "Kullanıcı"
+        other: "Kullanıcılar"
+      claim:
+        one: "Talep"
+        other: "Talepler"
       place:
         one: "Mekan"
         other: "Mekanlar"
       product:
         one: "Ürün"
         other: "Ürünler"
+      product_category:
+        one: "Ürün Kategorisi"
+        other: "Ürün Kategorileri"
       brand:
         one: "Marka"
         other: "Markalar"
       shop:
         one: "Mağaza"
         other: "Mağazalar"
+      contributor:
+        one: "Katkıda Bulunan"
+        other: "Katkıda Bulunanlar"
     attributes:
       user:
         username: "Kullanıcı Adı"

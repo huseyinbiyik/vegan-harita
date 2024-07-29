@@ -1,20 +1,30 @@
 en:
   activerecord:
     models:
-      user: "User"
-      claim: "Claim"
+      user:
+        one: "User"
+        other: "Users"
+      claim:
+        one: "Claim"
+        other: "Claims"
       place:
         one: "Place"
         other: "Places"
       product:
         one: "Product"
         other: "Products"
+      product_category:
+        one: "Product Category"
+        other: "Product Categories"
       brand:
         one: "Brand"
         other: "Brands"
       shop:
         one: "Shop"
         other: "Shops"
+      contributor:
+        one: "Contributor"
+        other: "Contributors"
     attributes:
       user:
         name: "Name"

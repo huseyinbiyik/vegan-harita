@@ -1,16 +1,15 @@
 <%= search_form_for @q, data: { turbo_frame: "product_results", } do |f| %>
-  <%= f.label :name_cont %>
-  <%= f.search_field :name_cont %>
-
-  <%= f.label :brand_name_cont %>
-  <%= f.search_field :brand_name_cont %>
-
-  <%= f.label :shops_name_cont %>
-  <%= f.search_field :shops_name_cont %>
-
-  <%= f.label :product_category_name_cont %>
-  <%= f.search_field :product_category_name_cont %>
-
-  <%= f.submit %>
+  <div style="display: flex; flex-direction: column; width: 30%;">
+    <fieldset>
+      <legend><%= ProductCategory.model_name.human(count: :many) %></legend>
+      <%= f.label :product_category_name_cont %>
+    </fieldset>
+    <%= f.label :name_cont %>
+    <%= f.search_field :name_cont %>
+    <%= f.label :brand_name_cont %>
+    <%= f.search_field :brand_name_cont %>
+    <%= f.label :shops_name_cont %>
+    <%= f.search_field :shops_name_cont %>
+    <%= f.submit %>
+  </div>
 <% end %>
-
