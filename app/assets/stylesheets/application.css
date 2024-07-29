@@ -304,6 +304,16 @@ select:focus {
   width: 240px;
 }
 
+.gender {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0;
+  width: 0;
+  z-index: -1;
+}
+
 .default-image {
   filter: blur(5px);
   opacity: 0.5;
