@@ -437,7 +437,6 @@ nav {
     display: flex;
     width: auto;
     flex-direction: row;
-    padding: 8px;
   }
 
   #account-icon {
