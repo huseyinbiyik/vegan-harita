@@ -1,6 +1,14 @@
 <div id="<%= dom_id product %>">
   <div>
-    <%= image_tag cdn_proxy_url(product.image.variant(:big)), loading: "lazy", alt: product.name if product.image.attached? %>
+    <% if product.image.attached? %>
+      <%= image_tag cdn_proxy_url(product.image.variant(:big)), loading: "lazy", alt: product.name %>
+    <% else %>
+    <div class="no-photo-wrapper">
+      <%= image_tag "default-product-image.jpg", class: "product-image", loading: "lazy" %>
+      <p class="no-photo"> <%= t :no_photo %> </p>
+    </div>
+    <% end %>
+
   </div>
   <p>
     <strong><%= Product.human_attribute_name(:name) %> :</strong>
