@@ -3,7 +3,11 @@
     <h1>
       <%= product.name %>
     </h1>
-    <%= link_to "Edit this product", edit_product_path(@product.slug) %> 
+
+    <p>
+    <strong> <%= t("updated_at") %> </strong>
+    <%= l product.updated_at, format: :long %>
+  </p>
   </div>
 
   <div id="product-image-container">
@@ -17,10 +21,7 @@
     <% end %>
   </div>
 
-  <p>
-    <strong> <%= t("updated_at") %> </strong>
-    <%= l product.updated_at, format: :long %>
-  </p>
+  
   <p>
     <span><strong><%= Brand.model_name.human %> :</strong></span>
     <%= product.brand.name %>

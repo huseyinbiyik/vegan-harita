@@ -1,11 +1,12 @@
 <section class="product-show">
-  <div>
-    <%= link_to "Back to products", products_path %>
-  </div>
+  <%= link_to "Back to products", products_path %>
 
-<p style="color: green"><%= notice %></p>
-<%= render @product %>
-<div>
-  <%= link_to "Request for deletion", new_change_logs_path(changeable_id: @product.id, changeable_type: "Product") %>
-</div>
+  <p style="color: green"><%= notice %></p>
+  <%= render @product %>
+  <div>
+    <%= link_to "Edit this product", edit_product_path(@product.slug) %> |
+    <%= link_to "Request for deletion", new_change_logs_path(changeable_id: @product.id, changeable_type: "Product") %>
+  </div>
 </section>
+
+
