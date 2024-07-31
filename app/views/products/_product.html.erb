@@ -22,29 +22,28 @@
   </div>
 
   
-  <p>
-    <span><strong><%= Brand.model_name.human %> :</strong></span>
-    <%= product.brand.name %>
-  </p>
-  <p>
-    <span><strong><%= Product.human_attribute_name(:ingredients) %> :</strong></span>
-    <%= product.ingredients %>
-  </p>
- 
-  <p>
-    <span><strong><%= Shop.model_name.human %> :</strong></span>
-    <%= product.shops.map(&:name).join(", ") %>
-  </p>
+  <ul class="product-details">
+    <li class="product-detail">
+      <strong><%= Brand.model_name.human %> :</strong> <br>
+      <%= product.brand.name %>
+    </li>
+    <li class="product-detail">
+      <strong><%= Product.human_attribute_name(:ingredients) %> :</strong><br>
+      <%= product.ingredients %>
+    </li>
 
-  <p>
-    <strong><%= Product.human_attribute_name(:statement) %> :</strong>
+    <li class="product-detail">
+      <strong><%= Shop.model_name.human %> :</strong> <br>
+      <%= product.shops.map(&:name).join(", ") %>
+    </li>
+
+    <li class="product-detail statement">
+      <strong><%= Product.human_attribute_name(:statement) %> :</strong> <br>
     <%= product.statement %>
-  </p>
+    </li>
+  </ul>
 
-  <% product.contributors.each do |contributor| %>
-    <p>
-      <strong><%= Contributor.model_name.human %> :</strong>
-      <%= contributor.user.username %>
-    </p>
-  <% end %>
-</div>
+     
+
+
+  

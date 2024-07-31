@@ -22,6 +22,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @contributors = @product.contributors
   end
 
   def new

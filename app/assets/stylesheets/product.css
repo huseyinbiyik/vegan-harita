@@ -1,5 +1,16 @@
 .product-show {
-  padding: 20px
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 60px;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 #product-image-container {
@@ -33,3 +44,16 @@
   }
 }
 
+.product-details {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.statement {
+  padding: 16px 0;
+  border-top: 1px solid var(--gray);
+  border-bottom: 1px solid var(--gray);
+  margin: 16px 0;
+}

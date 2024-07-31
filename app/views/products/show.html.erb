@@ -3,6 +3,25 @@
 
   <p style="color: green"><%= notice %></p>
   <%= render @product %>
+
+  <div class="contributors">
+    <div id="contributors-header">
+      <h2>Katkıda Bulunanlar</h2>
+    </div>
+   <div class="contributors-wrapper">
+      <% @contributors.each do |contributor| %>
+        <div class="contributor">
+          <% if contributor.user.avatar.attached? %>
+            <%= image_tag cdn_proxy_url(contributor.user.avatar.variant(:thumb)), class: "contributor-avatar", loading: "lazy" %>
+          <% else %>
+            <%= image_tag "account.svg", class: "contributor-avatar", loading: "lazy" %>
+          <% end %>
+          <span class="contributor-name"><%= contributor.user.username %></span>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
   <div>
     <%= link_to "Edit this product", edit_product_path(@product.slug) %> |
     <%= link_to "Request for deletion", new_change_logs_path(changeable_id: @product.id, changeable_type: "Product") %>
