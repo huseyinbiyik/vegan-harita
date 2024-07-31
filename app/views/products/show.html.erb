@@ -3,6 +3,13 @@
     <%= inline_svg_tag "back-icon.svg" %>
   <% end %>
 
+  <%= link_to edit_product_path(@product.slug), class:"edit-product" do %>
+    <%= inline_svg_tag "edit.svg" %>
+  <% end %>
+
+
+
+
   <p style="color: green"><%= notice %></p>
   <%= render @product %>
 
@@ -25,7 +32,6 @@
   </div>
 
   <div>
-    <%= link_to "Edit this product", edit_product_path(@product.slug) %> |
     <%= link_to "Request for deletion", new_change_logs_path(changeable_id: @product.id, changeable_type: "Product") %>
   </div>
 </section>
