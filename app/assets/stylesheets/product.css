@@ -1,5 +1,5 @@
-.product {
-  padding: 20px;
+.product-show {
+  padding: 20px
 }
 
 #product-image-container {
@@ -13,5 +13,10 @@
   object-fit: contain;
   object-position: center;
   border-radius: 10px;
+}
+
+.product-heading-container {
+  display: flex;
+  justify-content: space-between;
 }
 

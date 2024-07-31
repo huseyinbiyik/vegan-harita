@@ -1,4 +1,11 @@
 <div id="<%= dom_id product %>" class="product">
+  <div class="product-heading-container">
+    <h1>
+      <%= product.name %>
+    </h1>
+    <%= link_to "Edit this product", edit_product_path(@product.slug) %> 
+  </div>
+
   <div id="product-image-container">
     <% if product.image.attached? %>
       <%= image_tag cdn_proxy_url(product.image.variant(:big)), loading: "lazy", alt: product.name, class:"product-image" %>
@@ -8,33 +15,30 @@
       <p class="no-photo"> <%= t :no_photo %> </p>
     </div>
     <% end %>
-
   </div>
+
   <p>
-    <strong><%= Product.human_attribute_name(:name) %> :</strong>
-    <%= product.name %>
-  </p>
-  <p>
-    <strong><%= Brand.model_name.human %> :</strong>
-    <%= product.brand.name %>
-  </p>
-  <p>
-    <strong><%= Product.human_attribute_name(:ingredients) %> :</strong>
-    <%= product.ingredients %>
-  </p>
-  <p>
-    <strong> <%= t("updated_at") %> :</strong>
+    <strong> <%= t("updated_at") %> </strong>
     <%= l product.updated_at, format: :long %>
   </p>
   <p>
-    <strong><%= Product.human_attribute_name(:product_category) %> :</strong>
-    <%= product.product_category.name %>
+    <span><strong><%= Brand.model_name.human %> :</strong></span>
+    <%= product.brand.name %>
   </p>
   <p>
-    <strong><%= Shop.model_name.human %> :</strong>
+    <span><strong><%= Product.human_attribute_name(:ingredients) %> :</strong></span>
+    <%= product.ingredients %>
+  </p>
+ 
+  <p>
+    <span><strong><%= Shop.model_name.human %> :</strong></span>
     <%= product.shops.map(&:name).join(", ") %>
   </p>
 
+  <p>
+    <strong><%= Product.human_attribute_name(:statement) %> :</strong>
+    <%= product.statement %>
+  </p>
 
   <% product.contributors.each do |contributor| %>
     <p>
@@ -42,8 +46,4 @@
       <%= contributor.user.username %>
     </p>
   <% end %>
-  <p>
-    <strong><%= Product.human_attribute_name(:statement) %> :</strong>
-    <%= product.statement %>
-  </p>
 </div>
