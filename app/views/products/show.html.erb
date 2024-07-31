@@ -1,5 +1,7 @@
 <section class="product-show">
-  <%= link_to "Back to products", products_path %>
+  <%= link_to products_path do %>
+    <%= inline_svg_tag "back-icon.svg" %>
+  <% end %>
 
   <p style="color: green"><%= notice %></p>
   <%= render @product %>
