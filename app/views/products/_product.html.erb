@@ -10,44 +10,47 @@
   </p>
   </div>
 
-  <div id="product-image-container">
-    <% if product.image.attached? %>
-      <div>
-        <%= image_tag cdn_proxy_url(product.image.variant(:big)), loading: "lazy", alt: product.name, class:"product-image" %>
-        <p class="disclaimer-banner"> not an advertisement * </p>
+  <div class="product-features-container">
+    <div id="product-image-container">
+      <% if product.image.attached? %>
+        <div>
+          <%= image_tag cdn_proxy_url(product.image.variant(:big)), loading: "lazy", alt: product.name, class:"product-image" %>
+          <p class="disclaimer-banner"> not an advertisement * </p>
+        </div>
+      <% else %>
+      <div class="no-photo-wrapper">
+        <%= image_tag "default-product-image.jpg", class: "product-image default-image", loading: "lazy" %>
+        <p class="no-photo"> <%= t :no_photo %> </p>
       </div>
-    <% else %>
-    <div class="no-photo-wrapper">
-      <%= image_tag "default-product-image.jpg", class: "product-image default-image", loading: "lazy" %>
-      <p class="no-photo"> <%= t :no_photo %> </p>
+      <% end %>
+      <% if product.image.attached? %>
+        <p class="disclaimer-text">* Bu bir reklam değildir. Paylaşılan ürünler sadece bilgilendirme amaçlıdır ve web sitemiz bu ürünlerin tanıtımından hiçbir kazanç sağlamamaktadır</p>
+      <% end %>
     </div>
-    <% end %>
-    <% if product.image.attached? %>
-      <p class="disclaimer-text">* Bu bir reklam değildir. Paylaşılan ürünler sadece bilgilendirme amaçlıdır ve web sitemiz bu ürünlerin tanıtımından hiçbir kazanç sağlamamaktadır</p>
-    <% end %>
+
+    <ul class="product-details">
+      <li class="product-detail">
+        <strong><%= Brand.model_name.human %> :</strong> <br>
+        <%= product.brand.name %>
+      </li>
+      <li class="product-detail">
+        <strong><%= Product.human_attribute_name(:ingredients) %> :</strong><br>
+        <%= product.ingredients %>
+      </li>
+
+      <li class="product-detail">
+        <strong><%= Shop.model_name.human %> :</strong> <br>
+        <%= product.shops.map(&:name).join(", ") %>
+      </li>
+
+      
+    </ul>
   </div>
 
-  
-  <ul class="product-details">
-    <li class="product-detail">
-      <strong><%= Brand.model_name.human %> :</strong> <br>
-      <%= product.brand.name %>
-    </li>
-    <li class="product-detail">
-      <strong><%= Product.human_attribute_name(:ingredients) %> :</strong><br>
-      <%= product.ingredients %>
-    </li>
-
-    <li class="product-detail">
-      <strong><%= Shop.model_name.human %> :</strong> <br>
-      <%= product.shops.map(&:name).join(", ") %>
-    </li>
-
-    <li class="product-detail statement">
-      <strong><%= Product.human_attribute_name(:statement) %> :</strong> <br>
+  <div class="product-detail statement">
+    <strong><%= Product.human_attribute_name(:statement) %> :</strong> <br>
     <%= product.statement %>
-    </li>
-  </ul>
+  </div>
 
      
 

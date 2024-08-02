@@ -61,6 +61,13 @@
   }
 }
 
+.product-features-container {
+  display: flex;
+  margin-top: 24px;
+  gap: 60px;
+  flex-direction: column;
+}
+
 .product-details {
   list-style-type: none;
   display: flex;
@@ -91,4 +98,22 @@
   font-size: 1rem;
   height: 42px;
   width: 240px;
+}
+
+@media (min-width: 1024px) {
+  .product-features-container {
+    flex-direction: row;
+  }
+
+  #product-image-container {
+    width: 50%;
+  }
+
+  .product-image {
+    height: 400px;
+  }
+
+  .statement {
+    text-align: center;
+  }
 }
