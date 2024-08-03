@@ -26,8 +26,7 @@ Vegan Harita is a map of vegan places in Turkey. Users can search for the places
 - Google Maps API
 - Stylelint (CSS Linter)
 - Rubocop (Ruby Linter)
-- fly.io (deployment)
-- Docker
+- Kamal (deployment)
 
 
 ## Installation
@@ -39,6 +38,21 @@ Vegan Harita is a map of vegan places in Turkey. Users can search for the places
 5. Run `rails s`
 6. Visit `localhost:3000`
 
+## Linters
+erblint
+```
+bundle exec erblint app/views
+```
+
+rubocop
+```
+bundle exec rubocop
+```
+
+stylelint
+```
+npx stylelint "**/*.{css,scss}"
+```
 
 ## Contributing
 
