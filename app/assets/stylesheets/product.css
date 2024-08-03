@@ -28,18 +28,6 @@
   border-radius: 10px;
 }
 
-.disclaimer-banner {
-  position: absolute;
-  top: 70%;
-  background-color: rgba(0, 14, 6, 0);
-  color: var(--white);
-  padding: 4px 8px;
-  border-radius: 0 5px 5px 0;
-  backdrop-filter: blur(10px);
-  width: 100%;
-  text-align: center;
-}
-
 .disclaimer-text {
   font-size: 10px;
 }

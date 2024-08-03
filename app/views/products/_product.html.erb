@@ -15,16 +15,12 @@
       <% if product.image.attached? %>
         <div>
           <%= image_tag cdn_proxy_url(product.image.variant(:big)), loading: "lazy", alt: product.name, class:"product-image" %>
-          <p class="disclaimer-banner"> not an advertisement * </p>
         </div>
       <% else %>
       <div class="no-photo-wrapper">
         <%= image_tag "default-product-image.jpg", class: "product-image default-image", loading: "lazy" %>
         <p class="no-photo"> <%= t :no_photo %> </p>
       </div>
-      <% end %>
-      <% if product.image.attached? %>
-        <p class="disclaimer-text">* Bu bir reklam değildir. Paylaşılan ürünler sadece bilgilendirme amaçlıdır ve web sitemiz bu ürünlerin tanıtımından hiçbir kazanç sağlamamaktadır</p>
       <% end %>
     </div>
 
@@ -51,6 +47,9 @@
     <strong><%= Product.human_attribute_name(:statement) %> :</strong> <br>
     <%= product.statement %>
   </div>
+
+  <p class="disclaimer-text">* Bu bir reklam değildir. Paylaşılan ürünler sadece bilgilendirme amaçlıdır ve web sitemiz bu ürünlerin tanıtımından hiçbir kazanç sağlamamaktadır</p>
+
 
      
 
