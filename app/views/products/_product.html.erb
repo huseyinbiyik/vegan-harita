@@ -15,14 +15,14 @@
           <span class="edit-icon-container">
             <%= inline_svg_tag "edit.svg" %>
           </span>
-          <span>Düzenle</span>
+          <span> <%= t('edit') %> </span>
         <% end %>
       <% else %>
         <%= link_to (new_user_session_path), class:"edit-product" do %>
           <span class="edit-icon-container">
             <%= inline_svg_tag "edit.svg", class: "edit-icon" %>
           </span>
-          <span>Düzenle</span>
+          <span> <%= t('edit') %> </span>
         <% end %>
       <% end %>
       </div>
@@ -56,8 +56,6 @@
         <strong><%= Shop.model_name.human %> :</strong> <br>
         <%= product.shops.map(&:name).join(", ") %>
       </li>
-
-      
     </ul>
   </div>
 
@@ -66,7 +64,7 @@
     <%= product.statement %>
   </div>
 
-  <p class="disclaimer-text">* Bu bir reklam değildir. Paylaşılan ürünler sadece bilgilendirme amaçlıdır ve web sitemiz bu ürünlerin tanıtımından hiçbir kazanç sağlamamaktadır</p>
+  <p class="disclaimer-text"> <%= t('disclaimer') %> </p>
 
 
      
