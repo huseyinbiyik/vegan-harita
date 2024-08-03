@@ -92,7 +92,7 @@
     <section class="pending">
       <h2><%= t :place_edits %></h2>
       <% @pending_place_edits.each do |place_edit| %>
-        <article class="pending-edit" , id="place_edit_<%= place_edit.id %>">
+        <article class="pending-edit" id="place_edit_<%= place_edit.id %>">
           <ul class="pending-item">
             <li><span class="pending-title"><%= t :suggestion_date %></span><%= place_edit.created_at %></li>
             <li class="compared"><span class="pending-title"><%= t :place_name %>:</span>
@@ -306,8 +306,6 @@
     </section>
 
   <% end %>
-
-
 
   <% unless @pending_menus.empty? %>
     <section class="pending">

@@ -15,33 +15,33 @@
   <div class="add-new-place-form-group" id="address-group">
     <%= form.label :address, t('address_required').html_safe, style: "display: block" %>
     <%= form.text_field :address,  data: {place_target: "field", action: "keydown->place#preventSubmit"}, placeholder: "X Vegan Cafe, Kadıköy...", autofocus: true, required: true,  maxlength: 100 %>
-    <div id="form-map"  data-place-target="map"></div>
+    <div id="form-map" data-place-target="map"></div>
   </div>
 
   <%= form.hidden_field :place_id, data: {place_target: "place_id"}, id: "hidden_place_id" %>
   <%= form.hidden_field :latitude, data: {place_target: "latitude"} %>
-  <%= form.hidden_field :longitude, data: {place_target: "longitude"}  %>
+  <%= form.hidden_field :longitude, data: {place_target: "longitude"} %>
 
   <div class="sub-group">
-    <div class= "add-new-place-form-group">
+    <div class="add-new-place-form-group">
       <%= form.label :name, t('name_required').html_safe, style: "display: block" %>
       <%= form.text_field :name, placeholder: "X Vegan Cafe", required: true, maxlength: 100, size: nil %>
     </div>
 
-    <div class= "select-wrapper add-new-place-form-group" data-controller="utils" data-utils-assets-value="<%= [t('files_selected'), t('no_file_selected')].to_json %>">
+    <div class="select-wrapper add-new-place-form-group" data-controller="utils" data-utils-assets-value="<%= [t('files_selected'), t('no_file_selected')].to_json %>">
       <%= form.label t('.images_with_warning'), style: "display: block" %>
       <span id="file-upload-btn" data-utils-target="uploadBtn"><%= t(:no_file_selected) %></span>
       <%= form.file_field :images, multiple: true, direct_upload: true, accept: "image/jpeg,image/jpg,image/png,image/webp", data: { action: "change->utils#uploadFiles", content: t('select_image')} %>
     </div>
   </div>
 
-  <div class= "add-new-place-form-group">
+  <div class="add-new-place-form-group">
     <%= form.label t('place_vegan'), style: "display: block" %>
     <%= form.select :vegan, options_for_select([[ t('has_option'), false], [ t('vegan'), true]]), {} %>
   </div>
 
-  <div class="add-new-place-form-group tags-form-container " >
-    <%= form.label t('select_tags'), style: "display: block"%>
+  <div class="add-new-place-form-group tags-form-container">
+    <%= form.label t('select_tags'), style: "display: block" %>
     <div class="tags-form">
     <% Tag.all.each do |tag| %>
       <span class="checkbox-inline tag">
@@ -54,7 +54,7 @@
 
   <%# socials %>
   <div class="sub-group">
-    <div class= "add-new-place-form-group social-field">
+    <div class="add-new-place-form-group social-field">
       <%= form.label t('instagram'), style: "display: block" %>
 
       <div class="social-wrapper">
@@ -63,7 +63,7 @@
       </div>
     </div>
 
-    <div class= "add-new-place-form-group social-field">
+    <div class="add-new-place-form-group social-field">
       <%= form.label t('facebook'), style: "display: block" %>
       <div class="social-wrapper">
         <%= form.text_field :facebook_handle, id:"facebook-input", class: "platform-input", placeholder: "veganharita", maxlength: 50, pattern: "^[a-zA-Z0-9_]*$" %>
@@ -73,34 +73,33 @@
   </div>
 
   <div class="sub-group">
-    <div class= "add-new-place-form-group social-field">
+    <div class="add-new-place-form-group social-field">
       <%= form.label t('x'), style: "display: block" %>
       <div class="social-wrapper">
         <%= form.text_field :x_handle, id:"x-input", class: "platform-input", placeholder: "veganharita", maxlength: 50, pattern: "^[a-zA-Z0-9_]*$" %>
-        <span class="platform", id="x-label"> <%= t :x_link %> </span>
+        <span class="platform" id="x-label"> <%= t :x_link %> </span>
       </div>
     </div>
 
-    <div class= "add-new-place-form-group">
+    <div class="add-new-place-form-group">
       <%= form.label t('website_link'), style: "display: block" %>
       <%= form.text_field :web_url, id:"website-input", placeholder: "veganharita.com", pattern: "(?!www)^(([a-z0-9]+(-[a-z0-9]+)*\.)*[a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}(\/[a-zA-Z0-9]*)?$", title:  t('.web_url_error_message') , maxlength: 50 %>
     </div>
   </div>
 
   <div class="sub-group">
-    <div class= "add-new-place-form-group">
+    <div class="add-new-place-form-group">
       <%= form.label t('mail'), style: "display: block" %>
       <%= form.email_field :email, placeholder: "mail@mail.com" %>
     </div>
 
-    <div class= "add-new-place-form-group">
+    <div class="add-new-place-form-group">
       <%= form.label t('phone'), style: "display: block" %>
       <%= form.phone_field :phone, pattern: "[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}",  placeholder: "2121112233", title: t('.phone_error_message') %>
     </div>
   </div>
 
-  <div class= "add-new-place-form-group", id="submit-place" >
+  <div class="add-new-place-form-group" id="submit-place">
     <%= form.submit t('submit') %>
   </div>
 <% end %>
-

@@ -12,11 +12,9 @@
   <p id="separator" class="mobile">
     <span> <%= t('views.home.contact.or') %> </span>
   </p>
-  
 
   <br class="mobile">
 
-  
   <h1><%= t('views.home.contact.contact_us') %></h1>
   <p><%= t('views.home.contact.contact_us_text') %></p>
   <%= form_with url: send_mail_path, html: { multipart: true, class: "contact-form", data: { turbo: false } } do |form| %>
@@ -40,7 +38,7 @@
 
     <%= form.label :gender, class: "gender" %>
     <%= form.text_field :gender, value: @contact_params[:gender], maxlength: 50, class: "gender" %>
-    
+
     <div class="field">
       <%= flash[:recaptcha_error] %>
       <%= recaptcha_tags %>

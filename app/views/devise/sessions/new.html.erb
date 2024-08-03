@@ -3,7 +3,7 @@
   <%= form_for(resource, as: resource_name, url: session_path(resource_name), data: {turbo: false}) do |f| %>
     <div class="field">
       <%= f.label :email, t('mail') %>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: true%>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: true %>
     </div>
     <div class="field">
       <%= f.label :password, t('password') %>
@@ -12,7 +12,7 @@
     <% if devise_mapping.rememberable? %>
       <div class="field" id="remember">
         <%= f.check_box :remember_me %>
-        <%= f.label :remember_me, t('remember')  %>
+        <%= f.label :remember_me, t('remember') %>
       </div>
     <% end %>
     <div class="actions">

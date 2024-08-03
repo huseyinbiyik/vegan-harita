@@ -43,8 +43,8 @@
           <span class="mobile"> <%= t :my_account %> </span>
         <% end %>
         <ul class="dropdown desktop">
-          <li class= "nav-link <%= 'active' if current_page?(edit_user_registration_path) %>">
-            <%= link_to edit_user_registration_path do%>
+          <li class="nav-link <%= 'active' if current_page?(edit_user_registration_path) %>">
+            <%= link_to edit_user_registration_path do %>
               <% if current_user.avatar.attached? %>
                 <%= image_tag(cdn_proxy_url(current_user.avatar.variant(:thumb)), class: "nav-icon") %>
               <% else %>
@@ -53,7 +53,7 @@
               <span> <%= t :my_account %> </span>
             <% end %>
           </li>
-          <li class= "nav-link desktop">
+          <li class="nav-link desktop">
             <%= link_to destroy_user_session_path, method: :delete, id: "logout-link" do %>
               <span><%= t :logOut %></span>
             <% end %>

@@ -2,8 +2,8 @@
 
 <main>
   <div class="place-owner-panel-title">
-    <h3 class="text-center"><%= t '.place_rating' %>: <%= average_rating(@reviews)%></h3>
-    <h3  class="text-center"><%= t '.total_review_count' %>: <%= @reviews.size %></h3>
+    <h3 class="text-center"><%= t '.place_rating' %>: <%= average_rating(@reviews) %></h3>
+    <h3 class="text-center"><%= t '.total_review_count' %>: <%= @reviews.size %></h3>
   </div>
 
   <% @reviews.each do |review| %>
