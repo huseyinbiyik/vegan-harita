@@ -29,8 +29,6 @@ class ProductsController < ApplicationController
     @product = Product.new
   end
 
-  def edit
-  end
 
   def create
     @product = Product.new(product_params)
@@ -43,6 +41,9 @@ class ProductsController < ApplicationController
         format.html { render :new, status: :unprocessable_entity }
       end
     end
+  end
+
+  def edit
   end
 
   def update

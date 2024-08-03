@@ -1,4 +1,4 @@
-<%= form_with(model: product, url: product_path(product.slug))  do |form| %>
+<%= form_with(model: product, url: product_path(product.slug), builder: CustomFormBuilder)  do |form| %>
   <% if product.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
@@ -9,49 +9,17 @@
       </ul>
     </div>
   <% end %>
-  <div>
-    <%= form.label :image, style: "display: block" %>
+
     <%= form.file_field :image %>
-  </div>
-  <div>
-    <%= form.label :name, style: "display: block" %>
     <%= form.text_field :name %>
-  </div>
-
-  <div>
-    <%= form.label :ingredients_tr, style: "display: block" %>
     <%= form.text_field :ingredients_tr %>
-  </div>
-  <div>
-    <%= form.label :ingredients_en, style: "display: block" %>
     <%= form.text_field :ingredients_en %>
-  </div>
-  <div>
-    <%= form.label :brand, style: "display: block" %>
-    <%= form.collection_select :brand_id, Brand.all, :id, :name, prompt: true %>
-  </div>
-  <div>
-    <%= form.label :shop, style: "display: block" %>
-    <%= form.collection_select :shop_ids, Shop.all, :id, :name, {}, { multiple: true } %>
-  </div>
-  <div>
-    <%= form.label :product_category, style: "display: block" %>
-    <%= form.collection_select :product_category_id, ProductCategory.all, :id, :name, prompt: true %>
-  </div>
-  <div>
-    <%= form.label :product_sub_category, style: "display: block" %>
-    <%= form.collection_select :product_sub_category_id, ProductSubCategory.all, :id, :name, prompt: true %>
-  </div>
-
-  <div>
-    <%= form.label :statement, style: "display: block" %>
+    <%= form.collection_select :brand_id, Brand.order(:name), :id, :name %>
+    <%= form.collection_check_boxes :shop_ids, Shop.order(:name), :id, :name %>
+    <%= form.collection_select :product_category_id, ProductCategory.order(:id), :id, :name %>
+    <%= form.collection_select :product_sub_category_id, ProductSubCategory.order(:id), :id, :name %>
     <%= form.rich_text_area :statement %>
-  </div>
-  <div>
-    <%= form.label :bar_code, style: "display: block" %>
     <%= form.text_field :bar_code %>
-  </div>
-  <div>
+
     <%= form.submit %>
-  </div>
 <% end %>

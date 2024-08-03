@@ -28,7 +28,6 @@ class Product < ApplicationRecord
     before_validation :assign_slug, on: :create
     before_save :assign_slug, if: :name_changed?
 
-
   # Public methods
   def approve
     self.approved = true
