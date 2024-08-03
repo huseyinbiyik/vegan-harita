@@ -1,5 +1,4 @@
-.edit-icon-container,
-.edit-product {
+.edit-icon-container {
   position: relative;
   width: 42px;
   height: 42px;
@@ -8,8 +7,7 @@
   align-items: center;
 }
 
-.edit-icon-container::before,
-.edit-product::before {
+.edit-icon-container::before {
   content: "";
   position: absolute;
   top: 0;
@@ -71,10 +69,4 @@
 
 .delete-icon-container::before {
   border: 1px dashed var(--red);
-}
-
-.edit-product {
-  position: absolute;
-  top: 90px;
-  right: 40px;
 }

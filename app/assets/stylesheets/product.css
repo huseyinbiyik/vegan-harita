@@ -35,7 +35,7 @@
 .product-heading-container {
   padding: 16px 20px;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   gap: 10px;
 
@@ -84,6 +84,25 @@
   border-radius: 1.25rem;
   font-weight: 500;
   font-size: 1rem;
+}
+
+.edit-product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.edit-icon-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px dashed var(--green);
+  border-radius: 50%;
+  box-sizing: border-box;
+  animation: rotateBorder 10s linear infinite;
 }
 
 @media (min-width: 1024px) {

@@ -1,13 +1,31 @@
 <div id="<%= dom_id product %>" class="product">
   <div class="product-heading-container">
-    <h1>
-      <%= product.name %>
-    </h1>
-
-    <p>
-    <strong> <%= t("updated_at") %> </strong>
-    <%= l product.updated_at, format: :long %>
-  </p>
+    <div class="product-heading-left">
+      <h1>
+        <%= product.name %>
+      </h1>
+      <p>
+        <strong> <%= t("updated_at") %> </strong>
+        <%= l product.updated_at, format: :long %>
+      </p>
+    </div>
+    <div class="product-heading-right">
+      <% if user_signed_in? %>
+        <%= link_to edit_product_path(@product.slug), class:"edit-product" do %>
+          <span class="edit-icon-container">
+            <%= inline_svg_tag "edit.svg" %>
+          </span>
+          <span>Düzenle</span>
+        <% end %>
+      <% else %>
+        <%= link_to (new_user_session_path), class:"edit-product" do %>
+          <span class="edit-icon-container">
+            <%= inline_svg_tag "edit.svg", class: "edit-icon" %>
+          </span>
+          <span>Düzenle</span>
+        <% end %>
+      <% end %>
+      </div>
   </div>
 
   <div class="product-features-container">
