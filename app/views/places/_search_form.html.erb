@@ -1,4 +1,4 @@
-<div id="search-wrapper">
+<div id="search-wrapper" data-controller="search" data-search-target="wrapper">
   <%= form_with id:"search-form", url: search_places_path, data: {map_target: "form"}, method: :post do |form| %>
     <%= image_tag "search-icon.svg", id: "search-icon" %>
 
@@ -13,5 +13,5 @@
     %>
   <% end %>
 
-  <div id="search-results"></div>
+  <div id="search-results" data-search-target="results"></div>
 </div>
