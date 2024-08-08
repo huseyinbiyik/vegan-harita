@@ -13,11 +13,11 @@
         <span><%= t :place_index %></span>
       <% end %>
     </li>
-    <li class="nav-link <%= 'active' if current_page?(coming_soon_path) %>">
+    <li class="nav-link <%= 'active' if current_page?(products_path) %>">
       <%# will be link to future products page %>
-      <%= link_to coming_soon_path do %>
+      <%= link_to products_path do %>
         <%= inline_svg_tag "products.svg", class: "nav-icon" %>
-        <span><%= t :product_index %></span>
+        <span><%= Product.model_name.human(count: :many) %></span>
       <% end %>
     </li>
     <li class="nav-link <%= 'active' if current_page?(new_place_path) %>" id="add-place-wrapper" data-controller="place-link">

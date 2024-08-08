@@ -98,7 +98,6 @@ tr:
   not_received_confirmation: "Onay e-postası almadım"
   panel: "Onay Paneli"
   place_index: "Mekanlar"
-  product_index: "Ürünler"
   add_place: "Mekan Ekle"
   my_account: "Hesabım"
   logOut: "Çıkış Yap"
