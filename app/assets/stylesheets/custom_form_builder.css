@@ -71,6 +71,9 @@ form {
     gap: 8px;
     align-items: center;
   }
+
+  display: grid;
+  grid-template-columns: auto auto;
 }
 
 .custom-form-group .trix-button-row {
@@ -102,4 +105,10 @@ form {
 
 .custom-form-group:last-child {
   align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .custom-form-group .checkbox-group {
+    grid-template-columns: auto auto auto;
+  }
 }
