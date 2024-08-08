@@ -1,15 +1,21 @@
-<%= search_form_for @q, data: { turbo_frame: "product_results", } do |f| %>
+<%= search_form_for @q,
+    data: {
+      controller: "helpers--auto-submit",
+      action: "input->helpers--auto-submit#submit",
+      helpers__auto_submit_target: "form"
+      } do |f| %>
   <div style="display: flex; flex-direction: column; width: 30%;">
-    <fieldset>
-      <legend><%= ProductCategory.model_name.human(count: :many) %></legend>
+      <%= ProductCategory.model_name.human(count: :many) %>
       <%= f.label :product_category_name_cont %>
-    </fieldset>
+      <%= f.collection_select :product_category_id_eq, ProductCategory.all, :id, :name, include_blank: true %>
+            <%= ProductSubCategory.model_name.human(count: :many) %>
+
+      <%= f.collection_select :product_sub_category_id_eq, @product_sub_categories, :id, :name, include_blank: true %>
     <%= f.label :name_cont %>
     <%= f.search_field :name_cont %>
     <%= f.label :brand_name_cont %>
     <%= f.search_field :brand_name_cont %>
     <%= f.label :shops_name_cont %>
     <%= f.search_field :shops_name_cont %>
-    <%= f.submit %>
   </div>
 <% end %>

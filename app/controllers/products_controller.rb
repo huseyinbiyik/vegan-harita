@@ -4,7 +4,12 @@ class ProductsController < ApplicationController
   def index
     @q = Product.approved.ransack(params[:q])
     @products = @q.result(distinct: true).includes(:brand, :product_category, :shops, :contributors)
-    @products = Product.approved.order(created_at: :desc) if @products.blank?
+
+    if params[:q] && params[:q][:product_category_id_eq].present?
+      @product_sub_categories = ProductCategory.find(params[:q][:product_category_id_eq]).product_sub_categories
+    else
+      @product_sub_categories = ProductSubCategory.all
+    end
   end
 
   def search
@@ -36,7 +41,7 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.save && @contributor.save
-        format.html { redirect_to product_url(@product), notice: "Product was successfully created." }
+        format.html { redirect_to products_path, notice: "Product was successfully created." }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
