@@ -16,8 +16,6 @@ form {
   display: flex;
   flex-direction: column;
   position: relative;
-
-
   width: 100%;
   max-width: 572px;
 }
@@ -42,6 +40,7 @@ form {
 
 .custom-form-group .file-field::before {
   content: "Select Image";
+
   /* replace with data content */
   color: var(--black);
   display: inline-block;
@@ -65,7 +64,7 @@ form {
 }
 
 .custom-form-group .text-field {
-  width: 100%;  
+  width: 100%;
 }
 
 .custom-form-group .checkbox-group {
@@ -80,12 +79,17 @@ form {
   & .trix-button {
     background-color: white;
   }
+
   & .trix-button-group {
     display: flex;
+
     /* gap: 8px; */
+
     /* border: .5px solid blue; */
   }
+
   display: flex;
+
   /* gap: 8px; */
   flex-wrap: wrap !important;
   justify-content: flex-start;
