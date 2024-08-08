@@ -24,7 +24,6 @@ form {
 }
 
 .custom-form-group .file-field {
-  border-radius: 5px;
   border: 1px solid var(--gray);
   padding: 8px;
   min-width: 240px;
@@ -62,8 +61,8 @@ form {
   color: var(--black);
 }
 
-.custom-form-group .text-field {
-  width: 100%;
+.custom-form-group .text-area {
+  border: 1px solid var(--gray);
 }
 
 .custom-form-group .checkbox-group {

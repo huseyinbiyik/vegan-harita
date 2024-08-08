@@ -15,8 +15,8 @@
 
     <%= form.file_field :image %>
     <%= form.text_field :name %>
-    <%= form.text_field :ingredients_tr %>
-    <%= form.text_field :ingredients_en %>
+    <%= form.text_area :ingredients_tr %>
+    <%= form.text_area :ingredients_en %>
     <%= form.collection_select :brand_id, Brand.order(:name), :id, :name %>
     <%= form.collection_check_boxes :shop_ids, Shop.order(:name), :id, :name %>
     <%= form.collection_select :product_category_id, ProductCategory.order(:id), :id, :name %>
