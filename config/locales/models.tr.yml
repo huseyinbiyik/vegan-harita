@@ -16,6 +16,9 @@ tr:
       product_category:
         one: "Ürün Kategorisi"
         other: "Ürün Kategorileri"
+      product_sub_category:
+        one: "Ürün Alt Kategorisi"
+        other: "Ürün Alt Kategorileri"
       brand:
         one: "Marka"
         other: "Markalar"

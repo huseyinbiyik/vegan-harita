@@ -5,4 +5,5 @@ class ProductCategory < ApplicationRecord
 
   # Associations
   has_many :products
+  has_many :product_sub_categories
 end

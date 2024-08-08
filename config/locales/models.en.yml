@@ -16,6 +16,9 @@ en:
       product_category:
         one: "Product Category"
         other: "Product Categories"
+      product_sub_category:
+        one: "Product Sub Category"
+        other: "Product Sub Categories"
       brand:
         one: "Brand"
         other: "Brands"
