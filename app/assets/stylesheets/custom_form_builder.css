@@ -97,6 +97,7 @@ form {
 
 .custom-form-group .submit-button {
   border-radius: 20px;
+  width: 240px;
   margin-top: 25px;
   color: var(--white);
   border: none;
@@ -105,4 +106,8 @@ form {
 
 #product-edit .submit-button {
   background-color: var(--green);
+}
+
+.custom-form-group:last-child {
+  align-items: center;
 }
