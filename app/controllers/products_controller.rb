@@ -36,7 +36,7 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.save && @contributor.save
-        format.html { redirect_to product_url(@product), notice: "Product was successfully created." }
+        format.html { redirect_to products_path, notice: "Product was successfully created." }
       else
         format.html { render :new, status: :unprocessable_entity }
       end

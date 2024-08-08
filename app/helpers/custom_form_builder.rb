@@ -59,23 +59,24 @@ class CustomFormBuilder < ActionView::Helpers::FormBuilder
     end
   end
 
-  def collection_check_boxes(method, collection, value_method, text_method, label_text = nil, options = {}, html_options = {})
-    error_message = @object.errors[method].first if @object.errors[method].present?
+  def collection_check_boxes(method, collection, value_method, text_method, options = {}, html_options = {})
+  error_message = @object.errors[method].first if @object.errors[method].present?
 
-    @template.content_tag(:div, class: "custom-form-group") do
-      label = label(method, label_text, class: "form-label")
-      fields = @template.content_tag(:div, class: "checkbox-group") do
-        collection.map do |item|
-          checkbox = @template.check_box_tag("#{object_name}[#{method}][]", item.send(value_method), @object.send(method).include?(item.send(value_method)), html_options.merge(class: "form-control collection-checkbox"))
-          checkbox_label = @template.label_tag("#{object_name}_#{method}_#{item.send(value_method)}", item.send(text_method), class: "checkbox-label")
-          @template.content_tag(:div, checkbox.concat(checkbox_label), class: "checkbox-item")
-        end.join.html_safe
-      end
-      error = error_message ? @template.content_tag(:span, error_message, class: "red-text") : "".html_safe
-
-      label.concat(fields).concat(error)
+  @template.content_tag(:div, class: "custom-form-group", data: { controller: "collection-check-boxes" }) do
+    label = label(method, options[:label_text], class: "form-label")
+    search_bar = @template.text_field_tag("search_#{method}", nil, placeholder: "Search...", class: "form-control search-bar", data: { action: "input->collection-check-boxes#filter" })
+    fields = @template.content_tag(:div, class: "checkbox-group", data: { collection_check_boxes_target: "checkboxes" }) do
+      collection.map do |item|
+        checkbox = @template.check_box_tag("#{object_name}[#{method}][]", item.send(value_method), @object.send(method).include?(item.send(value_method)), html_options.merge(class: "form-control collection-checkbox"))
+        checkbox_label = @template.label_tag("#{object_name}_#{method}_#{item.send(value_method)}", item.send(text_method), class: "checkbox-label")
+        @template.content_tag(:div, checkbox.concat(checkbox_label), class: "checkbox-item", data: { collection_check_boxes_target: "checkboxItem" })
+      end.join.html_safe
     end
+    error = error_message ? @template.content_tag(:span, error_message, class: "red-text") : "".html_safe
+
+    label.concat(search_bar).concat(fields).concat(error)
   end
+end
 
   def rich_text_area(method, label_text = nil, options = {})
     error_message = @object.errors[method].first if @object.errors[method].present?
