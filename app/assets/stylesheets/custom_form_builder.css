@@ -7,7 +7,6 @@ form {
 }
 
 .form-heading {
-  /* margin-top: 20px; */
   padding: 20px 0;
   text-align: center;
 }
@@ -82,15 +81,9 @@ form {
 
   & .trix-button-group {
     display: flex;
-
-    /* gap: 8px; */
-
-    /* border: .5px solid blue; */
   }
 
   display: flex;
-
-  /* gap: 8px; */
   flex-wrap: wrap !important;
   justify-content: flex-start;
 }
