@@ -38,12 +38,13 @@ class CustomFormBuilder < ActionView::Helpers::FormBuilder
   def file_field(method, label_text = nil, options = {})
     error_message = @object.errors[method].first if @object.errors[method].present?
 
-    @template.content_tag(:div, class: "form-group") do
+    @template.content_tag(:div, class: "custom-form-group") do
       label = label(method, label_text, class: "form-label")
       field = super(method, options.merge(class: "form-control file-field"))
+      span = @template.content_tag(:span, "No file chosen", class: "file-name")
       error = error_message ? @template.content_tag(:span, error_message, class: "red-text") : "".html_safe
 
-      label.concat(field).concat(error)
+      label.concat(field).concat(span).concat(error)
     end
   end
 
@@ -91,7 +92,7 @@ end
   end
 
   def submit(value = nil, options = {})
-    @template.content_tag(:div, class: "form-group") do
+    @template.content_tag(:div, class: "custom-form-group") do
       super(value, options.merge(class: "submit-button"))
     end
   end

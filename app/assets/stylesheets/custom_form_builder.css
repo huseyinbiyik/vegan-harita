@@ -1,7 +1,104 @@
-.custom-form-group .text-field {
-  width: 50px;
+form {
+  margin: 0 20px 48px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.form-heading {
+  /* margin-top: 20px; */
+  padding: 20px 0;
+  text-align: center;
+}
+
+.custom-form-group {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+
+  width: 100%;
+  max-width: 572px;
+}
+
+.custom-form-group label {
+  font-size: 14px;
 }
 
 .custom-form-group .file-field {
-  width: 100px;
+  border-radius: 5px;
+  border: 1px solid var(--gray);
+  padding: 8px;
+  min-width: 240px;
+  max-width: 572px;
+  color: transparent;
+}
+
+.custom-form-group .file-field::-webkit-file-upload-button {
+  visibility: hidden;
+  width: 0;
+}
+
+.custom-form-group .file-field::before {
+  content: "Select Image";
+  /* replace with data content */
+  color: var(--black);
+  display: inline-block;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  padding: 3px 9px 3px 4px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 0.5px solid var(--black);
+  width: 90px;
+  height: 25px;
+}
+
+.custom-form-group > span {
+  position: absolute;
+  right: 8px;
+  font-size: 14px;
+  top: 30px;
+  color: var(--black);
+}
+
+.custom-form-group .text-field {
+  width: 100%;  
+}
+
+.custom-form-group .checkbox-group {
+  & .checkbox-item {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+}
+
+.custom-form-group .trix-button-row {
+  & .trix-button {
+    background-color: white;
+  }
+  & .trix-button-group {
+    display: flex;
+    /* gap: 8px; */
+    /* border: .5px solid blue; */
+  }
+  display: flex;
+  /* gap: 8px; */
+  flex-wrap: wrap !important;
+  justify-content: flex-start;
+}
+
+.custom-form-group .submit-button {
+  border-radius: 20px;
+  margin-top: 25px;
+  color: var(--white);
+  border: none;
+  font-weight: 500;
+}
+
+#product-edit .submit-button {
+  background-color: var(--green);
 }
