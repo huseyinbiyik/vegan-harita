@@ -189,10 +189,9 @@
             <li><span class="pending-title"><%= Product.human_attribute_name(:ingredients) %>
               :</span><%= product.ingredients_tr %></li>
             <li><span class="pending-title"><%= Product.human_attribute_name(:product_category) %>
-              :</span><%= product.product_category.name_en %></li>
-            <li>
+              :</span><%= product.product_category.name %></li>
             <li><span class="pending-title"><%= Product.human_attribute_name(:product_category) %>
-              :</span><%= product.product_category.name_en %></li>
+              :</span><%= product.product_sub_category.name %></li>
             <li>
               <span class="pending-title"><%= Product.human_attribute_name(:bar_code) %>:</span><%= product.bar_code %>
             </li>
