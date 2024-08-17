@@ -3,13 +3,11 @@ class ProductsController < ApplicationController
 
   def index
     @q = Product.approved.ransack(params[:q])
-    @products = @q.result(distinct: true).includes(:brand, :product_category, :shops, :contributors)
+    @products = @q.result(distinct: true).joins(:shops).includes(:brand, :product_category, :product_sub_category, :shops)
 
-    if params[:q] && params[:q][:product_category_id_eq].present?
-      @product_sub_categories = ProductCategory.find(params[:q][:product_category_id_eq]).product_sub_categories
-    else
-      @product_sub_categories = ProductSubCategory.all
-    end
+    product_sub_categories
+    @brands = @products.where(product_sub_category_id: @product_sub_categories.map(&:id)).map(&:brand).uniq
+    @shops = @products.where(product_sub_category_id: @product_sub_categories.map(&:id)).map(&:shops).flatten.uniq
   end
 
   def search
@@ -94,5 +92,18 @@ class ProductsController < ApplicationController
       :image,
       :statement,
       shop_ids: [])
+  end
+
+  def product_sub_categories
+    if params[:q] && params[:q][:product_category_id_eq_any].present?
+      category_ids = params[:q][:product_category_id_eq_any].reject(&:blank?)
+      if category_ids.any?
+        @product_sub_categories = ProductCategory.where(id: category_ids).map(&:product_sub_categories).flatten
+      else
+        @product_sub_categories = ProductSubCategory.all
+      end
+    else
+      @product_sub_categories = ProductSubCategory.all
+    end
   end
 end

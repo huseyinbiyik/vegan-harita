@@ -41,12 +41,12 @@ Vegan Harita is a map of vegan places in Turkey. Users can search for the places
 ## Linters
 erblint
 ```
-bundle exec erblint app/views
+erblint app/views -a
 ```
 
 rubocop
 ```
-bundle exec rubocop
+rubocop -a
 ```
 
 stylelint

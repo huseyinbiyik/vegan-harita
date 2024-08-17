@@ -29,6 +29,7 @@ Rails.application.routes.draw do
       post :search
     end
   end
+  resources :product_sub_categories, only: :index
 
   resource :change_logs, only: %i[new create]
 

@@ -24,9 +24,9 @@ class Product < ApplicationRecord
   scope :with_contributors, -> { includes(contributors: :user) }
   scope :filter_by_name, ->(name) { where("name ILIKE ?", "%#{name}%") }
 
-    # Callbacks
-    before_validation :assign_slug, on: :create
-    before_save :assign_slug, if: :name_changed?
+  # Callbacks
+  before_validation :assign_slug, on: :create
+  before_save :assign_slug, if: :name_changed?
 
   # Public methods
   def approve
@@ -40,6 +40,10 @@ class Product < ApplicationRecord
     else
       name.parameterize
     end
+  end
+
+  ransacker :shop_id do
+    Arel.sql("shops.id")
   end
 
   private

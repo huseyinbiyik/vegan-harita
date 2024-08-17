@@ -1,21 +1,21 @@
 <%= search_form_for @q,
+    builder: RansackFormBuilder,
     data: {
       controller: "helpers--auto-submit",
       action: "input->helpers--auto-submit#submit",
       helpers__auto_submit_target: "form"
       } do |f| %>
   <div style="display: flex; flex-direction: column; width: 30%;">
-      <%= ProductCategory.model_name.human(count: :many) %>
-      <%= f.label :product_category_name_cont %>
-      <%= f.collection_select :product_category_id_eq, ProductCategory.all, :id, :name, include_blank: true %>
-            <%= ProductSubCategory.model_name.human(count: :many) %>
-
-      <%= f.collection_select :product_sub_category_id_eq, @product_sub_categories, :id, :name, include_blank: true %>
-    <%= f.label :name_cont %>
-    <%= f.search_field :name_cont %>
-    <%= f.label :brand_name_cont %>
-    <%= f.search_field :brand_name_cont %>
-    <%= f.label :shops_name_cont %>
-    <%= f.search_field :shops_name_cont %>
+    <%= ProductCategory.model_name.human(count: :many) %>
+    <%= f.label :product_category_name_cont %>
+    <%= f.collection_check_boxes :product_category_id_eq_any, ProductCategory.all, :id, :name, multiple: true %>
+    <%= ProductSubCategory.model_name.human(count: :many) %>
+    <%= f.collection_check_boxes :product_sub_category_id_eq_any, @product_sub_categories, :id, :name, multiple: true %>
+    <br>
+    <%= Brand.model_name.human(count: :many) %>
+    <%= f.collection_check_boxes :brand_id_eq_any, @brands, :id, :name, include_blank: true %>
+    <br>
+    <%= Shop.model_name.human(count: :many) %>
+    <%= f.collection_check_boxes :shops_id_eq_any, @shops, :id, :name, multiple: true %>
   </div>
 <% end %>
