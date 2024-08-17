@@ -19,6 +19,7 @@ class Product < ApplicationRecord
   # Validations
 
   # Scopes
+  default_scope { order(created_at: :desc) }
   scope :approved, -> { where(approved: true) }
   scope :pending, -> { where(approved: false) }
   scope :with_contributors, -> { includes(contributors: :user) }

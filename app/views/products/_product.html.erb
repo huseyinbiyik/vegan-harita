@@ -1,67 +1,25 @@
-<div id="<%= dom_id product %>" class="product">
-  <div class="product-heading-container">
-    <div class="product-heading-left">
-      <h1>
-        <%= product.name %>
-      </h1>
-      <p>
-        <strong> <%= t("updated_at") %> </strong>
-        <%= l product.updated_at, format: :long %>
-      </p>
-    </div>
-    <div class="product-heading-right">
-      <% if user_signed_in? %>
-        <%= link_to edit_product_path(@product.slug), class:"edit-product" do %>
-          <span class="edit-icon-container">
-            <%= inline_svg_tag "edit.svg" %>
-          </span>
-          <span> <%= t('edit') %> </span>
-        <% end %>
-      <% else %>
-        <%= link_to (new_user_session_path), class:"edit-product" do %>
-          <span class="edit-icon-container">
-            <%= inline_svg_tag "edit.svg", class: "edit-icon" %>
-          </span>
-          <span> <%= t('edit') %> </span>
-        <% end %>
-      <% end %>
-      </div>
-  </div>
 
-  <div class="product-features-container">
+<div id="products">
+    <h1>
+      <%= product.name %>
+    </h1>
+    <p>
+      <strong> <%= t("updated_at") %> </strong>
+      <%= l product.updated_at, format: :long %>
+    </p>
     <div id="product-image-container">
       <% if product.image.attached? %>
         <div>
-          <%= image_tag cdn_proxy_url(product.image.variant(:big)), loading: "lazy", alt: product.name, class:"product-image" %>
+          <%= image_tag cdn_proxy_url(product.image.variant(:big)), alt: product.name, class:"product-image" %>
         </div>
       <% else %>
-      <div class="no-photo-wrapper">
-        <%= image_tag "default-product-image.jpg", class: "product-image default-image", loading: "lazy" %>
-        <p class="no-photo"> <%= t :no_photo %> </p>
-      </div>
+        <div class="no-photo-wrapper">
+          <%= image_tag "default-product-image.jpg", class: "product-image default-image" %>
+          <p class="no-photo"> <%= t :no_photo %> </p>
+        </div>
       <% end %>
     </div>
-
-    <ul class="product-details">
-      <li class="product-detail">
-        <strong><%= Brand.model_name.human %> :</strong> <br>
-        <%= product.brand.name %>
-      </li>
-      <li class="product-detail">
-        <strong><%= Product.human_attribute_name(:ingredients) %> :</strong><br>
-        <%= product.ingredients %>
-      </li>
-
-      <li class="product-detail">
-        <strong><%= Shop.model_name.human %> :</strong> <br>
-        <%= product.shops.map(&:name).join(", ") %>
-      </li>
-    </ul>
-  </div>
-
-  <div class="product-detail statement">
-    <strong><%= Product.human_attribute_name(:statement) %> :</strong> <br>
-    <%= product.statement %>
-  </div>
-
-  <p class="disclaimer-text"> <%= t('disclaimer') %> </p>
+    <p>
+      <%= link_to "Show this product", product_path(product.slug), data: { turbo_frame: "_top" } %>
+    </p>
+</div>

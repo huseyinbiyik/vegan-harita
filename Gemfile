@@ -47,6 +47,7 @@ gem "sentry-rails"
 gem "aws-sdk-s3", "~> 1.132"
 gem "recaptcha", "~> 5.15"
 gem "inline_svg"
+gem "kaminari", "~> 1.2"
 
 group :development, :test do
   gem "debug", platforms: %i[mri mingw x64_mingw]
