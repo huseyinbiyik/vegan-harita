@@ -17,3 +17,4 @@ pin "supercluster" # @8.0.1
 # These are all for clustering
 pin "trix"
 pin "@rails/actiontext", to: "actiontext.esm.js"
+pin "quagga" # @0.12.1

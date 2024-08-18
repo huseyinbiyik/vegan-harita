@@ -1,0 +1,12 @@
+<% if product %>
+  <div>
+    <p>Bu ürün vegandır.</p>
+    <p><strong>Name:</strong> <%= product.name %></p>
+    <%= link_to "Ürün sayfasına git", product_path(product.slug) %>
+  </div>
+<% else %>
+  <div>
+    <p>Bu ürün sistemde kayıtlı değil. Vegan olmayabilir.</p>
+  </div>
+<% end %>
+<button data-action="click->barcode-scanner#rescan">TARA</button>

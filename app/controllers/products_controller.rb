@@ -24,6 +24,19 @@ class ProductsController < ApplicationController
     end
   end
 
+  def search_by_barcode
+    @product = Product.find_by(bar_code: params[:bar_code])
+    if @product
+      respond_to do |format|
+        format.turbo_stream do
+          render turbo_stream: turbo_stream.update("scan-result", partial: "products/product_info", locals: { product: @product })
+        end
+      end
+    else
+      redirect_to barcode_scanner_products_path, alert: "Product not found"
+    end
+  end
+
   def show
     @contributors = @product.contributors
   end

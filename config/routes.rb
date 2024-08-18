@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get "service-worker" => "pwa#service_worker", as: :pwa_service_worker
+  get "manifest" => "pwa#manifest", as: :pwa_manifest
+
   authenticate :user, ->(u) { u.admin? } do
     mount MissionControl::Jobs::Engine, at: "/jobs"
   end
@@ -27,6 +30,8 @@ Rails.application.routes.draw do
   resources :products, param: :slug do
     collection do
       post :search
+      post :search_by_barcode
+      get :barcode_scanner
     end
   end
   resources :product_sub_categories, only: :index
@@ -69,9 +74,6 @@ Rails.application.routes.draw do
     get "cookie-policy", to: "legals#cookie_policy"
     get "user-agreement", to: "legals#user_agreement"
   end
-
-  get "service-worker" => "pwa#service_worker", as: :pwa_service_worker
-  get "manifest" => "pwa#manifest", as: :pwa_manifest
 
   direct :cdn_proxy do |model, options|
     expires_in = 5.minutes
