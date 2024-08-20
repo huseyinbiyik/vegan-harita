@@ -33,7 +33,11 @@ class ProductsController < ApplicationController
         end
       end
     else
-      redirect_to barcode_scanner_products_path, alert: t(".not_found")
+      respond_to do |format|
+        format.turbo_stream do
+          render turbo_stream: turbo_stream.update("scan-result", partial: "products/product_not_found")
+        end
+      end
     end
   end
 
