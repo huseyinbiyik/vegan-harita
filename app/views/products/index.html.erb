@@ -1,5 +1,4 @@
 <main>
-  <h1><%= Product.model_name.human(count: :many) %> </h1>
   <div style="display: flex; width: 100%; align-items: center; justify-content: center;">
     <%= render "search_form" %>
     <%= link_to 'Scan Barcode', barcode_scanner_products_path %>
