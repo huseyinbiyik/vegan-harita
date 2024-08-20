@@ -4,7 +4,6 @@ class CustomFormBuilder < ActionView::Helpers::FormBuilder
     super(method, text, options.merge(class: ""), &block)
   end
 
-
   def text_field(method, options = {})
     super(method, options.merge(class: "form-control text-field"))
   end
@@ -50,5 +49,34 @@ end
 
   def submit(value = nil, options = {})
     super(value, options.merge(class: "submit-button"))
+  end
+
+  def email_field(method, options = {})
+    super(method, options.merge(class: "form-control email.field"))
+  end
+
+
+  def password_field(method, options = {})
+    super(method, options.merge(class: "form-control password-field"))
+  end
+
+  def number_field(method, options = {})
+    super(method, options.merge(class: "form-control number-field"))
+  end
+
+  def phone_field(method, options = {})
+    super(method, options.merge(class: "form-control phone-field"))
+  end
+
+  def div_radio_button(method, tag_value, options = {})
+    @template.content_tag(:div,
+      @template.radio_button(
+        @object_name, method, tag_value, objectify_options(options)
+      )
+    )
+  end
+
+  def hidden_fields(method, options = {})
+    @template.hidden_field_tag(field_name, value)
   end
 end
