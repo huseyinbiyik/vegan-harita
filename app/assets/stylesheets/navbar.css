@@ -104,7 +104,7 @@ header.passive-header {
   color: var(--gray);
 }
 
-nav {
+#site-nav {
   background-color: var(--white);
   padding: 5px 20px;
   width: 100%;
@@ -356,7 +356,7 @@ nav {
     display: none;
   }
 
-  nav {
+  #site-nav {
     position: absolute;
     top: 0;
     right: 0;
