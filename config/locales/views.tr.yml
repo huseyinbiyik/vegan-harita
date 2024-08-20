@@ -4,6 +4,7 @@ tr:
       pending_products: "Onay Bekleyen Ürünler"
       pending_place_reviews: "Onay Bekleyen Mekan Yorumları"
       pending_product_reviews: "Onay Bekleyen Ürün Yorumları"
+      products_requested_for_deletion: "Silinmesi Talep Edilen Ürünler"
   products:
     show:
       add_review_title: "Ürün Değerlendirmeleri"

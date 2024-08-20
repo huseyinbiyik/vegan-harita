@@ -106,7 +106,7 @@
   </div>
 
   <div id="delete-product">
-    <%= button_to "Request for deletion", new_change_logs_path(changeable_id: @product.id, changeable_type: "Product"), id:"product-delete-btn" %>
+    <%= link_to "Request for deletion", new_change_logs_path(changeable_id: @product.id, changeable_type: "Product"), id:"product-delete-btn" %>
   </div>
 
   <br>

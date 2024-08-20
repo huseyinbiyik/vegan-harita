@@ -1,1 +1,8 @@
 en:
+  success:
+    created: "%{model}  successfully created"
+    updated: "%{model}  successfully updated"
+    destroyed: "%{model}  successfully destroyed"
+  products:
+    search_by_barcode:
+      not_found: "Product not found"
