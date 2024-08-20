@@ -175,7 +175,7 @@
   <% end %>
   <% unless @pending_products.empty? %>
     <section class="pending">
-      <h2><%= t :pending_products %></h2>
+      <h2><%= t(".pending_products") %></h2>
       <% @pending_products.each do |product| %>
         <article class="pending-product" id="product_<%= product.id %>">
           <ul class="pending-item">
@@ -384,14 +384,14 @@
       <% end %>
     </section>
   <% end %>
-  <% unless @pending_reviews.empty? %>
+  <% unless @pending_place_reviews.empty? %>
     <section class="pending">
-      <h2><%= t :pending_reviews %></h2>
-      <% @pending_reviews.each do |review| %>
+      <h2><%= t (".pending_place_reviews") %></h2>
+      <% @pending_place_reviews.each do |review| %>
         <article class="pending-review" id="review_<%= review.id %>">
           <ul class="pending-item">
             <li><span class="pending-title"><%= t :place_name %>
-              :</span><%= link_to "#{review.place.name}", place_path(review.place.slug) %></li>
+              :</span><%= link_to "#{review.reviewable.name}", place_path(review.reviewable.slug) %></li>
             <li><span class="pending-title"><%= t :rating %>:</span><%= review.rating %></li>
             <li><span class="pending-title"><%= t :review_content %>:</span><%= review.content %></li>
             <li><span class="pending-title"><%= t :feedback %>:</span><%= review.feedback %></li>
