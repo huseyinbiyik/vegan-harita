@@ -3,3 +3,7 @@ tr:
     approvals:
       pending_products: "Onay Bekleyen Ürünler"
       pending_place_reviews: "Onay Bekleyen Mekan Yorumları"
+      pending_product_reviews: "Onay Bekleyen Ürün Yorumları"
+  products:
+    show:
+      add_review_title: "Ürün Değerlendirmeleri"

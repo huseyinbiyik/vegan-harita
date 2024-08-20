@@ -3,3 +3,7 @@ en:
     approvals:
       pending_products: "Pending Products"
       pending_place_reviews: "Pending Place Reviews"
+      pending_product_reviews: "Pending Product Reviews"
+  products:
+    show:
+      add_review_title: "Add Your Review"

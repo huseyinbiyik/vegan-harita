@@ -39,6 +39,7 @@ class ProductsController < ApplicationController
 
   def show
     @contributors = @product.contributors
+    @reviews = @product.reviews.approved if @product.reviews.present?
   end
 
   def new

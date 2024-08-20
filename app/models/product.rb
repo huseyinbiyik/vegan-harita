@@ -9,6 +9,7 @@ class Product < ApplicationRecord
   belongs_to :product_category
   belongs_to :product_sub_category
   has_and_belongs_to_many :shops
+  has_many :reviews, as: :reviewable
   has_many :contributors, as: :contributable
   has_one_attached :image, dependent: :destroy do |attachable|
     attachable.variant :big, resize_to_limit: [ 500, 500 ]

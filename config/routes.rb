@@ -20,12 +20,12 @@ Rails.application.routes.draw do
     resources :menus do
       resource :likes, module: :menus
     end
-    resources :reviews, except: %i[index show]
     resources :claims, only: %i[new create]
     collection do
       post :search
     end
   end
+  resources :reviews, except: %i[index show]
 
   resources :products, param: :slug do
     collection do
