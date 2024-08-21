@@ -79,4 +79,8 @@ end
   def hidden_fields(method, options = {})
     @template.hidden_field_tag(field_name, value)
   end
+
+  def search_field(method, options = {})
+    super(method, options.merge(class: "form-control search-field"))
+  end
 end
