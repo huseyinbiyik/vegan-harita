@@ -1,7 +1,11 @@
 <main>
   <div style="display: flex; width: 100%; align-items: center; justify-content: center;">
     <%= render "search_form" %>
-    <%= link_to 'Scan Barcode', barcode_scanner_products_path %>
+    <%= link_to barcode_scanner_products_path do %>
+      <span class="desktop">Scan Barcode</span>
+      <%= inline_svg_tag 'barcode-scanner.svg', class:"mobile" %>
+    <% end %>
+
   </div>
   <%= turbo_frame_tag "form", data: { turbo_action: "advance" } do %>
     <div style="display: flex; align-items: center; flex-direction: row; width: 100%;">
