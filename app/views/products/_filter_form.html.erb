@@ -5,9 +5,9 @@
       action: "input->helpers--auto-submit#submit",
       helpers__auto_submit_target: "form"
       } do |f| %>
-  <div style="display: flex; flex-direction: column; width: 30%;">
+  <div id="product-filters">
+    <%# it's possible that dividing categories and subcategories will be needed(for mobile) - nor certain yet %>
     <%= ProductCategory.model_name.human(count: :many) %>
-    <%= f.label :product_category_name_cont %>
     <%= f.collection_check_boxes :product_category_id_eq_any, ProductCategory.all, :id, :name, multiple: true %>
     <%= ProductSubCategory.model_name.human(count: :many) %>
     <%= f.collection_check_boxes :product_sub_category_id_eq_any, @product_sub_categories, :id, :name, multiple: true %>

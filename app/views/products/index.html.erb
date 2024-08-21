@@ -1,25 +1,22 @@
-<main>
+<main style="padding-top: 80px">
   <div id="product-search-container">
     <%= render "search_form" %>
     <%= link_to barcode_scanner_products_path do %>
       <span class="desktop">Scan Barcode</span>
       <%= inline_svg_tag 'barcode-scanner.svg', class:"mobile" %>
     <% end %>
-
   </div>
+
   <%= turbo_frame_tag "form", data: { turbo_action: "advance" } do %>
-    <div style="display: flex; align-items: center; flex-direction: row; width: 100%;">
-      <div style="display: flex; flex-direction: column; width: 30%;">
-        <%= render "filter_form" %>
-      </div>
-      <div>
-        <%= link_to "New product", new_product_path, data: { turbo_frame: "_top" } %>
-        <%= render @products %>
-        <!--
-         Pagination is not visible, because nav is directly styled
-         -->
-        <%= paginate @products %>
-      </div>
-    </div>
+    <%= render "filter_form" %>
   <% end %>
+
+  <div>
+    <%= link_to "New product", new_product_path, data: { turbo_frame: "_top" }, class: "desktop" %>
+    <%# above link won't be visible and used there on mobile
+    add button on the bottom bar nav will be conditioned according the current index(place/product) and link above will be used on desktop (after navigation refactoring) %>
+    <%= render @products %>
+    <%= paginate @products %>
+  </div>
+
 </main>

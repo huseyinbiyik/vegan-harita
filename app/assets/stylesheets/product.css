@@ -135,6 +135,7 @@
   display: flex;
   border-radius: 0 0 0.313rem 0.313rem;
   padding: 0 20px;
+
 }
 
 #product-search-wrapper {
@@ -158,4 +159,14 @@
   border: none;
   background: var(--white);
   z-index: 1;
+}
+
+#product-filters {
+  background-color: aquamarine;
+  border: 1px dotted red;
+
+  display: flex;
+  width: calc(100vw - 40px);
+  overflow: scroll;
+  scroll-behavior: smooth;
 }
