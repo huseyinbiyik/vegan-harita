@@ -66,6 +66,25 @@
     <%= @product.statement %>
   </div>
 
+  <section id="reviews">
+    <div id="reviews-header">
+      <h2> <%= t(".add_review_title") %> </h2>
+    </div>
+    <div class="reviews-wrapper">
+      <% @reviews&.each do |review| %>
+        <%= render review %>
+      <% end %>
+      <% if user_signed_in? %>
+        <%= turbo_frame_tag "new_review" do %>
+          <%= link_to new_review_path(reviewable_id: @product.id, reviewable_type: 'Product'), class: "add-review-btn" do %>
+            <%= image_tag "add-review.svg" %>
+            <%= t :add_review %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </section>
+
   <p class="disclaimer-text"> <%= t('disclaimer') %> </p>
 
   <div class="contributors">
@@ -87,7 +106,7 @@
   </div>
 
   <div id="delete-product">
-    <%= button_to "Request for deletion", new_change_logs_path(changeable_id: @product.id, changeable_type: "Product"), id:"product-delete-btn" %>
+    <%= link_to "Request for deletion", new_change_logs_path(changeable_id: @product.id, changeable_type: "Product"), id:"product-delete-btn" %>
   </div>
 
   <br>

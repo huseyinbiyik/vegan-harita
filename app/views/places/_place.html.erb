@@ -104,7 +104,8 @@
               <span class="detail dynamic-status" data-place-status-target="statusClose" hidden><%= t("closed").downcase %></span>
               <span class="detail dynamic-status" data-place-status-target="noStatus" hidden>?</span>
               <div class="opening-hours-table" data-place-status-target="openingHoursTable">
-                <span class="opening-hours-table-heading"><%= t('opening_hours') %> <br></span>
+                <span class="opening-hours-table-heading"><%= t('opening_hours') %> <br>
+                </span>
                 <span data-place-status-target="noStatus" hidden><%= t("temp_per_closed") %></span>
               </div>
             </div>
@@ -251,7 +252,7 @@
       <% end %>
       <% if user_signed_in? %>
         <%= turbo_frame_tag "new_review" do %>
-          <%= link_to new_place_review_path(@place.slug), class: "add-review-btn" do %>
+          <%= link_to new_review_path(reviewable_id: @place.id, reviewable_type: "Place"), class: "add-review-btn" do %>
             <%= image_tag "add-review.svg" %>
             <%= t :add_review %>
           <% end %>

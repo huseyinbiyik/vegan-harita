@@ -28,6 +28,8 @@ class AdminsController < ApplicationController # rubocop:disable Metrics/ClassLe
 
     @pending_menus = Menu.where(approved: false)
     @pending_reviews = Review.where(approved: false)
+    @pending_place_reviews = @pending_reviews.where(reviewable_type: "Place")
+    @pending_product_reviews = @pending_reviews.where(reviewable_type: "Product")
   end
 
   def approve_claim

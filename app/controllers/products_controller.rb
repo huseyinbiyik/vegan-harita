@@ -33,12 +33,17 @@ class ProductsController < ApplicationController
         end
       end
     else
-      redirect_to barcode_scanner_products_path, alert: "Product not found"
+      respond_to do |format|
+        format.turbo_stream do
+          render turbo_stream: turbo_stream.update("scan-result", partial: "products/product_not_found")
+        end
+      end
     end
   end
 
   def show
     @contributors = @product.contributors
+    @reviews = @product.reviews.approved if @product.reviews.present?
   end
 
   def new
@@ -52,7 +57,7 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.save && @contributor.save
-        format.html { redirect_to products_path, notice: "Product was successfully created." }
+        format.html { redirect_to products_path, notice: t("success.created", model: Product.model_name.human) }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -70,7 +75,7 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if product_changes.valid? && change_log.save!
-        format.html { redirect_to products_path, notice: "Product was successfully updated." }
+        format.html { redirect_to products_path, notice: t("success.updated", model: Product.model_name.human) }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
@@ -83,7 +88,7 @@ class ProductsController < ApplicationController
     @product.destroy!
 
     respond_to do |format|
-      format.html { redirect_to products_url, notice: "Product was successfully destroyed." }
+      format.html { redirect_to products_url, notice: t("success.destroyed", model: Product.model_name.human) }
     end
   end
 

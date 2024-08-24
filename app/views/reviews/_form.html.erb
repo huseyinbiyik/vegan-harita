@@ -1,4 +1,6 @@
-<%= form_with(model: [@place, review], url: @review.new_record? ? place_reviews_path(@place.slug) : place_review_path(@place.slug, review), class: "add-review", data: { controller: "form", action: "turbo:submit-end->form#submitEnd", form_target: "frame" }) do |form| %>
+<%= form_with(model: @review, class: "add-review", data: { controller: "form", action: "turbo:submit-end->form#submitEnd", form_target: "frame" }) do |form| %>
+  <%= form.hidden_field :reviewable_id %>
+  <%= form.hidden_field :reviewable_type %>
   <div class="review-form-group">
     <%= form.label t('your_rating'), style: "display: block" %>
     <div class="rating" id="rating-section">
@@ -12,10 +14,10 @@
     <%= form.label t('your_review'), style: "display: block" %>
     <%= form.text_area :content, placeholder: Review.human_attribute_name('content'), required: true, minlength: 5 %>
   </div>
-  <div class="review-form-group">
+  <%= tag.div class:"review-form-group" do %>
     <%= form.label t('owner_feedback'), style: "display: block" %>
     <%= form.text_area :feedback, placeholder: Review.human_attribute_name('feedback') %>
-  </div>
+  <% end if params[:reviewable_type] == "Place" %>
   <div class="review-form-group select-wrapper" data-controller="utils" data-utils-assets-value="<%= [t('files_selected'), t('no_file_selected')].to_json %>">
     <%= form.label t('photos'), style: "display: block" %>
     <span id="upload-edit-btn" data-utils-target="uploadBtn"><%= t(:no_file_selected) %></span>

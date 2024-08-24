@@ -175,7 +175,7 @@
   <% end %>
   <% unless @pending_products.empty? %>
     <section class="pending">
-      <h2><%= t :pending_products %></h2>
+      <h2><%= t(".pending_products") %></h2>
       <% @pending_products.each do |product| %>
         <article class="pending-product" id="product_<%= product.id %>">
           <ul class="pending-item">
@@ -284,7 +284,7 @@
   <% unless @products_requested_for_deletion.empty? %>
 
     <section class="pending">
-      <h2><%= t :products_requested_for_deletion %></h2>
+      <h2><%= t(".products_requested_for_deletion") %></h2>
       <% @products_requested_for_deletion.each do |product| %>
         <article class="pending-product" id="product_<%= product.id %>">
           <ul class="pending-item">
@@ -294,10 +294,10 @@
             </li>
 
             <li>
-              <%= link_to "Ürüne Git", product_path(product.changeable_id) %>
+              <%= link_to "Ürüne Git", product_path(product.changeable.slug) %>
             </li>
             <li>
-              <%= link_to t('destroy'), product_path(product.changeable_id), class: "reject-btn", method: "delete", remote: true, data: { turbo_method: "delete" } %>
+              <%= link_to t('destroy'), product_path(product.changeable.slug), class: "reject-btn", method: "delete", remote: true, data: { turbo_method: "delete" } %>
             </li>
           </ul>
         </article>
@@ -384,14 +384,43 @@
       <% end %>
     </section>
   <% end %>
-  <% unless @pending_reviews.empty? %>
+  <% unless @pending_place_reviews.empty? %>
     <section class="pending">
-      <h2><%= t :pending_reviews %></h2>
-      <% @pending_reviews.each do |review| %>
+      <h2><%= t (".pending_place_reviews") %></h2>
+      <% @pending_place_reviews.each do |review| %>
         <article class="pending-review" id="review_<%= review.id %>">
           <ul class="pending-item">
             <li><span class="pending-title"><%= t :place_name %>
-              :</span><%= link_to "#{review.place.name}", place_path(review.place.slug) %></li>
+              :</span><%= link_to "#{review.reviewable.name}", place_path(review.reviewable.slug) %></li>
+            <li><span class="pending-title"><%= t :rating %>:</span><%= review.rating %></li>
+            <li><span class="pending-title"><%= t :review_content %>:</span><%= review.content %></li>
+            <li><span class="pending-title"><%= t :feedback %>:</span><%= review.feedback %></li>
+            <% if review.images.attached? %>
+              <li style="height: 100%;">
+                <span class="pending-title"><%= t :photos_added %></span>
+                <%= render partial: "shared/slider", locals: { images: review.images } %>
+              </li>
+            <% end %>
+            <li class="user-info"><span class="pending-title"><%= t :reviewer %></span>
+              <% if review.user.avatar.attached? %> <%= image_tag cdn_proxy_url(review.user.avatar.variant(:medium)), class: "avatar", loading: "lazy" %>
+              <% end %> <%= review.user.username %></li>
+            <li>
+              <%= link_to t('approve'), approve_review_path(review), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
+              <%= link_to t('reject'), reject_review_path(review), class: "reject-btn", method: "delete", remote: true, data: { turbo_method: "delete" } %>
+            </li>
+          </ul>
+        </article>
+      <% end %>
+    </section>
+  <% end %>
+  <% unless @pending_product_reviews.empty? %>
+    <section class="pending">
+      <h2><%= t (".pending_product_reviews") %></h2>
+      <% @pending_product_reviews.each do |review| %>
+        <article class="pending-review" id="review_<%= review.id %>">
+          <ul class="pending-item">
+            <li><span class="pending-title"><%= t :place_name %>
+              :</span><%= link_to "#{review.reviewable.name}", product_path(review.reviewable.slug) %></li>
             <li><span class="pending-title"><%= t :rating %>:</span><%= review.rating %></li>
             <li><span class="pending-title"><%= t :review_content %>:</span><%= review.content %></li>
             <li><span class="pending-title"><%= t :feedback %>:</span><%= review.feedback %></li>
