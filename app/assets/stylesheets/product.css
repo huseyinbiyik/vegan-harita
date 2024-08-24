@@ -135,7 +135,6 @@
   display: flex;
   border-radius: 0 0 0.313rem 0.313rem;
   padding: 0 20px;
-
 }
 
 #product-search-wrapper {
@@ -150,6 +149,7 @@
   flex-direction: row;
   height: 50px;
   margin-bottom: 0;
+
   /* margin bottom will be removed after refactoring
    all old forms with custom builder and their style */
 }
@@ -161,12 +161,47 @@
   z-index: 1;
 }
 
+#product_search {
+  margin: unset;
+}
+
 #product-filters {
-  background-color: aquamarine;
-  border: 1px dotted red;
+  & * {
+    flex: 0 0 auto;
+    max-width: max-content;
+  }
+
+  & ul {
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+    gap: 16px;
+  }
+
+  & li {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    border: 1px solid var(--green);
+    border-radius: 8px;
+    padding: 0 8px;
+  }
+
+  & span {
+    border-radius: 8px;
+    padding: 8px;
+    width: 200px;
+    background: var(--green);
+    color: var(--white);
+    height: 44px;
+    display: flex;
+    align-items: center;
+  }
 
   display: flex;
+  overflow-x: auto;
   width: calc(100vw - 40px);
-  overflow: scroll;
-  scroll-behavior: smooth;
+  white-space: nowrap;
+  align-items: center;
+  gap: 8px;
 }

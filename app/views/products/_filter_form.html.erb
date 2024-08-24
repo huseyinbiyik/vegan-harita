@@ -5,17 +5,42 @@
       action: "input->helpers--auto-submit#submit",
       helpers__auto_submit_target: "form"
       } do |f| %>
-  <div id="product-filters">
-    <%# it's possible that dividing categories and subcategories will be needed(for mobile) - nor certain yet %>
-    <%= ProductCategory.model_name.human(count: :many) %>
-    <%= f.collection_check_boxes :product_category_id_eq_any, ProductCategory.all, :id, :name, multiple: true %>
-    <%= ProductSubCategory.model_name.human(count: :many) %>
-    <%= f.collection_check_boxes :product_sub_category_id_eq_any, @product_sub_categories, :id, :name, multiple: true %>
-    <br>
-    <%= Brand.model_name.human(count: :many) %>
-    <%= f.collection_check_boxes :brand_id_eq_any, @brands, :id, :name, include_blank: true %>
-    <br>
-    <%= Shop.model_name.human(count: :many) %>
-    <%= f.collection_check_boxes :shops_id_eq_any, @shops, :id, :name, multiple: true %>
-  </div>
+  <ul id="product-filters">
+    <ul>
+      <span> <%= ProductCategory.model_name.human(count: :many) %> > </span>
+      <%= f.collection_check_boxes :product_category_id_eq_any, ProductCategory.all, :id, :name, multiple: true do |i| %>
+        <li>
+          <%= i.check_box %>
+          <%= i.label %>
+        </li>
+      <% end %>
+    </ul>
+    <ul>
+      <span> <%= ProductSubCategory.model_name.human(count: :many) %> > </span>
+      <%= f.collection_check_boxes :product_sub_category_id_eq_any, @product_sub_categories, :id, :name, multiple: true do |i| %>
+        <li>
+          <%= i.check_box %>
+          <%= i.label %>
+        </li>
+      <% end %>
+    </ul>
+    <ul>
+      <span> <%= Brand.model_name.human(count: :many) %> </span>
+      <%= f.collection_check_boxes :brand_id_eq_any, @brands, :id, :name, include_blank: true do |i| %>
+        <li>
+          <%= i.check_box %>
+          <%= i.label %>
+        </li>
+      <% end %>
+    </ul>
+    <ul>
+      <span> <%= Shop.model_name.human(count: :many) %>  </span>
+      <%= f.collection_check_boxes :shops_id_eq_any, @shops, :id, :name, multiple: true do |i| %>
+        <li>
+          <%= i.check_box %>
+          <%= i.label %>
+        </li>
+      <% end %>
+    </ul>
+  </ul>
 <% end %>
