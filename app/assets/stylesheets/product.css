@@ -194,8 +194,26 @@
 }
 
 #product {
+  & .product-image {
+    height: 135px;
+    border-radius: 0;
+  }
+
+  & .no-photo-wrapper {
+    height: unset;
+  }
+
+  & p {
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px;
+  }
+
   width: 135px;
-  height: 400px;
+  border: .5px solid var(--gray);
+  border-radius: 8px;
+  margin: 8px 0;
+  padding: 16px 0;
 }
 
 

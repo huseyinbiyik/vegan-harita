@@ -1,25 +1,18 @@
 
 <div id="product">
-    <h1>
+  <%= link_to product_path(product.slug), data:{ turbo_frame: "_top" }, class:"product-link" do %>
+    <% if product.image.attached? %>
+      <div>
+        <%= image_tag cdn_proxy_url(product.image.variant(:big)), alt: product.name, class:"product-image" %>
+      </div>
+    <% else %>
+      <div class="no-photo-wrapper">
+        <%= image_tag "default-product-image.jpg", class: "product-image default-image" %>
+        <p class="no-photo"> <%= t :no_photo %> </p>
+      </div>
+    <% end %>
+    <p>
       <%= product.name %>
-    </h1>
-    <p>
-      <strong> <%= t("updated_at") %> </strong>
-      <%= l product.updated_at, format: :long %>
     </p>
-    <%# <div id="product-image-container"> %>
-      <% if product.image.attached? %>
-        <div>
-          <%= image_tag cdn_proxy_url(product.image.variant(:big)), alt: product.name, class:"product-image" %>
-        </div>
-      <% else %>
-        <div class="no-photo-wrapper">
-          <%= image_tag "default-product-image.jpg", class: "product-image default-image" %>
-          <p class="no-photo"> <%= t :no_photo %> </p>
-        </div>
-      <% end %>
-    <%# </div> %>
-    <p>
-      <%= link_to "Show this product", product_path(product.slug), data: { turbo_frame: "_top" } %>
-    </p>
+  <% end %>
 </div>
