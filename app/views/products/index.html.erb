@@ -1,9 +1,8 @@
 <main id="product-index">
   <div id="product-search-container">
     <%= render "search_form" %>
-    <%= link_to barcode_scanner_products_path, id:"scanner" do %>
-      <span class="desktop">Scan Barcode</span>
-      <%= inline_svg_tag 'barcode-scanner.svg', class:"mobile" %>
+    <%= link_to barcode_scanner_products_path, class:"mobile", id:"scanner" do %>
+      <%= inline_svg_tag 'barcode-scanner.svg' %>
     <% end %>
   </div>
 
