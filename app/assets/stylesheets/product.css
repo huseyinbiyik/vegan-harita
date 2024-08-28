@@ -235,6 +235,17 @@
 
 }
 
+#scanner {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 40px;
+  z-index: 1;
+  background: white;
+  top: 6px;
+  padding: 8px;
+}
+
 
 
 
