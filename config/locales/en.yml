@@ -241,6 +241,7 @@ en:
       not_yet_rated: "Henüz değerlendirilmedi"
     placeholder:
       name_search: "Search for places or locations..."
+      product_search: "Search for products..."
       user:
         email: "your@address.com"
   controllers:

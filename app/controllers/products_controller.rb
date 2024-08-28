@@ -11,8 +11,8 @@ class ProductsController < ApplicationController
   end
 
   def search
-    if params[:name_search].present?
-      @products = Product.approved.filter_by_name(params[:name_search])
+    if params[:product_search].present?
+      @products = Product.approved.filter_by_name(params[:product_search])
     else
       []
     end

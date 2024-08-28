@@ -224,6 +224,7 @@ tr:
       not_yet_rated: "Henüz değerlendirilmedi"
     placeholder:
       name_search: "Mekan veya konum ara..."
+      product_search: "Ürün ara..."
       user:
         email: "mail@adresiniz.com"
   controllers:
