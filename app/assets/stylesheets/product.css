@@ -157,31 +157,34 @@
     display: flex;
     list-style-type: none;
     align-items: center;
-    gap: 16px;
+    gap: 8px;
   }
 
   & li {
     display: flex;
     align-items: center;
     gap: 4px;
-    border: 1px solid var(--green);
-    border-radius: 8px;
-    padding: 0 8px;
+    background: var(--light-gray);
+    border-radius: 15px;
+    padding: 0 10px;
+    height: 30px;
   }
 
   & span {
-    border-radius: 8px;
-    padding: 8px;
+    border-radius: 15px;
+    padding: 8px 10px;
     width: 200px;
-    background: var(--green);
+    background: var(--gray);
     color: var(--white);
-    height: 44px;
+    height: 30px;
     display: flex;
     align-items: center;
+    font-size: 14px;
   }
 
   display: flex;
   overflow-x: auto;
+  overflow-y: hidden;
   width: calc(100vw - 40px);
   white-space: nowrap;
   align-items: center;

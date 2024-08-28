@@ -7,7 +7,7 @@
       } do |f| %>
   <ul id="product-filters">
     <ul>
-      <span> <%= ProductCategory.model_name.human(count: :many) %> > </span>
+      <span> <%= ProductCategory.model_name.human(count: :many) %> </span>
       <%= f.collection_check_boxes :product_category_id_eq_any, ProductCategory.all, :id, :name, multiple: true do |i| %>
         <li>
           <%= i.check_box %>
@@ -16,7 +16,7 @@
       <% end %>
     </ul>
     <ul>
-      <span> <%= ProductSubCategory.model_name.human(count: :many) %> > </span>
+      <span> <%= ProductSubCategory.model_name.human(count: :many) %> </span>
       <%= f.collection_check_boxes :product_sub_category_id_eq_any, @product_sub_categories, :id, :name, multiple: true do |i| %>
         <li>
           <%= i.check_box %>
@@ -34,7 +34,7 @@
       <% end %>
     </ul>
     <ul>
-      <span> <%= Shop.model_name.human(count: :many) %>  </span>
+      <span> <%= Shop.model_name.human(count: :many) %> </span>
       <%= f.collection_check_boxes :shops_id_eq_any, @shops, :id, :name, multiple: true do |i| %>
         <li>
           <%= i.check_box %>
