@@ -276,4 +276,12 @@
   .disclaimer-text {
     text-align: center;
   }
+
+  #product-search-container {
+    padding: unset;
+    width: 40vw;
+    margin-left: 0;
+  }
+
+
 }
