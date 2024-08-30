@@ -276,4 +276,45 @@
     width: 40vw;
     margin-left: 0;
   }
+
+  #product-filters {
+    & ul {
+      flex-direction: column;
+      align-items: flex-start;
+      max-width: unset;
+      width: 160px;
+    }
+  
+    & ul:not(:last-child) {
+      border-bottom: 1px solid var(--gray);
+      padding-bottom: 8px;
+    }
+
+    & li {
+      background-color: unset;
+    }
+
+    & span {
+      background-color: unset;
+      color: unset;
+      font-weight: 500;
+    }
+
+    flex-direction: column;
+    width: 160px;
+    position: absolute;
+    left: 48px;
+    height: calc(100vh - 176px);
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    align-items: flex-start;
+    margin-bottom: 16px;
+    margin-right: 16px;
+  }
+
+  #products,
+  .pagination {
+    margin-left: 160px;
+  }
 }

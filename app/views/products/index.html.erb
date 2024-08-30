@@ -11,7 +11,7 @@
   <% end %>
 
   <div id="products">
-    <%= link_to "New product", new_product_path, data: { turbo_frame: "_top" }, class: "desktop" %>
+    <%= link_to "New product", new_product_path, data: { turbo_frame: "_top" }, class: "desktop", style: "display:none" %>
     <%# above link won't be visible and used there on mobile
     add button on the bottom bar nav will be conditioned according the current index(place/product) and link above will be used on desktop (after navigation refactoring) %>
     <%= render @products %>
