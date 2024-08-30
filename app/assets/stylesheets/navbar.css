@@ -484,4 +484,8 @@ header.passive-header {
   #account-links {
     display: none;
   }
+
+  #add-new {
+    display: none;
+  }
 }
