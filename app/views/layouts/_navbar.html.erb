@@ -20,10 +20,17 @@
         <span><%= Product.model_name.human(count: :many) %></span>
       <% end %>
     </li>
-    <li class="nav-link <%= 'active' if current_page?(new_place_path) %>" id="add-place-wrapper" data-controller="place-link">
-      <%= link_to new_place_path, id: "add-place-link" do %>
-        <%= inline_svg_tag "add-place.svg", class: "nav-icon", id: "add-place-icon" %>
-        <span><%= t :add_place %></span>
+    <li class="nav-link desktop" id="add-new-wrapper">
+      <% if current_page?(root_path) %>
+        <%= link_to new_place_path, id: "add-place-link" do %>
+          <%= inline_svg_tag "add-place.svg", class: "nav-icon", id: "add-place-icon" %>
+          <span><%= t :add_place %></span>
+        <% end %>
+      <% elsif current_page?(products_path) %>
+        <%= link_to new_product_path, id:"add-place-link" do %>
+          <%= inline_svg_tag "add-place.svg", class: "nav-icon", id: "add-place-icon" %>
+          <span><%= t :add_product %></span>
+        <% end %>
       <% end %>
     </li>
     <li class="nav-link <%= 'active' if current_page?(contact_path) %>">

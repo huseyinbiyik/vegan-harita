@@ -134,7 +134,7 @@ tr:
   call: "Ara"
   no_tag: "Etiket Yok"
   menu: "MENÜ"
-  add_product: "+Ürün Ekle"
+  add_product: "Ürün Ekle"
   meals: "Yemekler"
   desserts: "Tatlılar"
   drinks: "İçecekler"

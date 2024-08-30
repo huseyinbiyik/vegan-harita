@@ -147,7 +147,8 @@ header.passive-header {
   height: 50px;
 }
 
-.nav-link a {
+.nav-link a,
+.add-new {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -394,11 +395,7 @@ header.passive-header {
     background-color: var(--white);
   }
 
-  .invisible-link {
-    display: none;
-  }
-
-  #add-place-wrapper {
+  #add-new-wrapper {
     background-color: var(--white);
     position: absolute;
     top: 86px;
