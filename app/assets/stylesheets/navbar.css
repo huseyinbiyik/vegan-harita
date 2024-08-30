@@ -148,7 +148,7 @@ header.passive-header {
 }
 
 .nav-link a,
-.add-new {
+#add-new {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -266,6 +266,30 @@ header.passive-header {
   list-style-type: none;
   align-items: center;
   gap: 1.125rem;
+}
+
+#add-options {
+  & div {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    justify-content: center;
+  }
+
+  & a {
+    background-color: var(--white);
+    border: 0.5px solid var(--green);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    padding: 4px;
+    border-radius: 8px;
+  }
+
+  position: absolute;
+  top: -70px;
+  width: 100%;
 }
 
 @media (min-width: 1024px) {
