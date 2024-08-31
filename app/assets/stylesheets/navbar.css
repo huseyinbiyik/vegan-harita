@@ -55,6 +55,8 @@ header.passive-header {
   gap: 8px;
   padding: 0.5rem 1.25rem;
   height: 50px;
+  margin-bottom: unset;
+  flex-direction: row;
 }
 
 #search-field {
