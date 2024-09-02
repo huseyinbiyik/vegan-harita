@@ -30,13 +30,14 @@
           action: "change->products--dependent-select#select",
           products__dependent_select_target: "category" } %>
   </div>
-  <%= turbo_frame_tag "product_sub_category", src: product_sub_categories_path(category_id: @product.product_category ? @product.product_category.id : ProductCategory.first.id ) %>
-
+  <div class="form-group">
+    <%= turbo_frame_tag "product_sub_category", src: product_sub_categories_path(category_id: @product.product_category ? @product.product_category.id : ProductCategory.first.id ) %>
+  </div>
   <div class="form-group">
     <%= form.label :statement %>
     <%= form.rich_text_area :statement %>
   </div>
-  <div>
+  <div class="form-group">
     <%= form.label :bar_code %>
     <%= form.text_field :bar_code %>
   </div>

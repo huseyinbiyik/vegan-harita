@@ -11,104 +11,74 @@ form {
   text-align: center;
 }
 
+.form-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 572px;
+  gap: 2px;
+}
+
 .custom-form-group {
   display: flex;
   flex-direction: column;
-  position: relative;
-  width: 100%;
-  max-width: 572px;
+  gap: 2px;
 }
 
-.custom-form-group label {
-  font-size: 14px;
+.number-field {
+  width: 56px;
 }
 
-.custom-form-group .file-field {
-  border: 1px solid var(--gray);
-  padding: 8px;
-  min-width: 240px;
-  max-width: 572px;
-  color: transparent;
-}
-
-.custom-form-group .file-field::-webkit-file-upload-button {
-  visibility: hidden;
-  width: 0;
-}
-
-.custom-form-group .file-field::before {
-  content: "Select Image";
-
-  /* replace with data content */
-  color: var(--black);
-  display: inline-block;
-  white-space: nowrap;
-  -webkit-user-select: none;
-  cursor: pointer;
-  padding: 3px 9px 3px 4px;
-  font-size: 14px;
+.text-area {
+  font-size: 1rem;
+  height: 84px;
   border-radius: 5px;
-  border: 0.5px solid var(--black);
-  width: 90px;
-  height: 25px;
-}
-
-.custom-form-group > span {
-  position: absolute;
-  right: 8px;
-  font-size: 14px;
-  top: 30px;
-  color: var(--black);
-}
-
-.custom-form-group .text-area {
+  padding: 10px 8px;
   border: 1px solid var(--gray);
 }
 
-.custom-form-group .checkbox-group {
-  & .checkbox-item {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-  }
-
-  display: grid;
-  grid-template-columns: auto auto;
+.select-field,
+.collection-select {
+  width: 100%;
+  border: 1px solid var(--gray);
+  border-radius: 5px;
 }
 
-.custom-form-group .trix-button-row {
-  & .trix-button {
-    background-color: white;
-  }
+.search-bar,
+.search-field {
+  width: 100%;
+}
 
-  & .trix-button-group {
-    display: flex;
-  }
-
+.checkbox-group {
   display: flex;
-  flex-wrap: wrap !important;
+  flex-wrap: wrap;
   justify-content: flex-start;
+  gap: 10px;
 }
 
-.custom-form-group .submit-button {
-  border-radius: 20px;
-  width: 240px;
-  margin-top: 25px;
-  color: var(--white);
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.submit-button {
+  background-color: var(--green);
   border: none;
+  color: var(--white);
+  width: 240px;
+  height: 42px;
+  border-radius: 20px;
+  font-size: 1rem;
   font-weight: 500;
 }
 
-#product-edit .submit-button {
-  background-color: var(--green);
+.rich-text-area {
+  border: 1px solid var(--gray);
+  border-radius: 5px;
 }
 
-.custom-form-group:last-child {
-  align-items: center;
-}
 
-@media (min-width: 1024px) {
-  .custom-form-group .checkbox-group {
-    grid-template-columns: auto auto auto;
-  }
-}
+
+
+
