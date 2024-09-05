@@ -298,7 +298,7 @@
 
   #products {
     margin-top: 100px;
-    
+    height: calc(100vh - 300px);
   }  
 
   #product-filters {
@@ -340,9 +340,5 @@
   #products,
   .pagination {
     margin-left: 230px;
-  }
-
-  .pagination {
-    margin-top: 100px;
   }
 }
