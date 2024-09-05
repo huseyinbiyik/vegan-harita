@@ -1,6 +1,6 @@
 <div id="product-search-wrapper">
   <%= form_with id: "product-search-form", url: search_products_path, data: { controller: "helpers--auto-submit", "helpers--auto-submit-target": "form" }, method: :post, builder: CustomFormBuilder do |form| %>
-    <%= image_tag "search-icon.svg", id: "search-icon" %>
+    <%= inline_svg_tag "search-icon.svg", id: "search-icon" %>
     <%= form.search_field :product_search,
                           id: "product-search-field",
                           placeholder: true,

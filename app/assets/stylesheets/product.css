@@ -278,10 +278,29 @@
   }
 
   #product-search-container {
+    & #search-results {
+      /* background-color: pink; */
+      top: 52px;
+      z-index: 1;
+      background-color: var(--white);
+    }
+
+    & #product-search-wrapper {
+      box-shadow: unset;
+      border: 1px solid var(--gray);
+
+    }
+
     padding: unset;
     width: 40vw;
     margin-left: 0;
+    position: absolute;
+    left: 278px;
   }
+
+  #products {
+    margin-top: 70px;
+  }  
 
   #product-filters {
     & ul {
