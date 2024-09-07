@@ -20,19 +20,21 @@
         <span><%= Product.model_name.human(count: :many) %></span>
       <% end %>
     </li>
-    <li class="nav-link desktop" id="add-new-wrapper">
-      <% if current_page?(root_path) %>
-        <%= link_to new_place_path, id: "add-place-link" do %>
-          <%= inline_svg_tag "add-place.svg", class: "nav-icon", id: "add-place-icon" %>
-          <span><%= t :add_place %></span>
+    <% if current_page?(root_path) || current_page?(products_path) %>
+      <li class="nav-link desktop" id="add-new-wrapper">
+        <% if current_page?(root_path) %>
+          <%= link_to new_place_path, id: "add-place-link" do %>
+            <%= inline_svg_tag "add-place.svg", class: "nav-icon", id: "add-place-icon" %>
+            <span><%= t :add_place %></span>
+          <% end %>
+        <% elsif current_page?(products_path) %>
+          <%= link_to new_product_path, id:"add-place-link" do %>
+            <%= inline_svg_tag "add-place.svg", class: "nav-icon", id: "add-place-icon" %>
+            <span><%= t :add_product %></span>
+          <% end %>
         <% end %>
-      <% elsif current_page?(products_path) %>
-        <%= link_to new_product_path, id:"add-place-link" do %>
-          <%= inline_svg_tag "add-place.svg", class: "nav-icon", id: "add-place-icon" %>
-          <span><%= t :add_product %></span>
-        <% end %>
-      <% end %>
-    </li>
+      </li>
+    <% end %>
     <li class="nav-link mobile" id="add-new" data-controller="popup" data-action="click->popup#toggle">
       <%= inline_svg_tag "add-place.svg", class: "nav-icon", id: "add-place-icon" %>
       <span><%= t :add %></span>
