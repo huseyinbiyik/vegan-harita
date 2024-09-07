@@ -195,6 +195,7 @@
 }
 
 #products {
+  margin-top: 10px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(135px, 1fr));
   gap: 10px;
@@ -223,7 +224,7 @@
     padding: 8px;
   }
 
-  width: 135px;
+  width: 200px;
   height: 208px;
   border: 0.5px solid var(--gray);
   border-radius: 8px;
@@ -379,6 +380,12 @@
   #products {
     margin-top: 100px;
     height: calc(100vh - 300px);
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-auto-rows: 300px;
+  }
+
+  .product-wrapper {
+    height: 220px;
   }
 
   #product-filters {

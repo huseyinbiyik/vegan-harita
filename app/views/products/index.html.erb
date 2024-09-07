@@ -5,15 +5,11 @@
       <%= inline_svg_tag 'barcode-scanner.svg' %>
     <% end %>
   </div>
-
   <%= turbo_frame_tag "form", data: { turbo_action: "advance" } do %>
     <%= render "filter_form" %>
-      <div id="products">
-        <%= link_to "New product", new_product_path, data: { turbo_frame: "_top" }, class: "desktop", style: "display:none" %>
-        <%= render @products %>
+    <div id="products">
+      <%= render @products %>
     </div>
     <%= paginate @products %>
   <% end %>
-
-
 </main>
