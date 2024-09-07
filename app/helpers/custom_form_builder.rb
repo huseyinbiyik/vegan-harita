@@ -24,8 +24,8 @@ class CustomFormBuilder < ActionView::Helpers::FormBuilder
   def file_field(method, options = {})
     @template.content_tag(:div, class: "custom-form-group") do
       field = super(method, options.merge(class: "form-control file-field", direct_upload: true))
-      span = @template.content_tag(:span, "No file chosen", class: "file-name")
-      field.concat(span)
+      # span = @template.content_tag(:span, "No file chosen", class: "file-name")
+      # field.concat(span)
     end
   end
 
@@ -53,7 +53,12 @@ end
   end
 
   def submit(value = nil, options = {})
-    super(value, options.merge(class: "submit-button"))
+    super(value, options.merge(class: "submit-button button"))
+  end
+
+  def delete(value, path, options = {})
+    options = options.merge(class: "delete-button button", data: { turbo_confirm: I18n.t("sure") }, method: :delete)
+    @template.button_to(value, path, options)
   end
 
   def email_field(method, options = {})

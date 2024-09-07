@@ -64,8 +64,7 @@ form {
   gap: 5px;
 }
 
-.submit-button {
-  background-color: var(--green);
+.button {
   border: none;
   color: var(--white);
   width: 240px;
@@ -73,6 +72,14 @@ form {
   border-radius: 20px;
   font-size: 1rem;
   font-weight: 500;
+}
+
+.submit-button {
+  background-color: var(--green);
+}
+
+.delete-button {
+  background-color: var(--red);
 }
 
 .rich-text-area {
