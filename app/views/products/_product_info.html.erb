@@ -1,7 +1,15 @@
-  <div>
-    <p>Bu ürün vegandır.</p>
-    <p><strong>Name:</strong> <%= product.name %></p>
-    <%= link_to "Ürün sayfasına git", product_path(product.slug) %>
+  <div id="found" class="rescan">
+    <p>
+      Bu ürün vegandır.
+      <%= inline_svg_tag ('check.svg') %>
+    </p>
+      
+    <%= link_to product_path(product.slug), class:"found-product" do %>
+      <p>Ürüne Git →</p>
+      <br>
+      <h4><%= product.name %></h4>
+    <% end %>
+        
+    <button data-action="click->barcode-scanner#rescan">Yeni Ürün Tara</button>
   </div>
 
-<button data-action="click->barcode-scanner#rescan">TARA</button>
