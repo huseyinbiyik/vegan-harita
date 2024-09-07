@@ -70,6 +70,8 @@ en:
         product_category: "Product Category"
         statement: "Statement"
         bar_code: "Barcode"
+        image: "Image"
+        shop_ids: "Shops"
       shop:
         name: "Name"
     errors:
@@ -77,7 +79,9 @@ en:
         blank: "can't be blank"
         confirmation: "doesn't match"
         too_short: "too short (%{count} characters minimum)"
-        too_big: "is too big"
+        image_too_big: "is too big"
+        attachment_too_big: "attachment is too big"
+        no_selection: "please select an option"
       models:
         user:
           attributes:

@@ -12,6 +12,8 @@ class ChangeLog < ApplicationRecord
   validates :changeable_type, presence: true
 
   # JSONB attributes validations
+  # Product validations
+  validates :request_message, length: { minimum: 5, maximum: 500 }, if: -> { changeable_type == "Product" && request_message.present? }
   # Place validations
   validates :name, presence: true, length: { minimum: 2, maximum: 100 }, if: -> { changeable_type == "Place" && name.present? }
   validates :address, length: { minimum: 15, maximum: 500 }, if: -> { changeable_type == "Place" && address.present? }
