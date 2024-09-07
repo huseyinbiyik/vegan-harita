@@ -35,7 +35,7 @@
 }
 
 .disclaimer-text {
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .product-heading-container {
@@ -78,7 +78,7 @@
 
 #delete-product {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 #product-delete-btn {

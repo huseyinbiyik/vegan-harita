@@ -13,7 +13,7 @@ tr:
   months: "Aylar"
   days: "Günler"
   saving: "Kaydediliyor..."
-  error_found: "hata bulundu. Lütfen gerekli hatalı form alanlarını düzeltin."
+  error_found: "hata bulundu. Lütfen hatalı form alanlarını düzeltin."
   is_not_allowed: "geçersiz. Lütfen başka bir tane deneyin."
   no_photo: "Henüz fotoğraf eklenmemiş"
   username: "Kullanıcı Adı"

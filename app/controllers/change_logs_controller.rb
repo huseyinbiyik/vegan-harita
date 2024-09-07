@@ -3,6 +3,10 @@ class ChangeLogsController < ApplicationController
 
   def new
     @change_log = ChangeLog.new
+    @change_log.changeable_id = params[:changeable_id]
+    @change_log.changeable_type = params[:changeable_type]
+    @change_log.action = params[:action]
+    @change_log.request_message = params[:request_message]
   end
 
   def create
@@ -10,9 +14,9 @@ class ChangeLogsController < ApplicationController
     @change_log.user = current_user
 
     if @change_log.save
-      redirect_to root_path, notice: t(".success")
+      redirect_to root_path, notice: t("success.created", model: ChangeLog.model_name.human)
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 

@@ -18,6 +18,14 @@ class Product < ApplicationRecord
   has_rich_text :statement
 
   # Validations
+  validates :name, presence: true
+  validate :image_size
+  validates :bar_code, uniqueness: true, allow_blank: true, length: { minimum: 8, maximum: 40 }
+  validates :slug, uniqueness: true
+  validates :ingredients, length: { maximum: 5000 }
+  validates :statement, length: { maximum: 5000 }
+  validate :statement_attachment_size
+  validate :must_belong_to_at_least_one_shop
 
   # Scopes
   default_scope { order(created_at: :desc) }
@@ -53,5 +61,25 @@ class Product < ApplicationRecord
 
   def assign_slug
     self.slug = create_slug
+  end
+
+  def image_size
+    if image.attached?
+      if image.blob.byte_size > 2.megabytes
+        errors.add(:image, :image_too_big)
+      end
+    end
+  end
+
+  def statement_attachment_size
+    if statement.body.attachments.any? && statement.body.attachments.first.byte_size > 10.megabytes
+      errors.add(:statement, :attachment_too_big)
+    end
+  end
+
+  def must_belong_to_at_least_one_shop
+    if shop_ids.empty?
+      errors.add(:shop_ids, :no_selection)
+    end
   end
 end
