@@ -56,11 +56,6 @@ end
     super(value, options.merge(class: "submit-button button"))
   end
 
-  def delete(value, path, options = {})
-    options = options.merge(class: "delete-button button", data: { turbo_confirm: I18n.t("sure") }, method: :delete)
-    @template.button_to(value, path, options)
-  end
-
   def email_field(method, options = {})
     super(method, options.merge(class: "form-control email.field"))
   end

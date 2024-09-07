@@ -49,12 +49,12 @@
   width: 240px;
 }
 
-#update-button {
+/* #update-button {
   color: var(--white);
   font-weight: 500;
   background: var(--green);
   border: none;
-}
+} */
 
 #owner-panel {
   background-color: var(--green);
@@ -72,10 +72,10 @@
   font-weight: 500;
 }
 
-#cancel {
+/* #cancel {
   color: var(--red);
   margin-top: 16px;
-}
+} */
 
 #cancel-button {
   background-color: var(--red);
