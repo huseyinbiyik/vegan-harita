@@ -256,6 +256,22 @@
   padding: 8px;
 }
 
+/* Product New Page */
+#new-product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-form {
+  margin: 0 1.25rem 3rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  width: calc(100vw - 80px);
+}
+
 @media (min-width: 1024px) {
   .product-features-container {
     flex-direction: row;
@@ -299,7 +315,7 @@
   #products {
     margin-top: 100px;
     height: calc(100vh - 300px);
-  }  
+  }
 
   #product-filters {
     & ul {

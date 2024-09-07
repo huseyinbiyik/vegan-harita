@@ -26,5 +26,7 @@ module VhApi
     config.i18n.default_locale = :en
     # available languages will be turkish and english
     config.i18n.available_locales = [ :en, :tr ]
+    # Set all the images to be loaded lazily
+    config.action_view.image_loading = "lazy"
   end
 end

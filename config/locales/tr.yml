@@ -225,6 +225,7 @@ tr:
     placeholder:
       name_search: "Mekan veya konum ara..."
       product_search: "Ürün ara..."
+      search: "Ara..."
       user:
         email: "mail@adresiniz.com"
   controllers:

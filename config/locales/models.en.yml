@@ -64,6 +64,7 @@ en:
         ingredients: "Ingredients"
         product_category: "Product Category"
         statement: "Statement"
+        bar_code: "Barcode"
       shop:
         name: "Name"
     errors:
