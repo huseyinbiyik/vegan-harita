@@ -8,3 +8,12 @@ en:
   products:
     show:
       add_review_title: "Add Your Review"
+    new:
+      title: "Add a New Product"
+    edit:
+      title: "Edit Product"
+    form:
+      ingredients_en: "Ingredients (English)"
+      ingredients_tr: "Ingredients (Turkish)"
+      shops: "Shops that sell this product"
+      statement: "A document or statement proving the product is vegan"

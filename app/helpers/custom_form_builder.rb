@@ -1,7 +1,12 @@
 class CustomFormBuilder < ActionView::Helpers::FormBuilder
   def label(method, text = nil, options = {}, &block)
     text ||= object.class.human_attribute_name(method)
-    super(method, text, options.merge(class: ""), &block)
+    @template.content_tag :div, class: "flex" do
+      (
+        super(method, text, options.merge(class: "form-label")) +
+        (options[:required] ? @template.content_tag(:span, "*", class: "red-text") : "")
+      ).html_safe
+    end
   end
 
   def text_field(method, options = {})
@@ -30,7 +35,7 @@ class CustomFormBuilder < ActionView::Helpers::FormBuilder
 
   def collection_check_boxes(method, collection, value_method, text_method, options = {}, html_options = {})
   @template.content_tag(:div, class: "custom-form-group", data: { controller: "collection-check-boxes" }) do
-    search_bar = @template.text_field_tag("search_#{method}", nil, placeholder: "Search...", class: "form-control search-bar", data: { action: "input->collection-check-boxes#filter" })
+    search_bar = @template.text_field_tag("search_#{method}", nil, placeholder: @template.t("helpers.placeholder.search"), class: "form-control search-bar", data: { action: "input->collection-check-boxes#filter" })
     fields = @template.content_tag(:div, class: "checkbox-group", data: { collection_check_boxes_target: "checkboxes" }) do
       collection.map do |item|
         checkbox = @template.check_box_tag("#{object_name}[#{method}][]", item.send(value_method), @object.send(method).include?(item.send(value_method)), html_options.merge(class: "form-control collection-checkbox"))

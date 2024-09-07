@@ -242,6 +242,7 @@ en:
     placeholder:
       name_search: "Search for places or locations..."
       product_search: "Search for products..."
+      search: "Search..."
       user:
         email: "your@address.com"
   controllers:

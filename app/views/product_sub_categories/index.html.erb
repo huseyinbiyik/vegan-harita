@@ -1,5 +1,4 @@
 <%= turbo_frame_tag "product_sub_category" do %>
-  <label class="" for="product_product_sub_category_id">Product sub category</label>
   <select class="form-control collection-select" name="product[product_sub_category_id]" id="product_product_sub_category_id">
     <% @product_sub_categories&.each do |category| %>
       <option value="<%= category.id %>"><%= category.name %></option>

@@ -1,9 +1,4 @@
-<h1>New product</h1>
-
-<%= render "form", product: @product %>
-
-<br>
-
-<div>
-  <%= link_to "Back to products", products_path %>
-</div>
+<main id="new-product">
+  <h1 class="form-heading"><%= t(".title") %></h1>
+  <%= render "form", product: @product %>
+</main>

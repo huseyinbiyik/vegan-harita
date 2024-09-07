@@ -8,3 +8,12 @@ tr:
   products:
     show:
       add_review_title: "Ürün Değerlendirmeleri"
+    new:
+      title: "Yeni Ürün Ekle"
+    edit:
+      title: "Ürün Düzenle"
+    form:
+      ingredients_en: "İçindekiler (İngilizce)"
+      ingredients_tr: "İçindekiler (Türkçe)"
+      shops: "Bu ürünü satan mağazalar"
+      statement: "Ürünün vegan olduğunu kanıtlayan belge veya açıklama"
