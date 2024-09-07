@@ -1,5 +1,4 @@
-<main data-controller="barcode-scanner">
-  <div id="scan-result" data-barcode-scanner-target="scanResult"></div>
+<main data-controller="barcode-scanner" id="scanner-page">
   <div id="barcode-field" class="viewport" data-barcode-scanner-target="barcodeField"></div>
   <%= form_with url: search_by_barcode_products_path,
               method: :post,
@@ -7,4 +6,6 @@
               data: { barcode_scanner_target: "barcodeForm" } do |form| %>
     <%= form.hidden_field :bar_code, id: "barcode-input", data: { barcode_scanner_target: "barcodeInput" } %>
   <% end %>
+  <div id="scan-result" data-barcode-scanner-target="scanResult"></div>
+
 </main>

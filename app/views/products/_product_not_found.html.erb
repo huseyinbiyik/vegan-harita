@@ -1,4 +1,13 @@
-<p>
-  Ürün bulunamadı!
-</p>
-<button data-action="click->barcode-scanner#rescan">TARA</button>
+<div id="not-found" class="rescan">
+  <p>
+    Ürün bulunamadı!
+  </p>
+
+  <%= link_to new_product_path, class:"not-found-product" do %>
+    <p>Bu ürün vegan mı?</p>
+    <br>
+    <p><strong>Ürün Ekle</strong></p>
+  <% end %>
+
+  <button data-action="click->barcode-scanner#rescan">TARA</button>
+</div>
