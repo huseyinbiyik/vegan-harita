@@ -1,6 +1,6 @@
 <% if object.errors.any? %>
   <div style="color: red">
-    <h2><%= pluralize(object.errors.count, "error") %> prohibited this <%= object.class.name.downcase %> from being saved:</h2>
+    <h2><%= object.errors.count %> <%= t("error_found") %> </h2>
     <ul>
       <% object.errors.each do |error| %>
         <li><%= error.full_message %></li>

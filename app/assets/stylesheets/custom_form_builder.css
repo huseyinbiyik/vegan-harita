@@ -30,6 +30,7 @@ form {
 }
 
 .text-area {
+  width: 100%;
   font-size: 1rem;
   height: 84px;
   border-radius: 5px;
@@ -77,4 +78,8 @@ form {
 .rich-text-area {
   border: 1px solid var(--gray);
   border-radius: 5px;
+}
+
+.text-field {
+  width: 100%;
 }

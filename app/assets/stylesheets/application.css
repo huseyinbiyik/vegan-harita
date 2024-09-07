@@ -84,6 +84,16 @@ a {
 
 /* FORM STYLES */
 
+.field_with_errors {
+  display: inline;
+
+  input,
+  textarea,
+  select {
+    border: 1px solid var(--red);
+  }
+}
+
 .default-form {
   display: flex;
   flex-direction: column;
