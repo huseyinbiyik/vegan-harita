@@ -28,6 +28,9 @@ tr:
       contributor:
         one: "Katkıda Bulunan"
         other: "Katkıda Bulunanlar"
+      change_log:
+        one: "Değişiklik Kaydı"
+        other: "Değişiklik Kayıtları"
     attributes:
       user:
         username: "Kullanıcı Adı"
@@ -37,6 +40,8 @@ tr:
         password_confirmation: "Parola tekrarı"
         current_password: "Mevcut parola (gerekli)"
         user_agreement_accepted: "Kullanıcı Sözleşmesi"
+      change_log:
+        request_message: "Talep Mesajı"
       place:
         name: "Mekan Adı"
         address: "Adres"
@@ -85,6 +90,7 @@ tr:
         blank: "boş olamaz"
         confirmation: "eşleşmiyor"
         too_short: "çok kısa (en az %{count} karakter)"
+        too_big: "çok büyük"
       models:
         user:
           attributes:

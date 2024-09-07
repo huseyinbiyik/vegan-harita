@@ -78,18 +78,21 @@
 
 #delete-product {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 #product-delete-btn {
+  padding: 5px 10px;
   background-color: var(--red);
   border: none;
   color: var(--white);
-  width: 15rem;
-  height: 2.625rem;
   border-radius: 1.25rem;
   font-weight: 500;
   font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .edit-product {

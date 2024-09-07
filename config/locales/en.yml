@@ -35,6 +35,8 @@ en:
       only_date: "%B  %e, %Y"
   months: "Months"
   days: Days
+  saving: "Saving..."
+  error_found: "error found. Please check the form."
   is_not_allowed: "is not allowed. Please try another one."
   no_photo: "No Photo"
   username_placeholder: "veganharita"

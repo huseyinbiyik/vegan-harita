@@ -43,5 +43,5 @@
     <%= form.label :bar_code %>
     <%= form.text_field :bar_code %>
   </div>
-  <%= form.submit %>
+  <%= form.submit t("submit"), data: { turbo_submits_with: t("saving") } %>
 <% end %>
