@@ -1,0 +1,10 @@
+<%= form_with(model: shop, url: shop.persisted? ? admin_shop_path(shop) : admin_shops_path) do |form| %>
+  <%= render 'shared/error_messages', object: shop %>
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
