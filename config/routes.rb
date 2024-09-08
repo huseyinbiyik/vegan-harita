@@ -38,7 +38,9 @@ Rails.application.routes.draw do
 
   resource :change_logs, only: %i[new create]
 
-  scope "admin-panel" do
+  namespace "admin" do
+    root "dashboard#index"
+    resource :dashboard, only: %i[index]
     get "approvals", to: "admins#approvals", as: :approvals
     post "approve-claim/:id", to: "admins#approve_claim", as: :approve_claim
     delete "reject-claim/:id", to: "admins#reject_claim", as: :reject_claim
@@ -59,6 +61,7 @@ Rails.application.routes.draw do
     delete "reject-review/:id", to: "admins#reject_review", as: :reject_review
     get "edit_note_form/:id", to: "admins#edit_note_form", as: :edit_note_form
     patch "update_note/:id", to: "admins#update_note", as: :update_note
+    resources :brands
   end
 
   namespace :place_owner do

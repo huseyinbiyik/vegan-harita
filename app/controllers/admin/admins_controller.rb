@@ -1,6 +1,4 @@
-class AdminsController < ApplicationController # rubocop:disable Metrics/ClassLength
-  before_action :authenticate_admin
-
+class Admin::AdminsController < Admin::ApplicationController # rubocop:disable Metrics/ClassLength
   def approvals
     @pending_claims = Claim.all.order("created_at DESC").pending
     @users = User.all.with_attached_avatar
@@ -324,11 +322,5 @@ class AdminsController < ApplicationController # rubocop:disable Metrics/ClassLe
       flash.now[:alert] = "Not güncellenemedi."
       render turbo_stream: turbo_stream.update("flash_messages", partial: "shared/flash_messages", locals: { flash: })
     end
-  end
-
-  private
-
-  def authenticate_admin
-    redirect_to root_path unless user_signed_in? && current_user.admin?
   end
 end

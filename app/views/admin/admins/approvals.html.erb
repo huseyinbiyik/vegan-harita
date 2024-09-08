@@ -1,4 +1,4 @@
-<main data-controller="admin" data-admin-target="source">
+<div data-controller="admin" data-admin-target="source">
   <% unless @pending_claims.empty? %>
     <section class="pending">
       <h2><%= t(".pending_claims") %></h2>
@@ -16,8 +16,8 @@
             <li><span class="pending-title"><%= t(".linkedin") %>:</span><%= claim.linkedin %></li>
             <li><span class="pending-title"><%= t(".note") %>:</span><%= claim.note %></li>
             <li class="admin-btns">
-              <%= link_to t('approve'), approve_claim_path(claim), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
-              <%= link_to t('reject'), reject_claim_path(claim), class: "reject-btn", method: "delete", remote: true, data: { turbo_method: "delete" } %>
+              <%= link_to t('approve'), admin_approve_claim_path(claim), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
+              <%= link_to t('reject'), admin_reject_claim_path(claim), class: "reject-btn", method: "delete", remote: true, data: { turbo_method: "delete" } %>
             </li>
           </ul>
         </article>
@@ -37,13 +37,13 @@
             <li><span class="pending-title"><%= t :score %>:</span><%= user.points %></li>
             <li><span class="pending-title">Not</span>
               <%= turbo_frame_tag "note_#{user.id}" do %>
-                <%= link_to edit_note_form_path(user), data: { turbo_frame: "note_#{user.id}" } do %>
+                <%= link_to admin_edit_note_form_path(user), data: { turbo_frame: "note_#{user.id}" } do %>
                   <span class="red-text"><%= user.admin_note %></span>
                 <% end %>
               <% end %>
             </li>
             <li class="admin-btns">
-              <%= link_to t('approve'), approve_user_path(user), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
+              <%= link_to t('approve'), admin_approve_user_path(user), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
             </li>
           </ul>
         </article>
@@ -80,8 +80,8 @@
               <% end %>
               <%= pending_place.creator.email %></li>
             <li class="admin-btns">
-              <%= link_to t('approve'), approve_place_path(id: pending_place.id), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
-              <%= link_to t('reject'), reject_place_path(id: pending_place.id), class: "reject-btn", method: "delete", remote: true, data: { turbo_method: "delete" } %>
+              <%= link_to t('approve'), admin_approve_place_path(id: pending_place.id), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
+              <%= link_to t('reject'), admin_reject_place_path(id: pending_place.id), class: "reject-btn", method: "delete", remote: true, data: { turbo_method: "delete" } %>
             </li>
           </ul>
         </article>
@@ -165,8 +165,8 @@
               <% if place_edit.user.avatar.attached? %><%= image_tag cdn_proxy_url(place_edit.user.avatar.variant(:medium)), class: "avatar", loading: "lazy" %>
               <% end %> <%= place_edit.user.username %></li>
             <li class="admin-btns">
-              <%= link_to t('approve'), approve_place_edit_path(id: place_edit.id), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
-              <%= link_to t('reject'), reject_place_edit_path(id: place_edit.id), class: "reject-btn", method: "delete", remote: true, data: { turbo_method: "delete" } %>
+              <%= link_to t('approve'), admin_approve_place_edit_path(id: place_edit.id), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
+              <%= link_to t('reject'), admin_reject_place_edit_path(id: place_edit.id), class: "reject-btn", method: "delete", remote: true, data: { turbo_method: "delete" } %>
             </li>
           </ul>
         </article>
@@ -207,8 +207,8 @@
             </li>
 
             <li>
-              <%= link_to t('approve'), approve_product_path(product), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
-              <%= link_to t('reject'), reject_product_path(product), class: "reject-btn", method: "delete", remote: true, data: { turbo_method: "delete" } %>
+              <%= link_to t('approve'), admin_approve_product_path(product), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
+              <%= link_to t('reject'), admin_reject_product_path(product), class: "reject-btn", method: "delete", remote: true, data: { turbo_method: "delete" } %>
             </li>
           </ul>
         </article>
@@ -272,8 +272,8 @@
               <% if product_edit.user.avatar.attached? %> <%= image_tag cdn_proxy_url(product_edit.user.avatar.variant(:medium)), class: "avatar", loading: "lazy" %>
               <% end %> <%= product_edit.user.username %></li>
             <li>
-              <%= link_to t('approve'), approve_product_edit_path(product_edit), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
-              <%= link_to t('reject'), reject_product_edit_path(product_edit), class: "reject-btn", method: "delete", remote: true, data: { turbo_method: "delete" } %>
+              <%= link_to t('approve'), admin_approve_product_edit_path(product_edit), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
+              <%= link_to t('reject'), admin_reject_product_edit_path(product_edit), class: "reject-btn", method: "delete", remote: true, data: { turbo_method: "delete" } %>
             </li>
           </ul>
         </article>
@@ -326,8 +326,8 @@
               <% if menu.creator.avatar.attached? %> <%= image_tag cdn_proxy_url(menu.creator.avatar.variant(:medium)), class: "avatar", loading: "lazy" %>
               <% end %> <%= menu.creator.email %></li>
             <li>
-              <%= link_to t('approve'), approve_menu_path(menu), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
-              <%= link_to t('reject'), reject_menu_path(menu), method: "delete", class: "reject-btn", remote: true, data: { turbo_method: "delete" } %>
+              <%= link_to t('approve'), admin_approve_menu_path(menu), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
+              <%= link_to t('reject'), admin_reject_menu_path(menu), method: "delete", class: "reject-btn", remote: true, data: { turbo_method: "delete" } %>
             </li>
           </ul>
         </article>
@@ -376,8 +376,8 @@
               <% if menu_edit.user.avatar.attached? %> <%= image_tag cdn_proxy_url(menu_edit.user.avatar.variant(:medium)), class: "avatar", loading: "lazy" %>
               <% end %> <%= menu_edit.user.username %></li>
             <li>
-              <%= link_to t('approve'), approve_menu_edit_path(menu_edit), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
-              <%= link_to t('reject'), reject_menu_edit_path(menu_edit), class: "reject-btn", method: "delete", remote: true, data: { turbo_method: "delete" } %>
+              <%= link_to t('approve'), admin_approve_menu_edit_path(menu_edit), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
+              <%= link_to t('reject'), admin_reject_menu_edit_path(menu_edit), class: "reject-btn", method: "delete", remote: true, data: { turbo_method: "delete" } %>
             </li>
           </ul>
         </article>
@@ -405,8 +405,8 @@
               <% if review.user.avatar.attached? %> <%= image_tag cdn_proxy_url(review.user.avatar.variant(:medium)), class: "avatar", loading: "lazy" %>
               <% end %> <%= review.user.username %></li>
             <li>
-              <%= link_to t('approve'), approve_review_path(review), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
-              <%= link_to t('reject'), reject_review_path(review), class: "reject-btn", method: "delete", remote: true, data: { turbo_method: "delete" } %>
+              <%= link_to t('approve'), admin_approve_review_path(review), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
+              <%= link_to t('reject'), admin_reject_review_path(review), class: "reject-btn", method: "delete", remote: true, data: { turbo_method: "delete" } %>
             </li>
           </ul>
         </article>
@@ -434,12 +434,12 @@
               <% if review.user.avatar.attached? %> <%= image_tag cdn_proxy_url(review.user.avatar.variant(:medium)), class: "avatar", loading: "lazy" %>
               <% end %> <%= review.user.username %></li>
             <li>
-              <%= link_to t('approve'), approve_review_path(review), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
-              <%= link_to t('reject'), reject_review_path(review), class: "reject-btn", method: "delete", remote: true, data: { turbo_method: "delete" } %>
+              <%= link_to t('approve'), admin_approve_review_path(review), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
+              <%= link_to t('reject'), admin_reject_review_path(review), class: "reject-btn", method: "delete", remote: true, data: { turbo_method: "delete" } %>
             </li>
           </ul>
         </article>
       <% end %>
     </section>
   <% end %>
-</main>
+</div>
