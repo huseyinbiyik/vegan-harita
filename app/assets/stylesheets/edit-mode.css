@@ -46,6 +46,10 @@
   height: 1.563rem;
 }
 
+.modal-social-group span {
+  top: 24px;
+}
+
 #upload-edit-btn {
   position: absolute;
   left: 114px;
@@ -69,4 +73,8 @@
 
 .delete-icon-container::before {
   border: 1px dashed var(--red);
+}
+
+.form-buttons .submit-button {
+  width: 118px;
 }
