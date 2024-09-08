@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Product sub categories</h1>
+
+<div id="admin_product_sub_categories">
+  <% @product_sub_categories.each do |product_sub_category| %>
+    <%= render product_sub_category %>
+    <p>
+      <%= link_to "Show this product sub category", admin_product_sub_category_path(product_sub_category) %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New product sub category", new_admin_product_sub_category_path %>

@@ -64,6 +64,7 @@ Rails.application.routes.draw do
     resources :brands
     resources :shops
     resources :product_categories
+    resources :product_sub_categories
   end
 
   namespace :place_owner do
