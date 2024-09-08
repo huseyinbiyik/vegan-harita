@@ -44,14 +44,10 @@
     <div class="form-group">
       <%= f.submit t('update') %>
     </div>
-    <br>
-    <div class="form-group">
-      <p><%= t :unhappy %></p>
-      <br>
-      <%= f.delete t('cancel'), registration_path(resource_name) %>
-    </div>
-
   <% end %>
-
+    <br>
+    <p> <%= t :unhappy %> </p>
+    <%= button_to t('cancel'), registration_path(resource_name), data: { turbo_confirm: t('sure') }, method: :delete, id:"cancel-button" %>
+    <br>
   <br>
 </main>
