@@ -5,7 +5,7 @@
         <h3 class="page-title"><%= t(".claim") %></h3>
       </div>
       <div class="claim-form-container">
-        <%= form_with model: [:place, @claim], class: "default-form", data: { turbo: false } do |form| %>
+        <%= form_with model: [:place, @claim], id: "claim-form", class: "default-form", data: { turbo: false }, builder: CustomFormBuilder do |form| %>
           <% if @claim.errors.any? %>
             <div style="color: red">
               <h2><%= pluralize(@claim.errors.count, "hata") %>
@@ -19,29 +19,29 @@
             </div>
           <% end %>
 
-          <div class="default-form-group">
-            <%= form.label :name, class: "default-form-label required" %>
-            <%= form.text_field :name, class: "default-form-text-input", required: true, maxlength: 100, autofocus: true %>
+          <div class="form-group">
+            <%= form.label :name, class: "required" %>
+            <%= form.text_field :name, required: true, maxlength: 100, autofocus: true %>
           </div>
 
-          <div class="default-form-group">
-            <%= form.label :phone, class: "default-form-label" %>
-            <%= form.phone_field :phone, class: "default-form-input", pattern: "[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}", placeholder: "5551112233" %>
+          <div class="form-group">
+            <%= form.label :phone %>
+            <%= form.phone_field :phone, pattern: "[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}", placeholder: "5551112233" %>
           </div>
 
-          <div class="default-form-group ">
-            <%= form.label :title, class: "default-form-label required" %>
-            <%= form.text_field :title, class: "default-form-input", required: true %>
+          <div class="form-group ">
+            <%= form.label :title, class: "required" %>
+            <%= form.text_field :title, required: true %>
           </div>
 
-          <div class="default-form-group">
-            <%= form.label :linkedin, class: "default-form-label" %>
-            <%= form.text_field :linkedin, class: "default-form-input", maxlength: 100, placeholder: "https://www.linkedin.com/in/veganharita/" %>
+          <div class="form-group">
+            <%= form.label :linkedin %>
+            <%= form.text_field :linkedin, maxlength: 100, placeholder: "https://www.linkedin.com/in/veganharita/" %>
           </div>
 
-          <div class="default-form-group">
-            <%= form.label :note, class: "default-form-label" %>
-            <%= form.text_area :note, class: "default-form-input", maxlength: 500 %>
+          <div class="form-group">
+            <%= form.label :note %>
+            <%= form.text_area :note, maxlength: 500 %>
           </div>
 
           <div class="form-buttons">
