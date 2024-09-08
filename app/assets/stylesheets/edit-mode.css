@@ -46,6 +46,10 @@
   height: 1.563rem;
 }
 
+#change_log_vegan {
+  width: 280px;
+}
+
 .modal-social-group span {
   top: 24px;
 }
