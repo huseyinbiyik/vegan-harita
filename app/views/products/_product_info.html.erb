@@ -3,14 +3,13 @@
       Bu ürün vegandır.
       <%= inline_svg_tag ('check.svg') %>
     </p>
-      
+
     <%= link_to product_path(product.slug), class:"found-product" do %>
       <h4><%= product.name %></h4>
       <br>
       <p>Ürüne Git →</p>
 
     <% end %>
-        
+
     <button data-action="click->barcode-scanner#rescan">Yeni Ürün Tara</button>
   </div>
-

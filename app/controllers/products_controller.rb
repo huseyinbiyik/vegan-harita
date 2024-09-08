@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_user!, except: %i[ index show search search_by_barcode ]
   before_action :set_product, only: %i[ show edit update destroy ]
 
   def index
