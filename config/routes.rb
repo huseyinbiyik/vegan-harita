@@ -63,6 +63,7 @@ Rails.application.routes.draw do
     patch "update_note/:id", to: "admins#update_note", as: :update_note
     resources :brands
     resources :shops
+    resources :product_categories
   end
 
   namespace :place_owner do
