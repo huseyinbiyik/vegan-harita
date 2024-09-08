@@ -4,7 +4,8 @@
               controller: params[:attribute] == "location" ? "form place" : "form",
               action: params[:attribute] == "location" ? "turbo:submit-end->form#submitEnd google-maps-callback@window->place#initializeMap" : "turbo:submit-end->form#submitEnd",
               form_target: "frame"
-            }) do |form| %>
+            },
+            builder: CustomFormBuilder) do |form| %>
     <% if params[:attribute] == "name" %>
       <div class="inputs-wrapper">
         <div class="form-group">
@@ -14,17 +15,17 @@
       </div>
     <% end %>
     <% if params[:attribute] == "vegan" %>
-      <div class="inputs-wrapper">
+      <div class="form-group inputs-wrapper">
         <%= form.label t('place_vegan') %>
-        <%= form.select :vegan, options_for_select([[ t('vegan'), true], [ t('has_option'), false]], selected: @place.vegan), {}, class: "select-type" %>
+        <%= form.select :vegan, options_for_select([[ t('vegan'), true], [ t('has_option'), false]], selected: @place.vegan), {} %>
       </div>
     <% end %>
     <% if params[:attribute] == "location" %>
       <div id="place-location">
         <div id="modal-location-wrapper">
-          <div class="form-group">
+          <div class="form-group" id="address-group">
             <%= form.label t('address') %>
-            <%= form.text_field :address, value: @place.address,  data: {place_target: "field", action: "keydown->place#preventSubmit"}, placeholder: "X Vegan Cafe, Kadıköy...", required: true, maxlength: 100, autofocus: true, id: "location-input" %>
+            <%= form.text_field :address, value: @place.address, data: {place_target: "field", action: "keydown->place#preventSubmit"}, placeholder: "X Vegan Cafe, Kadıköy...", required: true, maxlength: 100, autofocus: true, id: "location-input" %>
             <div id="modal-map" data-place-target="map"></div>
           </div>
 
