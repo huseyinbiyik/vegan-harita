@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
 
   def index
     @q = Product.approved.ransack(params[:q])
-    @products = @q.result(distinct: true).joins(:shops).includes(:brand, :product_category, :product_sub_category, :shops).page(params[:page]).per(14)
+    @products = @q.result(distinct: true).joins(:shops).includes(:brand, :product_category, :product_sub_category, :shops).page(params[:page]).per(15)
 
     product_sub_categories
     @brands = @products.where(product_sub_category_id: @product_sub_categories.map(&:id)).map(&:brand).uniq

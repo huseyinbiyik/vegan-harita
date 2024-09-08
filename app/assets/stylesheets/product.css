@@ -239,6 +239,12 @@
     width: fit-content;
   }
 
+  a {
+    width: 16px;
+    height: 16px;
+    justify-content: center;
+  }
+
   & .current {
     font-weight: 600;
   }
@@ -247,6 +253,7 @@
   align-items: center;
   justify-content: center;
   gap: 16px;
+  margin-top: 16px;
 }
 
 #scanner {
@@ -306,7 +313,6 @@
 }
 
 #barcode-input {
-  background-color: darkkhaki;
   width: calc(100vw - 40px);
 }
 
@@ -378,10 +384,12 @@
   }
 
   #products {
-    margin-top: 100px;
+    margin-top: 50px;
     height: calc(100vh - 300px);
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     grid-auto-rows: 300px;
+    overflow: scroll;
+    scroll-behavior: smooth;
   }
 
   .product-wrapper {
@@ -424,12 +432,19 @@
     margin-right: 16px;
   }
 
-  #products,
-  .pagination {
+  #products {
     margin-left: 230px;
+    margin-bottom: 30px;
   }
 
   #scanner {
     display: none;
+  }
+
+  .pagination {
+    position: absolute;
+    bottom: 62px;
+    width: 100%;
+    font-size: 0.875rem;
   }
 }
