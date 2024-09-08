@@ -62,6 +62,7 @@ Rails.application.routes.draw do
     get "edit_note_form/:id", to: "admins#edit_note_form", as: :edit_note_form
     patch "update_note/:id", to: "admins#update_note", as: :update_note
     resources :brands
+    resources :shops
   end
 
   namespace :place_owner do
