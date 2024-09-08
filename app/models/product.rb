@@ -37,6 +37,8 @@ class Product < ApplicationRecord
   # Callbacks
   before_validation :assign_slug, on: :create
   before_save :assign_slug, if: :name_changed?
+  after_create :send_notification_email, if: :approved?
+  after_update :send_notification_email, if: -> { saved_change_to_approved? && approved? }
 
   # Public methods
   def approve
@@ -81,5 +83,9 @@ class Product < ApplicationRecord
     if shop_ids.empty?
       errors.add(:shop_ids, :no_selection)
     end
+  end
+
+  def send_notification_email
+    ProductNotificationJob.perform_later(self)
   end
 end

@@ -27,6 +27,6 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up,
                                       keys: %i[email password password_confirmation user_agreement_accepted username])
     devise_parameter_sanitizer.permit(:account_update,
-                                      keys: %i[approved role points avatar locale admin_note username])
+                                      keys: %i[approved role points avatar locale admin_note username allow_product_notification])
   end
 end

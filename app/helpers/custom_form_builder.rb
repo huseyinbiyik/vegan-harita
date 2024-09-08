@@ -48,6 +48,10 @@ class CustomFormBuilder < ActionView::Helpers::FormBuilder
   end
 end
 
+  def checkbox(method, options = {})
+    @template.check_box(@object_name, method, options.merge(class: "form-control checkbox"), true, false)
+  end
+
   def rich_text_area(method, options = {})
     @template.rich_text_area(object_name, method, options.merge(class: "form-control rich-text-area"))
   end

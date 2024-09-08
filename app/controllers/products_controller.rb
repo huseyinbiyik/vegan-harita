@@ -54,6 +54,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
+    @product.approved = true if current_user.admin?
     @contributor = @product.contributors.new(user_id: current_user.id)
 
     respond_to do |format|
