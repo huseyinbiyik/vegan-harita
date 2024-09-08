@@ -396,6 +396,7 @@ header.passive-header {
     height: 50px;
     border-radius: 30px;
     width: auto;
+    z-index: 1;
   }
 
   #add-place-icon {
