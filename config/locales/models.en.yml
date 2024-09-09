@@ -39,6 +39,7 @@ en:
         password_confirmation: "Password confirmation"
         current_password: "Current password (required)"
         user_agreement_accepted: "User Agreement"
+        allow_product_notification: "Send me an email when a new product is added"
       change_log:
         request_message: "Request Message"
       place:

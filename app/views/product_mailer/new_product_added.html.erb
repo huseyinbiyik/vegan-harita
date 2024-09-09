@@ -1,0 +1,27 @@
+<% I18n.with_locale(@locale) do %>
+  <table align="center" width="100%" style="margin: 20px 0; ">
+    <tr>
+      <td align="center" style="padding: 20px; margin-top: 20px;">
+        <table style="border: 1px solid #e2e8f0; border-radius: 6px; text-align: center;">
+          <tr>
+            <td style="margin-top: 8px; padding: 10px; color: #222;">
+              <p><%= t("hello") %> <%= @user.username %>,</p>
+              <p><%= t(".main_text").html_safe %></p>
+            </td>
+          </tr>
+          <tr>
+            <td style="margin-top: 8px; padding: 10px; color: #222;">
+              <p><%= @product.name %></p>
+              <p><%= image_tag cdn_proxy_url(@product.image), style: "width: 100%; height: auto; max-width: 500px;" %></p>
+            </td>
+          </tr>
+          <tr>
+            <td style="margin-top: 8px; padding: 10px; text-decoration: none; color: #222;">
+              <p><%= link_to t(".go_to_product"), @url %></p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+<% end %>
