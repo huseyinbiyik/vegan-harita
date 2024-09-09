@@ -1,5 +1,5 @@
 <%= form_with(model: brand, url: brand.persisted? ? admin_brand_path(brand) : admin_brands_path) do |form| %>
-  <%= render 'shared/error_messages', object: shop %>
+  <%= render 'shared/error_messages', object: brand %>
   <div>
     <%= form.label :name, style: "display: block" %>
     <%= form.text_field :name %>
