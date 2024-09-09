@@ -37,7 +37,7 @@
       <%= f.label :locale, t('language') %>
       <%= f.select :locale, [[t('english'), 'en'], [t('turkish'), 'tr']], selected: f.object.locale || extract_locale_from_accept_language_header %>
     </div>
-    <fieldset>
+    <fieldset id="notification-check">
     <legend><%= t(:notifications) %></legend>
     <div class="form-group">
       <%= f.label :allow_product_notification %>
