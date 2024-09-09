@@ -22,9 +22,8 @@
       <%= form.label :message, t('views.home.contact.message').html_safe %>
       <%= form.text_area :message, value: @contact_params[:message], autofocus: true, maxlength: 2000, required: true %>
     </div>
-    <div class="form-group select-wrapper" data-controller="utils" data-utils-assets-value="<%= [t('files_selected'), t('no_files_selected')].to_json %>">
+    <div class="form-group select-wrapper" >
       <%= form.label t('image') %>
-      <span id="file-upload-btn" data-utils-target="uploadBtn"><%= t(:no_file_selected) %></span>
       <%= form.file_field :images, multiple: true, accept: "image/*", direct_upload: true, data: { action: "change->utils#uploadFiles", content: t('select_image') }, id: "image-input" %>
     </div>
     <div class="form-group">
