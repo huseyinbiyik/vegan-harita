@@ -384,10 +384,9 @@
   }
 
   #products {
-    margin-top: 50px;
-    height: calc(100vh - 300px);
+    margin-top: 77px;
+    height: calc(100vh - 260px);
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-auto-rows: 300px;
     overflow: scroll;
     scroll-behavior: smooth;
     margin-left: 230px;
