@@ -82,9 +82,11 @@
   & legend {
     font-size: 14px;
   }
+
   & .form-group {
     display: flex;
     flex-direction: row-reverse;
   }
+
   border: none;
 }
