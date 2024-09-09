@@ -390,6 +390,8 @@
     grid-auto-rows: 300px;
     overflow: scroll;
     scroll-behavior: smooth;
+    margin-left: 230px;
+    margin-bottom: 30px;
   }
 
   .product-wrapper {
@@ -430,11 +432,6 @@
     align-items: flex-start;
     margin-bottom: 16px;
     margin-right: 16px;
-  }
-
-  #products {
-    margin-left: 230px;
-    margin-bottom: 30px;
   }
 
   #scanner {
