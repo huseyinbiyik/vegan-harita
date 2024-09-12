@@ -76,6 +76,10 @@
   margin: 16px 0;
 }
 
+.trix-content a {
+  text-decoration: underline;
+}
+
 #delete-product {
   display: flex;
   justify-content: center;
