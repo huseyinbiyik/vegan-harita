@@ -100,7 +100,7 @@ tr:
   login: "Giriş yap"
   forgot_password: "Parolamı unuttum"
   not_received_confirmation: "Onay e-postası almadım"
-  panel: "Onay Paneli"
+  admin_panel: "Admin Paneli"
   place_index: "Mekanlar"
   add_place: "Mekan Ekle"
   my_account: "Hesabım"
