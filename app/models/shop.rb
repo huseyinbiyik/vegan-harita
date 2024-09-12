@@ -3,5 +3,5 @@ class Shop < ApplicationRecord
   has_and_belongs_to_many :products
 
   # Validations
-  validates :name, presence: true
+  validates :name, presence: true, length: { maximum: 200 }
 end

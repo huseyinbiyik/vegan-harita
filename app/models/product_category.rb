@@ -6,4 +6,7 @@ class ProductCategory < ApplicationRecord
   # Associations
   has_many :products
   has_many :product_sub_categories
+
+  # Validations
+  validates :name, presence: true, length: { maximum: 200 }
 end

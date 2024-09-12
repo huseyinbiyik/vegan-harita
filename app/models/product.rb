@@ -18,7 +18,7 @@ class Product < ApplicationRecord
   has_rich_text :statement
 
   # Validations
-  validates :name, presence: true
+  validates :name, presence: true, length: { maximum: 200 }
   validate :image_size
   validates :bar_code, uniqueness: true, allow_blank: true, length: { minimum: 8, maximum: 40 }
   validates :slug, uniqueness: true
