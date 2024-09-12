@@ -393,10 +393,6 @@
     margin-bottom: 30px;
   }
 
-  .product-wrapper {
-    height: 220px;
-  }
-
   #product-filters {
     & ul {
       flex-direction: column;
