@@ -116,7 +116,7 @@ en:
   login: "Log in"
   forgot_password: "Forgot my password"
   not_received_confirmation: "I didn't receive a confirmation email"
-  panel: "Approval Panel"
+  :admin_panel: "Admin Panel"
   place_index: "Places"
   add_place: "Add Place"
   my_account: "My Account"

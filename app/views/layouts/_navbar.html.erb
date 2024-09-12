@@ -1,5 +1,12 @@
 <nav id="site-nav">
   <ul id="nav-menu">
+    <% if user_signed_in? && current_user.admin? %>
+      <li class="nav-link panel desktop">
+        <%= link_to admin_root_path, class: "nav-admin-link" do %>
+          <span><%= t :admin_panel %></span>
+        <% end %>
+      </li>
+    <% end %>
     <% if user_signed_in? && current_user.place_owner? %>
       <li class="nav-link panel desktop">
         <%= link_to place_owner_summary_path(current_user.places.first.slug), class: "nav-admin-link" do %>
