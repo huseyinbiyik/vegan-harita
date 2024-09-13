@@ -5,7 +5,7 @@
       <%= inline_svg_tag 'barcode-scanner.svg' %>
     <% end %>
   </div>
-  <%= turbo_frame_tag "form", data: { turbo_action: "advance" } do %>
+  <%= turbo_frame_tag "filter-form",  data: { turbo_action: "advance" } do %>
     <%= render "filter_form" %>
     <div id="products">
       <%= render @products %>
