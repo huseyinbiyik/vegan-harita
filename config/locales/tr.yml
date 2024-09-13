@@ -328,7 +328,7 @@ tr:
       claim: "Sahiplen"
   menus:
     form:
-      image_with_warning: "Yemek Görseli (en fazla 3MB)"
+      image_with_warning: "Yemek Görseli (en fazla 5MB)"
   sign_user_agreement: "<a href='/legals/user-agreement' target='_blank'><span class='underlined'>Kullanıcı Sözleşmesi</span></a>'ni okudum ve kabul ediyorum."
   privacy_policy:
     link_text: "Gizlilik Politikası"

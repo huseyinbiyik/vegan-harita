@@ -329,7 +329,7 @@ en:
       claim: "Claim"
   menus:
     form:
-      image_with_warning: "Images (max 3MB)"
+      image_with_warning: "Images (max 5MB)"
   sign_user_agreement: "I read and accept the <a href='/legals/user-agreement' target='_blank'><span class='underlined'>User Agreement</span></a>"
   privacy_policy:
     link_text: "Privacy Policy"
