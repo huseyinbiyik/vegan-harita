@@ -61,6 +61,7 @@ group :development do
   gem "erb-formatter"
   gem "letter_opener"
   gem "web-console"
+  gem "bullet", "~> 7.2"
 end
 
 group :test do

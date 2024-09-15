@@ -4,11 +4,11 @@ class ProductsController < ApplicationController
 
   def index
     @q = Product.approved.ransack(params[:q])
-    @products = @q.result(distinct: true).joins(:shops).includes(:brand, :product_category, :product_sub_category, :shops).page(params[:page]).per(35)
+    @products = @q.result(distinct: true).joins(:shops).includes(:brand, :product_category, :product_sub_category, :shops, image_attachment: :blob).page(params[:page]).per(35)
 
     product_sub_categories
-    @brands = @products.where(product_sub_category_id: @product_sub_categories.map(&:id)).map(&:brand).uniq
-    @shops = @products.where(product_sub_category_id: @product_sub_categories.map(&:id)).map(&:shops).flatten.uniq
+    @brands = Brand.all
+    @shops = Shop.all
   end
 
   def search
@@ -118,12 +118,12 @@ class ProductsController < ApplicationController
     if params[:q] && params[:q][:product_category_id_eq_any].present?
       category_ids = params[:q][:product_category_id_eq_any].reject(&:blank?)
       if category_ids.any?
-        @product_sub_categories = ProductCategory.where(id: category_ids).map(&:product_sub_categories).flatten
+        @product_sub_categories = ProductCategory.includes(product_sub_categories: :string_translations).where(id: category_ids).map(&:product_sub_categories).flatten
       else
-        @product_sub_categories = ProductSubCategory.all
+        @product_sub_categories = ProductSubCategory.includes(:string_translations).all
       end
     else
-      @product_sub_categories = ProductSubCategory.all
+      @product_sub_categories = ProductSubCategory.includes(:string_translations).all
     end
   end
 end

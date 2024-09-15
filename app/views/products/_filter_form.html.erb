@@ -8,7 +8,7 @@
   <ul id="product-filters">
     <ul>
       <span> <%= ProductCategory.model_name.human(count: :many) %> </span>
-      <%= f.collection_check_boxes :product_category_id_eq_any, ProductCategory.all, :id, :name, multiple: true do |i| %>
+      <%= f.collection_check_boxes :product_category_id_eq_any, ProductCategory.all.includes([:string_translations]), :id, :name, multiple: true do |i| %>
         <li>
           <%= i.check_box %>
           <%= i.label %>
