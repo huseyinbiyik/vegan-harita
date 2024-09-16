@@ -13,7 +13,7 @@
         </div>
       <% end %>
       <p>
-        <%= product.name %>
+        <%= truncate(product.name, length: 50) %>
       </p>
     <% end %>
   </div>
