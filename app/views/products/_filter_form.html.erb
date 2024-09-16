@@ -15,6 +15,7 @@
         </li>
       <% end %>
     </ul>
+    <ul class="filter-separator"></ul>
     <ul data-controller="helpers--filter">
       <span> <%= ProductSubCategory.model_name.human(count: :many) %> </span>
       <input type="text" data-helpers--filter-target="input" data-action="input->helpers--filter#filter" class="visible-on-desktop input-filter" placeholder="<%= t(:search) %>">
@@ -25,6 +26,7 @@
         </li>
       <% end %>
     </ul>
+    <ul class="filter-separator"></ul>
     <ul data-controller="helpers--filter">
       <span> <%= Brand.model_name.human(count: :many) %> </span>
       <input type="text" data-helpers--filter-target="input" data-action="input->helpers--filter#filter" class="visible-on-desktop input-filter" placeholder="<%= t(:search) %>">
@@ -35,7 +37,9 @@
         </li>
       <% end %>
     </ul>
+    <ul class="filter-separator"></ul>
     <ul data-controller="helpers--filter">
+
       <span> <%= Shop.model_name.human(count: :many) %> </span>
       <input type="text" data-helpers--filter-target="input" data-action="input->helpers--filter#filter" class="visible-on-desktop input-filter" placeholder="<%= t(:search) %>">
       <%= f.collection_check_boxes :shops_id_eq_any, @shops, :id, :name, multiple: true do |i| %>
