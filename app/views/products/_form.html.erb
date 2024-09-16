@@ -26,7 +26,7 @@
   </div>
   <div class="form-group" data-controller="products--dependent-select">
     <%= form.label :product_category_id, ProductCategory.model_name.human, required: true %>
-    <%= form.collection_select :product_category_id, ProductCategory.order(:id), :id, :name, {},
+    <%= form.collection_select :product_category_id, ProductCategory.includes(:string_translations).order(:id), :id, :name, {},
         data: {
           action: "change->products--dependent-select#select",
           products__dependent_select_target: "category" } %>
