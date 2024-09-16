@@ -179,6 +179,12 @@ header.passive-header {
   font-size: 1.125rem;
 }
 
+.account-icon {
+  display: block;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 .vh-instagram a {
   display: flex;
   align-items: center;
@@ -427,12 +433,6 @@ header.passive-header {
     display: flex;
     width: auto;
     flex-direction: row;
-  }
-
-  #account-icon {
-    display: block;
-    border-radius: 50%;
-    object-fit: cover;
   }
 
   .dropdown {
