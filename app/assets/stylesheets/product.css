@@ -8,8 +8,20 @@
   padding: 20px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
   margin-bottom: 62px;
+}
+
+.breadcrumbs {
+  display: flex;
+  gap: 8px;
+  font-size: 14px;
+  list-style-type: none;
+  padding: 0 16px;
+}
+
+.breadcrumb-separator {
+  font-size: 14px;
+  color: var(--gray);
 }
 
 .product {

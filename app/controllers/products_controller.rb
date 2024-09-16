@@ -45,6 +45,10 @@ class ProductsController < ApplicationController
   def show
     @contributors = @product.contributors
     @reviews = @product.reviews.approved if @product.reviews.present?
+    add_breadcrumb(Product.model_name.human, products_path)
+    add_breadcrumb(@product.product_category.name, products_path(q: { product_category_id_eq_any: [ @product.product_category_id ] }))
+    add_breadcrumb(@product.product_sub_category.name, products_path(q: { product_sub_category_id_eq_any: [ @product.product_sub_category_id ] }))
+    add_breadcrumb(@product.name, product_path(@product.slug))
   end
 
   def new

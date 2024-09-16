@@ -1,5 +1,22 @@
 <section class="product-show">
-  <p style="color: green"><%= notice %></p>
+  <nav>
+    <ul class="breadcrumbs">
+      <% breadcrumbs.each do |crumb| %>
+        <li>
+          <% if crumb.link? %>
+            <%= link_to crumb.name, crumb.path, class: "breadcrumb-link" %>
+          <% else %>
+            <span class="breadcrumb-page">
+              <%= crumb.name %>
+            </span>
+          <% end %>
+          <% unless crumb == breadcrumbs.last %>
+            <span class="breadcrumb-separator">/</span>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </nav>
   <div class="product">
     <div class="product-heading-container">
       <div class="product-heading-left">
@@ -45,7 +62,9 @@
       <ul class="product-details">
         <li class="product-detail">
           <strong><%= Brand.model_name.human %> :</strong> <br>
-          <%= @product.brand.name %>
+          <%= link_to products_path(q: { brand_id_eq_any: [@product.brand.id] }) do %>
+            <%= @product.brand.name %>
+          <% end %>
         </li>
         <li class="product-detail">
           <strong><%= Product.human_attribute_name(:ingredients) %> :</strong><br>
@@ -53,7 +72,11 @@
         </li>
         <li class="product-detail">
           <strong><%= Shop.model_name.human %> :</strong> <br>
-          <%= @product.shops.map(&:name).join(", ") %>
+          <% @product.shops.each do |shop| %>
+            <%= link_to products_path(q: { shop_id_eq_any: [shop.id] }) do %>
+              <%= shop.name %>
+            <% end %>
+          <% end %>
         </li>
       </ul>
     </div>
