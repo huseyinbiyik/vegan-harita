@@ -14,6 +14,7 @@ tr:
   days: "Günler"
   saving: "Kaydediliyor..."
   add: "Ekle"
+  search: "Ara..."
   notifications: "Bildirimler"
   error_found: "hata bulundu. Lütfen hatalı form alanlarını düzeltin."
   is_not_allowed: "geçersiz. Lütfen başka bir tane deneyin."

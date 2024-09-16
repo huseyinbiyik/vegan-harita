@@ -2,7 +2,7 @@
   <nav>
     <ul class="breadcrumbs">
       <% breadcrumbs.each do |crumb| %>
-        <li>
+        <li class="breadcrumb">
           <% if crumb.link? %>
             <%= link_to crumb.name, crumb.path, class: "breadcrumb-link" %>
           <% else %>

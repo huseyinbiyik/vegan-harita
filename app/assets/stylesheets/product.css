@@ -13,10 +13,17 @@
 
 .breadcrumbs {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
   font-size: 14px;
   list-style-type: none;
   padding: 0 16px;
+}
+
+.breadcrumb {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
 }
 
 .breadcrumb-separator {
@@ -201,6 +208,11 @@
     font-size: 14px;
   }
 
+  .input-filter {
+    width: 100%;
+    max-width: 100%;
+  }
+
   display: flex;
   flex-direction: column;
   overflow-x: auto;
@@ -208,6 +220,7 @@
   width: calc(100vw - 40px);
   white-space: nowrap;
   gap: 8px;
+  padding-bottom: 6px;
 }
 
 #products {

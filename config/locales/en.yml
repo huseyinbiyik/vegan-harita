@@ -37,6 +37,7 @@ en:
   days: Days
   saving: "Saving..."
   add: "Add"
+  search: "Search..."
   notifications: "Notifications"
   error_found: "error found. Please check the form."
   is_not_allowed: "is not allowed. Please try another one."

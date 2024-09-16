@@ -15,28 +15,31 @@
         </li>
       <% end %>
     </ul>
-    <ul>
+    <ul data-controller="helpers--filter">
       <span> <%= ProductSubCategory.model_name.human(count: :many) %> </span>
+      <input type="text" data-helpers--filter-target="input" data-action="input->helpers--filter#filter" class="visible-on-desktop input-filter" placeholder="<%= t(:search) %>">
       <%= f.collection_check_boxes :product_sub_category_id_eq_any, @product_sub_categories, :id, :name, multiple: true do |i| %>
-        <li>
+        <li data-helpers--filter-target="item">
           <%= i.check_box %>
           <%= i.label %>
         </li>
       <% end %>
     </ul>
-    <ul>
+    <ul data-controller="helpers--filter">
       <span> <%= Brand.model_name.human(count: :many) %> </span>
+      <input type="text" data-helpers--filter-target="input" data-action="input->helpers--filter#filter" class="visible-on-desktop input-filter" placeholder="<%= t(:search) %>">
       <%= f.collection_check_boxes :brand_id_eq_any, @brands, :id, :name, include_blank: true do |i| %>
-        <li>
+        <li data-helpers--filter-target="item">
           <%= i.check_box %>
           <%= i.label %>
         </li>
       <% end %>
     </ul>
-    <ul>
+    <ul data-controller="helpers--filter">
       <span> <%= Shop.model_name.human(count: :many) %> </span>
+      <input type="text" data-helpers--filter-target="input" data-action="input->helpers--filter#filter" class="visible-on-desktop input-filter" placeholder="<%= t(:search) %>">
       <%= f.collection_check_boxes :shops_id_eq_any, @shops, :id, :name, multiple: true do |i| %>
-        <li>
+        <li data-helpers--filter-target="item">
           <%= i.check_box %>
           <%= i.label %>
         </li>
