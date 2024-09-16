@@ -1,23 +1,50 @@
 <% I18n.with_locale(@locale) do %>
-  <table align="center" width="100%" style="margin: 20px 0; ">
+  <table role="presentation" align="center" style="width: 100%;">
     <tr>
-      <td align="center" style="padding: 20px; margin-top: 20px;">
-        <table style="border: 1px solid #e2e8f0; border-radius: 6px; text-align: center;">
+      <td align="center" style="padding: 20px;">
+        <table style="border-radius: 8px; text-align: center; width: 100%;">
           <tr>
-            <td style="margin-top: 8px; padding: 10px; color: #222;">
-              <p><%= t("hello") %> <%= @user.username %>,</p>
-              <p><%= t(".main_text").html_safe %></p>
+            <td>
+              <a href="https://veganharita.com/" target="_blank" style="text-decoration: none;">
+                <%= image_tag ('logo.svg'), alt:"logo", style:"max-width: 140px" %>
+              </a>
             </td>
           </tr>
           <tr>
-            <td style="margin-top: 8px; padding: 10px; color: #222;">
-              <p><%= @product.name %></p>
-              <p><%= image_tag cdn_proxy_url(@product.image), style: "width: 100%; height: auto; max-width: 500px;" %></p>
+            <td style="margin-top: 8px; padding: 10px; color: #222; font-size: 1.25rem">
+              <p style="text-align: center"><%= t("hello") %> <%= @user.username %></p>
+              <p style="text-align: center"><%= @product.contributors.first.user.username %> <%= t("main_text").html_safe %></p>
             </td>
           </tr>
           <tr>
-            <td style="margin-top: 8px; padding: 10px; text-decoration: none; color: #222;">
-              <p><%= link_to t(".go_to_product"), @url %></p>
+            <td style="margin-top: 8px; padding: 10px; background-color: #fff; border-radius: 10px;">
+              <%= image_tag cdn_proxy_url(@product.image), alt:"product-image", style: "max-width: 200px; border-radius: 8px; vertical-align: middle" %>
+            </td>
+          </tr>
+          <tr>
+            <td style="margin-top: 8px; padding: 10px; text-decoration: none; color: #222; font-size: 1.5rem">
+              <p><a href="<%= @url %>" style="background-color: #01da5a; color: #fff; padding: 8px 24px; border-radius: 10px; text-decoration: none"><%= @product.name %></a></p>
+            </td>
+          </tr>
+          <tr>
+            <td style="border-top: 1px solid #989e9a; padding: 16px; border-bottom: 1px solid #989e9a;">
+              <a href="https://www.instagram.com/veganharita/" target="_blank" style="margin: 0 10px; text-decoration: none">
+                <%= image_tag ('instagram.svg'), alt:"instagram-link", style:"width: auto; height: 32px; vertical-align: middle;" %>
+              </a>
+              <a href="https://veganharita.com/contact" target="_blank" style="margin: 0 10px;">
+                <%= image_tag ('anvelop.svg'), alt:"contact-link", style:"width: auto; height: 32px; vertical-align: middle; text-decoration: none" %>
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding: 16px">
+              <a href="https://veganharita.com/" target="_blank" style="text-decoration: none; margin: 0 10px; vertical-align: middle; color: #000;">
+                veganharita.com
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td style="height: 40px">
             </td>
           </tr>
         </table>

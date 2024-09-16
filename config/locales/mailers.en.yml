@@ -1,2 +1,3 @@
 en:
   new_product_added_subject: "%{contributor} added a new product"
+  main_text: " added a new product. Visit the product page to see where you can find the product and more."

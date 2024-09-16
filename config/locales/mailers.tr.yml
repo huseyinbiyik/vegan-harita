@@ -1,0 +1,5 @@
+tr:
+  new_product_added_subject: "%{contributor} yeni bir ürün ekledi"
+  main_text: " yeni bir ürün ekledi. Ürünü bulabileceğin yerleri ve daha fazlasını görmek için ürün sayfasını ziyaret et."
+  new_product_added:
+    
