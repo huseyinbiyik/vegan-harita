@@ -418,11 +418,14 @@
       align-items: flex-start;
       max-width: unset;
       width: 220px;
+      max-height: 175px;
+      overflow-y: scroll;
+      scroll-behavior: smooth;
     }
 
-    & ul:not(:last-child) {
-      border-bottom: 1px solid var(--gray);
-      padding-bottom: 8px;
+    & .filter-seperator {
+      height: 1px;
+      background-color: var(--gray);
     }
 
     & li {
@@ -437,7 +440,7 @@
 
     flex-direction: column;
     width: 230px;
-    position: absolute;
+    position: fixed;
     left: 48px;
     align-items: flex-start;
     margin-bottom: 16px;

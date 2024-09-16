@@ -15,6 +15,7 @@
         </li>
       <% end %>
     </ul>
+    <ul class="filter-seperator"></ul>
     <ul>
       <span> <%= ProductSubCategory.model_name.human(count: :many) %> </span>
       <%= f.collection_check_boxes :product_sub_category_id_eq_any, @product_sub_categories, :id, :name, multiple: true do |i| %>
@@ -24,6 +25,7 @@
         </li>
       <% end %>
     </ul>
+    <ul class="filter-seperator"></ul>
     <ul>
       <span> <%= Brand.model_name.human(count: :many) %> </span>
       <%= f.collection_check_boxes :brand_id_eq_any, @brands, :id, :name, include_blank: true do |i| %>
@@ -33,6 +35,7 @@
         </li>
       <% end %>
     </ul>
+    <ul class="filter-seperator"></ul>
     <ul>
       <span> <%= Shop.model_name.human(count: :many) %> </span>
       <%= f.collection_check_boxes :shops_id_eq_any, @shops, :id, :name, multiple: true do |i| %>
