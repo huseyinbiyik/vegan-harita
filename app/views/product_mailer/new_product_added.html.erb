@@ -18,7 +18,9 @@
           </tr>
           <tr>
             <td style="margin-top: 8px; padding: 10px; background-color: #fff; border-radius: 10px;">
-              <%= image_tag cdn_proxy_url(@product.image), alt:"product-image", style: "max-width: 200px; border-radius: 8px; vertical-align: middle" %>
+              <% if @product.image.present? %>
+                <%= image_tag cdn_proxy_url(@product.image), alt:"product-image", style: "max-width: 200px; border-radius: 8px; vertical-align: middle" %>
+              <% end %>
             </td>
           </tr>
           <tr>
