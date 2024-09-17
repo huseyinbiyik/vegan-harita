@@ -1,8 +1,8 @@
 <main class="user-forms" style="margin-top: 24px;">
   <h1><%= t :edit_account %></h1>
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, data: {turbo: false} }) do |f| %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, data: {turbo: false} }, builder: CustomFormBuilder) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
-    <div class="field" id="avatar-field" data-controller="utils">
+    <div class="form-group" id="avatar-field" data-controller="utils">
       <div id="avatar-container">
         <% if resource.avatar.attached? && resource.avatar.blob.persisted? %>
           <%= image_tag cdn_proxy_url(resource.avatar.variant(:medium)), id: "avatar-img", class: "avatar", data: {utils_target: "preview"} %>
@@ -12,40 +12,50 @@
         <%= f.file_field :avatar, accept: "image/png, image/jpeg", direct_upload: true, data: {action: "change->utils#uploadAvatar"} %>
       </div>
     </div>
-    <div class="field">
+    <div class="form-group">
       <%= f.label :username %>
       <%= f.text_field :username, autofocus: true, autocomplete: "name", placeholder: t('username_placeholder') %>
     </div>
-    <div class="field">
+    <div class="form-group">
       <%= f.label :email %>
       <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: true %>
     </div>
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <div> <%= t :waiting_for %> <%= resource.unconfirmed_email %></div>
     <% end %>
-    <div class="field">
+    <div class="form-group">
       <%= f.label :password %>
       <%= f.password_field :password, autocomplete: "new-password", placeholder: "********" %>
       <% if @minimum_password_length %>
       <% end %>
     </div>
-    <div class="field">
+    <div class="form-group">
       <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "********" %>
     </div>
-    <div class="field select">
+    <div class="form-group">
       <%= f.label :locale, t('language') %>
       <%= f.select :locale, [[t('english'), 'en'], [t('turkish'), 'tr']], selected: f.object.locale || extract_locale_from_accept_language_header %>
     </div>
-    <div class="field">
+    <fieldset id="notification-check">
+    <legend><%= t(:notifications) %></legend>
+    <div class="form-group">
+      <%= f.label :allow_product_notification %>
+      <%= f.check_box :allow_product_notification %>
+    </div>
+    </fieldset>
+    <div class="form-group">
       <%= f.label :current_password %>
       <%= f.password_field :current_password, autocomplete: "current-password", placeholder: "********", required: true %>
     </div>
-    <div class="actions">
-      <%= f.submit t('update'), id:"update-button" %>
+
+    <div class="form-group">
+      <%= f.submit t('update'), data: {turbo_submits_with: t("saving")} %>
     </div>
   <% end %>
   <br>
-  <p> <%= t :unhappy %> <%= button_to t('cancel'), registration_path(resource_name), data: { turbo_confirm: t('sure') }, method: :delete, id:"cancel-button" %></p>
+  <p> <%= t :unhappy %> </p>
+  <%= button_to t('cancel'), registration_path(resource_name), data: { turbo_confirm: t('sure') }, method: :delete, id:"cancel-button" %>
+  <br>
   <br>
 </main>

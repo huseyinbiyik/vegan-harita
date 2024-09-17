@@ -1,0 +1,10 @@
+<% if object.errors.any? %>
+  <div style="color: red">
+    <h2><%= object.errors.count %> <%= t("error_found") %> </h2>
+    <ul>
+      <% object.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

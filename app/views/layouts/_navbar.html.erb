@@ -1,5 +1,12 @@
-<nav>
+<nav id="site-nav">
   <ul id="nav-menu">
+    <% if user_signed_in? && current_user.admin? %>
+      <li class="nav-link panel desktop">
+        <%= link_to admin_root_path, class: "nav-admin-link" do %>
+          <span><%= t :admin_panel %></span>
+        <% end %>
+      </li>
+    <% end %>
     <% if user_signed_in? && current_user.place_owner? %>
       <li class="nav-link panel desktop">
         <%= link_to place_owner_summary_path(current_user.places.first.slug), class: "nav-admin-link" do %>
@@ -13,18 +20,41 @@
         <span><%= t :place_index %></span>
       <% end %>
     </li>
-    <li class="nav-link <%= 'active' if current_page?(coming_soon_path) %>">
+    <li class="nav-link <%= 'active' if current_page?(products_path) %>">
       <%# will be link to future products page %>
-      <%= link_to coming_soon_path do %>
+      <%= link_to products_path do %>
         <%= inline_svg_tag "products.svg", class: "nav-icon" %>
-        <span><%= t :product_index %></span>
+        <span><%= Product.model_name.human(count: :many) %></span>
       <% end %>
     </li>
-    <li class="nav-link <%= 'active' if current_page?(new_place_path) %>" id="add-place-wrapper" data-controller="place-link">
-      <%= link_to new_place_path, id: "add-place-link" do %>
-        <%= inline_svg_tag "add-place.svg", class: "nav-icon", id: "add-place-icon" %>
-        <span><%= t :add_place %></span>
-      <% end %>
+    <% if current_page?(root_path) || current_page?(products_path) %>
+      <li class="nav-link desktop" id="add-new-wrapper">
+        <% if current_page?(root_path) %>
+          <%= link_to new_place_path, id: "add-place-link" do %>
+            <%= inline_svg_tag "add-place.svg", class: "nav-icon", id: "add-place-icon" %>
+            <span><%= t :add_place %></span>
+          <% end %>
+        <% elsif current_page?(products_path) %>
+          <%= link_to new_product_path, id:"add-place-link" do %>
+            <%= inline_svg_tag "add-place.svg", class: "nav-icon", id: "add-place-icon" %>
+            <span><%= t :add_product %></span>
+          <% end %>
+        <% end %>
+      </li>
+    <% end %>
+    <li class="nav-link mobile" id="add-new" data-controller="popup" data-action="click->popup#toggle">
+      <%= inline_svg_tag "add-place.svg", class: "nav-icon", id: "add-place-icon" %>
+      <span><%= t :add %></span>
+      <div id="add-options" data-popup-target="options" class="hidden">
+        <div>
+          <%= link_to new_place_path, data: { action: "click->popup#hide" } do %>
+            <%= inline_svg_tag "places.svg", class: "nav-icon" %>
+          <% end %>
+          <%= link_to new_product_path, data: { action: "click->popup#hide" } do %>
+            <%= inline_svg_tag "products.svg", class: "nav-icon" %>
+          <% end %>
+        </div>
+      </div>
     </li>
     <li class="nav-link <%= 'active' if current_page?(contact_path) %>">
       <%= link_to contact_path, data: { turbo: false } do %>
@@ -33,18 +63,18 @@
       <% end %>
       </li>
     <% if user_signed_in? %>
-      <li class="wrapper nav-link <%= 'active' if current_page?(account_links_path) || current_page?(edit_user_registration_path) || current_page?(approvals_path) || (user_signed_in? && current_user.places.first.present? && current_page?(place_owner_summary_path(current_user.places.first.slug))) %>"> 
+      <li class="wrapper nav-link <%= 'active' if current_page?(account_links_path) || current_page?(edit_user_registration_path) || current_page?(admin_approvals_path) || (user_signed_in? && current_user.places.first.present? && current_page?(place_owner_summary_path(current_user.places.first.slug))) %>">
          <%= link_to account_links_path, data: { controller: "link", link_target: "link" } do %>
           <% if current_user.avatar.attached? %>
-            <%= image_tag(cdn_proxy_url(current_user.avatar.variant(:thumb)), id: "account-icon", height: "40px", width: "40px") %>
+            <%= image_tag(cdn_proxy_url(current_user.avatar.variant(:thumb)), class: "account-icon", height: "40px", width: "40px") %>
           <% else %>
-            <%= inline_svg_tag "account.svg", class: "nav-icon", id: "account-icon" %>
+            <%= inline_svg_tag "account.svg", class: "nav-icon", class: "account-icon" %>
           <% end %>
           <span class="mobile"> <%= t :my_account %> </span>
         <% end %>
         <ul class="dropdown desktop">
-          <li class= "nav-link <%= 'active' if current_page?(edit_user_registration_path) %>">
-            <%= link_to edit_user_registration_path do%>
+          <li class="nav-link <%= 'active' if current_page?(edit_user_registration_path) %>">
+            <%= link_to edit_user_registration_path do %>
               <% if current_user.avatar.attached? %>
                 <%= image_tag(cdn_proxy_url(current_user.avatar.variant(:thumb)), class: "nav-icon") %>
               <% else %>
@@ -53,7 +83,7 @@
               <span> <%= t :my_account %> </span>
             <% end %>
           </li>
-          <li class= "nav-link desktop">
+          <li class="nav-link desktop">
             <%= link_to destroy_user_session_path, method: :delete, id: "logout-link" do %>
               <span><%= t :logOut %></span>
             <% end %>

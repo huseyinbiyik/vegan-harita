@@ -1,0 +1,11 @@
+<p style="color: green"><%= notice %></p>
+<h1>Product categories</h1>
+<div id="admin_product_categories">
+  <% @product_categories.each do |product_category| %>
+    <%= render product_category %>
+    <p>
+      <%= link_to "Show this product category", admin_product_category_path(product_category) %>
+    </p>
+  <% end %>
+</div>
+<%= link_to "New product category", new_admin_product_category_path %>

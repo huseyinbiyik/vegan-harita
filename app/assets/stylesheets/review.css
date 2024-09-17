@@ -18,10 +18,8 @@
   padding-top: 16px;
   overflow: scroll;
 
-  .review-form-group {
+  .review-group {
     width: 280px;
-    display: flex;
-    flex-direction: column;
   }
 }
 

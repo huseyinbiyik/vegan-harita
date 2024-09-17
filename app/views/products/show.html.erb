@@ -1,0 +1,127 @@
+<section class="product-show">
+  <nav>
+    <ul class="breadcrumbs">
+      <% breadcrumbs.each do |crumb| %>
+        <li class="breadcrumb">
+          <% if crumb.link? %>
+            <%= link_to crumb.name, crumb.path, class: "breadcrumb-link" %>
+          <% else %>
+            <span class="breadcrumb-page">
+              <%= crumb.name %>
+            </span>
+          <% end %>
+          <% unless crumb == breadcrumbs.last %>
+            <span class="breadcrumb-separator">/</span>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </nav>
+  <div class="product">
+    <div class="product-heading-container">
+      <div class="product-heading-left">
+        <h1>
+          <%= @product.name %>
+        </h1>
+        <p>
+          <strong> <%= t("updated_at") %> </strong>
+          <%= l @product.updated_at, format: :long %>
+        </p>
+      </div>
+      <div class="product-heading-right">
+        <% if user_signed_in? %>
+          <%= link_to edit_product_path(@product.slug), class:"edit-product" do %>
+            <span class="edit-icon-container">
+              <%= inline_svg_tag "edit.svg" %>
+            </span>
+            <span> <%= t('edit') %> </span>
+          <% end %>
+        <% else %>
+          <%= link_to (new_user_session_path), class:"edit-product" do %>
+            <span class="edit-icon-container">
+              <%= inline_svg_tag "edit.svg", class: "edit-icon" %>
+            </span>
+            <span> <%= t('edit') %> </span>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="product-features-container">
+      <div id="product-image-container">
+        <% if @product.image.attached? %>
+          <div>
+            <%= image_tag cdn_proxy_url(@product.image.variant(:big)), alt: @product.name, class:"product-image" %>
+          </div>
+        <% else %>
+          <div class="no-photo-wrapper">
+            <%= image_tag "default-product-image.jpg", class: "product-image default-image" %>
+            <p class="no-photo"> <%= t :no_photo %> </p>
+          </div>
+        <% end %>
+      </div>
+      <ul class="product-details">
+        <li class="product-detail">
+          <strong><%= Brand.model_name.human %> :</strong> <br>
+          <%= link_to products_path(q: { brand_id_eq_any: [@product.brand.id] }) do %>
+            <%= @product.brand.name %>
+          <% end %>
+        </li>
+        <li class="product-detail">
+          <strong><%= Product.human_attribute_name(:ingredients) %> :</strong><br>
+          <%= @product.ingredients %>
+        </li>
+        <li class="product-detail">
+          <strong><%= Shop.model_name.human %> :</strong> <br>
+          <% @product.shops.each do |shop| %>
+            <%= link_to products_path(q: { shop_id_eq_any: [shop.id] }) do %>
+              <%= shop.name %>
+            <% end %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+    <div class="product-detail statement">
+      <strong><%= Product.human_attribute_name(:statement) %> :</strong> <br>
+      <%= @product.statement %>
+    </div>
+    <section id="reviews">
+      <div id="reviews-header">
+        <h2> <%= t(".add_review_title") %> </h2>
+      </div>
+      <div class="reviews-wrapper">
+        <% @reviews&.each do |review| %>
+          <%= render review %>
+        <% end %>
+        <% if user_signed_in? %>
+          <%= turbo_frame_tag "new_review" do %>
+            <%= link_to new_review_path(reviewable_id: @product.id, reviewable_type: 'Product'), class: "add-review-btn" do %>
+              <%= image_tag "add-review.svg" %>
+              <%= t :add_review %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    </section>
+    <div class="contributors">
+      <div id="contributors-header">
+        <h2><%= Contributor.model_name.human(count: :many) %></h2>
+      </div>
+      <div class="contributors-wrapper">
+        <% @contributors.each do |contributor| %>
+          <div class="contributor">
+            <% if contributor.user.avatar.attached? %>
+              <%= image_tag cdn_proxy_url(contributor.user.avatar.variant(:thumb)), class: "contributor-avatar", loading: "lazy" %>
+            <% else %>
+              <%= image_tag "account.svg", class: "contributor-avatar", loading: "lazy" %>
+            <% end %>
+            <span class="contributor-name"><%= contributor.user.username %></span>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <p class="disclaimer-text"> <%= t('disclaimer') %> </p>
+    <div id="delete-product">
+      <%= link_to t(".deletion_request"), new_change_logs_path(changeable_id: @product.id, changeable_type: "Product"), id:"product-delete-btn" %>
+    </div>
+    <br>
+  </section>

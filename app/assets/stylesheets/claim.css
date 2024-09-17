@@ -1,3 +1,7 @@
 .claim-form-container {
   max-width: 280px;
 }
+
+#claim-form {
+  margin: unset;
+}

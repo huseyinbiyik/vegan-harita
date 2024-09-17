@@ -1,0 +1,15 @@
+<main id="product-index">
+  <div id="product-search-container">
+    <%= render "search_form" %>
+    <%= link_to barcode_scanner_products_path, class:"mobile", id:"scanner" do %>
+      <%= inline_svg_tag 'barcode-scanner.svg' %>
+    <% end %>
+  </div>
+  <%= turbo_frame_tag "filter-form",  data: { turbo_action: "advance" } do %>
+    <%= render "filter_form" %>
+    <div id="products">
+      <%= render @products %>
+    </div>
+    <%= paginate @products %>
+  <% end %>
+</main>

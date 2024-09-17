@@ -4,7 +4,8 @@
               controller: params[:attribute] == "location" ? "form place" : "form",
               action: params[:attribute] == "location" ? "turbo:submit-end->form#submitEnd google-maps-callback@window->place#initializeMap" : "turbo:submit-end->form#submitEnd",
               form_target: "frame"
-            }) do |form| %>
+            },
+            builder: CustomFormBuilder) do |form| %>
     <% if params[:attribute] == "name" %>
       <div class="inputs-wrapper">
         <div class="form-group">
@@ -14,44 +15,44 @@
       </div>
     <% end %>
     <% if params[:attribute] == "vegan" %>
-      <div class="inputs-wrapper">
+      <div class="form-group inputs-wrapper">
         <%= form.label t('place_vegan') %>
-        <%= form.select :vegan, options_for_select([[ t('vegan'), true], [ t('has_option'), false]], selected: @place.vegan), {}, class: "select-type" %>
+        <%= form.select :vegan, options_for_select([[ t('vegan'), true], [ t('has_option'), false]], selected: @place.vegan), {} %>
       </div>
     <% end %>
     <% if params[:attribute] == "location" %>
       <div id="place-location">
         <div id="modal-location-wrapper">
-          <div class= "form-group">
+          <div class="form-group" id="address-group">
             <%= form.label t('address') %>
-            <%= form.text_field :address, value: @place.address,  data: {place_target: "field", action: "keydown->place#preventSubmit"}, placeholder: "X Vegan Cafe, Kadıköy...", required: true, maxlength: 100, autofocus: true, id: "location-input" %>
-            <div id="modal-map"  data-place-target="map"></div>
+            <%= form.text_field :address, value: @place.address, data: {place_target: "field", action: "keydown->place#preventSubmit"}, placeholder: "X Vegan Cafe, Kadıköy...", required: true, maxlength: 100, autofocus: true, id: "location-input" %>
+            <div id="modal-map" data-place-target="map"></div>
           </div>
 
           <%= form.hidden_field :latitude, data: {place_target: "latitude"} %>
-          <%= form.hidden_field :longitude, data: {place_target: "longitude"}  %>
-          <%= form.hidden_field :place_id, data: {place_target: "place_id"}%>
+          <%= form.hidden_field :longitude, data: {place_target: "longitude"} %>
+          <%= form.hidden_field :place_id, data: {place_target: "place_id"} %>
         </div>
       </div>
     <% end %>
     <% if params[:attribute] == "phone" %>
-      <div class= "inputs-wrapper">
+      <div class="inputs-wrapper">
         <div class="form-group">
           <%= form.label t('phone'), style: "display: block" %>
-          <%= form.phone_field :phone, value: @place.phone, pattern: "[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}",  placeholder: "2121112233", title: t('.phone_error_message'), autofocus: true  %>
+          <%= form.phone_field :phone, value: @place.phone, pattern: "[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}",  placeholder: "2121112233", title: t('.phone_error_message'), autofocus: true %>
         </div>
       </div>
     <% end %>
     <% if params[:attribute] == "web" %>
       <div class="inputs-wrapper">
-        <div class= "form-group">
+        <div class="form-group">
           <%= form.label t('websiteAddress'), style: "display: block" %>
           <%= form.text_field :web_url, value: @place.web_url, placeholder: "veganharita.com", pattern: "(?!www)^(([a-z0-9]+(-[a-z0-9]+)*\.)*[a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}(\/[a-zA-Z0-9]*)?$", title: t('.web_url_error_message') , maxlength: 50, autofocus: true %>
         </div>
       </div>
     <% end %>
     <% if params[:attribute] == "instagram" %>
-      <div class= "inputs-wrapper">
+      <div class="inputs-wrapper">
         <div class="form-group modal-social-group">
           <%= form.label t('instagram'), style: "display: block" %>
           <span class="social-platform"> <%= t :instagram_link %> </span>
@@ -60,7 +61,7 @@
       </div>
     <% end %>
     <% if params[:attribute] == "facebook" %>
-      <div class= "inputs-wrapper">
+      <div class="inputs-wrapper">
         <div class="form-group modal-social-group">
           <%= form.label t('facebook'), style: "display: block" %>
           <span class="social-platform"> <%= t :facebook_link %> </span>
@@ -69,7 +70,7 @@
       </div>
     <% end %>
     <% if params[:attribute] == "x" %>
-      <div class= "inputs-wrapper">
+      <div class="inputs-wrapper">
         <div class="form-group modal-social-group">
           <%= form.label t('x'), style: "display: block" %>
           <span class="social-platform"> <%= t :x_link %> </span>
@@ -78,8 +79,8 @@
       </div>
     <% end %>
     <% if params[:attribute] == "tags" %>
-      <div class="add-new-place-form-group tags-form-container" id="place-tags-modal" >
-        <%= form.label t('select_tags'), style: "display: block"%>
+      <div class="add-new-place-form-group tags-form-container" id="place-tags-modal">
+        <%= form.label t('select_tags'), style: "display: block" %>
         <div class="tags-form">
           <% Tag.all.each do |tag| %>
             <span class="checkbox-inline tag">
@@ -91,14 +92,13 @@
       </div>
     <% end %>
     <% if params[:attribute] == "images" %>
-      <div class= "add-new-photos select-wrapper" data-controller="utils" data-utils-assets-value="<%= [t('files_selected'), t('no_file_selected')].to_json %>">
+      <div class="add-new-photos select-wrapper" >
         <%= form.label t('new_photos') %>
-        <span id="upload-edit-btn" data-utils-target="uploadBtn"><%= t(:no_file_selected) %></span>
-        <%= form.file_field :images, multiple: true, direct_upload: true, accept: "image/jpeg,image/jpg,image/png,image/webp", data: { action: "change->utils#uploadFiles", content: t('select_image')} %>
+        <%= form.file_field :images, multiple: true, direct_upload: true, accept: "image/jpeg,image/jpg,image/png,image/webp" %>
       </div>
 
       <% if @place.images.attached? %>
-        <div class= "photo-select-form-container">
+        <div class="photo-select-form-container">
           <p> <%= t :select_delete %> </p>
           <div class="select-images-container">
             <% @place.images.each do |image| %>
@@ -112,7 +112,7 @@
       <% end %>
     <% end %>
     <div class="form-buttons">
-      <%= form.submit t('submit'), class:"primary-green-btn", data: { turbo_confirm: t('sure') }  %>
+      <%= form.submit t('submit'), class:"primary-green-btn", data: { turbo_confirm: t('sure') } %>
       <a href="#" class="turbo-cancel-btn"> <%= t :nevermind %> </a>
     </div>
   <% end %>

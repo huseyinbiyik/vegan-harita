@@ -1,5 +1,5 @@
 class Review < ApplicationRecord
-  belongs_to :place
+  belongs_to :reviewable, polymorphic: true
   belongs_to :user
 
   has_many_attached :images, dependent: :destroy do |attachable|

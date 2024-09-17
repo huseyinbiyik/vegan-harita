@@ -1,16 +1,17 @@
 class ReviewsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_review, only: %i[edit update destroy]
-  before_action :set_place, only: %i[new edit create update destroy]
 
   def new
     @review = Review.new
+    @review.reviewable_id = params[:reviewable_id]
+    @review.reviewable_type = params[:reviewable_type]
   end
 
   def edit; end
 
   def create
-    @review = @place.reviews.build(review_params)
+    @review = Review.new(review_params)
     @review.user = current_user
     respond_to do |format|
       if @review.save
@@ -53,11 +54,7 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
   end
 
-  def set_place
-    @place = Place.find_by(slug: params[:place_slug])
-  end
-
   def review_params
-    params.require(:review).permit(:rating, :content, :feedback, :approved, images: [])
+    params.require(:review).permit(:rating, :content, :feedback, :approved, :reviewable_id, :reviewable_type, images: [])
   end
 end

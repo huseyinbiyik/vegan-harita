@@ -1,0 +1,24 @@
+tr:
+  admins:
+    approvals:
+      pending_products: "Onay Bekleyen Ürünler"
+      pending_place_reviews: "Onay Bekleyen Mekan Yorumları"
+      pending_product_reviews: "Onay Bekleyen Ürün Yorumları"
+      products_requested_for_deletion: "Silinmesi Talep Edilen Ürünler"
+  products:
+    show:
+      add_review_title: "Ürün Değerlendirmeleri"
+      deletion_request: "Bu Ürünü Sil"
+    new:
+      title: "Yeni Ürün Ekle"
+    edit:
+      title: "Ürün Düzenle"
+    form:
+      ingredients_en: "İçindekiler (İngilizce)"
+      ingredients_tr: "İçindekiler (Türkçe)"
+      shops: "Bu ürünü satan mağazalar"
+      statement: "Ürünün vegan olduğunu kanıtlayan belge veya açıklama"
+  change_logs:
+    new:
+      title: "Silme Talebi"
+      request_message: "Lütfen silme talebinizi açıklayın."

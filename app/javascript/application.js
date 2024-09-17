@@ -3,6 +3,9 @@ import "@hotwired/turbo-rails";
 import "controllers";
 import "chartkick"
 import "Chart.bundle"
+import "trix"
+import "@rails/actiontext"
+
 
 
 if ("serviceWorker" in navigator) {
@@ -37,3 +40,4 @@ if ("serviceWorker" in navigator) {
     // The current browser doesn't support service workers.
     // Perhaps it is too old or we are not in a Secure Context.
 }
+

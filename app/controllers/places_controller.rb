@@ -10,7 +10,7 @@ class PlacesController < ApplicationController
     east = params[:east].to_f
     west = params[:west].to_f
 
-    @places = Place.approved.where(latitude: south..north, longitude: west..east)
+    @places = Place.approved.where(latitude: south..north, longitude: west..east).includes(:images_attachments)
 
     @last_ten_places = Place.approved.order(created_at: :desc).limit(10)
     respond_to do |format|
@@ -41,7 +41,7 @@ class PlacesController < ApplicationController
   def show
     redirect_to root_path, notice: t("controllers.places.not_approved") unless @place.approved || current_user&.admin?
     @reviews = @place.reviews.order(created_at: :desc).with_attached_images
-    @contributors = User.where(id: @place.contributors).with_attached_avatar
+    @contributors = User.where(id: @place.contributors)
   end
 
   def new

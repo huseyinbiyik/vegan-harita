@@ -22,13 +22,20 @@ gem "devise"
 # Map
 gem "geocoder", "~> 1.8"
 
+# Search
+gem "ransack", "~> 4.2"
+
+# Translations
+gem "mobility", "~> 1.2"
+gem "mobility-ransack", "~> 1.2"
+
 # Charts
 gem "chartkick"
 
 # QR code generation
 gem "rqrcode", "~> 2.2"
 
-# Job processing
+# Jobs
 gem "solid_queue", "~> 0.3.1"
 gem "mission_control-jobs", "~> 0.2.1"
 
@@ -40,6 +47,7 @@ gem "sentry-rails"
 gem "aws-sdk-s3", "~> 1.132"
 gem "recaptcha", "~> 5.15"
 gem "inline_svg"
+gem "kaminari", "~> 1.2"
 
 group :development, :test do
   gem "debug", platforms: %i[mri mingw x64_mingw]
@@ -53,6 +61,7 @@ group :development do
   gem "erb-formatter"
   gem "letter_opener"
   gem "web-console"
+  gem "bullet", "~> 7.2"
 end
 
 group :test do

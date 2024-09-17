@@ -3,14 +3,13 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   helper_method :extract_locale_from_accept_language_header
   before_action :set_meta_tags
+  include Breadcrumb
 
   private
 
   def set_meta_tags
     @page_title = "Vegan Harita"
   end
-
-  private
 
   def set_locale
     I18n.locale = current_user&.locale || extract_locale_from_accept_language_header || I18n.default_locale
@@ -27,6 +26,6 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up,
                                       keys: %i[email password password_confirmation user_agreement_accepted username])
     devise_parameter_sanitizer.permit(:account_update,
-                                      keys: %i[approved role points avatar locale admin_note username])
+                                      keys: %i[approved role points avatar locale admin_note username allow_product_notification])
   end
 end

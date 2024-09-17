@@ -23,6 +23,7 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true, length: { maximum: 20 }, format: { with: /\A[a-zA-Z0-9_]+\Z/ }
   validate :avatar_file_type
   validate :username_is_not_a_route
+  validates :allow_product_notification, inclusion: { in: [ true, false ] }
 
   # Scopes
   scope :approved, -> { where(approved: true) }

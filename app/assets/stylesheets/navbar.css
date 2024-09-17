@@ -55,6 +55,8 @@ header.passive-header {
   gap: 8px;
   padding: 0.5rem 1.25rem;
   height: 50px;
+  margin-bottom: unset;
+  flex-direction: row;
 }
 
 #search-field {
@@ -104,7 +106,7 @@ header.passive-header {
   color: var(--gray);
 }
 
-nav {
+#site-nav {
   background-color: var(--white);
   padding: 5px 20px;
   width: 100%;
@@ -112,16 +114,6 @@ nav {
   bottom: 0;
   border-radius: 30px 30px 0 0;
 }
-
-/* .panel {
-  position: fixed;
-  background-color: var(--green);
-  height: 50px;
-  width: 50px;
-  top: 16px;
-  left: 20px;
-  border-radius: 50%;
-} */
 
 .panel img {
   width: 40px;
@@ -135,8 +127,6 @@ nav {
 #nav-menu {
   display: flex;
   list-style: none;
-
-  /* gap: 5px; */
   justify-content: space-evenly;
   max-width: 400px;
   margin: auto;
@@ -147,7 +137,8 @@ nav {
   height: 50px;
 }
 
-.nav-link a {
+.nav-link a,
+#add-new {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -188,6 +179,12 @@ nav {
   font-size: 1.125rem;
 }
 
+.account-icon {
+  display: block;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 .vh-instagram a {
   display: flex;
   align-items: center;
@@ -218,28 +215,6 @@ nav {
   gap: 5px;
 }
 
-/* #account-icon {
-  display: none;
-} */
-
-/* #logout-link {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  height: 42px;
-  width: 240px;
-  padding: 8px 10px;
-  background-color: var(--red);
-  border-radius: 30px;
-  margin-bottom: 24px;
-}
-
-#logout-link span {
-  color: var(--white);
-  font-weight: 500;
-} */
-
 #nav-menu.hidden {
   display: none;
 }
@@ -265,6 +240,30 @@ nav {
   list-style-type: none;
   align-items: center;
   gap: 1.125rem;
+}
+
+#add-options {
+  & div {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    justify-content: center;
+  }
+
+  & a {
+    background-color: var(--white);
+    border: 0.5px solid var(--green);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    padding: 4px;
+    border-radius: 8px;
+  }
+
+  position: absolute;
+  top: -70px;
+  width: 100%;
 }
 
 @media (min-width: 1024px) {
@@ -356,7 +355,7 @@ nav {
     display: none;
   }
 
-  nav {
+  #site-nav {
     position: absolute;
     top: 0;
     right: 0;
@@ -394,11 +393,7 @@ nav {
     background-color: var(--white);
   }
 
-  .invisible-link {
-    display: none;
-  }
-
-  #add-place-wrapper {
+  #add-new-wrapper {
     background-color: var(--white);
     position: absolute;
     top: 86px;
@@ -407,6 +402,7 @@ nav {
     height: 50px;
     border-radius: 30px;
     width: auto;
+    z-index: 1;
   }
 
   #add-place-icon {
@@ -437,12 +433,6 @@ nav {
     display: flex;
     width: auto;
     flex-direction: row;
-  }
-
-  #account-icon {
-    display: block;
-    border-radius: 50%;
-    object-fit: cover;
   }
 
   .dropdown {
@@ -495,6 +485,10 @@ nav {
   }
 
   #account-links {
+    display: none;
+  }
+
+  #add-new {
     display: none;
   }
 }
