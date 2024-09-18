@@ -2,14 +2,9 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
   helper_method :extract_locale_from_accept_language_header
-  before_action :set_meta_tags
   include Breadcrumb
 
   private
-
-  def set_meta_tags
-    @page_title = "Vegan Harita"
-  end
 
   def set_locale
     I18n.locale = current_user&.locale || extract_locale_from_accept_language_header || I18n.default_locale

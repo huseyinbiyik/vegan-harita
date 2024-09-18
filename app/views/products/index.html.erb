@@ -1,3 +1,6 @@
+<%= content_for :title, "#{Product.model_name.human(count: :many)} - Vegan Harita" %>
+<%= content_for :description, t(".description") %>
+
 <main id="product-index">
   <div id="product-search-container">
     <%= render "search_form" %>

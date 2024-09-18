@@ -42,10 +42,4 @@ class HomeController < ApplicationController
 
     sanitized_params
   end
-
-  private
-
-  def set_meta_tags
-    @page_title = t("titles.home.contact")
-  end
 end
