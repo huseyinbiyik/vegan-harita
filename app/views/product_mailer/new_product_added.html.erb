@@ -2,7 +2,7 @@
 	<table align="center" width="100%" style="margin: 20px 0; font-family: General Sans, sans-serif;" role="presentation">
 			<tr>
 				<td align="center" style="padding: 20px; margin-top: 20px;">
-					<table style="border: 1px solid #e2e8f0; border-radius: 6px; text-align: center;">
+					<table style="border: 1px solid #e2e8f0; border-radius: 6px; text-align: center; background-color: #fff">
 							<tr>
 								<td>
 									<a href="https://veganharita.com/" target="_blank" style="text-decoration: none;">
@@ -11,7 +11,7 @@
 								</td>
 							</tr>
 							<tr>
-								<td style="padding-bottom:20px;padding-top:20px;width:100%;padding-right:0px;padding-left:0px;">
+								<td style="padding-bottom:20px; padding-top:20px; width:100%; padding-right:0px; padding-left:0px;>
 									<div align="center" style="line-height:10px">
 										<% if @product.image.present? %>
 											<%= image_tag cdn_proxy_url(@product.image), alt:"product-image", style: "max-width: 200px; border-												radius: 8px; vertical-align: middle" %>
