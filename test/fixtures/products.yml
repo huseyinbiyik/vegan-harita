@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# one:
+#   bar_code: MyString
+#   type: 1
+
+# two:
+#   bar_code: MyString
+#   type: 1

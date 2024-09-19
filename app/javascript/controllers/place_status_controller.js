@@ -2,7 +2,13 @@ import { Controller } from "@hotwired/stimulus";
 
 // Connects to data-controller="place-status"
 export default class extends Controller {
-  static targets = ["statusOpen", "statusClose", "openingHoursTable", "icon"];
+  static targets = [
+    "statusOpen",
+    "statusClose",
+    "noStatus",
+    "openingHoursTable",
+    "icon",
+  ];
   static values = { placeId: String };
   connect() {
     if (typeof google != "undefined") {
@@ -22,19 +28,29 @@ export default class extends Controller {
     service.getDetails(request, (place, status) => {
       if (status === google.maps.places.PlacesServiceStatus.OK) {
         const openingHours = place.opening_hours;
-        if (openingHours) {
+        if (openingHours === undefined) {
+          this.noStatusTargets.forEach((element) => {
+            element.removeAttribute("hidden");
+          });
+
+          this.iconTarget.classList.add("place-open-false");
+        } else {
           this.openingHoursTableTarget.innerHTML +=
             openingHours.weekday_text.join("<br>");
-          console.log(this.iconTarget);
-          this.iconTarget.classList.add("place-open-true");
-          this.statusOpenTargets.forEach((element) => {
-            element.removeAttribute("hidden");
-          });
-        } else {
-          this.iconTarget.classList.add("place-open-false");
-          this.statusCloseTargets.forEach((element) => {
-            element.removeAttribute("hidden");
-          });
+
+          const openNow = place.opening_hours?.isOpen(new Date());
+
+          if (openNow) {
+            this.iconTarget.classList.add("place-open-true");
+            this.statusOpenTargets.forEach((element) => {
+              element.removeAttribute("hidden");
+            });
+          } else {
+            this.iconTarget.classList.add("place-open-false");
+            this.statusCloseTargets.forEach((element) => {
+              element.removeAttribute("hidden");
+            });
+          }
         }
       }
     });

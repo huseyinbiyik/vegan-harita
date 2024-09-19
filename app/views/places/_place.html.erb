@@ -99,15 +99,19 @@
         <div class="place-detail">
           <div class="detail-group place-status-wrapper" data-controller="<%= 'place-status' if Rails.env.production? %>" data-place-status-place-id-value="<%= place.place_id %>">
             <div class="dynamic-icon-wrapper">
-              <%= image_tag "status.svg", class: "detail-icon", data: { place_status_target: "icon" } %>
+              <%= image_tag "status.svg", class: "detail-icon place-status", data: { place_status_target: "icon" } %>
               <span class="detail dynamic-status" data-place-status-target="statusOpen" hidden><%= t("open").downcase %> </span>
               <span class="detail dynamic-status" data-place-status-target="statusClose" hidden><%= t("closed").downcase %></span>
+              <span class="detail dynamic-status" data-place-status-target="noStatus" hidden>?</span>
               <div class="opening-hours-table" data-place-status-target="openingHoursTable">
-                <span class="opening-hours-table-heading"><%= t('opening_hours') %></span>
+                <span class="opening-hours-table-heading"><%= t('opening_hours') %> <br>
+                </span>
+                <span data-place-status-target="noStatus" hidden><%= t("temp_per_closed") %></span>
               </div>
             </div>
             <span class="detail dotted" data-place-status-target="statusOpen" hidden><%= t("open_right_now") %> </span>
             <span class="detail dotted" data-place-status-target="statusClose" hidden><%= t("closed_right_now") %></span>
+            <span class="detail dotted" data-place-status-target="noStatus" hidden><%= t("closed") %>?</span>
           </div>
         </div>
         <div class="place-detail">
@@ -248,7 +252,7 @@
       <% end %>
       <% if user_signed_in? %>
         <%= turbo_frame_tag "new_review" do %>
-          <%= link_to new_place_review_path(@place.slug), class: "add-review-btn" do %>
+          <%= link_to new_review_path(reviewable_id: @place.id, reviewable_type: "Place"), class: "add-review-btn" do %>
             <%= image_tag "add-review.svg" %>
             <%= t :add_review %>
           <% end %>
@@ -257,7 +261,7 @@
     </div>
   </section>
   <hr class="separator">
-  <section id="contributors">
+  <section class="contributors">
     <div id="contributors-header">
       <h2> <%= t("views.places.show.contributors") %> </h2>
     </div>
@@ -267,7 +271,7 @@
           <% if contributor.avatar.attached? %>
             <%= image_tag cdn_proxy_url(contributor.avatar.variant(:thumb)), class: "contributor-avatar", loading: "lazy" %>
           <% else %>
-            <%= image_tag "account-icon.svg", class: "contributor-avatar", loading: "lazy" %>
+            <%= image_tag "account.svg", class: "contributor-avatar", loading: "lazy" %>
           <% end %>
           <span class="contributor-name"><%= contributor.username %></span>
         </div>

@@ -10,9 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_30_105750) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_08_122459) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "action_text_rich_texts", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "body"
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["record_type", "record_id", "name"], name: "index_action_text_rich_texts_uniqueness", unique: true
+  end
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -42,6 +52,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_30_105750) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "brands", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "change_logs", force: :cascade do |t|
     t.jsonb "data", default: {}, null: false
     t.string "changeable_type", null: false
@@ -68,6 +84,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_30_105750) do
     t.index ["user_id"], name: "index_claims_on_user_id"
   end
 
+  create_table "contributors", force: :cascade do |t|
+    t.string "contributable_type", null: false
+    t.bigint "contributable_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["contributable_type", "contributable_id"], name: "index_contributors_on_contributable"
+    t.index ["user_id"], name: "index_contributors_on_user_id"
+  end
+
   create_table "likes", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "record_type", null: false
@@ -92,6 +116,31 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_30_105750) do
     t.bigint "creator_id"
     t.index ["creator_id"], name: "index_menus_on_creator_id"
     t.index ["place_id"], name: "index_menus_on_place_id"
+  end
+
+  create_table "mobility_string_translations", force: :cascade do |t|
+    t.string "locale", null: false
+    t.string "key", null: false
+    t.string "value"
+    t.string "translatable_type"
+    t.bigint "translatable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["translatable_id", "translatable_type", "key"], name: "index_mobility_string_translations_on_translatable_attribute"
+    t.index ["translatable_id", "translatable_type", "locale", "key"], name: "index_mobility_string_translations_on_keys", unique: true
+    t.index ["translatable_type", "key", "value", "locale"], name: "index_mobility_string_translations_on_query_keys"
+  end
+
+  create_table "mobility_text_translations", force: :cascade do |t|
+    t.string "locale", null: false
+    t.string "key", null: false
+    t.text "value"
+    t.string "translatable_type"
+    t.bigint "translatable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["translatable_id", "translatable_type", "key"], name: "index_mobility_text_translations_on_translatable_attribute"
+    t.index ["translatable_id", "translatable_type", "locale", "key"], name: "index_mobility_text_translations_on_keys", unique: true
   end
 
   create_table "places", force: :cascade do |t|
@@ -130,17 +179,59 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_30_105750) do
     t.index ["user_id", "place_id"], name: "index_places_users_on_user_id_and_place_id"
   end
 
+  create_table "product_categories", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "product_sub_categories", force: :cascade do |t|
+    t.bigint "product_category_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_category_id"], name: "index_product_sub_categories_on_product_category_id"
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "bar_code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "approved", default: false
+    t.bigint "product_category_id", null: false
+    t.bigint "brand_id"
+    t.bigint "product_sub_category_id", null: false
+    t.string "slug"
+    t.string "name", null: false
+    t.index ["brand_id"], name: "index_products_on_brand_id"
+    t.index ["product_category_id"], name: "index_products_on_product_category_id"
+    t.index ["product_sub_category_id"], name: "index_products_on_product_sub_category_id"
+    t.index ["slug"], name: "index_products_on_slug", unique: true
+  end
+
+  create_table "products_shops", id: false, force: :cascade do |t|
+    t.bigint "product_id", null: false
+    t.bigint "shop_id", null: false
+    t.index ["product_id", "shop_id"], name: "index_products_shops_on_product_id_and_shop_id"
+    t.index ["shop_id", "product_id"], name: "index_products_shops_on_shop_id_and_product_id"
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.integer "rating"
     t.text "content", null: false
     t.text "feedback"
     t.boolean "approved", default: false
-    t.bigint "place_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["place_id"], name: "index_reviews_on_place_id"
+    t.string "reviewable_type"
+    t.bigint "reviewable_id"
+    t.index ["reviewable_type", "reviewable_id"], name: "index_reviews_on_reviewable"
     t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
+  create_table "shops", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "solid_queue_blocked_executions", force: :cascade do |t|
@@ -269,6 +360,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_30_105750) do
     t.string "locale"
     t.text "admin_note"
     t.string "username"
+    t.boolean "allow_product_notification", default: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -286,10 +378,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_30_105750) do
   add_foreign_key "change_logs", "users"
   add_foreign_key "claims", "places"
   add_foreign_key "claims", "users"
+  add_foreign_key "contributors", "users"
   add_foreign_key "likes", "users"
   add_foreign_key "menus", "places"
   add_foreign_key "menus", "users", column: "creator_id"
-  add_foreign_key "reviews", "places"
+  add_foreign_key "product_sub_categories", "product_categories"
+  add_foreign_key "products", "brands"
+  add_foreign_key "products", "product_categories"
+  add_foreign_key "products", "product_sub_categories"
   add_foreign_key "reviews", "users"
   add_foreign_key "solid_queue_blocked_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade
   add_foreign_key "solid_queue_claimed_executions", "solid_queue_jobs", column: "job_id", on_delete: :cascade

@@ -1,0 +1,51 @@
+en:
+  layouts:
+    application:
+      title: "Vegan Harita"
+      description: "Vegan Harita is a platform where you can find vegan products and places in Turkey."
+  admins:
+    approvals:
+      pending_products: "Pending Products"
+      pending_place_reviews: "Pending Place Reviews"
+      pending_product_reviews: "Pending Product Reviews"
+      products_requested_for_deletion: "Products Requested for Deletion"
+  places:
+    index:
+      description: "Find vegan restaurants, cafes, and more in Turkey."
+    new:
+      title: "Add Place - Vegan Harita"
+    show:
+      description: "is vegan friendly? Probably. Find out more about this place."
+  products:
+    index:
+      description: "Find vegan products in Turkey. Add new products and reviews."
+    show:
+      description: "is vegan? Probably. Find out more about this product."
+      add_review_title: "Add Your Review"
+      deletion_request: "Delete This Product"
+    new:
+      title: "Add a New Product"
+    edit:
+      title: "Edit Product"
+    form:
+      ingredients_en: "Ingredients (English)"
+      ingredients_tr: "Ingredients (Turkish)"
+      shops: "Shops that sell this product"
+      statement: "A document or statement proving the product is vegan"
+  change_logs:
+    new:
+      title: "Delete Request"
+      request_message: "Please provide a reason for the deletion request."
+  home:
+    contact:
+      title: "Contact - Vegan Harita"
+  devise:
+    registrations:
+      new:
+        title: "Sign up - Vegan Harita"
+      edit:
+        title: "My Account - Vegan Harita"
+    sessions:
+      new:
+        title: "Log in - Vegan Harita"
+

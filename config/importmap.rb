@@ -15,3 +15,6 @@ pin "fast-deep-equal" # @3.1.3
 pin "kdbush" # @4.0.2
 pin "supercluster" # @8.0.1
 # These are all for clustering
+pin "trix"
+pin "@rails/actiontext", to: "actiontext.esm.js"
+pin "quagga" # @0.12.1

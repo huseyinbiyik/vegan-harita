@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus";
 import { MarkerClusterer } from "@googlemaps/markerclusterer";
 
 export default class extends Controller {
-  static targets = ["map"];
+  static targets = ["map", "search", "form"];
   static values = { assets: Array };
 
   connect() {
@@ -265,6 +265,24 @@ export default class extends Controller {
         infoWindow.close();
       });
     }
+  }
+
+  searchPlaces() {
+    clearTimeout(this.timeout);
+    this.timeout = setTimeout(() => {
+      this.formTarget.requestSubmit();
+    }, 500);
+  }
+
+  panToLocation(event) {
+    event.preventDefault();
+    const lat = event.currentTarget.dataset.lat;
+    const lon = event.currentTarget.dataset.lon;
+    this.map.panTo({ lat: parseFloat(lat), lng: parseFloat(lon) });
+  }
+
+  filterPlaces(event) {
+    this.createMap(event.currentTarget.value);
   }
 
   disconnect() {

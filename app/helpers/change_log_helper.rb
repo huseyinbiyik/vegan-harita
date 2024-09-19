@@ -1,0 +1,2 @@
+module ChangeLogHelper
+end

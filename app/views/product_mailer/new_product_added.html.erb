@@ -1,0 +1,55 @@
+<% I18n.with_locale(@locale) do %>
+	<table align="center" width="100%" style="margin: 20px 0; font-family: General Sans, sans-serif;" role="presentation">
+			<tr>
+				<td align="center" style="padding: 20px; margin-top: 20px;">
+					<table style="border: 1px solid #e2e8f0; border-radius: 6px; text-align: center; background-color: #fff">
+							<tr>
+								<td>
+									<a href="https://veganharita.com/" target="_blank" style="text-decoration: none;">
+							    <%= image_tag(attachments['logo.png'].url, alt: 'logo', style:"max-width: 140px") %>
+						    	</a>
+								</td>
+							</tr>
+							<tr>
+								<td style="padding-bottom:20px; padding-top:20px; width:100%; padding-right:0px; padding-left:0px;>
+									<div align="center" style="line-height:10px">
+										<% if @product.image.present? %>
+											<%= image_tag cdn_proxy_url(@product.image), alt:"product-image", style: "max-width: 200px; border-												radius: 8px; vertical-align: middle" %>
+										<% end %>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td style="margin-top: 8px; padding: 10px; color: #222;">
+									<p><%= t("hello") %> <%= @user.username %></p>
+									<p><%= @product.contributors.first.user.username %> <%= t("main_text").html_safe %></p>
+								</td>
+							</tr>
+							<tr>
+								<td style="margin-top: 8px; padding: 10px; text-decoration: none; color: #222;">
+									<p><%= link_to t("view_product"), @url, style:"text-decoration: none; color: #fff; background-color: #01da5a; border-radius: 60px; padding: 10px 18px" %></p>
+								</td>
+							</tr>
+							<tr>
+								<td style="height: 60px"></td>
+							</tr>
+							<tr style="background-color: #01da5a;">
+								<td style="text-align:center; height: 40px">
+									<a href="https://www.instagram.com/veganharita/" target="_blank", style="text-decoration: none">
+										<%= image_tag(attachments['mailer-instagram.png'].url, alt:"instagram", title: "Instagram", style:"width: 32px; height: auto; vertical-align: middle; border: 0;") %>
+									</a>
+									<a href="https://veganharita.com/contact" target="_blank" style="text-decoration: none;">
+										<%= image_tag(attachments['envelope.png'].url, alt:"contact", title: "Contact", style:"width: auto; border: 0; height: 27px; vertical-align: middle; text-decoration: none") %>
+									</a>
+								</td>
+							</tr>
+							<tr style="background-color: #01da5a; height: 40px">
+								<td>
+              	  <a href="https://veganharita.com/" target="_blank" style="margin: 0; text-decoration: none; color: #fff; font-size: 20px">veganharita.com</a>
+								</td>
+							</tr>					
+					</table>
+				</td>
+			</tr>
+	</table>
+<% end %>

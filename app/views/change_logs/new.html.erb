@@ -1,0 +1,14 @@
+<main>
+  <h1 class="form-heading"><%= t(".title") %> </h1>
+  <%= form_with(model: @change_log, builder: CustomFormBuilder ) do |form| %>
+    <%= render 'shared/error_messages', object: @change_log %>
+    <%= form.hidden_field :changeable_id %>
+    <%= form.hidden_field :changeable_type %>
+    <%= form.hidden_field :action, value: "Delete" %>
+    <div class="form-group">
+      <%= form.label :request_message, t(".request_message"), required: true %>
+      <%= form.text_area :request_message, required: true %>
+    </div>
+    <%= form.submit t("submit"), data: { turbo_submits_with: t("saving") } %>
+  <% end %>
+</main>

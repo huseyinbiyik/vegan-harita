@@ -1,0 +1,18 @@
+<ul id="account-links" class="mobile">
+  <% if user_signed_in? && current_user.role == "admin" %>
+    <li>
+      <%= link_to t(:panel), admin_root_path %>
+    </li>
+  <% end %>
+  <% if user_signed_in? && current_user.place_owner? %>
+    <li>
+      <%= link_to t(:business_panel), place_owner_summary_path(current_user.places.first.slug) %>
+    </li>
+  <% end %>
+  <li>
+    <%= link_to t('edit_account'), edit_user_registration_path %>
+  </li>
+  <li>
+    <%= link_to t(:logOut), destroy_user_session_path, method: :delete, id: "logout-link" %>
+  </li>
+</ul>

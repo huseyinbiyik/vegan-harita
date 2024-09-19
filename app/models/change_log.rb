@@ -4,6 +4,7 @@ class ChangeLog < ApplicationRecord
   belongs_to :user
   has_many_attached :images
   has_one_attached :image
+  has_rich_text :statement
 
   # Validations
   validates :user_id, presence: true
@@ -11,6 +12,8 @@ class ChangeLog < ApplicationRecord
   validates :changeable_type, presence: true
 
   # JSONB attributes validations
+  # Product validations
+  validates :request_message, length: { minimum: 5, maximum: 500 }, if: -> { changeable_type == "Product" && request_message.present? }
   # Place validations
   validates :name, presence: true, length: { minimum: 2, maximum: 100 }, if: -> { changeable_type == "Place" && name.present? }
   validates :address, length: { minimum: 15, maximum: 500 }, if: -> { changeable_type == "Place" && address.present? }
@@ -50,8 +53,39 @@ class ChangeLog < ApplicationRecord
   validate :check_image, if: -> { changeable_type == "Menu" && image.attached? }
 
   # Public instance methods
-  store_accessor :data, :name, :vegan, :latitude, :place_id, :longitude, :address, :phone, :web_url, :facebook_handle, :instagram_handle, :x_handle, :tag_ids, :deleted_images, :description, :product_category, :price, :contributors, :active
-
+  store_accessor :data,
+                 :action,
+                 :request_message,
+                 :name,
+                 :vegan,
+                 :latitude,
+                 :place_id,
+                 :longitude,
+                 :address,
+                 :phone,
+                 :web_url,
+                 :facebook_handle,
+                 :instagram_handle,
+                 :x_handle,
+                 :tag_ids,
+                 :deleted_images,
+                 :description,
+                 :product_category,
+                 :price,
+                 :contributors,
+                 :active,
+                 :name_en,
+                 :name_tr,
+                 :ingredients_en,
+                 :ingredients_tr,
+                 :brand,
+                 :brand_id,
+                 :shops,
+                 :shop_ids,
+                 :product_category_id,
+                 :product_sub_category_id,
+                 :statement,
+                 :bar_code
 
   # Public methods
   def place_attributes
@@ -118,20 +152,48 @@ class ChangeLog < ApplicationRecord
     destroy
   end
 
+  def product_attributes
+    {
+      name:,
+      ingredients_en:,
+      ingredients_tr:,
+      brand_id:,
+      bar_code:,
+      statement:,
+      shop_ids:,
+      product_category_id:,
+      product_sub_category_id:
+    }
+  end
+
+  def approve_product_edit
+    product = Product.find(changeable_id)
+
+    product.assign_attributes(product_attributes.compact)
+
+    product.image.attach(image.blob) if image.attached?
+
+    product.save!
+
+    user.increment!(:points)
+
+    destroy
+  end
+
   private
 
-    # Private methods
-    def check_image
-      if image.attached? && !image.content_type.in?(%w[image/jpeg image/png image/jpg image/webp])
-        errors.add(:image, I18n.t("activerecord.attributes.menu.image_invalid"))
-      elsif image.attached? && image.blob.byte_size > 3.megabytes
-        errors.add(:image, I18n.t("activerecord.attributes.menu.image_size"))
-      end
+  # Private methods
+  def check_image
+    if image.attached? && !image.content_type.in?(%w[image/jpeg image/png image/jpg image/webp])
+      errors.add(:image, I18n.t("activerecord.attributes.menu.image_invalid"))
+    elsif image.attached? && image.blob.byte_size > 3.megabytes
+      errors.add(:image, I18n.t("activerecord.attributes.menu.image_size"))
     end
+  end
 
-    def max_image_limit
-      if changeable_type == "Place" && changeable.images.attached?
-        errors.add(:images, I18n.t("max_image_limit", count: 20)) if images.count + changeable.images.count > 20
-      end
+  def max_image_limit
+    if changeable_type == "Place" && changeable.images.attached?
+      errors.add(:images, I18n.t("max_image_limit", count: 20)) if images.count + changeable.images.count > 20
     end
+  end
 end

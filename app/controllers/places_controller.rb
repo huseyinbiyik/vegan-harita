@@ -1,7 +1,6 @@
 class PlacesController < ApplicationController
   before_action :authenticate_user!, except: %i[index show search]
   before_action :set_place, only: %i[show edit update]
-  before_action :set_meta_tags, only: %i[index show new]
   before_action :record_visit, only: [ :show ]
 
   def index
@@ -10,7 +9,7 @@ class PlacesController < ApplicationController
     east = params[:east].to_f
     west = params[:west].to_f
 
-    @places = Place.approved.where(latitude: south..north, longitude: west..east)
+    @places = Place.approved.where(latitude: south..north, longitude: west..east).includes(:images_attachments)
 
     @last_ten_places = Place.approved.order(created_at: :desc).limit(10)
     respond_to do |format|
@@ -19,16 +18,21 @@ class PlacesController < ApplicationController
     end
   end
 
+
+
   def search
-    @places = if params[:name_search].present?
-                @places = Place.approved.filter_by_name(params[:name_search])
+    if params[:name_search].present? && params[:name_search].length > 2
+      @places = Place.approved.filter_by_name(params[:name_search])
+      @location_predictions = Geocoder.search(params[:name_search])
+      puts "location_predictions: #{@location_predictions}"
+
     else
-                []
+      []
     end
     respond_to do |format|
       format.turbo_stream do
         render turbo_stream: turbo_stream.update("search-results", partial: "places/search_results",
-                                                 locals: { places: @places })
+                                                 locals: { places: @places, location_predictions: @location_predictions })
       end
     end
   end
@@ -36,7 +40,7 @@ class PlacesController < ApplicationController
   def show
     redirect_to root_path, notice: t("controllers.places.not_approved") unless @place.approved || current_user&.admin?
     @reviews = @place.reviews.order(created_at: :desc).with_attached_images
-    @contributors = User.where(id: @place.contributors).with_attached_avatar
+    @contributors = User.where(id: @place.contributors)
   end
 
   def new
@@ -108,15 +112,5 @@ class PlacesController < ApplicationController
 
   def record_visit
     @place.visits.create unless current_user&.admin? || current_user&.places&.include?(@place)
-  end
-
-  def set_meta_tags
-    if action_name == "index"
-      @page_title = "Vegan Harita"
-    elsif action_name == "show"
-      @page_title = "Vegan Harita | " + @place.name
-    elsif action_name == "new"
-      @page_title = t("titles.places.new")
-    end
   end
 end

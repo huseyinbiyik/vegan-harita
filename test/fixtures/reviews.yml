@@ -3,5 +3,5 @@ one:
   content: "MyText"
   feedback: "MyText"
   approved: true
-  place: one
   user: one
+  reviewable: one (Place)

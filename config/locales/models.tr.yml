@@ -1,0 +1,125 @@
+tr:
+  activerecord:
+    models:
+      user:
+        one: "Kullanıcı"
+        other: "Kullanıcılar"
+      claim:
+        one: "Talep"
+        other: "Talepler"
+      place:
+        one: "Mekan"
+        other: "Mekanlar"
+      product:
+        one: "Ürün"
+        other: "Ürünler"
+      product_category:
+        one: "Ürün Kategorisi"
+        other: "Ürün Kategorileri"
+      product_sub_category:
+        one: "Ürün Alt Kategorisi"
+        other: "Ürün Alt Kategorileri"
+      brand:
+        one: "Marka"
+        other: "Markalar"
+      shop:
+        one: "Mağaza"
+        other: "Mağazalar"
+      contributor:
+        one: "Katkıda Bulunan"
+        other: "Katkıda Bulunanlar"
+      change_log:
+        one: "Değişiklik Kaydı"
+        other: "Değişiklik Kayıtları"
+    attributes:
+      user:
+        username: "Kullanıcı Adı"
+        name: "Ad"
+        email: "E-posta"
+        password: "Parola"
+        password_confirmation: "Parola tekrarı"
+        current_password: "Mevcut parola (gerekli)"
+        user_agreement_accepted: "Kullanıcı Sözleşmesi"
+        allow_product_notification: "Yeni bir ürün eklendiğinde bana e-posta gönder"
+      change_log:
+        request_message: "Talep Mesajı"
+      place:
+        name: "Mekan Adı"
+        address: "Adres"
+        web_url: "Website Adresi"
+        phone: "Telefon"
+        instagram: "Instagram"
+        facebook: "Facebook"
+        x: "X"
+        tags: "Etiketler"
+        is_vegan: "Vegan mı?"
+        place_id: "Google Maps ID"
+        latitude: "Enlem"
+        latitude: "Adres alanı:"
+        images: "Fotoğraflar"
+        pick_from_map_suggestions: "Lütfen Google Maps tarafından önerilen adreslerden birini seçin."
+        instagram_invalid: "Instagram kullanıcı adı geçersiz. Profilinizde veya URL'inizdeki kullanıcı adını girin. Mesela bizimkisi: veganharita"
+        facebook_invalid: "Facebook kullanıcı adı geçersiz. URL'inizdeki kullanıcı adını girin. "
+        x_invalid: "X (Twitter) kullanıcı adı geçersiz. URL'inizin sonundaki kullanıcı adını girin. "
+        image_invalid: "Geçersiz dosya türü. Lütfen yalnızca JPG, JPEG, PNG veya WEBP dosyalarını yükleyin."
+        image_size_invalid: "Dosya boyutu çok büyük. Lütfen 3MB'dan küçük bir dosya yükleyin."
+      menu:
+        name: "Kuzey Kore Usulü Kızarmış Tofu"
+        description: "Tofu, soğan ve susam ve Kuzey Kore baharatları..."
+      place_edits:
+        web_url: "siteadresi.com"
+      review:
+        content: "Yorumunuz"
+        feedback: "Bence şu yemeğiniz biraz tuzlu..."
+      claim:
+        name: "İsim & soyisim"
+        email: "E-posta"
+        phone: "Telefon"
+        title: "Şirketteki pozisyonunuz"
+        linkedin: "Linkedin URL'iniz"
+        note: "Eklemek istediğiniz notlar"
+      product:
+        name: "Ürün Adı"
+        ingredients: "İçerik"
+        product_category: "Ürün Kategorisi"
+        statement: "Açıklama"
+        bar_code: "Barkod"
+        image: "Görsel"
+        shop_ids: "Mağazalar"
+      shop:
+        name: "Mağaza Adı"
+    errors:
+      messages:
+        blank: "boş olamaz"
+        confirmation: "eşleşmiyor"
+        too_short: "çok kısa (en az %{count} karakter)"
+        image_too_big: "çok büyük"
+        attachment_too_big: "eki çok büyük"
+        no_selection: "lütfen bir seçenek seçin"
+      models:
+        user:
+          attributes:
+            username:
+              invalid: "yalnızca harf ve rakam içerebilir"
+              taken: "Bu kullanıcı adı zaten kullanılıyor."
+            email:
+              taken: "Bu e-posta adresi zaten kullanılıyor."
+            user_agreement_accepted:
+              accepted: "'ni kabul etmelisiniz."
+            current_password:
+              invalid: "geçersiz"
+        place:
+          attributes:
+            address:
+              taken: "Bu adres zaten sistemde mevcut. Lütfen halihazırdaki bir mekanı eklemediğinizden emin olun."
+            place_id:
+              blank: "Lütfen önerilen adreslerden birini seçin."
+              taken: "Bu adres zaten sistemde mevcut. Lütfen halihazırdaki bir mekanı eklemediğinizden emin olun."
+            web_url:
+              invalid: "Geçersiz URL. Şu formatta deneyin: veganharita.com"
+            email:
+              invalid: "Geçersiz e-posta adresi. Şu formatta deneyin: abc@gmail.com"
+        claim:
+          attributes:
+            email:
+              invalid: "Geçersiz e-posta adresi."

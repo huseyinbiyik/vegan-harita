@@ -12,10 +12,16 @@ tr:
       [ nil, Oca, Şub, Mar, Nis, May, Haz, Tem, Ağu, Eyl, Eki, Kas, Ara ]
   months: "Aylar"
   days: "Günler"
+  saving: "Kaydediliyor..."
+  add: "Ekle"
+  search: "Ara..."
+  notifications: "Bildirimler"
+  error_found: "hata bulundu. Lütfen hatalı form alanlarını düzeltin."
   is_not_allowed: "geçersiz. Lütfen başka bir tane deneyin."
   no_photo: "Henüz fotoğraf eklenmemiş"
   username: "Kullanıcı Adı"
   username_placeholder: "veganharita"
+  updated_at: "Son Güncelleme"
   max_image_limit: "Maksimum %{count} fotoğraf yükleyebilirsiniz."
   only_alphanumeric: "yalnızca harf, alt tire ve rakam içerebilir"
   captcha_error: "Lütfen robot olmadığınızı doğrulayın 🤖"
@@ -95,7 +101,8 @@ tr:
   login: "Giriş yap"
   forgot_password: "Parolamı unuttum"
   not_received_confirmation: "Onay e-postası almadım"
-  panel: "Onay Paneli"
+  admin_panel: "Admin Paneli"
+  place_index: "Mekanlar"
   add_place: "Mekan Ekle"
   my_account: "Hesabım"
   logOut: "Çıkış Yap"
@@ -127,11 +134,12 @@ tr:
   suggest: "Düzenleme Öner"
   open: "Açık"
   closed: "Kapalı"
+  temp_per_closed: "Veri alınamıyor. Geçici veya kalıcı olarak kapalı olabilir."
   directions: "Yol Tarifi"
   call: "Ara"
   no_tag: "Etiket Yok"
   menu: "MENÜ"
-  add_product: "+Ürün Ekle"
+  add_product: "Ürün Ekle"
   meals: "Yemekler"
   desserts: "Tatlılar"
   drinks: "İçecekler"
@@ -151,6 +159,7 @@ tr:
   sure_delete: "Silmek istediğinizden emin misiniz?"
   edit_review: "Değerlendirmeni Düzenle"
   new_review: "Bir Yeni Değerlendirme"
+  photo: "Fotoğraf"
   devise:
     confirmations:
       confirmed: "E-posta adresiniz başırılı bir şekilde onaylandı."
@@ -214,91 +223,14 @@ tr:
       not_saved:
         one: "Kaydedilirken %{resource}'dan 1 hata yakalandı:"
         other: "Kaydedilirken %{resource}'dan %{count} hata yakalandı:"
-  activerecord:
-    models:
-      user: "Kullanıcı"
-      claim: "Sahiplen"
-    attributes:
-      user:
-        username: "Kullanıcı Adı"
-        name: "Ad"
-        email: "E-posta"
-        password: "Parola"
-        password_confirmation: "Parola tekrarı"
-        current_password: "Mevcut parola (gerekli)"
-        user_agreement_accepted: "Kullanıcı Sözleşmesi"
-      place:
-        name: "Mekan Adı"
-        address: "Adres"
-        web_url: "Website Adresi"
-        phone: "Telefon"
-        instagram: "Instagram"
-        facebook: "Facebook"
-        x: "X"
-        tags: "Etiketler"
-        is_vegan: "Vegan mı?"
-        place_id: "Google Maps ID"
-        latitude: "Enlem"
-        latitude: "Adres alanı:"
-        images: "Fotoğraflar"
-        pick_from_map_suggestions: "Lütfen Google Maps tarafından önerilen adreslerden birini seçin."
-        instagram_invalid: "Instagram kullanıcı adı geçersiz. Profilinizde veya URL'inizdeki kullanıcı adını girin. Mesela bizimkisi: veganharita"
-        facebook_invalid: "Facebook kullanıcı adı geçersiz. URL'inizdeki kullanıcı adını girin. "
-        x_invalid: "X (Twitter) kullanıcı adı geçersiz. URL'inizin sonundaki kullanıcı adını girin. "
-        image_invalid: "Geçersiz dosya türü. Lütfen yalnızca JPG, JPEG, PNG veya WEBP dosyalarını yükleyin."
-        image_size_invalid: "Dosya boyutu çok büyük. Lütfen 3MB'dan küçük bir dosya yükleyin."
-      menu:
-        name: "Kuzey Kore Usulü Kızarmış Tofu"
-        description: "Tofu, soğan ve susam ve Kuzey Kore baharatları..."
-      place_edits:
-        web_url: "siteadresi.com"
-      review:
-        content: "Yorumunuz"
-        feedback: "Bence şu yemeğiniz biraz tuzlu..."
-      claim:
-        name: "İsim & soyisim"
-        email: "E-posta"
-        phone: "Telefon"
-        title: "Şirketteki pozisyonunuz"
-        linkedin: "Linkedin URL'iniz"
-        note: "Eklemek istediğiniz notlar"
-    errors:
-      messages:
-        blank: "boş olamaz"
-        confirmation: "eşleşmiyor"
-        too_short: "çok kısa (en az %{count} karakter)"
-      models:
-        user:
-          attributes:
-            username:
-              invalid: "yalnızca harf ve rakam içerebilir"
-              taken: "Bu kullanıcı adı zaten kullanılıyor."
-            email:
-              taken: "Bu e-posta adresi zaten kullanılıyor."
-            user_agreement_accepted:
-              accepted: "'ni kabul etmelisiniz."
-            current_password:
-              invalid: "geçersiz"
-        place:
-          attributes:
-            address:
-              taken: "Bu adres zaten sistemde mevcut. Lütfen halihazırdaki bir mekanı eklemediğinizden emin olun."
-            place_id:
-              blank: "Lütfen önerilen adreslerden birini seçin."
-              taken: "Bu adres zaten sistemde mevcut. Lütfen halihazırdaki bir mekanı eklemediğinizden emin olun."
-            web_url:
-              invalid: "Geçersiz URL. Şu formatta deneyin: veganharita.com"
-            email:
-              invalid: "Geçersiz e-posta adresi. Şu formatta deneyin: abc@gmail.com"
-        claim:
-          attributes:
-            email:
-              invalid: "Geçersiz e-posta adresi."
+
   helpers:
     reviews_helper:
       not_yet_rated: "Henüz değerlendirilmedi"
     placeholder:
-      name_search: "Mekan ara..."
+      name_search: "Mekan veya konum ara..."
+      product_search: "Ürün ara..."
+      search: "Ara..."
       user:
         email: "mail@adresiniz.com"
   controllers:
@@ -330,8 +262,11 @@ tr:
         success: "Değerlendirmeniz başarılı şekilde silindi. Desteğiniz için teşekkür ederiz 💚"
         failure: "Değerlendirme silme isteği gönderilirken bir hata oluştu 😞. Lütfen tekrar deneyin."
   views:
+    coming_soon: "Yakında..."
     home:
       contact:
+        invite: "Bizimle Sosyal Medyada Buluşun"
+        or: "ya da"
         contact_us: "Bize Yazın"
         contact_us_text: "İyi dilek, öneri, şikayet, geri bildirim, hata vb. herhangi bir konu için lütfen bize yazın."
         message: "<span>Mesajınız<span class='red-text'>*</span></span>"
@@ -394,7 +329,7 @@ tr:
       claim: "Sahiplen"
   menus:
     form:
-      image_with_warning: "Yemek Görseli (en fazla 3MB)"
+      image_with_warning: "Yemek Görseli (en fazla 5MB)"
   sign_user_agreement: "<a href='/legals/user-agreement' target='_blank'><span class='underlined'>Kullanıcı Sözleşmesi</span></a>'ni okudum ve kabul ediyorum."
   privacy_policy:
     link_text: "Gizlilik Politikası"
@@ -492,16 +427,6 @@ tr:
     disclaimer_text_html: "<p>Web sitesindeki içeriklerin doğruluğu ve güncelliği konusunda herhangi bir garanti vermemekteyiz. Kullanıcılar, kendi riskleri altında bilgiye güvenmelidir.</p><br>"
     changes_html: "<h2>Değişiklikler</h2>"
     changes_text_html: "<p>Bu kullanıcı sözleşmesi zaman zaman değiştirilebilir. Güncellemeleri takip etmek kullanıcının sorumluluğundadır.</p>"
-  titles:
-    registrations:
-      new: "Vegan Harita | Kayıt Ol"
-      edit: "Vegan Harita | Hesabım"
-    sessions:
-      new: "Vegan Harita | Giriş Yap"
-    places:
-      new: "Vegan Harita | Mekan Ekle"
-    home:
-      contact: "Vegan Harita | İletişim"
   business_panel: "İşletme Panelim"
   place_owner:
     summary:
@@ -547,6 +472,7 @@ tr:
       name: "İsim & Soyisim"
       note: "Notlar"
       linkedin: "Linkedin"
+  disclaimer: "Reklam değildir. Ürün paylaşımları sadece bilgilendirme amaçlıdır ve web sitemiz bu ürünlerin tanıtımından hiçbir kazanç sağlamamaktadır."
 
 
 

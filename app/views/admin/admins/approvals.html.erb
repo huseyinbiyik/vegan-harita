@@ -1,0 +1,445 @@
+<div data-controller="admin" data-admin-target="source">
+  <% unless @pending_claims.empty? %>
+    <section class="pending">
+      <h2><%= t(".pending_claims") %></h2>
+      <% @pending_claims.each do |claim| %>
+        <article class="pending-claim" id="claim_<%= claim.id %>">
+          <ul class="pending-item">
+            <li>
+              <span class="pending-title"><%= t :place_name %>:</span>
+              <%= link_to "#{claim.place.name}", place_path(claim.place.slug) %>
+            </li>
+            <li><span class="pending-title"><%= t(".name") %>:</span><%= claim.name %></li>
+            <li><span class="pending-title"><%= t(".claimant") %>:</span><%= claim.user.username %></li>
+            <li><span class="pending-title"><%= t :phone %>:</span><%= claim.phone %></li>
+            <li><span class="pending-title"><%= t(".title") %>:</span><%= claim.title %></li>
+            <li><span class="pending-title"><%= t(".linkedin") %>:</span><%= claim.linkedin %></li>
+            <li><span class="pending-title"><%= t(".note") %>:</span><%= claim.note %></li>
+            <li class="admin-btns">
+              <%= link_to t('approve'), admin_approve_claim_path(claim), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
+              <%= link_to t('reject'), admin_reject_claim_path(claim), class: "reject-btn", method: "delete", remote: true, data: { turbo_method: "delete" } %>
+            </li>
+          </ul>
+        </article>
+      <% end %>
+    </section>
+  <% end %>
+  <% unless @pending_users.empty? %>
+    <section class="pending">
+      <h2><%= t :pending_users %></h2>
+      <% @pending_users.each do |user| %>
+        <article class="pending-user" id="user_<%= user.id %>">
+          <ul class="pending-item">
+            <% if user.avatar.attached? %>
+              <li><%= image_tag cdn_proxy_url(user.avatar.variant(:medium)), class: "avatar", loading: "lazy" %></li>
+            <% end %>
+            <li><span class="pending-title"><%= t :user_name %>:</span><%= user.username %></li>
+            <li><span class="pending-title"><%= t :score %>:</span><%= user.points %></li>
+            <li><span class="pending-title">Not</span>
+              <%= turbo_frame_tag "note_#{user.id}" do %>
+                <%= link_to admin_edit_note_form_path(user), data: { turbo_frame: "note_#{user.id}" } do %>
+                  <span class="red-text"><%= user.admin_note %></span>
+                <% end %>
+              <% end %>
+            </li>
+            <li class="admin-btns">
+              <%= link_to t('approve'), admin_approve_user_path(user), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
+            </li>
+          </ul>
+        </article>
+      <% end %>
+    </section>
+  <% end %>
+  <% unless @pending_places.empty? %>
+    <section class="pending">
+      <h2><%= t :pending_places %></h2>
+      <% @pending_places.each do |pending_place| %>
+        <article class="pending-place" id="place_<%= pending_place.id %>">
+          <ul class="pending-item">
+            <li><span class="pending-title"><%= t :suggestion_date %></span><%= pending_place.created_at %></li>
+            <li><span class="pending-title"><%= t :place_name %>:</span><%= pending_place.name %></li>
+            <li><span class="pending-title"><%= t :address %>:</span><%= pending_place.address %></li>
+            <% if pending_place.images.attached? %>
+              <li style="height: 100%;">
+                <span class="pending-title"><%= t :photos_added %></span>
+                <%= render partial: "shared/slider", locals: { images: pending_place.images } %>
+              </li>
+            <% end %>
+            <li><span class="pending-title"><%= t :is_vegan %></span><%= pending_place.vegan %></li>
+            <li><span class="pending-title">Etiketler</span>
+              <%= pending_place.tag_ids.map { |tag_id| Tag.find(tag_id).name }.join(" | ") %>
+            </li>
+            <li><span class="pending-title"><%= t :instagram %>:</span><%= pending_place.instagram_handle %></li>
+            <li><span class="pending-title"><%= t :facebook %>:</span><%= pending_place.facebook_handle %></li>
+            <li><span class="pending-title"><%= t :x %>:</span><%= pending_place.x_handle %></li>
+            <li><span class="pending-title"><%= t :website %></span><%= pending_place.web_url %></li>
+            <li><span class="pending-title"><%= t :mail %>:</span><%= pending_place.email %></li>
+            <li><span class="pending-title"><%= t :phone %>:</span><%= pending_place.phone %></li>
+            <li class="user-info"><span class="pending-title"><%= t :added_by %></span>
+              <% if pending_place.creator.avatar.attached? %><%= image_tag cdn_proxy_url(pending_place.creator.avatar.variant(:medium)), class: "avatar", loading: "lazy" %>
+              <% end %>
+              <%= pending_place.creator.email %></li>
+            <li class="admin-btns">
+              <%= link_to t('approve'), admin_approve_place_path(id: pending_place.id), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
+              <%= link_to t('reject'), admin_reject_place_path(id: pending_place.id), class: "reject-btn", method: "delete", remote: true, data: { turbo_method: "delete" } %>
+            </li>
+          </ul>
+        </article>
+      <% end %>
+    </section>
+  <% end %>
+  <% unless @pending_place_edits.empty? %>
+    <section class="pending">
+      <h2><%= t :place_edits %></h2>
+      <% @pending_place_edits.each do |place_edit| %>
+        <article class="pending-edit" id="place_edit_<%= place_edit.id %>">
+          <ul class="pending-item">
+            <li><span class="pending-title"><%= t :suggestion_date %></span><%= place_edit.created_at %></li>
+            <li class="compared"><span class="pending-title"><%= t :place_name %>:</span>
+              <div><%= link_to "#{place_edit.changeable.name}", place_path(place_edit.changeable.slug) %>
+                <% if place_edit.name %>
+                  <span class="arrow"> → </span> <%= place_edit.name %>
+                <% end %>
+              </div>
+            </li>
+            <% if place_edit.images.attached? %>
+              <span class="pending-title"><%= t :photos_added %></span>
+              <%= render partial: "shared/slider", locals: { images: place_edit.images, id: place_edit.id } %>
+            <% end %>
+            <% unless place_edit.deleted_images.nil? %>
+              <span class="pending-title"><%= t :photos_deleted %></span>
+              <% place_edit.deleted_images.each do |image_id| %>
+                <% image = ActiveStorage::Attachment.where(id: image_id).first %>
+                <%= image_tag cdn_proxy_url(image) %>
+              <% end %>
+            <% end %>
+            <% if place_edit.address %>
+              <li class="compared"><span class="pending-title"><%= t :address %>:</span>
+                <div><%= place_edit.changeable.address %> <span class="arrow"> → </span> <%= place_edit.address %>
+                </div>
+              </li>
+            <% end %>
+            <% if place_edit.vegan %>
+              <li class="compared"><span class="pending-title"><%= t :is_vegan %></span>
+                <div><%= place_edit.changeable.vegan %> <span class="arrow"> → </span> <%= place_edit.vegan %></div>
+              </li>
+            <% end %>
+            <% if place_edit.instagram_handle %>
+              <li class="compared"><span class="pending-title"><%= t :instagram %>:</span>
+                <div><%= place_edit.changeable.instagram_handle %>
+                  <span class="arrow"> → </span> <%= place_edit.instagram_handle %></div>
+              </li>
+            <% end %>
+            <% if place_edit.facebook_handle %>
+              <li class="compared"><span class="pending-title"><%= t :facebook %>:</span>
+                <div><%= place_edit.changeable.facebook_handle %>
+                  <span class="arrow"> → </span> <%= place_edit.facebook_handle %></div>
+              </li>
+            <% end %>
+            <% if place_edit.x_handle %>
+              <li class="compared"><span class="pending-title"><%= t :x %>:</span>
+                <div><%= place_edit.changeable.x_handle %> <span class="arrow"> → </span> <%= place_edit.x_handle %>
+                </div>
+              </li>
+            <% end %>
+            <% if place_edit.web_url %>
+              <li class="compared"><span class="pending-title"><%= t :website %>:</span>
+                <div><%= place_edit.changeable.web_url %> <span class="arrow"> → </span> <%= place_edit.web_url %>
+                </div>
+              </li>
+            <% end %>
+            <% if place_edit.phone %>
+              <li class="compared"><span class="pending-title"><%= t :phone %>:</span>
+                <div><%= place_edit.changeable.phone %> <span class="arrow"> → </span> <%= place_edit.phone %></div>
+              </li>
+            <% end %>
+            <% if place_edit.tag_ids %>
+              <li class="compared"><span class="pending-title">Etiketler</span>
+                <div><%= place_edit.changeable.tag_ids.map { |tag_id| Tag.find(tag_id).name }.join(" | ") %>
+                  <span class="arrow"> → </span>
+                  <%= place_edit.tag_ids.map { |tag_id| Tag.find(tag_id).name }.join(" | ") %>
+                </div>
+              </li>
+            <% end %>
+            <li class="user-info"><span class="pending-title"><%= t :edited_by %></span>
+              <% if place_edit.user.avatar.attached? %><%= image_tag cdn_proxy_url(place_edit.user.avatar.variant(:medium)), class: "avatar", loading: "lazy" %>
+              <% end %> <%= place_edit.user.username %></li>
+            <li class="admin-btns">
+              <%= link_to t('approve'), admin_approve_place_edit_path(id: place_edit.id), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
+              <%= link_to t('reject'), admin_reject_place_edit_path(id: place_edit.id), class: "reject-btn", method: "delete", remote: true, data: { turbo_method: "delete" } %>
+            </li>
+          </ul>
+        </article>
+      <% end %>
+    </section>
+  <% end %>
+  <% unless @pending_products.empty? %>
+    <section class="pending">
+      <h2><%= t(".pending_products") %></h2>
+      <% @pending_products.each do |product| %>
+        <article class="pending-product" id="product_<%= product.id %>">
+          <ul class="pending-item">
+            <li><span class="pending-title"><%= Product.human_attribute_name(:name) %>:</span><%= product.name %></li>
+            <% if product.image.attached? %>
+              <li><span class="pending-title"><%= t :photo %>:</span></li>
+              <%= image_tag product.image %>
+            <% end %>
+            <li><span class="pending-title"><%= Product.human_attribute_name(:ingredients) %>
+              :</span><%= product.ingredients_en %></li>
+            <li><span class="pending-title"><%= Product.human_attribute_name(:ingredients) %>
+              :</span><%= product.ingredients_tr %></li>
+            <li><span class="pending-title"><%= Product.human_attribute_name(:product_category) %>
+              :</span><%= product.product_category.name %></li>
+            <li><span class="pending-title"><%= Product.human_attribute_name(:product_category) %>
+              :</span><%= product.product_sub_category.name %></li>
+            <li>
+              <span class="pending-title"><%= Product.human_attribute_name(:bar_code) %>:</span><%= product.bar_code %>
+            </li>
+            <li><span class="pending-title"><%= Brand.model_name.human %>:</span><%= product.brand.name %></li>
+            <li><span class="pending-title"><%= Shop.model_name.human(count: 2) %>
+              :</span><%= product.shops.map(&:name).join(", ") %></li>
+            <li><span class="pending-title"><%= Product.human_attribute_name(:statement) %>
+              :</span><%= product.statement %></li>
+            <li class="user-info"><span class="pending-title"><%= t :added_by %></span>
+              <% if product.contributors.first.user.avatar.attached? %>
+                <%= image_tag cdn_proxy_url(product.contributors.first.user.avatar.variant(:medium)), class: "avatar", loading: "lazy" %>
+              <% end %> <%= product.contributors.first.user.email %>
+            </li>
+
+            <li>
+              <%= link_to t('approve'), admin_approve_product_path(product), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
+              <%= link_to t('reject'), admin_reject_product_path(product), class: "reject-btn", method: "delete", remote: true, data: { turbo_method: "delete" } %>
+            </li>
+          </ul>
+        </article>
+      <% end %>
+    </section>
+  <% end %>
+
+  <% unless @pending_product_edits.empty? %>
+    <section class="pending">
+      <h2><%= t :product_edits %></h2>
+      <% @pending_product_edits.each do |product_edit| %>
+        <article class="pending-product" id="product_edit_<%= product_edit.id %>">
+          <ul class="pending-item">
+            <li><span class="pending-title"><%= Product.human_attribute_name(:name) %>
+              :</span><%= product_edit.changeable.name %></li>
+            <li class="compared"><span class="pending-title"><%= Product.human_attribute_name(:name) %>:</span>
+              <div><%= product_edit.changeable.name %> <span class="arrow"> → </span> <%= product_edit.name %>
+              </div>
+            </li>
+            <% if product_edit.image.attached? %>
+              <li><span class="pending-title"><%= t :photo %>:</span></li>
+              <%= image_tag product_edit.image %>
+            <% end %>
+            <li class="compared">
+              <span class="pending-title"><%= Product.human_attribute_name(:ingredients) %>:</span>
+              <div>
+                <%= product_edit.changeable.ingredients_en %>
+                <span class="arrow"> → </span> <%= product_edit.ingredients_en %>
+              </div>
+            </li>
+            <li class="compared"><span class="pending-title"><%= Product.human_attribute_name(:ingredients) %>:</span>
+              <div><%= product_edit.changeable.ingredients_tr %>
+                <span class="arrow"> → </span> <%= product_edit.ingredients_tr %>
+              </div>
+            </li>
+            <li class="compared">
+              <span class="pending-title"><%= Product.human_attribute_name(:product_category) %>:</span>
+              <div><%= product_edit.changeable.product_category.name_tr %>
+                <span class="arrow"> → </span> <%= product_edit.product_category.name_tr %>
+              </div>
+            </li>
+            <li class="compared"><span class="pending-title"><%= Product.human_attribute_name(:bar_code) %>:</span>
+              <div><%= product_edit.changeable.bar_code %> <span class="arrow"> → </span> <%= product_edit.bar_code %>
+              </div>
+            </li>
+            <li class="compared"><span class="pending-title"><%= Brand.model_name.human %>:</span>
+              <div><%= product_edit.changeable.brand.name %>
+                <span class="arrow"> → </span> <%= product_edit.brand.name %>
+              </div>
+            </li>
+            <li class="compared"><span class="pending-title"><%= Shop.model_name.human(count: 2) %>:</span>
+              <div><%= product_edit.changeable.shops.map(&:name).join(", ") %>
+                <span class="arrow"> → </span> <%= product_edit.shops.map(&:name).join(", ") %>
+              </div>
+            </li>
+            <li class="compared"><span class="pending-title"><%= Product.human_attribute_name(:statement) %>:</span>
+              <div><%= product_edit.changeable.statement %> <span class="arrow"> → </span> <%= product_edit.statement %>
+              </div>
+            </li>
+            <li class="user-info"><span class="pending-title"><%= t :edited_by %></span>
+              <% if product_edit.user.avatar.attached? %> <%= image_tag cdn_proxy_url(product_edit.user.avatar.variant(:medium)), class: "avatar", loading: "lazy" %>
+              <% end %> <%= product_edit.user.username %></li>
+            <li>
+              <%= link_to t('approve'), admin_approve_product_edit_path(product_edit), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
+              <%= link_to t('reject'), admin_reject_product_edit_path(product_edit), class: "reject-btn", method: "delete", remote: true, data: { turbo_method: "delete" } %>
+            </li>
+          </ul>
+        </article>
+      <% end %>
+    </section>
+  <% end %>
+
+  <% unless @products_requested_for_deletion.empty? %>
+
+    <section class="pending">
+      <h2><%= t(".products_requested_for_deletion") %></h2>
+      <% @products_requested_for_deletion.each do |product| %>
+        <article class="pending-product" id="product_<%= product.id %>">
+          <ul class="pending-item">
+            <li>
+              <span class="pending-title"><%= Product.human_attribute_name(:name) %>
+                :</span><%= product.request_message %>
+            </li>
+
+            <li>
+              <%= link_to "Ürüne Git", product_path(product.changeable.slug) %>
+            </li>
+            <li>
+              <%= link_to t('destroy'), product_path(product.changeable.slug), class: "reject-btn", method: "delete", remote: true, data: { turbo_method: "delete" } %>
+            </li>
+          </ul>
+        </article>
+      <% end %>
+    </section>
+
+  <% end %>
+
+  <% unless @pending_menus.empty? %>
+    <section class="pending">
+      <h2><%= t :pending_menus %></h2>
+      <% @pending_menus.each do |menu| %>
+        <article class="pending-menu" id="menu_<%= menu.id %>">
+          <ul class="pending-item">
+            <li><span class="pending-title"><%= t :place_name %>
+              :</span><%= link_to "#{menu.place.name}", place_path(menu.place.slug) %></li>
+            <li><span class="pending-title"><%= t :product_name %>:</span><%= menu.name %></li>
+            <li><span class="pending-title"><%= t :product_description %>:</span><%= menu.description %></li>
+            <% if menu.image.attached? %>
+              <li><span class="pending-title"><%= t :product_photo %>:</span></li>
+              <%= image_tag menu.image %>
+            <% end %>
+            <li><span class="pending-title"><%= t :product_category %>:</span><%= menu.product_category %></li>
+            <li><span class="pending-title"><%= t :price %>:</span><%= "#{menu.price}" %></li>
+            <li class="user-info"><span class="pending-title"><%= t :added_by %></span>
+              <% if menu.creator.avatar.attached? %> <%= image_tag cdn_proxy_url(menu.creator.avatar.variant(:medium)), class: "avatar", loading: "lazy" %>
+              <% end %> <%= menu.creator.email %></li>
+            <li>
+              <%= link_to t('approve'), admin_approve_menu_path(menu), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
+              <%= link_to t('reject'), admin_reject_menu_path(menu), method: "delete", class: "reject-btn", remote: true, data: { turbo_method: "delete" } %>
+            </li>
+          </ul>
+        </article>
+      <% end %>
+    </section>
+  <% end %>
+  <% unless @pending_menu_edits.empty? %>
+    <section class="pending">
+      <h2><%= t :menu_edits %></h2>
+      <% @pending_menu_edits.each do |menu_edit| %>
+        <article class="pending-menu" id="menu_edit_<%= menu_edit.id %>">
+          <ul class="pending-item">
+            <li><span class="pending-title"><%= t :place_name %>
+              :</span><%= link_to "#{menu_edit.changeable.place.name}", place_path(menu_edit.changeable.place.slug) %>
+            </li>
+            <li class="compared"><span class="pending-title"><%= t :product_name %>:</span>
+              <div><%= menu_edit.changeable.name %> <span class="arrow"> → </span> <%= menu_edit.name %>
+              </div>
+            </li>
+            <li class="compared"><span class="pending-title"><%= t :product_description %>:</span>
+              <div><%= menu_edit.changeable.description %> <span class="arrow"> → </span> <%= menu_edit.description %>
+              </div>
+            </li>
+            <% if menu_edit.image.attached? %>
+              <li class="compared"><span class="pending-title">Ürün Fotoğrafı: </span>
+                <div>
+                  <%= image_tag cdn_proxy_url(menu_edit.changeable.image.variant(resize_to_limit: [500, 500])) %>
+                  <span class="arrow"> → </span>
+                  <%= image_tag cdn_proxy_url(menu_edit.image.variant(resize_to_limit: [500, 500])) %>
+                </div>
+            <% end %>
+            <li class="compared"><span class="pending-title"><%= t :product_category %>:</span>
+              <div><%= menu_edit.changeable.product_category %>
+                <span class="arrow"> → </span> <%= menu_edit.product_category %>
+              </div>
+            </li>
+            <li class="compared"><span class="pending-title"><%= t :price %>:</span>
+              <div><%= "#{menu_edit.changeable.price} TL" %>
+                <span class="arrow"> → </span> <%= "#{menu_edit.price} TL" %></div>
+            </li>
+            <li class="compared"><span class="pending-title"> <%= t :delete_request %> </span>
+              <div><%= menu_edit.changeable.active %> <span class="arrow"> → </span> <%= menu_edit.active %>
+              </div>
+            </li>
+            <li class="user-info"><span class="pending-title"><%= t :edited_by %></span>
+              <% if menu_edit.user.avatar.attached? %> <%= image_tag cdn_proxy_url(menu_edit.user.avatar.variant(:medium)), class: "avatar", loading: "lazy" %>
+              <% end %> <%= menu_edit.user.username %></li>
+            <li>
+              <%= link_to t('approve'), admin_approve_menu_edit_path(menu_edit), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
+              <%= link_to t('reject'), admin_reject_menu_edit_path(menu_edit), class: "reject-btn", method: "delete", remote: true, data: { turbo_method: "delete" } %>
+            </li>
+          </ul>
+        </article>
+      <% end %>
+    </section>
+  <% end %>
+  <% unless @pending_place_reviews.empty? %>
+    <section class="pending">
+      <h2><%= t (".pending_place_reviews") %></h2>
+      <% @pending_place_reviews.each do |review| %>
+        <article class="pending-review" id="review_<%= review.id %>">
+          <ul class="pending-item">
+            <li><span class="pending-title"><%= t :place_name %>
+              :</span><%= link_to "#{review.reviewable.name}", place_path(review.reviewable.slug) %></li>
+            <li><span class="pending-title"><%= t :rating %>:</span><%= review.rating %></li>
+            <li><span class="pending-title"><%= t :review_content %>:</span><%= review.content %></li>
+            <li><span class="pending-title"><%= t :feedback %>:</span><%= review.feedback %></li>
+            <% if review.images.attached? %>
+              <li style="height: 100%;">
+                <span class="pending-title"><%= t :photos_added %></span>
+                <%= render partial: "shared/slider", locals: { images: review.images } %>
+              </li>
+            <% end %>
+            <li class="user-info"><span class="pending-title"><%= t :reviewer %></span>
+              <% if review.user.avatar.attached? %> <%= image_tag cdn_proxy_url(review.user.avatar.variant(:medium)), class: "avatar", loading: "lazy" %>
+              <% end %> <%= review.user.username %></li>
+            <li>
+              <%= link_to t('approve'), admin_approve_review_path(review), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
+              <%= link_to t('reject'), admin_reject_review_path(review), class: "reject-btn", method: "delete", remote: true, data: { turbo_method: "delete" } %>
+            </li>
+          </ul>
+        </article>
+      <% end %>
+    </section>
+  <% end %>
+  <% unless @pending_product_reviews.empty? %>
+    <section class="pending">
+      <h2><%= t (".pending_product_reviews") %></h2>
+      <% @pending_product_reviews.each do |review| %>
+        <article class="pending-review" id="review_<%= review.id %>">
+          <ul class="pending-item">
+            <li><span class="pending-title"><%= t :place_name %>
+              :</span><%= link_to "#{review.reviewable.name}", product_path(review.reviewable.slug) %></li>
+            <li><span class="pending-title"><%= t :rating %>:</span><%= review.rating %></li>
+            <li><span class="pending-title"><%= t :review_content %>:</span><%= review.content %></li>
+            <li><span class="pending-title"><%= t :feedback %>:</span><%= review.feedback %></li>
+            <% if review.images.attached? %>
+              <li style="height: 100%;">
+                <span class="pending-title"><%= t :photos_added %></span>
+                <%= render partial: "shared/slider", locals: { images: review.images } %>
+              </li>
+            <% end %>
+            <li class="user-info"><span class="pending-title"><%= t :reviewer %></span>
+              <% if review.user.avatar.attached? %> <%= image_tag cdn_proxy_url(review.user.avatar.variant(:medium)), class: "avatar", loading: "lazy" %>
+              <% end %> <%= review.user.username %></li>
+            <li>
+              <%= link_to t('approve'), admin_approve_review_path(review), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
+              <%= link_to t('reject'), admin_reject_review_path(review), class: "reject-btn", method: "delete", remote: true, data: { turbo_method: "delete" } %>
+            </li>
+          </ul>
+        </article>
+      <% end %>
+    </section>
+  <% end %>
+</div>
