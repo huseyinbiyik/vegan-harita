@@ -1,7 +1,6 @@
 class PlacesController < ApplicationController
   before_action :authenticate_user!, except: %i[index show search]
   before_action :set_place, only: %i[show edit update]
-  before_action :set_meta_tags, only: %i[index show new]
   before_action :record_visit, only: [ :show ]
 
   def index
@@ -113,15 +112,5 @@ class PlacesController < ApplicationController
 
   def record_visit
     @place.visits.create unless current_user&.admin? || current_user&.places&.include?(@place)
-  end
-
-  def set_meta_tags
-    if action_name == "index"
-      @page_title = "Vegan Harita"
-    elsif action_name == "show"
-      @page_title = "Vegan Harita | " + @place.name
-    elsif action_name == "new"
-      @page_title = t("titles.places.new")
-    end
   end
 end

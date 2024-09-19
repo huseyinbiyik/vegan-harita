@@ -1,3 +1,5 @@
+<%= content_for :title, t('.title') %>
+
 <main class="user-forms" style="margin-top: 24px;">
   <h1><%= t :edit_account %></h1>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, data: {turbo: false} }, builder: CustomFormBuilder) do |f| %>

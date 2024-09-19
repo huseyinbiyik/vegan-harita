@@ -1,12 +1,26 @@
 tr:
+  layouts:
+    application:
+      title: "Vegan Harita"
+      description: "Türkiye'yi Vegan Harita ile keşfedin. Vegan restoranlar, kafeler, ürünler ve daha fazlası."
   admins:
     approvals:
       pending_products: "Onay Bekleyen Ürünler"
       pending_place_reviews: "Onay Bekleyen Mekan Yorumları"
       pending_product_reviews: "Onay Bekleyen Ürün Yorumları"
       products_requested_for_deletion: "Silinmesi Talep Edilen Ürünler"
-  products:
+  places:
+    new:
+      title: "Mekan Ekle - Vegan Harita"
+    index:
+      description: "Türkiye'de vegan restoranlar, kafeler ve daha fazlasını bulun."
     show:
+      description: "vegan dostu mu? Muhtemelen. Bu mekan hakkında daha fazla bilgi edinin."
+  products:
+    index:
+      description: "Bu ürün vegan mı? Yüzlerce vegan ürün nerede satılıyor? Ürün ekleyin ve yorum yapın."
+    show:
+      description: "vegan mı? Muhtemelen. Bu ürün hakkında daha fazla bilgi edinin."
       add_review_title: "Ürün Değerlendirmeleri"
       deletion_request: "Bu Ürünü Sil"
     new:
@@ -22,3 +36,16 @@ tr:
     new:
       title: "Silme Talebi"
       request_message: "Lütfen silme talebinizi açıklayın."
+  home:
+    contact:
+      title: "İletişim - Vegan Harita"
+  devise:
+    registrations:
+      new:
+        title: "Kayıt Ol - Vegan Harita"
+      edit:
+        title: "Hesabım - Vegan Harita"
+    sessions:
+      new:
+        title: "Giriş Yap - Vegan Harita"
+
