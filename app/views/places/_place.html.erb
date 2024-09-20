@@ -29,6 +29,14 @@
           <% end %>
         </div>
       </div>
+      <div class="edit-button edit-wrapper edit-options" hidden="hidden">
+        <div class="flex-container">
+          <%= link_to new_change_logs_path(changeable_id: @place.id, changeable_type: "Place"), class: "claim-button" do %>
+            <%= image_tag "delete_place.svg", class: "edit-icon claim-icon", height: 42 %>
+            <span class="place-toggle-text"><%= t('.closed') %></span>
+          <% end %>
+        </div>
+      </div>
       <% if user_signed_in? %>
         <button id="place-edit-toggle-button" data-action="click->edit#toggle">
           <span class="edit-icon-container">

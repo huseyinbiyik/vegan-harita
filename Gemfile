@@ -57,6 +57,7 @@ end
 
 group :development do
   gem "rubocop-rails-omakase", require: false
+  gem "rubocop-performance", require: false
   gem "dockerfile-rails", ">= 1.0.0"
   gem "erb-formatter"
   gem "letter_opener"

@@ -16,6 +16,8 @@ en:
       title: "Add Place - Vegan Harita"
     show:
       description: "is vegan friendly? Probably. Find out more about this place."
+    place:
+      closed: "Closed"
   products:
     index:
       description: "Find vegan products in Turkey. Add new products and reviews."

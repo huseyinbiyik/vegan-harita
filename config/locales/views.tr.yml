@@ -16,6 +16,8 @@ tr:
       description: "Türkiye'de vegan restoranlar, kafeler ve daha fazlasını bulun."
     show:
       description: "vegan dostu mu? Muhtemelen. Bu mekan hakkında daha fazla bilgi edinin."
+    place:
+      closed: "Kapanmış"
   products:
     index:
       description: "Bu ürün vegan mı? Yüzlerce vegan ürün nerede satılıyor? Ürün ekleyin ve yorum yapın."
@@ -34,8 +36,8 @@ tr:
       statement: "Ürünün vegan olduğunu kanıtlayan belge veya açıklama"
   change_logs:
     new:
-      title: "Silme Talebi"
-      request_message: "Lütfen silme talebinizi açıklayın."
+      title: "Değişiklik Talebi"
+      request_message: "Lütfen değişiklik talebinizi açıklayın."
   home:
     contact:
       title: "İletişim - Vegan Harita"

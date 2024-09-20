@@ -173,6 +173,25 @@
       <% end %>
     </section>
   <% end %>
+
+  <% unless @places_requested_for_deletion.empty? %>
+    <section class="pending">
+      <h2><%= t(".places_requested_for_deletion") %></h2>
+      <% @places_requested_for_deletion.each do |place| %>
+        <article class="pending-place" id="place_<%= place.id %>">
+          <ul class="pending-item">
+            <li>
+              <span class="pending-title"><%= t :place_name %>:</span><%= place.changeable.name %>
+            </li>
+            <li>
+              <%= link_to "Yere Git", place_path(place.changeable.slug) %>
+          </ul>
+        </article>
+      <% end %>
+    </section>
+  <% end  %>
+
+
   <% unless @pending_products.empty? %>
     <section class="pending">
       <h2><%= t(".pending_products") %></h2>

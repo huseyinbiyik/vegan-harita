@@ -5,14 +5,15 @@ class Admin::AdminsController < Admin::ApplicationController # rubocop:disable M
     @pending_users = @users.where(approved: false).order("created_at DESC")
 
     @change_logs = ChangeLog.all.order("created_at DESC")
-    @pending_place_edits = @change_logs.where(changeable_type: "Place")
+    @pending_place_edits = @change_logs.where(changeable_type: "Place").where("NOT EXISTS (SELECT 1 FROM jsonb_object_keys(data) AS key WHERE key = 'action')")
     @pending_menu_edits = @change_logs.where(changeable_type: "Menu")
 
-    @pending_places = Place.where(approved: false)
+    @pending_places = Place.pending
     @pending_places.each do |place|
       place.creator = @users.find(place.contributors.first)
       place.save
     end
+    @places_requested_for_deletion = @change_logs.where(changeable_type: "Place").where("data ->> 'action' = ?", "Delete")
 
     @pending_products = Product.where(approved: false)
     @pending_product_edits = @change_logs.where(changeable_type: "Product")

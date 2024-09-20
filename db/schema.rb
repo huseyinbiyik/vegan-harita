@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_08_122459) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_20_193933) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -157,7 +157,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_08_122459) do
     t.string "web_url"
     t.string "email"
     t.string "phone"
-    t.boolean "approved", default: false
+    t.integer "status", default: 0
     t.integer "contributors", default: [], array: true
     t.string "place_id"
     t.string "slug"
@@ -199,7 +199,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_08_122459) do
     t.bigint "product_category_id", null: false
     t.bigint "brand_id"
     t.bigint "product_sub_category_id", null: false
-    t.string "slug"
+    t.string "slug", null: false
     t.string "name", null: false
     t.index ["brand_id"], name: "index_products_on_brand_id"
     t.index ["product_category_id"], name: "index_products_on_product_category_id"
