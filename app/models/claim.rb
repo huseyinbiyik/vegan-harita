@@ -3,7 +3,7 @@ class Claim < ApplicationRecord
   belongs_to :place
 
   # Enums
-  enum status: { pending: 0, approved: 1, rejected: 2 }
+  enum :status, [ :pending, :approved, :rejected ], default: :pending, validate: true
 
   # Validations
   validates :name, presence: true, length: { maximum: 100 }

@@ -24,8 +24,6 @@ class PlacesController < ApplicationController
     if params[:name_search].present? && params[:name_search].length > 2
       @places = Place.approved.filter_by_name(params[:name_search])
       @location_predictions = Geocoder.search(params[:name_search])
-      puts "location_predictions: #{@location_predictions}"
-
     else
       []
     end
@@ -38,7 +36,7 @@ class PlacesController < ApplicationController
   end
 
   def show
-    redirect_to root_path, notice: t("controllers.places.not_approved") unless @place.approved || current_user&.admin?
+    redirect_to root_path, notice: t("controllers.places.not_approved") unless @place.approved? || current_user&.admin?
     @reviews = @place.reviews.order(created_at: :desc).with_attached_images
     @contributors = User.where(id: @place.contributors)
   end
@@ -50,7 +48,7 @@ class PlacesController < ApplicationController
   def create
     @place = Place.new(place_params)
     @place.contributors << current_user.id unless @place.contributors.include?(current_user.id)
-    @place.approved = true if current_user&.admin?
+    @place.update(status: :approved) if current_user.admin?
 
     respond_to do |format|
       if @place.save
@@ -100,13 +98,13 @@ class PlacesController < ApplicationController
   def place_params
     params.require(:place).permit(
       :name, :address, :latitude, :longitude, :place_id, :vegan, :instagram_handle,
-      :facebook_handle, :x_handle, :web_url, :email, :phone, :approved, tag_ids: [], contributors: [], images: []
+      :facebook_handle, :x_handle, :web_url, :email, :phone, :status, tag_ids: [], contributors: [], images: []
     )
   end
 
   def change_log_params
     params.require(:change_log).permit(:name, :address, :latitude, :longitude, :place_id, :vegan, :instagram_handle,
-                                       :facebook_handle, :x_handle, :web_url, :phone, :approved, tag_ids: [],
+                                       :facebook_handle, :x_handle, :web_url, :phone, :status, tag_ids: [],
                                        contributors: [], images: [], deleted_images: []) # rubocop:disable Layout/LineLength
   end
 

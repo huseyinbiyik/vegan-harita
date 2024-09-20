@@ -8,7 +8,7 @@ class Admin::AdminsController < Admin::ApplicationController # rubocop:disable M
     @pending_place_edits = @change_logs.where(changeable_type: "Place")
     @pending_menu_edits = @change_logs.where(changeable_type: "Menu")
 
-    @pending_places = Place.where(approved: false)
+    @pending_places = Place.pending
     @pending_places.each do |place|
       place.creator = @users.find(place.contributors.first)
       place.save

@@ -2,6 +2,9 @@ class Place < ApplicationRecord
   # Accessors
   attr_accessor :creator
 
+  # Enums
+  enum :status, [ :pending, :approved, :rejected, :closed, :temporary_closed ], default: :pending, validate: true
+
   # Callbacks
   before_validation :assign_slug, on: :create
   before_save :assign_slug, if: :name_changed?
@@ -47,12 +50,13 @@ class Place < ApplicationRecord
   validates :slug, uniqueness: true
 
   # Scopes
-  scope :approved, -> { where(approved: true) }
+  scope :approved, -> { where(status: :approved) }
+  scope :pending, -> { where(status: :pending) }
   scope :filter_by_name, ->(name) { where("name ILIKE ?", "%#{name}%") }
 
   # Public instance methods
   def approve
-    self.approved = true
+    self.status = :approved
   end
 
   def featured_image
