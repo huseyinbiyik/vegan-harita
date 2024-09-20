@@ -437,6 +437,7 @@ DEPENDENCIES
   ransack (~> 4.2)
   recaptcha (~> 5.15)
   rqrcode (~> 2.2)
+  rubocop-performance
   rubocop-rails-omakase
   selenium-webdriver
   sentry-rails
