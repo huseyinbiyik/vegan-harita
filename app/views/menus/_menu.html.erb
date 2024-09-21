@@ -26,7 +26,7 @@
 
   <div class="menu-item-details">
     <% if menu.image.attached? %>
-      <%= image_tag cdn_proxy_url(menu.image.variant(:medium)), class: "menu-image", loading: "lazy" %>
+      <%= image_tag rails_public_blob_url(menu.image.variant(:medium)), class: "menu-image", loading: "lazy" %>
     <% end %>
 
     <p class="description">

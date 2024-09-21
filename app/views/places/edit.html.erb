@@ -92,7 +92,7 @@
       </div>
     <% end %>
     <% if params[:attribute] == "images" %>
-      <div class="add-new-photos select-wrapper" >
+      <div class="add-new-photos select-wrapper">
         <%= form.label t('new_photos') %>
         <%= form.file_field :images, multiple: true, direct_upload: true, accept: "image/jpeg,image/jpg,image/png,image/webp" %>
       </div>
@@ -104,7 +104,7 @@
             <% @place.images.each do |image| %>
               <div class="image-checkbox">
                 <%= form.check_box :deleted_images, { multiple: true }, image.id, nil %>
-                <%= image_tag cdn_proxy_url(image.variant(:medium)), class: "image-checkbox-image" %>
+                <%= image_tag rails_public_blob_url(image.variant(:medium)), class: "image-checkbox-image" %>
               </div>
             <% end %>
           </div>

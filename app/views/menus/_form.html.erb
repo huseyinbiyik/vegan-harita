@@ -22,7 +22,7 @@
   <div class="form-group select-wrapper" data-controller="utils" data-utils-assets-value="<%= [t('files_selected'), t('no_file_selected')].to_json %>">
     <% if @menu.image.attached? %>
       <%= form.label t('change_image'), style: "display: block" %>
-      <%= image_tag cdn_proxy_url(@menu.image.variant(:medium)), class: "menu-image" %>
+      <%= image_tag rails_public_blob_url(@menu.image.variant(:medium)), class: "menu-image" %>
     <% else %>
       <%= form.label t('.image_with_warning'), style: "display: block" %>
     <% end %>

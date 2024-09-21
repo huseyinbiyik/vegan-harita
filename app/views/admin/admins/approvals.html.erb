@@ -31,7 +31,7 @@
         <article class="pending-user" id="user_<%= user.id %>">
           <ul class="pending-item">
             <% if user.avatar.attached? %>
-              <li><%= image_tag cdn_proxy_url(user.avatar.variant(:medium)), class: "avatar", loading: "lazy" %></li>
+              <li><%= image_tag rails_public_blob_url(user.avatar.variant(:medium)), class: "avatar" %></li>
             <% end %>
             <li><span class="pending-title"><%= t :user_name %>:</span><%= user.username %></li>
             <li><span class="pending-title"><%= t :score %>:</span><%= user.points %></li>
@@ -76,7 +76,7 @@
             <li><span class="pending-title"><%= t :mail %>:</span><%= pending_place.email %></li>
             <li><span class="pending-title"><%= t :phone %>:</span><%= pending_place.phone %></li>
             <li class="user-info"><span class="pending-title"><%= t :added_by %></span>
-              <% if pending_place.creator.avatar.attached? %><%= image_tag cdn_proxy_url(pending_place.creator.avatar.variant(:medium)), class: "avatar", loading: "lazy" %>
+              <% if pending_place.creator.avatar.attached? %><%= image_tag rails_public_blob_url(pending_place.creator.avatar.variant(:medium)), class: "avatar", loading: "lazy" %>
               <% end %>
               <%= pending_place.creator.email %></li>
             <li class="admin-btns">
@@ -110,7 +110,7 @@
               <span class="pending-title"><%= t :photos_deleted %></span>
               <% place_edit.deleted_images.each do |image_id| %>
                 <% image = ActiveStorage::Attachment.where(id: image_id).first %>
-                <%= image_tag cdn_proxy_url(image) %>
+                <%= image_tag rails_public_blob_url(image) %>
               <% end %>
             <% end %>
             <% if place_edit.address %>
@@ -162,7 +162,7 @@
               </li>
             <% end %>
             <li class="user-info"><span class="pending-title"><%= t :edited_by %></span>
-              <% if place_edit.user.avatar.attached? %><%= image_tag cdn_proxy_url(place_edit.user.avatar.variant(:medium)), class: "avatar", loading: "lazy" %>
+              <% if place_edit.user.avatar.attached? %><%= image_tag rails_public_blob_url(place_edit.user.avatar.variant(:medium)), class: "avatar", loading: "lazy" %>
               <% end %> <%= place_edit.user.username %></li>
             <li class="admin-btns">
               <%= link_to t('approve'), admin_approve_place_edit_path(id: place_edit.id), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
@@ -189,8 +189,7 @@
         </article>
       <% end %>
     </section>
-  <% end  %>
-
+  <% end %>
 
   <% unless @pending_products.empty? %>
     <section class="pending">
@@ -221,7 +220,7 @@
               :</span><%= product.statement %></li>
             <li class="user-info"><span class="pending-title"><%= t :added_by %></span>
               <% if product.contributors.first.user.avatar.attached? %>
-                <%= image_tag cdn_proxy_url(product.contributors.first.user.avatar.variant(:medium)), class: "avatar", loading: "lazy" %>
+                <%= image_tag rails_public_blob_url(product.contributors.first.user.avatar.variant(:medium)), class: "avatar", loading: "lazy" %>
               <% end %> <%= product.contributors.first.user.email %>
             </li>
 
@@ -288,7 +287,7 @@
               </div>
             </li>
             <li class="user-info"><span class="pending-title"><%= t :edited_by %></span>
-              <% if product_edit.user.avatar.attached? %> <%= image_tag cdn_proxy_url(product_edit.user.avatar.variant(:medium)), class: "avatar", loading: "lazy" %>
+              <% if product_edit.user.avatar.attached? %> <%= image_tag rails_public_blob_url(product_edit.user.avatar.variant(:medium)), class: "avatar", loading: "lazy" %>
               <% end %> <%= product_edit.user.username %></li>
             <li>
               <%= link_to t('approve'), admin_approve_product_edit_path(product_edit), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
@@ -342,7 +341,7 @@
             <li><span class="pending-title"><%= t :product_category %>:</span><%= menu.product_category %></li>
             <li><span class="pending-title"><%= t :price %>:</span><%= "#{menu.price}" %></li>
             <li class="user-info"><span class="pending-title"><%= t :added_by %></span>
-              <% if menu.creator.avatar.attached? %> <%= image_tag cdn_proxy_url(menu.creator.avatar.variant(:medium)), class: "avatar", loading: "lazy" %>
+              <% if menu.creator.avatar.attached? %> <%= image_tag rails_public_blob_url(menu.creator.avatar.variant(:medium)), class: "avatar", loading: "lazy" %>
               <% end %> <%= menu.creator.email %></li>
             <li>
               <%= link_to t('approve'), admin_approve_menu_path(menu), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
@@ -373,9 +372,9 @@
             <% if menu_edit.image.attached? %>
               <li class="compared"><span class="pending-title">Ürün Fotoğrafı: </span>
                 <div>
-                  <%= image_tag cdn_proxy_url(menu_edit.changeable.image.variant(resize_to_limit: [500, 500])) %>
+                  <%= image_tag rails_public_blob_url(menu_edit.changeable.image.variant(resize_to_limit: [500, 500])) %>
                   <span class="arrow"> → </span>
-                  <%= image_tag cdn_proxy_url(menu_edit.image.variant(resize_to_limit: [500, 500])) %>
+                  <%= image_tag rails_public_blob_url(menu_edit.image.variant(resize_to_limit: [500, 500])) %>
                 </div>
             <% end %>
             <li class="compared"><span class="pending-title"><%= t :product_category %>:</span>
@@ -392,7 +391,7 @@
               </div>
             </li>
             <li class="user-info"><span class="pending-title"><%= t :edited_by %></span>
-              <% if menu_edit.user.avatar.attached? %> <%= image_tag cdn_proxy_url(menu_edit.user.avatar.variant(:medium)), class: "avatar", loading: "lazy" %>
+              <% if menu_edit.user.avatar.attached? %> <%= image_tag rails_public_blob_url(menu_edit.user.avatar.variant(:medium)), class: "avatar", loading: "lazy" %>
               <% end %> <%= menu_edit.user.username %></li>
             <li>
               <%= link_to t('approve'), admin_approve_menu_edit_path(menu_edit), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
@@ -421,7 +420,7 @@
               </li>
             <% end %>
             <li class="user-info"><span class="pending-title"><%= t :reviewer %></span>
-              <% if review.user.avatar.attached? %> <%= image_tag cdn_proxy_url(review.user.avatar.variant(:medium)), class: "avatar", loading: "lazy" %>
+              <% if review.user.avatar.attached? %> <%= image_tag rails_public_blob_url(review.user.avatar.variant(:medium)), class: "avatar", loading: "lazy" %>
               <% end %> <%= review.user.username %></li>
             <li>
               <%= link_to t('approve'), admin_approve_review_path(review), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>
@@ -450,7 +449,7 @@
               </li>
             <% end %>
             <li class="user-info"><span class="pending-title"><%= t :reviewer %></span>
-              <% if review.user.avatar.attached? %> <%= image_tag cdn_proxy_url(review.user.avatar.variant(:medium)), class: "avatar", loading: "lazy" %>
+              <% if review.user.avatar.attached? %> <%= image_tag rails_public_blob_url(review.user.avatar.variant(:medium)), class: "avatar", loading: "lazy" %>
               <% end %> <%= review.user.username %></li>
             <li>
               <%= link_to t('approve'), admin_approve_review_path(review), class: "approve-btn", method: "post", remote: true, data: { turbo_method: "post" } %>

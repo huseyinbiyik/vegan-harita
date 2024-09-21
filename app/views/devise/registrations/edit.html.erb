@@ -7,7 +7,7 @@
     <div class="form-group" id="avatar-field" data-controller="utils">
       <div id="avatar-container">
         <% if resource.avatar.attached? && resource.avatar.blob.persisted? %>
-          <%= image_tag cdn_proxy_url(resource.avatar.variant(:medium)), id: "avatar-img", class: "avatar", data: {utils_target: "preview"} %>
+          <%= image_tag rails_public_blob_url(resource.avatar.variant(:medium)), id: "avatar-img", class: "avatar", data: {utils_target: "preview"} %>
         <% else %>
           <%= image_tag "account.svg", class: "avatar", data: {utils_target: "preview"} %>
         <% end %>

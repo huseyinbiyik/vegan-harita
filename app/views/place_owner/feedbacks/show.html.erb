@@ -10,7 +10,7 @@
     <article class="place-owner-feedback">
         <div class="place-owner-feedback-photos">
             <% review.images.each do |image| %>
-              <%= image_tag cdn_proxy_url(image), class: "place-owner-single-feedback-photo" %>
+              <%= image_tag rails_public_blob_url(image), class: "place-owner-single-feedback-photo" %>
             <% end %>
         </div>
 

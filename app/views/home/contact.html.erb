@@ -23,7 +23,7 @@
       <%= form.label :message, t('views.home.contact.message').html_safe %>
       <%= form.text_area :message, value: @contact_params[:message], autofocus: true, maxlength: 2000, required: true %>
     </div>
-    <div class="form-group select-wrapper" >
+    <div class="form-group select-wrapper">
       <%= form.label t('image') %>
       <%= form.file_field :images, multiple: true, accept: "image/*", direct_upload: true, data: { action: "change->utils#uploadFiles", content: t('select_image') }, id: "image-input" %>
     </div>
