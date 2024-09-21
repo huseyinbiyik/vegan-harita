@@ -53,7 +53,7 @@
       <div id="product-image-container">
         <% if @product.image.attached? %>
           <div>
-            <%= image_tag cdn_proxy_url(@product.image.variant(:big)), alt: @product.name, class:"product-image" %>
+            <%= image_tag rails_public_blob_url(@product.image.variant(:big)), alt: @product.name, class:"product-image" %>
           </div>
         <% else %>
           <div class="no-photo-wrapper">
@@ -113,7 +113,7 @@
         <% @contributors.each do |contributor| %>
           <div class="contributor">
             <% if contributor.user.avatar.attached? %>
-              <%= image_tag cdn_proxy_url(contributor.user.avatar.variant(:thumb)), class: "contributor-avatar", loading: "lazy" %>
+              <%= image_tag rails_public_blob_url(contributor.user.avatar.variant(:thumb)), class: "contributor-avatar", loading: "lazy" %>
             <% else %>
               <%= image_tag "account.svg", class: "contributor-avatar", loading: "lazy" %>
             <% end %>

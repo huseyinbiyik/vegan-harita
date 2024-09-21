@@ -1,7 +1,7 @@
 <div data-controller="slider" class="slider bg-dark-green">
   <div class="slider-container">
     <% images.each do |image| %>
-      <%= image_tag cdn_proxy_url(image), class: "slider-image", data: { slider_target: "image" } %>
+      <%= image_tag rails_public_blob_url(image), class: "slider-image", data: { slider_target: "image" } %>
     <% end %>
     <div class="slide-buttons">
       <span data-action="click->slider#previous"></span>

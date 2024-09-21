@@ -55,7 +55,6 @@ class ProductsController < ApplicationController
     @product = Product.new
   end
 
-
   def create
     @product = Product.new(product_params)
     @product.approved = true if current_user.admin?

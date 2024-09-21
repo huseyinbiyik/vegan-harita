@@ -59,7 +59,7 @@
       <% if place.images.attached? %>
         <div class="slider-container" data-controller="slider">
           <% place.images.each do |image| %>
-            <%= image_tag cdn_proxy_url(image.variant(:big)), class: "slider-image", data: { slider_target: "image" } %>
+            <%= image_tag rails_public_blob_url(image.variant(:big)), class: "slider-image", data: { slider_target: "image" } %>
           <% end %>
           <div class="slide-buttons">
             <span data-action="click->slider#previous"></span>
@@ -277,7 +277,7 @@
       <% @contributors.each do |contributor| %>
         <div class="contributor">
           <% if contributor.avatar.attached? %>
-            <%= image_tag cdn_proxy_url(contributor.avatar.variant(:thumb)), class: "contributor-avatar", loading: "lazy" %>
+            <%= image_tag rails_public_blob_url(contributor.avatar.variant(:thumb)), class: "contributor-avatar", loading: "lazy" %>
           <% else %>
             <%= image_tag "account.svg", class: "contributor-avatar", loading: "lazy" %>
           <% end %>
