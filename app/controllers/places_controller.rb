@@ -9,7 +9,7 @@ class PlacesController < ApplicationController
     east = params[:east].to_f
     west = params[:west].to_f
 
-    @places = Place.approved.where(latitude: south..north, longitude: west..east).includes(:images_attachments)
+    @places = Place.approved.where(latitude: south..north, longitude: west..east).includes(images_attachments: :blob)
 
     @last_ten_places = Place.approved.order(created_at: :desc).limit(10)
     respond_to do |format|
