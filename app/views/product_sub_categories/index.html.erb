@@ -1,7 +1,7 @@
 <%= turbo_frame_tag "product_sub_category" do %>
   <select class="form-control collection-select" name="product[product_sub_category_id]" id="product_product_sub_category_id">
     <% @product_sub_categories&.each do |category| %>
-      <option value="<%= category.id %>"><%= category.name %></option>
+      <option value="<%= category.id %>" <%= 'selected' if category.id.to_s == @product_sub_category_id.to_s %>><%= category.name %></option>
     <% end %>
   </select>
 <% end %>
