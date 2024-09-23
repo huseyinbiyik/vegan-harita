@@ -23,7 +23,7 @@ module VhApi
     #
     config.time_zone = "Istanbul"
     # config.eager_load_paths << Rails.root.join("extras")
-    config.i18n.default_locale = :en
+    config.i18n.default_locale = :tr
     # available languages will be turkish and english
     config.i18n.available_locales = [ :en, :tr ]
     # Set all the images to be loaded lazily
