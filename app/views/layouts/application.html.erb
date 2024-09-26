@@ -3,20 +3,19 @@
   <head>
     <title><%= content_for(:title) || "Vegan Harita" %></title>
     <meta name="description" content="<%= content_for(:description) || t(".description") %>">
-    <meta name="keywords" content="Vegan Türkiye, vegan mekanlar, vegan seçenek, vegan market, vegan menü, Türkiye'de vegan olmak">
     <link rel="canonical" href="https://veganharita.com/">
     <meta name="robots" content="index, follow">
     <meta name="view-transition" content="same-origin">
     <meta charset="utf-8">
-    <meta property="og:title" content="Vegan Harita">
+    <meta property="og:title" content="<%= content_for(:title) || "Vegan Harita" %>">
     <meta property="og:description" content="<%= content_for(:description) || t(".description") %>">
-    <meta property="og:image" content="seo-logo.png">
-    <meta property="og:url" content="https://veganharita.com/">
+    <meta property="og:image" content="<%= content_for(:image) || "seo-logo.png" %>">
+    <meta property="og:url" content="<%= request.original_url %>">
     <meta property="og:site_name" content="Vegan Harita">
     <meta property="og:type" content="website">
-    <meta name="twitter:title" content="Vegan Harita">
+    <meta name="twitter:title" content="<%= content_for(:title) || "Vegan Harita" %>">
     <meta name="twitter:description" content="<%= content_for(:description) || t(".description") %>">
-    <meta name="twitter:image" content="seo-logo.png">
+    <meta name="twitter:image" content="<%= content_for(:image) || "seo-logo.png" %>">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%# Polyfill is not working %>
@@ -71,9 +70,10 @@
         <div data-controller="flash" class="<%= type %>"><%= message %></div>
       <% end %>
     </div>
+    
     <%= render "layouts/header" %>
     <%= yield %>
     <%= render "layouts/navbar" %>
-  <%= turbo_frame_tag :modal %>
+    <%= turbo_frame_tag :modal %>
   </body>
 </html>
