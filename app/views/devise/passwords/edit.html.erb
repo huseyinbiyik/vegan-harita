@@ -1,17 +1,17 @@
 <section class="user-forms">
   <h1><%= t :change_your_password %></h1>
 
-  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, data: {turbo: false} }) do |f| %>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, data: {turbo: false} }, builder: CustomFormBuilder) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
   <%= f.hidden_field :reset_password_token %>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :password, t('new_password') %>
     <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %>
     <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :password_confirmation, t('confirm_password') %>
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
@@ -23,6 +23,3 @@
 
   <%= render "devise/shared/links" %>
 </section>
-
-
-

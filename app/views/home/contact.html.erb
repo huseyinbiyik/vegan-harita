@@ -1,3 +1,4 @@
+<%= content_for :title, t('.title') %>
 <main id="contact">
   <h2 id="invite" class="mobile"><%= t('views.home.contact.invite') %></h2>
   <br class="mobile">
@@ -12,40 +13,37 @@
   <p id="separator" class="mobile">
     <span> <%= t('views.home.contact.or') %> </span>
   </p>
-  
 
   <br class="mobile">
 
-  
   <h1><%= t('views.home.contact.contact_us') %></h1>
   <p><%= t('views.home.contact.contact_us_text') %></p>
   <%= form_with url: send_mail_path, html: { multipart: true, class: "contact-form", data: { turbo: false } } do |form| %>
-    <div class="field">
+    <div class="form-group">
       <%= form.label :message, t('views.home.contact.message').html_safe %>
       <%= form.text_area :message, value: @contact_params[:message], autofocus: true, maxlength: 2000, required: true %>
     </div>
-    <div class="field select-wrapper" data-controller="utils" data-utils-assets-value="<%= [t('files_selected'), t('no_files_selected')].to_json %>">
+    <div class="form-group select-wrapper">
       <%= form.label t('image') %>
-      <span id="file-upload-btn" data-utils-target="uploadBtn"><%= t(:no_file_selected) %></span>
       <%= form.file_field :images, multiple: true, accept: "image/*", direct_upload: true, data: { action: "change->utils#uploadFiles", content: t('select_image') }, id: "image-input" %>
     </div>
-    <div class="field">
+    <div class="form-group">
       <%= form.label t('views.home.contact.name_username') %>
       <%= form.text_field :name, value: @contact_params[:name], maxlength: 50 %>
     </div>
-    <div class="field">
+    <div class="form-group">
       <%= form.label t(:your_email) %>
       <%= form.email_field :email, value: @contact_params[:email], maxlength: 50 %>
     </div>
 
     <%= form.label :gender, class: "gender" %>
     <%= form.text_field :gender, value: @contact_params[:gender], maxlength: 50, class: "gender" %>
-    
-    <div class="field">
+
+    <div class="form-group">
       <%= flash[:recaptcha_error] %>
       <%= recaptcha_tags %>
     </div>
-    <div class="actions">
+    <div class="form-group actions">
       <%= form.submit t(:submit) %>
     </div>
   <% end %>

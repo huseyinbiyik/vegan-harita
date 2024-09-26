@@ -1,0 +1,14 @@
+<%= form_with(model: product_category, url: product_category.persisted? ? admin_product_category_path(product_category) : admin_product_categories_path) do |form| %>
+  <%= render 'shared/error_messages', object: form.object %>
+  <div>
+    <%= form.label :name_en %>
+    <%= form.text_field :name_en %>
+  </div>
+  <div>
+    <%= form.label :name_tr %>
+    <%= form.text_field :name_tr %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

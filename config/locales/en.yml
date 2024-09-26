@@ -35,6 +35,11 @@ en:
       only_date: "%B  %e, %Y"
   months: "Months"
   days: Days
+  saving: "Saving..."
+  add: "Add"
+  search: "Search..."
+  notifications: "Notifications"
+  error_found: "error found. Please check the form."
   is_not_allowed: "is not allowed. Please try another one."
   no_photo: "No Photo"
   username_placeholder: "veganharita"
@@ -113,9 +118,8 @@ en:
   login: "Log in"
   forgot_password: "Forgot my password"
   not_received_confirmation: "I didn't receive a confirmation email"
-  panel: "Approval Panel"
+  :admin_panel: "Admin Panel"
   place_index: "Places"
-  product_index: "Products"
   add_place: "Add Place"
   my_account: "My Account"
   logOut: "Log Out"
@@ -152,14 +156,14 @@ en:
   call: "Call"
   no_tag: "No Tags"
   menu: "MENU"
-  add_product: "+Add Product"
+  add_product: "Add Product"
   meals: "Meals"
   desserts: "Desserts"
   drinks: "Drinks"
   no_menu: "Looks like the menu of this place hasn't been added yet 🙁"
   customers_review: "How do customers review this place?"
   add_review: "Write a review"
-  name_of_place: "NAme of the Place"
+  name_of_place: "Name of the Place"
   websiteAddress: "Website Address"
   new_photos: "Add New Photos"
   last_added: "Last Added Places"
@@ -172,6 +176,7 @@ en:
   sure_delete: "Are you sure you want to delete?"
   edit_review: "Edit Your Review"
   new_review: "A New Review"
+  photo: "Photo"
   devise:
     confirmations:
       confirmed: "Your email address has been successfully confirmed."
@@ -235,67 +240,14 @@ en:
       not_saved:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
-  activerecord:
-    models:
-      user: "User"
-      claim: "Claim"
-    attributes:
-      user:
-        name: "Name"
-        email: "E-mail"
-        password: "Password"
-        password_confirmation: "Password confirmation"
-        current_password: "Current password (required)"
-        user_agreement_accepted: "User Agreement"
-      place:
-        latitude: "Address:"
-        pick_from_map_suggestions: "Please pick a location provided by Google Maps for the address you entered"
-        instagram_invalid: "Instagram username is invalid. Please enter a valid username. You can find your username in your Instagram profile URL. For example, if your profile URL is instagram.com/username, your username is username."
-        facebook_invalid: "Facebook username is invalid. Please enter a valid username. You can find your username in your Facebook profile URL. For example, if your profile URL is facebook.com/username, your username is username."
-        x_invalid: "X username is invalid. Please enter a valid username. You can find your username in your X profile URL. For example, if your profile URL is x.com/username, your username is username."
-        image_invalid: "Please select a valid image file. Valid image file extensions are: jpg, jpeg, webp, png"
-        image_size_invalid: "Please select an image file smaller than 3MB"
-      menu:
-        name: "North Korean Fried Tofu"
-        description: "Tofu, onion and sesame and North Korean spices..."
-      place_edits:
-        web_url: "websiteaddress.com"
-      review:
-        content: "Your Review"
-        feedback: "I think your food is a little salty..."
-      claim:
-        name: "Name & surname"
-        email: "E-mail"
-        phone: "Phone"
-        title: "Title"
-        linkedin: "Linkedin"
-        note: "Extra note"
-    errors:
-      messages:
-        blank: "can't be blank"
-        confirmation: "doesn't match"
-        too_short: "too short (%{count} characters minimum)"
-      models:
-        user:
-          attributes:
-            username_invalid: "Username is invalid. Can only contain letters and numbers"
-            user_agreement_accepted:
-              accepted: "You must accept the User Agreement"
-        place:
-          attributes:
-            address:
-              taken: "already exists"
-            place_id:
-              taken: "already exists"
-          claim:
-            attributes:
-              email:
-                invalid: "is invalid"
+
   helpers:
     reviews_helper:
       not_yet_rated: "Henüz değerlendirilmedi"
     placeholder:
       name_search: "Search for places or locations..."
+      product_search: "Search for products..."
+      search: "Search..."
       user:
         email: "your@address.com"
   controllers:
@@ -378,7 +330,7 @@ en:
       claim: "Claim"
   menus:
     form:
-      image_with_warning: "Images (max 3MB)"
+      image_with_warning: "Images (max 5MB)"
   sign_user_agreement: "I read and accept the <a href='/legals/user-agreement' target='_blank'><span class='underlined'>User Agreement</span></a>"
   privacy_policy:
     link_text: "Privacy Policy"
@@ -470,16 +422,6 @@ en:
     disclaimer_text_html: "<p>We do not guarantee the accuracy and currency of the content on the website. Users should rely on information at their own risk.</p><br>"
     changes_html: "<h2>Changes</h2>"
     changes_text_html: "<p>This user agreement may be changed from time to time. It is the user's responsibility to follow updates.</p>"
-  titles:
-    registrations:
-      new: "Vegan Harita | Sign Up"
-      edit: "Vegan Harita | My Account"
-    sessions:
-      new: "Vegan Harita | Log In"
-    places:
-      new: "Vegan Harita | Add Place"
-    home:
-      contact: "Vegan Harita | Contact"
   business_panel: "My Business Panel"
   place_owner:
     summary:
@@ -526,6 +468,4 @@ en:
       name: "Name & Surname"
       note: "Extra Note"
       linkedin: "Linkedin"
-
-
-
+  disclaimer: "This is not an advertisement. The products shared are for informational purposes only and our website does not make any gain from promoting these products."

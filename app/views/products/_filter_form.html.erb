@@ -1,0 +1,53 @@
+<%= search_form_for @q,
+    builder: RansackFormBuilder,
+    data: {
+      controller: "helpers--auto-submit",
+      action: "input->helpers--auto-submit#submit",
+      helpers__auto_submit_target: "form"
+      } do |f| %>
+  <ul id="product-filters">
+    <ul>
+      <span> <%= ProductCategory.model_name.human(count: :many) %> </span>
+      <%= f.collection_check_boxes :product_category_id_eq_any, ProductCategory.all.includes([:string_translations]), :id, :name, multiple: true do |i| %>
+        <li>
+          <%= i.check_box %>
+          <%= i.label %>
+        </li>
+      <% end %>
+    </ul>
+    <ul class="filter-separator"></ul>
+    <ul data-controller="helpers--filter">
+      <span> <%= ProductSubCategory.model_name.human(count: :many) %> </span>
+      <input type="text" data-helpers--filter-target="input" data-action="input->helpers--filter#filter" class="visible-on-desktop input-filter" placeholder="<%= t(:search) %>">
+      <%= f.collection_check_boxes :product_sub_category_id_eq_any, @product_sub_categories, :id, :name, multiple: true do |i| %>
+        <li data-helpers--filter-target="item">
+          <%= i.check_box %>
+          <%= i.label %>
+        </li>
+      <% end %>
+    </ul>
+    <ul class="filter-separator"></ul>
+    <ul data-controller="helpers--filter">
+      <span> <%= Brand.model_name.human(count: :many) %> </span>
+      <input type="text" data-helpers--filter-target="input" data-action="input->helpers--filter#filter" class="visible-on-desktop input-filter" placeholder="<%= t(:search) %>">
+      <%= f.collection_check_boxes :brand_id_eq_any, @brands, :id, :name, include_blank: true do |i| %>
+        <li data-helpers--filter-target="item">
+          <%= i.check_box %>
+          <%= i.label %>
+        </li>
+      <% end %>
+    </ul>
+    <ul class="filter-separator"></ul>
+    <ul data-controller="helpers--filter">
+
+      <span> <%= Shop.model_name.human(count: :many) %> </span>
+      <input type="text" data-helpers--filter-target="input" data-action="input->helpers--filter#filter" class="visible-on-desktop input-filter" placeholder="<%= t(:search) %>">
+      <%= f.collection_check_boxes :shops_id_eq_any, @shops, :id, :name, multiple: true do |i| %>
+        <li data-helpers--filter-target="item">
+          <%= i.check_box %>
+          <%= i.label %>
+        </li>
+      <% end %>
+    </ul>
+  </ul>
+<% end %>

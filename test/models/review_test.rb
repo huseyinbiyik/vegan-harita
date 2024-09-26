@@ -17,7 +17,7 @@ class ReviewTest < ActiveSupport::TestCase
 
   # ASSOCIATIONS START
   test "should belong to place" do
-    assert @review.place
+    assert @review.reviewable.is_a?(Place)
   end
 
   test "should belong to user" do

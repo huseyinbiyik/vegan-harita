@@ -1,0 +1,20 @@
+
+<div id="product">
+  <div class="product-wrapper">
+    <%= link_to product_path(product.slug), data:{ turbo_frame: "_top" }, class:"product-link" do %>
+      <% if product.image.attached? %>
+        <div>
+          <%= image_tag rails_public_blob_url(product.image.variant(:big)), alt: product.name, class:"product-image" %>
+        </div>
+      <% else %>
+        <div class="no-photo-wrapper">
+          <%= image_tag "default-product-image.jpg", class: "product-image default-image" %>
+          <p class="no-photo"> <%= t :no_photo %> </p>
+        </div>
+      <% end %>
+      <p>
+        <%= truncate(product.name, length: 50) %>
+      </p>
+    <% end %>
+  </div>
+</div>

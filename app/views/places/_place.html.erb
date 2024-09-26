@@ -29,6 +29,14 @@
           <% end %>
         </div>
       </div>
+      <div class="edit-button edit-wrapper edit-options" hidden="hidden">
+        <div class="flex-container">
+          <%= link_to new_change_logs_path(changeable_id: @place.id, changeable_type: "Place"), class: "claim-button" do %>
+            <%= image_tag "delete_place.svg", class: "edit-icon claim-icon", height: 42 %>
+            <span class="place-toggle-text"><%= t('.closed') %></span>
+          <% end %>
+        </div>
+      </div>
       <% if user_signed_in? %>
         <button id="place-edit-toggle-button" data-action="click->edit#toggle">
           <span class="edit-icon-container">
@@ -51,7 +59,7 @@
       <% if place.images.attached? %>
         <div class="slider-container" data-controller="slider">
           <% place.images.each do |image| %>
-            <%= image_tag cdn_proxy_url(image.variant(:big)), class: "slider-image", data: { slider_target: "image" } %>
+            <%= image_tag rails_public_blob_url(image.variant(:big)), class: "slider-image", data: { slider_target: "image" } %>
           <% end %>
           <div class="slide-buttons">
             <span data-action="click->slider#previous"></span>
@@ -104,7 +112,8 @@
               <span class="detail dynamic-status" data-place-status-target="statusClose" hidden><%= t("closed").downcase %></span>
               <span class="detail dynamic-status" data-place-status-target="noStatus" hidden>?</span>
               <div class="opening-hours-table" data-place-status-target="openingHoursTable">
-                <span class="opening-hours-table-heading"><%= t('opening_hours') %> <br></span>
+                <span class="opening-hours-table-heading"><%= t('opening_hours') %> <br>
+                </span>
                 <span data-place-status-target="noStatus" hidden><%= t("temp_per_closed") %></span>
               </div>
             </div>
@@ -251,7 +260,7 @@
       <% end %>
       <% if user_signed_in? %>
         <%= turbo_frame_tag "new_review" do %>
-          <%= link_to new_place_review_path(@place.slug), class: "add-review-btn" do %>
+          <%= link_to new_review_path(reviewable_id: @place.id, reviewable_type: "Place"), class: "add-review-btn" do %>
             <%= image_tag "add-review.svg" %>
             <%= t :add_review %>
           <% end %>
@@ -260,7 +269,7 @@
     </div>
   </section>
   <hr class="separator">
-  <section id="contributors">
+  <section class="contributors">
     <div id="contributors-header">
       <h2> <%= t("views.places.show.contributors") %> </h2>
     </div>
@@ -268,7 +277,7 @@
       <% @contributors.each do |contributor| %>
         <div class="contributor">
           <% if contributor.avatar.attached? %>
-            <%= image_tag cdn_proxy_url(contributor.avatar.variant(:thumb)), class: "contributor-avatar", loading: "lazy" %>
+            <%= image_tag rails_public_blob_url(contributor.avatar.variant(:thumb)), class: "contributor-avatar", loading: "lazy" %>
           <% else %>
             <%= image_tag "account.svg", class: "contributor-avatar", loading: "lazy" %>
           <% end %>

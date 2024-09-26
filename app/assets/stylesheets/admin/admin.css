@@ -1,8 +1,33 @@
-.pending {
+#admin-layout {
   display: flex;
+  width: calc(100% - 40px);
+  padding: 0 20px;
+
+  #admin-aside {
+    width: 200px;
+    height: 100vh;
+    background-color: var(--white);
+    border-right: 1px solid var(--light-gray);
+    position: fixed;
+    padding-top: 20px;
+
+    & li {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  #admin-main {
+    width: calc(100% - 200px);
+    margin-left: 200px;
+    padding: 20px;
+  }
+}
+
+.pending {
   flex-direction: column;
   padding: 0 20px;
-  width: calc(100vw - 40px);
   align-items: center;
   margin: auto;
 }

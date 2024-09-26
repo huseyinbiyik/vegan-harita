@@ -1,22 +1,8 @@
-#new_user {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 auto;
-  gap: 1rem;
-}
-
-#user_email,
-#user_password {
-  width: 240px;
-}
-
 #remember {
   display: flex;
   flex-direction: row;
-  gap: 0.5rem;
+  gap: 8px;
   align-items: center;
-  width: 15rem;
 }
 
 #user_remember_me {
@@ -28,14 +14,7 @@
   color: var(--gray);
 }
 
-#login-button {
-  color: var(--white);
-  font-weight: 500;
-  background: var(--green);
-  border: none;
-}
-
-#login-form #signup-link {
+#signup-link {
   width: 15rem;
   height: 2.625rem;
   border-radius: 1.25rem;

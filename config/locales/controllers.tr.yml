@@ -1,0 +1,8 @@
+tr:
+  success:
+    created: "%{model} başarıyla oluşturuldu"
+    updated: "%{model} başarıyla güncellendi"
+    destroyed: "%{model} başarıyla silindi"
+  products:
+    search_by_barcode:
+      not_found: "Ürün bulunamadı"

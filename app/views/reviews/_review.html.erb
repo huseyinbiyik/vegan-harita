@@ -3,14 +3,14 @@
     <div class="review-wrapper">
       <div class="reviewer-info">
         <% if review.user.avatar.attached? %>
-          <%= image_tag cdn_proxy_url(review.user.avatar.variant(:medium)), class:"review-avatar", loading: "lazy" %>
+          <%= image_tag rails_public_blob_url(review.user.avatar.variant(:medium)), class:"review-avatar", loading: "lazy" %>
         <% else %>
           <%= image_tag "default-place-image.jpg", class:"review-avatar", loading: "lazy" %>
         <% end %>
         <%= review.user.username %>
         <% if review.user == current_user && user_signed_in? %>
-          <%= link_to t('edit'), edit_place_review_path(@place.slug, review) %>
-          <%= link_to t('delete'), place_review_path(@place.slug, review), method: "delete", remote: true, data: { turbo_method: "delete", turbo_confirm: t('sure_delete') } %>
+          <%= link_to t('edit'), edit_review_path(review) %>
+          <%= link_to t('delete'), review_path(review), method: "delete", remote: true, data: { turbo_method: "delete", turbo_confirm: t('sure_delete') } %>
         <% end %>
       <% end %>
     </div>
@@ -30,7 +30,7 @@
           </p>
           <div class="review-images-container ">
             <% review.images.each do |image| %>
-              <%= image_tag cdn_proxy_url(image.variant(:medium)), class:"review-image" %>
+              <%= image_tag rails_public_blob_url(image.variant(:medium)), class:"review-image" %>
             <% end %>
           </div>
         </div>

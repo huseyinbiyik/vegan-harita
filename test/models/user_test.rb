@@ -13,7 +13,7 @@ class UserTest < ActiveSupport::TestCase
 
   # ENUMS START
   test "should define role enum" do
-    assert_equal({ "user" => 0, "admin" => 1 }, User.roles)
+    assert_equal({ "user" => 0, "admin" => 1, "place_owner" => 2 }, User.roles)
   end
   # ENUMS END
 

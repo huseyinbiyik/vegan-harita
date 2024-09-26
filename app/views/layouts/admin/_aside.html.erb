@@ -1,0 +1,13 @@
+<aside id="admin-aside">
+  <nav>
+    <ul>
+      <li><%= link_to t(".homepage"), root_path %></li>
+      <li><%= link_to t(".dashboard"), admin_root_path %></li>
+      <li><%= link_to t(".approvals"), admin_approvals_path %></li>
+      <li><%= link_to Brand.model_name.human(count: :many), admin_brands_path %></li>
+      <li><%= link_to Shop.model_name.human(count: :many), admin_shops_path %></li>
+      <li><%= link_to ProductCategory.model_name.human(count: :many), admin_product_categories_path %></li>
+      <li><%= link_to ProductSubCategory.model_name.human(count: :many), admin_product_sub_categories_path %></li>
+    </ul>
+  </nav>
+</aside>

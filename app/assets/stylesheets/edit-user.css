@@ -17,6 +17,7 @@
   border: none;
   width: 0;
   padding: 0;
+  color: transparent;
 }
 
 #user_avatar::-webkit-file-upload-button {
@@ -37,6 +38,7 @@
 }
 
 #edit_user {
+  width: 240px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -47,13 +49,6 @@
 #user_password_confirmation,
 #user_current_password {
   width: 240px;
-}
-
-#update-button {
-  color: var(--white);
-  font-weight: 500;
-  background: var(--green);
-  border: none;
 }
 
 #owner-panel {
@@ -72,11 +67,6 @@
   font-weight: 500;
 }
 
-#cancel {
-  color: var(--red);
-  margin-top: 16px;
-}
-
 #cancel-button {
   background-color: var(--red);
   border: none;
@@ -86,4 +76,17 @@
   border-radius: 1.25rem;
   font-weight: 500;
   font-size: 1rem;
+}
+
+#notification-check {
+  & legend {
+    font-size: 14px;
+  }
+
+  & .form-group {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  border: none;
 }

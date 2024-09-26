@@ -2,15 +2,15 @@
 
 <main>
   <div class="place-owner-panel-title">
-    <h3 class="text-center"><%= t '.place_rating' %>: <%= average_rating(@reviews)%></h3>
-    <h3  class="text-center"><%= t '.total_review_count' %>: <%= @reviews.size %></h3>
+    <h3 class="text-center"><%= t '.place_rating' %>: <%= average_rating(@reviews) %></h3>
+    <h3 class="text-center"><%= t '.total_review_count' %>: <%= @reviews.size %></h3>
   </div>
 
   <% @reviews.each do |review| %>
     <article class="place-owner-feedback">
         <div class="place-owner-feedback-photos">
             <% review.images.each do |image| %>
-              <%= image_tag cdn_proxy_url(image), class: "place-owner-single-feedback-photo" %>
+              <%= image_tag rails_public_blob_url(image), class: "place-owner-single-feedback-photo" %>
             <% end %>
         </div>
 

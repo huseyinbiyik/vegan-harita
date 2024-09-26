@@ -1,0 +1,6 @@
+en:
+  new_product_added_subject: "%{contributor} added a new product"
+  # added product
+  added_product: " added a new product"
+  main_text: "Visit the product page to see where you can find the product and more."
+  view_product: "View Product"

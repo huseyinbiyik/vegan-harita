@@ -1,0 +1,22 @@
+<%= form_with(model: product_sub_category, url: product_sub_category.persisted? ? admin_product_sub_category_path(product_sub_category) : admin_product_sub_categories_path) do |form| %>
+  <%= render 'shared/error_messages', object: form.object %>
+
+  <div>
+    <%= form.label :name_en, style: "display: block" %>
+    <%= form.text_field :name_en %>
+  </div>
+
+  <div>
+    <%= form.label :name_tr, style: "display: block" %>
+    <%= form.text_field :name_tr %>
+  </div>
+
+  <div>
+    <%= form.label :product_category_id, style: "display: block" %>
+    <%= form.collection_select :product_category_id, ProductCategory.all, :id, :name %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,5 +1,7 @@
-<%= form_with(model: [@place, review], url: @review.new_record? ? place_reviews_path(@place.slug) : place_review_path(@place.slug, review), class: "add-review", data: { controller: "form", action: "turbo:submit-end->form#submitEnd", form_target: "frame" }) do |form| %>
-  <div class="review-form-group">
+<%= form_with(model: @review, class: "add-review", data: { controller: "form", action: "turbo:submit-end->form#submitEnd", form_target: "frame" }, builder: CustomFormBuilder) do |form| %>
+  <%= form.hidden_field :reviewable_id %>
+  <%= form.hidden_field :reviewable_type %>
+  <div class="form-group review-group">
     <%= form.label t('your_rating'), style: "display: block" %>
     <div class="rating" id="rating-section">
       <%= form.collection_radio_buttons(:rating, [[5],[4],[3],[2],[1]], :first, :last) do |star| %>
@@ -8,21 +10,21 @@
       <% end %>
     </div>
   </div>
-  <div class="review-form-group">
+  <div class="form-group review-group">
     <%= form.label t('your_review'), style: "display: block" %>
     <%= form.text_area :content, placeholder: Review.human_attribute_name('content'), required: true, minlength: 5 %>
   </div>
-  <div class="review-form-group">
+  <%= tag.div class:"form-group review-group" do %>
     <%= form.label t('owner_feedback'), style: "display: block" %>
     <%= form.text_area :feedback, placeholder: Review.human_attribute_name('feedback') %>
-  </div>
-  <div class="review-form-group select-wrapper" data-controller= "utils" data-utils-assets-value="<%= [t('files_selected'), t('no_file_selected')].to_json %>">
+  <% end if params[:reviewable_type] == "Place" %>
+  <div class="form-group select-wrapper review-group" data-controller="utils" data-utils-assets-value="<%= [t('files_selected'), t('no_file_selected')].to_json %>">
     <%= form.label t('photos'), style: "display: block" %>
     <span id="upload-edit-btn" data-utils-target="uploadBtn"><%= t(:no_file_selected) %></span>
     <%= form.file_field :images, multiple: true, direct_upload: true, accept: "image/*", data: { action: "change->utils#uploadFiles", content: t('select_image')} %>
   </div>
   <div class="form-buttons">
-    <%= form.submit t('submit'), class:"primary-green-btn", data: { turbo_confirm: t('sure') }  %>
+    <%= form.submit t('submit'), class:"primary-green-btn", data: { turbo_confirm: t('sure') } %>
     <a href="#" class="turbo-cancel-btn"> <%= t :nevermind %> </a>
   </div>
 <% end %>

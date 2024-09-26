@@ -53,51 +53,12 @@
   max-width: 500px;
 }
 
-@media (min-width: 1024px) {
-  #contact {
-    .g-recaptcha {
-      transform: scale(1);
-      transform-origin: 0 0;
-    }
-  }
-}
-
 #image-input {
   border-radius: 0.313rem;
   border: 0.063rem solid var(--gray);
   padding: 0.5rem;
   min-width: 240px;
   max-width: 572px;
-  color: transparent;
-}
-
-#image-input::-webkit-file-upload-button {
-  visibility: hidden !important;
-  width: 0;
-}
-
-#image-input::before {
-  content: attr(data-content);
-  color: var(--black);
-  display: inline-block;
-  outline: none;
-  white-space: nowrap;
-  -webkit-user-select: none;
-  cursor: pointer;
-  padding: 0.188rem 0.563rem 0.188rem 0.25rem;
-  font-size: 0.875rem;
-  border-radius: 0.313rem;
-  border: 0.006rem solid var(--black);
-  background: var(--white);
-  width: 5.625rem;
-  height: 1.563rem;
-}
-
-#file-upload-btn {
-  position: absolute;
-  left: 114px;
-  bottom: 11px;
-  font-size: 14px;
 }
 
 .legal-links {
@@ -109,4 +70,13 @@
   padding: 0 20px;
   flex-wrap: wrap;
   text-align: center;
+}
+
+@media (min-width: 1024px) {
+  #contact {
+    .g-recaptcha {
+      transform: scale(1);
+      transform-origin: 0 0;
+    }
+  }
 }

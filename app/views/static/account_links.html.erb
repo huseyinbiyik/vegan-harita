@@ -1,7 +1,7 @@
 <ul id="account-links" class="mobile">
   <% if user_signed_in? && current_user.role == "admin" %>
     <li>
-      <%= link_to t(:panel), approvals_path %>
+      <%= link_to t(:panel), admin_root_path %>
     </li>
   <% end %>
   <% if user_signed_in? && current_user.place_owner? %>
