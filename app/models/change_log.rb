@@ -171,7 +171,11 @@ class ChangeLog < ApplicationRecord
 
     product.assign_attributes(product_attributes.compact)
 
-    product.image.attach(image.blob) if image.attached?
+    if image.attached?
+      product.image.purge
+      product.image.attach(image.blob)
+      image.purge
+    end
 
     product.save!
 
