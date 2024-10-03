@@ -391,6 +391,10 @@
     height: 400px;
   }
 
+  .product-details {
+    width: 50%;
+  }
+
   .statement {
     text-align: center;
   }
