@@ -17,10 +17,17 @@
       <%= link_to "#{place.name}", place_path(place.slug), class: "place-card" %>
     <% end %>
   </div>
-  <div class="vh-instagram">
-    <%= link_to "https://www.instagram.com/veganharita", target: "_blank" do %>
-      <%= image_tag ('instagram.svg') %>
-      <span>veganharita</span>
-    <% end %>
+  <div id="footer-links">
+    <div class="vh-instagram">
+      <%= link_to "https://www.instagram.com/veganharita", target: "_blank" do %>
+        <%= image_tag ('instagram.svg') %>
+        <span>veganharita</span>
+      <% end %>
+    </div>
+    <div class="vh-code">
+      <%= link_to "https://github.com/huseyinbiyik/vegan-harita", target: "_blank" do %>
+        <%= image_tag ('github.svg') %>
+      <% end %>
+    </div>
   </div>
 </div>
