@@ -80,7 +80,7 @@
     font-weight: 400;
   }
 
-  #footer-links {
+  .vh-instagram {
     background-color: var(--white);
     height: 50px;
     position: absolute;
