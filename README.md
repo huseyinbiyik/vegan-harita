@@ -1,9 +1,8 @@
 # Vegan Harita (Vegan Map)
 
-Vegan Harita is a map of vegan places in Turkey. Users can search for the places for easy access, see the places around them, and check their menus, photos, and all the information they need. It is a part and the first feature of a super app, which is aimed to solve the problems of vegans in Turkey. The app is currently in development.
+Vegan Harita is a platform where users find places and products. Users can search for vegan places, see the places around, see the place's menu, photos, information, and location on the map. Users can also claim places and manage them as place owners. Now it has also a feature to add products and see the products around.
 
-
-## Live Demo (Beta)
+## Live Demo
 
 [https://veganharita.com/](https://veganharita.com/)
 
@@ -15,6 +14,11 @@ Vegan Harita is a map of vegan places in Turkey. Users can search for the places
 - See the place's photos
 - See the place's information
 - See the place's location on the map
+- Claim places
+- Manage places as place owner
+- Add, edit, delete products
+- Review products
+- Find and filter products
 
 
 ## Technologies
@@ -24,8 +28,6 @@ Vegan Harita is a map of vegan places in Turkey. Users can search for the places
 - Hotwire
 - CSS3
 - Google Maps API
-- Stylelint (CSS Linter)
-- Rubocop (Ruby Linter)
 - Kamal (deployment)
 
 
@@ -63,9 +65,7 @@ Feel free to check the [issues page](../../issues/).
 
 ## Authors
 
-Design: [Huseyin Biyik](https://github.com/huseyinbiyik) [on Figma](https://www.figma.com/file/d01QJ3HoyYDWHJJx88fo5G/Untitled?t=Xa2EgvuZgH4k5AUG-1)
-
-Development: [Huseyin Biyik](https://github.com/huseyinbiyik) and [Bengi Genc](https://github.com/bengigo)
+Design & Development: [Huseyin Biyik](https://github.com/huseyinbiyik) and [Bengi Genc](https://github.com/bengigo)
 
 
 ## Show your support

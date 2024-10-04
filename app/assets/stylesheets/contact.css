@@ -2,6 +2,21 @@
   text-align: center;
 }
 
+.contact-social {
+  & a {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    height: 32px;
+  }
+
+  height: 50px;
+  padding: 4px 0;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
 #separator {
   width: 100%;
   text-align: center;
