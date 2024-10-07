@@ -1,21 +1,25 @@
 <%= content_for :title, t('.title') %>
 <main id="contact">
-  <h2 id="invite" class="mobile"><%= t('views.home.contact.invite') %></h2>
-  <br class="mobile">
-  <div class="vh-instagram mobile">
+  <h2 id="invite"><%= t('views.home.contact.invite_social') %></h2>
+  <div class="contact-social">
     <%= link_to "https://www.instagram.com/veganharita", target: "_blank" do %>
       <%= image_tag ('instagram.svg') %>
       <span>veganharita</span>
     <% end %>
   </div>
+  <br>
+  <h2 id="invite"><%= t('views.home.contact.invite_code') %></h2>
+  <div class="contact-social">
+    <%= link_to "https://github.com/huseyinbiyik/vegan-harita", target: "_blank" do %>
+      <%= inline_svg_tag ('github.svg') %>
+      <span>GitHub</span>
+    <% end %>
+  </div>
   <br class="mobile">
-
   <p id="separator" class="mobile">
     <span> <%= t('views.home.contact.or') %> </span>
   </p>
-
   <br class="mobile">
-
   <h1><%= t('views.home.contact.contact_us') %></h1>
   <p><%= t('views.home.contact.contact_us_text') %></p>
   <%= form_with url: send_mail_path, html: { multipart: true, class: "contact-form", data: { turbo: false } } do |form| %>

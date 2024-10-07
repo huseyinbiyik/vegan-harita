@@ -265,7 +265,8 @@ tr:
     coming_soon: "Yakında..."
     home:
       contact:
-        invite: "Bizimle Sosyal Medyada Buluşun"
+        invite_social: "Bizimle Sosyal Medyada Buluşun"
+        invite_code: "Katkıda Bulunmak İçin Projeyi İnceleyin"
         or: "ya da"
         contact_us: "Bize Yazın"
         contact_us_text: "İyi dilek, öneri, şikayet, geri bildirim, hata vb. herhangi bir konu için lütfen bize yazın."

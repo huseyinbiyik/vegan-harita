@@ -3,13 +3,7 @@
       <tr>
         <td align="center" style="padding: 20px; margin-top: 20px;">
           <table width="100%" style="border: 1px solid #e2e8f0; border-radius: 6px; text-align: center; background-color: #fff">
-              <tr>
-                <td align="center">
-                  <a href="https://veganharita.com/" target="_blank" style="text-decoration: none;">
-                  <%= image_tag(attachments['logo.png'].url, alt: 'logo', style:"max-width: 140px") %>
-                  </a>
-                </td>
-              </tr>
+              <%= render "mailers/shared/header" %>
               <tr>
                 <td align="center" style="padding-bottom:20px; padding-top:20px; width:100%; padding-right:0px; padding-left:0px;">
                   <div style="line-height:10px; width:200px">
@@ -34,21 +28,7 @@
               <tr>
                 <td style="height: 60px"></td>
               </tr>
-              <tr>
-                <td align="center" style="height: 40px; border-bottom: 1px solid #e2e8f0">
-                  <a href="https://www.instagram.com/veganharita/" target="_blank" style="text-decoration: none;">
-                    <%= image_tag(attachments['instagram.png'].url, alt:"instagram", title: "Instagram", style:"width: 25px; height: auto; vertical-align: middle; border: 0;") %>
-                  </a>
-                  <a href="https://veganharita.com/contact" target="_blank" style="text-decoration: none;">
-                    <%= image_tag(attachments['envelope.png'].url, alt:"contact", title: "Contact", style:"width: 25px; border: 0; vertical-align: middle; text-decoration: none") %>
-                  </a>
-                </td>
-              </tr>
-              <tr style="height: 40px">
-                <td align="center" style="border-top: 1px solid #e2e8f0">
-                  <a href="https://veganharita.com/" target="_blank" style="margin: 0; text-decoration: none; color: #000e06; font-size: 14px">veganharita.com</a>
-                </td>
-              </tr>
+              <%= render "mailers/shared/footer" %>
           </table>
         </td>
       </tr>

@@ -81,15 +81,18 @@
   }
 
   .vh-instagram {
-    background-color: white;
+    background-color: var(--white);
     height: 50px;
     position: absolute;
     bottom: 0;
-    right: 0;
+    right: 0px;
     padding: 4px 0;
+    display: flex;
+    gap: 8px;
+    align-items: center;
   }
 
-  .vh-instagram a {
+  .vh-instagram a, .vh-code a {
     display: flex;
     align-items: center;
     gap: 5px;

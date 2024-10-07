@@ -283,7 +283,8 @@ en:
     coming_soon: "Coming Soon..."
     home:
       contact:
-        invite: "Meet Us on Social Media"
+        invite_social: "Meet Us on Social Media"
+        invite_code: "View Project to Contribute"
         or: "or"
         contact_us: "Contact Us"
         contact_us_text: "You can write to us for any subject such as good wishes, suggestions, complaints, feedback, errors, etc."
