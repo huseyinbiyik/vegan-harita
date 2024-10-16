@@ -2,7 +2,7 @@
 <nav class="site-nav" id="mobile-nav">
   <ul class="nav-menu">
     <%# places %>
-    <li class="nav-link">
+    <li class="nav-link <%= 'active' if current_page?(root_path) %>">
       <%= link_to root_path do %>
         <%= inline_svg_tag "places.svg", class: "nav-icon" %>
         <span><%= t :place_index %></span>
@@ -10,7 +10,7 @@
     </li>
 
     <%# product %>
-    <li class="nav-link">
+    <li class="nav-link <%= 'active' if current_page?(products_path) %>">
       <%= link_to products_path do %>
         <%= inline_svg_tag "products.svg", class: "nav-icon" %>
         <span><%= Product.model_name.human(count: :many) %></span>
@@ -34,7 +34,7 @@
     </li>
 
     <%# contact %>
-    <li class="nav-link">
+    <li class="nav-link <%= 'active' if current_page?(contact_path) %>">
       <%= link_to contact_path, data: { turbo: false } do %>
         <%= inline_svg_tag "contact.svg", class: "nav-icon" %>
         <span><%= t :contact %></span>
