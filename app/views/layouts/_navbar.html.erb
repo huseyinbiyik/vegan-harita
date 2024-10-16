@@ -18,8 +18,7 @@
     </li>
 
     <%# add --> opens two hidden options on tap: add place and add product %>
-    <%# check data-controller connection %>
-    <li class="nav-link" data-controller="popup" data-action="click->popup#toggle">
+    <li class="nav-link" id="add-new" data-controller="popup" data-action="click->popup#toggle">
       <%= inline_svg_tag "add-place.svg", class: "nav-icon", id: "add-place-icon" %>
       <span><%= t :add %></span>
       <div id="add-options" data-popup-target="options" class="hidden">
