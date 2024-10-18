@@ -1,9 +1,5 @@
-
-
-<%# DESKTOP nav menu %>
 <nav class="site-nav" id="desktop-nav">
   <ul class="nav-menu">
-    <%# admin panel %>
     <% if user_signed_in? && current_user.admin? %>
       <li class="nav-link">
         <%= link_to admin_root_path do %>
@@ -12,44 +8,32 @@
       </li>
     <% end %>
 
-    <%# owner panel %>
     <% if user_signed_in? && current_user.place_owner? %>
       <li class="nav-link">
         <%= link_to place_owner_summary_path(current_user.places.first.slug), class: "nav-admin-link" do %>
           <span><%= t :business_panel %></span>
         <% end %>
       </li>
-    <% end %>    
+    <% end %> 
 
-    <%# places %>
     <li class="nav-link">
       <%= link_to root_path do %>
         <span><%= t :place_index %></span>
       <% end %>
     </li>
 
-    <%# products %>
     <li class="nav-link">
       <%= link_to products_path do %>
         <span><%= Product.model_name.human(count: :many) %></span>
       <% end %>
     </li>
 
-    <%# contact %>
     <li class="nav-link">
       <%= link_to contact_path, data: { turbo: false } do %>
         <span><%= t :contact %></span>
       <% end %>
     </li>
 
-    <%# account %>
-    <%# if user signed in %>
-      <%# user's profile photo / or no photo image %>
-        <%# a dropdown opens %>
-        <%# edit user link %>
-        <%# logout link %>
-    <%# else %>
-      <%# login link %>
     <% if user_signed_in? %>
       <li class="nav-link wrapper">
         <% if current_user.avatar.attached? %>
@@ -57,7 +41,7 @@
         <% else %>
           <%= inline_svg_tag "account.svg", class: "nav-icon", class: "account-icon" %>
         <% end %>
-        <%# ul for dropdown %>
+        
         <ul class="dropdown">
           <li>
             <%= link_to edit_user_registration_path do %>
@@ -81,6 +65,3 @@
     <% end %>
   </ul>
 </nav>
-
-
-
