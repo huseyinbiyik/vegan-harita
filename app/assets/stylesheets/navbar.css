@@ -8,9 +8,13 @@ header {
   display: none;
 }
 
-header.passive-header {
+#desktop-nav {
   display: none;
 }
+
+/* header.passive-header {
+  display: none;
+} */
 
 #logo {
   width: 8.25rem;
@@ -112,8 +116,6 @@ header.passive-header {
   border-radius: 50%;
   object-fit: cover;
 }
-
-
 
 
 /* ↑↑↑ MOBILE NAV MENU ↑↑↑ */
@@ -309,14 +311,18 @@ header.passive-header {
     display: none;
   }
 
-  .mobile {
-    display: none;
-    width: 0;
-  }
-
-  .desktop {
+  #desktop-nav {
     display: block;
   }
+
+  /* .mobile {
+    display: none;
+    width: 0;
+  } */
+
+  /* .desktop {
+    display: block;
+  } */
 
   header {
     padding: 16px 48px;
@@ -324,16 +330,16 @@ header.passive-header {
     display: flex;
   }
 
-  header.passive-header,
+  /* header.passive-header,
   header.active-header {
     height: 60px;
     display: flex;
     align-items: center;
-  }
+  } */
 
-  .narrow-search {
+  /* .narrow-search {
     right: unset;
-  }
+  } */
 
   #search-container {
     justify-content: center;
@@ -393,11 +399,11 @@ header.passive-header {
     font-size: 14px;
   }
 
-  #burger {
+  /* #burger {
     display: none;
-  }
+  } */
 
-  #site-nav {
+  /* #site-nav {
     position: absolute;
     top: 0;
     right: 0;
@@ -408,23 +414,23 @@ header.passive-header {
     align-items: center;
     justify-content: center;
     box-shadow: none;
-  }
+  } */
 
-  #nav-menu {
+  .nav-menu {
     display: flex;
     gap: 2rem;
     list-style-type: none;
     justify-content: flex-end;
   }
 
-  .panel {
+  /* .panel {
     position: unset;
     border-radius: 0%;
-  }
+  } */
 
-  .panel span {
+  /* .panel span {
     display: block;
-  }
+  } */
 
   .nav-link {
     display: flex;
@@ -460,7 +466,7 @@ header.passive-header {
     display: none;
   }
 
-  #nav-menu span {
+  .nav-menu span {
     font-size: 18px;
   }
 
@@ -494,6 +500,7 @@ header.passive-header {
     align-items: center;
     justify-content: center;
     padding: 8px;
+    list-style-type: none;
 
     & li {
       width: max-content;
@@ -507,7 +514,7 @@ header.passive-header {
     transition-delay: 0s;
   }
 
-  #logout-link {
+  /* #logout-link {
     border: none;
     padding: 0;
     justify-content: center;
@@ -515,12 +522,12 @@ header.passive-header {
     margin-bottom: 0;
     border-radius: 0%;
     width: auto;
-  }
+  } */
 
-  #logout-link span {
+  /* #logout-link span {
     color: var(--black);
     font-weight: normal;
-  }
+  } */
 
   #logout-icon {
     display: none;

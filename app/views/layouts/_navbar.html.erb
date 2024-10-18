@@ -117,7 +117,7 @@
     <%# else %>
       <%# login link %>
     <% if user_signed_in? %>
-      <li>
+      <li class="nav-link wrapper">
         <% if current_user.avatar.attached? %>
           <%= image_tag(rails_public_blob_url(current_user.avatar.variant(:thumb)), class: "account-icon", height: "40px", width: "40px") %>
         <% else %>
