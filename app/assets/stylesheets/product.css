@@ -88,6 +88,10 @@
   gap: 16px;
 }
 
+.shops:not(:last-child)::after {
+  content: "•";
+}
+
 .statement {
   padding: 16px 0;
   border-top: 1px solid var(--gray);
@@ -389,6 +393,10 @@
 
   .product-image {
     height: 400px;
+  }
+
+  .product-details {
+    width: 50%;
   }
 
   .statement {

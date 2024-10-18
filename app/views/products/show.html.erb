@@ -76,7 +76,7 @@
         <li class="product-detail">
           <strong><%= Shop.model_name.human %> :</strong> <br>
           <% @product.shops.each do |shop| %>
-            <%= link_to products_path(q: { shop_id_eq_any: [shop.id] }) do %>
+            <%= link_to products_path(q: { shop_id_eq_any: [shop.id] }), class:"shops" do %>
               <%= shop.name %>
             <% end %>
           <% end %>

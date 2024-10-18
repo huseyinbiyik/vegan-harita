@@ -1,4 +1,4 @@
-<div id="product-search-wrapper">
+<div id="product-search-wrapper" data-controller="search" data-search-target="wrapper">
   <%= form_with id: "product-search-form", url: search_products_path, data: { controller: "helpers--auto-submit", "helpers--auto-submit-target": "form" }, method: :post, builder: CustomFormBuilder do |form| %>
     <%= inline_svg_tag "search-icon.svg", id: "search-icon" %>
     <%= form.search_field :product_search,
@@ -9,5 +9,5 @@
                             action: "input->helpers--auto-submit#submit",
                           } %>
   <% end %>
-  <div id="search-results"></div>
+  <div id="search-results" data-search-target="results"></div>
 </div>
