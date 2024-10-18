@@ -290,7 +290,7 @@ header {
   display: none;
 } */
 
-/* #account-links {
+#account-links {
   & li {
     width: 50%;
   }
@@ -303,7 +303,7 @@ header {
   list-style-type: none;
   align-items: center;
   gap: 1.125rem;
-} */
+}
 
 
 @media (min-width: 1024px) {
