@@ -1,6 +1,6 @@
 <% products&.each do |product| %>
-  <div class="search-results-link-container">
-    <%= link_to product_path(product.slug), class:"search-results-link" do %>
+  <div class="search-result">
+    <%= link_to product_path(product.slug), class:"result-link" do %>
       <%= highlight(product.name, params[:name_search]) %>
     <% end %>
   </div>
