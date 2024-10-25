@@ -1,7 +1,6 @@
 .map-container > div:first-of-type {
   display: flex;
   width: 100%;
-  /* necessary? ↓ */
   height: 48px;
   position: absolute;
   top: 16px;
@@ -12,13 +11,11 @@
 #product-index > div:first-of-type {
   display: flex;
   width: 100%;
-  /* necessary? ↓ */
   height: 48px;
   position: absolute;
   top: 16px;
   z-index: 1;
   padding: 0 20px;
-
 }
 
 #search-wrapper {
@@ -37,8 +34,6 @@
 }
 
 #search-field {
-  /* background-color: lemonchiffon;
-  border: 2px solid purple; */
   border: none;
 }
 
@@ -87,10 +82,6 @@
     gap: 4px;
   }
 }
-
-
-
-
 
 .new-link-wrapper {
   display: none;
