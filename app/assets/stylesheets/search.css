@@ -132,12 +132,12 @@
     }
 
     position: fixed;
-    padding: 16px 48px;
+    padding: 16px 48px 16px 16px;
     top: 70px;
-    left: 230px;
+    left: 268px;
     display: flex;
     justify-content: space-between;
-    width: calc(100% - 230px);
+    width: calc(100% - 268px);
     background-color: var(--white);
     height: 64px;
     z-index: 1;

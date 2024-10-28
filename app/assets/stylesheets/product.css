@@ -429,9 +429,11 @@
       align-items: flex-start;
       max-width: unset;
       width: 220px;
-      max-height: 175px;
+
+      /* max-height: 175px; */
       overflow-y: scroll;
       scroll-behavior: smooth;
+      max-height: calc(25% - 3px);
     }
 
     & .filter-separator {
@@ -456,5 +458,6 @@
     align-items: flex-start;
     margin-bottom: 16px;
     margin-right: 16px;
+    height: calc(100vh - 136px);
   }
 }

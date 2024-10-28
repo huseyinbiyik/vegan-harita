@@ -159,9 +159,10 @@ select {
 }
 
 main {
-  padding: 20px;
+  /* padding: 20px; */
   width: 100%;
-  margin-bottom: 62px;
+
+  /* margin-bottom: 62px; */
 }
 
 .user-forms {
