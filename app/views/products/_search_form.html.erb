@@ -3,6 +3,7 @@
     <%= inline_svg_tag "search-icon.svg", id: "search-icon" %>
     <%= form.search_field :product_search,
                           id: "search-field",
+                          autofocus: true,
                           placeholder: true,
                           autocomplete: "off",
                           data: {
