@@ -147,6 +147,10 @@
     padding: 16px 48px 50px 48px;
   }
 
+  #scanner {
+    display: none;
+  }
+
   .new-link-wrapper {
     & a {
       display: flex;
