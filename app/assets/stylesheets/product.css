@@ -174,10 +174,6 @@
   z-index: 1;
 }
 
-#product_search {
-  margin: unset;
-}
-
 #product-filters {
   & * {
     flex: 0 0 auto;
@@ -428,8 +424,6 @@
       align-items: flex-start;
       max-width: unset;
       width: 220px;
-
-      /* max-height: 175px; */
       overflow-y: scroll;
       scroll-behavior: smooth;
       max-height: calc(25% - 3px);
