@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding: unset;
+  padding: 16px 20px 20px 20px;
 }
 
 .product-show {
