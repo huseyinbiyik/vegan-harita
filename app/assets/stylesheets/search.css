@@ -123,6 +123,7 @@
   #product-index > div:first-of-type {
     & #search-form {
       border: 0.5px solid var(--gray);
+      width: 40vw;
     }
 
     & .new-link-wrapper {
