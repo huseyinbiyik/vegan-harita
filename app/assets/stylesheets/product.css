@@ -291,17 +291,6 @@
   margin-top: 16px;
 }
 
-#scanner {
-  display: flex;
-  align-items: center;
-  position: absolute;
-  right: 40px;
-  z-index: 1;
-  background: white;
-  top: 6px;
-  padding: 8px;
-}
-
 /* Product New Page */
 #new-product {
   display: flex;

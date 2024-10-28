@@ -112,6 +112,7 @@ header {
   border-radius: 50%;
   object-fit: cover;
 }
+
 /* ↑↑↑ MOBILE NAV MENU ↑↑↑ */
 
 .search-address {
@@ -154,12 +155,10 @@ header {
     background-color: var(--white);
   }
 
-
   #search-icon {
     width: 1.188rem;
     height: 1.188rem;
   }
-
 
   #search-field::placeholder {
     opacity: 0.8;
@@ -187,7 +186,7 @@ header {
     padding: 0;
     background-color: var(--white);
   }
-  
+
 
   #add-place-icon {
     display: block;
