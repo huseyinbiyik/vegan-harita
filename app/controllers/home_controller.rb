@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  prepend_before_action :check_captcha, only: [ :send_mail ]
+  prepend_before_action :check_captcha, only: [ :send_mail ], if: -> { Rails.env.production? }
 
   def contact
     @contact_params = { name: "", email: "", message: "", gender: "", images: [] }

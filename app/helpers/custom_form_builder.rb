@@ -23,9 +23,7 @@ class CustomFormBuilder < ActionView::Helpers::FormBuilder
 
   def file_field(method, options = {})
     @template.content_tag(:div, class: "custom-form-group") do
-      field = super(method, options.merge(class: "form-control file-field", direct_upload: true))
-      # span = @template.content_tag(:span, "No file chosen", class: "file-name")
-      # field.concat(span)
+      super(method, options.merge(class: "form-control file-field", direct_upload: true))
     end
   end
 
