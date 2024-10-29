@@ -19,15 +19,12 @@
     <%= form.label t('product_description'), style: "display: block" %>
     <%= form.text_area :description, placeholder: Menu.human_attribute_name('description'), maxlength: 500 %>
   </div>
-  <div class="form-group select-wrapper" data-controller="utils" data-utils-assets-value="<%= [t('files_selected'), t('no_file_selected')].to_json %>">
+  <div class="form-group select-wrapper">
     <% if @menu.image.attached? %>
       <%= form.label t('change_image'), style: "display: block" %>
       <%= image_tag rails_public_blob_url(@menu.image.variant(:medium)), class: "menu-image" %>
-    <% else %>
-      <%= form.label t('.image_with_warning'), style: "display: block" %>
     <% end %>
-    <span id="menu-upload-btn" data-utils-target="uploadBtn"><%= t(:no_file_selected) %></span>
-    <%= form.file_field :image, accept: "image/jpeg,image/jpg,image/png,image/webp", direct_upload: true, data: { action: "change->utils#uploadFiles", content: t('select_image')} %>
+    <%= form.file_field :image, accept: "image/jpeg,image/jpg,image/png,image/webp" %>
   </div>
   <div class="form-group">
     <%= form.label t('product_category'), style: "display: block" %>
