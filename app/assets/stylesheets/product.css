@@ -451,6 +451,6 @@
     align-items: flex-start;
     margin-bottom: 16px;
     margin-right: 16px;
-    height: calc(100vh - 136px);
+    height: calc(100vh - 86px);
   }
 }
