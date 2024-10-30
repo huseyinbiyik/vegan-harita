@@ -50,6 +50,8 @@
   margin: unset;
   border-radius: 30px;
   padding: 8px 20px;
+  position: relative;
+  z-index: 2;
 }
 
 #search-field {
@@ -78,10 +80,15 @@
   overflow: scroll;
   scroll-behavior: smooth;
   width: 278px;
+  position: absolute;
+  top: 0;
+  padding-top: 48px;
+  z-index: 1;
 }
 
 .result-icon {
   width: 24px;
+  margin-right: 4px;
 }
 
 .search-result {
@@ -98,7 +105,7 @@
 .result-link {
   & div {
     display: flex;
-    gap: 4px;
+    align-items: center;
   }
 }
 
@@ -106,7 +113,6 @@
   display: none;
 }
 
-/* desktop */
 @media (min-width: 1024px) {
   .map-container > div:first-of-type {
     padding: 0 48px;
@@ -118,6 +124,15 @@
     & #search-form {
       width: 40vw;
     }
+  }
+
+  #search-field {
+    width: 100%;
+  }
+  
+  #search-results {
+    width: 40vw;
+
   }
 
   #product-index > div:first-of-type {
