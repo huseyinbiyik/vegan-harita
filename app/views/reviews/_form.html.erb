@@ -18,10 +18,9 @@
     <%= form.label t('owner_feedback'), style: "display: block" %>
     <%= form.text_area :feedback, placeholder: Review.human_attribute_name('feedback') %>
   <% end if params[:reviewable_type] == "Place" %>
-  <div class="form-group select-wrapper review-group" data-controller="utils" data-utils-assets-value="<%= [t('files_selected'), t('no_file_selected')].to_json %>">
+  <div class="form-group select-wrapper review-group">
     <%= form.label t('photos'), style: "display: block" %>
-    <span id="upload-edit-btn" data-utils-target="uploadBtn"><%= t(:no_file_selected) %></span>
-    <%= form.file_field :images, multiple: true, direct_upload: true, accept: "image/*", data: { action: "change->utils#uploadFiles", content: t('select_image')} %>
+    <%= form.file_field :images, multiple: true, direct_upload: true, accept: "image/*" %>
   </div>
   <div class="form-buttons">
     <%= form.submit t('submit'), class:"primary-green-btn", data: { turbo_confirm: t('sure') } %>

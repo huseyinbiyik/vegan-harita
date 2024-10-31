@@ -92,7 +92,7 @@ class PlacesController < ApplicationController
   private
 
   def set_place
-    @place = Place.find_by(slug: params[:slug])
+    @place = Place.includes(images_attachments: :blob).find_by(slug: params[:slug])
   end
 
   def place_params
