@@ -28,6 +28,18 @@
   top: 24px;
 }
 
+#edit-instagram {
+  padding-left: 142px;
+}
+
+#edit-facebook {
+  padding-left: 136px;
+}
+
+#edit-x {
+  padding-left: 77px;
+}
+
 #upload-edit-btn {
   position: absolute;
   left: 114px;
