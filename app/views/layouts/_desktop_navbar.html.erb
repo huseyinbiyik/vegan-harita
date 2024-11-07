@@ -1,0 +1,67 @@
+<nav class="site-nav" id="desktop-nav">
+  <ul class="nav-menu">
+    <% if user_signed_in? && current_user.admin? %>
+      <li class="nav-link">
+        <%= link_to admin_root_path do %>
+          <span> <%= t :admin_panel %> </span>
+        <% end %>
+      </li>
+    <% end %>
+
+    <% if user_signed_in? && current_user.place_owner? %>
+      <li class="nav-link">
+        <%= link_to place_owner_summary_path(current_user.places.first.slug), class: "nav-admin-link" do %>
+          <span><%= t :business_panel %></span>
+        <% end %>
+      </li>
+    <% end %> 
+
+    <li class="nav-link">
+      <%= link_to root_path do %>
+        <span><%= t :place_index %></span>
+      <% end %>
+    </li>
+
+    <li class="nav-link">
+      <%= link_to products_path do %>
+        <span><%= Product.model_name.human(count: :many) %></span>
+      <% end %>
+    </li>
+
+    <li class="nav-link">
+      <%= link_to contact_path, data: { turbo: false } do %>
+        <span><%= t :contact %></span>
+      <% end %>
+    </li>
+
+    <% if user_signed_in? %>
+      <li class="nav-link wrapper">
+        <% if current_user.avatar.attached? %>
+          <%= image_tag(rails_public_blob_url(current_user.avatar.variant(:thumb)), class: "account-icon", height: "40px", width: "40px") %>
+        <% else %>
+          <%= inline_svg_tag "account.svg", class: "nav-icon", class: "account-icon" %>
+        <% end %>
+        
+        <ul class="dropdown">
+          <li>
+            <%= link_to edit_user_registration_path do %>
+              <span> <%= t :my_account %> </span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+              <span><%= t :logOut %></span>
+            <% end %>
+          </li>
+        </ul>
+      </li>
+    <% else %>
+      <li class="nav-link">
+        <%= link_to new_user_session_path do %>
+          <%= inline_svg_tag "account.svg", class: "nav-icon" %>
+          <span><%= t :logIn %></span>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</nav>

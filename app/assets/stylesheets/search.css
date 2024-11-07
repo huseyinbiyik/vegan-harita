@@ -1,0 +1,183 @@
+.map-container > div:first-of-type {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 48px;
+  position: absolute;
+  top: 16px;
+  z-index: 1;
+  padding: 0 20px;
+}
+
+#product-index > div:first-of-type {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 48px;
+  top: 16px;
+  padding: 0 20px;
+}
+
+#product-index {
+  & #search-form {
+    border: 0.5px solid var(--gray);
+  }
+}
+
+#search-container {
+  position: relative;
+}
+
+#scanner {
+  position: absolute;
+  right: 20px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  top: 0;
+}
+
+#search-wrapper {
+  height: 48px;
+}
+
+#search-form {
+  width: 278px;
+  height: 48px;
+  display: flex;
+  flex-direction: row;
+  background-color: var(--white);
+  margin: unset;
+  border-radius: 30px;
+  padding: 8px 20px;
+  position: relative;
+  z-index: 2;
+}
+
+#search-field {
+  border: none;
+}
+
+#search-icon {
+  width: 1.688rem;
+  height: 1.5rem;
+  z-index: 1;
+}
+
+#search-field::placeholder {
+  font-size: 1.125rem;
+  color: var(--gray);
+}
+
+#search-field:focus {
+  outline: none;
+}
+
+#search-results {
+  background-color: var(--white);
+  border-radius: 30px;
+  max-height: 400px;
+  overflow: scroll;
+  scroll-behavior: smooth;
+  width: 278px;
+  position: absolute;
+  top: 0;
+  padding-top: 48px;
+  z-index: 1;
+}
+
+.result-icon {
+  width: 24px;
+  margin-right: 4px;
+}
+
+.search-result {
+  & mark {
+    background-color: var(--green);
+    color: var(--white);
+  }
+
+  height: auto;
+  width: 100%;
+  padding: 16px 20px;
+}
+
+.result-link {
+  & div {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.new-link-wrapper {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .map-container > div:first-of-type {
+    padding: 0 48px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .map-container {
+    & #search-form {
+      width: 40vw;
+    }
+  }
+
+  #search-field {
+    width: 100%;
+  }
+  
+  #search-results {
+    width: 40vw;
+
+  }
+
+  #product-index > div:first-of-type {
+    & #search-form {
+      border: 0.5px solid var(--gray);
+      width: 40vw;
+    }
+
+    & .new-link-wrapper {
+      border: 0.5px solid var(--gray);
+      height: 50px;
+      border-radius: 30px;
+    }
+
+    position: fixed;
+    padding: 16px 48px 16px 16px;
+    top: 70px;
+    left: 268px;
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 268px);
+    background-color: var(--white);
+    height: 64px;
+    z-index: 1;
+  }
+
+  #product-index {
+    padding: 16px 48px 0 48px;
+  }
+
+  #scanner {
+    display: none;
+  }
+
+  .new-link-wrapper {
+    & a {
+      display: flex;
+      gap: 5px;
+      background-color: var(--white);
+      align-items: center;
+      border-radius: 30px;
+      height: 48px;
+      padding: 0 20px;
+    }
+
+    display: block;
+  }
+}
