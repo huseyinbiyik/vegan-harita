@@ -4,7 +4,7 @@
     <%= link_to product_path(product.slug), data:{ turbo_frame: "_top" }, class:"product-link" do %>
       <% if product.image.attached? %>
         <div>
-          <%= image_tag rails_public_blob_url(product.image.variant(:big)), alt: product.name, class:"product-image" %>
+          <%= image_tag rails_public_blob_url(product.image.variant(:big)), alt: product.name, class:"product-image", style: "view-transition-name: photo_#{product.id}" %>
         </div>
       <% else %>
         <div class="no-photo-wrapper">

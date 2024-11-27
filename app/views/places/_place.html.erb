@@ -1,7 +1,7 @@
 <main id="<%= dom_id place %>" class="place" data-controller="edit" data-edit-button-value='<%= [t("views.places.show.suggest_edit"), t("views.places.show.cancel")].to_json %>'>
   <div class="place-heading-container">
     <div class="place-heading-left">
-      <h1 class="place-heading-title"><%= place.name %>
+      <h1 class="place-heading-title" style="view-transition-name: place_<%= place.slug  %>"><%= place.name %>
         <%= turbo_frame_tag :name, class: "edit-wrapper", hidden: true do %>
           <%= link_to edit_place_path(place.slug, attribute: :name), class: "edit-button" do %>
             <span class="edit-icon-container">
