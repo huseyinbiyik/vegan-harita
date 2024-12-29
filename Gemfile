@@ -63,6 +63,7 @@ group :development do
   gem "letter_opener"
   gem "web-console"
   gem "bullet", "~> 7.2"
+  gem "kamal", "~> 1.0"
 end
 
 group :test do
