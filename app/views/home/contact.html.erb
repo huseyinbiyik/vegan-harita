@@ -28,8 +28,8 @@
       <%= form.text_area :message, value: @contact_params[:message], autofocus: true, maxlength: 2000, required: true %>
     </div>
     <div class="form-group select-wrapper">
-      <%= form.label t('image') %>
-      <%= form.file_field :images, multiple: true, accept: "image/*", direct_upload: true, data: { action: "change->utils#uploadFiles", content: t('select_image') }, id: "image-input" %>
+      <%= form.label :images, t('image') %>
+      <%= form.file_field :images, multiple: true, accept: "image/*", direct_upload: false, id: "image-input" %>
     </div>
     <div class="form-group">
       <%= form.label t('views.home.contact.name_username') %>
@@ -42,11 +42,12 @@
 
     <%= form.label :gender, class: "gender" %>
     <%= form.text_field :gender, value: @contact_params[:gender], maxlength: 50, class: "gender" %>
-
+<% if Rails.env.production? %>
     <div class="form-group">
       <%= flash[:recaptcha_error] %>
       <%= recaptcha_tags %>
     </div>
+<% end %>
     <div class="form-group actions">
       <%= form.submit t(:submit) %>
     </div>

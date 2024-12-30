@@ -159,7 +159,6 @@ select {
 }
 
 main {
-  padding: 20px;
   width: 100%;
   margin-bottom: 62px;
 }
@@ -222,8 +221,7 @@ select:focus {
   outline: none;
   border: 1px solid var(--green);
   transition: 0.3s;
-  background: var(--white);
-  background-color: var(--white);
+
 }
 
 .session-links {
@@ -331,6 +329,7 @@ select:focus {
 
   main {
     padding: 24px 48px;
+    margin-bottom: 0;
   }
 
   .user-forms {

@@ -56,7 +56,7 @@
         <div class="form-group modal-social-group">
           <%= form.label t('instagram'), style: "display: block" %>
           <span class="social-platform"> <%= t :instagram_link %> </span>
-          <%= form.text_field :instagram_handle, value: @place.instagram_handle, class: "social-input", autofocus: true, maxlength: 30, pattern: "^[a-zA-Z0-9_]*$", title: t('only_alphanumeric') %>
+          <%= form.text_field :instagram_handle, value: @place.instagram_handle, id:"edit-instagram", autofocus: true, maxlength: 30, pattern: "^[a-zA-Z0-9_]*$", title: t('only_alphanumeric') %>
         </div>
       </div>
     <% end %>
@@ -65,7 +65,7 @@
         <div class="form-group modal-social-group">
           <%= form.label t('facebook'), style: "display: block" %>
           <span class="social-platform"> <%= t :facebook_link %> </span>
-          <%= form.text_field :facebook_handle, value: @place.facebook_handle, class:"social-input", autofocus: true, maxlength: 50, pattern: "^[a-zA-Z0-9_]*$", title: t('only_alphanumeric') %>
+          <%= form.text_field :facebook_handle, value: @place.facebook_handle, id:"edit-facebook", autofocus: true, maxlength: 50, pattern: "^[a-zA-Z0-9_]*$", title: t('only_alphanumeric') %>
         </div>
       </div>
     <% end %>
@@ -74,7 +74,7 @@
         <div class="form-group modal-social-group">
           <%= form.label t('x'), style: "display: block" %>
           <span class="social-platform"> <%= t :x_link %> </span>
-          <%= form.text_field :x_handle, value: @place.x_handle, class:"social-input-x", autofocus: true, maxlength: 50, pattern: "^[a-zA-Z0-9_]*$", title: t('only_alphanumeric') %>
+          <%= form.text_field :x_handle, value: @place.x_handle, id:"edit-x", autofocus: true, maxlength: 50, pattern: "^[a-zA-Z0-9_]*$", title: t('only_alphanumeric') %>
         </div>
       </div>
     <% end %>

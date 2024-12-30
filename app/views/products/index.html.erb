@@ -2,12 +2,23 @@
 <%= content_for :description, t(".description") %>
 
 <main id="product-index">
-  <div id="product-search-container">
-    <%= render "search_form" %>
-    <%= link_to barcode_scanner_products_path, class:"mobile", id:"scanner" do %>
-      <%= inline_svg_tag 'barcode-scanner.svg' %>
-    <% end %>
+  <div>
+    <div id="search-container">
+      <%= render "search_form" %>
+      <%= link_to barcode_scanner_products_path, class:"mobile", id:"scanner" do %>
+        <%= inline_svg_tag 'barcode-scanner.svg' %>
+      <% end %>
+    </div>
+
+    <%# new product-link %>
+    <div class="new-link-wrapper">
+      <%= link_to new_product_path do %>
+        <%= inline_svg_tag "add.svg", class: "nav-icon", id: "add-icon" %>
+        <span><%= t :add_product %></span>
+      <% end %>
+    </div>
   </div>
+
   <%= turbo_frame_tag "filter-form",  data: { turbo_action: "advance" } do %>
     <%= render "filter_form" %>
     <div id="products">

@@ -225,7 +225,7 @@ export default class extends Controller {
 
                 infoWindow.setContent(
                   `<div class="info-window">
-                    <a href=${window.location.origin + "/places/" + place.slug}>
+                    <a href=${window.location.origin + "/places/" + place.slug} style= "view-transition-name: place_${place.slug}">
                       ${
                         place.featured_image
                           ? `<img src=${place.featured_image} class="info-window-image" alt=${place.name}>`
