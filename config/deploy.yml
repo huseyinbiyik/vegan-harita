@@ -8,11 +8,11 @@ image: huseyinbiyik/vegan-harita
 servers:
   web:
     hosts:
-      - 134.122.76.57
+      - 195.201.34.144
     labels:
-      traefik.http.routers.blog.entrypoints: websecure
-      traefik.http.routers.blog.rule: Host(`veganharita.com`)
-      traefik.http.routers.blog.tls.certresolver: letsencrypt
+      traefik.http.routers.vegan-harita.entrypoints: websecure
+      traefik.http.routers.vegan-harita.rule: Host(`veganharita.com`)
+      traefik.http.routers.vegan-harita.tls.certresolver: letsencrypt
 
 # Credentials for your image host.
 registry:
@@ -28,7 +28,7 @@ registry:
 # Remember to run `kamal env push` after making changes!
 env:
   clear:
-    DB_HOST: 134.122.76.57
+    DB_HOST: 195.201.34.144
   secret:
     - RAILS_MASTER_KEY
     - POSTGRES_PASSWORD
@@ -51,7 +51,7 @@ env:
 accessories:
   db:
     image: postgres:15
-    host: 134.122.76.57
+    host: 195.201.34.144
     port: 5432
     env:
       clear:
@@ -65,7 +65,7 @@ accessories:
       - data:/var/lib/postgresql/data
   db_backup:
     image: eeshugerman/postgres-backup-s3:15
-    host: 134.122.76.57
+    host: 195.201.34.144
     env:
       clear:
         SCHEDULE: "@daily"
@@ -73,7 +73,7 @@ accessories:
         S3_REGION: eu-central-1
         S3_BUCKET: vegan-harita-db-backups
         S3_PREFIX: backups
-        POSTGRES_HOST: 134.122.76.57
+        POSTGRES_HOST: 195.201.34.144
         POSTGRES_DATABASE: vegan_harita_production
         POSTGRES_USER: vegan_harita
       secret:
