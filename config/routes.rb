@@ -1,9 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get "service-worker" => "pwa#service_worker", as: :pwa_service_worker
-  get "manifest" => "pwa#manifest", as: :pwa_manifest
-
   authenticate :user, ->(u) { u.admin? } do
     mount MissionControl::Jobs::Engine, at: "/jobs"
   end
@@ -16,10 +13,17 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: "users/registrations", sessions: "users/sessions" }
 
+  concern :likeable do
+    resource :like, only: %i[update]
+  end
+
+  resources :posts, param: :slug do
+    concerns :likeable
+    resources :post_comments, concerns: :likeable
+  end
+
   resources :places, param: :slug do
-    resources :menus do
-      resource :likes, module: :menus
-    end
+    resources :menus, concerns: :likeable
     resources :claims, only: %i[new create]
     collection do
       post :search
@@ -41,6 +45,7 @@ Rails.application.routes.draw do
   namespace "admin" do
     root "dashboard#index"
     resource :dashboard, only: %i[index]
+    # TODO: Refactor this terrible mess
     get "approvals", to: "admins#approvals", as: :approvals
     post "approve-claim/:id", to: "admins#approve_claim", as: :approve_claim
     delete "reject-claim/:id", to: "admins#reject_claim", as: :reject_claim
@@ -65,6 +70,8 @@ Rails.application.routes.draw do
     resources :shops
     resources :product_categories
     resources :product_sub_categories
+
+    resources :post_topics
   end
 
   namespace :place_owner do

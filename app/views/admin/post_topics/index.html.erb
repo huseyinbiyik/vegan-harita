@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Post topics</h1>
+
+<div id="admin_post_topics">
+  <% @post_topics.each do |post_topic| %>
+    <%= render post_topic %>
+    <p>
+      <%= link_to "Show this post topic", [:admin, post_topic] %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New post topic", new_admin_post_topic_path %>

@@ -1,0 +1,9 @@
+<%= turbo_stream.update 'flash_messages', partial: 'shared/flash_messages', locals: { flash: flash } %>
+
+<%= turbo_stream.append "post_comments" do %>
+  <%= render @post_comment %>
+<% end %>
+
+<%= turbo_stream.replace "new_comment" do %>
+  <%= render "post_comments/form", post: @post, post_comment: PostComment.new %>
+<% end %>

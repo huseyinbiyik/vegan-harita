@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Post comments</h1>
+
+<div id="post_comments">
+  <% @post_comments.each do |post_comment| %>
+    <%= render post_comment %>
+  <% end %>
+</div>
+

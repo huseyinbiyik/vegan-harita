@@ -1,0 +1,15 @@
+
+<%= render @post %>
+
+<h2>Comments</h2>
+  <div id="post_comments">
+      <%= render @post_comments %>
+  </div>
+<%= render "post_comments/form", post: @post, post_comment: @post.post_comments.build %>
+
+<div>
+  <%= link_to "Edit this post", edit_post_path(@post) if current_user == @post.user %>
+  <%= link_to "Back to posts", posts_path %>
+
+  <%= button_to "Destroy this post", @post, method: :delete if current_user == @post.user || current_user&.admin? %>
+</div>

@@ -1,0 +1,9 @@
+<div id="<%= dom_id post_comment %>">
+  <p>
+    <strong>Content:</strong>
+    <%= post_comment.content %>
+  </p>
+
+  <%= render "shared/like_button", record: post_comment, parent: post_comment.post  %>
+
+</div>

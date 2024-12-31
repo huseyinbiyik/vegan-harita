@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_20_193933) do
+ActiveRecord::Schema[7.1].define(version: 2024_12_30_211221) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -177,6 +177,38 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_20_193933) do
     t.bigint "user_id", null: false
     t.index ["place_id", "user_id"], name: "index_places_users_on_place_id_and_user_id"
     t.index ["user_id", "place_id"], name: "index_places_users_on_user_id_and_place_id"
+  end
+
+  create_table "post_comments", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "post_id", null: false
+    t.boolean "approved", default: false, null: false
+    t.integer "likes_count", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_post_comments_on_post_id"
+    t.index ["user_id"], name: "index_post_comments_on_user_id"
+  end
+
+  create_table "post_topics", force: :cascade do |t|
+    t.string "title", null: false
+    t.integer "posts_count", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "slug", null: false
+    t.boolean "approved", default: false, null: false
+    t.bigint "user_id", null: false
+    t.bigint "post_topic_id", null: false
+    t.integer "likes_count", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_topic_id"], name: "index_posts_on_post_topic_id"
+    t.index ["slug"], name: "index_posts_on_slug", unique: true
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "product_categories", force: :cascade do |t|
@@ -382,6 +414,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_20_193933) do
   add_foreign_key "likes", "users"
   add_foreign_key "menus", "places"
   add_foreign_key "menus", "users", column: "creator_id"
+  add_foreign_key "post_comments", "posts"
+  add_foreign_key "post_comments", "users"
+  add_foreign_key "posts", "post_topics"
+  add_foreign_key "posts", "users"
   add_foreign_key "product_sub_categories", "product_categories"
   add_foreign_key "products", "brands"
   add_foreign_key "products", "product_categories"

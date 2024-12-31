@@ -22,7 +22,14 @@
     </p>
   </div>
 
-  <%= render partial: "menus/likes", locals: {place: @place, menu: menu} %>
+  <%= render "shared/like_button", record: menu, parent: @place %>
+  <% if menu.most_liked?(@place) %>
+    <span class="most-liked">
+      <%= image_tag "heart.svg", class: "red-heart" %>
+      <%= t :most_liked %>
+      <%= image_tag "heart.svg", class: "red-heart" %>
+    <span>
+  <% end %>
 
   <div class="menu-item-details">
     <% if menu.image.attached? %>

@@ -1,0 +1,11 @@
+<%= turbo_stream.append "posts" do %>
+  <%= render partial: "posts/post", collection: @posts %>
+<% end %>
+
+<% if @posts.next_page %>
+  <%= turbo_stream.replace "load_more" do %>
+    <%= turbo_frame_tag "load_more", src: posts_path(page: @posts.next_page, format: :turbo_stream), loading: :lazy %>
+  <% end %>
+<% end %>
+
+<%= turbo_stream.update "current_page", @posts.current_page %>

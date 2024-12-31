@@ -1,0 +1,19 @@
+
+<%= tag.div id: dom_id(record, :likes), class: "like-container" do %>
+  <%= button_to polymorphic_path([parent, record, :like]),
+                class: "like-button",
+                method: :patch,
+                disabled: !user_signed_in? do %>
+    <% if record.liked_by?(current_user) %>
+      <%= image_tag("loved.svg", class: "heart") %>
+    <% else %>
+      <%= image_tag("love.svg", class: "heart") %>
+    <% end %>
+
+    <span class="like-counter">
+    <%= record.likes.count %> <%= t :like %>
+    </span>
+
+  <% end %>
+<% end %>
+

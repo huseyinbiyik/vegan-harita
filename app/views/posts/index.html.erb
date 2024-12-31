@@ -1,0 +1,17 @@
+<%= link_to "New post", new_post_path %>
+
+<h1>Posts</h1>
+  <div id="posts" class="">
+    <%= turbo_frame_tag "posts", src: posts_path(format: :turbo_stream), loading: :lazy %>
+  </div>
+
+  <% if @posts.next_page %>
+    <%= turbo_frame_tag "load_more", src: posts_path(page: @posts.next_page, format: :turbo_stream), loading: :lazy %>
+  <% end %>
+
+  <div class="">
+  <p>🚀 Current page: <span id="current_page"><%= @posts.current_page %></span></p>
+</div>
+
+
+

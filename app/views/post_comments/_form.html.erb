@@ -1,0 +1,26 @@
+<turbo-frame id="new_comment">
+  <%= form_with(model: [post, post_comment], data: { turbo_frame: "new_comment" } ) do |form| %>
+    <% if post_comment.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(post_comment.errors.count, "error") %> prohibited this post_comment from being saved:</h2>
+
+        <ul>
+          <% post_comment.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div>
+      <%= form.label :content, style: "display: block" %>
+      <%= form.rich_text_area :content %>
+    </div>
+
+
+    <div>
+      <%= form.submit %>
+    </div>
+  <% end %>
+</turbo-frame>
+

@@ -1,4 +1,6 @@
 class Menu < ApplicationRecord
+  include Likeable
+
   # Enums
   enum product_category: { meal: 0, dessert: 1, drink: 2 }
 
@@ -6,7 +8,6 @@ class Menu < ApplicationRecord
   belongs_to :place
   belongs_to :creator, class_name: "User", foreign_key: "creator_id"
   has_many :change_logs, as: :changeable, dependent: :destroy
-  has_many :likes, as: :record, dependent: :destroy
   has_one_attached :image, dependent: :destroy do |attachable|
     attachable.variant :medium, resize_to_limit: [ 400, 400 ]
   end
@@ -30,18 +31,6 @@ class Menu < ApplicationRecord
   # Public instance methods
   def approve
     self.approved = true
-  end
-
-  def liked_by?(user)
-    likes.where(user:).any?
-  end
-
-  def like(user)
-    likes.where(user:).first_or_create
-  end
-
-  def unlike(user)
-    likes.where(user:).destroy_all
   end
 
   def most_liked?(place)
